@@ -1,0 +1,28 @@
+{
+    "id": "polling_unit_online",
+    "type": "dropdown",
+    "label": { 
+        "en": "Interval unit",
+        "de": "Intervall-Einheit",
+        "nl": "Interval eenheid"
+    },
+    "value": "min",
+    "values":[
+        {
+            "id": "min",
+            "label":{
+                "en": "Minutes",
+                "de": "Minuten",
+                "nl": "Minuten"
+            }
+        },
+        {
+            "id": "sec",
+            "label":{
+                "en": "Seconds",
+                "de": "Sekunden",
+                "nl": "Sekunden"
+            }
+        }
+    ]
+}

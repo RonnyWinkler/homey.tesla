@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Minutes to full charge changed",
+        "de": "Minuten bis zur vollständigen Aufladung hat sich geändert",
+        "nl": "Minuten tot volledig opladen gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_charge_minutes_to_full_charge",
+            "type": "number",
+            "title": {
+                "en": "Minutes to full charge",
+                "de": "Minuten bis zur vollständigen Aufladung",
+                "nl": "Minuten tot volledig opladen"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

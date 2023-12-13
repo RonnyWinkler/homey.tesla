@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Battery range ideal",
+      "de": "Batteriereichweite ideal",
+      "nl": "Batterijbereik ideaal"
+    },
+    "units": {
+      "en": "km"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_battery_range_ideal.svg"
+  }

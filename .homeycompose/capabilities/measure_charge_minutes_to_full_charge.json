@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Minutes to full charge",
+      "de": "Minuten bis zur vollständigen Aufladung",
+      "nl": "Minuten tot volledig opladen"
+    },
+    "units": {
+      "en": "min"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_charge_minutes_to_full_charge.svg"
+  }

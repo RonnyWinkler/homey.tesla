@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Charge limit SoC changed",
+        "de": "Ladelimit SoC hat sich geändert",
+        "nl": "Laadlimiet SoC gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_charge_limit_soc",
+            "type": "number",
+            "title": {
+                "en": "Charge limit SoC",
+                "de": "Ladelimit SoC",
+                "nl": "Laadlimiet SoC"
+                      },
+            "example": "80"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

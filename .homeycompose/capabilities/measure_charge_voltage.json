@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Charge voltage",
+      "de": "Ladespannung",
+      "nl": "Laad spanning"
+    },
+    "units": {
+      "en": "V"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_charge_voltage.svg"
+  }

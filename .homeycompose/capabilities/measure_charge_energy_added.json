@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Charge energy added",
+      "de": "Ladeenergie hinzugefügt",
+      "nl": "Laadenergie toegevoegd"
+    },
+    "units": {
+      "en": "kWh"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
+  }

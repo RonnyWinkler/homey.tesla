@@ -1,0 +1,1080 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.tesla.car",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Tesla",
+    "de": "Tesla"
+  },
+  "description": {
+    "en": "Tesla car",
+    "de": "Tesla car"
+  },
+  "category": [
+    "tools"
+  ],
+  "author": {
+    "name": "Ronny Winkler",
+    "email": "ronny.winkler@web.de"
+  },
+  "brandColor": "#CC0000",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png"
+  },
+  "source": "https://github.com/RonnyWinkler/homey.tesla",
+  "homeyCommunityTopicId": 0,
+  "permissions": [],
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "winklerronny"
+      }
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "highlight": true,
+        "title": {
+          "en": "Battery heater has been deactivated",
+          "de": "Batterie-Heizung wurde deaktiviert",
+          "nl": "Batterijverwarmer is gedeactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "battery_heater_false"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Battery heater has been activated",
+          "de": "Batterie-Heizung wurde aktiviert",
+          "nl": "Batterijverwarmer is geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "battery_heater_true"
+      },
+      {
+        "title": {
+          "en": "Charging state changed",
+          "de": "Ladezustand hat sich geändert",
+          "nl": "Oplaadstatus gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "charging_state",
+            "type": "string",
+            "title": {
+              "en": "Charging state",
+              "de": "Ladezustand",
+              "nl": "Oplaadstatus"
+            },
+            "example": "online"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "charging_state_changed"
+      },
+      {
+        "title": {
+          "en": "Battery level changed",
+          "de": "Batteriestand hat sich geändert",
+          "nl": "Batterijniveau gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_battery_level",
+            "type": "number",
+            "title": {
+              "en": "Battery level",
+              "de": "Batteriestand",
+              "nl": "Batterijniveau"
+            },
+            "example": "80"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_battery_level_changed"
+      },
+      {
+        "title": {
+          "en": "Battery range estimated changed",
+          "de": "Batteriereichweite geschätzt hat sich geändert",
+          "nl": "Batterijbereik geschat gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_battery_range_estimated",
+            "type": "number",
+            "title": {
+              "en": "Battery range estimated (km)",
+              "de": "Batteriereichweite geschätzt (km)",
+              "nl": "Batterijbereik geschat (km)"
+            },
+            "example": "250"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_battery_range_estimated_changed"
+      },
+      {
+        "title": {
+          "en": "Battery range ideal changed",
+          "de": "Batteriereichweite ideal hat sich geändert",
+          "nl": "Batterijbereik ideaal gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_battery_range_ideal",
+            "type": "number",
+            "title": {
+              "en": "Battery range ideal",
+              "de": "Batteriereichweite ideal",
+              "nl": "Batterijbereik ideaal"
+            },
+            "example": "250"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_battery_range_ideal_changed"
+      },
+      {
+        "title": {
+          "en": "Usable battery level changed",
+          "de": "Nutzbarer Batteriestand hat sich geändert",
+          "nl": "Bruikbaar batterijniveau gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_battery_useable",
+            "type": "number",
+            "title": {
+              "en": "Usable battery level",
+              "de": "Nutzbarer Batteriestand",
+              "nl": "Bruikbaar batterijniveau"
+            },
+            "example": "75"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_battery_useable_changed"
+      },
+      {
+        "title": {
+          "en": "Charge current changed",
+          "de": "Ladestrom hat sich geändert",
+          "nl": "Laadstroom gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_current",
+            "type": "number",
+            "title": {
+              "en": "Charge current",
+              "de": "Ladestrom",
+              "nl": "Laadstroom"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_current_changed"
+      },
+      {
+        "title": {
+          "en": "Max. charge current changed",
+          "de": "Max. Ladestrom hat sich geändert",
+          "nl": "Max. laadstroom gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_current_max",
+            "type": "number",
+            "title": {
+              "en": "Max. charge current",
+              "de": "Max. Ladestrom",
+              "nl": "Max. laadstroom"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_current_max_changed"
+      },
+      {
+        "title": {
+          "en": "Charge energy added changed",
+          "de": "Ladeenergie hinzugefügt hat sich geändert",
+          "nl": "Laadenergie toegevoegd gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_limit_soc",
+            "type": "number",
+            "title": {
+              "en": "Charge energy added",
+              "de": "Ladeenergie hinzugefügt",
+              "nl": "Laadenergie toegevoegd"
+            },
+            "example": "40"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_energy_added_changed"
+      },
+      {
+        "title": {
+          "en": "Charge limit SoC changed",
+          "de": "Ladelimit SoC hat sich geändert",
+          "nl": "Laadlimiet SoC gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_limit_soc",
+            "type": "number",
+            "title": {
+              "en": "Charge limit SoC",
+              "de": "Ladelimit SoC",
+              "nl": "Laadlimiet SoC"
+            },
+            "example": "80"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_limit_soc_changed"
+      },
+      {
+        "title": {
+          "en": "Minutes to full charge changed",
+          "de": "Minuten bis zur vollständigen Aufladung hat sich geändert",
+          "nl": "Minuten tot volledig opladen gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_minutes_to_full_charge",
+            "type": "number",
+            "title": {
+              "en": "Minutes to full charge",
+              "de": "Minuten bis zur vollständigen Aufladung",
+              "nl": "Minuten tot volledig opladen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_minutes_to_full_charge_changed"
+      },
+      {
+        "title": {
+          "en": "Charge phases changed",
+          "de": "Ladephasen hat sich geändert",
+          "nl": "Laad fasen gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_phases",
+            "type": "number",
+            "title": {
+              "en": "Charge phases",
+              "de": "Ladephasen",
+              "nl": "Laad fasen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_phases_changed"
+      },
+      {
+        "title": {
+          "en": "Charge power changed",
+          "de": "Ladeleistung hat sich geändert",
+          "nl": "Laad vermogen gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_power",
+            "type": "number",
+            "title": {
+              "en": "Charge power",
+              "de": "Ladeleistung",
+              "nl": "Laad vermogen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_power_changed"
+      },
+      {
+        "title": {
+          "en": "Charge voltage changed",
+          "de": "Ladespannung hat sich geändert",
+          "nl": "Laad spanning gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_charge_voltage",
+            "type": "number",
+            "title": {
+              "en": "Charge voltage",
+              "de": "Ladespannung",
+              "nl": "Laad spanning"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_charge_voltage_changed"
+      },
+      {
+        "title": {
+          "en": "State changed",
+          "de": "Status hat sich geändert",
+          "nl": "Toestand gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "state",
+            "type": "string",
+            "title": {
+              "en": "State",
+              "de": "Statue",
+              "nl": "Toestand"
+            },
+            "example": "online"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "state_changed"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Flash the head lights",
+          "de": "Lass die Scheinwerfer aufleuchten",
+          "nl": "Knipper de koplampen"
+        },
+        "titleFormatted": {
+          "en": "Flash the head lights",
+          "de": "Lass die Scheinwerfer aufleuchten",
+          "nl": "Knipper de koplampen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "flash_lights"
+      },
+      {
+        "title": {
+          "en": "Refresh car data",
+          "de": "Aktualisere Fahrzeugdaten",
+          "nl": "Bijgewerkte voertuiggegevens"
+        },
+        "titleFormatted": {
+          "en": "Refresh car data",
+          "de": "Aktualisere Fahrzeugdaten",
+          "nl": "Bijgewerkte voertuiggegevens"
+        },
+        "hint": {
+          "en": "The vehicle data can only be updated when the vehicle is online.",
+          "de": "Die Fahrzeugdaten können nur aktualisiert werden, wenn das Fahrzeug online ist.",
+          "nl": "De voertuiggegevens kunnen alleen worden bijgewerkt als het voertuig online is."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "refresh"
+      },
+      {
+        "title": {
+          "en": "Wake up the car",
+          "de": "Wecke das Fahrzeug auf",
+          "nl": "Maak het voertuig wakker"
+        },
+        "titleFormatted": {
+          "en": "Wake up the car [[wait]]",
+          "de": "Wecke das Fahrzeug auf [[wait]]",
+          "nl": "Maak het voertuig wakker [[wait]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "type": "dropdown",
+            "name": "wait",
+            "title": {
+              "en": "and wait?",
+              "de": "und warte?",
+              "nl": "en wacht?s"
+            },
+            "values": [
+              {
+                "id": "wait",
+                "title": {
+                  "en": "and wait",
+                  "de": "und warte",
+                  "nl": "en wacht"
+                }
+              },
+              {
+                "id": "continue",
+                "title": {
+                  "en": "and don't wait",
+                  "de": "und warte nicht",
+                  "nl": "en wacht niet"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "wake_up"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "car",
+      "name": {
+        "en": "Car",
+        "de": "Fahrzeug"
+      },
+      "images": {
+        "large": "/drivers/car/assets/images/large.png",
+        "small": "/drivers/car/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "lan"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "last_update",
+        "state",
+        "measure_battery_level",
+        "measure_battery_usable",
+        "measure_battery_range_estimated",
+        "measure_battery_range_ideal",
+        "measure_charge_limit_soc",
+        "battery_heater",
+        "charging_state",
+        "measure_charge_phases",
+        "measure_charge_power",
+        "measure_charge_voltage",
+        "measure_charge_current",
+        "measure_charge_current_max",
+        "measure_charge_energy_added",
+        "measure_charge_minutes_to_full_charge",
+        "refresh",
+        "wake_up"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        },
+        {
+          "id": "register",
+          "navigation": {
+            "next": "done"
+          }
+        },
+        {
+          "id": "done",
+          "template": "done"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "register",
+          "navigation": {
+            "next": "done"
+          }
+        },
+        {
+          "id": "done",
+          "template": "done"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Data retrievals",
+            "de": "Datenabruf",
+            "nl": "Gegevens ophalen"
+          },
+          "children": [
+            {
+              "id": "polling_active",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Polling is active",
+                "de": "Abruf ist aktiviert",
+                "nl": "Pollen is geactiveerd"
+              }
+            },
+            {
+              "id": "polling_interval_online",
+              "type": "number",
+              "label": {
+                "en": "Online polling interval",
+                "de": "Online Abruf-Intervall",
+                "nl": "Online polling interval"
+              },
+              "value": 10,
+              "min": 1
+            },
+            {
+              "id": "polling_unit_online",
+              "type": "dropdown",
+              "label": {
+                "en": "Interval unit",
+                "de": "Intervall-Einheit",
+                "nl": "Interval eenheid"
+              },
+              "value": "min",
+              "values": [
+                {
+                  "id": "min",
+                  "label": {
+                    "en": "Minutes",
+                    "de": "Minuten",
+                    "nl": "Minuten"
+                  }
+                },
+                {
+                  "id": "sec",
+                  "label": {
+                    "en": "Seconds",
+                    "de": "Sekunden",
+                    "nl": "Sekunden"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "polling_interval_offline",
+              "type": "number",
+              "label": {
+                "en": "Offline polling interval",
+                "de": "Offline Abruf-Intervall",
+                "nl": "Offline polling interval"
+              },
+              "value": 10,
+              "min": 1
+            },
+            {
+              "id": "polling_unit_offline",
+              "type": "dropdown",
+              "label": {
+                "en": "Interval unit",
+                "de": "Intervall-Einheit",
+                "nl": "Interval eenheid"
+              },
+              "value": "min",
+              "values": [
+                {
+                  "id": "min",
+                  "label": {
+                    "en": "Minutes",
+                    "de": "Minuten",
+                    "nl": "Minuten"
+                  }
+                },
+                {
+                  "id": "sec",
+                  "label": {
+                    "en": "Seconds",
+                    "de": "Sekunden",
+                    "nl": "Sekunden"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "polling_location",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Read location",
+                "de": "Standort lesen",
+                "nl": "Locatie lezen"
+              },
+              "hint": {
+                "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen.",
+                "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms.",
+                "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Car data",
+            "de": "Fahrzeugdaten",
+            "nl": "Voertuiggegevens"
+          },
+          "children": [
+            {
+              "id": "car_data_vin",
+              "type": "label",
+              "label": {
+                "en": "VIN"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "battery_heater": {
+      "type": "boolean",
+      "title": {
+        "en": "Battery heater",
+        "de": "Batterie-Heizung",
+        "nl": "Batterijverwarmer"
+      },
+      "insights": true,
+      "titleTrue": {
+        "en": "Battery heater on",
+        "de": "Batterie-Heizung an",
+        "nl": "Batterijverwarmer aan"
+      },
+      "titleFalse": {
+        "en": "Battery heater off",
+        "de": "Batterie-Heizung aus",
+        "nl": "Batterijverwarmer uit"
+      },
+      "insightsTitleTrue": {
+        "en": "Battery heater on",
+        "de": "Batterie-Heizung an",
+        "nl": "Batterijverwarmer aan"
+      },
+      "insightsTitleFalse": {
+        "en": "Battery heater off",
+        "de": "Batterie-Heizung aus",
+        "nl": "Batterijverwarmer uit"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/battery_heater.svg"
+    },
+    "charging_state": {
+      "type": "enum",
+      "title": {
+        "en": "Charging state",
+        "de": "Ladezustand",
+        "nl": "Oplaadstatus"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/charging_state.svg",
+      "values": [
+        {
+          "id": "Disconnected",
+          "title": {
+            "en": "Disconnected",
+            "de": "Getrennt",
+            "nl": "Losgekoppeld"
+          }
+        },
+        {
+          "id": "Charging",
+          "title": {
+            "en": "Charging",
+            "de": "Laden",
+            "nl": "Opladen"
+          }
+        },
+        {
+          "id": "Stopped",
+          "title": {
+            "en": "Stopped",
+            "de": "Gestoppt",
+            "nl": "Gestopt"
+          }
+        }
+      ]
+    },
+    "last_update": {
+      "type": "string",
+      "title": {
+        "en": "Last update",
+        "de": "Letzte Aktualisierung",
+        "nl": "Letzte Actualisering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/last_update.svg"
+    },
+    "measure_battery_level": {
+      "type": "number",
+      "title": {
+        "en": "Battery level",
+        "de": "Batteriestand",
+        "nl": "Batterijniveau"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_battery_level.svg"
+    },
+    "measure_battery_range_estimated": {
+      "type": "number",
+      "title": {
+        "en": "Battery range estimated",
+        "de": "Batteriereichweite geschätzt",
+        "nl": "Batterijbereik geschat"
+      },
+      "units": {
+        "en": "km"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_battery_range_estimated.svg"
+    },
+    "measure_battery_range_ideal": {
+      "type": "number",
+      "title": {
+        "en": "Battery range ideal",
+        "de": "Batteriereichweite ideal",
+        "nl": "Batterijbereik ideaal"
+      },
+      "units": {
+        "en": "km"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_battery_range_ideal.svg"
+    },
+    "measure_battery_usable": {
+      "type": "number",
+      "title": {
+        "en": "Battery level (usable)",
+        "de": "Batteriestand (nutzbar)",
+        "nl": "Batterijniveau (bruikbaar)"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_battery_useable.svg"
+    },
+    "measure_charge_current": {
+      "type": "number",
+      "title": {
+        "en": "Charge current",
+        "de": "Ladestrom",
+        "nl": "Laadstroom"
+      },
+      "units": {
+        "en": "A"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_current.svg"
+    },
+    "measure_charge_current_max": {
+      "type": "number",
+      "title": {
+        "en": "Max. charge current",
+        "de": "Max. Ladestrom",
+        "nl": "Max. laadstroom"
+      },
+      "units": {
+        "en": "A"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_current_max.svg"
+    },
+    "measure_charge_energy_added": {
+      "type": "number",
+      "title": {
+        "en": "Charge energy added",
+        "de": "Ladeenergie hinzugefügt",
+        "nl": "Laadenergie toegevoegd"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
+    },
+    "measure_charge_limit_soc": {
+      "type": "number",
+      "title": {
+        "en": "Charge limit SoC",
+        "de": "Ladelimit SoC",
+        "nl": "Laadlimiet SoC"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_limit_soc.svg"
+    },
+    "measure_charge_minutes_to_full_charge": {
+      "type": "number",
+      "title": {
+        "en": "Minutes to full charge",
+        "de": "Minuten bis zur vollständigen Aufladung",
+        "nl": "Minuten tot volledig opladen"
+      },
+      "units": {
+        "en": "min"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_minutes_to_full_charge.svg"
+    },
+    "measure_charge_phases": {
+      "type": "number",
+      "title": {
+        "en": "Charge phases",
+        "de": "Ladephasen",
+        "nl": "Laad fasen"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_phases.svg"
+    },
+    "measure_charge_power": {
+      "type": "number",
+      "title": {
+        "en": "Charge power",
+        "de": "Ladeleistung",
+        "nl": "Laad vermogen"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_power.svg"
+    },
+    "measure_charge_voltage": {
+      "type": "number",
+      "title": {
+        "en": "Charge voltage",
+        "de": "Ladespannung",
+        "nl": "Laad spanning"
+      },
+      "units": {
+        "en": "V"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_voltage.svg"
+    },
+    "refresh": {
+      "type": "boolean",
+      "title": {
+        "en": "Refresh",
+        "de": "Aktualisieren",
+        "nl": "Updaten"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/refresh.svg"
+    },
+    "state": {
+      "type": "enum",
+      "title": {
+        "en": "State",
+        "de": "Status",
+        "nl": "Toestand"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/state.svg",
+      "values": [
+        {
+          "id": "online",
+          "title": {
+            "en": "Online"
+          }
+        },
+        {
+          "id": "offline",
+          "title": {
+            "en": "Offline"
+          }
+        },
+        {
+          "id": "asleep",
+          "title": {
+            "en": "Asleep",
+            "de": "Schlafend",
+            "nl": "In slaap"
+          }
+        }
+      ]
+    },
+    "wake_up": {
+      "type": "boolean",
+      "title": {
+        "en": "Wake up",
+        "de": "Aufwecken",
+        "nl": "Wakker worden"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/wake_up.svg"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Charge energy added changed",
+        "de": "Ladeenergie hinzugefügt hat sich geändert",
+        "nl": "Laadenergie toegevoegd gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_charge_limit_soc",
+            "type": "number",
+            "title": {
+                "en": "Charge energy added",
+                "de": "Ladeenergie hinzugefügt",
+                "nl": "Laadenergie toegevoegd"
+            },
+            "example": "40"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

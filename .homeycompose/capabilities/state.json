@@ -1,0 +1,34 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "State",
+        "de": "Status",
+        "nl": "Toestand"
+    },
+    "uiComponent": "sensor",
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/state.svg",
+    "values": [
+        {
+            "id": "online",
+            "title": {
+                "en": "Online"
+            }
+        },
+        {
+            "id": "offline",
+            "title": {
+                "en": "Offline"
+            }
+        },
+        {
+            "id": "asleep",
+            "title": {
+                "en": "Asleep",
+                "de": "Schlafend",
+                "nl": "In slaap"
+            }
+        }
+    ]
+}

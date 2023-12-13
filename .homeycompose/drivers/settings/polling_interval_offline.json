@@ -1,0 +1,11 @@
+{
+    "id": "polling_interval_offline",
+    "type": "number",
+    "label": {
+      "en": "Offline polling interval",
+      "de": "Offline Abruf-Intervall",
+      "nl": "Offline polling interval"
+    },
+    "value": 10,
+    "min": 1
+}

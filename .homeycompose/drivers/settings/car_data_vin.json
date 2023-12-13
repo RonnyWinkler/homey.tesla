@@ -1,0 +1,8 @@
+{
+    "id": "car_data_vin",
+    "type": "label",
+    "label": {
+      "en": "VIN"
+    },
+    "value": ""
+  }

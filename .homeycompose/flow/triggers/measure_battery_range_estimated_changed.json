@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Battery range estimated changed",
+        "de": "Batteriereichweite geschätzt hat sich geändert",
+        "nl": "Batterijbereik geschat gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_battery_range_estimated",
+            "type": "number",
+            "title": {
+                "en": "Battery range estimated (km)",
+                "de": "Batteriereichweite geschätzt (km)",
+                "nl": "Batterijbereik geschat (km)"
+                      },
+            "example": "250"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

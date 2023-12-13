@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Charge power changed",
+        "de": "Ladeleistung hat sich geändert",
+        "nl": "Laad vermogen gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_charge_power",
+            "type": "number",
+            "title": {
+                "en": "Charge power",
+                "de": "Ladeleistung",
+                "nl": "Laad vermogen"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Battery level",
+      "de": "Batteriestand",
+      "nl": "Batterijniveau"
+    },
+    "units": {
+      "en": "%"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_battery_level.svg"
+  }

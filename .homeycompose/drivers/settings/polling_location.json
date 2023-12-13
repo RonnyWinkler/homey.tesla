@@ -1,0 +1,15 @@
+{
+    "id": "polling_location",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Read location",
+      "de": "Standort lesen",
+      "nl": "Locatie lezen"
+    },
+    "hint":{
+      "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen.",
+      "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms.",
+      "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven."
+    }
+  }

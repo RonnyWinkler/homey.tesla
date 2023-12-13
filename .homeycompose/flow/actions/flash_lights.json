@@ -1,0 +1,19 @@
+{
+    "title": {
+        "en": "Flash the head lights",
+        "de": "Lass die Scheinwerfer aufleuchten",
+        "nl": "Knipper de koplampen"
+    },
+    "titleFormatted": {
+        "en": "Flash the head lights",
+        "de": "Lass die Scheinwerfer aufleuchten",
+        "nl": "Knipper de koplampen"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}

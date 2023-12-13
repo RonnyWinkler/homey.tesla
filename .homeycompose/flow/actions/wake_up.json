@@ -1,0 +1,46 @@
+{
+    "title": {
+        "en": "Wake up the car",
+        "de": "Wecke das Fahrzeug auf",
+        "nl": "Maak het voertuig wakker"
+    },
+    "titleFormatted": {
+        "en": "Wake up the car [[wait]]",
+        "de": "Wecke das Fahrzeug auf [[wait]]",
+        "nl": "Maak het voertuig wakker [[wait]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "type": "dropdown",
+            "name": "wait",
+            "title": { 
+                "en": "and wait?", 
+                "de": "und warte?",
+                "nl": "en wacht?s"
+            },
+            "values": [
+                { 
+                    "id": "wait", 
+                    "title": { 
+                        "en": "and wait",
+                        "de": "und warte", 
+                        "nl": "en wacht" 
+                    } 
+                },
+                { 
+                    "id": "continue", 
+                    "title": { 
+                        "en": "and don't wait",
+                        "de": "und warte nicht", 
+                        "nl": "en wacht niet" 
+                    } 
+                }
+            ]
+        }
+    ]
+}

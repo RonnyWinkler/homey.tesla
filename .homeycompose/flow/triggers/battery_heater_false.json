@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Battery heater has been deactivated",
+        "de": "Batterie-Heizung wurde deaktiviert",
+        "nl": "Batterijverwarmer is gedeactiveerd"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}

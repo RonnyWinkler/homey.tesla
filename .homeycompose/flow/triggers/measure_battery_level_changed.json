@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Battery level changed",
+        "de": "Batteriestand hat sich geändert",
+        "nl": "Batterijniveau gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_battery_level",
+            "type": "number",
+            "title": {
+                "en": "Battery level",
+                "de": "Batteriestand",
+                "nl": "Batterijniveau"
+            },
+            "example": "80"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

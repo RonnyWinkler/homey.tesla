@@ -1,0 +1,36 @@
+{
+  "id": "com.tesla.car",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Tesla",
+    "de": "Tesla"
+  },
+  "description": {
+    "en": "Tesla car",
+    "de": "Tesla car"
+  },
+  "category": [
+    "tools"
+  ],
+  "author": {
+    "name": "Ronny Winkler",
+    "email": "ronny.winkler@web.de"
+  },
+  "brandColor":"#CC0000",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png"
+  },
+  "source": "https://github.com/RonnyWinkler/homey.tesla",
+  "homeyCommunityTopicId": 0,
+  "permissions": [],
+  "contributing": {
+      "donate": {
+          "paypal": {
+              "username": "winklerronny"
+          }
+      }
+  }
+}

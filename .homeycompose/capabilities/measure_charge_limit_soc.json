@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Charge limit SoC",
+      "de": "Ladelimit SoC",
+      "nl": "Laadlimiet SoC"
+    },
+    "units": {
+      "en": "%"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_charge_limit_soc.svg"
+  }

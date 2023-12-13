@@ -1,0 +1,38 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("pair.register.title"));
+  
+  function showUrl(url){
+      Homey.popup(url);
+  }
+</script>
+
+<style>
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 50%;
+  }
+</style>
+
+<!-- <header class="homey-header">
+  <h1 class="homey-title" data-i18n="pair.register.title">
+  </h1>
+  <p class="homey-subtitle" data-i18n="pair.register.subtitle">
+  </p>
+</header> -->
+
+<fieldset class="homey-form-fieldset">
+  <legend class="homey-form-legend" data-i18n="pair.register.subtitle"></legend>
+  <div class="homey-form-group">
+    <p data-i18n="pair.register.text1"></p>
+    <p data-i18n="pair.register.text2"></p>
+    <!-- <p data-i18n="pair.register.url"></p> -->
+    <a onclick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')"><img src='logo.png' class='logo'></a>
+  </div>
+</fieldset>
+
+

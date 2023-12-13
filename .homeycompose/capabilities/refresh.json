@@ -1,0 +1,13 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Refresh",
+      "de": "Aktualisieren",
+      "nl": "Updaten"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/refresh.svg"
+  }

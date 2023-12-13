@@ -1,0 +1,10 @@
+{
+    "id": "polling_active",
+    "type": "checkbox",
+    "value": true,
+    "label": {
+      "en": "Polling is active",
+      "de": "Abruf ist aktiviert",
+      "nl": "Pollen is geactiveerd"
+    }
+}

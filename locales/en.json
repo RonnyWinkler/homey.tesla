@@ -1,0 +1,10 @@
+{
+    "pair":{
+        "register":{
+            "title": "App registration",
+            "subtitle": "Register the Homey app in your car",
+            "text1": "Register the Homey app in your car to allow the app to send commands to your car.",
+            "text2": "Follow this <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>link</a> to start the Tesla registration process."
+        }
+    }
+}

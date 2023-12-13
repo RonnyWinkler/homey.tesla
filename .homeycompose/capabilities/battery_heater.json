@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Battery heater",
+      "de": "Batterie-Heizung",
+      "nl": "Batterijverwarmer"
+    },
+    "insights": true,
+    "titleTrue": {
+      "en": "Battery heater on",
+      "de": "Batterie-Heizung an",
+      "nl": "Batterijverwarmer aan"
+    },
+    "titleFalse": {
+      "en": "Battery heater off",
+      "de": "Batterie-Heizung aus",
+      "nl": "Batterijverwarmer uit"
+    },
+    "insightsTitleTrue": {
+      "en": "Battery heater on",
+      "de": "Batterie-Heizung an",
+      "nl": "Batterijverwarmer aan"
+    },
+    "insightsTitleFalse": {
+      "en": "Battery heater off",
+      "de": "Batterie-Heizung aus",
+      "nl": "Batterijverwarmer uit"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "/assets/capability_icons/battery_heater.svg"
+  }

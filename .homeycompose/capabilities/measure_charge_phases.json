@@ -1,0 +1,12 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Charge phases",
+      "de": "Ladephasen",
+      "nl": "Laad fasen"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_charge_phases.svg"
+  }

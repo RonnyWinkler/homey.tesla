@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Usable battery level changed",
+        "de": "Nutzbarer Batteriestand hat sich geändert",
+        "nl": "Bruikbaar batterijniveau gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_battery_useable",
+            "type": "number",
+            "title": {
+                "en": "Usable battery level",
+                "de": "Nutzbarer Batteriestand",
+                "nl": "Bruikbaar batterijniveau"
+            },
+            "example": "75"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

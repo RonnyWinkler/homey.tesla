@@ -1,0 +1,50 @@
+[
+    {
+      "type": "group",
+      "label": {
+        "en": "Data retrievals",
+        "de": "Datenabruf",
+        "nl": "Gegevens ophalen"
+      },
+      "children": [
+        {
+          "$extends": "polling_active",
+          "id": "polling_active"
+        },
+        {
+          "$extends": "polling_interval_online",
+          "id": "polling_interval_online"
+        },
+        {
+          "$extends": "polling_unit_online",
+          "id": "polling_unit_online"
+        },
+        {
+          "$extends": "polling_interval_offline",
+          "id": "polling_interval_offline"
+        },
+        {
+          "$extends": "polling_unit_offline",
+          "id": "polling_unit_offline"
+        },
+        {
+          "$extends": "polling_location",
+          "id": "polling_location"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Car data",
+        "de": "Fahrzeugdaten",
+        "nl": "Voertuiggegevens"
+      },
+      "children": [
+        {
+          "$extends": "car_data_vin",
+          "id": "car_data_vin"
+        }
+      ]
+    }  
+  ]

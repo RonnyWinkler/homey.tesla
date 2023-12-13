@@ -1,0 +1,39 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "Charging state",
+        "de": "Ladezustand",
+        "nl": "Oplaadstatus"
+    },
+    "uiComponent": "sensor",
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/charging_state.svg",
+    "values": [
+        {
+            "id": "Disconnected",
+            "title": {
+                "en": "Disconnected",
+                "de": "Getrennt",
+                "nl": "Losgekoppeld"
+            }
+        },
+        {
+            "id": "Charging",
+            "title": {
+                "en": "Charging",
+                "de": "Laden",
+                "nl": "Opladen"
+            }
+        },
+        {
+            "id": "Stopped",
+            "title": {
+                "en": "Stopped",
+                "de": "Gestoppt",
+                "nl": "Gestopt"
+            }
+        }
+
+    ]
+}

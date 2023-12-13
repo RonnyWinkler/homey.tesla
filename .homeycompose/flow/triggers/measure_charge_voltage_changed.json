@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Charge voltage changed",
+        "de": "Ladespannung hat sich geändert",
+        "nl": "Laad spanning gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_charge_voltage",
+            "type": "number",
+            "title": {
+                "en": "Charge voltage",
+                "de": "Ladespannung",
+                "nl": "Laad spanning"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

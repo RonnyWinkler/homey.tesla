@@ -1,0 +1,92 @@
+{
+    "id": "car",
+    "name": {
+        "en": "Car",
+        "de": "Fahrzeug"
+    },
+    "images": {
+        "large": "/drivers/car/assets/images/large.png",
+        "small": "/drivers/car/assets/images/small.png"
+    },
+    "class": "sensor",
+    "connectivity": [ "lan" ],
+    "capabilities": [
+        "measure_battery",
+
+        "last_update",
+        "state",
+
+        "measure_battery_level",
+        "measure_battery_usable",
+
+        "measure_battery_range_estimated",
+        "measure_battery_range_ideal",
+        
+        "measure_charge_limit_soc",
+        "battery_heater",
+
+        "charging_state",
+        "measure_charge_phases",
+
+        "measure_charge_power",
+        "measure_charge_voltage",
+
+        "measure_charge_current",
+        "measure_charge_current_max",
+
+        "measure_charge_energy_added",
+        "measure_charge_minutes_to_full_charge",
+
+
+        "refresh",
+        "wake_up"
+    ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ]
+    },
+    "pair": [
+        {
+            "id": "login_oauth2",
+            "template": "login_oauth2"
+        },
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices"
+        },
+        {
+            "id": "register",
+            "navigation": { 
+                "next": "done" 
+            }
+        },
+        {
+            "id": "done",
+            "template": "done"
+        }
+    ],
+    "repair": [
+        {
+            "id": "login_oauth2",
+            "template": "login_oauth2"
+        },
+        {
+            "id": "register",
+            "navigation": { 
+                "next": "done" 
+            }
+        },
+        {
+            "id": "done",
+            "template": "done"
+        }
+    ]
+}
