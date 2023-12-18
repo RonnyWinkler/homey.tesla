@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "TPMS rear left changed",
+        "de": "TPMS hinten links hat sich geändert",
+        "nl": "TPMS links achter gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_car_tpms_pressure_rl",
+            "type": "number",
+            "title": {
+                "en": "TPMS rear left",
+                "de": "TPMS hinten links",
+                "nl": "TPMS links achter"
+            },
+            "example": "3.0"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

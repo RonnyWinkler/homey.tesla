@@ -1,0 +1,39 @@
+
+<style>
+    .button {
+        text-align: center;
+        width: 100%;
+        position: relative;
+        /* margin: 10px 0px;
+        left:-20px; */
+        cursor: pointer;
+    }
+</style>
+<script type="application/javascript">
+
+    Homey.setTitle(Homey.__("repair.select.title"));
+    // Homey.setNavigationClose();
+
+    function onSelectAuth(){
+        Homey.showView("login_oauth2");
+    }
+    function onSelectRegisterApp(){
+        Homey.showView("register");
+    }
+
+</script>
+
+<div>
+    <fieldset>
+        <div>
+            <p>
+                <button id="btnAuth" class="homey-button-primary-full" onClick="onSelectAuth()"><span data-i18n="repair.select.auth"></span></button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button id="btnRegisterApp" class="homey-button-primary-full" onClick="onSelectRegisterApp()" ><span data-i18n="repair.select.register_app"></span></button>
+            </p>
+        </div>
+    </fieldset>
+</div>

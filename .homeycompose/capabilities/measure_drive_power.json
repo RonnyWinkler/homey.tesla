@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Power",
+      "de": "Leistung",
+      "nl": "Stroom"
+    },
+    "units": {
+      "en": "kW"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_drive_power.svg"
+  }

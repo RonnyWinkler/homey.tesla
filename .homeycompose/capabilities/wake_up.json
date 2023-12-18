@@ -6,7 +6,7 @@
       "nl": "Wakker worden"
     },
     "insights": false,
-    "getable": true,
+    "getable": false,
     "setable": true,
     "uiComponent": "button",
     "icon": "./assets/capability_icons/wake_up.svg"

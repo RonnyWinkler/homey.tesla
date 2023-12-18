@@ -4,7 +4,23 @@
             "title": "App-Registrierung",
             "subtitle": "Registriere diese Homey-App in deinem Fahrzeug.",
             "text1": "Registriere die App, um Homey zu erlauben, Befehle an das Fahrzeug zu schicken.",
-            "text2": "Folge diesem <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>Link</a>, um den Tesla-Registrierungsprozess zu starten."
+            "text2": "Folge diesem <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>Link</a> oder tippe auf das Tesla-Icon, um den Tesla-Registrierungsprozess zu starten."
+        },
+        "battery":{
+            "name": "Batterie"
+        },
+        "climate":{
+            "name": "Klima"
+        },
+        "location":{
+            "name": "Standort"
+        }
+    },
+    "repair":{
+        "select":{
+            "title": "Auswahl",
+            "auth": "Anmeldung ändern",
+            "register_app": "App-Registreirung im Fahrzeug"
         }
     }
 }

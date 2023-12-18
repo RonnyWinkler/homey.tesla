@@ -34,9 +34,9 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionWakeUp( (args.wait=='wait') );
 		});
 
-    this._flowActionFlashLights = this.homey.flow.getActionCard('flash_lights');
-		this._flowActionFlashLights.registerRunListener(async (args, state) => {
-				await args.device.flowActionFlashLights();
+    this.homey.flow.getActionCard('set_location')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSetLocation(args.latitude, args.longitude);
 		});
 
   }

@@ -2,14 +2,14 @@ const TeslaOAuth2Device = require('../../lib/TeslaOAuth2Device');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
-const WAIT_ON_WAKE_UP = 30; // 30 sec
+const WAIT_ON_WAKE_UP = 20; // 20 sec
 
 const CONSTANTS = require('../../lib/constants');
 
 module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onOAuth2Init() {
-    this.log("onOAuth2Saved()");
+    this.log("onOAuth2Init()");
     await super.onOAuth2Init();
     
     await this._updateCapabilities();
@@ -19,12 +19,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           await this._onCapability( capabilityValues, capabilityOptions);
       }
       catch(error){
-          this.log("_onCapability() Error: ",error);
+          this.log("_onCapability() Error: ",error.message);
+          throw error;
       }
   }, CAPABILITY_DEBOUNCE);
 
 
-    this._settings = this.getSettings(),
+    this._settings = this.getSettings();
     this._startSync();
     this._sync();
   }
@@ -42,19 +43,27 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // Device handling =======================================================================================
   async _updateCapabilities(){
-        // add missing capabilities
-        let capabilities = [];
-        try{
-            capabilities = this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].capabilities;
-            for (let i=0; i<capabilities.length; i++){
-              if (!this.hasCapability(capabilities[i])){
-                  await this.addCapability(capabilities[i]);
-              }
-          }
+    let capabilities = [];
+    try{
+      capabilities = this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].capabilities;
+      // remove capabilities
+      let deviceCapabilities = this.getCapabilities();
+      for (let i=0; i<deviceCapabilities.length; i++){
+        let filter = capabilities.filter((e) => {return (e == deviceCapabilities[i]);});
+        if (filter.length == 0 ){
+          await this.removeCapability(deviceCapabilities[i]);
         }
-        catch (error){
-          this.error(error.message);
+      }
+      // add missing capabilities
+      for (let i=0; i<capabilities.length; i++){
+        if (!this.hasCapability(capabilities[i])){
+            await this.addCapability(capabilities[i]);
         }
+      }
+    }
+    catch (error){
+      this.error(error.message);
+    }
   }
 
   // SETTINGS =======================================================================================
@@ -75,7 +84,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     // Interval settings is in minutes, convert to milliseconds.
     let interval = DEFAULT_SYNC_INTERVAL;
-    if (this.isOnline()){
+    if (!this.isAsleep()){
       interval = this._settings.polling_interval_online * 1000;
       if (this._settings.polling_unit_online == 'min'){
         interval = interval * 60;
@@ -133,6 +142,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  isAsleep(){
+    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ASLEEP){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   // Read cas status (onlien or not)
   async getCarState(){
     let oldState = this.getCapabilityValue('state');
@@ -144,11 +162,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
 
-      // From online to offline or back?
+      // From asleep to online/offline or back?
+      // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
       if (
-          ( vehicle.state == CONSTANTS.STATE_ONLINE && oldState != CONSTANTS.STATE_ONLINE )
+          ( vehicle.state == CONSTANTS.STATE_ASLEEP && oldState != CONSTANTS.STATE_ASLEEP )
             ||
-          ( vehicle.state != CONSTANTS.STATE_ONLINE && oldState == CONSTANTS.STATE_ONLINE )
+          ( vehicle.state != CONSTANTS.STATE_ASLEEP && oldState == CONSTANTS.STATE_ASLEEP )
       ){
         this._startSync();
       }
@@ -157,72 +176,71 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // Read car data. Car must be awake.
   async getCarData(){
-
-    let data = await this.oAuth2Client.getVehicleData(this.getData().id);    
+    let query = ['charge_state', 'climate_state', 'closures_state', 'drive_state', 'gui_settings', 'vehicle_config', 'vehicle_state'];
+    if (this._settings.polling_location){
+      query.push('location_data');
+    }
+    let data = await this.oAuth2Client.getVehicleData(this.getData().id, query);    
     
     // Battery
     if (this.hasCapability('measure_battery') && data.charge_state && data.charge_state.battery_level != undefined){
-      this.setCapabilityValue('measure_battery', data.charge_state.battery_level);
-    }
-    if (this.hasCapability('measure_battery_level') && data.charge_state && data.charge_state.battery_level != undefined){
-      this.setCapabilityValue('measure_battery_level', data.charge_state.battery_level);
-    }
-    if (this.hasCapability('measure_battery_usable') && data.charge_state && data.charge_state.usable_battery_level != undefined){
-      this.setCapabilityValue('measure_battery_usable', data.charge_state.usable_battery_level);
-    }
-    if (this.hasCapability('measure_battery_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined){
-      this.setCapabilityValue('measure_battery_range_estimated', data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM);
-    }
-    if (this.hasCapability('measure_battery_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined){
-      this.setCapabilityValue('measure_battery_range_ideal', data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM);
-    }
-    if (this.hasCapability('battery_heater') && data.charge_state && data.charge_state.battery_heater_on != undefined){
-      this.setCapabilityValue('battery_heater', data.charge_state.battery_heater_on);
+      await this.setCapabilityValue('measure_battery', data.charge_state.battery_level);
     }
 
-    // Charging
-    if (this.hasCapability('measure_charge_limit_soc') && data.charge_state && data.charge_state.charge_limit_soc != undefined){
-      this.setCapabilityValue('measure_charge_limit_soc', data.charge_state.charge_limit_soc);
-    }
-    if (this.hasCapability('measure_charge_energy_added') && data.charge_state && data.charge_state.charge_energy_added != undefined){
-      this.setCapabilityValue('measure_charge_energy_added', data.charge_state.charge_energy_added);
-    }
-    if (this.hasCapability('charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
-      this.setCapabilityValue('charging_state', data.charge_state.charging_state);
-    }
-    if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
-      this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
-    }
-    if (this.hasCapability('measure_charge_power') && data.charge_state && data.charge_state.charger_power != undefined){
-      this.setCapabilityValue('measure_charge_power', data.charge_state.charger_power);
-    }
-    if (this.hasCapability('measure_charge_current') && data.charge_state && data.charge_state.charger_actual_current != undefined){
-      this.setCapabilityValue('measure_charge_current', data.charge_state.charger_actual_current);
-    }
-    if (this.hasCapability('measure_charge_current_max') && data.charge_state && data.charge_state.charge_amps != undefined){
-      this.setCapabilityValue('measure_charge_current_max', data.charge_state.charge_amps);
-    }
-    if (this.hasCapability('measure_charge_voltage') && data.charge_state && data.charge_state.charger_voltage != undefined){
-      this.setCapabilityValue('measure_charge_voltage', data.charge_state.charger_voltage);
-    }
-    if (this.hasCapability('measure_charge_phases') && data.charge_state && data.charge_state.charger_phases != undefined){
-      switch (data.charge_state.charger_phases){
-        case 1:
-          this.setCapabilityValue('measure_charge_phases', 1);
-          break;
-        case 2:
-          this.setCapabilityValue('measure_charge_phases', 3);
-          break;
-        default:
-          this.setCapabilityValue('measure_charge_phases', 0);
-
-      }
+    // Meter
+    if (this.hasCapability('meter_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
+      await this.setCapabilityValue('meter_odo', data.vehicle_state.odometer);
     }
 
-    
+    // Drive state
+    if (this.hasCapability('measure_drive_shift_state') && data.drive_state && data.drive_state.shift_state != undefined){
+      await this.setCapabilityValue('measure_drive_shift_state', data.drive_state.shift_state);
+    }
+    if (this.hasCapability('measure_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
+      await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed);
+    }
+    if (this.hasCapability('measure_drive_power') && data.drive_state && data.drive_state.power != undefined){
+      await this.setCapabilityValue('measure_drive_power', data.drive_state.power);
+    }
+
+    // Tires/TPMS
+    if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined){
+      await this.setCapabilityValue('measure_car_tpms_pressure_fl', data.vehicle_state.tpms_pressure_fl);
+    }
+    if (this.hasCapability('measure_car_tpms_pressure_fr') && data.vehicle_state && data.vehicle_state.tpms_pressure_fr != undefined){
+      await this.setCapabilityValue('measure_car_tpms_pressure_fr', data.vehicle_state.tpms_pressure_fr);
+    }
+    if (this.hasCapability('measure_car_tpms_pressure_rl') && data.vehicle_state && data.vehicle_state.tpms_pressure_rl != undefined){
+      await this.setCapabilityValue('measure_car_tpms_pressure_rl', data.vehicle_state.tpms_pressure_rl);
+    }
+    if (this.hasCapability('measure_car_tpms_pressure_rr') && data.vehicle_state && data.vehicle_state.tpms_pressure_rr != undefined){
+      await this.setCapabilityValue('measure_car_tpms_pressure_rr', data.vehicle_state.tpms_pressure_rr);
+    }
+
+    // Software
+    if (this.hasCapability('measure_car_software_version.') && data.vehicle_state && data.vehicle_state.car_version != undefined){
+      await this.setCapabilityValue('measure_car_software_version.', data.vehicle_state.car_version.split(' ')[0]);
+    }
+
+      
 
     let time = this._getLocalTimeString(new Date());
     await this.setCapabilityValue('last_update', time);
+
+    // Update child devices
+    let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    if (batteryDevice){
+      await batteryDevice.updateDevice(data);
+    }
+    let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    if (climateDevice){
+      await climateDevice.updateDevice(data);
+    }
+    let locationDevice = this.homey.drivers.getDriver('location').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    if (locationDevice){
+      await locationDevice.updateDevice(data);
+    }
+
   }
 
   async wakeUp(wait=true){
@@ -240,12 +258,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.getCarState();
         if (this.isOnline()){
           this.log("Wake up the car...Car is online now");
+          // automatically sync data after wake up
+          await this._sync()
           return true;
         }
       }
     }
     this.log("Wake up the car...Car is not online yet.");
-    return false;
+    throw new Error("Waking up the vehicle was not successful.");
   }
 
   // CAPABILITIES =======================================================================================

@@ -1,0 +1,14 @@
+{
+    "title": {
+        "en": "Battery heater !{{is|isn't}} on",
+        "de": "Batterie-Heizung !{{ist|ist nicht}} an",
+        "nl": "Batterijverwarmer  !{{is|is niet}} aan"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+    ]
+}

@@ -2,14 +2,21 @@
   "id": "com.tesla.car",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
+  "platforms": ["local"],
   "sdk": 3,
   "name": {
     "en": "Tesla",
     "de": "Tesla"
   },
   "description": {
-    "en": "Tesla car",
-    "de": "Tesla car"
+    "en": "Tesla Vehicle",
+    "de": "Tesla Fahrzeug",
+    "nl": "Tesla Voertuig"
+  },
+  "tags": { 
+    "en": ["Tesla", "car", "charger", "charging"],
+    "de": ["Tesla", "Auto", "Fahrzeug", "Lader", "Laden"],
+    "nl": ["Tesla", "auto", "voertuig", "oplader", "opladen"]
   },
   "category": [
     "tools"

@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Compass changed",
+        "de": "Kompass hat sich geändert",
+        "nl": "Kompas gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_location_heading",
+            "type": "number",
+            "title": {
+                "en": "Compass",
+                "de": "Kompass",
+                "nl": "Kompas"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

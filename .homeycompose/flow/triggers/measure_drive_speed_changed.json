@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Speed changed",
+        "de": "Geschwindigkeit hat sich geändert",
+        "nl": "Snelheid gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_drive_speed",
+            "type": "number",
+            "title": {
+                "en": "Speed (km/h)",
+                "de": "Geschrindigkeit (km/h)",
+                "nl": "Snelheid (km/h)"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

@@ -33,6 +33,14 @@
                 "de": "Gestoppt",
                 "nl": "Gestopt"
             }
+        },
+        {
+            "id": "Complete",
+            "title": {
+                "en": "Complete",
+                "de": "Abgeschlossen",
+                "nl": "Compleet"
+            }
         }
 
     ]

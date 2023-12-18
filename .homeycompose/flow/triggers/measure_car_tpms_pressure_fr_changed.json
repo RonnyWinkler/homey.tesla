@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "TPMS front right changed",
+        "de": "TPMS vorn rechts hat sich geändert",
+        "nl": "TPMS rechtsvoor gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_car_tpms_pressure_fr",
+            "type": "number",
+            "title": {
+                "en": "TPMS front right",
+                "de": "TPMS vorn rechts",
+                "nl": "TPMS rechtsvoor"
+            },
+            "example": "3.0"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

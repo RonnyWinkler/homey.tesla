@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Odo meter changed",
+        "de": "Kilometerzähler hat sich geändert",
+        "nl": "Kilometerteller gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "meter_odo",
+            "type": "string",
+            "title": {
+                "en": "Odo meter",
+                "de": "Kilometerzähler",
+                "nl": "Kilometerteller"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

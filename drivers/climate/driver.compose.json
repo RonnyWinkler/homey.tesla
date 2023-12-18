@@ -1,0 +1,38 @@
+{
+    "id": "battery",
+    "name": {
+        "en": "Climate",
+        "de": "Klima",
+        "nl": "Klimaat"
+    },
+    "images": {
+        "large": "/drivers/climate/assets/images/large.png",
+        "small": "/drivers/climate/assets/images/small.png"
+    },
+    "class": "sensor",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+
+    ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ]
+    },
+    "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices",
+            "navigation": {
+                "prev": "list_devices"
+            }
+        }
+    ]
+}

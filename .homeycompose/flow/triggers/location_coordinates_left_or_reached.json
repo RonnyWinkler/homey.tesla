@@ -1,0 +1,165 @@
+{
+    "title": {
+        "en": "Ccoordinates have been left or reached",
+        "de": "Koordinaten wurden verlassen oder erreicht",
+        "nl": "Coördinaten zijn achtergelaten of bereikt"
+    },
+    "titleFormatted": {
+        "en": "Coordinates have been [[action]]: Latitude [[latitude]] and Longitude [[longitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
+        "de": "Koordinaten wurden [[action]]: Breitengrad [[latitude]] und Längengrad [[longitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
+        "nl": "Coördinaten zijn [[action]]: Breedtegraad [[latitude]] en Lengtegraad [[longitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
+    },
+    "hint": {
+        "en": "The flow is triggered when the specified coordinates (specified as latitude/longitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
+        "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Breitengrat/Längengrad oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
+        "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als breedtegraad/lengtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+    },
+    "tokens": [
+        {
+            "name": "location_latitude",
+            "type": "number",
+            "title": {
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
+            }
+        },
+        {
+            "name": "location_longitude",
+            "type": "number",
+            "title": {
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
+            }
+        },
+        {
+            "name": "location_name",
+            "type": "string",
+            "title": {
+                "en": "Location name",
+                "de": "Standortname",
+                "nl": "Plaats naam"
+            }
+        },
+        {
+            "name": "location_street",
+            "type": "string",
+            "title": {
+                "en": "Street",
+                "de": "Straße",
+                "nl": "Straat"
+            }
+        },
+        {
+            "name": "location_city",
+            "type": "string",
+            "title": {
+                "en": "City",
+                "de": "Ort",
+                "nl": "Plaats"
+            }
+        },
+        {
+            "name": "location_postcode",
+            "type": "string",
+            "title": {
+                "en": "Postcode",
+                "de": "Postleitzahl",
+                "nl": "postcode"
+            }
+        },
+        {
+            "name": "location_country",
+            "type": "string",
+            "title": {
+                "en": "Country",
+                "de": "Land",
+                "nl": "Land"
+            }
+        }
+    ],
+    "args": [
+        {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+                {
+                    "id": "reached",
+                    "title": { 
+                        "en": "reached",
+                        "de": "erreicht",
+                        "nl": "bereikt"
+                    }
+                },
+                {
+                    "id": "left",
+                    "title": { 
+                        "en": "left",
+                        "de": "verlassen",
+                        "nl": "verlaat"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
+            },
+            "placeholder": { 
+                "en": "13.40000"
+            }
+        },
+        {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
+            },
+            "placeholder": { 
+                "en": "52.50000"
+            }
+        },
+        {
+            "name": "url",
+            "type": "text",
+            "required": false,
+            "title": { 
+                "en": "GoogleMaps URL",
+                "de": "GoogleMaps URL",
+                "nl": "GoogleMaps URL"
+            },
+            "placeholder": { 
+                "en": "https://maps.app.goo.gl/..."
+            }
+        },
+        {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Distance (m)",
+                "de": "Entfernung (m)",
+                "nl": "Afstand (m)"
+            },
+            "placeholder": { 
+                "en": "Default: 100m",
+                "de": "Standard: 100m",
+                "nl": "Standaard: 100m"
+            }
+        },
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+        }
+    ]
+}

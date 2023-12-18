@@ -8,8 +8,8 @@
       "nl": "Locatie lezen"
     },
     "hint":{
-      "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen.",
-      "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms.",
-      "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven."
+      "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
+      "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
+      "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'."
     }
   }

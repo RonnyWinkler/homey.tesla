@@ -1,0 +1,12 @@
+{
+    "type": "string",
+    "title": {
+      "en": "Location",
+      "de": "Standort",
+      "nl": "Locatie"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/location_name.svg"
+  }

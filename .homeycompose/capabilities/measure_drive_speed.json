@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Speed",
+      "de": "Geschrindigkeit",
+      "nl": "Snelheid"
+    },
+    "units": {
+      "en": "km/h"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_drive_speed.svg"
+  }

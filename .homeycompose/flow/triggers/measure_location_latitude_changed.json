@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Latitude changed",
+        "de": "Breitengrad hat sich geändert",
+        "nl": "Breedtegraad gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_location_latitude",
+            "type": "number",
+            "title": {
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

@@ -1,0 +1,45 @@
+{
+    "id": "location",
+    "name": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Plaats"
+    },
+    "images": {
+        "large": "/drivers/location/assets/images/large.png",
+        "small": "/drivers/location/assets/images/small.png"
+    },
+    "class": "sensor",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+        "location_last_update",
+        "measure_location_heading",
+
+        "measure_location_latitude",
+        "measure_location_longitude",
+
+        "location_name"
+
+    ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ]
+    },
+    "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices",
+            "navigation": {
+                "prev": "list_devices"
+            }
+        }
+    ]
+}

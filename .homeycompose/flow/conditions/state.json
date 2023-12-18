@@ -1,0 +1,50 @@
+{
+    "title": {
+        "en": "State !{{is|isn't}}",
+        "de": "Status !{{ist|ist nicht}}",
+        "nl": "Toestand !{{is|is niet}}"
+    },
+    "titleFormatted": {
+        "en": "State !{{is|isn't}} [[state]]",
+        "de": "Status !{{ist|ist nicht}} [[state]]",
+        "nl": "Toestand !{{is|is niet}} [[state]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "state",
+            "type": "dropdown",
+            "title": { 
+                "en": "State",
+                "de": "Status",
+                "nl": "Toestand"
+            },
+            "values": [
+                {
+                    "id": "online",
+                    "title": {
+                        "en": "Online"
+                    }
+                },
+                {
+                    "id": "offline",
+                    "title": {
+                        "en": "Offline"
+                    }
+                },
+                {
+                    "id": "asleep",
+                    "title": {
+                        "en": "Asleep",
+                        "de": "Schlafend",
+                        "nl": "In slaap"
+                    }
+                }
+            ]
+        }
+    ]
+}

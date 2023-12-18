@@ -1,0 +1,12 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Latitude",
+      "de": "Breitengrad",
+      "nl": "Breedtegraad"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_location_latitude.svg"
+  }

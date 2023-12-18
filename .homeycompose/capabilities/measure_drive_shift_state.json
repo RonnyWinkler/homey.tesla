@@ -1,0 +1,12 @@
+{
+    "type": "string",
+    "title": {
+      "en": "Shift state",
+      "de": "Schaltzustand",
+      "nl": "toestand verschuiven"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_shift_state.svg"
+  }

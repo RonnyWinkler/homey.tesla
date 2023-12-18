@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+      "en": "rear right",
+      "de": "hinten rechts",
+      "nl": "rechts achter"
+    },
+    "units": {
+      "en": "Bar"
+    },
+    "decimals": 2,
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
+  }

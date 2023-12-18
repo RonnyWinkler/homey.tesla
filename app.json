@@ -3,14 +3,40 @@
   "id": "com.tesla.car",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
   "sdk": 3,
   "name": {
     "en": "Tesla",
     "de": "Tesla"
   },
   "description": {
-    "en": "Tesla car",
-    "de": "Tesla car"
+    "en": "Tesla Vehicle",
+    "de": "Tesla Fahrzeug",
+    "nl": "Tesla Voertuig"
+  },
+  "tags": {
+    "en": [
+      "Tesla",
+      "car",
+      "charger",
+      "charging"
+    ],
+    "de": [
+      "Tesla",
+      "Auto",
+      "Fahrzeug",
+      "Lader",
+      "Laden"
+    ],
+    "nl": [
+      "Tesla",
+      "auto",
+      "voertuig",
+      "oplader",
+      "opladen"
+    ]
   },
   "category": [
     "tools"
@@ -47,7 +73,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "battery_heater_false"
@@ -63,7 +89,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "battery_heater_true"
@@ -83,17 +109,263 @@
               "de": "Ladezustand",
               "nl": "Oplaadstatus"
             },
-            "example": "online"
+            "example": "Charging"
           }
         ],
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "charging_state_changed"
+      },
+      {
+        "title": {
+          "en": "Location changed",
+          "de": "Standort hat sich geändert",
+          "nl": "Plaats gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "location_latitude",
+            "type": "number",
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            }
+          },
+          {
+            "name": "location_longitude",
+            "type": "number",
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            }
+          },
+          {
+            "name": "location_name",
+            "type": "string",
+            "title": {
+              "en": "Location name",
+              "de": "Standortname",
+              "nl": "Plaats naam"
+            }
+          },
+          {
+            "name": "location_street",
+            "type": "string",
+            "title": {
+              "en": "Street",
+              "de": "Straße",
+              "nl": "Straat"
+            }
+          },
+          {
+            "name": "location_city",
+            "type": "string",
+            "title": {
+              "en": "City",
+              "de": "Ort",
+              "nl": "Plaats"
+            }
+          },
+          {
+            "name": "location_postcode",
+            "type": "string",
+            "title": {
+              "en": "Postcode",
+              "de": "Postleitzahl",
+              "nl": "postcode"
+            }
+          },
+          {
+            "name": "location_country",
+            "type": "string",
+            "title": {
+              "en": "Country",
+              "de": "Land",
+              "nl": "Land"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_changed"
+      },
+      {
+        "title": {
+          "en": "Ccoordinates have been left or reached",
+          "de": "Koordinaten wurden verlassen oder erreicht",
+          "nl": "Coördinaten zijn achtergelaten of bereikt"
+        },
+        "titleFormatted": {
+          "en": "Coordinates have been [[action]]: Latitude [[latitude]] and Longitude [[longitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
+          "de": "Koordinaten wurden [[action]]: Breitengrad [[latitude]] und Längengrad [[longitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
+          "nl": "Coördinaten zijn [[action]]: Breedtegraad [[latitude]] en Lengtegraad [[longitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
+        },
+        "hint": {
+          "en": "The flow is triggered when the specified coordinates (specified as latitude/longitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
+          "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Breitengrat/Längengrad oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
+          "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als breedtegraad/lengtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+        },
+        "tokens": [
+          {
+            "name": "location_latitude",
+            "type": "number",
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            }
+          },
+          {
+            "name": "location_longitude",
+            "type": "number",
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            }
+          },
+          {
+            "name": "location_name",
+            "type": "string",
+            "title": {
+              "en": "Location name",
+              "de": "Standortname",
+              "nl": "Plaats naam"
+            }
+          },
+          {
+            "name": "location_street",
+            "type": "string",
+            "title": {
+              "en": "Street",
+              "de": "Straße",
+              "nl": "Straat"
+            }
+          },
+          {
+            "name": "location_city",
+            "type": "string",
+            "title": {
+              "en": "City",
+              "de": "Ort",
+              "nl": "Plaats"
+            }
+          },
+          {
+            "name": "location_postcode",
+            "type": "string",
+            "title": {
+              "en": "Postcode",
+              "de": "Postleitzahl",
+              "nl": "postcode"
+            }
+          },
+          {
+            "name": "location_country",
+            "type": "string",
+            "title": {
+              "en": "Country",
+              "de": "Land",
+              "nl": "Land"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "reached",
+                "title": {
+                  "en": "reached",
+                  "de": "erreicht",
+                  "nl": "bereikt"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "left",
+                  "de": "verlassen",
+                  "nl": "verlaat"
+                }
+              }
+            ]
+          },
+          {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            },
+            "placeholder": {
+              "en": "13.40000"
+            }
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            },
+            "placeholder": {
+              "en": "52.50000"
+            }
+          },
+          {
+            "name": "url",
+            "type": "text",
+            "required": false,
+            "title": {
+              "en": "GoogleMaps URL",
+              "de": "GoogleMaps URL",
+              "nl": "GoogleMaps URL"
+            },
+            "placeholder": {
+              "en": "https://maps.app.goo.gl/..."
+            }
+          },
+          {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Distance (m)",
+              "de": "Entfernung (m)",
+              "nl": "Afstand (m)"
+            },
+            "placeholder": {
+              "en": "Default: 100m",
+              "de": "Standard: 100m",
+              "nl": "Standaard: 100m"
+            }
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_coordinates_left_or_reached"
       },
       {
         "title": {
@@ -117,7 +389,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_battery_level_changed"
@@ -144,7 +416,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_battery_range_estimated_changed"
@@ -171,7 +443,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_battery_range_ideal_changed"
@@ -198,10 +470,144 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_battery_useable_changed"
+      },
+      {
+        "title": {
+          "en": "Software changed",
+          "de": "Software hat sich geändert",
+          "nl": "Software gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_software_version",
+            "type": "string",
+            "title": {
+              "en": "Software",
+              "de": "Software",
+              "nl": "Software"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_software_version_changed"
+      },
+      {
+        "title": {
+          "en": "TPMS front left changed",
+          "de": "TPMS vorn links hat sich geändert",
+          "nl": "TPMS vooraan links gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_tpms_pressure_fl",
+            "type": "number",
+            "title": {
+              "en": "TPMS front left",
+              "de": "TPMS vorn links",
+              "nl": "TPMS vooraan links"
+            },
+            "example": "3.0"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_tpms_pressure_fl_changed"
+      },
+      {
+        "title": {
+          "en": "TPMS front right changed",
+          "de": "TPMS vorn rechts hat sich geändert",
+          "nl": "TPMS rechtsvoor gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_tpms_pressure_fr",
+            "type": "number",
+            "title": {
+              "en": "TPMS front right",
+              "de": "TPMS vorn rechts",
+              "nl": "TPMS rechtsvoor"
+            },
+            "example": "3.0"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_tpms_pressure_fr_changed"
+      },
+      {
+        "title": {
+          "en": "TPMS rear left changed",
+          "de": "TPMS hinten links hat sich geändert",
+          "nl": "TPMS links achter gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_tpms_pressure_rl",
+            "type": "number",
+            "title": {
+              "en": "TPMS rear left",
+              "de": "TPMS hinten links",
+              "nl": "TPMS links achter"
+            },
+            "example": "3.0"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_tpms_pressure_rl_changed"
+      },
+      {
+        "title": {
+          "en": "TPMS rear right changed",
+          "de": "TPMS hinten rechts hat sich geändert",
+          "nl": "TPMS rechts achter gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_tpms_pressure_rr",
+            "type": "number",
+            "title": {
+              "en": "TPMS rear right",
+              "de": "TPMS rechts links",
+              "nl": "TPMS rechts achter"
+            },
+            "example": "3.0"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_tpms_pressure_rr_changed"
       },
       {
         "title": {
@@ -224,7 +630,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_current_changed"
@@ -250,7 +656,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_current_max_changed"
@@ -277,7 +683,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_energy_added_changed"
@@ -304,7 +710,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_limit_soc_changed"
@@ -330,7 +736,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_minutes_to_full_charge_changed"
@@ -356,7 +762,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_phases_changed"
@@ -382,7 +788,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_power_changed"
@@ -408,10 +814,192 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
           }
         ],
         "id": "measure_charge_voltage_changed"
+      },
+      {
+        "title": {
+          "en": "Power changed",
+          "de": "Leistung hat sich geändert",
+          "nl": "Stroom gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_drive_power",
+            "type": "number",
+            "title": {
+              "en": "Power",
+              "de": "Leistung",
+              "nl": "Stroom"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_drive_power_changed"
+      },
+      {
+        "title": {
+          "en": "Shift state changed",
+          "de": "Schaltzustand hat sich geändert",
+          "nl": "toestand verschuiven gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_drive_shift_speed",
+            "type": "number",
+            "title": {
+              "en": "Shift state",
+              "de": "Schaltzustand",
+              "nl": "toestand verschuiven"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_drive_shift_state_changed"
+      },
+      {
+        "title": {
+          "en": "Speed changed",
+          "de": "Geschwindigkeit hat sich geändert",
+          "nl": "Snelheid gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_drive_speed",
+            "type": "number",
+            "title": {
+              "en": "Speed (km/h)",
+              "de": "Geschrindigkeit (km/h)",
+              "nl": "Snelheid (km/h)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_drive_speed_changed"
+      },
+      {
+        "title": {
+          "en": "Compass changed",
+          "de": "Kompass hat sich geändert",
+          "nl": "Kompas gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_location_heading",
+            "type": "number",
+            "title": {
+              "en": "Compass",
+              "de": "Kompass",
+              "nl": "Kompas"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "measure_location_heading"
+      },
+      {
+        "title": {
+          "en": "Latitude changed",
+          "de": "Breitengrad hat sich geändert",
+          "nl": "Breedtegraad gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_location_latitude",
+            "type": "number",
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "measure_location_latitude_changed"
+      },
+      {
+        "title": {
+          "en": "Longitude changed",
+          "de": "Längengrad hat sich geändert",
+          "nl": "Snelheid gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_location_longitude",
+            "type": "number",
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "measure_location_longitude_changed"
+      },
+      {
+        "title": {
+          "en": "Odo meter changed",
+          "de": "Kilometerzähler hat sich geändert",
+          "nl": "Kilometerteller gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "meter_odo",
+            "type": "string",
+            "title": {
+              "en": "Odo meter",
+              "de": "Kilometerzähler",
+              "nl": "Kilometerteller"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "meter_odo_changed"
       },
       {
         "title": {
@@ -441,27 +1029,138 @@
         "id": "state_changed"
       }
     ],
-    "actions": [
+    "conditions": [
       {
         "title": {
-          "en": "Flash the head lights",
-          "de": "Lass die Scheinwerfer aufleuchten",
-          "nl": "Knipper de koplampen"
+          "en": "Battery heater !{{is|isn't}} on",
+          "de": "Batterie-Heizung !{{ist|ist nicht}} an",
+          "nl": "Batterijverwarmer  !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "battery_heater"
+      },
+      {
+        "title": {
+          "en": "Charging state !{{is|isn't}}",
+          "de": "Ladezustand !{{ist|ist nicht}}",
+          "nl": "Oplaadstatus !{{is|is niet}}"
         },
         "titleFormatted": {
-          "en": "Flash the head lights",
-          "de": "Lass die Scheinwerfer aufleuchten",
-          "nl": "Knipper de koplampen"
+          "en": "Charging state !{{is|isn't}} [[state]]",
+          "de": "Ladezustand !{{ist|ist nicht}} [[state]]",
+          "nl": "Oplaadstatus !{{is|is niet}} [[state]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "Charging state",
+              "de": "Ladezustand",
+              "nl": "Oplaadstatus"
+            },
+            "values": [
+              {
+                "id": "Disconnected",
+                "title": {
+                  "en": "Disconnected",
+                  "de": "Getrennt",
+                  "nl": "Losgekoppeld"
+                }
+              },
+              {
+                "id": "Charging",
+                "title": {
+                  "en": "Charging",
+                  "de": "Laden",
+                  "nl": "Opladen"
+                }
+              },
+              {
+                "id": "Stopped",
+                "title": {
+                  "en": "Stopped",
+                  "de": "Gestoppt",
+                  "nl": "Gestopt"
+                }
+              },
+              {
+                "id": "Complete",
+                "title": {
+                  "en": "Complete",
+                  "de": "Abgeschlossen",
+                  "nl": "Compleet"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "charging_state"
+      },
+      {
+        "title": {
+          "en": "State !{{is|isn't}}",
+          "de": "Status !{{ist|ist nicht}}",
+          "nl": "Toestand !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "State !{{is|isn't}} [[state]]",
+          "de": "Status !{{ist|ist nicht}} [[state]]",
+          "nl": "Toestand !{{is|is niet}} [[state]]"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
             "filter": "driver_id=car"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "de": "Status",
+              "nl": "Toestand"
+            },
+            "values": [
+              {
+                "id": "online",
+                "title": {
+                  "en": "Online"
+                }
+              },
+              {
+                "id": "offline",
+                "title": {
+                  "en": "Offline"
+                }
+              },
+              {
+                "id": "asleep",
+                "title": {
+                  "en": "Asleep",
+                  "de": "Schlafend",
+                  "nl": "In slaap"
+                }
+              }
+            ]
           }
         ],
-        "id": "flash_lights"
-      },
+        "id": "state"
+      }
+    ],
+    "actions": [
       {
         "title": {
           "en": "Refresh car data",
@@ -486,6 +1185,48 @@
           }
         ],
         "id": "refresh"
+      },
+      {
+        "title": {
+          "en": "Set location"
+        },
+        "titleFormatted": {
+          "en": "Set location [[latitude]] [[longitude]]"
+        },
+        "args": [
+          {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            },
+            "placeholder": {
+              "en": "13.40000"
+            }
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            },
+            "placeholder": {
+              "en": "52.50000"
+            }
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "set_location"
       },
       {
         "title": {
@@ -538,23 +1279,21 @@
   },
   "drivers": [
     {
-      "id": "car",
+      "id": "battery",
       "name": {
-        "en": "Car",
-        "de": "Fahrzeug"
+        "en": "Battery & charging",
+        "de": "Batterie & Laden",
+        "nl": "Accu & opladen"
       },
       "images": {
-        "large": "/drivers/car/assets/images/large.png",
-        "small": "/drivers/car/assets/images/small.png"
+        "large": "/drivers/battery/assets/images/large.png",
+        "small": "/drivers/battery/assets/images/small.png"
       },
       "class": "sensor",
       "connectivity": [
-        "lan"
+        "cloud"
       ],
       "capabilities": [
-        "measure_battery",
-        "last_update",
-        "state",
         "measure_battery_level",
         "measure_battery_usable",
         "measure_battery_range_estimated",
@@ -568,7 +1307,78 @@
         "measure_charge_current",
         "measure_charge_current_max",
         "measure_charge_energy_added",
-        "measure_charge_minutes_to_full_charge",
+        "measure_charge_minutes_to_full_charge"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Assigned to car",
+            "de": "Mit Fahrzeug verknüpft",
+            "nl": "Toegekend aan auto"
+          },
+          "children": [
+            {
+              "id": "car_data_vin",
+              "type": "label",
+              "label": {
+                "en": "VIN"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "car",
+      "name": {
+        "en": "Car",
+        "de": "Fahrzeug",
+        "nl": "Voertuig"
+      },
+      "images": {
+        "large": "/drivers/car/assets/images/large.png",
+        "small": "/drivers/car/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "last_update",
+        "state",
+        "meter_odo",
+        "measure_drive_shift_state",
+        "measure_drive_speed",
+        "measure_drive_power",
+        "measure_car_tpms_pressure_fl",
+        "measure_car_tpms_pressure_fr",
+        "measure_car_tpms_pressure_rl",
+        "measure_car_tpms_pressure_rr",
+        "measure_car_software_version.",
         "refresh",
         "wake_up"
       ],
@@ -605,6 +1415,9 @@
         }
       ],
       "repair": [
+        {
+          "id": "select"
+        },
         {
           "id": "login_oauth2",
           "template": "login_oauth2"
@@ -727,9 +1540,9 @@
                 "nl": "Locatie lezen"
               },
               "hint": {
-                "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen.",
-                "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms.",
-                "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven."
+                "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
+                "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
+                "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'."
               }
             }
           ]
@@ -740,6 +1553,128 @@
             "en": "Car data",
             "de": "Fahrzeugdaten",
             "nl": "Voertuiggegevens"
+          },
+          "children": [
+            {
+              "id": "car_data_vin",
+              "type": "label",
+              "label": {
+                "en": "VIN"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "climate",
+      "name": {
+        "en": "Climate",
+        "de": "Klima",
+        "nl": "Klimaat"
+      },
+      "images": {
+        "large": "/drivers/climate/assets/images/large.png",
+        "small": "/drivers/climate/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Assigned to car",
+            "de": "Mit Fahrzeug verknüpft",
+            "nl": "Toegekend aan auto"
+          },
+          "children": [
+            {
+              "id": "car_data_vin",
+              "type": "label",
+              "label": {
+                "en": "VIN"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "name": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Plaats"
+      },
+      "images": {
+        "large": "/drivers/location/assets/images/large.png",
+        "small": "/drivers/location/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "location_last_update",
+        "measure_location_heading",
+        "measure_location_latitude",
+        "measure_location_longitude",
+        "location_name"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Assigned to car",
+            "de": "Mit Fahrzeug verknüpft",
+            "nl": "Toegekend aan auto"
           },
           "children": [
             {
@@ -824,6 +1759,14 @@
             "de": "Gestoppt",
             "nl": "Gestopt"
           }
+        },
+        {
+          "id": "Complete",
+          "title": {
+            "en": "Complete",
+            "de": "Abgeschlossen",
+            "nl": "Compleet"
+          }
         }
       ]
     },
@@ -838,6 +1781,30 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/last_update.svg"
+    },
+    "location_last_update": {
+      "type": "string",
+      "title": {
+        "en": "Last update",
+        "de": "Letzte Aktualisierung",
+        "nl": "Letzte Actualisering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/location_last_update.svg"
+    },
+    "location_name": {
+      "type": "string",
+      "title": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Locatie"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/location_name.svg"
     },
     "measure_battery_level": {
       "type": "number",
@@ -864,6 +1831,7 @@
       "units": {
         "en": "km"
       },
+      "decimals": 2,
       "insights": true,
       "getable": true,
       "setable": false,
@@ -879,6 +1847,7 @@
       "units": {
         "en": "km"
       },
+      "decimals": 2,
       "insights": true,
       "getable": true,
       "setable": false,
@@ -898,6 +1867,82 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_battery_useable.svg"
+    },
+    "measure_car_software_version": {
+      "type": "string",
+      "title": {
+        "en": "Software",
+        "de": "Software",
+        "nl": "Software"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_software_version.svg"
+    },
+    "measure_car_tpms_pressure_fl": {
+      "type": "number",
+      "title": {
+        "en": "front left",
+        "de": "vorn links",
+        "nl": "vooraan links"
+      },
+      "units": {
+        "en": "Bar"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
+    },
+    "measure_car_tpms_pressure_fr": {
+      "type": "number",
+      "title": {
+        "en": "front right",
+        "de": "vorn rechts",
+        "nl": "rechtsvoor"
+      },
+      "units": {
+        "en": "Bar"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
+    },
+    "measure_car_tpms_pressure_rl": {
+      "type": "number",
+      "title": {
+        "en": "rear left",
+        "de": "hinten links",
+        "nl": "links achter"
+      },
+      "units": {
+        "en": "Bar"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
+    },
+    "measure_car_tpms_pressure_rr": {
+      "type": "number",
+      "title": {
+        "en": "rear right",
+        "de": "hinten rechts",
+        "nl": "rechts achter"
+      },
+      "units": {
+        "en": "Bar"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
     },
     "measure_charge_current": {
       "type": "number",
@@ -1016,6 +2061,103 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_charge_voltage.svg"
     },
+    "measure_drive_power": {
+      "type": "number",
+      "title": {
+        "en": "Power",
+        "de": "Leistung",
+        "nl": "Stroom"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_drive_power.svg"
+    },
+    "measure_drive_shift_state": {
+      "type": "string",
+      "title": {
+        "en": "Shift state",
+        "de": "Schaltzustand",
+        "nl": "toestand verschuiven"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_shift_state.svg"
+    },
+    "measure_drive_speed": {
+      "type": "number",
+      "title": {
+        "en": "Speed",
+        "de": "Geschrindigkeit",
+        "nl": "Snelheid"
+      },
+      "units": {
+        "en": "km/h"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_drive_speed.svg"
+    },
+    "measure_location_heading": {
+      "type": "number",
+      "title": {
+        "en": "Compass",
+        "de": "Kompass",
+        "nl": "Kompas"
+      },
+      "unit": {
+        "en": "°"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_location_heading.svg"
+    },
+    "measure_location_latitude": {
+      "type": "number",
+      "title": {
+        "en": "Latitude",
+        "de": "Breitengrad",
+        "nl": "Breedtegraad"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_location_latitude.svg"
+    },
+    "measure_location_longitude": {
+      "type": "number",
+      "title": {
+        "en": "Longitude",
+        "de": "Längengrad",
+        "nl": "Lengtegraad"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_location_longitude.svg"
+    },
+    "meter_odo": {
+      "type": "number",
+      "title": {
+        "en": "Odo meter",
+        "de": "Kilometerzähler",
+        "nl": "Kilometerteller"
+      },
+      "units": {
+        "en": "km"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_odo.svg"
+    },
     "refresh": {
       "type": "boolean",
       "title": {
@@ -1024,7 +2166,7 @@
         "nl": "Updaten"
       },
       "insights": false,
-      "getable": true,
+      "getable": false,
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/refresh.svg"
@@ -1071,7 +2213,7 @@
         "nl": "Wakker worden"
       },
       "insights": false,
-      "getable": true,
+      "getable": false,
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/wake_up.svg"

@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Odo meter",
+      "de": "Kilometerzähler",
+      "nl": "Kilometerteller"
+    },
+    "units": {
+      "en": "km"
+    },
+    "decimals": 2,
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/meter_odo.svg"
+  }

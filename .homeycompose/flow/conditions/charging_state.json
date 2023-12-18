@@ -1,0 +1,62 @@
+{
+    "title": {
+        "en": "Charging state !{{is|isn't}}",
+        "de": "Ladezustand !{{ist|ist nicht}}",
+        "nl": "Oplaadstatus !{{is|is niet}}"
+    },
+    "titleFormatted": {
+        "en": "Charging state !{{is|isn't}} [[state]]",
+        "de": "Ladezustand !{{ist|ist nicht}} [[state]]",
+        "nl": "Oplaadstatus !{{is|is niet}} [[state]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        },
+        {
+            "name": "state",
+            "type": "dropdown",
+            "title": { 
+                "en": "Charging state",
+                "de": "Ladezustand",
+                "nl": "Oplaadstatus"
+            },
+            "values": [
+                {
+                    "id": "Disconnected",
+                    "title": {
+                        "en": "Disconnected",
+                        "de": "Getrennt",
+                        "nl": "Losgekoppeld"
+                    }
+                },
+                {
+                    "id": "Charging",
+                    "title": {
+                        "en": "Charging",
+                        "de": "Laden",
+                        "nl": "Opladen"
+                    }
+                },
+                {
+                    "id": "Stopped",
+                    "title": {
+                        "en": "Stopped",
+                        "de": "Gestoppt",
+                        "nl": "Gestopt"
+                    }
+                },
+                {
+                    "id": "Complete",
+                    "title": {
+                        "en": "Complete",
+                        "de": "Abgeschlossen",
+                        "nl": "Compleet"
+                    }
+                }
+            ]
+        }
+    ]
+}

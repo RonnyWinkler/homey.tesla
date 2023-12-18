@@ -1,0 +1,77 @@
+{
+    "title": {
+        "en": "Location changed",
+        "de": "Standort hat sich geändert",
+        "nl": "Plaats gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "location_latitude",
+            "type": "number",
+            "title": {
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
+            }
+        },
+        {
+            "name": "location_longitude",
+            "type": "number",
+            "title": {
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
+            }
+        },
+        {
+            "name": "location_name",
+            "type": "string",
+            "title": {
+                "en": "Location name",
+                "de": "Standortname",
+                "nl": "Plaats naam"
+            }
+        },
+        {
+            "name": "location_street",
+            "type": "string",
+            "title": {
+                "en": "Street",
+                "de": "Straße",
+                "nl": "Straat"
+            }
+        },
+        {
+            "name": "location_city",
+            "type": "string",
+            "title": {
+                "en": "City",
+                "de": "Ort",
+                "nl": "Plaats"
+            }
+        },
+        {
+            "name": "location_postcode",
+            "type": "string",
+            "title": {
+                "en": "Postcode",
+                "de": "Postleitzahl",
+                "nl": "postcode"
+            }
+        },
+        {
+            "name": "location_country",
+            "type": "string",
+            "title": {
+                "en": "Country",
+                "de": "Land",
+                "nl": "Land"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

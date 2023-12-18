@@ -1,0 +1,42 @@
+{
+    "title": {
+        "en": "Set location"
+    },
+    "titleFormatted": {
+        "en": "Set location [[latitude]] [[longitude]]"
+    },
+    "args": [
+        {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
+            },
+            "placeholder": { 
+                "en": "13.40000"
+            }
+        },
+        {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
+            },
+            "placeholder": { 
+                "en": "52.50000"
+            }
+        },
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+        }
+
+    ]
+}

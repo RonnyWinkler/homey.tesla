@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Longitude changed",
+        "de": "Längengrad hat sich geändert",
+        "nl": "Snelheid gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_location_longitude",
+            "type": "number",
+            "title": {
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

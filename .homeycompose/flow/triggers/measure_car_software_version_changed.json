@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Software changed",
+        "de": "Software hat sich geändert",
+        "nl": "Software gewijzigd"
+    },
+    "tokens": [
+       {
+            "name": "measure_car_software_version",
+            "type": "string",
+            "title": {
+                "en": "Software",
+                "de": "Software",
+                "nl": "Software"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

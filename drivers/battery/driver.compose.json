@@ -1,0 +1,58 @@
+{
+    "id": "battery",
+    "name": {
+        "en": "Battery & charging",
+        "de": "Batterie & Laden",
+        "nl": "Accu & opladen"
+    },
+    "images": {
+        "large": "/drivers/battery/assets/images/large.png",
+        "small": "/drivers/battery/assets/images/small.png"
+    },
+    "class": "sensor",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+        "measure_battery_level",
+        "measure_battery_usable",
+
+        "measure_battery_range_estimated",
+        "measure_battery_range_ideal",
+        
+        "measure_charge_limit_soc",
+        "battery_heater",
+
+        "charging_state",
+        "measure_charge_phases",
+
+        "measure_charge_power",
+        "measure_charge_voltage",
+
+        "measure_charge_current",
+        "measure_charge_current_max",
+
+        "measure_charge_energy_added",
+        "measure_charge_minutes_to_full_charge"
+
+    ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ]
+    },
+    "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices",
+            "navigation": {
+                "prev": "list_devices"
+            }
+        }
+    ]
+}

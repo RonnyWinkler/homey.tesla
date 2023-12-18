@@ -9,7 +9,7 @@
         {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=battery"
         }
       ]
 }

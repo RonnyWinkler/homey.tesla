@@ -1,0 +1,26 @@
+{
+    "pair":{
+        "register":{
+            "title": "App-registratie",
+            "subtitle": "Registreer de Homey app in je auto",
+            "text1": "Register the Homey app in your car to allow the app to send commands to your car.",
+            "text2": "Volg deze <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>link</a> of tik op het Tesla-pictogram om het Tesla-registratieproces te starten."
+        },
+        "battery":{
+            "name": "Accu"
+        },
+        "climate":{
+            "name": "Klimaat"
+        },
+        "location":{
+            "name": "Plaats"
+        }
+    },
+    "repair":{
+        "select":{
+            "title": "Selectie",
+            "auth": "Wijzig login",
+            "register_app": "App registreren in auto"
+        }
+    }
+}
