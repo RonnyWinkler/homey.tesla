@@ -189,7 +189,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // Meter
     if (this.hasCapability('meter_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
-      await this.setCapabilityValue('meter_odo', data.vehicle_state.odometer);
+      await this.setCapabilityValue('meter_odo', data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM);
     }
 
     // Drive state
@@ -197,7 +197,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('measure_drive_shift_state', data.drive_state.shift_state);
     }
     if (this.hasCapability('measure_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
-      await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed);
+      await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
     }
     if (this.hasCapability('measure_drive_power') && data.drive_state && data.drive_state.power != undefined){
       await this.setCapabilityValue('measure_drive_power', data.drive_state.power);

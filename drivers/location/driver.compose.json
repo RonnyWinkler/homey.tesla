@@ -1,9 +1,9 @@
 {
     "id": "location",
     "name": {
-        "en": "Location",
-        "de": "Standort",
-        "nl": "Plaats"
+        "en": "Location & navigation",
+        "de": "Standort & Navigation",
+        "nl": "Plaats & Navigatie"
     },
     "images": {
         "large": "/drivers/location/assets/images/large.png",

@@ -12,5 +12,246 @@
           "id": "car_data_vin"
         }
       ]
-    }  
-  ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Location 1",
+        "de": "Standort 1",
+        "nl": "Plaats 1"
+      },
+      "children": [
+        {
+          "id": "location_01_name",
+          "type": "text",
+          "label": {
+            "en": "Name"
+          },
+          "value": ""
+        },
+        {
+          "id": "location_01_latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_01_longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_01_url",
+          "type": "text",
+          "label": {
+            "en": "Google Maps URL"
+          },
+          "value": "",
+          "hint":{
+            "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+            "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Location 2",
+        "de": "Standort 2",
+        "nl": "Plaats 2"
+      },
+      "children": [
+        {
+          "id": "location_02_name",
+          "type": "text",
+          "label": {
+            "en": "Name"
+          },
+          "value": ""
+        },
+        {
+          "id": "location_02_latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_02_longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_02_url",
+          "type": "text",
+          "label": {
+            "en": "Google Maps URL"
+          },
+          "value": "",
+          "hint":{
+            "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+            "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Location 3",
+        "de": "Standort 3",
+        "nl": "Plaats 3"
+      },
+      "children": [
+        {
+          "id": "location_03_name",
+          "type": "text",
+          "label": {
+            "en": "Name"
+          },
+          "value": ""
+        },
+        {
+          "id": "location_03_latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_03_longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_03_url",
+          "type": "text",
+          "label": {
+            "en": "Google Maps URL"
+          },
+          "value": "",
+          "hint":{
+            "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+            "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Location 4",
+        "de": "Standort 4",
+        "nl": "Plaats 4"
+      },
+      "children": [
+        {
+          "id": "location_04_name",
+          "type": "text",
+          "label": {
+            "en": "Name"
+          },
+          "value": ""
+        },
+        {
+          "id": "location_04_latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_04_longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_04_url",
+          "type": "text",
+          "label": {
+            "en": "Google Maps URL"
+          },
+          "value": "",
+          "hint":{
+            "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+            "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Location 5",
+        "de": "Standort 5",
+        "nl": "Plaats 5"
+      },
+      "children": [
+        {
+          "id": "location_05_name",
+          "type": "text",
+          "label": {
+            "en": "Name"
+          },
+          "value": ""
+        },
+        {
+          "id": "location_05_latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_05_longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude"
+          },
+          "value": 0
+        },
+        {
+          "id": "location_05_url",
+          "type": "text",
+          "label": {
+            "en": "Google Maps URL"
+          },
+          "value": "",
+          "hint":{
+            "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+            "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+          }
+        }
+      ]
+    }
+
+]

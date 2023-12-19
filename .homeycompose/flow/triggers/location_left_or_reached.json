@@ -1,18 +1,18 @@
 {
     "title": {
-        "en": "Ccoordinates have been left or reached",
-        "de": "Koordinaten wurden verlassen oder erreicht",
-        "nl": "Coördinaten zijn achtergelaten of bereikt"
+        "en": "Location has been left or reached",
+        "de": "Standort wurde verlassen oder erreicht",
+        "nl": "Locatie is verlaten of bereikt"
     },
     "titleFormatted": {
-        "en": "Coordinates have been [[action]]: Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
-        "de": "Koordinaten wurden [[action]]: Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
-        "nl": "Coördinaten zijn [[action]]: Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
+        "en": "Location [[location]] has been [[action]] with tolerance [[distance]] m",
+        "de": "Standort [[location]] wurde [[action]] mit Toleranz [[distance]] m",
+        "nl": "Locatie [[location]] is [[action]] met tolerantie [[distance]] m"
     },
     "hint": {
-        "en": "The flow is triggered when the specified coordinates (specified as longitude/latitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
-        "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Längengrad/Breitengrat oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
-        "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als lengtegraad/breedtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+        "en": "The flow is triggered when the specified location (specified in device settings) ais reached or left. The tolerance specifies the radius of the geofence area in meters.",
+        "de": "Der Flow wird ausgelöst, wenn der angebene Standort (angegben in den Geräteeinstellungen) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
+        "nl": "De Flow wordt geactiveerd wanneer de opgegeven locatie (opgegeven in de apparaatinstellingen) wordt bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
     },
     "tokens": [
         {
@@ -103,43 +103,13 @@
             ]
         },
         {
-            "name": "latitude",
-            "type": "number",
-            "required": false,
-            "title": { 
-                "en": "Latitude",
-                "de": "Breitengrad",
-                "nl": "Breedtegraad"
-            },
-            "placeholder": { 
-                "en": "13.40000"
-            }
-        },
-        {
-            "name": "longitude",
-            "type": "number",
-            "required": false,
-            "title": { 
-                "en": "Longitude",
-                "de": "Längengrad",
-                "nl": "Lengtegraad"
-            },
-            "placeholder": { 
-                "en": "52.50000"
-            }
-        },
-        {
-            "name": "url",
-            "type": "text",
-            "required": false,
-            "title": { 
-                "en": "GoogleMaps URL",
-                "de": "GoogleMaps URL",
-                "nl": "GoogleMaps URL"
-            },
-            "placeholder": { 
-                "en": "https://maps.app.goo.gl/..."
-            }
+            "name": "location",
+            "type": "autocomplete",
+                "title": {
+                    "en": "Location",
+                    "de": "Standort",
+                    "nl": "Plaats"
+                }
         },
         {
             "name": "distance",

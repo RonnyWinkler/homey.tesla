@@ -1,6 +1,14 @@
 {
   "0.0.1": {
-    "en": "Initial release",
-    "de": "Initiales Release"
+    "en": "Initial alpha release",
+    "de": "Initiales Alpha-Release"
+  },
+  "0.0.2": {
+    "en": "New device images",
+    "de": "Neue Gerätebilder"
+  },
+  "0.0.3": {
+    "en": "Beta updates",
+    "de": "Neue Gerätebilder"
   }
 }

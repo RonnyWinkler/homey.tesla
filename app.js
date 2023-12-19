@@ -19,18 +19,19 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     await super.onOAuth2Init();
 
     await this._initFlowActions();
+    await this._initFlowTriggers();
   }
 
   // FLOW ACTIONS ==============================================================================
   async _initFlowActions(){
 
-    this._flowActionRefresh = this.homey.flow.getActionCard('refresh');
-		this._flowActionRefresh.registerRunListener(async (args, state) => {
+    this.homey.flow.getActionCard('refresh')
+		.registerRunListener(async (args, state) => {
 				await args.device.flowActionRefresh();
 		});
 
-    this._flowActionWakeUp = this.homey.flow.getActionCard('wake_up');
-		this._flowActionWakeUp.registerRunListener(async (args, state) => {
+    this.homey.flow.getActionCard('wake_up')
+		.registerRunListener(async (args, state) => {
 				await args.device.flowActionWakeUp( (args.wait=='wait') );
 		});
 
@@ -41,4 +42,25 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
   }
 
+  // FLOW TRIGGER ======================================================================================
+  async _initFlowTriggers(){
+    this._flowTriggerLocationChanged = this.homey.flow.getDeviceTriggerCard('location_changed');
+
+    this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowTriggerLocationCoordinatesRunListener(args) == args.action);
+    });
+
+    this.homey.flow.getDeviceTriggerCard('location_left_or_reached')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowTriggerLocationRunListener(args) == args.action);
+    })
+    .registerArgumentAutocompleteListener('location', async (query, args) => {
+      const locationList = args.device.getAutocompleteLocationList();
+      return locationList.filter((result) => { 
+        return result.name.toLowerCase().includes(query.toLowerCase());
+      });
+    });
+
+  }
 }

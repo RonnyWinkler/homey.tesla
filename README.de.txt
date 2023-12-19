@@ -1,5 +1,3 @@
-Keine Emissionen. Keine Kompromisse.
-
 Protokolliere deine Fahrzeugdaten, klimatisiere vor der Fahrt oder optimiere das Laden…
 Unzählige Möglichkeiten, deinen Tesla noch smarter zu machen und in dein Smarthome zu integrieren.
 

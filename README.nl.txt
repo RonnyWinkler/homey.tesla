@@ -1,5 +1,3 @@
-Geen uitstoot. Geen compromis.
-
 Registreer uw voertuiggegevens, airconditioning voordat u gaat rijden of optimaliseer het opladen...
 Ontelbare manieren om uw Tesla nog slimmer te maken en te integreren in uw smart home.
 

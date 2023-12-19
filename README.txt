@@ -1,5 +1,3 @@
-Zero emissions. Zero compromises.
-
 Log your vehicle data, air conditioning before driving or optimize charging...
 Countless ways to make your Tesla even smarter and integrate it into your smart home.
 

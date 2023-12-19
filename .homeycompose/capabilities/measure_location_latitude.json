@@ -5,6 +5,7 @@
       "de": "Breitengrad",
       "nl": "Breedtegraad"
     },
+    "decimals": 8,
     "insights": true,
     "getable": true,
     "setable": false,

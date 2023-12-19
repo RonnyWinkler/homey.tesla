@@ -1,20 +1,21 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
   ],
   "sdk": 3,
   "name": {
-    "en": "Tesla",
-    "de": "Tesla"
-  },
-  "description": {
     "en": "Tesla Vehicle",
     "de": "Tesla Fahrzeug",
     "nl": "Tesla Voertuig"
+  },
+  "description": {
+    "en": "Zero emissions. Zero compromises.",
+    "de": "Keine Emissionen. Keine Kompromisse.",
+    "nl": "Geen uitstoot. Geen compromis."
   },
   "tags": {
     "en": [
@@ -208,14 +209,14 @@
           "nl": "Coördinaten zijn achtergelaten of bereikt"
         },
         "titleFormatted": {
-          "en": "Coordinates have been [[action]]: Latitude [[latitude]] and Longitude [[longitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
-          "de": "Koordinaten wurden [[action]]: Breitengrad [[latitude]] und Längengrad [[longitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
-          "nl": "Coördinaten zijn [[action]]: Breedtegraad [[latitude]] en Lengtegraad [[longitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
+          "en": "Coordinates have been [[action]]: Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
+          "de": "Koordinaten wurden [[action]]: Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
+          "nl": "Coördinaten zijn [[action]]: Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
         },
         "hint": {
-          "en": "The flow is triggered when the specified coordinates (specified as latitude/longitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
-          "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Breitengrat/Längengrad oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
-          "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als breedtegraad/lengtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+          "en": "The flow is triggered when the specified coordinates (specified as longitude/latitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
+          "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Längengrad/Breitengrat oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
+          "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als lengtegraad/breedtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
         },
         "tokens": [
           {
@@ -366,6 +367,142 @@
           }
         ],
         "id": "location_coordinates_left_or_reached"
+      },
+      {
+        "title": {
+          "en": "Location has been left or reached",
+          "de": "Standort wurde verlassen oder erreicht",
+          "nl": "Locatie is verlaten of bereikt"
+        },
+        "titleFormatted": {
+          "en": "Location [[location]] has been [[action]] with tolerance [[distance]] m",
+          "de": "Standort [[location]] wurde [[action]] mit Toleranz [[distance]] m",
+          "nl": "Locatie [[location]] is [[action]] met tolerantie [[distance]] m"
+        },
+        "hint": {
+          "en": "The flow is triggered when the specified location (specified in device settings) ais reached or left. The tolerance specifies the radius of the geofence area in meters.",
+          "de": "Der Flow wird ausgelöst, wenn der angebene Standort (angegben in den Geräteeinstellungen) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
+          "nl": "De Flow wordt geactiveerd wanneer de opgegeven locatie (opgegeven in de apparaatinstellingen) wordt bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+        },
+        "tokens": [
+          {
+            "name": "location_latitude",
+            "type": "number",
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            }
+          },
+          {
+            "name": "location_longitude",
+            "type": "number",
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            }
+          },
+          {
+            "name": "location_name",
+            "type": "string",
+            "title": {
+              "en": "Location name",
+              "de": "Standortname",
+              "nl": "Plaats naam"
+            }
+          },
+          {
+            "name": "location_street",
+            "type": "string",
+            "title": {
+              "en": "Street",
+              "de": "Straße",
+              "nl": "Straat"
+            }
+          },
+          {
+            "name": "location_city",
+            "type": "string",
+            "title": {
+              "en": "City",
+              "de": "Ort",
+              "nl": "Plaats"
+            }
+          },
+          {
+            "name": "location_postcode",
+            "type": "string",
+            "title": {
+              "en": "Postcode",
+              "de": "Postleitzahl",
+              "nl": "postcode"
+            }
+          },
+          {
+            "name": "location_country",
+            "type": "string",
+            "title": {
+              "en": "Country",
+              "de": "Land",
+              "nl": "Land"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "reached",
+                "title": {
+                  "en": "reached",
+                  "de": "erreicht",
+                  "nl": "bereikt"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "left",
+                  "de": "verlassen",
+                  "nl": "verlaat"
+                }
+              }
+            ]
+          },
+          {
+            "name": "location",
+            "type": "autocomplete",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Plaats"
+            }
+          },
+          {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Distance (m)",
+              "de": "Entfernung (m)",
+              "nl": "Afstand (m)"
+            },
+            "placeholder": {
+              "en": "Default: 100m",
+              "de": "Standard: 100m",
+              "nl": "Standaard: 100m"
+            }
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_left_or_reached"
       },
       {
         "title": {
@@ -1628,9 +1765,9 @@
     {
       "id": "location",
       "name": {
-        "en": "Location",
-        "de": "Standort",
-        "nl": "Plaats"
+        "en": "Location & navigation",
+        "de": "Standort & Navigation",
+        "nl": "Plaats & Navigatie"
       },
       "images": {
         "large": "/drivers/location/assets/images/large.png",
@@ -1684,6 +1821,241 @@
                 "en": "VIN"
               },
               "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Location 1",
+            "de": "Standort 1",
+            "nl": "Plaats 1"
+          },
+          "children": [
+            {
+              "id": "location_01_name",
+              "type": "text",
+              "label": {
+                "en": "Name"
+              },
+              "value": ""
+            },
+            {
+              "id": "location_01_latitude",
+              "type": "number",
+              "label": {
+                "en": "Latitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_01_longitude",
+              "type": "number",
+              "label": {
+                "en": "Longitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_01_url",
+              "type": "text",
+              "label": {
+                "en": "Google Maps URL"
+              },
+              "value": "",
+              "hint": {
+                "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+                "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+                "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Location 2",
+            "de": "Standort 2",
+            "nl": "Plaats 2"
+          },
+          "children": [
+            {
+              "id": "location_02_name",
+              "type": "text",
+              "label": {
+                "en": "Name"
+              },
+              "value": ""
+            },
+            {
+              "id": "location_02_latitude",
+              "type": "number",
+              "label": {
+                "en": "Latitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_02_longitude",
+              "type": "number",
+              "label": {
+                "en": "Longitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_02_url",
+              "type": "text",
+              "label": {
+                "en": "Google Maps URL"
+              },
+              "value": "",
+              "hint": {
+                "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+                "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+                "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Location 3",
+            "de": "Standort 3",
+            "nl": "Plaats 3"
+          },
+          "children": [
+            {
+              "id": "location_03_name",
+              "type": "text",
+              "label": {
+                "en": "Name"
+              },
+              "value": ""
+            },
+            {
+              "id": "location_03_latitude",
+              "type": "number",
+              "label": {
+                "en": "Latitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_03_longitude",
+              "type": "number",
+              "label": {
+                "en": "Longitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_03_url",
+              "type": "text",
+              "label": {
+                "en": "Google Maps URL"
+              },
+              "value": "",
+              "hint": {
+                "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+                "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+                "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Location 4",
+            "de": "Standort 4",
+            "nl": "Plaats 4"
+          },
+          "children": [
+            {
+              "id": "location_04_name",
+              "type": "text",
+              "label": {
+                "en": "Name"
+              },
+              "value": ""
+            },
+            {
+              "id": "location_04_latitude",
+              "type": "number",
+              "label": {
+                "en": "Latitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_04_longitude",
+              "type": "number",
+              "label": {
+                "en": "Longitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_04_url",
+              "type": "text",
+              "label": {
+                "en": "Google Maps URL"
+              },
+              "value": "",
+              "hint": {
+                "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+                "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+                "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Location 5",
+            "de": "Standort 5",
+            "nl": "Plaats 5"
+          },
+          "children": [
+            {
+              "id": "location_05_name",
+              "type": "text",
+              "label": {
+                "en": "Name"
+              },
+              "value": ""
+            },
+            {
+              "id": "location_05_latitude",
+              "type": "number",
+              "label": {
+                "en": "Latitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_05_longitude",
+              "type": "number",
+              "label": {
+                "en": "Longitude"
+              },
+              "value": 0
+            },
+            {
+              "id": "location_05_url",
+              "type": "text",
+              "label": {
+                "en": "Google Maps URL"
+              },
+              "value": "",
+              "hint": {
+                "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
+                "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
+                "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+              }
             }
           ]
         }
@@ -2092,7 +2464,7 @@
       "type": "number",
       "title": {
         "en": "Speed",
-        "de": "Geschrindigkeit",
+        "de": "Geschwindigkeit",
         "nl": "Snelheid"
       },
       "units": {
@@ -2125,6 +2497,7 @@
         "de": "Breitengrad",
         "nl": "Breedtegraad"
       },
+      "decimals": 8,
       "insights": true,
       "getable": true,
       "setable": false,
@@ -2137,6 +2510,7 @@
         "de": "Längengrad",
         "nl": "Lengtegraad"
       },
+      "decimals": 8,
       "insights": true,
       "getable": true,
       "setable": false,

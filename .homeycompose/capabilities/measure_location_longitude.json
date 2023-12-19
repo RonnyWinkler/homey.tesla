@@ -5,6 +5,7 @@
       "de": "Längengrad",
       "nl": "Lengtegraad"
     },
+    "decimals": 8,
     "insights": true,
     "getable": true,
     "setable": false,

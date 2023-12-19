@@ -1,17 +1,18 @@
 {
   "id": "com.tesla.car",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
   "name": {
-    "en": "Tesla",
-    "de": "Tesla"
-  },
-  "description": {
     "en": "Tesla Vehicle",
     "de": "Tesla Fahrzeug",
     "nl": "Tesla Voertuig"
+  },
+  "description": {
+    "en": "Zero emissions. Zero compromises.",
+    "de": "Keine Emissionen. Keine Kompromisse.",
+    "nl": "Geen uitstoot. Geen compromis."
   },
   "tags": { 
     "en": ["Tesla", "car", "charger", "charging"],

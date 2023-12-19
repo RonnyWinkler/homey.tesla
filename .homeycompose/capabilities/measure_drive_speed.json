@@ -2,7 +2,7 @@
     "type": "number",
     "title": {
       "en": "Speed",
-      "de": "Geschrindigkeit",
+      "de": "Geschwindigkeit",
       "nl": "Snelheid"
     },
     "units": {
