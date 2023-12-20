@@ -11,5 +11,8 @@
   },
   "0.0.4": {
     "en": "door lock, sentry mode, flashlights"
+  },
+  "0.0.5": {
+    "en": "honk, window state, descriptions and repair view"
   }
 }

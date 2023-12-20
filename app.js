@@ -65,6 +65,18 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionFlashLights();
 		});
 
+    this.homey.flow.getActionCard('car_honk_horn')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionHonkHorn();
+		});
+
+    this.homey.flow.getActionCard('car_window_position')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionWindowPosition(args.position);
+		});
+
+    
+
   }
 
   // FLOW TRIGGER ======================================================================================

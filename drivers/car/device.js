@@ -309,6 +309,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.oAuth2Client.commandFlashLights(this.getData().id);
   }
 
+  async _commandHonkHorn(){
+    await this._wakeUpIfNeeded();
+    await this.oAuth2Client.commandHonkHorn(this.getData().id);
+  }
+
+  async _commandWindowPosition(position){
+    await this._wakeUpIfNeeded();
+    await this.oAuth2Client.commandWindowPosition(this.getData().id, position);
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -354,6 +364,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async flowActionFlashLights(){
     await this._commandFlashLights();
+  }
+
+  async flowActionHonkHorn(){
+    await this._commandHonkHorn();
+  }
+
+  async flowActionWindowPosition(position){
+    await this._commandWindowPosition(position);
   }
 
 }

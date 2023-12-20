@@ -3,8 +3,9 @@
         "register":{
             "title": "App-registratie",
             "subtitle": "Registreer de Homey app in je auto",
-            "text1": "Register the Homey app in your car to allow the app to send commands to your car.",
-            "text2": "Volg deze <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>link</a> of tik op het Tesla-pictogram om het Tesla-registratieproces te starten."
+            "text1": "Registreer de Homey app in je auto zodat de app opdrachten naar je auto kan sturen.",
+            "text2": "Volg deze <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>link</a> of tik op het Tesla-pictogram om het Tesla-registratieproces te starten.",
+            "text3": "Deze registratie zal waarschijnlijk noodzakelijk worden als onderdeel van Tesla's API-wijzigingen. Deze stap kan momenteel worden overgeslagen en indien nodig later worden uitgevoerd via 'Repareren'."
         },
         "battery":{
             "name": "Accu"

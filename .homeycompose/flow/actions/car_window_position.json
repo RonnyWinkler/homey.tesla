@@ -1,0 +1,47 @@
+{
+    "title": {
+        "en": "Set window position",
+        "de": "Setze Fenster-Position",
+        "nl": "Raampositie instellen"
+    },
+    "titleFormatted": {
+        "en": "Set window position to [[position]]",
+        "de": "Setze Fenster-Position auf [[position]]",
+        "nl": "Zet de raampositie op [[position]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "type": "dropdown",
+            "name": "position",
+            "title": { 
+                "en": "Position", 
+                "de": "Position",
+                "nl": "Positie"
+            },
+            "values": [
+                { 
+                    "id": "close", 
+                    "title": { 
+                        "en": "Closed",
+                        "de": "Geschlossen", 
+                        "nl": "Gesloten" 
+                    } 
+                },
+                { 
+                    "id": "vent", 
+                    "title": { 
+                        "en": "Vent",
+                        "de": "Entlüften", 
+                        "nl": "Ontluchten" 
+                    } 
+                }
+            ]
+        }
+
+    ]
+}
