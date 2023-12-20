@@ -28,8 +28,14 @@
         "measure_car_tpms_pressure_rl",
         "measure_car_tpms_pressure_rr",
 
-        "measure_car_software_version.",
+        "measure_car_software_version",
+        "measure_car_software_update_version",
 
+        "software_update_state",
+
+        "car_doors_locked",
+        "car_sentry_mode",
+        
         "refresh",
         "wake_up"
     ],

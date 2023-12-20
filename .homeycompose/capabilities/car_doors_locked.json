@@ -1,0 +1,13 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Doors locked",
+      "de": "Türen verriegelt",
+      "nl": "Deuren op slot"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/car_doors_locked.svg"
+  }

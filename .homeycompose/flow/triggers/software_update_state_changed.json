@@ -1,0 +1,22 @@
+{
+    "title": {
+        "en": "Update state changed",
+        "de": "Aktualisisierungsstatus hat sich geändert",
+        "nl": "Status bijwerken gewijzigd"
+    },
+    "tokens": [{
+            "name": "charging_state",
+            "type": "string",
+            "title": {
+                "en": "Update state",
+                "de": "Aktualisisierungsstatus",
+                "nl": "Status bijwerken"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

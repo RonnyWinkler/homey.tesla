@@ -1,0 +1,15 @@
+{
+    "id": "command_wake_up",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Wake up to send commands",
+      "de": "Aufwecken, um Kommandos zu senden",
+      "nl": "Word wakker om opdrachten te verzenden"
+    },
+    "hint": {
+      "en": "Wakes up the vehicle to send commands if the vehicle is still sleeping. This ensures that commands are executed. Alternatively, the vehicle can be woken up separately and commands then sent.",
+      "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
+      "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden."
+    }
+}

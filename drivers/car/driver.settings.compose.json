@@ -33,6 +33,22 @@
         }
       ]
     },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Command settings",
+        "de": "Kommando-Einstellungen",
+        "nl": "Commando-instellingen"
+      },
+      "children": [
+        {
+          "$extends": "command_wake_up",
+          "id": "command_wake_up"
+        }
+      ]
+    },
+
     {
       "type": "group",
       "label": {

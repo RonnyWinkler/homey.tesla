@@ -1,0 +1,12 @@
+{
+    "type": "string",
+    "title": {
+        "en": "Update state",
+        "de": "Aktualisierungs-Status",
+        "nl": "Status bijwerken"
+    },
+    "uiComponent": "sensor",
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/software_update_state.svg"
+}

@@ -6,6 +6,11 @@
       "de": "Offline Abruf-Intervall",
       "nl": "Offline polling interval"
     },
+    "hint": {
+      "en": "Specifies the interval at which data is retrieved while the vehicle is asleep.",
+      "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug schläft.",
+      "nl": "Specificeert het interval waarmee gegevens worden opgehaald terwijl het voertuig slaapt."
+    },
     "value": 10,
     "min": 1
 }

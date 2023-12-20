@@ -1,0 +1,19 @@
+{
+    "title": {
+        "en": "Activate Sentry Mode",
+        "de": "Aktiviere den Sentry-Modus",
+        "nl": "Activeer de Sentry-modus"
+    },
+    "titleFormatted": {
+        "en": "Activate Sentry Mode",
+        "de": "Sentry-Modus aktivieren",
+        "nl": "Sentry-modus geactiveerd"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}

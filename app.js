@@ -40,6 +40,31 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionSetLocation(args.latitude, args.longitude);
 		});
 
+    this.homey.flow.getActionCard('car_doors_lock')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionDoorLock(true);
+		});
+
+    this.homey.flow.getActionCard('car_doors_unlock')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionDoorLock(false);
+		});
+
+    this.homey.flow.getActionCard('car_sentry_mode_on')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSentryMode(true);
+		});
+
+    this.homey.flow.getActionCard('car_sentry_mode_off')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSentryMode(false);
+		});
+
+    this.homey.flow.getActionCard('car_flash_lights')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionFlashLights();
+		});
+
   }
 
   // FLOW TRIGGER ======================================================================================

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -94,6 +94,70 @@
           }
         ],
         "id": "battery_heater_true"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Doors were unlocked",
+          "de": "Türen wurden aufgeschlossen",
+          "nl": "Deuren waren ontgrendeld"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_doors_locked_false"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Doors were locked",
+          "de": "Türen wurden verschlossen",
+          "nl": "Deuren waren op slot"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_doors_locked_true"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Sentry mode has been deactivated",
+          "de": "Sentry-Modus wurde deaktiviert",
+          "nl": "Sentry-modus is gedeactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_sentry_mode_false"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Sentry mode has been activated",
+          "de": "Sentry-Modus wurde aktiviert",
+          "nl": "Sentry-modus is geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_sentry_mode_true"
       },
       {
         "title": {
@@ -611,6 +675,32 @@
           }
         ],
         "id": "measure_battery_useable_changed"
+      },
+      {
+        "title": {
+          "en": "Available Software changed",
+          "de": "Verfügbare Software hat sich geändert",
+          "nl": "Beschikbare Software gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_car_software_update_version",
+            "type": "string",
+            "title": {
+              "en": "Available Software",
+              "de": "Verfügbare Software",
+              "nl": "Beschikbare Software"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_car_software_update_version_changed"
       },
       {
         "title": {
@@ -1140,6 +1230,32 @@
       },
       {
         "title": {
+          "en": "Update state changed",
+          "de": "Aktualisisierungsstatus hat sich geändert",
+          "nl": "Status bijwerken gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "charging_state",
+            "type": "string",
+            "title": {
+              "en": "Update state",
+              "de": "Aktualisisierungsstatus",
+              "nl": "Status bijwerken"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "software_update_state_changed"
+      },
+      {
+        "title": {
           "en": "State changed",
           "de": "Status hat sich geändert",
           "nl": "Toestand gewijzigd"
@@ -1300,6 +1416,106 @@
     "actions": [
       {
         "title": {
+          "en": "Lock doors",
+          "de": "Türen verriegeln",
+          "nl": "Deuren op slot"
+        },
+        "titleFormatted": {
+          "en": "Lock doors",
+          "de": "Türen verriegeln",
+          "nl": "Deuren op slot"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_doors_lock"
+      },
+      {
+        "title": {
+          "en": "Unlock doors",
+          "de": "Türen entriegeln",
+          "nl": "Ontgrendel deuren"
+        },
+        "titleFormatted": {
+          "en": "Unlock doors",
+          "de": "Türen entriegeln",
+          "nl": "Ontgrendel deuren"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_doors_unlock"
+      },
+      {
+        "title": {
+          "en": "Flash the head lights",
+          "de": "Lass die Scheinwerfer aufleuchten",
+          "nl": "Knipper de koplampen"
+        },
+        "titleFormatted": {
+          "en": "Flash the head lights",
+          "de": "Lass die Scheinwerfer aufleuchten",
+          "nl": "Knipper de koplampen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_flash_lights"
+      },
+      {
+        "title": {
+          "en": "Deactivate Sentry Mode",
+          "de": "Deaktiviere den Sentry-Modus",
+          "nl": "schakel de wachtmodus uit"
+        },
+        "titleFormatted": {
+          "en": "Deactivate Sentry Mode",
+          "de": "Deaktiviere den Sentry-Modus",
+          "nl": "schakel de wachtmodus uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_sentry_mode_off"
+      },
+      {
+        "title": {
+          "en": "Activate Sentry Mode",
+          "de": "Aktiviere den Sentry-Modus",
+          "nl": "Activeer de Sentry-modus"
+        },
+        "titleFormatted": {
+          "en": "Activate Sentry Mode",
+          "de": "Sentry-Modus aktivieren",
+          "nl": "Sentry-modus geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_sentry_mode_on"
+      },
+      {
+        "title": {
           "en": "Refresh car data",
           "de": "Aktualisere Fahrzeugdaten",
           "nl": "Bijgewerkte voertuiggegevens"
@@ -1325,7 +1541,7 @@
       },
       {
         "title": {
-          "en": "Set location"
+          "en": "Set location (for test only!)"
         },
         "titleFormatted": {
           "en": "Set location [[latitude]] [[longitude]]"
@@ -1515,7 +1731,11 @@
         "measure_car_tpms_pressure_fr",
         "measure_car_tpms_pressure_rl",
         "measure_car_tpms_pressure_rr",
-        "measure_car_software_version.",
+        "measure_car_software_version",
+        "measure_car_software_update_version",
+        "software_update_state",
+        "car_doors_locked",
+        "car_sentry_mode",
         "refresh",
         "wake_up"
       ],
@@ -1597,7 +1817,12 @@
                 "de": "Online Abruf-Intervall",
                 "nl": "Online polling interval"
               },
-              "value": 10,
+              "hint": {
+                "en": "Specifies the interval at which the data is retrieved as long as the vehicle is not sleeping. This also applies to periods in which the vehicle is offline (e.g. no mobile network available for a short time).",
+                "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug nicht schläft. Die gilt auch für Zeiträume, in denen das Fahrzeug offline ist (z.B. kurzzeitig keine Mobilfunknetz verfügbar).",
+                "nl": "Specificeert het interval waarmee de gegevens worden opgehaald zolang het voertuig niet slaapt. Dit geldt ook voor perioden waarin het voertuig offline is (bijvoorbeeld als er korte tijd geen mobiel netwerk beschikbaar is)."
+              },
+              "value": 1,
               "min": 1
             },
             {
@@ -1635,6 +1860,11 @@
                 "en": "Offline polling interval",
                 "de": "Offline Abruf-Intervall",
                 "nl": "Offline polling interval"
+              },
+              "hint": {
+                "en": "Specifies the interval at which data is retrieved while the vehicle is asleep.",
+                "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug schläft.",
+                "nl": "Specificeert het interval waarmee gegevens worden opgehaald terwijl het voertuig slaapt."
               },
               "value": 10,
               "min": 1
@@ -1680,6 +1910,31 @@
                 "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
                 "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
                 "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Command settings",
+            "de": "Kommando-Einstellungen",
+            "nl": "Commando-instellingen"
+          },
+          "children": [
+            {
+              "id": "command_wake_up",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Wake up to send commands",
+                "de": "Aufwecken, um Kommandos zu senden",
+                "nl": "Word wakker om opdrachten te verzenden"
+              },
+              "hint": {
+                "en": "Wakes up the vehicle to send commands if the vehicle is still sleeping. This ensures that commands are executed. Alternatively, the vehicle can be woken up separately and commands then sent.",
+                "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
+                "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden."
               }
             }
           ]
@@ -2096,6 +2351,52 @@
       "uiComponent": "sensor",
       "icon": "/assets/capability_icons/battery_heater.svg"
     },
+    "car_doors_locked": {
+      "type": "boolean",
+      "title": {
+        "en": "Doors locked",
+        "de": "Türen verriegelt",
+        "nl": "Deuren op slot"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_doors_locked.svg"
+    },
+    "car_sentry_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Sentry mode",
+        "de": "Sentry-Modus",
+        "nl": "Sentry-modus"
+      },
+      "titleTrue": {
+        "en": "Sentry mode activated",
+        "de": "Sentry-Modus aktiviert",
+        "nl": "Sentry-modus geactiveerd"
+      },
+      "titleFasle": {
+        "en": "Sentry mode deactivated",
+        "de": "Sentry-Modus deaktiviert",
+        "nl": "Sentry-modus deaktiviert"
+      },
+      "insightsTitleTrue": {
+        "en": "Sentry mode activated",
+        "de": "Sentry-Modus aktiviert",
+        "nl": "Sentry-modus geactiveerd"
+      },
+      "insightsTitleFalse": {
+        "en": "Sentry mode deactivated",
+        "de": "Sentry-Modus deaktiviert",
+        "nl": "Sentry-modus deaktiviert"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_sentry_mode.svg"
+    },
     "charging_state": {
       "type": "enum",
       "title": {
@@ -2239,6 +2540,18 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_battery_useable.svg"
+    },
+    "measure_car_software_update_version": {
+      "type": "string",
+      "title": {
+        "en": "Available software",
+        "de": "Verfügbare Software",
+        "nl": "Beschikbare software"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_car_software_update_version.svg"
     },
     "measure_car_software_version": {
       "type": "string",
@@ -2544,6 +2857,18 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/refresh.svg"
+    },
+    "software_update_state": {
+      "type": "string",
+      "title": {
+        "en": "Update state",
+        "de": "Aktualisierungs-Status",
+        "nl": "Status bijwerken"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/software_update_state.svg"
     },
     "state": {
       "type": "enum",

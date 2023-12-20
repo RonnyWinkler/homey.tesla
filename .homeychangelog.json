@@ -4,11 +4,12 @@
     "de": "Initiales Alpha-Release"
   },
   "0.0.2": {
-    "en": "New device images",
-    "de": "Neue Gerätebilder"
+    "en": "New device images"
   },
   "0.0.3": {
-    "en": "Beta updates",
-    "de": "Neue Gerätebilder"
+    "en": "Beta updates"
+  },
+  "0.0.4": {
+    "en": "door lock, sentry mode, flashlights"
   }
 }

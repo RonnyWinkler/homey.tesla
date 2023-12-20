@@ -6,6 +6,11 @@
       "de": "Online Abruf-Intervall",
       "nl": "Online polling interval"
     },
-    "value": 10,
+    "hint":{
+      "en": "Specifies the interval at which the data is retrieved as long as the vehicle is not sleeping. This also applies to periods in which the vehicle is offline (e.g. no mobile network available for a short time).",
+      "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug nicht schläft. Die gilt auch für Zeiträume, in denen das Fahrzeug offline ist (z.B. kurzzeitig keine Mobilfunknetz verfügbar).",
+      "nl": "Specificeert het interval waarmee de gegevens worden opgehaald zolang het voertuig niet slaapt. Dit geldt ook voor perioden waarin het voertuig offline is (bijvoorbeeld als er korte tijd geen mobiel netwerk beschikbaar is)."
+    },
+    "value": 1,
     "min": 1
 }

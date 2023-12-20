@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Sentry mode",
+      "de": "Sentry-Modus",
+      "nl": "Sentry-modus"
+    },
+    "titleTrue":{
+      "en": "Sentry mode activated",
+      "de": "Sentry-Modus aktiviert",
+      "nl": "Sentry-modus geactiveerd"
+    },
+    "titleFasle":{
+      "en": "Sentry mode deactivated",
+      "de": "Sentry-Modus deaktiviert",
+      "nl": "Sentry-modus deaktiviert"      
+    },
+    "insightsTitleTrue":{
+      "en": "Sentry mode activated",
+      "de": "Sentry-Modus aktiviert",
+      "nl": "Sentry-modus geactiveerd"
+    },
+    "insightsTitleFalse":{
+      "en": "Sentry mode deactivated",
+      "de": "Sentry-Modus deaktiviert",
+      "nl": "Sentry-modus deaktiviert"      
+    },
+    "insights": true,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/car_sentry_mode.svg"
+  }

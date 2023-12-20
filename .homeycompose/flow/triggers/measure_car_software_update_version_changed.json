@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Available Software changed",
+        "de": "Verfügbare Software hat sich geändert",
+        "nl": "Beschikbare Software gewijzigd"
+    },
+    "tokens": [
+       {
+            "name": "measure_car_software_update_version",
+            "type": "string",
+            "title": {
+                "en": "Available Software",
+                "de": "Verfügbare Software",
+                "nl": "Beschikbare Software"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

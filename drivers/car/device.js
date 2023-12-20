@@ -75,7 +75,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._sync();
   }
 
-  // SYNC =======================================================================================
+  // SYNC Logic =======================================================================================
 
   async _startSync(){
     await this._stopSync();
@@ -109,6 +109,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  // SYNC =======================================================================================
+
   async _sync() {
     // Step 1: Get car status (online/offline/asleep) and check device availability
     try{
@@ -130,24 +132,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       catch(error){
         this.log("Device update error (getData): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
       }
-    }
-  }
-
-  isOnline(){
-    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ONLINE){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-
-  isAsleep(){
-    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ASLEEP){
-      return true;
-    }
-    else{
-      return false;
     }
   }
 
@@ -181,7 +165,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       query.push('location_data');
     }
     let data = await this.oAuth2Client.getVehicleData(this.getData().id, query);    
-    
+
+    // Car state
+    if (this.hasCapability('car_doors_locked') && data.charge_state && data.vehicle_state.locked != undefined){
+      await this.setCapabilityValue('car_doors_locked', data.vehicle_state.locked);
+    }
+    if (this.hasCapability('car_sentry_mode') && data.charge_state && data.vehicle_state.sentry_mode != undefined){
+      await this.setCapabilityValue('car_sentry_mode', data.vehicle_state.sentry_mode);
+    }
+
     // Battery
     if (this.hasCapability('measure_battery') && data.charge_state && data.charge_state.battery_level != undefined){
       await this.setCapabilityValue('measure_battery', data.charge_state.battery_level);
@@ -218,10 +210,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // Software
-    if (this.hasCapability('measure_car_software_version.') && data.vehicle_state && data.vehicle_state.car_version != undefined){
-      await this.setCapabilityValue('measure_car_software_version.', data.vehicle_state.car_version.split(' ')[0]);
+    if (this.hasCapability('measure_car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
+      await this.setCapabilityValue('measure_car_software_version', data.vehicle_state.car_version.split(' ')[0]);
+    }
+    if (this.hasCapability('measure_car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+      await this.setCapabilityValue('measure_car_software_update_version', data.vehicle_state.software_update.version);
+    }
+    if (this.hasCapability('software_update_state') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+      await this.setCapabilityValue('software_update_state', data.vehicle_state.software_update.status);
     }
 
+    
       
 
     let time = this._getLocalTimeString(new Date());
@@ -243,7 +242,28 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   }
 
-  async wakeUp(wait=true){
+  // State checks =======================================================================================
+
+  isOnline(){
+    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ONLINE){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  isAsleep(){
+    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ASLEEP){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  // Commands =======================================================================================
+  async _wakeUp(wait=true){
     this.log("Wake up the car...");
     await this.getCarState();
     if (this.isOnline()){
@@ -268,6 +288,27 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     throw new Error("Waking up the vehicle was not successful.");
   }
 
+  async _wakeUpIfNeeded(){
+    if (this.getSetting('command_wake_up')){
+      await this._wakeUp(true);
+    }
+  }
+
+  async _commandDoorLock(locked){
+    await this._wakeUpIfNeeded();
+    await this.oAuth2Client.commandDoorLock(this.getData().id, locked);
+  }
+
+  async _commandSentryMode(state){
+    await this._wakeUpIfNeeded();
+    await this.oAuth2Client.commandSentryMode(this.getData().id, state);
+  }
+
+  async _commandFlashLights(){
+    await this._wakeUpIfNeeded();
+    await this.oAuth2Client.commandFlashLights(this.getData().id);
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -278,9 +319,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     if( capabilityValues["wake_up"] != undefined){
-      await this.wakeUp(true);
+      await this._wakeUp(true);
     }
 
+    if( capabilityValues["car_doors_locked"] != undefined){
+      await this._commandDoorLock(capabilityValues["car_doors_locked"]);
+    }
+
+    if( capabilityValues["car_sentry_mode"] != undefined){
+      await this._commandSentryMode(capabilityValues["car_sentry_mode"]);
+    }
+    
   }
 
   // FLOW ACTIONS =======================================================================================
@@ -290,12 +339,21 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async flowActionWakeUp(wait=true){
-    return await this.wakeUp(wait);
+    return await this._wakeUp(wait);
   }
 
+  async flowActionDoorLock(locked){
+    await this._commandDoorLock(locked);
+    this.setCapabilityValue('car_doors_locked', locked);
+  }
+
+  async flowActionSentryMode(state){
+    await this._commandSentryMode(state);
+    this.setCapabilityValue('car_sentry_mode', state);
+  }
 
   async flowActionFlashLights(){
-    return await this.oAuth2Client.commandFlashLights(this.getData().id);
+    await this._commandFlashLights();
   }
 
 }

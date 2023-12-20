@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Doors were locked",
+        "de": "Türen wurden verschlossen",
+        "nl": "Deuren waren op slot"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}

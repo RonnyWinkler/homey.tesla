@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Doors were unlocked",
+        "de": "Türen wurden aufgeschlossen",
+        "nl": "Deuren waren ontgrendeld"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}

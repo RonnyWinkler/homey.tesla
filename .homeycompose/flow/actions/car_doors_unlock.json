@@ -1,0 +1,19 @@
+{
+    "title": {
+        "en": "Unlock doors",
+        "de": "Türen entriegeln",
+        "nl": "Ontgrendel deuren"
+    },
+    "titleFormatted": {
+        "en": "Unlock doors",
+        "de": "Türen entriegeln",
+        "nl": "Ontgrendel deuren"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}

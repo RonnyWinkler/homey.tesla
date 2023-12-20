@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Sentry mode has been activated",
+        "de": "Sentry-Modus wurde aktiviert",
+        "nl": "Sentry-modus is geactiveerd"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}
