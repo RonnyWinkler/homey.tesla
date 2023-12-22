@@ -1,0 +1,14 @@
+{
+    "title": {
+        "en": "A/C auto was turned off",
+        "de": "A/C auto wurde ausgeschaltet",
+        "nl": "A/C auto stond uit"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+        }
+      ]
+}

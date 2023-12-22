@@ -288,34 +288,34 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     throw new Error("Waking up the vehicle was not successful.");
   }
 
-  async _wakeUpIfNeeded(){
+  async wakeUpIfNeeded(){
     if (this.getSetting('command_wake_up')){
       await this._wakeUp(true);
     }
   }
 
   async _commandDoorLock(locked){
-    await this._wakeUpIfNeeded();
+    await this.wakeUpIfNeeded();
     await this.oAuth2Client.commandDoorLock(this.getData().id, locked);
   }
 
   async _commandSentryMode(state){
-    await this._wakeUpIfNeeded();
+    await this.wakeUpIfNeeded();
     await this.oAuth2Client.commandSentryMode(this.getData().id, state);
   }
 
   async _commandFlashLights(){
-    await this._wakeUpIfNeeded();
+    await this.wakeUpIfNeeded();
     await this.oAuth2Client.commandFlashLights(this.getData().id);
   }
 
   async _commandHonkHorn(){
-    await this._wakeUpIfNeeded();
+    await this.wakeUpIfNeeded();
     await this.oAuth2Client.commandHonkHorn(this.getData().id);
   }
 
   async _commandWindowPosition(position){
-    await this._wakeUpIfNeeded();
+    await this.wakeUpIfNeeded();
     await this.oAuth2Client.commandWindowPosition(this.getData().id, position);
   }
 

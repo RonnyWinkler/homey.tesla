@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "A/C auto",
+      "de": "A/C auto",
+      "nl": "A/C auto"
+    },
+    "insights": false,
+    "titleTrue": {
+      "en": "A/C auto on",
+      "de": "A/C auto an",
+      "nl": "A/C auto aan"
+    },
+    "titleFalse": {
+      "en": "A/C auto off",
+      "de": "A/C auto aus",
+      "nl": "A/C auto uit"
+    },
+    "insightsTitleTrue": {
+      "en": "A/C auto on",
+      "de": "A/C auto an",
+      "nl": "A/C auto aan"
+    },
+    "insightsTitleFalse": {
+      "en": "A/C auto off",
+      "de": "A/C auto aus",
+      "nl": "A/C auto uit"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "/assets/capability_icons/climate_ac_auto.svg"
+  }

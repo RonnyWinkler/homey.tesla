@@ -40,6 +40,10 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
     if (this.hasCapability('charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
       this.setCapabilityValue('charging_state', data.charge_state.charging_state);
+      // Values:
+      // Charging
+      // Complete
+      // Disconnected
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);

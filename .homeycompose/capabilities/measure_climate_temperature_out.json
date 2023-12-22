@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Outside temperature",
+      "de": "Außentemperatur",
+      "nl": "Buitentemperatuur"
+    },
+    "units": {
+      "en": "°C"
+    },
+    "decimals": 2,
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
+  }

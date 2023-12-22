@@ -14,5 +14,8 @@
   },
   "0.0.5": {
     "en": "honk, window state, descriptions and repair view"
+  },
+  "0.0.6": {
+    "en": "extended climate device, changed existign flow actions"
   }
 }

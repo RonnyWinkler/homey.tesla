@@ -1,0 +1,54 @@
+{
+    "title": {
+        "en": "Climate preconditioning level !{{is|isn't}}",
+        "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}}",
+        "nl": "Preconditioneringsfase !{{is|is niet}}"
+    },
+    "titleFormatted": {
+        "en": "Climate preconditioning level !{{is|isn't}} [[level]]",
+        "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}} [[level]]",
+        "nl": "Preconditioneringsfase !{{is|is niet}} [[level]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+        },
+        {
+            "name": "level",
+            "type": "dropdown",
+            "title": { 
+                "en": "Climate preconditioning level",
+                "de": "Klimavorkonditionierung-Stufe",
+                "nl": "Preconditioneringsfase"
+            },
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "de": "Niedrig",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "de": "Mittel",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "de": "Hoch",
+                  "nl": "Hoog"
+                }
+              }
+          ]
+        }
+    ]
+}

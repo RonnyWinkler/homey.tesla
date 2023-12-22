@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "A/C",
+      "de": "A/C",
+      "nl": "A/C"
+    },
+    "insights": false,
+    "titleTrue": {
+      "en": "A/C on",
+      "de": "A/C an",
+      "nl": "A/C aan"
+    },
+    "titleFalse": {
+      "en": "A/C off",
+      "de": "A/C aus",
+      "nl": "A/C uit"
+    },
+    "insightsTitleTrue": {
+      "en": "A/C on",
+      "de": "A/C an",
+      "nl": "A/C aan"
+    },
+    "insightsTitleFalse": {
+      "en": "A/C off",
+      "de": "A/C aus",
+      "nl": "A/C uit"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "/assets/capability_icons/climate_ac.svg"
+  }

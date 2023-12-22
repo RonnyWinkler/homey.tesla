@@ -20,6 +20,7 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     await this._initFlowActions();
     await this._initFlowTriggers();
+    await this._initFlowConditions();
   }
 
   // FLOW ACTIONS ==============================================================================
@@ -40,24 +41,14 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionSetLocation(args.latitude, args.longitude);
 		});
 
-    this.homey.flow.getActionCard('car_doors_lock')
+    this.homey.flow.getActionCard('car_doors')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionDoorLock(true);
+				await args.device.flowActionDoorLock(args.action == 'lock');
 		});
 
-    this.homey.flow.getActionCard('car_doors_unlock')
+    this.homey.flow.getActionCard('car_sentry_mode')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionDoorLock(false);
-		});
-
-    this.homey.flow.getActionCard('car_sentry_mode_on')
-    .registerRunListener(async (args, state) => {
-				await args.device.flowActionSentryMode(true);
-		});
-
-    this.homey.flow.getActionCard('car_sentry_mode_off')
-    .registerRunListener(async (args, state) => {
-				await args.device.flowActionSentryMode(false);
+				await args.device.flowActionSentryMode(args.action == 'on');
 		});
 
     this.homey.flow.getActionCard('car_flash_lights')
@@ -75,7 +66,30 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionWindowPosition(args.position);
 		});
 
-    
+    this.homey.flow.getActionCard('climate_preconditioning')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditioning(args.action == 'on');
+		});
+
+    this.homey.flow.getActionCard('climate_preconditioning_mode')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditioningMode(args.mode);
+		});
+
+    this.homey.flow.getActionCard('climate_preconditioning_level')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditioningLevel(args.level);
+		});
+
+    this.homey.flow.getActionCard('climate_defrost')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionDefrost(args.action == 'on');
+		});
+
+    this.homey.flow.getActionCard('climate_temperature')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionTemperature(args.temp_driver, args.temp_passenger);
+		});
 
   }
 
@@ -100,4 +114,10 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     });
 
   }
+
+  // FLOW CONDITIONS ==============================================================================
+  async _initFlowConditions(){
+  
+  }
+
 }

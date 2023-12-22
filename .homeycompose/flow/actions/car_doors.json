@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Lock/unlock doors",
+        "de": "Türen verriegeln/entriegeln",
+        "nl": "Deuren vergrendelen/ontgrendelen"
+    },
+    "titleFormatted": {
+        "en": "[[action]] doors",
+        "de": "Türen [[action]]",
+        "nl": "Deuren [[action]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "lock",
+                "label": {
+                  "en": "Lock",
+                  "de": "verriegeln",
+                  "nl": "vergrendelen"
+                }
+              },
+              {
+                "id": "unlock",
+                "label": {
+                  "en": "Unlock",
+                  "de": "entriegeln",
+                  "nl": "ontgrendelen"
+                }
+              }
+            ]
+        }
+    ]
+}

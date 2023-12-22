@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -185,6 +185,180 @@
           }
         ],
         "id": "charging_state_changed"
+      },
+      {
+        "title": {
+          "en": "A/C auto was turned off",
+          "de": "A/C auto wurde ausgeschaltet",
+          "nl": "A/C auto stond uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_ac_auto_false"
+      },
+      {
+        "title": {
+          "en": "A/C auto was turned on",
+          "de": "A/C auto wurde eingeschaltet",
+          "nl": "A/C auto stond aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_ac_auto_true"
+      },
+      {
+        "title": {
+          "en": "A/C was turned off",
+          "de": "A/C wurde ausgeschaltet",
+          "nl": "A/C stond uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_ac_false"
+      },
+      {
+        "title": {
+          "en": "A/C was turned on",
+          "de": "A/C wurde eingeschaltet",
+          "nl": "A/C stond aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_ac_true"
+      },
+      {
+        "title": {
+          "en": "Defrost has been deactivated",
+          "de": "Enteisen wurde deaktiviert",
+          "nl": "Ontdooien is gedeactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_defrost_false"
+      },
+      {
+        "title": {
+          "en": "Defrost has been deactivated",
+          "de": "Enteisen wurde deaktiviert",
+          "nl": "Ontdooien is geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_defrost_true"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning has been deactivated",
+          "de": "Klimavorkonditionierung wurde deaktiviert",
+          "nl": "Klimaatvoorbereiding is gedeactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_preconditioning_false"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning level changed",
+          "de": "Klimavorkonditionierung-Stufe hat sich geändert",
+          "nl": "Preconditioneringsfase gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "climate_preconditioning_level",
+            "type": "string",
+            "title": {
+              "en": "Climate preconditioning level",
+              "de": "Klimavorkonditionierung-Stufe",
+              "nl": "Preconditioneringsfase"
+            },
+            "example": "low"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_preconditioning_level_changed"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning mode changed",
+          "de": "Klimavorkonditionierung-Modus hat sich geändert",
+          "nl": "Klimaatvoorbereidingmodus gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "climate_preconditioning_mode",
+            "type": "string",
+            "title": {
+              "en": "Climate preconditioning mode",
+              "de": "Klimavorkonditionierung-Modus",
+              "nl": "Klimaatvoorbereidingmodus"
+            },
+            "example": "on"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_preconditioning_mode_changed"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning has been deactivated",
+          "de": "Klimavorkonditionierung wurde deaktiviert",
+          "nl": "Klimaatvoorbereiding is geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_preconditioning_true"
       },
       {
         "title": {
@@ -1048,6 +1222,58 @@
       },
       {
         "title": {
+          "en": "Inside temperature changed",
+          "de": "Innentemperatur hat sich geändert",
+          "nl": "Binnentemperatuur gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_climate_temperature_in",
+            "type": "number",
+            "title": {
+              "en": "Inside temperature",
+              "de": "Innentemperatur",
+              "nl": "Binnentemperatuur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "measure_climate_temperature_in_changed"
+      },
+      {
+        "title": {
+          "en": "Outside temperature changed",
+          "de": "Außentemperatur hat sich geändert",
+          "nl": "Buitentemperatuur gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_climate_temperature_in",
+            "type": "number",
+            "title": {
+              "en": "Outside temperature",
+              "de": "Außentemperatur",
+              "nl": "Buitentemperatuur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "measure_climate_temperature_out_changed copy"
+      },
+      {
+        "title": {
           "en": "Power changed",
           "de": "Leistung hat sich geändert",
           "nl": "Stroom gewijzigd"
@@ -1363,6 +1589,116 @@
       },
       {
         "title": {
+          "en": "Climate preconditioning level !{{is|isn't}}",
+          "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}}",
+          "nl": "Preconditioneringsfase !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Climate preconditioning level !{{is|isn't}} [[level]]",
+          "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}} [[level]]",
+          "nl": "Preconditioneringsfase !{{is|is niet}} [[level]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "title": {
+              "en": "Climate preconditioning level",
+              "de": "Klimavorkonditionierung-Stufe",
+              "nl": "Preconditioneringsfase"
+            },
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "de": "Niedrig",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "de": "Mittel",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "de": "Hoch",
+                  "nl": "Hoog"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_preconditioning_level"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning mode !{{is|isn't}}",
+          "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}}",
+          "nl": "Klimaatvoorbereidingmodus !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Climate preconditioning mode !{{is|isn't}} [[mode]]",
+          "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}} [[mode]]",
+          "nl": "Klimaatvoorbereidingmodus !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Climate preconditioning mode",
+              "de": "Klimavorkonditionierung-Modus",
+              "nl": "Klimaatvoorbereidingmodus"
+            },
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "fan_only",
+                "title": {
+                  "en": "Without A/C",
+                  "de": "Ohne A/C",
+                  "nl": "Zonder A/C"
+                }
+              },
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "de": "An",
+                  "nl": "Bij"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_preconditioning_mode"
+      },
+      {
+        "title": {
           "en": "State !{{is|isn't}}",
           "de": "Status !{{ist|ist nicht}}",
           "nl": "Toestand !{{is|is niet}}"
@@ -1416,43 +1752,45 @@
     "actions": [
       {
         "title": {
-          "en": "Lock doors",
-          "de": "Türen verriegeln",
-          "nl": "Deuren op slot"
+          "en": "Lock/unlock doors",
+          "de": "Türen verriegeln/entriegeln",
+          "nl": "Deuren vergrendelen/ontgrendelen"
         },
         "titleFormatted": {
-          "en": "Lock doors",
-          "de": "Türen verriegeln",
-          "nl": "Deuren op slot"
+          "en": "[[action]] doors",
+          "de": "Türen [[action]]",
+          "nl": "Deuren [[action]]"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
             "filter": "driver_id=car"
-          }
-        ],
-        "id": "car_doors_lock"
-      },
-      {
-        "title": {
-          "en": "Unlock doors",
-          "de": "Türen entriegeln",
-          "nl": "Ontgrendel deuren"
-        },
-        "titleFormatted": {
-          "en": "Unlock doors",
-          "de": "Türen entriegeln",
-          "nl": "Ontgrendel deuren"
-        },
-        "args": [
+          },
           {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "lock",
+                "label": {
+                  "en": "Lock",
+                  "de": "verriegeln",
+                  "nl": "vergrendelen"
+                }
+              },
+              {
+                "id": "unlock",
+                "label": {
+                  "en": "Unlock",
+                  "de": "entriegeln",
+                  "nl": "ontgrendelen"
+                }
+              }
+            ]
           }
         ],
-        "id": "car_doors_unlock"
+        "id": "car_doors"
       },
       {
         "title": {
@@ -1496,43 +1834,45 @@
       },
       {
         "title": {
-          "en": "Deactivate Sentry Mode",
-          "de": "Deaktiviere den Sentry-Modus",
-          "nl": "schakel de wachtmodus uit"
+          "en": "Sentry mode",
+          "de": "Sentry-Modus",
+          "nl": "Wachtmodus"
         },
         "titleFormatted": {
-          "en": "Deactivate Sentry Mode",
-          "de": "Deaktiviere den Sentry-Modus",
-          "nl": "schakel de wachtmodus uit"
+          "en": "Sentry Mode [[action]]",
+          "de": "Sentry-Modus [[action]]",
+          "nl": "Wachtmodus [[action]]"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
             "filter": "driver_id=car"
-          }
-        ],
-        "id": "car_sentry_mode_off"
-      },
-      {
-        "title": {
-          "en": "Activate Sentry Mode",
-          "de": "Aktiviere den Sentry-Modus",
-          "nl": "Activeer de Sentry-modus"
-        },
-        "titleFormatted": {
-          "en": "Activate Sentry Mode",
-          "de": "Sentry-Modus aktivieren",
-          "nl": "Sentry-modus geactiveerd"
-        },
-        "args": [
+          },
           {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "aktivieren",
+                  "nl": "activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Deactivate",
+                  "de": "deaktivieren",
+                  "nl": "deactiveren"
+                }
+              }
+            ]
           }
         ],
-        "id": "car_sentry_mode_on"
+        "id": "car_sentry_mode"
       },
       {
         "title": {
@@ -1549,7 +1889,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=car"
+            "filter": "driver_id=car|climate"
           },
           {
             "type": "dropdown",
@@ -1580,6 +1920,249 @@
           }
         ],
         "id": "car_window_position"
+      },
+      {
+        "title": {
+          "en": "Defrost mode",
+          "de": "Entfrosten",
+          "nl": "Ontdooien"
+        },
+        "titleFormatted": {
+          "en": "[[action]] defrost mode",
+          "de": "Entfrosten [[action]]",
+          "nl": "Ontdooien [[action]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "aktivieren",
+                  "nl": "activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Deactivate",
+                  "de": "deaktivieren",
+                  "nl": "deactiveren"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_defrost"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning",
+          "de": "Klimavorkonditionierung",
+          "nl": "Klimaatvoorbereiding"
+        },
+        "titleFormatted": {
+          "en": "[[action]] climate preconditioning",
+          "de": "Klimavorkonditionierung [[action]]",
+          "nl": "Klimaatvoorbereiding [[action]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "aktivieren",
+                  "nl": "activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Deactivate",
+                  "de": "deaktivieren",
+                  "nl": "deactiveren"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_preconditioning"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning level",
+          "de": "Klimavorkonditionierung-Stufe",
+          "nl": "Preconditioneringsfase"
+        },
+        "titleFormatted": {
+          "en": "Activate climate preconditioning level [[level]]",
+          "de": "Aktiviere Klimavorkonditionierungsstufe [[level]]",
+          "nl": "Activeer de Preconditioneringsfase [[level]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "de": "Niedrig",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "de": "Mittel",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "de": "Hoch",
+                  "nl": "Hoog"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_preconditioning_level"
+      },
+      {
+        "title": {
+          "en": "Climate preconditioning mode",
+          "de": "Klimavorkonditionierung-Modus",
+          "nl": "Klimaatvoorbereidingmodus"
+        },
+        "titleFormatted": {
+          "en": "Activate climate preconditioning mode [[mode]]",
+          "de": "Aktiviere Klimavorkonditionierungsmodus [[mode]]",
+          "nl": "Activeer de klimaatvoorbehandelingsmodus [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "fan_only",
+                "title": {
+                  "en": "Without A/C",
+                  "de": "Ohne A/C",
+                  "nl": "Zonder A/C"
+                }
+              },
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "de": "An",
+                  "nl": "Bij"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_preconditioning_mode"
+      },
+      {
+        "title": {
+          "en": "Set Temperature",
+          "de": "Temperatur setzen",
+          "nl": "Stel temperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set Temperature to [[temp_driver]], [[temp_passenger]]",
+          "de": "Stelle Temperatur auf [[temp_driver]], [[temp_passenger]]",
+          "nl": "Stel de temperatuur in op [[temp_driver]], [[temp_passenger]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "temp_driver",
+            "type": "range",
+            "min": 15,
+            "max": 28,
+            "step": 0.5,
+            "label": "℃",
+            "labelDecimals": 1,
+            "title": {
+              "en": "Driver temperature",
+              "de": "Fahrertemperatur",
+              "nl": "Temperatuur bestuurder"
+            },
+            "placeholder": {
+              "en": "Driver temperature",
+              "de": "Fahrertemperatur",
+              "nl": "Temperatuur bestuurder"
+            }
+          },
+          {
+            "name": "temp_passenger",
+            "type": "range",
+            "min": 15,
+            "max": 28,
+            "step": 0.5,
+            "label": "℃",
+            "labelDecimals": 1,
+            "required": false,
+            "title": {
+              "en": "Passenger temperature",
+              "de": "Beifahrertemperatur",
+              "nl": "Temperatuur passagier"
+            },
+            "placeholder": {
+              "en": "Passenger temperature",
+              "de": "Beifahrertemperatur",
+              "nl": "Temperatuur passagier"
+            }
+          }
+        ],
+        "id": "climate_temperature"
       },
       {
         "title": {
@@ -2041,11 +2624,28 @@
       "connectivity": [
         "cloud"
       ],
-      "capabilities": [],
-      "energy": {
-        "batteries": [
-          "OTHER"
-        ]
+      "capabilities": [
+        "target_temperature",
+        "measure_temperature",
+        "climate_preconditioning_mode",
+        "climate_preconditioning_level",
+        "measure_climate_temperature_in",
+        "measure_climate_temperature_out",
+        "climate_ac",
+        "climate_ac_auto",
+        "climate_preconditioning",
+        "climate_defrost",
+        "climate_window_vent"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "type": "range",
+          "min": 15,
+          "max": 28,
+          "step": 0.5,
+          "label": "℃",
+          "labelDecimals": 1
+        }
       },
       "pair": [
         {
@@ -2425,7 +3025,7 @@
         "de": "Türen verriegelt",
         "nl": "Deuren op slot"
       },
-      "insights": true,
+      "insights": false,
       "getable": true,
       "setable": true,
       "uiComponent": "button",
@@ -2509,6 +3109,207 @@
           }
         }
       ]
+    },
+    "climate_ac": {
+      "type": "boolean",
+      "title": {
+        "en": "A/C",
+        "de": "A/C",
+        "nl": "A/C"
+      },
+      "insights": false,
+      "titleTrue": {
+        "en": "A/C on",
+        "de": "A/C an",
+        "nl": "A/C aan"
+      },
+      "titleFalse": {
+        "en": "A/C off",
+        "de": "A/C aus",
+        "nl": "A/C uit"
+      },
+      "insightsTitleTrue": {
+        "en": "A/C on",
+        "de": "A/C an",
+        "nl": "A/C aan"
+      },
+      "insightsTitleFalse": {
+        "en": "A/C off",
+        "de": "A/C aus",
+        "nl": "A/C uit"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/climate_ac.svg"
+    },
+    "climate_ac_auto": {
+      "type": "boolean",
+      "title": {
+        "en": "A/C auto",
+        "de": "A/C auto",
+        "nl": "A/C auto"
+      },
+      "insights": false,
+      "titleTrue": {
+        "en": "A/C auto on",
+        "de": "A/C auto an",
+        "nl": "A/C auto aan"
+      },
+      "titleFalse": {
+        "en": "A/C auto off",
+        "de": "A/C auto aus",
+        "nl": "A/C auto uit"
+      },
+      "insightsTitleTrue": {
+        "en": "A/C auto on",
+        "de": "A/C auto an",
+        "nl": "A/C auto aan"
+      },
+      "insightsTitleFalse": {
+        "en": "A/C auto off",
+        "de": "A/C auto aus",
+        "nl": "A/C auto uit"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/climate_ac_auto.svg"
+    },
+    "climate_defrost": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost",
+        "de": "Enteisen",
+        "nl": "Ontdooien"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "/assets/capability_icons/climate_defrost.svg"
+    },
+    "climate_preconditioning": {
+      "type": "boolean",
+      "title": {
+        "en": "Preconditioning",
+        "de": "Vorkonditionierung",
+        "nl": "Voorconditionering"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "/assets/capability_icons/climate_preconditioning.svg"
+    },
+    "climate_preconditioning_level": {
+      "type": "enum",
+      "title": {
+        "en": "Preconditioning level",
+        "de": "Vorkonditionierungsstufe",
+        "nl": "Preconditioneringsfase"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "values": [
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "de": "Niedrig",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "de": "Mittel",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "de": "Hoch",
+            "nl": "Hoog"
+          }
+        }
+      ]
+    },
+    "climate_preconditioning_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Preconditioning mode",
+        "de": "Vorkonditionierungsmodus",
+        "nl": "Voorconditioneringsmodus"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "de": "Aus",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "fan_only",
+          "title": {
+            "en": "Without A/C",
+            "de": "Ohne A/C",
+            "nl": "Zonder A/C"
+          }
+        },
+        {
+          "id": "on",
+          "title": {
+            "en": "On",
+            "de": "An",
+            "nl": "Bij"
+          }
+        }
+      ]
+    },
+    "climate_window_vent": {
+      "type": "boolean",
+      "title": {
+        "en": "Window vent mode",
+        "de": "Fensterlüftungsmodus",
+        "nl": "Raamventilatiemodus"
+      },
+      "titleTrue": {
+        "en": "Windows in vent position",
+        "de": "Fenster in Lüftungsposition",
+        "nl": "Raam in ventilatiestand"
+      },
+      "titleFasle": {
+        "en": "Windows closed",
+        "de": "Fenster geschlossen",
+        "nl": "Raam gesloten"
+      },
+      "insightsTitleTrue": {
+        "en": "Windows in vent position",
+        "de": "Fenster in Lüftungsposition",
+        "nl": "Raam in ventilatiestand"
+      },
+      "insightsTitleFalse": {
+        "en": "Windows closed",
+        "de": "Fenster geschlossen",
+        "nl": "Raam gesloten"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/climate_window_vent.svg"
     },
     "last_update": {
       "type": "string",
@@ -2812,6 +3613,38 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_charge_voltage.svg"
+    },
+    "measure_climate_temperature_in": {
+      "type": "number",
+      "title": {
+        "en": "Inside temperature",
+        "de": "Innentemperatur",
+        "nl": "Binnentemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_climate_temperature_in.svg"
+    },
+    "measure_climate_temperature_out": {
+      "type": "number",
+      "title": {
+        "en": "Outside temperature",
+        "de": "Außentemperatur",
+        "nl": "Buitentemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
     },
     "measure_drive_power": {
       "type": "number",

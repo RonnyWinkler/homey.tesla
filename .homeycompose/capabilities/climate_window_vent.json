@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Window vent mode",
+      "de": "Fensterlüftungsmodus",
+      "nl": "Raamventilatiemodus"
+    },
+    "titleTrue":{
+      "en": "Windows in vent position",
+      "de": "Fenster in Lüftungsposition",
+      "nl": "Raam in ventilatiestand"
+    },
+    "titleFasle":{
+      "en": "Windows closed",
+      "de": "Fenster geschlossen",
+      "nl": "Raam gesloten"      
+    },
+    "insightsTitleTrue":{
+      "en": "Windows in vent position",
+      "de": "Fenster in Lüftungsposition",
+      "nl": "Raam in ventilatiestand"
+    },
+    "insightsTitleFalse":{
+      "en": "Windows closed",
+      "de": "Fenster geschlossen",
+      "nl": "Raam gesloten"      
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/climate_window_vent.svg"
+  }

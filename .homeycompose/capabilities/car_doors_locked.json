@@ -5,7 +5,7 @@
       "de": "Türen verriegelt",
       "nl": "Deuren op slot"
     },
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": true,
     "uiComponent": "button",

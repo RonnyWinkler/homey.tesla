@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Sentry mode",
+        "de": "Sentry-Modus",
+        "nl": "Wachtmodus"
+    },
+    "titleFormatted": {
+        "en": "Sentry Mode [[action]]",
+        "de": "Sentry-Modus [[action]]",
+        "nl": "Wachtmodus [[action]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "aktivieren",
+                  "nl": "activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Deactivate",
+                  "de": "deaktivieren",
+                  "nl": "deactiveren"
+                }
+              }
+            ]
+        }
+    ]
+}

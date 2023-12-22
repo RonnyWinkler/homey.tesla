@@ -1,0 +1,58 @@
+{
+    "title": {
+        "en": "Set Temperature",
+        "de": "Temperatur setzen",
+        "nl": "Stel temperatuur in"
+    },
+    "titleFormatted": {
+        "en": "Set Temperature to [[temp_driver]], [[temp_passenger]]",
+        "de": "Stelle Temperatur auf [[temp_driver]], [[temp_passenger]]",
+        "nl": "Stel de temperatuur in op [[temp_driver]], [[temp_passenger]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+        },
+        {
+            "name": "temp_driver",
+            "type": "range",
+            "min": 15,
+            "max": 28,
+            "step": 0.5,
+            "label": "℃",
+            "labelDecimals": 1,
+                  "title": {
+              "en": "Driver temperature",
+              "de": "Fahrertemperatur",
+              "nl": "Temperatuur bestuurder"
+            },
+            "placeholder": {
+              "en": "Driver temperature",
+              "de": "Fahrertemperatur",
+              "nl": "Temperatuur bestuurder"
+            }
+        },
+        {
+          "name": "temp_passenger",
+          "type": "range",
+          "min": 15,
+          "max": 28,
+          "step": 0.5,
+          "label": "℃",
+          "labelDecimals": 1,
+              "required": false,
+          "title": {
+            "en": "Passenger temperature",
+            "de": "Beifahrertemperatur",
+            "nl": "Temperatuur passagier"
+          },
+          "placeholder": {
+            "en": "Passenger temperature",
+            "de": "Beifahrertemperatur",
+            "nl": "Temperatuur passagier"
+          }
+      }
+  ]
+}

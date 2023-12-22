@@ -1,0 +1,38 @@
+{
+    "type": "enum",
+    "title": {
+      "en": "Preconditioning level",
+      "de": "Vorkonditionierungsstufe",
+      "nl": "Preconditioneringsfase"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker",
+    "values": [
+      {
+        "id": "low",
+        "title": {
+          "en": "Low",
+          "de": "Niedrig",
+          "nl": "Laag"
+        }
+      },
+      {
+        "id": "medium",
+        "title": {
+          "en": "Medium",
+          "de": "Mittel",
+          "nl": "Medium"
+        }
+      },
+      {
+        "id": "high",
+        "title": {
+          "en": "High",
+          "de": "Hoch",
+          "nl": "Hoog"
+        }
+      }
+  ]
+}

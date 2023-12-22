@@ -1,0 +1,49 @@
+{
+    "title": {
+        "en": "Climate preconditioning level",
+        "de": "Klimavorkonditionierung-Stufe",
+        "nl": "Preconditioneringsfase"
+    },
+    "titleFormatted": {
+        "en": "Activate climate preconditioning level [[level]]",
+        "de": "Aktiviere Klimavorkonditionierungsstufe [[level]]",
+        "nl": "Activeer de Preconditioneringsfase [[level]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+        },
+        {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "de": "Niedrig",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "de": "Mittel",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "de": "Hoch",
+                  "nl": "Hoog"
+                }
+              }
+          ]
+        }
+    ]
+}

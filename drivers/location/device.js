@@ -30,6 +30,7 @@ module.exports = class LocationDevice extends ChildDevice {
     }
   }
 
+  // SYNC =======================================================================================
   // Read car data. Car must be awake.
   async updateDevice(data){
     await super.updateDevice(data);

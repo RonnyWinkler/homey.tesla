@@ -12,12 +12,35 @@
     "class": "sensor",
     "connectivity": [ "cloud" ],
     "capabilities": [
+        "target_temperature",
+        "measure_temperature",
+        "climate_preconditioning_mode",
+        "climate_preconditioning_level",
+
+
+        "measure_climate_temperature_in",
+        "measure_climate_temperature_out",
+
+        "climate_ac",
+        "climate_ac_auto",
+
+
+
+        "climate_preconditioning",
+        "climate_defrost",
+
+        "climate_window_vent"
 
     ],
-    "energy": {
-        "batteries": [
-            "OTHER"
-        ]
+    "capabilitiesOptions": {
+        "target_temperature":{
+            "type": "range",
+            "min": 15,
+            "max": 28,
+            "step": 0.5,
+            "label": "℃",
+            "labelDecimals": 1      
+        }
     },
     "pair": [
         {

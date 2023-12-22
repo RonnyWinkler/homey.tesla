@@ -10,12 +10,12 @@ module.exports = class ChildDevice extends Homey.Device {
     await this._updateCapabilities();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
-      try{
+      // try{
           await this._onCapability( capabilityValues, capabilityOptions);
-      }
-      catch(error){
-          this.log("_onCapability() Error: ",error);
-      }
+      // }
+      // catch(error){
+      //     this.log("_onCapability() Error: ",error);
+      // }
     }, CAPABILITY_DEBOUNCE);
 
     this._settings = this.getSettings();
