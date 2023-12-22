@@ -1,9 +1,9 @@
 {
     "type": "enum",
     "title": {
-      "en": "Preconditioning level",
-      "de": "Vorkonditionierungsstufe",
-      "nl": "Preconditioneringsfase"
+      "en": "Overheat protection level",
+      "de": "Überhitzungsschutz-Stufe",
+      "nl": "Beveiligingsniveau tegen oververhitting"
     },
     "insights": false,
     "getable": true,

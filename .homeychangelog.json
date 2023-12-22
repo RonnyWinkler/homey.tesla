@@ -17,5 +17,8 @@
   },
   "0.0.6": {
     "en": "extended climate device, changed existign flow actions"
+  },
+  "0.0.7": {
+    "en": "fixed climate device (overheat protection)"
   }
 }

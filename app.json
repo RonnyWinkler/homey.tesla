@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -278,6 +278,60 @@
       },
       {
         "title": {
+          "en": "Overheat protection level changed",
+          "de": "Überhitzungsschutz-Stufe hat sich geändert",
+          "nl": "Beveiligingsniveau tegen oververhitting gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "climate_overheat_protection_level",
+            "type": "string",
+            "title": {
+              "en": "Overheat protection level",
+              "de": "Überhitzungsschutz-Stufe",
+              "nl": "Beveiligingsniveau tegen oververhitting"
+            },
+            "example": "low"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_overheat_protection_level_changed"
+      },
+      {
+        "title": {
+          "en": "Overheat protection mode changed",
+          "de": "Überhitzungsschutz-Modus hat sich geändert",
+          "nl": "Beveiligingsmodus tegen oververhitting gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "climate_overheat_protection_mode",
+            "type": "string",
+            "title": {
+              "en": "Overheat protection mode",
+              "de": "Überhitzungsschutz-Modus",
+              "nl": "Beveiligingsmodus tegen oververhitting"
+            },
+            "example": "on"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          }
+        ],
+        "id": "climate_overheat_protection_mode_changed"
+      },
+      {
+        "title": {
           "en": "Climate preconditioning has been deactivated",
           "de": "Klimavorkonditionierung wurde deaktiviert",
           "nl": "Klimaatvoorbereiding is gedeactiveerd"
@@ -290,60 +344,6 @@
           }
         ],
         "id": "climate_preconditioning_false"
-      },
-      {
-        "title": {
-          "en": "Climate preconditioning level changed",
-          "de": "Klimavorkonditionierung-Stufe hat sich geändert",
-          "nl": "Preconditioneringsfase gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "climate_preconditioning_level",
-            "type": "string",
-            "title": {
-              "en": "Climate preconditioning level",
-              "de": "Klimavorkonditionierung-Stufe",
-              "nl": "Preconditioneringsfase"
-            },
-            "example": "low"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-          }
-        ],
-        "id": "climate_preconditioning_level_changed"
-      },
-      {
-        "title": {
-          "en": "Climate preconditioning mode changed",
-          "de": "Klimavorkonditionierung-Modus hat sich geändert",
-          "nl": "Klimaatvoorbereidingmodus gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "climate_preconditioning_mode",
-            "type": "string",
-            "title": {
-              "en": "Climate preconditioning mode",
-              "de": "Klimavorkonditionierung-Modus",
-              "nl": "Klimaatvoorbereidingmodus"
-            },
-            "example": "on"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-          }
-        ],
-        "id": "climate_preconditioning_mode_changed"
       },
       {
         "title": {
@@ -1589,14 +1589,14 @@
       },
       {
         "title": {
-          "en": "Climate preconditioning level !{{is|isn't}}",
-          "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}}",
-          "nl": "Preconditioneringsfase !{{is|is niet}}"
+          "en": "Overheat protection level !{{is|isn't}}",
+          "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}}",
+          "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}}"
         },
         "titleFormatted": {
-          "en": "Climate preconditioning level !{{is|isn't}} [[level]]",
-          "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}} [[level]]",
-          "nl": "Preconditioneringsfase !{{is|is niet}} [[level]]"
+          "en": "Overheat protection level !{{is|isn't}} [[level]]",
+          "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}} [[level]]",
+          "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}} [[level]]"
         },
         "args": [
           {
@@ -1608,9 +1608,9 @@
             "name": "level",
             "type": "dropdown",
             "title": {
-              "en": "Climate preconditioning level",
-              "de": "Klimavorkonditionierung-Stufe",
-              "nl": "Preconditioneringsfase"
+              "en": "Overheat protection level",
+              "de": "Überhitzungsschutz-Stufe",
+              "nl": "Beveiligingsniveau tegen oververhitting"
             },
             "values": [
               {
@@ -1640,18 +1640,18 @@
             ]
           }
         ],
-        "id": "climate_preconditioning_level"
+        "id": "climate_overheat_protection_level"
       },
       {
         "title": {
-          "en": "Climate preconditioning mode !{{is|isn't}}",
-          "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}}",
-          "nl": "Klimaatvoorbereidingmodus !{{is|is niet}}"
+          "en": "Overheat protection mode !{{is|isn't}}",
+          "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}}",
+          "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}}"
         },
         "titleFormatted": {
-          "en": "Climate preconditioning mode !{{is|isn't}} [[mode]]",
-          "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}} [[mode]]",
-          "nl": "Klimaatvoorbereidingmodus !{{is|is niet}} [[mode]]"
+          "en": "Overheat protection mode !{{is|isn't}} [[mode]]",
+          "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}} [[mode]]",
+          "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}} [[mode]]"
         },
         "args": [
           {
@@ -1663,9 +1663,9 @@
             "name": "mode",
             "type": "dropdown",
             "title": {
-              "en": "Climate preconditioning mode",
-              "de": "Klimavorkonditionierung-Modus",
-              "nl": "Klimaatvoorbereidingmodus"
+              "en": "Overheat protection mode",
+              "de": "Überhitzungsschutz-Modus",
+              "nl": "Beveiligingsmodus tegen oververhitting"
             },
             "values": [
               {
@@ -1695,7 +1695,7 @@
             ]
           }
         ],
-        "id": "climate_preconditioning_mode"
+        "id": "climate_overheat_protection_mode"
       },
       {
         "title": {
@@ -1965,6 +1965,106 @@
       },
       {
         "title": {
+          "en": "Overheat protection level",
+          "de": "Überhitzungsschutz-Stufe",
+          "nl": "Beveiligingsniveau tegen oververhitting"
+        },
+        "titleFormatted": {
+          "en": "Set overheat protection level to [[level]]",
+          "de": "Setze Überhitzungsschutz-Stufe auf [[level]]",
+          "nl": "stel het beschermingsniveau tegen oververhitting in op [[level]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "de": "Niedrig",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "de": "Mittel",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "de": "Hoch",
+                  "nl": "Hoog"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_overheat_protection_level"
+      },
+      {
+        "title": {
+          "en": "Overheat protection mode",
+          "de": "Überhitzungsschutz-Modus",
+          "nl": "Beveiligingsmodus tegen oververhitting"
+        },
+        "titleFormatted": {
+          "en": "Activate overheat protection mode [[mode]]",
+          "de": "Aktiviere Überhitzungsschutz-Modus [[mode]]",
+          "nl": "Activeer de oververhittingsbeveiligingsmodus [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "fan_only",
+                "title": {
+                  "en": "Without A/C",
+                  "de": "Ohne A/C",
+                  "nl": "Zonder A/C"
+                }
+              },
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "de": "An",
+                  "nl": "Bij"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_overheat_protection_mode"
+      },
+      {
+        "title": {
           "en": "Climate preconditioning",
           "de": "Klimavorkonditionierung",
           "nl": "Klimaatvoorbereiding"
@@ -2004,106 +2104,6 @@
           }
         ],
         "id": "climate_preconditioning"
-      },
-      {
-        "title": {
-          "en": "Climate preconditioning level",
-          "de": "Klimavorkonditionierung-Stufe",
-          "nl": "Preconditioneringsfase"
-        },
-        "titleFormatted": {
-          "en": "Activate climate preconditioning level [[level]]",
-          "de": "Aktiviere Klimavorkonditionierungsstufe [[level]]",
-          "nl": "Activeer de Preconditioneringsfase [[level]]"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-          },
-          {
-            "name": "level",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "low",
-                "title": {
-                  "en": "Low",
-                  "de": "Niedrig",
-                  "nl": "Laag"
-                }
-              },
-              {
-                "id": "medium",
-                "title": {
-                  "en": "Medium",
-                  "de": "Mittel",
-                  "nl": "Medium"
-                }
-              },
-              {
-                "id": "high",
-                "title": {
-                  "en": "High",
-                  "de": "Hoch",
-                  "nl": "Hoog"
-                }
-              }
-            ]
-          }
-        ],
-        "id": "climate_preconditioning_level"
-      },
-      {
-        "title": {
-          "en": "Climate preconditioning mode",
-          "de": "Klimavorkonditionierung-Modus",
-          "nl": "Klimaatvoorbereidingmodus"
-        },
-        "titleFormatted": {
-          "en": "Activate climate preconditioning mode [[mode]]",
-          "de": "Aktiviere Klimavorkonditionierungsmodus [[mode]]",
-          "nl": "Activeer de klimaatvoorbehandelingsmodus [[mode]]"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "off",
-                "title": {
-                  "en": "Off",
-                  "de": "Aus",
-                  "nl": "Uit"
-                }
-              },
-              {
-                "id": "fan_only",
-                "title": {
-                  "en": "Without A/C",
-                  "de": "Ohne A/C",
-                  "nl": "Zonder A/C"
-                }
-              },
-              {
-                "id": "on",
-                "title": {
-                  "en": "On",
-                  "de": "An",
-                  "nl": "Bij"
-                }
-              }
-            ]
-          }
-        ],
-        "id": "climate_preconditioning_mode"
       },
       {
         "title": {
@@ -2627,8 +2627,8 @@
       "capabilities": [
         "target_temperature",
         "measure_temperature",
-        "climate_preconditioning_mode",
-        "climate_preconditioning_level",
+        "climate_overheat_protection_mode",
+        "climate_overheat_protection_level",
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",
         "climate_ac",
@@ -3189,25 +3189,12 @@
       "uiComponent": "button",
       "icon": "/assets/capability_icons/climate_defrost.svg"
     },
-    "climate_preconditioning": {
-      "type": "boolean",
-      "title": {
-        "en": "Preconditioning",
-        "de": "Vorkonditionierung",
-        "nl": "Voorconditionering"
-      },
-      "insights": false,
-      "getable": true,
-      "setable": true,
-      "uiComponent": "button",
-      "icon": "/assets/capability_icons/climate_preconditioning.svg"
-    },
-    "climate_preconditioning_level": {
+    "climate_overheat_protection_level": {
       "type": "enum",
       "title": {
-        "en": "Preconditioning level",
-        "de": "Vorkonditionierungsstufe",
-        "nl": "Preconditioneringsfase"
+        "en": "Overheat protection level",
+        "de": "Überhitzungsschutz-Stufe",
+        "nl": "Beveiligingsniveau tegen oververhitting"
       },
       "insights": false,
       "getable": true,
@@ -3240,12 +3227,12 @@
         }
       ]
     },
-    "climate_preconditioning_mode": {
+    "climate_overheat_protection_mode": {
       "type": "enum",
       "title": {
-        "en": "Preconditioning mode",
-        "de": "Vorkonditionierungsmodus",
-        "nl": "Voorconditioneringsmodus"
+        "en": "Overheat protection mode",
+        "de": "Überhitzungsschutz-Modus",
+        "nl": "Beveiligingsmodus tegen oververhitting"
       },
       "insights": false,
       "getable": true,
@@ -3277,6 +3264,19 @@
           }
         }
       ]
+    },
+    "climate_preconditioning": {
+      "type": "boolean",
+      "title": {
+        "en": "Preconditioning",
+        "de": "Vorkonditionierung",
+        "nl": "Voorconditionering"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "/assets/capability_icons/climate_preconditioning.svg"
     },
     "climate_window_vent": {
       "type": "boolean",

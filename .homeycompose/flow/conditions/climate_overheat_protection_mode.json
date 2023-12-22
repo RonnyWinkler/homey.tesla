@@ -1,13 +1,13 @@
 {
     "title": {
-        "en": "Climate preconditioning mode !{{is|isn't}}",
-        "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}}",
-        "nl": "Klimaatvoorbereidingmodus !{{is|is niet}}"
+        "en": "Overheat protection mode !{{is|isn't}}",
+        "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}}",
+        "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}}"
     },
     "titleFormatted": {
-        "en": "Climate preconditioning mode !{{is|isn't}} [[mode]]",
-        "de": "Klimavorkonditionierung-Modus !{{ist|ist nicht}} [[mode]]",
-        "nl": "Klimaatvoorbereidingmodus !{{is|is niet}} [[mode]]"
+        "en": "Overheat protection mode !{{is|isn't}} [[mode]]",
+        "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}} [[mode]]",
+        "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}} [[mode]]"
     },
     "args": [
         {
@@ -19,10 +19,10 @@
             "name": "mode",
             "type": "dropdown",
             "title": { 
-                "en": "Climate preconditioning mode",
-                "de": "Klimavorkonditionierung-Modus",
-                "nl": "Klimaatvoorbereidingmodus"
-            },
+              "en": "Overheat protection mode",
+              "de": "Überhitzungsschutz-Modus",
+              "nl": "Beveiligingsmodus tegen oververhitting"
+                    },
             "values": [
                 {
                   "id": "off",

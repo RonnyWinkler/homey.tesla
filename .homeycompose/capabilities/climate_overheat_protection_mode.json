@@ -1,9 +1,9 @@
 {
     "type": "enum",
     "title": {
-      "en": "Preconditioning mode",
-      "de": "Vorkonditionierungsmodus",
-      "nl": "Voorconditioneringsmodus"
+      "en": "Overheat protection mode",
+      "de": "Überhitzungsschutz-Modus",
+      "nl": "Beveiligingsmodus tegen oververhitting"
     },
     "insights": false,
     "getable": true,

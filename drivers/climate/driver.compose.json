@@ -14,8 +14,8 @@
     "capabilities": [
         "target_temperature",
         "measure_temperature",
-        "climate_preconditioning_mode",
-        "climate_preconditioning_level",
+        "climate_overheat_protection_mode",
+        "climate_overheat_protection_level",
 
 
         "measure_climate_temperature_in",

@@ -1,13 +1,13 @@
 {
     "title": {
-        "en": "Climate preconditioning level !{{is|isn't}}",
-        "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}}",
-        "nl": "Preconditioneringsfase !{{is|is niet}}"
+      "en": "Overheat protection level",
+      "de": "Überhitzungsschutz-Stufe",
+      "nl": "Beveiligingsniveau tegen oververhitting"
     },
     "titleFormatted": {
-        "en": "Climate preconditioning level !{{is|isn't}} [[level]]",
-        "de": "Klimavorkonditionierung-Stufe !{{ist|ist nicht}} [[level]]",
-        "nl": "Preconditioneringsfase !{{is|is niet}} [[level]]"
+        "en": "Set overheat protection level to [[level]]",
+        "de": "Setze Überhitzungsschutz-Stufe auf [[level]]",
+        "nl": "stel het beschermingsniveau tegen oververhitting in op [[level]]"
     },
     "args": [
         {
@@ -18,11 +18,6 @@
         {
             "name": "level",
             "type": "dropdown",
-            "title": { 
-                "en": "Climate preconditioning level",
-                "de": "Klimavorkonditionierung-Stufe",
-                "nl": "Preconditioneringsfase"
-            },
             "values": [
               {
                 "id": "low",

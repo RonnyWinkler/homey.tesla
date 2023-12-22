@@ -1,13 +1,13 @@
 {
     "title": {
-        "en": "Climate preconditioning mode",
-        "de": "Klimavorkonditionierung-Modus",
-        "nl": "Klimaatvoorbereidingmodus"
+      "en": "Overheat protection mode",
+      "de": "Überhitzungsschutz-Modus",
+      "nl": "Beveiligingsmodus tegen oververhitting"
     },
     "titleFormatted": {
-        "en": "Activate climate preconditioning mode [[mode]]",
-        "de": "Aktiviere Klimavorkonditionierungsmodus [[mode]]",
-        "nl": "Activeer de klimaatvoorbehandelingsmodus [[mode]]"
+        "en": "Activate overheat protection mode [[mode]]",
+        "de": "Aktiviere Überhitzungsschutz-Modus [[mode]]",
+        "nl": "Activeer de oververhittingsbeveiligingsmodus [[mode]]"
     },
     "args": [
         {

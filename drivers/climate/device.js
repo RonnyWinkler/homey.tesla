@@ -85,26 +85,28 @@ module.exports = class ClimateDevice extends ChildDevice {
     if (this.hasCapability('climate_defrost') && data.climate_state && data.climate_state.defrost_mode != undefined){
       await this.setCapabilityValue('climate_defrost', (data.climate_state.defrost_mode != 0) );
     }
-    if (this.hasCapability('climate_preconditioning_mode') && data.climate_state && data.climate_state.cabin_overheat_protection != undefined){
+
+    // Overheat protection
+    if (this.hasCapability('climate_overheat_protection_mode') && data.climate_state && data.climate_state.cabin_overheat_protection != undefined){
       if (data.climate_state.cabin_overheat_protection == 'FanOnly'){
-        await this.setCapabilityValue('climate_preconditioning_mode', 'fan_only' );
+        await this.setCapabilityValue('climate_overheat_protection_mode', 'fan_only' );
       }
       else if (data.climate_state.cabin_overheat_protection == 'On'){
-        await this.setCapabilityValue('climate_preconditioning_mode', 'on' );
+        await this.setCapabilityValue('climate_overheat_protection_mode', 'on' );
       }
       else if (data.climate_state.cabin_overheat_protection == 'Off'){
-        await this.setCapabilityValue('climate_preconditioning_mode', 'off' );
+        await this.setCapabilityValue('climate_overheat_protection_mode', 'off' );
       }
     }
-    if (this.hasCapability('climate_preconditioning_level') && data.climate_state && data.climate_state.cop_activation_temperature != undefined){
+    if (this.hasCapability('climate_overheat_protection_level') && data.climate_state && data.climate_state.cop_activation_temperature != undefined){
       if (data.climate_state.cop_activation_temperature == 'Low'){
-        await this.setCapabilityValue('climate_preconditioning_level', 'low' );
+        await this.setCapabilityValue('climate_overheat_protection_level', 'low' );
       }
       else if (data.climate_state.cop_activation_temperature == 'Medium'){
-        await this.setCapabilityValue('climate_preconditioning_level', 'medium' );
+        await this.setCapabilityValue('climate_overheat_protection_level', 'medium' );
       }
       else if (data.climate_state.cop_activation_temperature == 'High'){
-        await this.setCapabilityValue('climate_preconditioning_level', 'high' );
+        await this.setCapabilityValue('climate_overheat_protection_level', 'high' );
       }
     }
 
@@ -171,15 +173,15 @@ module.exports = class ClimateDevice extends ChildDevice {
       }
     }
 
-    if( capabilityValues["climate_preconditioning_mode"] != undefined){
+    if( capabilityValues["climate_overheat_protection_mode"] != undefined){
       await this._commandPreconditioningMode(
-        capabilityValues["climate_preconditioning_mode"]
+        capabilityValues["climate_overheat_protection_mode"]
       );
     }
 
-    if( capabilityValues["climate_preconditioning_level"] != undefined){
+    if( capabilityValues["climate_overheat_protection_level"] != undefined){
       await this._commandPreconditioningLevel(
-        capabilityValues["climate_preconditioning_level"]
+        capabilityValues["climate_overheat_protection_level"]
       );
     }
 
@@ -211,12 +213,12 @@ module.exports = class ClimateDevice extends ChildDevice {
 
   async flowActionPreconditioningMode(mode){
     await this._commandPreconditioningMode(mode);
-    await this.setCapabilityValue('climate_preconditioning_mode', mode );
+    await this.setCapabilityValue('climate_overheat_protection_mode', mode );
   }
 
   async flowActionPreconditioningLevel(level){
     await this._commandPreconditioningLevel(level);
-    await this.setCapabilityValue('climate_preconditioning_level', level );
+    await this.setCapabilityValue('climate_overheat_protection_level', level );
   }
 
   async flowActionDefrost(on){

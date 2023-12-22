@@ -71,12 +71,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionPreconditioning(args.action == 'on');
 		});
 
-    this.homey.flow.getActionCard('climate_preconditioning_mode')
+    this.homey.flow.getActionCard('climate_overheat_protection_mode')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionPreconditioningMode(args.mode);
 		});
 
-    this.homey.flow.getActionCard('climate_preconditioning_level')
+    this.homey.flow.getActionCard('climate_overheat_protection_level')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionPreconditioningLevel(args.level);
 		});
