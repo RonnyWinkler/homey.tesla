@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -158,6 +158,70 @@
           }
         ],
         "id": "car_sentry_mode_true"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Loading has stopped",
+          "de": "Laden wurde gestoppt",
+          "nl": "Het laden is gestopt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_on_false"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Loading has started",
+          "de": "Laden wurde gestartet",
+          "nl": "Het laden is begonnen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_on_true"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Charging port has been closed",
+          "de": "Ladeanschluss wurde geschlossen",
+          "nl": "Oplaadpoort is gesloten"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_port_false"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Charging port has been opened",
+          "de": "Ladeanschluss wurde geöffnet",
+          "nl": "Oplaadpoort is geopend"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_port_true"
       },
       {
         "title": {
@@ -1923,6 +1987,90 @@
       },
       {
         "title": {
+          "en": "Start/stop charging",
+          "de": "Laden starten/stoppen",
+          "nl": "Start/stop het opladen"
+        },
+        "titleFormatted": {
+          "en": "[[action]] charging",
+          "de": "Laden [[action]]",
+          "nl": "[[action]] het opladen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "start",
+                "label": {
+                  "en": "Start",
+                  "de": "starten",
+                  "nl": "Start"
+                }
+              },
+              {
+                "id": "stop",
+                "label": {
+                  "en": "Stop",
+                  "de": "stoppen",
+                  "nl": "Stop"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "charging_on"
+      },
+      {
+        "title": {
+          "en": "Open/close charge port",
+          "de": "Ladeanschluss öffnen/schließen",
+          "nl": "Laadpoort open/dichtbij"
+        },
+        "titleFormatted": {
+          "en": "[[action]] charge port",
+          "de": "Ladeanschluss [[action]]",
+          "nl": "Laadpoort [[action]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "open",
+                "label": {
+                  "en": "Open",
+                  "de": "Öffnen",
+                  "nl": "Open"
+                }
+              },
+              {
+                "id": "close",
+                "label": {
+                  "en": "Unlock",
+                  "de": "Schließen",
+                  "nl": "Dichtbij"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "charging_port"
+      },
+      {
+        "title": {
           "en": "Defrost mode",
           "de": "Entfrosten",
           "nl": "Ontdooien"
@@ -2310,7 +2458,9 @@
         "measure_charge_current",
         "measure_charge_current_max",
         "measure_charge_energy_added",
-        "measure_charge_minutes_to_full_charge"
+        "measure_charge_minutes_to_full_charge",
+        "charging_port",
+        "charging_on"
       ],
       "energy": {
         "batteries": [
@@ -3063,6 +3213,72 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/car_sentry_mode.svg"
+    },
+    "charging_on": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "de": "Laden",
+        "nl": "Laden"
+      },
+      "titleTrue": {
+        "en": "started",
+        "de": "gestartet",
+        "nl": "gestart"
+      },
+      "titleFalse": {
+        "en": "stopped",
+        "de": "gestoppt",
+        "nl": "gestopt"
+      },
+      "insightsTitleTrue": {
+        "en": "Charging started",
+        "de": "Laden gestartet",
+        "nl": "Laden is gestart"
+      },
+      "insightsTitleFalse": {
+        "en": "Charging stopped",
+        "de": "Laden gestoppe",
+        "nl": "Laden is gestopt"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/charging_on.svg"
+    },
+    "charging_port": {
+      "type": "boolean",
+      "title": {
+        "en": "Charge port",
+        "de": "Ladeanschluss",
+        "nl": "Laadpoort"
+      },
+      "titleTrue": {
+        "en": "opened",
+        "de": "geöffnet",
+        "nl": "geopend"
+      },
+      "titleFalse": {
+        "en": "closed",
+        "de": "gesloten",
+        "nl": "gesloten"
+      },
+      "insightsTitleTrue": {
+        "en": "Charge port opened",
+        "de": "Ladeanschluss geöffnet",
+        "nl": "Laadpoort geopend"
+      },
+      "insightsTitleFalse": {
+        "en": "Charge port closed",
+        "de": "Ladeanschluss gesloten",
+        "nl": "Laadpoort gesloten"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/charging_port.svg"
     },
     "charging_state": {
       "type": "enum",

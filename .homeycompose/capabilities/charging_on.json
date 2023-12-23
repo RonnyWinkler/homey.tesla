@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Charging",
+      "de": "Laden",
+      "nl": "Laden"
+    },
+    "titleTrue": {
+      "en": "started",
+      "de": "gestartet",
+      "nl": "gestart"
+    },
+    "titleFalse": {
+      "en": "stopped",
+      "de": "gestoppt",
+      "nl": "gestopt"
+    },
+    "insightsTitleTrue": {
+      "en": "Charging started",
+      "de": "Laden gestartet",
+      "nl": "Laden is gestart"
+    },
+    "insightsTitleFalse": {
+      "en": "Charging stopped",
+      "de": "Laden gestoppe",
+      "nl": "Laden is gestopt"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/charging_on.svg"
+  }

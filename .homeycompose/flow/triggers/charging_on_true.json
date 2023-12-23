@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Loading has started",
+        "de": "Laden wurde gestartet",
+        "nl": "Het laden is begonnen"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+      ]
+}

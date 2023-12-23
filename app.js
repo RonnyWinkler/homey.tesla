@@ -91,6 +91,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionTemperature(args.temp_driver, args.temp_passenger);
 		});
 
+    this.homey.flow.getActionCard('charging_port')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargePort(args.action == 'open');
+		});
+
+    this.homey.flow.getActionCard('charging_on')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeOn(args.action == 'start');
+		});
+
   }
 
   // FLOW TRIGGER ======================================================================================

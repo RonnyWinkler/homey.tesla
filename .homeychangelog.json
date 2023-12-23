@@ -20,5 +20,8 @@
   },
   "0.0.7": {
     "en": "fixed climate device (overheat protection)"
+  },
+  "0.0.8": {
+    "en": "fixed house number, added charge port and start/stop charging"
   }
 }

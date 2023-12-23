@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Charging port has been opened",
+        "de": "Ladeanschluss wurde geöffnet",
+        "nl": "Oplaadpoort is geopend"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+      ]
+}

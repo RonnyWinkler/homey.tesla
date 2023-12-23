@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Charging port has been closed",
+        "de": "Ladeanschluss wurde geschlossen",
+        "nl": "Oplaadpoort is gesloten"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+      ]
+}

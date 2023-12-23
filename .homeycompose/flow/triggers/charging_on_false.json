@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Loading has stopped",
+        "de": "Laden wurde gestoppt",
+        "nl": "Het laden is gestopt"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+      ]
+}

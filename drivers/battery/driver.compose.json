@@ -31,8 +31,11 @@
         "measure_charge_current_max",
 
         "measure_charge_energy_added",
-        "measure_charge_minutes_to_full_charge"
+        "measure_charge_minutes_to_full_charge",
 
+
+        "charging_port",
+        "charging_on"
     ],
     "energy": {
         "batteries": [

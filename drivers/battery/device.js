@@ -10,7 +10,16 @@ module.exports = class BatteryDevice extends ChildDevice {
     await super.onInit();
   }
 
-  // Read car data. Car must be awake.
+  // Device handling =======================================================================================
+  getCarDevice(){
+    let device = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];
+    if (device == undefined){
+      throw new Error('No car device found.');
+    }
+    return device; 
+  }
+  
+  // SYNC =======================================================================================
   async updateDevice(data){
     await super.updateDevice(data);
 
@@ -74,6 +83,24 @@ module.exports = class BatteryDevice extends ChildDevice {
       }
     }
 
+    if (this.hasCapability('charging_port') && data.charge_state && data.charge_state.charge_port_door_open != undefined){
+      this.setCapabilityValue('charging_port', data.charge_state.charge_port_door_open);
+    }
+    if (this.hasCapability('charging_on') && data.charge_state && data.charge_state.charging_state != undefined){
+      this.setCapabilityValue('charging_on', data.charge_state.charging_state == 'Charging');
+    }
+
+  }
+
+  // Commands =======================================================================================
+  async _commandChargePort(state){
+    await this.getCarDevice().wakeUpIfNeeded();
+    await this.getCarDevice().oAuth2Client.commandChargePort(this.getData().id, state);
+  }
+
+  async _commandChargeOn(state){
+    await this.getCarDevice().wakeUpIfNeeded();
+    await this.getCarDevice().oAuth2Client.commandChargeOn(this.getData().id, state);
   }
 
   // CAPABILITIES =======================================================================================
@@ -81,9 +108,26 @@ module.exports = class BatteryDevice extends ChildDevice {
   async _onCapability( capabilityValues, capabilityOptions){
     await super. _onCapability( capabilityValues, capabilityOptions);
 
+    if( capabilityValues["charging_port"] != undefined){
+      await this._commandChargePort(capabilityValues["charging_port"]);
+    }
+
+    if( capabilityValues["charging_on"] != undefined){
+      await this._commandChargeOn(capabilityValues["charging_on"]);
+    }
+
   }
 
   // FLOW ACTIONS =======================================================================================
 
+  async flowActionChargePort(state){
+    await this._commandChargePort(state);
+    await this.setCapabilityValue('charging_port', state );
+  }
+
+  async flowActionChargeOn(state){
+    await this._commandChargeOn(state);
+    await this.setCapabilityValue('charging_on', state );
+  }
 
 }

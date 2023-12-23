@@ -10,12 +10,6 @@ module.exports = class ClimateDevice extends ChildDevice {
     await super.onInit();
   }
 
-  // Read car data. Car must be awake.
-  async updateDevice(data){
-    await super.updateDevice(data);
-
-  }
-
   // Device handling =======================================================================================
   getCarDevice(){
     let device = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];

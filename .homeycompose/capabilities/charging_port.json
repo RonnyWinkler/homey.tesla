@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Charge port",
+      "de": "Ladeanschluss",
+      "nl": "Laadpoort"
+    },
+    "titleTrue": {
+      "en": "opened",
+      "de": "geöffnet",
+      "nl": "geopend"
+    },
+    "titleFalse": {
+      "en": "closed",
+      "de": "gesloten",
+      "nl": "gesloten"
+    },
+    "insightsTitleTrue": {
+      "en": "Charge port opened",
+      "de": "Ladeanschluss geöffnet",
+      "nl": "Laadpoort geopend"
+    },
+    "insightsTitleFalse": {
+      "en": "Charge port closed",
+      "de": "Ladeanschluss gesloten",
+      "nl": "Laadpoort gesloten"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/charging_port.svg"
+  }

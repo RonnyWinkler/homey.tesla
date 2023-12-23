@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Start/stop charging",
+        "de": "Laden starten/stoppen",
+        "nl": "Start/stop het opladen"
+    },
+    "titleFormatted": {
+        "en": "[[action]] charging",
+        "de": "Laden [[action]]",
+        "nl": "[[action]] het opladen"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        },
+        {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "start",
+                "label": {
+                  "en": "Start",
+                  "de": "starten",
+                  "nl": "Start"
+                }
+              },
+              {
+                "id": "stop",
+                "label": {
+                  "en": "Stop",
+                  "de": "stoppen",
+                  "nl": "Stop"
+                }
+              }
+            ]
+        }
+    ]
+}

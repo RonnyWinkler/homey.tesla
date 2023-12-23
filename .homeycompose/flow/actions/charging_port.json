@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Open/close charge port",
+        "de": "Ladeanschluss öffnen/schließen",
+        "nl": "Laadpoort open/dichtbij"
+    },
+    "titleFormatted": {
+        "en": "[[action]] charge port",
+        "de": "Ladeanschluss [[action]]",
+        "nl": "Laadpoort [[action]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        },
+        {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "open",
+                "label": {
+                  "en": "Open",
+                  "de": "Öffnen",
+                  "nl": "Open"
+                }
+              },
+              {
+                "id": "close",
+                "label": {
+                  "en": "Unlock",
+                  "de": "Schließen",
+                  "nl": "Dichtbij"
+                }
+              }
+            ]
+        }
+    ]
+}
