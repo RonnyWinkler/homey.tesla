@@ -1,0 +1,15 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Fixed API bug",
+        "de": "API-Fehler behoben",
+        "nl": "API-bug opgelost"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}

@@ -1,0 +1,26 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "API error occurred",
+        "de": "API-Fehler aufgetreten",
+        "nl": "Er is een API-fout opgetreden"
+    },
+    "tokens": [
+        {
+            "name": "error",
+            "type": "string",
+            "title": {
+                "en": "Error description",
+                "de": "Fehlerbeschreibung",
+                "nl": "Foutbeschrijving"
+            }
+        }
+    ],
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+      ]
+}

@@ -1,5 +1,5 @@
 {
-    "type": "string",
+    "type": "enum",
     "title": {
         "en": "Update state",
         "de": "Aktualisierungs-Status",
@@ -8,5 +8,37 @@
     "uiComponent": "sensor",
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/software_update_state.svg"
+    "icon": "./assets/capability_icons/software_update_state.svg",
+    "values": [
+        {
+            "id": "",
+            "title": {
+                "en": "-"
+            }
+        },
+        {
+            "id": "available",
+            "title": {
+                "en": "Available",
+                "de": "Verfügbar",
+                "nl": "Beschikbaar"
+            }
+        },
+        {
+            "id": "scheduled",
+            "title": {
+                "en": "Asleep",
+                "de": "Geplant",
+                "nl": "Gepland"
+            }
+        },
+        {
+            "id": "installing",
+            "title": {
+                "en": "Installing",
+                "de": "Wird installiert",
+                "nl": "Is being installed"
+            }
+        }
+    ]
 }

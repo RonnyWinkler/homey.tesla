@@ -53,6 +53,7 @@ module.exports = class BatteryDevice extends ChildDevice {
       // Charging
       // Complete
       // Disconnected
+      // NoPower 
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
@@ -94,13 +95,27 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   // Commands =======================================================================================
   async _commandChargePort(state){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandChargePort(this.getData().id, state);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandChargePort(this.getCarDevice().getCommandApi(), this.getData().id, state);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandChargeOn(state){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandChargeOn(this.getData().id, state);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandChargeOn(this.getCarDevice().getCommandApi(), this.getData().id, state);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   // CAPABILITIES =======================================================================================

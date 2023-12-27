@@ -5,7 +5,9 @@
             "subtitle": "Registreer de Homey app in je auto",
             "text1": "Registreer de Homey app in je auto zodat de app opdrachten naar je auto kan sturen.",
             "text2": "Volg deze <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>link</a> of tik op het Tesla-pictogram om het Tesla-registratieproces te starten.",
-            "text3": "Deze registratie zal waarschijnlijk noodzakelijk worden als onderdeel van Tesla's API-wijzigingen. Deze stap kan momenteel worden overgeslagen en indien nodig later worden uitgevoerd via 'Repareren'."
+            "text3": "Deze registratie is nodig om gebruik te kunnen maken van het 'Tesla Vehicle Commands Protocol' en de end-to-end encryptie van de naar het voertuig verzonden commando's.",
+            "text4": "Modellen S/X van vóór 2021 zijn uitgesloten. Deze kunnen nog steeds worden beheerd via de REST API. Selecteer de opdracht-API in de apparaatinstellingen.",
+            "text5": "This registration can be repeated via the 'Repair Device' dialog."
         },
         "battery":{
             "name": "Accu"

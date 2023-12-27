@@ -15,13 +15,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._updateCapabilities();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
-      try{
+      // try{
           await this._onCapability( capabilityValues, capabilityOptions);
-      }
-      catch(error){
-          this.log("_onCapability() Error: ",error.message);
-          throw error;
-      }
+      // }
+      // catch(error){
+      //     this.log("_onCapability() Error: ",error.message);
+      //     throw error;
+      // }
   }, CAPABILITY_DEBOUNCE);
 
 
@@ -66,6 +66,51 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  async handleApiOk(){
+    await this.setSettings({
+      api_state: 'OK' 
+    }); 
+    let oldState = this.getCapabilityValue('alarm_api_error');
+    await this.setCapabilityValue('measure_api_error', null);
+    await this.setCapabilityValue('alarm_api_error', false);
+    if (oldState != false){
+      await this.homey.flow.getDeviceTriggerCard('alarm_api_error_off').trigger(this);
+    }
+  }
+
+  async handleApiError(error){
+    let apiState = 'Error';
+    switch (error.constructor.name){
+      case 'FetchError':
+        this.log("API Error: "+ error.type);
+        apiState = error.type;
+        break;
+      // case 'Error':
+      //   if (error.status != undefined && error.statusText != undefined){
+      //     this.log("API Error: "+ error.status + ' ' + error.statusText);
+      //   }
+      //   else{
+      //     this.log("API Error: "+ error.message);
+      //   }
+      //   break;
+      default:
+        this.log("API Error: "+ error.message);
+        apiState = error.message;
+    }
+    await this.setSettings({
+      api_state: apiState 
+    });
+    let oldState = this.getCapabilityValue('alarm_api_error');
+    await this.setCapabilityValue('measure_api_error', apiState);
+    await this.setCapabilityValue('alarm_api_error', true);
+    if (oldState != true){
+      let tokens = {
+        error: apiState
+      };
+      await this.homey.flow.getDeviceTriggerCard('alarm_api_error_on').trigger(this, tokens);
+    }
+  }
+
   // SETTINGS =======================================================================================
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -73,6 +118,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._settings = newSettings;
     this._startSync();
     this._sync();
+  }
+
+  getCommandApi(){
+    return this._settings.command_api;
   }
 
   // SYNC Logic =======================================================================================
@@ -121,6 +170,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     catch(error){
       this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
       this.setUnavailable(error.message).catch(this.error);
+      await this.handleApiError(error);
     };
 
     // Step 2: Get car data
@@ -128,10 +178,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       try{
         // update the device
         await this.getCarData();
+        await this.handleApiOk();
       }
       catch(error){
         this.log("Device update error (getData): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
+        await this.handleApiError(error);
       }
+    }
+    else{
+      await this.handleApiOk();
     }
   }
 
@@ -218,6 +273,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     if (this.hasCapability('software_update_state') && data.vehicle_state && data.vehicle_state.software_update != undefined){
       await this.setCapabilityValue('software_update_state', data.vehicle_state.software_update.status);
+      // Possible states:
+      // available
+      // scheduled
+      // installing
+
     }
 
     
@@ -285,7 +345,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
     }
     this.log("Wake up the car...Car is not online yet.");
-    throw new Error("Waking up the vehicle was not successful.");
+    let error = new Error("Waking up the vehicle was not successful.");
+    await this.handleApiError(error);
+    throw error;
   }
 
   async wakeUpIfNeeded(){
@@ -295,28 +357,63 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _commandDoorLock(locked){
-    await this.wakeUpIfNeeded();
-    await this.oAuth2Client.commandDoorLock(this.getData().id, locked);
+    try{
+      await this.wakeUpIfNeeded();
+      await this.oAuth2Client.commandDoorLock(this.getCommandApi(), this.getData().id, locked);
+      await this.handleApiOk();
+    }
+    catch(error){
+      await this.handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandSentryMode(state){
-    await this.wakeUpIfNeeded();
-    await this.oAuth2Client.commandSentryMode(this.getData().id, state);
+    try{
+      await this.wakeUpIfNeeded();
+      await this.oAuth2Client.commandSentryMode(this.getCommandApi(), this.getData().id, state);
+      await this.handleApiOk();
+    }
+    catch(error){
+      await this.handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandFlashLights(){
-    await this.wakeUpIfNeeded();
-    await this.oAuth2Client.commandFlashLights(this.getData().id);
+    try{
+      await this.wakeUpIfNeeded();
+      await this.oAuth2Client.commandFlashLights(this.getCommandApi(), this.getData().id);
+      await this.handleApiOk();
+    }
+    catch(error){
+      await this.handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandHonkHorn(){
-    await this.wakeUpIfNeeded();
-    await this.oAuth2Client.commandHonkHorn(this.getData().id);
+    try{
+      await this.wakeUpIfNeeded();
+      await this.oAuth2Client.commandHonkHorn(this.getCommandApi(), this.getData().id);
+      await this.handleApiOk();
+    }
+    catch(error){
+      await this.handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandWindowPosition(position){
-    await this.wakeUpIfNeeded();
-    await this.oAuth2Client.commandWindowPosition(this.getData().id, position);
+    try{
+      await this.wakeUpIfNeeded();
+      await this.oAuth2Client.commandWindowPosition(this.getCommandApi(), this.getData().id, position);
+      await this.handleApiOk();
+    }
+    catch(error){
+      await this.handleApiError(error);
+      throw error;
+    }
   }
 
   // CAPABILITIES =======================================================================================
@@ -339,7 +436,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if( capabilityValues["car_sentry_mode"] != undefined){
       await this._commandSentryMode(capabilityValues["car_sentry_mode"]);
     }
-    
   }
 
   // FLOW ACTIONS =======================================================================================

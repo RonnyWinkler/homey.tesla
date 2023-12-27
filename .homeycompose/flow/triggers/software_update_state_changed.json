@@ -5,7 +5,7 @@
         "nl": "Status bijwerken gewijzigd"
     },
     "tokens": [{
-            "name": "charging_state",
+            "name": "software_update_state",
             "type": "string",
             "title": {
                 "en": "Update state",

@@ -33,6 +33,9 @@
 
         "software_update_state",
 
+        "alarm_api_error",
+        "measure_api_error",
+
         "car_doors_locked",
         "car_sentry_mode",
         

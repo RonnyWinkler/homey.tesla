@@ -108,33 +108,75 @@ module.exports = class ClimateDevice extends ChildDevice {
 
   // Commands =======================================================================================
   async _commandWindowPosition(position){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandWindowPosition(this.getData().id, position);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandWindowPosition(this.getCarDevice().getCommandApi(), this.getData().id, position);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandSetTemperature(driverTemperature, passengerTemperature){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandSetTemperature(this.getData().id, driverTemperature, passengerTemperature);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandSetTemperature(this.getCarDevice().getCommandApi(), this.getData().id, driverTemperature, passengerTemperature);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandPreconditioning(on){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandPreconditioning(this.getData().id, on);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandPreconditioning(this.getCarDevice().getCommandApi(), this.getData().id, on);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandPreconditioningMode(mode){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandPreconditioningMode(this.getData().id, mode);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandPreconditioningMode(this.getCarDevice().getCommandApi(), this.getData().id, mode);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandPreconditioningLevel(level){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandPreconditioningLevel(this.getData().id, level);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandPreconditioningLevel(this.getCarDevice().getCommandApi(), this.getData().id, level);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   async _commandDefrost(on){
-    await this.getCarDevice().wakeUpIfNeeded();
-    await this.getCarDevice().oAuth2Client.commandDefrost(this.getData().id, on);
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandDefrost(this.getCarDevice().getCommandApi(), this.getData().id, on);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
   }
 
   // CAPABILITIES =======================================================================================

@@ -23,5 +23,8 @@
   },
   "0.0.8": {
     "en": "fixed house number, added charge port and start/stop charging"
+  },
+  "0.0.9": {
+    "en": "Added Tesla Vehicle Commands protocol (end-2-end encrypted commands). Added API error trigger card."
   }
 }

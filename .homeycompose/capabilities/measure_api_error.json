@@ -1,0 +1,13 @@
+{
+    "type": "string",
+    "title": {
+      "en": "API error",
+      "de": "API-Fehler",
+      "nl": "API-fout"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": false,
+    "uiComponent": null,
+    "icon": "./assets/capability_icons/measure_api_error.svg"
+  }

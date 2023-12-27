@@ -1,9 +1,9 @@
 {
     "type": "number",
     "title": {
-      "en": "front left",
-      "de": "vorn links",
-      "nl": "vooraan links"
+      "en": "TPMS front left",
+      "de": "TPMS vorn links",
+      "nl": "TPMS vooraan links"
     },
     "units": {
       "en": "Bar"

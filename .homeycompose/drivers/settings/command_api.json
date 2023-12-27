@@ -1,0 +1,29 @@
+{
+    "id": "command_api",
+    "type": "dropdown",
+    "label": { 
+        "en": "Command API",
+        "de": "Kommando-API",
+        "nl": "Commando-API"
+    },
+    "value": "command",
+    "values":[
+        {
+            "id": "rest",
+            "label":{
+                "en": "REST-API"
+            }
+        },
+        {
+            "id": "command",
+            "label":{
+                "en": "Tesla Vehicle Command protocol"
+            }
+        }
+    ],
+    "hint":{
+        "en": "Select the API to use to send commands to the vehicle. From 2024 the 'Tesla Vehicle Command protocol' must be used. This supports end-to-end encryption in communication with the vehicle. The REST API can still be used until Tesla makes the switch. Pre-2021 S/X models must continue to use the REST API.",
+        "de": "Wähle die zu verwendende API zum Senden von Kammandos an das Fahrzeug. Ab 2024 muss das 'Tesla Vehicle Command protocol' verwendet werden. Dies unterstützt eine Ende-zu-Ende-Verschlüsselung in der Kommunikation mit dem Fahrzeug. Bis zur Umstellung seitens Tesla kann noch die REST-API verwendet werden. Vor-2021 Modelle S/X müssen weiterhin die REST-API verwenden.",
+        "nl": "Selecteer de API die u wilt gebruiken om opdrachten naar het voertuig te verzenden. Vanaf 2024 moet er gebruik gemaakt worden van het ‘Tesla Vehicle Command protocol’. Dit ondersteunt end-to-end-codering in de communicatie met het voertuig. De REST API kan nog steeds worden gebruikt totdat Tesla de overstap maakt. S/X-modellen van vóór 2021 moeten de REST API blijven gebruiken."
+    }
+}

@@ -1,9 +1,9 @@
 {
     "type": "number",
     "title": {
-      "en": "rear right",
-      "de": "hinten rechts",
-      "nl": "rechts achter"
+      "en": "TPMS rear right",
+      "de": "TPMS hinten rechts",
+      "nl": "TPMS rechts achter"
     },
     "units": {
       "en": "Bar"

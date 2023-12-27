@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -63,6 +63,49 @@
   },
   "flow": {
     "triggers": [
+      {
+        "highlight": true,
+        "title": {
+          "en": "Fixed API bug",
+          "de": "API-Fehler behoben",
+          "nl": "API-bug opgelost"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "alarm_api_error_off"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "API error occurred",
+          "de": "API-Fehler aufgetreten",
+          "nl": "Er is een API-fout opgetreden"
+        },
+        "tokens": [
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "Error description",
+              "de": "Fehlerbeschreibung",
+              "nl": "Foutbeschrijving"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "alarm_api_error_on"
+      },
       {
         "highlight": true,
         "title": {
@@ -1526,7 +1569,7 @@
         },
         "tokens": [
           {
-            "name": "charging_state",
+            "name": "software_update_state",
             "type": "string",
             "title": {
               "en": "Update state",
@@ -1573,6 +1616,21 @@
       }
     ],
     "conditions": [
+      {
+        "title": {
+          "en": "API error !{{is|isn't}} prersent",
+          "de": "API-Fehler !{{ist|ist nicht}} vorhanden",
+          "nl": "API-fout  !{{is|is niet}} opgetreden"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "alarm_api_error"
+      },
       {
         "title": {
           "en": "Battery heater !{{is|isn't}} on",
@@ -1760,6 +1818,67 @@
           }
         ],
         "id": "climate_overheat_protection_mode"
+      },
+      {
+        "title": {
+          "en": "Update state !{{is|isn't}}",
+          "de": "Aktualisierungs-Status !{{ist|ist nicht}}",
+          "nl": "Status bijwerken !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Update state !{{is|isn't}} [[state]]",
+          "de": "Aktualisierungs-Status !{{ist|ist nicht}} [[state]]",
+          "nl": "Status bijwerken !{{is|is niet}} [[state]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "Update state",
+              "de": "Aktualisierungs-Status",
+              "nl": "Status bijwerken"
+            },
+            "values": [
+              {
+                "id": "",
+                "title": {
+                  "en": "-"
+                }
+              },
+              {
+                "id": "available",
+                "title": {
+                  "en": "Available",
+                  "de": "Verfügbar",
+                  "nl": "Beschikbaar"
+                }
+              },
+              {
+                "id": "scheduled",
+                "title": {
+                  "en": "Asleep",
+                  "de": "Geplant",
+                  "nl": "Gepland"
+                }
+              },
+              {
+                "id": "installing",
+                "title": {
+                  "en": "Installing",
+                  "de": "Wird installiert",
+                  "nl": "Is being installed"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "software_update_state"
       },
       {
         "title": {
@@ -2534,6 +2653,8 @@
         "measure_car_software_version",
         "measure_car_software_update_version",
         "software_update_state",
+        "alarm_api_error",
+        "measure_api_error",
         "car_doors_locked",
         "car_sentry_mode",
         "refresh",
@@ -2723,6 +2844,35 @@
           },
           "children": [
             {
+              "id": "command_api",
+              "type": "dropdown",
+              "label": {
+                "en": "Command API",
+                "de": "Kommando-API",
+                "nl": "Commando-API"
+              },
+              "value": "command",
+              "values": [
+                {
+                  "id": "rest",
+                  "label": {
+                    "en": "REST-API"
+                  }
+                },
+                {
+                  "id": "command",
+                  "label": {
+                    "en": "Tesla Vehicle Command protocol"
+                  }
+                }
+              ],
+              "hint": {
+                "en": "Select the API to use to send commands to the vehicle. From 2024 the 'Tesla Vehicle Command protocol' must be used. This supports end-to-end encryption in communication with the vehicle. The REST API can still be used until Tesla makes the switch. Pre-2021 S/X models must continue to use the REST API.",
+                "de": "Wähle die zu verwendende API zum Senden von Kammandos an das Fahrzeug. Ab 2024 muss das 'Tesla Vehicle Command protocol' verwendet werden. Dies unterstützt eine Ende-zu-Ende-Verschlüsselung in der Kommunikation mit dem Fahrzeug. Bis zur Umstellung seitens Tesla kann noch die REST-API verwendet werden. Vor-2021 Modelle S/X müssen weiterhin die REST-API verwenden.",
+                "nl": "Selecteer de API die u wilt gebruiken om opdrachten naar het voertuig te verzenden. Vanaf 2024 moet er gebruik gemaakt worden van het ‘Tesla Vehicle Command protocol’. Dit ondersteunt end-to-end-codering in de communicatie met het voertuig. De REST API kan nog steeds worden gebruikt totdat Tesla de overstap maakt. S/X-modellen van vóór 2021 moeten de REST API blijven gebruiken."
+              }
+            },
+            {
               "id": "command_wake_up",
               "type": "checkbox",
               "value": false,
@@ -2736,6 +2886,31 @@
                 "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
                 "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden."
               }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Tesla API",
+            "de": "Tesla API",
+            "nl": "Tesla API"
+          },
+          "children": [
+            {
+              "id": "api_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+              },
+              "value": ""
             }
           ]
         },
@@ -3135,6 +3310,39 @@
     }
   ],
   "capabilities": {
+    "alarm_api_error": {
+      "type": "boolean",
+      "title": {
+        "en": "API error",
+        "de": "API-Fehler",
+        "nl": "API-fout"
+      },
+      "insights": false,
+      "titleTrue": {
+        "en": "API error present",
+        "de": "API-Fehler vorhanden",
+        "nl": "API-fout opgetreden"
+      },
+      "titleFalse": {
+        "en": "No API error",
+        "de": "Kein API-Fehler",
+        "nl": "Geen API-fout"
+      },
+      "insightsTitleTrue": {
+        "en": "API error present",
+        "de": "API-Fehler vorhanden",
+        "nl": "API-fout opgetreden"
+      },
+      "insightsTitleFalse": {
+        "en": "No API error",
+        "de": "Kein API-Fehler",
+        "nl": "Geen API-fout"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "/assets/capability_icons/alarm_api_error.svg"
+    },
     "battery_heater": {
       "type": "boolean",
       "title": {
@@ -3563,6 +3771,19 @@
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
     },
+    "measure_api_error": {
+      "type": "string",
+      "title": {
+        "en": "API error",
+        "de": "API-Fehler",
+        "nl": "API-fout"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_error.svg"
+    },
     "measure_battery_level": {
       "type": "number",
       "title": {
@@ -3652,9 +3873,9 @@
     "measure_car_tpms_pressure_fl": {
       "type": "number",
       "title": {
-        "en": "front left",
-        "de": "vorn links",
-        "nl": "vooraan links"
+        "en": "TPMS front left",
+        "de": "TPMS vorn links",
+        "nl": "TPMS vooraan links"
       },
       "units": {
         "en": "Bar"
@@ -3668,9 +3889,9 @@
     "measure_car_tpms_pressure_fr": {
       "type": "number",
       "title": {
-        "en": "front right",
-        "de": "vorn rechts",
-        "nl": "rechtsvoor"
+        "en": "TPMS front right",
+        "de": "TPMS vorn rechts",
+        "nl": "TPMS rechtsvoor"
       },
       "units": {
         "en": "Bar"
@@ -3684,9 +3905,9 @@
     "measure_car_tpms_pressure_rl": {
       "type": "number",
       "title": {
-        "en": "rear left",
-        "de": "hinten links",
-        "nl": "links achter"
+        "en": "TPMS rear left",
+        "de": "TPMS hinten links",
+        "nl": "TPMS links achter"
       },
       "units": {
         "en": "Bar"
@@ -3700,9 +3921,9 @@
     "measure_car_tpms_pressure_rr": {
       "type": "number",
       "title": {
-        "en": "rear right",
-        "de": "hinten rechts",
-        "nl": "rechts achter"
+        "en": "TPMS rear right",
+        "de": "TPMS hinten rechts",
+        "nl": "TPMS rechts achter"
       },
       "units": {
         "en": "Bar"
@@ -3975,7 +4196,7 @@
       "icon": "./assets/capability_icons/refresh.svg"
     },
     "software_update_state": {
-      "type": "string",
+      "type": "enum",
       "title": {
         "en": "Update state",
         "de": "Aktualisierungs-Status",
@@ -3984,7 +4205,39 @@
       "uiComponent": "sensor",
       "getable": true,
       "setable": false,
-      "icon": "./assets/capability_icons/software_update_state.svg"
+      "icon": "./assets/capability_icons/software_update_state.svg",
+      "values": [
+        {
+          "id": "",
+          "title": {
+            "en": "-"
+          }
+        },
+        {
+          "id": "available",
+          "title": {
+            "en": "Available",
+            "de": "Verfügbar",
+            "nl": "Beschikbaar"
+          }
+        },
+        {
+          "id": "scheduled",
+          "title": {
+            "en": "Asleep",
+            "de": "Geplant",
+            "nl": "Gepland"
+          }
+        },
+        {
+          "id": "installing",
+          "title": {
+            "en": "Installing",
+            "de": "Wird installiert",
+            "nl": "Is being installed"
+          }
+        }
+      ]
     },
     "state": {
       "type": "enum",

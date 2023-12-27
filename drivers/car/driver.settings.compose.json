@@ -43,8 +43,27 @@
       },
       "children": [
         {
+          "$extends": "command_api",
+          "id": "command_api"
+        },
+        {
           "$extends": "command_wake_up",
           "id": "command_wake_up"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Tesla API",
+        "de": "Tesla API",
+        "nl": "Tesla API"
+      },
+      "children": [
+        {
+          "$extends": "api_state",
+          "id": "api_state"
         }
       ]
     },

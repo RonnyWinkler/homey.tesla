@@ -1,0 +1,60 @@
+{
+    "title": {
+        "en": "Update state !{{is|isn't}}",
+        "de": "Aktualisierungs-Status !{{ist|ist nicht}}",
+        "nl": "Status bijwerken !{{is|is niet}}"
+    },
+    "titleFormatted": {
+        "en": "Update state !{{is|isn't}} [[state]]",
+        "de": "Aktualisierungs-Status !{{ist|ist nicht}} [[state]]",
+        "nl": "Status bijwerken !{{is|is niet}} [[state]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "state",
+            "type": "dropdown",
+            "title": { 
+                "en": "Update state",
+                "de": "Aktualisierungs-Status",
+                "nl": "Status bijwerken"
+            },
+            "values": [
+                {
+                    "id": "",
+                    "title": {
+                        "en": "-"
+                    }
+                },
+                {
+                    "id": "available",
+                    "title": {
+                        "en": "Available",
+                        "de": "Verfügbar",
+                        "nl": "Beschikbaar"
+                    }
+                },
+                {
+                    "id": "scheduled",
+                    "title": {
+                        "en": "Asleep",
+                        "de": "Geplant",
+                        "nl": "Gepland"
+                    }
+                },
+                {
+                    "id": "installing",
+                    "title": {
+                        "en": "Installing",
+                        "de": "Wird installiert",
+                        "nl": "Is being installed"
+                    }
+                }
+            ]
+        }
+    ]
+}
