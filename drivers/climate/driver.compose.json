@@ -16,7 +16,9 @@
         "measure_temperature",
         "climate_overheat_protection_mode",
         "climate_overheat_protection_level",
-
+        "climate_steering_wheel_heat_level",
+        "climate_seat_fl_heat_level",
+        "climate_seat_fr_heat_level",
 
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",

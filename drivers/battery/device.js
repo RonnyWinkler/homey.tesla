@@ -54,6 +54,7 @@ module.exports = class BatteryDevice extends ChildDevice {
       // Complete
       // Disconnected
       // NoPower 
+      // Starting 
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
@@ -118,6 +119,30 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
   }
 
+  async _commandChargeLimit(limit){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandChargeLimit(this.getCarDevice().getCommandApi(), this.getData().id, limit);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
+  async _commandChargeCurrent(current){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandChargeCurrent(this.getCarDevice().getCommandApi(), this.getData().id, current);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -143,6 +168,16 @@ module.exports = class BatteryDevice extends ChildDevice {
   async flowActionChargeOn(state){
     await this._commandChargeOn(state);
     await this.setCapabilityValue('charging_on', state );
+  }
+
+  async flowActionChargeLimit(limit){
+    await this._commandChargeLimit(limit);
+    await this.setCapabilityValue('measure_charge_limit_soc', limit );
+  }
+
+  async flowActionChargeCurrent(current){
+    await this._commandChargeCurrent(current);
+    await this.setCapabilityValue('measure_charge_current', current );
   }
 
 }

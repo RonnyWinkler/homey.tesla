@@ -1,0 +1,53 @@
+{
+    "title": {
+      "en": "Heated steering wheel level",
+      "de": "Lenkradheizungsstufe",
+      "nl": "Verwarmingsniveau stuurwiel"
+      },
+    "titleFormatted": {
+        "en": "Set heated steering wheel level to [[level]]",
+        "de": "Setze Lenkradheizungsstufe auf [[level]]",
+        "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]"
+    },
+    "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=climate"
+        },
+        {
+          "name": "level",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto",
+                "de": "Auto",
+                "nl": "Auto"
+              }
+            },
+            {
+              "id": "0",
+              "title": {
+                "en": "Off",
+                "de": "Aus",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "1"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "2"
+              }
+            }
+          ]
+        }
+    ]
+}

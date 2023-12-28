@@ -1,0 +1,71 @@
+{
+    "title": {
+        "en": "Navigate to coordinates",
+        "de": "Navigiere zu Koordinaten",
+        "nl": "Navigeer naar coördinaten"
+    },
+    "titleFormatted": {
+      "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with oder [[order]]",
+      "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Reihenfolge [[order]]",
+      "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]] met bestelling [[order]]"
+  },
+    "args": [
+      {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+      },
+      {
+        "name": "latitude",
+        "type": "number",
+        "required": false,
+        "title": { 
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
+        },
+        "placeholder": { 
+            "en": "13.40000"
+        }
+    },
+    {
+        "name": "longitude",
+        "type": "number",
+        "required": false,
+        "title": { 
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
+        },
+        "placeholder": { 
+            "en": "52.50000"
+        }
+    },
+    {
+        "name": "url",
+        "type": "text",
+        "required": false,
+        "title": { 
+            "en": "GoogleMaps URL",
+            "de": "GoogleMaps URL",
+            "nl": "GoogleMaps URL"
+        },
+        "placeholder": { 
+            "en": "https://maps.app.goo.gl/..."
+        }
+    },
+    {
+      "name": "order",
+      "type": "number",
+      "required": false,
+      "title": { 
+          "en": "Order",
+          "de": "Reihenfolge",
+          "nl": "Reeks"
+      },
+      "placeholder": { 
+          "en": "1"
+      }
+  }
+]
+}

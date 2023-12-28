@@ -81,6 +81,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionPreconditioningLevel(args.level);
 		});
 
+    this.homey.flow.getActionCard('climate_steering_wheel_heat_level')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSteeringWheelHeatLevel(args.level);
+		});
+
+    this.homey.flow.getActionCard('climate_seat_heat_level')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSeatHeatLevel(args.level, args.seat);
+		});
+
     this.homey.flow.getActionCard('climate_defrost')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionDefrost(args.action == 'on');
@@ -100,6 +110,32 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionChargeOn(args.action == 'start');
 		});
+
+    this.homey.flow.getActionCard('charge_limit')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeLimit(args.limit);
+		});
+
+    this.homey.flow.getActionCard('charge_current')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeCurrent(args.current);
+		});
+
+    this.homey.flow.getActionCard('location_navigate_to_location')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionNavigateToLocation(args);
+		})
+    .registerArgumentAutocompleteListener('location', async (query, args) => {
+      const locationList = args.device.getAutocompleteLocationList();
+      return locationList.filter((result) => { 
+        return result.name.toLowerCase().includes(query.toLowerCase());
+      });
+    });
+
+    this.homey.flow.getActionCard('location_navigate_to_coordinates')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionNavigateToCoordinates(args);
+		})
 
   }
 
@@ -127,7 +163,46 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
   // FLOW CONDITIONS ==============================================================================
   async _initFlowConditions(){
-  
+    this.homey.flow.getConditionCard('alarm_api_error')
+		.registerRunListener(async (args, state) => {
+			return (args.device.getCapabilityValue('alarm_api_error'));
+		})
+
+    this.homey.flow.getConditionCard('battery_heater')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('battery_heater'));
+    })
+
+    this.homey.flow.getConditionCard('charging_state')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('charging_state') == args.state);
+    })
+
+    this.homey.flow.getConditionCard('climate_overheat_protection_mode')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_overheat_protection_mode') == args.mode);
+    })
+
+    this.homey.flow.getConditionCard('climate_overheat_protection_level')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_overheat_protection_level') == args.level);
+    })
+
+    this.homey.flow.getConditionCard('software_update_state')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('software_update_state') == args.state);
+    })
+
+    this.homey.flow.getConditionCard('state')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('state') == args.state);
+    })
+
+    this.homey.flow.getConditionCard('climate_steering_wheel_heat_level')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_steering_wheel_heat_level') == args.level);
+    })
+
   }
 
 }

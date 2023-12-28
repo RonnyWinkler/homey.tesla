@@ -1,9 +1,9 @@
 {
     "highlight": true,
     "title": {
-        "en": "Fixed API bug",
-        "de": "API-Fehler behoben",
-        "nl": "API-bug opgelost"
+        "en": "API ok",
+        "de": "API ok",
+        "nl": "API ok"
     },
     "args": [
         {

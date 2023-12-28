@@ -1,0 +1,105 @@
+{
+    "title": {
+      "en": "Seat heating level",
+      "de": "Sitzheizungsstufe",
+      "nl": "Niveau stoelverwarming"
+      },
+    "titleFormatted": {
+        "en": "Set seat heating level level to [[level]] for [[seat]]",
+        "de": "Setze Sitzheizungsstufe auf [[level]] für [[seat]]",
+        "nl": "Stel het niveau van de stoelverwarming in [[level]] voor [[seat]]"
+    },
+    "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=climate"
+        },
+        {
+          "name": "level",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto",
+                "de": "Auto",
+                "nl": "Auto"
+              }
+            },
+            {
+              "id": "0",
+              "title": {
+                "en": "Off",
+                "de": "Aus",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "3"
+              }
+            }
+          ]
+        },
+        {
+          "name": "seat",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Driver",
+                "de": "Fahrer",
+                "nl": "Bestuurder"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Passenger",
+                "de": "Beifahrer",
+                "nl": "Passagier"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Rear left",
+                "de": "Hinten links",
+                "nl": "Linksachter"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Rear center",
+                "de": "Hinten mittig",
+                "nl": "Midden achter"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Rear right",
+                "de": "Hinten rechts",
+                "nl": "Rechtsachter"
+              }
+            }
+          ]
+        }
+    ]
+}

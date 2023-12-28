@@ -1,0 +1,38 @@
+{
+    "title": {
+        "en": "Set charge current",
+        "de": "Ladestrom einstellen",
+        "nl": "Laadversterkers instellen"
+    },
+    "titleFormatted": {
+        "en": "Set charge amps to [[current]]",
+        "de": "Stelle Ladestrom auf [[current]]",
+        "nl": "Stel de Laadversterkers in op [[current]]"
+    },
+    "args": [
+      {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=battery"
+      },
+      {
+        "name": "current",
+        "type": "range",
+        "min": 0,
+        "max": 32,
+        "step": 1,
+        "label": "A",
+        "labelDecimals": 0,
+        "title": {
+          "en": "Charge current",
+          "de": "Ladestrom",
+          "nl": "Laadstroom"
+        },
+        "placeholder": {
+          "en": "Charge current",
+          "de": "Ladestrom",
+          "nl": "Laadstroom"
+        }
+      }
+  ]
+}

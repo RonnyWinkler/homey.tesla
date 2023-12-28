@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -66,9 +66,9 @@
       {
         "highlight": true,
         "title": {
-          "en": "Fixed API bug",
-          "de": "API-Fehler behoben",
-          "nl": "API-bug opgelost"
+          "en": "API ok",
+          "de": "API ok",
+          "nl": "API ok"
         },
         "args": [
           {
@@ -1681,6 +1681,14 @@
                 }
               },
               {
+                "id": "Starting",
+                "title": {
+                  "en": "Starting",
+                  "de": "Beginnend",
+                  "nl": "Beginnend"
+                }
+              },
+              {
                 "id": "Charging",
                 "title": {
                   "en": "Charging",
@@ -1702,6 +1710,14 @@
                   "en": "Complete",
                   "de": "Abgeschlossen",
                   "nl": "Compleet"
+                }
+              },
+              {
+                "id": "NoPower",
+                "title": {
+                  "en": "No Power",
+                  "de": "Keine Energie",
+                  "nl": "Geen kracht"
                 }
               }
             ]
@@ -1818,6 +1834,77 @@
           }
         ],
         "id": "climate_overheat_protection_mode"
+      },
+      {
+        "title": {
+          "en": "Heated steering wheel level !{{is|isn't}}",
+          "de": "Lenkradheizungsstufe !{{ist|ist nicht}}",
+          "nl": "Verwarmingsniveau stuurwiel !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Heated steering wheel level !{{is|isn't}} [[level]]",
+          "de": "Lenkradheizungsstufe !{{ist|ist nicht}} [[level]]",
+          "nl": "Verwarmingsniveau stuurwiel !{{is|is niet}} [[level]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "title": {
+              "en": "Heated steering wheel level",
+              "de": "Lenkradheizungsstufe",
+              "nl": "Verwarmingsniveau stuurwiel"
+            },
+            "values": [
+              {
+                "id": "0-auto",
+                "title": {
+                  "en": "Off (auto)",
+                  "de": "Aus (auto)",
+                  "nl": "Uit (auto)"
+                }
+              },
+              {
+                "id": "0",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "1-auto",
+                "title": {
+                  "en": "1 (auto)"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "3-auto",
+                "title": {
+                  "en": "2 (auto)"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "2"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_steering_wheel_heat_level"
       },
       {
         "title": {
@@ -2106,6 +2193,84 @@
       },
       {
         "title": {
+          "en": "Set charge current",
+          "de": "Ladestrom einstellen",
+          "nl": "Laadversterkers instellen"
+        },
+        "titleFormatted": {
+          "en": "Set charge amps to [[current]]",
+          "de": "Stelle Ladestrom auf [[current]]",
+          "nl": "Stel de Laadversterkers in op [[current]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "current",
+            "type": "range",
+            "min": 0,
+            "max": 32,
+            "step": 1,
+            "label": "A",
+            "labelDecimals": 0,
+            "title": {
+              "en": "Charge current",
+              "de": "Ladestrom",
+              "nl": "Laadstroom"
+            },
+            "placeholder": {
+              "en": "Charge current",
+              "de": "Ladestrom",
+              "nl": "Laadstroom"
+            }
+          }
+        ],
+        "id": "charge_current"
+      },
+      {
+        "title": {
+          "en": "Set charge limit SoC",
+          "de": "Ladelimit SoC setzen",
+          "nl": "Stel Laadlimiet SoC in"
+        },
+        "titleFormatted": {
+          "en": "Set charge limit SoC to [[limit]]",
+          "de": "Stelle Ladelimit SoC auf [[limit]]",
+          "nl": "Stel de Laadlimiet SoC in op [[limit]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "limit",
+            "type": "range",
+            "min": 50,
+            "max": 100,
+            "step": 1,
+            "label": "%",
+            "labelDecimals": 1,
+            "title": {
+              "en": "Charge limit SoC",
+              "de": "Ladelimit SoC",
+              "nl": "Laadlimiet SoC"
+            },
+            "placeholder": {
+              "en": "Charge limit SoC",
+              "de": "Ladelimit SoC",
+              "nl": "Laadlimiet SoC"
+            }
+          }
+        ],
+        "id": "charge_limit"
+      },
+      {
+        "title": {
           "en": "Start/stop charging",
           "de": "Laden starten/stoppen",
           "nl": "Start/stop het opladen"
@@ -2239,7 +2404,7 @@
         "titleFormatted": {
           "en": "Set overheat protection level to [[level]]",
           "de": "Setze Überhitzungsschutz-Stufe auf [[level]]",
-          "nl": "stel het beschermingsniveau tegen oververhitting in op [[level]]"
+          "nl": "Stel het beschermingsniveau tegen oververhitting in op [[level]]"
         },
         "args": [
           {
@@ -2374,6 +2539,166 @@
       },
       {
         "title": {
+          "en": "Seat heating level",
+          "de": "Sitzheizungsstufe",
+          "nl": "Niveau stoelverwarming"
+        },
+        "titleFormatted": {
+          "en": "Set seat heating level level to [[level]] for [[seat]]",
+          "de": "Setze Sitzheizungsstufe auf [[level]] für [[seat]]",
+          "nl": "Stel het niveau van de stoelverwarming in [[level]] voor [[seat]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto",
+                  "de": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "0",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              }
+            ]
+          },
+          {
+            "name": "seat",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Driver",
+                  "de": "Fahrer",
+                  "nl": "Bestuurder"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Passenger",
+                  "de": "Beifahrer",
+                  "nl": "Passagier"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Rear left",
+                  "de": "Hinten links",
+                  "nl": "Linksachter"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Rear center",
+                  "de": "Hinten mittig",
+                  "nl": "Midden achter"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Rear right",
+                  "de": "Hinten rechts",
+                  "nl": "Rechtsachter"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_seat_heat_level"
+      },
+      {
+        "title": {
+          "en": "Heated steering wheel level",
+          "de": "Lenkradheizungsstufe",
+          "nl": "Verwarmingsniveau stuurwiel"
+        },
+        "titleFormatted": {
+          "en": "Set heated steering wheel level to [[level]]",
+          "de": "Setze Lenkradheizungsstufe auf [[level]]",
+          "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto",
+                  "de": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "0",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "2"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_steering_wheel_heat_level"
+      },
+      {
+        "title": {
           "en": "Set Temperature",
           "de": "Temperatur setzen",
           "nl": "Stel temperatuur in"
@@ -2430,6 +2755,107 @@
           }
         ],
         "id": "climate_temperature"
+      },
+      {
+        "title": {
+          "en": "Navigate to coordinates",
+          "de": "Navigiere zu Koordinaten",
+          "nl": "Navigeer naar coördinaten"
+        },
+        "titleFormatted": {
+          "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with oder [[order]]",
+          "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Reihenfolge [[order]]",
+          "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]] met bestelling [[order]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          },
+          {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            },
+            "placeholder": {
+              "en": "13.40000"
+            }
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            },
+            "placeholder": {
+              "en": "52.50000"
+            }
+          },
+          {
+            "name": "url",
+            "type": "text",
+            "required": false,
+            "title": {
+              "en": "GoogleMaps URL",
+              "de": "GoogleMaps URL",
+              "nl": "GoogleMaps URL"
+            },
+            "placeholder": {
+              "en": "https://maps.app.goo.gl/..."
+            }
+          },
+          {
+            "name": "order",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Order",
+              "de": "Reihenfolge",
+              "nl": "Reeks"
+            },
+            "placeholder": {
+              "en": "1"
+            }
+          }
+        ],
+        "id": "location_navigate_to_coordinates"
+      },
+      {
+        "title": {
+          "en": "Navigate to location",
+          "de": "Navigiere zu Standort",
+          "nl": "Navigeer naar locatie"
+        },
+        "titleFormatted": {
+          "en": "Navigate to location [[location]]",
+          "de": "Navigiere zu Standort [[location]]",
+          "nl": "Navigeer naar locatie [[location]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          },
+          {
+            "name": "location",
+            "type": "autocomplete",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Plaats"
+            }
+          }
+        ],
+        "id": "location_navigate_to_location"
       },
       {
         "title": {
@@ -2954,6 +3380,9 @@
         "measure_temperature",
         "climate_overheat_protection_mode",
         "climate_overheat_protection_level",
+        "climate_steering_wheel_heat_level",
+        "climate_seat_fl_heat_level",
+        "climate_seat_fr_heat_level",
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",
         "climate_ac",
@@ -3509,6 +3938,14 @@
           }
         },
         {
+          "id": "Starting",
+          "title": {
+            "en": "Starting",
+            "de": "Beginnend",
+            "nl": "Beginnend"
+          }
+        },
+        {
           "id": "Charging",
           "title": {
             "en": "Charging",
@@ -3530,6 +3967,14 @@
             "en": "Complete",
             "de": "Abgeschlossen",
             "nl": "Compleet"
+          }
+        },
+        {
+          "id": "NoPower",
+          "title": {
+            "en": "No Power",
+            "de": "Keine Energie",
+            "nl": "Geen kracht"
           }
         }
       ]
@@ -3701,6 +4146,195 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "/assets/capability_icons/climate_preconditioning.svg"
+    },
+    "climate_seat_fl_heat_level": {
+      "type": "enum",
+      "title": {
+        "en": "Driver seat heating",
+        "de": "Sitzheizung Fahrer",
+        "nl": "Verwarming bestuurdersstoel"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/climate_seat_fl_heat_level.svg",
+      "values": [
+        {
+          "id": "0-auto",
+          "title": {
+            "en": "Off (auto)",
+            "de": "Aus (auto)",
+            "nl": "Uit (auto)"
+          }
+        },
+        {
+          "id": "0",
+          "title": {
+            "en": "Off",
+            "de": "Aus",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "1-auto",
+          "title": {
+            "en": "1 (auto)"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2-auto",
+          "title": {
+            "en": "2 (auto)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3-auto",
+          "title": {
+            "en": "3 (auto)"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        }
+      ]
+    },
+    "climate_seat_fr_heat_level": {
+      "type": "enum",
+      "title": {
+        "en": "Passenger seat heating",
+        "de": "Sitzheizung Beifahrer",
+        "nl": "Verwarmde passagiersstoelen"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/climate_seat_fr_heat_level.svg",
+      "values": [
+        {
+          "id": "0-auto",
+          "title": {
+            "en": "Off (auto)",
+            "de": "Aus (auto)",
+            "nl": "Uit (auto)"
+          }
+        },
+        {
+          "id": "0",
+          "title": {
+            "en": "Off",
+            "de": "Aus",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "1-auto",
+          "title": {
+            "en": "1 (auto)"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2-auto",
+          "title": {
+            "en": "2 (auto)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3-auto",
+          "title": {
+            "en": "3 (auto)"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        }
+      ]
+    },
+    "climate_steering_wheel_heat_level": {
+      "type": "enum",
+      "title": {
+        "en": "Heated steering wheel",
+        "de": "Lenkradheizung",
+        "nl": "Verwarmd stuur"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg",
+      "values": [
+        {
+          "id": "0-auto",
+          "title": {
+            "en": "Off (auto)",
+            "de": "Aus (auto)",
+            "nl": "Uit (auto)"
+          }
+        },
+        {
+          "id": "0",
+          "title": {
+            "en": "Off",
+            "de": "Aus",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "1-auto",
+          "title": {
+            "en": "1 (auto)"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "3-auto",
+          "title": {
+            "en": "2 (auto)"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "2"
+          }
+        }
+      ]
     },
     "climate_window_vent": {
       "type": "boolean",

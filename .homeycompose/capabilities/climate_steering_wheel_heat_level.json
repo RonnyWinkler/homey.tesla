@@ -1,0 +1,55 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Heated steering wheel",
+    "de": "Lenkradheizung",
+    "nl": "Verwarmd stuur"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg",
+  "values": [
+    {
+      "id": "0-auto",
+      "title": {
+        "en": "Off (auto)",
+        "de": "Aus (auto)",
+        "nl": "Uit (auto)"
+      }
+    },
+    {
+      "id": "0",
+      "title": {
+        "en": "Off",
+        "de": "Aus",
+        "nl": "Uit"
+      }
+    },
+    {
+      "id": "1-auto",
+      "title": {
+        "en": "1 (auto)"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "1"
+      }
+    },
+    {
+      "id": "3-auto",
+      "title": {
+        "en": "2 (auto)"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "2"
+      }
+    }
+  ]
+}

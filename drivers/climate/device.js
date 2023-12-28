@@ -104,8 +104,53 @@ module.exports = class ClimateDevice extends ChildDevice {
       }
     }
 
+    // Steering wheel heating
+    if (this.hasCapability('climate_steering_wheel_heat_level') && 
+        data.climate_state && 
+        data.climate_state.auto_steering_wheel_heat != undefined && 
+        data.climate_state.steering_wheel_heat_level != undefined){
+      let value = data.climate_state.steering_wheel_heat_level.toString();
+      // 1 = Level 1
+      // 3 = LEvel 2
+      if (data.climate_state.auto_steering_wheel_heat == true){
+        value = value + '-auto';
+      }
+      await this.setCapabilityValue('climate_steering_wheel_heat_level', value );
+    }
+
+    // driver seat heating
+    if (this.hasCapability('climate_seat_fl_heat_level') && 
+        data.climate_state && 
+        data.climate_state.auto_seat_climate_left != undefined && 
+        data.climate_state.seat_heater_left != undefined){
+      let value = data.climate_state.seat_heater_left.toString();
+      // 1 = Level 1
+      // 2 = Level 2
+      // 3 = LEvel 3
+      if (data.climate_state.auto_seat_climate_left == true){
+        value = value + '-auto';
+      }
+      await this.setCapabilityValue('climate_seat_fl_heat_level', value );
+    }
+
+    // driver seat heating
+    if (this.hasCapability('climate_seat_fr_heat_level') && 
+        data.climate_state && 
+        data.climate_state.auto_seat_climate_right != undefined && 
+        data.climate_state.seat_heater_right != undefined){
+      let value = data.climate_state.seat_heater_right.toString();
+      // 1 = Level 1
+      // 2 = Level 2
+      // 3 = LEvel 3
+      if (data.climate_state.auto_seat_climate_right == true){
+        value = value + '-auto';
+      }
+      await this.setCapabilityValue('climate_seat_fr_heat_level', value );
+    }
+
   }
 
+  
   // Commands =======================================================================================
   async _commandWindowPosition(position){
     try{
@@ -171,6 +216,30 @@ module.exports = class ClimateDevice extends ChildDevice {
     try{
       await this.getCarDevice().wakeUpIfNeeded();
       await this.getCarDevice().oAuth2Client.commandDefrost(this.getCarDevice().getCommandApi(), this.getData().id, on);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
+  async _commandSteeringWheelHeatLevel(level){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandSteeringWheelHeatLevel(this.getCarDevice().getCommandApi(), this.getData().id, level);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
+  async _commandSeatHeatLevel(level, seat){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandSeatHeatLevel(this.getCarDevice().getCommandApi(), this.getData().id, level, seat);
       await this.getCarDevice().handleApiOk();
     }
     catch(error){
@@ -273,6 +342,16 @@ module.exports = class ClimateDevice extends ChildDevice {
       temp_driver, // driver temp
       temp_passenger  // passenger temp
     );
+  }
+
+  async flowActionSteeringWheelHeatLevel(level){
+    await this._commandSteeringWheelHeatLevel(level);
+    // await this.setCapabilityValue('climate_steering_wheel_heat_level', level );
+  }
+
+  async flowActionSeatHeatLevel(level, seat){
+    await this._commandSeatHeatLevel(level, seat);
+    // await this.setCapabilityValue('climate_seat_heat_level', level );
   }
 
 }

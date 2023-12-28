@@ -15,6 +15,15 @@ module.exports = class LocationDevice extends ChildDevice {
 
   }
 
+  // Device handling =======================================================================================
+  getCarDevice(){
+    let device = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];
+    if (device == undefined){
+      throw new Error('No car device found.');
+    }
+    return device; 
+  }
+  
   updateLastLocation(){
     if (this._lastLocation == undefined){
       this._lastLocation = {
@@ -76,7 +85,7 @@ module.exports = class LocationDevice extends ChildDevice {
         location_postcode: address.postcode,
         location_country: address.country
       }
-      this._flowTriggerLocationChanged.trigger(this, tokens);   
+      await this.homey.flow.getDeviceTriggerCard('location_changed').trigger(this, tokens);
 
       // Trigger reached/left coordinates flow
       await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
@@ -102,13 +111,14 @@ module.exports = class LocationDevice extends ChildDevice {
   }
 
   async flowTriggerLocationCoordinatesRunListener(args){
-    this.log("flowTriggerLocationCoordinatesReachedRunListener()");
+    this.log("flowTriggerLocationCoordinatesReachedRunListener()...");
     let state = await this._checkFlowTriggerCoordinatesCoordinates(args.latitude, args.longitude, args.url, args.distance);
+    this.log("flowTriggerLocationCoordinatesReachedRunListener() Coordinates: "+args.latitude+","+args.longitude+" "+args.url+" "+args.distance+"m - State: "+ state);
     return state;
   }
 
   async flowTriggerLocationRunListener(args){
-    this.log("flowTriggerLocationCoordinatesReachedRunListener()");
+    this.log("flowTriggerLocationReachedRunListener()...");
     // Get settings for argument location.
     let location = this.getLocations().filter(e => {return (e.id == args.location.id)})[0];
     if (location.latitude == 0 || location.latitude == ''){
@@ -119,6 +129,7 @@ module.exports = class LocationDevice extends ChildDevice {
     }
     if (location != undefined && ((location.latitude != undefined && location.longitude != undefined) || location.url != '')){
       let state = await this._checkFlowTriggerCoordinatesCoordinates(location.latitude, location.longitude, location.url, args.distance);
+      this.log("flowTriggerLocationReachedRunListener() Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+"m - State: "+ state);
       return state;
     }
     return 'unknown';
@@ -154,47 +165,6 @@ module.exports = class LocationDevice extends ChildDevice {
     if (distNew > distance && distOld > distance){
       return 'off_location';
     }
-  }
-  // FLOW ACTIONS =======================================================================================
-  
-  // Test for changing coordinates 
-  async flowActionSetLocation(latitude, longitude){
-
-    if (this.hasCapability('measure_location_latitude') && latitude != undefined){
-      await this.setCapabilityValue('measure_location_latitude', latitude);
-    }
-    if (this.hasCapability('measure_location_longitude') && longitude != undefined){
-      await this.setCapabilityValue('measure_location_longitude', longitude);
-    }
-
-    // Trigger reached/left Location flow;
-    let address = await this._osm.getAddress( 
-      this.getCapabilityValue('measure_location_latitude'), 
-      this.getCapabilityValue('measure_location_longitude'), 
-      this.homey.i18n.getLanguage()
-      );
-
-    let tokens = {
-      location_latitude: this.getCapabilityValue('measure_location_latitude'),
-      location_longitude: this.getCapabilityValue('measure_location_longitude'),
-      location_name: address.display_name,
-      location_street: address.street,
-      location_city: address.city,
-      location_postcode: address.postcode,
-      location_country: address.country
-
-    }
-    // let args = await this._flowTriggerLocationCoordinatesLeftOrReached.getArgumentValues(this);
-    // if (args != undefined && args.length > 0){
-      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
-    // }
-
-    // Trigger reached/left Location flow
-    if (this.getLocations().length > 0){
-      await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens);
-    }
-    
-    this.updateLastLocation();
   }
 
   // Device =======================================================================================
@@ -302,6 +272,106 @@ module.exports = class LocationDevice extends ChildDevice {
       throw Error('Google URL is invalid.')
     }
 
+  }
+
+  // Commands =======================================================================================
+  async _commandNavigateGpsRequest(latitude, longitude, order){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandNavigateGpsRequest(
+          this.getCarDevice().getCommandApi(), 
+          this.getData().id, 
+          latitude, longitude, order);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+  
+  // FLOW ACTIONS =======================================================================================
+
+  // Test for changing coordinates 
+  async flowActionSetLocation(latitude, longitude){
+
+    if (this.hasCapability('measure_location_latitude') && latitude != undefined){
+      await this.setCapabilityValue('measure_location_latitude', latitude);
+    }
+    if (this.hasCapability('measure_location_longitude') && longitude != undefined){
+      await this.setCapabilityValue('measure_location_longitude', longitude);
+    }
+
+    // Trigger reached/left Location flow;
+    let address = await this._osm.getAddress( 
+      this.getCapabilityValue('measure_location_latitude'), 
+      this.getCapabilityValue('measure_location_longitude'), 
+      this.homey.i18n.getLanguage()
+      );
+
+    let tokens = {
+      location_latitude: this.getCapabilityValue('measure_location_latitude'),
+      location_longitude: this.getCapabilityValue('measure_location_longitude'),
+      location_name: address.display_name,
+      location_street: address.street,
+      location_city: address.city,
+      location_postcode: address.postcode,
+      location_country: address.country
+
+    }
+    // let args = await this._flowTriggerLocationCoordinatesLeftOrReached.getArgumentValues(this);
+    // if (args != undefined && args.length > 0){
+      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
+    // }
+
+    // Trigger reached/left Location flow
+    if (this.getLocations().length > 0){
+      await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens);
+    }
+    
+    this.updateLastLocation();
+  }
+
+  async flowActionNavigateToLocation(args){
+    let coordinates = {};
+    let location = this.getLocations().filter(e => {return (e.id == args.location.id)})[0];
+    if (location.latitude == 0 || location.latitude == ''){
+      location.latitude = undefined;
+    }
+    if (location.longitude == 0 || location.longitude == ''){
+      location.longitude = undefined;
+    }
+    if (location.longitude != undefined && location.latitude != undefined ){
+      coordinates['longitude'] = location.longitude;
+      coordinates['latitude'] = location.latitude;
+    }
+    else if (location.url != undefined){
+      coordinates = await this.getGoogleMapsCoordinates(location.url)
+    }
+    if (coordinates.longitude == undefined || coordinates.latitude == undefined){
+      throw new Error('No coordinates set');
+    }
+    await this._commandNavigateGpsRequest(coordinates.latitude, coordinates.longitude);
+  }
+
+  async flowActionNavigateToCoordinates(args){
+    let coordinates = {
+      latitude: args.latitude,
+      longitude: args.longitude
+    };
+    if (args.latitude == 0 || args.latitude == ''){
+      coordinates.latitude = undefined;
+    }
+    if (args.longitude == 0 || args.longitude == ''){
+      coordinates.longitude = undefined;
+    }
+    if ( (coordinates.longitude == undefined || coordinates.latitude == undefined) && args.url != undefined ){
+      coordinates = await this.getGoogleMapsCoordinates(args.url)
+    }
+    if (coordinates.longitude == undefined || coordinates.latitude == undefined){
+      throw new Error('No coordinates set');
+    }
+    await this._commandNavigateGpsRequest(coordinates.latitude, coordinates.longitude, args.order);
   }
 
 }

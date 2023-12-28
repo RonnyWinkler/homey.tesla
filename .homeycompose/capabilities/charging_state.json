@@ -19,6 +19,14 @@
             }
         },
         {
+            "id": "Starting",
+            "title": {
+                "en": "Starting",
+                "de": "Beginnend",
+                "nl": "Beginnend"
+            }
+        },
+        {
             "id": "Charging",
             "title": {
                 "en": "Charging",
@@ -40,6 +48,14 @@
                 "en": "Complete",
                 "de": "Abgeschlossen",
                 "nl": "Compleet"
+            }
+        },
+        {
+            "id": "NoPower",
+            "title": {
+                "en": "No Power",
+                "de": "Keine Energie",
+                "nl": "Geen kracht"
             }
         }
 

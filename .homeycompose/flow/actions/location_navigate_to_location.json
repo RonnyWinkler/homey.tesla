@@ -1,0 +1,28 @@
+{
+    "title": {
+        "en": "Navigate to location",
+        "de": "Navigiere zu Standort",
+        "nl": "Navigeer naar locatie"
+    },
+    "titleFormatted": {
+      "en": "Navigate to location [[location]]",
+      "de": "Navigiere zu Standort [[location]]",
+      "nl": "Navigeer naar locatie [[location]]"
+  },
+    "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=location"
+        },
+        {
+          "name": "location",
+          "type": "autocomplete",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Plaats"
+            }
+      }
+  ]
+}

@@ -7,7 +7,7 @@
     "titleFormatted": {
         "en": "Set overheat protection level to [[level]]",
         "de": "Setze Überhitzungsschutz-Stufe auf [[level]]",
-        "nl": "stel het beschermingsniveau tegen oververhitting in op [[level]]"
+        "nl": "Stel het beschermingsniveau tegen oververhitting in op [[level]]"
     },
     "args": [
         {

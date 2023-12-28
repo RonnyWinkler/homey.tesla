@@ -23,7 +23,7 @@
         "select":{
             "title": "Auswahl",
             "auth": "Anmeldung ändern",
-            "register_app": "App-Registreirung im Fahrzeug"
+            "register_app": "App-Registrierung im Fahrzeug"
         }
     }
 }
