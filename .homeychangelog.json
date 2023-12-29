@@ -38,5 +38,8 @@
   },
   "0.0.13": {
     "en": "Capability changes (oder, insights)"
+  },
+  "0.0.14": {
+    "en": "Added scheduled charging/departure"
   }
 }

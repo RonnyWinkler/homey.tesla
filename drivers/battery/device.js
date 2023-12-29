@@ -143,6 +143,31 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
   }
 
+  async _commandScheduleCharging(action, hh, mm){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandScheduleCharging(this.getCarDevice().getCommandApi(), this.getData().id, action, hh, mm);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
+  async _commandScheduleDeparture(action, hh, mm){
+    try{
+      await this.getCarDevice().wakeUpIfNeeded();
+      await this.getCarDevice().oAuth2Client.commandScheduleDeparture(this.getCarDevice().getCommandApi(), this.getData().id, action, hh, mm);
+      await this.getCarDevice().handleApiOk();
+    }
+    catch(error){
+      await this.getCarDevice().handleApiError(error);
+      throw error;
+    }
+  }
+
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -178,6 +203,14 @@ module.exports = class BatteryDevice extends ChildDevice {
   async flowActionChargeCurrent(current){
     await this._commandChargeCurrent(current);
     await this.setCapabilityValue('measure_charge_current', current );
+  }
+
+  async flowActionChargeScheduleCharging(action, hh, mm){
+    await this._commandScheduleCharging(action, hh, mm);
+  }
+
+  async flowActionChargeScheduleDeparture(action, hh, mm){
+    await this._commandScheduleDeparture(action, hh, mm);
   }
 
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -2268,6 +2268,172 @@
           }
         ],
         "id": "charge_limit"
+      },
+      {
+        "title": {
+          "en": "Set scheduled charging",
+          "de": "Geplantes Laden festlegen",
+          "nl": "Stel gepland opladen in"
+        },
+        "titleFormatted": {
+          "en": "[[action]] scheduled charging for [[hh]]:[[mm]] o'clock",
+          "de": "[[action]] geplantes Laden für [[hh]]:[[mm]] Uhr",
+          "nl": "[[action]] gepland opladen voor [[hh]]:[[mm]] uur"
+        },
+        "hint": {
+          "en": "Sets a time at which charging should be completed.",
+          "de": "Legt einen Zeitpunkt fest, zu dem der Ladevorgang abgeschlossen sein soll.",
+          "nl": "Stelt een tijdstip in waarop het opladen voltooid moet zijn."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "Aktiviere",
+                  "nl": "Activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "deactivate",
+                  "de": "Deaktiviere",
+                  "nl": "Deactiveren"
+                }
+              }
+            ]
+          },
+          {
+            "name": "hh",
+            "type": "range",
+            "min": 0,
+            "max": 23,
+            "step": 1,
+            "labelDecimals": 0,
+            "title": {
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
+            },
+            "placeholder": {
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
+            }
+          },
+          {
+            "name": "mm",
+            "type": "range",
+            "min": 0,
+            "max": 59,
+            "step": 1,
+            "labelDecimals": 0,
+            "title": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
+            },
+            "placeholder": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
+            }
+          }
+        ],
+        "id": "charge_schedule_charging"
+      },
+      {
+        "title": {
+          "en": "Set scheduled departure",
+          "de": "Geplante Abfahrt festlegen",
+          "nl": "Gepland vertrek instellen"
+        },
+        "titleFormatted": {
+          "en": "[[action]] scheduled departure to [[hh]]:[[mm]] o'clock",
+          "de": "[[action]] geplante Abfahrt für [[hh]]:[[mm]] Uhr",
+          "nl": "[[action]] gepland vertrek voor [[hh]]:[[mm]] uur"
+        },
+        "hint": {
+          "en": "Sets a time at which departure should be completed.",
+          "de": "Legt einen Zeitpunkt fest, zu dem die Abfahrt abgeschlossen sein soll.",
+          "nl": "Stelt een tijdstip in waarop het vertrek voltooid moet zijn."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Activate",
+                  "de": "Aktiviere",
+                  "nl": "Activeren"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "deactivate",
+                  "de": "Deaktiviere",
+                  "nl": "Deactiveren"
+                }
+              }
+            ]
+          },
+          {
+            "name": "hh",
+            "type": "range",
+            "min": 0,
+            "max": 23,
+            "step": 1,
+            "labelDecimals": 0,
+            "title": {
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
+            },
+            "placeholder": {
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
+            }
+          },
+          {
+            "name": "mm",
+            "type": "range",
+            "min": 0,
+            "max": 59,
+            "step": 1,
+            "labelDecimals": 0,
+            "title": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
+            },
+            "placeholder": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
+            }
+          }
+        ],
+        "id": "charge_schedule_departure"
       },
       {
         "title": {
