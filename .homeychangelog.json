@@ -32,5 +32,8 @@
   },
   "0.0.11": {
     "en": "Added missing charging state"
+  },
+  "0.0.12": {
+    "en": "Changed proxy URL. Changed capability order in device definition"
   }
 }

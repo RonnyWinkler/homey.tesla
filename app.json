@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3081,10 +3081,10 @@
         "software_update_state",
         "alarm_api_error",
         "measure_api_error",
-        "car_doors_locked",
-        "car_sentry_mode",
         "refresh",
-        "wake_up"
+        "wake_up",
+        "car_doors_locked",
+        "car_sentry_mode"
       ],
       "energy": {
         "batteries": [
@@ -3380,13 +3380,13 @@
         "measure_temperature",
         "climate_overheat_protection_mode",
         "climate_overheat_protection_level",
-        "climate_steering_wheel_heat_level",
-        "climate_seat_fl_heat_level",
-        "climate_seat_fr_heat_level",
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",
         "climate_ac",
         "climate_ac_auto",
+        "climate_seat_fl_heat_level",
+        "climate_seat_fr_heat_level",
+        "climate_steering_wheel_heat_level",
         "climate_preconditioning",
         "climate_defrost",
         "climate_window_vent"

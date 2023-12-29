@@ -36,11 +36,12 @@
         "alarm_api_error",
         "measure_api_error",
 
-        "car_doors_locked",
-        "car_sentry_mode",
-        
         "refresh",
-        "wake_up"
+        "wake_up",
+
+        "car_doors_locked",
+        "car_sentry_mode"
+        
     ],
     "energy": {
         "batteries": [
