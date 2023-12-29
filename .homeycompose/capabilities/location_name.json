@@ -5,7 +5,7 @@
       "de": "Standort",
       "nl": "Locatie"
     },
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": false,
     "icon": "./assets/capability_icons/location_name.svg"

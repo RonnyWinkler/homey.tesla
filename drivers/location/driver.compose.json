@@ -13,12 +13,12 @@
     "connectivity": [ "cloud" ],
     "capabilities": [
         "location_last_update",
-        "measure_location_heading",
+        "location_name",
 
         "measure_location_latitude",
         "measure_location_longitude",
 
-        "location_name"
+        "measure_location_heading"
 
     ],
     "energy": {

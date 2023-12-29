@@ -6,7 +6,7 @@
       "nl": "Lengtegraad"
     },
     "decimals": 8,
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": false,
     "icon": "./assets/capability_icons/measure_location_longitude.svg"

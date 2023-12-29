@@ -35,5 +35,8 @@
   },
   "0.0.12": {
     "en": "Changed proxy URL. Changed capability order in device definition"
+  },
+  "0.0.13": {
+    "en": "Capability changes (oder, insights)"
   }
 }

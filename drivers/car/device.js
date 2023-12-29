@@ -37,6 +37,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onDeleted(){
     await _stopSync();
+    await super.onDeleted();
   }
 
   async onOAuth2Saved() {
@@ -71,47 +72,57 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async handleApiOk(){
-    await this.setSettings({
-      api_state: 'OK' 
-    }); 
-    let oldState = this.getCapabilityValue('alarm_api_error');
-    await this.setCapabilityValue('measure_api_error', null);
-    await this.setCapabilityValue('alarm_api_error', false);
-    if (oldState != false){
-      await this.homey.flow.getDeviceTriggerCard('alarm_api_error_off').trigger(this);
+    try{
+      await this.setSettings({
+        api_state: 'OK' 
+      }); 
+      let oldState = this.getCapabilityValue('alarm_api_error');
+      await this.setCapabilityValue('measure_api_error', null);
+      await this.setCapabilityValue('alarm_api_error', false);
+      if (oldState != false){
+        await this.homey.flow.getDeviceTriggerCard('alarm_api_error_off').trigger(this);
+      }
+    }
+    catch(error){
+      this.log(error);
     }
   }
 
   async handleApiError(error){
-    let apiState = 'Error';
-    switch (error.constructor.name){
-      case 'FetchError':
-        this.log("API Error: "+ error.type);
-        apiState = error.type;
-        break;
-      // case 'Error':
-      //   if (error.status != undefined && error.statusText != undefined){
-      //     this.log("API Error: "+ error.status + ' ' + error.statusText);
-      //   }
-      //   else{
-      //     this.log("API Error: "+ error.message);
-      //   }
-      //   break;
-      default:
-        this.log("API Error: "+ error.message);
-        apiState = error.message;
+    try{
+      let apiState = 'Error';
+      switch (error.constructor.name){
+        case 'FetchError':
+          this.log("API Error: "+ error.type);
+          apiState = error.type;
+          break;
+        // case 'Error':
+        //   if (error.status != undefined && error.statusText != undefined){
+        //     this.log("API Error: "+ error.status + ' ' + error.statusText);
+        //   }
+        //   else{
+        //     this.log("API Error: "+ error.message);
+        //   }
+        //   break;
+        default:
+          this.log("API Error: "+ error.message);
+          apiState = error.message;
+      }
+      await this.setSettings({
+        api_state: apiState 
+      });
+      let oldState = this.getCapabilityValue('alarm_api_error');
+      await this.setCapabilityValue('measure_api_error', apiState);
+      await this.setCapabilityValue('alarm_api_error', true);
+      if (oldState != true){
+        let tokens = {
+          error: apiState
+        };
+        await this.homey.flow.getDeviceTriggerCard('alarm_api_error_on').trigger(this, tokens);
+      }
     }
-    await this.setSettings({
-      api_state: apiState 
-    });
-    let oldState = this.getCapabilityValue('alarm_api_error');
-    await this.setCapabilityValue('measure_api_error', apiState);
-    await this.setCapabilityValue('alarm_api_error', true);
-    if (oldState != true){
-      let tokens = {
-        error: apiState
-      };
-      await this.homey.flow.getDeviceTriggerCard('alarm_api_error_on').trigger(this, tokens);
+    catch(error){
+      this.log(error);
     }
   }
 
@@ -152,13 +163,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log(`[Device] ${this.getName()}: Start OFFLINE Poll interval: ${interval} sec.`);
     }
 
-    this._syncInterval = setInterval(() => this._sync(), interval);
+    this._syncInterval = this.homey.setInterval(() => this._sync(), interval);
     // this._sync();
   }
 
   async _stopSync(){
     if (this._syncInterval) {
-      clearInterval(this._syncInterval);
+      this.homey.clearInterval(this._syncInterval);
     }
   }
 

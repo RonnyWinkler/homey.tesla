@@ -5,7 +5,7 @@
       "de": "Schaltzustand",
       "nl": "toestand verschuiven"
     },
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": false,
     "icon": "./assets/capability_icons/measure_shift_state.svg"

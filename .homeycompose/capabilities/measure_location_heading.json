@@ -8,7 +8,7 @@
     "unit":{
       "en": "°"
     },
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": false,
     "icon": "./assets/capability_icons/measure_location_heading.svg"
