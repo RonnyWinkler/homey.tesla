@@ -39,6 +39,9 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('battery_heater') && data.charge_state && data.charge_state.battery_heater_on != undefined){
       this.setCapabilityValue('battery_heater', data.charge_state.battery_heater_on);
     }
+    if (this.hasCapability('measure_battery_power') && data.drive_state && data.drive_state.power != undefined){
+      await this.setCapabilityValue('measure_battery_power', data.drive_state.power);
+    }
 
     // Charging
     if (this.hasCapability('measure_charge_limit_soc') && data.charge_state && data.charge_state.charge_limit_soc != undefined){
@@ -177,6 +180,10 @@ module.exports = class BatteryDevice extends ChildDevice {
       await this._commandChargePort(capabilityValues["charging_port"]);
     }
 
+    if( capabilityValues["charging_port_unlock"] != undefined){
+      await this._commandChargePort(true);
+    }
+
     if( capabilityValues["charging_on"] != undefined){
       await this._commandChargeOn(capabilityValues["charging_on"]);
     }
@@ -188,6 +195,11 @@ module.exports = class BatteryDevice extends ChildDevice {
   async flowActionChargePort(state){
     await this._commandChargePort(state);
     await this.setCapabilityValue('charging_port', state );
+  }
+
+  async flowActionChargePortUnlock(){
+    await this._commandChargePort(true);
+    await this.setCapabilityValue('charging_port', true );
   }
 
   async flowActionChargeOn(state){

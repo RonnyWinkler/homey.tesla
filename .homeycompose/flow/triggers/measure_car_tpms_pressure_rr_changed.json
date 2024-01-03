@@ -2,7 +2,7 @@
     "title": {
         "en": "TPMS rear right changed",
         "de": "TPMS hinten rechts hat sich geändert",
-        "nl": "TPMS rechts achter gewijzigd"
+        "nl": "TPMS rechtsachter gewijzigd"
     },
     "tokens": [
         {
@@ -11,7 +11,7 @@
             "title": {
                 "en": "TPMS rear right",
                 "de": "TPMS rechts links",
-                "nl": "TPMS rechts achter"
+                "nl": "TPMS rechtsachter"
             },
             "example": "3.0"
         }

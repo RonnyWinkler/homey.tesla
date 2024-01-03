@@ -106,6 +106,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionChargePort(args.action == 'open');
 		});
 
+    this.homey.flow.getActionCard('charging_port_unlock')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargePortUnlock();
+		});
+
     this.homey.flow.getActionCard('charging_on')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionChargeOn(args.action == 'start');

@@ -41,5 +41,8 @@
   },
   "0.0.14": {
     "en": "Added scheduled charging/departure"
+  },
+  "0.0.15": {
+    "en": "Fixed translations. Added software update state. Set state to offline in case of http-408. Moved power capability to battery device."
   }
 }

@@ -1,7 +1,7 @@
 {
     "type": "number",
     "title": {
-      "en": "Odo meter",
+      "en": "Odometer",
       "de": "Kilometerzähler",
       "nl": "Kilometerteller"
     },

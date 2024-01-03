@@ -234,7 +234,31 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this._settings.polling_location){
       query.push('location_data');
     }
-    let data = await this.oAuth2Client.getVehicleData(this.getData().id, query);    
+    let data = {};
+    try{
+      data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
+    }
+    catch(error){
+      // Check for "Offline" errors (408)
+      // Set car state to "offline"
+      // Forward all other errors
+      if (error.status && error.status == 408){
+        let oldState = this.getCapabilityValue('state');
+        await this.setCapabilityValue('state', CONSTANTS.STATE_OFFLINE);
+        let time = this._getLocalTimeString(new Date());
+        await this.setCapabilityValue('last_update', time);
+        // state change from asleep to offline => Start new sync interval
+        if (oldState == CONSTANTS.STATE_ASLEEP){
+          // From asleep to offline?
+          // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
+          this._startSync();
+        }
+        return;
+      }
+      else{
+        throw error;
+      }
+    }
 
     // Car state
     if (this.hasCapability('car_doors_locked') && data.charge_state && data.vehicle_state.locked != undefined){
@@ -261,9 +285,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this.hasCapability('measure_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
       await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
     }
-    if (this.hasCapability('measure_drive_power') && data.drive_state && data.drive_state.power != undefined){
-      await this.setCapabilityValue('measure_drive_power', data.drive_state.power);
-    }
+    // if (this.hasCapability('measure_drive_power') && data.drive_state && data.drive_state.power != undefined){
+    //   await this.setCapabilityValue('measure_drive_power', data.drive_state.power);
+    // }
 
     // Tires/TPMS
     if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined){
@@ -292,6 +316,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // available
       // scheduled
       // installing
+      // downloading
+      // downloading_wifi_wait
 
     }
 

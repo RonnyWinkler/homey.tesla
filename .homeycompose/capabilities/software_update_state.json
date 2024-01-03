@@ -33,6 +33,22 @@
             }
         },
         {
+            "id": "downloading_wifi_wait",
+            "title": {
+                "en": "Waiting for Wifi download",
+                "de": "Warte auf Wifi-Download",
+                "nl": "Wachten op wifi-download"
+            }
+        },
+        {
+            "id": "downloading",
+            "title": {
+                "en": "Downloading",
+                "de": "Wird heruntergeladen",
+                "nl": "Downloaden"
+            }
+        },
+        {
             "id": "installing",
             "title": {
                 "en": "Installing",

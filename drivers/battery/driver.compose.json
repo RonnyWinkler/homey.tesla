@@ -33,9 +33,11 @@
         "measure_charge_energy_added",
         "measure_charge_minutes_to_full_charge",
 
+        "measure_battery_power",
 
         "charging_port",
-        "charging_on"
+        "charging_on",
+        "charging_port_unlock"
     ],
     "energy": {
         "batteries": [

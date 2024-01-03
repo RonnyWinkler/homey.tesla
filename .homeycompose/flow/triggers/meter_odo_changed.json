@@ -1,6 +1,6 @@
 {
     "title": {
-        "en": "Odo meter changed",
+        "en": "Odometer changed",
         "de": "Kilometerzähler hat sich geändert",
         "nl": "Kilometerteller gewijzigd"
     },
@@ -9,7 +9,7 @@
             "name": "meter_odo",
             "type": "string",
             "title": {
-                "en": "Odo meter",
+                "en": "Odometer",
                 "de": "Kilometerzähler",
                 "nl": "Kilometerteller"
             }

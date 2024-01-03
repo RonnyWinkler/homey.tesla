@@ -2,7 +2,7 @@
     "title": {
         "en": "TPMS front left changed",
         "de": "TPMS vorn links hat sich geändert",
-        "nl": "TPMS vooraan links gewijzigd"
+        "nl": "TPMS linksvoor gewijzigd"
     },
     "tokens": [
         {
@@ -11,7 +11,7 @@
             "title": {
                 "en": "TPMS front left",
                 "de": "TPMS vorn links",
-                "nl": "TPMS vooraan links"
+                "nl": "TPMS linksvoor"
             },
             "example": "3.0"
         }

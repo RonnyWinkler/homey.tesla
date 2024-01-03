@@ -1,0 +1,19 @@
+{
+    "title": {
+      "en": "Unlock/open charge port",
+      "de": "Ladeanschluss entriegeln/öffnen",
+      "nl": "Ontgrendel/open laadpoort"
+    },
+    "titleFormatted": {
+      "en": "Unlock/open charge port",
+      "de": "Ladeanschluss entriegeln/öffnen",
+      "nl": "Ontgrendel/open laadpoort"
+    },
+    "args": [
+      {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=battery"
+      }
+  ]
+}

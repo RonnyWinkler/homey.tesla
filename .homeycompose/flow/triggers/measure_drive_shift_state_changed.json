@@ -2,7 +2,7 @@
     "title": {
         "en": "Shift state changed",
         "de": "Schaltzustand hat sich geändert",
-        "nl": "toestand verschuiven gewijzigd"
+        "nl": "Schakelstand gewijzigd"
     },
     "tokens": [
         {
@@ -11,7 +11,7 @@
             "title": {
                 "en": "Shift state",
                 "de": "Schaltzustand",
-                "nl": "toestand verschuiven"
+                "nl": "Schakelstand"
             }
         }
     ],

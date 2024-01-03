@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -205,7 +205,7 @@
       {
         "highlight": true,
         "title": {
-          "en": "Loading has stopped",
+          "en": "Charging has stopped",
           "de": "Laden wurde gestoppt",
           "nl": "Het laden is gestopt"
         },
@@ -221,7 +221,7 @@
       {
         "highlight": true,
         "title": {
-          "en": "Loading has started",
+          "en": "Charging has started",
           "de": "Laden wurde gestartet",
           "nl": "Het laden is begonnen"
         },
@@ -878,6 +878,32 @@
       },
       {
         "title": {
+          "en": "Battery power has changed",
+          "de": "Die Batterieleistung hat sich geändert",
+          "nl": "Het batterijvermogen is gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_battery_power",
+            "type": "number",
+            "title": {
+              "en": "Power",
+              "de": "Leistung",
+              "nl": "Stroom"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_battery_power_changed"
+      },
+      {
+        "title": {
           "en": "Battery range estimated changed",
           "de": "Batteriereichweite geschätzt hat sich geändert",
           "nl": "Batterijbereik geschat gewijzigd"
@@ -1013,7 +1039,7 @@
         "title": {
           "en": "TPMS front left changed",
           "de": "TPMS vorn links hat sich geändert",
-          "nl": "TPMS vooraan links gewijzigd"
+          "nl": "TPMS linksvoor gewijzigd"
         },
         "tokens": [
           {
@@ -1022,7 +1048,7 @@
             "title": {
               "en": "TPMS front left",
               "de": "TPMS vorn links",
-              "nl": "TPMS vooraan links"
+              "nl": "TPMS linksvoor"
             },
             "example": "3.0"
           }
@@ -1067,7 +1093,7 @@
         "title": {
           "en": "TPMS rear left changed",
           "de": "TPMS hinten links hat sich geändert",
-          "nl": "TPMS links achter gewijzigd"
+          "nl": "TPMS linksachter gewijzigd"
         },
         "tokens": [
           {
@@ -1076,7 +1102,7 @@
             "title": {
               "en": "TPMS rear left",
               "de": "TPMS hinten links",
-              "nl": "TPMS links achter"
+              "nl": "TPMS linksachter"
             },
             "example": "3.0"
           }
@@ -1094,7 +1120,7 @@
         "title": {
           "en": "TPMS rear right changed",
           "de": "TPMS hinten rechts hat sich geändert",
-          "nl": "TPMS rechts achter gewijzigd"
+          "nl": "TPMS rechtsachter gewijzigd"
         },
         "tokens": [
           {
@@ -1103,7 +1129,7 @@
             "title": {
               "en": "TPMS rear right",
               "de": "TPMS rechts links",
-              "nl": "TPMS rechts achter"
+              "nl": "TPMS rechtsachter"
             },
             "example": "3.0"
           }
@@ -1381,35 +1407,9 @@
       },
       {
         "title": {
-          "en": "Power changed",
-          "de": "Leistung hat sich geändert",
-          "nl": "Stroom gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_drive_power",
-            "type": "number",
-            "title": {
-              "en": "Power",
-              "de": "Leistung",
-              "nl": "Stroom"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "measure_drive_power_changed"
-      },
-      {
-        "title": {
           "en": "Shift state changed",
           "de": "Schaltzustand hat sich geändert",
-          "nl": "toestand verschuiven gewijzigd"
+          "nl": "Schakelstand gewijzigd"
         },
         "tokens": [
           {
@@ -1418,7 +1418,7 @@
             "title": {
               "en": "Shift state",
               "de": "Schaltzustand",
-              "nl": "toestand verschuiven"
+              "nl": "Schakelstand"
             }
           }
         ],
@@ -1537,7 +1537,7 @@
       },
       {
         "title": {
-          "en": "Odo meter changed",
+          "en": "Odometer changed",
           "de": "Kilometerzähler hat sich geändert",
           "nl": "Kilometerteller gewijzigd"
         },
@@ -1546,7 +1546,7 @@
             "name": "meter_odo",
             "type": "string",
             "title": {
-              "en": "Odo meter",
+              "en": "Odometer",
               "de": "Kilometerzähler",
               "nl": "Kilometerteller"
             }
@@ -1618,7 +1618,7 @@
     "conditions": [
       {
         "title": {
-          "en": "API error !{{is|isn't}} prersent",
+          "en": "API error !{{is|isn't}} present",
           "de": "API-Fehler !{{ist|ist nicht}} vorhanden",
           "nl": "API-fout  !{{is|is niet}} opgetreden"
         },
@@ -1952,6 +1952,14 @@
                   "en": "Asleep",
                   "de": "Geplant",
                   "nl": "Gepland"
+                }
+              },
+              {
+                "id": "downloading_wifi_wait",
+                "title": {
+                  "en": "Waiting for Wifi download",
+                  "de": "Warte auf Wifi-Download",
+                  "nl": "Wachten op wifi-download"
                 }
               },
               {
@@ -2518,6 +2526,26 @@
           }
         ],
         "id": "charging_port"
+      },
+      {
+        "title": {
+          "en": "Unlock/open charge port",
+          "de": "Ladeanschluss entriegeln/öffnen",
+          "nl": "Ontgrendel/open laadpoort"
+        },
+        "titleFormatted": {
+          "en": "Unlock/open charge port",
+          "de": "Ladeanschluss entriegeln/öffnen",
+          "nl": "Ontgrendel/open laadpoort"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_port_unlock"
       },
       {
         "title": {
@@ -3170,8 +3198,10 @@
         "measure_charge_current_max",
         "measure_charge_energy_added",
         "measure_charge_minutes_to_full_charge",
+        "measure_battery_power",
         "charging_port",
-        "charging_on"
+        "charging_on",
+        "charging_port_unlock"
       ],
       "energy": {
         "batteries": [
@@ -3235,16 +3265,15 @@
         "last_update",
         "state",
         "meter_odo",
+        "measure_car_software_version",
+        "measure_car_software_update_version",
+        "software_update_state",
         "measure_drive_shift_state",
         "measure_drive_speed",
-        "measure_drive_power",
         "measure_car_tpms_pressure_fl",
         "measure_car_tpms_pressure_fr",
         "measure_car_tpms_pressure_rl",
         "measure_car_tpms_pressure_rr",
-        "measure_car_software_version",
-        "measure_car_software_update_version",
-        "software_update_state",
         "alarm_api_error",
         "measure_api_error",
         "refresh",
@@ -4083,6 +4112,19 @@
       "uiComponent": "button",
       "icon": "./assets/capability_icons/charging_port.svg"
     },
+    "charging_port_unlock": {
+      "type": "boolean",
+      "title": {
+        "en": "Unlock/open charge port",
+        "de": "Ladeanschluss entriegeln/öffnen",
+        "nl": "Ontgrendel/open laadpoort"
+      },
+      "insights": false,
+      "getable": false,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/charging_port_unlock.svg"
+    },
     "charging_state": {
       "type": "enum",
       "title": {
@@ -4540,7 +4582,7 @@
       "title": {
         "en": "Last update",
         "de": "Letzte Aktualisierung",
-        "nl": "Letzte Actualisering"
+        "nl": "Laatste keer bijgewerkt"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -4598,6 +4640,21 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_battery_level.svg"
+    },
+    "measure_battery_power": {
+      "type": "number",
+      "title": {
+        "en": "Battery power",
+        "de": "Batterieleistung",
+        "nl": "Batterij vermogen"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_battery_power.svg"
     },
     "measure_battery_range_estimated": {
       "type": "number",
@@ -4675,7 +4732,7 @@
       "title": {
         "en": "TPMS front left",
         "de": "TPMS vorn links",
-        "nl": "TPMS vooraan links"
+        "nl": "TPMS linksvoor"
       },
       "units": {
         "en": "Bar"
@@ -4707,7 +4764,7 @@
       "title": {
         "en": "TPMS rear left",
         "de": "TPMS hinten links",
-        "nl": "TPMS links achter"
+        "nl": "TPMS linksachter"
       },
       "units": {
         "en": "Bar"
@@ -4723,7 +4780,7 @@
       "title": {
         "en": "TPMS rear right",
         "de": "TPMS hinten rechts",
-        "nl": "TPMS rechts achter"
+        "nl": "TPMS rechtsachter"
       },
       "units": {
         "en": "Bar"
@@ -4883,27 +4940,12 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
     },
-    "measure_drive_power": {
-      "type": "number",
-      "title": {
-        "en": "Power",
-        "de": "Leistung",
-        "nl": "Stroom"
-      },
-      "units": {
-        "en": "kW"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_drive_power.svg"
-    },
     "measure_drive_shift_state": {
       "type": "string",
       "title": {
         "en": "Shift state",
         "de": "Schaltzustand",
-        "nl": "toestand verschuiven"
+        "nl": "Schakelstand"
       },
       "insights": false,
       "getable": true,
@@ -4969,7 +5011,7 @@
     "meter_odo": {
       "type": "number",
       "title": {
-        "en": "Odo meter",
+        "en": "Odometer",
         "de": "Kilometerzähler",
         "nl": "Kilometerteller"
       },
@@ -5027,6 +5069,22 @@
             "en": "Asleep",
             "de": "Geplant",
             "nl": "Gepland"
+          }
+        },
+        {
+          "id": "downloading_wifi_wait",
+          "title": {
+            "en": "Waiting for Wifi download",
+            "de": "Warte auf Wifi-Download",
+            "nl": "Wachten op wifi-download"
+          }
+        },
+        {
+          "id": "downloading",
+          "title": {
+            "en": "Downloading",
+            "de": "Wird heruntergeladen",
+            "nl": "Downloaden"
           }
         },
         {
