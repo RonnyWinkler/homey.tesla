@@ -44,5 +44,8 @@
   },
   "0.0.15": {
     "en": "Fixed translations. Added software update state. Set state to offline in case of http-408. Moved power capability to battery device."
+  },
+  "0.0.16": {
+    "en": "Added command retry to car settings."
   }
 }

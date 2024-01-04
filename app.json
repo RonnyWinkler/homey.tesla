@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3506,6 +3506,21 @@
                 "en": "Wakes up the vehicle to send commands if the vehicle is still sleeping. This ensures that commands are executed. Alternatively, the vehicle can be woken up separately and commands then sent.",
                 "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
                 "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden."
+              }
+            },
+            {
+              "id": "command_retry",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Retry commands",
+                "de": "Kommandos wiederholen",
+                "nl": "Opdrachten opnieuw proberen"
+              },
+              "hint": {
+                "en": "Repeat commands up to 3 times if they could not be executed successfully.",
+                "de": "Wiederhole Kommandos bis zu 3x, wenn diese nicht erfolgreich ausgeführt werden konnten.",
+                "nl": "Herhaal opdrachten maximaal 3 keer als ze niet succesvol konden worden uitgevoerd."
               }
             }
           ]

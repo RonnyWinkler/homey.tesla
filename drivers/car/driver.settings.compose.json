@@ -49,6 +49,10 @@
         {
           "$extends": "command_wake_up",
           "id": "command_wake_up"
+        },
+        {
+          "$extends": "command_retry",
+          "id": "command_retry"
         }
       ]
     },

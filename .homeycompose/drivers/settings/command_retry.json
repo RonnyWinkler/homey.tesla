@@ -1,0 +1,15 @@
+{
+    "id": "command_retry",
+    "type": "checkbox",
+    "value": true,
+    "label": {
+      "en": "Retry commands",
+      "de": "Kommandos wiederholen",
+      "nl": "Opdrachten opnieuw proberen"
+    },
+    "hint": {
+      "en": "Repeat commands up to 3 times if they could not be executed successfully.",
+      "de": "Wiederhole Kommandos bis zu 3x, wenn diese nicht erfolgreich ausgeführt werden konnten.",
+      "nl": "Herhaal opdrachten maximaal 3 keer als ze niet succesvol konden worden uitgevoerd."
+    }
+}

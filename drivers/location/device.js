@@ -276,18 +276,19 @@ module.exports = class LocationDevice extends ChildDevice {
 
   // Commands =======================================================================================
   async _commandNavigateGpsRequest(latitude, longitude, order){
-    try{
-      await this.getCarDevice().wakeUpIfNeeded();
-      await this.getCarDevice().oAuth2Client.commandNavigateGpsRequest(
-          this.getCarDevice().getCommandApi(), 
-          this.getData().id, 
-          latitude, longitude, order);
-      await this.getCarDevice().handleApiOk();
-    }
-    catch(error){
-      await this.getCarDevice().handleApiError(error);
-      throw error;
-    }
+    await this.getCarDevice().sendCommand('commandNavigateGpsRequest', {latitude, longitude, order});
+    // try{
+    //   await this.getCarDevice().wakeUpIfNeeded();
+    //   await this.getCarDevice().oAuth2Client.commandNavigateGpsRequest(
+    //       this.getCarDevice().getCommandApi(), 
+    //       this.getData().id, 
+    //       latitude, longitude, order);
+    //   await this.getCarDevice().handleApiOk();
+    // }
+    // catch(error){
+    //   await this.getCarDevice().handleApiError(error);
+    //   throw error;
+    // }
   }
   
   // FLOW ACTIONS =======================================================================================

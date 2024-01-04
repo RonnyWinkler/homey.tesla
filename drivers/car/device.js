@@ -3,6 +3,8 @@ const TeslaOAuth2Device = require('../../lib/TeslaOAuth2Device');
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
 const WAIT_ON_WAKE_UP = 20; // 20 sec
+const RETRY_COUNT = 3; // number of retries sending commands
+const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 
 const CONSTANTS = require('../../lib/constants');
 
@@ -285,9 +287,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this.hasCapability('measure_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
       await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
     }
-    // if (this.hasCapability('measure_drive_power') && data.drive_state && data.drive_state.power != undefined){
-    //   await this.setCapabilityValue('measure_drive_power', data.drive_state.power);
-    // }
 
     // Tires/TPMS
     if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined){
@@ -397,10 +396,28 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
-  async _commandDoorLock(locked){
+  async sendCommand(apiFunction, params){
     try{
       await this.wakeUpIfNeeded();
-      await this.oAuth2Client.commandDoorLock(this.getCommandApi(), this.getData().id, locked);
+      let retryCount = 0;
+      if (this._settings.command_retry){
+        retryCount = RETRY_COUNT - 1;
+      }
+      for (let i=0; i<=retryCount; i++){
+        try{
+          await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
+          exit;
+        }
+        catch(error){
+          if (i==retryCount){
+            throw error;
+          }
+          else{
+            this.log("Retry in "+RETRY_DELAY+" sec...");
+            await this._wait(RETRY_DELAY * 1000);
+          }
+        }
+      }
       await this.handleApiOk();
     }
     catch(error){
@@ -410,51 +427,68 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _commandSentryMode(state){
-    try{
-      await this.wakeUpIfNeeded();
-      await this.oAuth2Client.commandSentryMode(this.getCommandApi(), this.getData().id, state);
-      await this.handleApiOk();
-    }
-    catch(error){
-      await this.handleApiError(error);
-      throw error;
-    }
+    await this.sendCommand('commandSentryMode', {state});
+    // try{
+    //   await this.sendCommand(this.oAuth2Client.commandSentryMode, {state});
+    //   await this.oAuth2Client.commandSentryMode(this.getCommandApi(), this.getData().id, state);
+    //   await this.handleApiOk();
+    // }
+    // catch(error){
+    //   await this.handleApiError(error);
+    //   throw error;
+    // }
+  }
+
+  async _commandDoorLock(locked){
+    await this.sendCommand('commandDoorLock', {locked});
+    // try{
+    //   await this.wakeUpIfNeeded();
+    //   await this.oAuth2Client.commandDoorLock(this.getCommandApi(), this.getData().id, locked);
+    //   await this.handleApiOk();
+    // }
+    // catch(error){
+    //   await this.handleApiError(error);
+    //   throw error;
+    // }
   }
 
   async _commandFlashLights(){
-    try{
-      await this.wakeUpIfNeeded();
-      await this.oAuth2Client.commandFlashLights(this.getCommandApi(), this.getData().id);
-      await this.handleApiOk();
-    }
-    catch(error){
-      await this.handleApiError(error);
-      throw error;
-    }
+    await this.sendCommand('commandFlashLights', {});
+    // try{
+    //   await this.wakeUpIfNeeded();
+    //   await this.oAuth2Client.commandFlashLights(this.getCommandApi(), this.getData().id);
+    //   await this.handleApiOk();
+    // }
+    // catch(error){
+    //   await this.handleApiError(error);
+    //   throw error;
+    // }
   }
 
   async _commandHonkHorn(){
-    try{
-      await this.wakeUpIfNeeded();
-      await this.oAuth2Client.commandHonkHorn(this.getCommandApi(), this.getData().id);
-      await this.handleApiOk();
-    }
-    catch(error){
-      await this.handleApiError(error);
-      throw error;
-    }
+    await this.sendCommand('commandHonkHorn', {});
+    // try{
+    //   await this.wakeUpIfNeeded();
+    //   await this.oAuth2Client.commandHonkHorn(this.getCommandApi(), this.getData().id);
+    //   await this.handleApiOk();
+    // }
+    // catch(error){
+    //   await this.handleApiError(error);
+    //   throw error;
+    // }
   }
 
   async _commandWindowPosition(position){
-    try{
-      await this.wakeUpIfNeeded();
-      await this.oAuth2Client.commandWindowPosition(this.getCommandApi(), this.getData().id, position);
-      await this.handleApiOk();
-    }
-    catch(error){
-      await this.handleApiError(error);
-      throw error;
-    }
+    await this.sendCommand('commandWindowPosition', {position});
+    // try{
+    //   await this.wakeUpIfNeeded();
+    //   await this.oAuth2Client.commandWindowPosition(this.getCommandApi(), this.getData().id, position);
+    //   await this.handleApiOk();
+    // }
+    // catch(error){
+    //   await this.handleApiError(error);
+    //   throw error;
+    // }
   }
 
   // CAPABILITIES =======================================================================================
