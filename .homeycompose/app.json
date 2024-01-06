@@ -1,6 +1,6 @@
 {
   "id": "com.tesla.car",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,

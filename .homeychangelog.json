@@ -50,5 +50,8 @@
   },
   "0.0.17": {
     "en": "Fixed command retry."
+  },
+  "0.0.18": {
+    "en": "Fixed command proxy request."
   }
 }
