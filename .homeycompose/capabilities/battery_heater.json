@@ -5,7 +5,6 @@
       "de": "Batterie-Heizung",
       "nl": "Batterijverwarmer"
     },
-    "insights": true,
     "titleTrue": {
       "en": "Battery heater on",
       "de": "Batterie-Heizung an",
@@ -26,6 +25,7 @@
       "de": "Batterie-Heizung aus",
       "nl": "Batterijverwarmer uit"
     },
+    "insights": true,
     "getable": true,
     "setable": false,
     "uiComponent": "sensor",

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3483,7 +3483,13 @@
                 {
                   "id": "command",
                   "label": {
-                    "en": "Tesla Vehicle Command protocol"
+                    "en": "Tesla Vehicle Command Proxy"
+                  }
+                },
+                {
+                  "id": "tvcp",
+                  "label": {
+                    "en": "Tesla Vehicle Command Protocol"
                   }
                 }
               ],
@@ -3989,7 +3995,6 @@
         "de": "Batterie-Heizung",
         "nl": "Batterijverwarmer"
       },
-      "insights": true,
       "titleTrue": {
         "en": "Battery heater on",
         "de": "Batterie-Heizung an",
@@ -4010,6 +4015,7 @@
         "de": "Batterie-Heizung aus",
         "nl": "Batterijverwarmer uit"
       },
+      "insights": true,
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
@@ -4088,7 +4094,7 @@
         "de": "Laden gestoppe",
         "nl": "Laden is gestopt"
       },
-      "insights": false,
+      "insights": true,
       "getable": true,
       "setable": true,
       "uiComponent": "button",
@@ -4275,7 +4281,7 @@
         "de": "Enteisen",
         "nl": "Ontdooien"
       },
-      "insights": false,
+      "insights": true,
       "getable": true,
       "setable": true,
       "uiComponent": "button",

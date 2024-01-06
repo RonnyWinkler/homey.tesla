@@ -406,7 +406,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       for (let i=0; i<=retryCount; i++){
         try{
           await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
-          exit;
+          break;
         }
         catch(error){
           if (i==retryCount){

@@ -47,5 +47,8 @@
   },
   "0.0.16": {
     "en": "Added command retry to car settings."
+  },
+  "0.0.17": {
+    "en": "Fixed command retry."
   }
 }

@@ -25,7 +25,7 @@
       "de": "Laden gestoppe",
       "nl": "Laden is gestopt"
     },
-    "insights": false,
+    "insights": true,
     "getable": true,
     "setable": true,
     "uiComponent": "button",

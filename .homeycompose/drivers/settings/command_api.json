@@ -17,7 +17,13 @@
         {
             "id": "command",
             "label":{
-                "en": "Tesla Vehicle Command protocol"
+                "en": "Tesla Vehicle Command Proxy"
+            }
+        },
+        {
+            "id": "tvcp",
+            "label":{
+                "en": "Tesla Vehicle Command Protocol"
             }
         }
     ],
