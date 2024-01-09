@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "meter_odo",
+            "name": "meter_car_odo",
             "type": "string",
             "title": {
                 "en": "Odometer",

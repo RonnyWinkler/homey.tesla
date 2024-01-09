@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "eckey-utils": "^0.7.14",
+    "elliptic": "^6.5.4",
     "homey-oauth2app": "^3.5.5"
   }
 }

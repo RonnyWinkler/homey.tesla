@@ -9,5 +9,5 @@
     "getable": true,
     "setable": false,
     "uiComponent": null,
-    "icon": "./assets/capability_icons/measure_api_error.svg"
+    "icon": "./assets/capability_icons/api_error.svg"
   }

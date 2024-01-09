@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Charging cable changed",
+        "de": "Ladekabel hat sich geändert",
+        "nl": "Oplaadkabel gewijzigd"
+    },
+    "tokens": [{
+            "name": "charging_port_cable",
+            "type": "string",
+            "title": {
+                "en": "Charging cable",
+                "de": "Ladekabel",
+                "nl": "Oplaadkabel"
+            },
+            "example": "IEC"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=battery"
+    }]
+}

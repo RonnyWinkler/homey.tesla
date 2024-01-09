@@ -1,4 +1,7 @@
 const TeslaOAuth2Device = require('../../lib/TeslaOAuth2Device');
+const Homey = require('homey');
+const { CarServer } = require('../../lib/CarServer.js');
+const Eckey = require('eckey-utils');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
@@ -30,6 +33,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._settings = this.getSettings();
     this._startSync();
     this._sync();
+
+    // Init Tesla Vehicle COmmand Protocol
+    let keyFile = Homey.env.APP_PRIV_KEY;
+    let key = Eckey.parsePem(keyFile);
+    this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
   }
 
   async onOAuth2Deleted() {
@@ -58,13 +66,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       for (let i=0; i<deviceCapabilities.length; i++){
         let filter = capabilities.filter((e) => {return (e == deviceCapabilities[i]);});
         if (filter.length == 0 ){
-          await this.removeCapability(deviceCapabilities[i]);
+          try{
+            await this.removeCapability(deviceCapabilities[i]);
+          }
+          catch(error){}
         }
       }
       // add missing capabilities
       for (let i=0; i<capabilities.length; i++){
         if (!this.hasCapability(capabilities[i])){
+          try{
             await this.addCapability(capabilities[i]);
+          }
+          catch(error){}
         }
       }
     }
@@ -79,7 +93,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         api_state: 'OK' 
       }); 
       let oldState = this.getCapabilityValue('alarm_api_error');
-      await this.setCapabilityValue('measure_api_error', null);
+      await this.setCapabilityValue('api_error', null);
       await this.setCapabilityValue('alarm_api_error', false);
       if (oldState != false){
         await this.homey.flow.getDeviceTriggerCard('alarm_api_error_off').trigger(this);
@@ -114,7 +128,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         api_state: apiState 
       });
       let oldState = this.getCapabilityValue('alarm_api_error');
-      await this.setCapabilityValue('measure_api_error', apiState);
+      await this.setCapabilityValue('api_error', apiState);
       await this.setCapabilityValue('alarm_api_error', true);
       if (oldState != true){
         let tokens = {
@@ -209,12 +223,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // Read cas status (onlien or not)
   async getCarState(){
-    let oldState = this.getCapabilityValue('state');
+    let oldState = this.getCapabilityValue('car_state');
     let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
 
     // If state changed, then adjust sync interval
     if (vehicle.state != oldState){
-      await this.setCapabilityValue('state', vehicle.state);
+      await this.setCapabilityValue('car_state', vehicle.state);
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
 
@@ -245,8 +259,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // Set car state to "offline"
       // Forward all other errors
       if (error.status && error.status == 408){
-        let oldState = this.getCapabilityValue('state');
-        await this.setCapabilityValue('state', CONSTANTS.STATE_OFFLINE);
+        let oldState = this.getCapabilityValue('car_state');
+        await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
         let time = this._getLocalTimeString(new Date());
         await this.setCapabilityValue('last_update', time);
         // state change from asleep to offline => Start new sync interval
@@ -276,16 +290,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // Meter
-    if (this.hasCapability('meter_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
-      await this.setCapabilityValue('meter_odo', data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM);
+    if (this.hasCapability('meter_car_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
+      await this.setCapabilityValue('meter_car_odo', data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM);
     }
 
     // Drive state
-    if (this.hasCapability('measure_drive_shift_state') && data.drive_state && data.drive_state.shift_state != undefined){
-      await this.setCapabilityValue('measure_drive_shift_state', data.drive_state.shift_state);
+    if (this.hasCapability('car_shift_state') && data.drive_state && data.drive_state.shift_state != undefined){
+      await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
     }
-    if (this.hasCapability('measure_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
-      await this.setCapabilityValue('measure_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
+    if (this.hasCapability('measure_car_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
+      await this.setCapabilityValue('measure_car_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
     }
 
     // Tires/TPMS
@@ -303,14 +317,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // Software
-    if (this.hasCapability('measure_car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
-      await this.setCapabilityValue('measure_car_software_version', data.vehicle_state.car_version.split(' ')[0]);
+    if (this.hasCapability('car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
+      await this.setCapabilityValue('car_software_version', data.vehicle_state.car_version.split(' ')[0]);
     }
-    if (this.hasCapability('measure_car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update != undefined){
-      await this.setCapabilityValue('measure_car_software_update_version', data.vehicle_state.software_update.version);
+    if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+      await this.setCapabilityValue('car_software_update_version', data.vehicle_state.software_update.version);
     }
-    if (this.hasCapability('software_update_state') && data.vehicle_state && data.vehicle_state.software_update != undefined){
-      await this.setCapabilityValue('software_update_state', data.vehicle_state.software_update.status);
+    if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+      await this.setCapabilityValue('car_software_update_state', data.vehicle_state.software_update.status);
       // Possible states:
       // available
       // scheduled
@@ -345,7 +359,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // State checks =======================================================================================
 
   isOnline(){
-    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ONLINE){
+    if (this.getCapabilityValue('car_state') == CONSTANTS.STATE_ONLINE){
       return true;
     }
     else{
@@ -354,7 +368,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   isAsleep(){
-    if (this.getCapabilityValue('state') == CONSTANTS.STATE_ASLEEP){
+    if (this.getCapabilityValue('car_state') == CONSTANTS.STATE_ASLEEP){
       return true;
     }
     else{
@@ -405,7 +419,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       for (let i=0; i<=retryCount; i++){
         try{
-          await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
+          await this._sendCommand(apiFunction, params);
           break;
         }
         catch(error){
@@ -426,69 +440,57 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  async _sendCommand(apiFunction, params){
+    // Use direct Command Protocol?
+    if ( this.getCommandApi() == CONSTANTS.COMMAND_API_CMD){
+      await this._sendSignedCommand(apiFunction, params);
+    }
+    else{
+      await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
+    }
+  }
+
+  async _sendSignedCommand(apiFunction, apiParams){
+    let {command, params} = this._getSignedCommand(apiFunction, apiParams);
+    this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Pameter: ",params);
+    await this.commandApi.sendSignedCommand(command, params);
+    this.log("Send signed command: Success");
+  }
+
+  _getSignedCommand(apiFunction, params){
+    let result = {
+      command: null,
+      params: {}
+    };
+    switch (apiFunction) {
+      case 'commandChargeLimit':
+        result.command = 'chargingSetLimitAction';
+        result.params = { percent: params.limit};
+        break;
+      default:
+        throw new Error("REST command "+apiFunction+" not supported yet for direct CommandProtocol");
+    }
+    return result;
+  }
+
   async _commandSentryMode(state){
     await this.sendCommand('commandSentryMode', {state});
-    // try{
-    //   await this.sendCommand(this.oAuth2Client.commandSentryMode, {state});
-    //   await this.oAuth2Client.commandSentryMode(this.getCommandApi(), this.getData().id, state);
-    //   await this.handleApiOk();
-    // }
-    // catch(error){
-    //   await this.handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandDoorLock(locked){
     await this.sendCommand('commandDoorLock', {locked});
-    // try{
-    //   await this.wakeUpIfNeeded();
-    //   await this.oAuth2Client.commandDoorLock(this.getCommandApi(), this.getData().id, locked);
-    //   await this.handleApiOk();
-    // }
-    // catch(error){
-    //   await this.handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandFlashLights(){
     await this.sendCommand('commandFlashLights', {});
-    // try{
-    //   await this.wakeUpIfNeeded();
-    //   await this.oAuth2Client.commandFlashLights(this.getCommandApi(), this.getData().id);
-    //   await this.handleApiOk();
-    // }
-    // catch(error){
-    //   await this.handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandHonkHorn(){
     await this.sendCommand('commandHonkHorn', {});
-    // try{
-    //   await this.wakeUpIfNeeded();
-    //   await this.oAuth2Client.commandHonkHorn(this.getCommandApi(), this.getData().id);
-    //   await this.handleApiOk();
-    // }
-    // catch(error){
-    //   await this.handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandWindowPosition(position){
     await this.sendCommand('commandWindowPosition', {position});
-    // try{
-    //   await this.wakeUpIfNeeded();
-    //   await this.oAuth2Client.commandWindowPosition(this.getCommandApi(), this.getData().id, position);
-    //   await this.handleApiOk();
-    // }
-    // catch(error){
-    //   await this.handleApiError(error);
-    //   throw error;
-    // }
   }
 
   // CAPABILITIES =======================================================================================
@@ -496,11 +498,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _onCapability( capabilityValues, capabilityOptions){
     this.log("_onCapability(): ", capabilityValues, capabilityOptions);
 
-    if( capabilityValues["refresh"] != undefined){
+    if( capabilityValues["car_refresh"] != undefined){
       await this._sync();      
     }
 
-    if( capabilityValues["wake_up"] != undefined){
+    if( capabilityValues["car_wake_up"] != undefined){
       await this._wakeUp(true);
     }
 

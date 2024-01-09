@@ -8,5 +8,5 @@
     "insights": false,
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/measure_shift_state.svg"
+    "icon": "./assets/capability_icons/car_shift_state.svg"
   }

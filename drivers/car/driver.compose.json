@@ -15,16 +15,16 @@
         "measure_battery",
 
         "last_update",
-        "state",
+        "car_state",
 
-        "meter_odo",
-        "measure_car_software_version",
+        "meter_car_odo",
+        "car_software_version",
 
-        "measure_car_software_update_version",
-        "software_update_state",
+        "car_software_update_version",
+        "car_software_update_state",
 
-        "measure_drive_shift_state",
-        "measure_drive_speed",
+        "car_shift_state",
+        "measure_car_drive_speed",
 
         "measure_car_tpms_pressure_fl",
         "measure_car_tpms_pressure_fr",
@@ -33,10 +33,10 @@
 
 
         "alarm_api_error",
-        "measure_api_error",
+        "api_error",
 
-        "refresh",
-        "wake_up",
+        "car_refresh",
+        "car_wake_up",
 
         "car_doors_locked",
         "car_sentry_mode"

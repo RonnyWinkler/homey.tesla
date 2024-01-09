@@ -13,7 +13,7 @@
     "titleFasle":{
       "en": "Sentry mode deactivated",
       "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry-modus deaktiviert"      
+      "nl": "Sentry-modus gedeactiveerd"      
     },
     "insightsTitleTrue":{
       "en": "Sentry mode activated",
@@ -23,7 +23,7 @@
     "insightsTitleFalse":{
       "en": "Sentry mode deactivated",
       "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry-modus deaktiviert"      
+      "nl": "Sentry-modus gedeactiveerd"      
     },
     "insights": true,
     "getable": true,

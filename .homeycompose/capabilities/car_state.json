@@ -8,7 +8,7 @@
     "uiComponent": "sensor",
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/state.svg",
+    "icon": "./assets/capability_icons/car_state.svg",
     "values": [
         {
             "id": "online",

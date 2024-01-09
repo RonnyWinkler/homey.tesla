@@ -26,20 +26,20 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
   // FLOW ACTIONS ==============================================================================
   async _initFlowActions(){
 
-    this.homey.flow.getActionCard('refresh')
+    this.homey.flow.getActionCard('car_refresh')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionRefresh();
 		});
 
-    this.homey.flow.getActionCard('wake_up')
+    this.homey.flow.getActionCard('car_wake_up')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionWakeUp( (args.wait=='wait') );
 		});
 
-    this.homey.flow.getActionCard('set_location')
-    .registerRunListener(async (args, state) => {
-				await args.device.flowActionSetLocation(args.latitude, args.longitude);
-		});
+    // this.homey.flow.getActionCard('set_location')
+    // .registerRunListener(async (args, state) => {
+		// 		await args.device.flowActionSetLocation(args.latitude, args.longitude);
+		// });
 
     this.homey.flow.getActionCard('car_doors')
     .registerRunListener(async (args, state) => {
@@ -203,12 +203,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       return (args.device.getCapabilityValue('climate_overheat_protection_level') == args.level);
     })
 
-    this.homey.flow.getConditionCard('software_update_state')
+    this.homey.flow.getConditionCard('car_software_update_state')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('software_update_state') == args.state);
     })
 
-    this.homey.flow.getConditionCard('state')
+    this.homey.flow.getConditionCard('car_state')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('state') == args.state);
     })

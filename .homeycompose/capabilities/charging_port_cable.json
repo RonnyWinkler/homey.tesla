@@ -1,0 +1,12 @@
+{
+    "type": "string",
+    "title": {
+        "en": "Charging cable",
+        "de": "Ladekabel",
+        "nl": "Oplaadkabel"
+    },
+    "uiComponent": "sensor",
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/charging_port_cable.svg"
+}

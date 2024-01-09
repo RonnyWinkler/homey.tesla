@@ -1,6 +1,16 @@
 Log your vehicle data, air conditioning before driving or optimize charging...
 Countless ways to make your Tesla even smarter and integrate it into your smart home.
 
-Please note:
+Setup:
+Add your vehicle as a device. Sign in with your Tesla account.
+Once added, you have the option to register the app in your vehicle to send commands to the vehicle.
+
+You can then add additional devices to control specific vehicle functions (climate, charging...).
+
+App:
 This app is the successor to the previous "Tesla smart charger" app, which will no longer be supported from 2024 following an API change by Tesla.
-The app is still in Aplha status. Changes are therefore to be expected that may change existing functions or make them unusable.
+
+API notes:
+This app uses the Tesla Fleet API. This supports end-to-end encryption of the commands sent to the vehicle.
+In order to send commands to the vehicle, the app must be registered in the vehicle. To do this, use the call when adding the vehicle or carry out this step later in the repair dialog.
+Adding as a vehicle key may be restricted if you are not the owner but the vehicle is registered to the lessor.

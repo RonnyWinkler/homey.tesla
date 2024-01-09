@@ -47,13 +47,19 @@ module.exports = class ChildDevice extends Homey.Device {
       for (let i=0; i<deviceCapabilities.length; i++){
         let filter = capabilities.filter((e) => {return (e == deviceCapabilities[i]);});
         if (filter.length == 0 ){
-          await this.removeCapability(deviceCapabilities[i]);
+          try{
+            await this.removeCapability(deviceCapabilities[i]);
+          }
+          catch(error){}
         }
       }
       // add missing capabilities
       for (let i=0; i<capabilities.length; i++){
         if (!this.hasCapability(capabilities[i])){
+          try{
             await this.addCapability(capabilities[i]);
+          }
+          catch(error){}
         }
       }
     }
@@ -61,6 +67,7 @@ module.exports = class ChildDevice extends Homey.Device {
       this.error(error.message);
     }
   }
+
 
   // SETTINGS =======================================================================================
   async onSettings({ oldSettings, newSettings, changedKeys }) {

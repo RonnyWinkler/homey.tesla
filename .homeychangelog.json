@@ -53,5 +53,8 @@
   },
   "0.0.18": {
     "en": "Fixed command proxy request."
+  },
+  "0.0.19": {
+    "en": "Redesign for capabilities & flows. Added CommandApi"
   }
 }

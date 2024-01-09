@@ -1,13 +1,13 @@
 {
     "type": "boolean",
     "title": {
-      "en": "Refresh",
-      "de": "Aktualisieren",
-      "nl": "Updaten"
+      "en": "Wake up",
+      "de": "Aufwecken",
+      "nl": "Wakker worden"
     },
     "insights": false,
     "getable": false,
     "setable": true,
     "uiComponent": "button",
-    "icon": "./assets/capability_icons/refresh.svg"
+    "icon": "./assets/capability_icons/car_wake_up.svg"
   }

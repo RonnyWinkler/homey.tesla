@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -203,6 +203,137 @@
         "id": "car_sentry_mode_true"
       },
       {
+        "title": {
+          "en": "Shift state changed",
+          "de": "Schaltzustand hat sich geändert",
+          "nl": "Schakelstand gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "car_shift_state",
+            "type": "number",
+            "title": {
+              "en": "Shift state",
+              "de": "Schaltzustand",
+              "nl": "Schakelstand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_shift_state_changed"
+      },
+      {
+        "title": {
+          "en": "Update state changed",
+          "de": "Aktualisisierungsstatus hat sich geändert",
+          "nl": "Status bijwerken gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "car_software_update_state",
+            "type": "string",
+            "title": {
+              "en": "Update state",
+              "de": "Aktualisisierungsstatus",
+              "nl": "Status bijwerken"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_software_update_state_changed"
+      },
+      {
+        "title": {
+          "en": "Available Software changed",
+          "de": "Verfügbare Software hat sich geändert",
+          "nl": "Beschikbare Software gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "car_software_update_version",
+            "type": "string",
+            "title": {
+              "en": "Available Software",
+              "de": "Verfügbare Software",
+              "nl": "Beschikbare Software"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_software_update_version_changed"
+      },
+      {
+        "title": {
+          "en": "Software changed",
+          "de": "Software hat sich geändert",
+          "nl": "Software gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "car_software_version",
+            "type": "string",
+            "title": {
+              "en": "Software",
+              "de": "Software",
+              "nl": "Software"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_software_version_changed"
+      },
+      {
+        "title": {
+          "en": "State changed",
+          "de": "Status hat sich geändert",
+          "nl": "Toestand gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "car_state",
+            "type": "string",
+            "title": {
+              "en": "State",
+              "de": "Statue",
+              "nl": "Toestand"
+            },
+            "example": "online"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_state_changed"
+      },
+      {
         "highlight": true,
         "title": {
           "en": "Charging has stopped",
@@ -233,6 +364,33 @@
           }
         ],
         "id": "charging_on_true"
+      },
+      {
+        "title": {
+          "en": "Charging cable changed",
+          "de": "Ladekabel hat sich geändert",
+          "nl": "Oplaadkabel gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "charging_port_cable",
+            "type": "string",
+            "title": {
+              "en": "Charging cable",
+              "de": "Ladekabel",
+              "nl": "Oplaadkabel"
+            },
+            "example": "IEC"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_port_cable_changed"
       },
       {
         "highlight": true,
@@ -985,18 +1143,18 @@
       },
       {
         "title": {
-          "en": "Available Software changed",
-          "de": "Verfügbare Software hat sich geändert",
-          "nl": "Beschikbare Software gewijzigd"
+          "en": "Speed changed",
+          "de": "Geschwindigkeit hat sich geändert",
+          "nl": "Snelheid gewijzigd"
         },
         "tokens": [
           {
-            "name": "measure_car_software_update_version",
-            "type": "string",
+            "name": "measure_drive_speed",
+            "type": "number",
             "title": {
-              "en": "Available Software",
-              "de": "Verfügbare Software",
-              "nl": "Beschikbare Software"
+              "en": "Speed (km/h)",
+              "de": "Geschrindigkeit (km/h)",
+              "nl": "Snelheid (km/h)"
             }
           }
         ],
@@ -1007,33 +1165,7 @@
             "filter": "driver_id=car"
           }
         ],
-        "id": "measure_car_software_update_version_changed"
-      },
-      {
-        "title": {
-          "en": "Software changed",
-          "de": "Software hat sich geändert",
-          "nl": "Software gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_car_software_version",
-            "type": "string",
-            "title": {
-              "en": "Software",
-              "de": "Software",
-              "nl": "Software"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "measure_car_software_version_changed"
+        "id": "measure_car_drive_speed_changed"
       },
       {
         "title": {
@@ -1407,58 +1539,6 @@
       },
       {
         "title": {
-          "en": "Shift state changed",
-          "de": "Schaltzustand hat sich geändert",
-          "nl": "Schakelstand gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_drive_shift_speed",
-            "type": "number",
-            "title": {
-              "en": "Shift state",
-              "de": "Schaltzustand",
-              "nl": "Schakelstand"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "measure_drive_shift_state_changed"
-      },
-      {
-        "title": {
-          "en": "Speed changed",
-          "de": "Geschwindigkeit hat sich geändert",
-          "nl": "Snelheid gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_drive_speed",
-            "type": "number",
-            "title": {
-              "en": "Speed (km/h)",
-              "de": "Geschrindigkeit (km/h)",
-              "nl": "Snelheid (km/h)"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "measure_drive_speed_changed"
-      },
-      {
-        "title": {
           "en": "Compass changed",
           "de": "Kompass hat sich geändert",
           "nl": "Kompas gewijzigd"
@@ -1543,7 +1623,7 @@
         },
         "tokens": [
           {
-            "name": "meter_odo",
+            "name": "meter_car_odo",
             "type": "string",
             "title": {
               "en": "Odometer",
@@ -1559,60 +1639,7 @@
             "filter": "driver_id=car"
           }
         ],
-        "id": "meter_odo_changed"
-      },
-      {
-        "title": {
-          "en": "Update state changed",
-          "de": "Aktualisisierungsstatus hat sich geändert",
-          "nl": "Status bijwerken gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "software_update_state",
-            "type": "string",
-            "title": {
-              "en": "Update state",
-              "de": "Aktualisisierungsstatus",
-              "nl": "Status bijwerken"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "software_update_state_changed"
-      },
-      {
-        "title": {
-          "en": "State changed",
-          "de": "Status hat sich geändert",
-          "nl": "Toestand gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "state",
-            "type": "string",
-            "title": {
-              "en": "State",
-              "de": "Statue",
-              "nl": "Toestand"
-            },
-            "example": "online"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "state_changed"
+        "id": "meter_car_odo_changed"
       }
     ],
     "conditions": [
@@ -1645,6 +1672,126 @@
           }
         ],
         "id": "battery_heater"
+      },
+      {
+        "title": {
+          "en": "Update state !{{is|isn't}}",
+          "de": "Aktualisierungs-Status !{{ist|ist nicht}}",
+          "nl": "Status bijwerken !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Update state !{{is|isn't}} [[state]]",
+          "de": "Aktualisierungs-Status !{{ist|ist nicht}} [[state]]",
+          "nl": "Status bijwerken !{{is|is niet}} [[state]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "Update state",
+              "de": "Aktualisierungs-Status",
+              "nl": "Status bijwerken"
+            },
+            "values": [
+              {
+                "id": "",
+                "title": {
+                  "en": "-"
+                }
+              },
+              {
+                "id": "available",
+                "title": {
+                  "en": "Available",
+                  "de": "Verfügbar",
+                  "nl": "Beschikbaar"
+                }
+              },
+              {
+                "id": "scheduled",
+                "title": {
+                  "en": "Asleep",
+                  "de": "Geplant",
+                  "nl": "Gepland"
+                }
+              },
+              {
+                "id": "downloading_wifi_wait",
+                "title": {
+                  "en": "Waiting for Wifi download",
+                  "de": "Warte auf Wifi-Download",
+                  "nl": "Wachten op wifi-download"
+                }
+              },
+              {
+                "id": "installing",
+                "title": {
+                  "en": "Installing",
+                  "de": "Wird installiert",
+                  "nl": "Is being installed"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "car_software_update_state"
+      },
+      {
+        "title": {
+          "en": "State !{{is|isn't}}",
+          "de": "Status !{{ist|ist nicht}}",
+          "nl": "Toestand !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "State !{{is|isn't}} [[state]]",
+          "de": "Status !{{ist|ist nicht}} [[state]]",
+          "nl": "Toestand !{{is|is niet}} [[state]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "de": "Status",
+              "nl": "Toestand"
+            },
+            "values": [
+              {
+                "id": "online",
+                "title": {
+                  "en": "Online"
+                }
+              },
+              {
+                "id": "offline",
+                "title": {
+                  "en": "Offline"
+                }
+              },
+              {
+                "id": "asleep",
+                "title": {
+                  "en": "Asleep",
+                  "de": "Schlafend",
+                  "nl": "In slaap"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "car_state"
       },
       {
         "title": {
@@ -1905,126 +2052,6 @@
           }
         ],
         "id": "climate_steering_wheel_heat_level"
-      },
-      {
-        "title": {
-          "en": "Update state !{{is|isn't}}",
-          "de": "Aktualisierungs-Status !{{ist|ist nicht}}",
-          "nl": "Status bijwerken !{{is|is niet}}"
-        },
-        "titleFormatted": {
-          "en": "Update state !{{is|isn't}} [[state]]",
-          "de": "Aktualisierungs-Status !{{ist|ist nicht}} [[state]]",
-          "nl": "Status bijwerken !{{is|is niet}} [[state]]"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          },
-          {
-            "name": "state",
-            "type": "dropdown",
-            "title": {
-              "en": "Update state",
-              "de": "Aktualisierungs-Status",
-              "nl": "Status bijwerken"
-            },
-            "values": [
-              {
-                "id": "",
-                "title": {
-                  "en": "-"
-                }
-              },
-              {
-                "id": "available",
-                "title": {
-                  "en": "Available",
-                  "de": "Verfügbar",
-                  "nl": "Beschikbaar"
-                }
-              },
-              {
-                "id": "scheduled",
-                "title": {
-                  "en": "Asleep",
-                  "de": "Geplant",
-                  "nl": "Gepland"
-                }
-              },
-              {
-                "id": "downloading_wifi_wait",
-                "title": {
-                  "en": "Waiting for Wifi download",
-                  "de": "Warte auf Wifi-Download",
-                  "nl": "Wachten op wifi-download"
-                }
-              },
-              {
-                "id": "installing",
-                "title": {
-                  "en": "Installing",
-                  "de": "Wird installiert",
-                  "nl": "Is being installed"
-                }
-              }
-            ]
-          }
-        ],
-        "id": "software_update_state"
-      },
-      {
-        "title": {
-          "en": "State !{{is|isn't}}",
-          "de": "Status !{{ist|ist nicht}}",
-          "nl": "Toestand !{{is|is niet}}"
-        },
-        "titleFormatted": {
-          "en": "State !{{is|isn't}} [[state]]",
-          "de": "Status !{{ist|ist nicht}} [[state]]",
-          "nl": "Toestand !{{is|is niet}} [[state]]"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          },
-          {
-            "name": "state",
-            "type": "dropdown",
-            "title": {
-              "en": "State",
-              "de": "Status",
-              "nl": "Toestand"
-            },
-            "values": [
-              {
-                "id": "online",
-                "title": {
-                  "en": "Online"
-                }
-              },
-              {
-                "id": "offline",
-                "title": {
-                  "en": "Offline"
-                }
-              },
-              {
-                "id": "asleep",
-                "title": {
-                  "en": "Asleep",
-                  "de": "Schlafend",
-                  "nl": "In slaap"
-                }
-              }
-            ]
-          }
-        ],
-        "id": "state"
       }
     ],
     "actions": [
@@ -2112,6 +2139,31 @@
       },
       {
         "title": {
+          "en": "Refresh car data",
+          "de": "Aktualisere Fahrzeugdaten",
+          "nl": "Bijgewerkte voertuiggegevens"
+        },
+        "titleFormatted": {
+          "en": "Refresh car data",
+          "de": "Aktualisere Fahrzeugdaten",
+          "nl": "Bijgewerkte voertuiggegevens"
+        },
+        "hint": {
+          "en": "The vehicle data can only be updated when the vehicle is online.",
+          "de": "Die Fahrzeugdaten können nur aktualisiert werden, wenn das Fahrzeug online ist.",
+          "nl": "De voertuiggegevens kunnen alleen worden bijgewerkt als het voertuig online is."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_refresh"
+      },
+      {
+        "title": {
           "en": "Sentry mode",
           "de": "Sentry-Modus",
           "nl": "Wachtmodus"
@@ -2151,6 +2203,53 @@
           }
         ],
         "id": "car_sentry_mode"
+      },
+      {
+        "title": {
+          "en": "Wake up the car",
+          "de": "Wecke das Fahrzeug auf",
+          "nl": "Maak het voertuig wakker"
+        },
+        "titleFormatted": {
+          "en": "Wake up the car [[wait]]",
+          "de": "Wecke das Fahrzeug auf [[wait]]",
+          "nl": "Maak het voertuig wakker [[wait]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "type": "dropdown",
+            "name": "wait",
+            "title": {
+              "en": "and wait?",
+              "de": "und warte?",
+              "nl": "en wacht?s"
+            },
+            "values": [
+              {
+                "id": "wait",
+                "title": {
+                  "en": "and wait",
+                  "de": "und warte",
+                  "nl": "en wacht"
+                }
+              },
+              {
+                "id": "continue",
+                "title": {
+                  "en": "and don't wait",
+                  "de": "und warte nicht",
+                  "nl": "en wacht niet"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "car_wake_up"
       },
       {
         "title": {
@@ -3050,120 +3149,6 @@
           }
         ],
         "id": "location_navigate_to_location"
-      },
-      {
-        "title": {
-          "en": "Refresh car data",
-          "de": "Aktualisere Fahrzeugdaten",
-          "nl": "Bijgewerkte voertuiggegevens"
-        },
-        "titleFormatted": {
-          "en": "Refresh car data",
-          "de": "Aktualisere Fahrzeugdaten",
-          "nl": "Bijgewerkte voertuiggegevens"
-        },
-        "hint": {
-          "en": "The vehicle data can only be updated when the vehicle is online.",
-          "de": "Die Fahrzeugdaten können nur aktualisiert werden, wenn das Fahrzeug online ist.",
-          "nl": "De voertuiggegevens kunnen alleen worden bijgewerkt als het voertuig online is."
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "refresh"
-      },
-      {
-        "title": {
-          "en": "Set location (for test only!)"
-        },
-        "titleFormatted": {
-          "en": "Set location [[latitude]] [[longitude]]"
-        },
-        "args": [
-          {
-            "name": "latitude",
-            "type": "number",
-            "required": false,
-            "title": {
-              "en": "Latitude",
-              "de": "Breitengrad",
-              "nl": "Breedtegraad"
-            },
-            "placeholder": {
-              "en": "13.40000"
-            }
-          },
-          {
-            "name": "longitude",
-            "type": "number",
-            "required": false,
-            "title": {
-              "en": "Longitude",
-              "de": "Längengrad",
-              "nl": "Lengtegraad"
-            },
-            "placeholder": {
-              "en": "52.50000"
-            }
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=location"
-          }
-        ],
-        "id": "set_location"
-      },
-      {
-        "title": {
-          "en": "Wake up the car",
-          "de": "Wecke das Fahrzeug auf",
-          "nl": "Maak het voertuig wakker"
-        },
-        "titleFormatted": {
-          "en": "Wake up the car [[wait]]",
-          "de": "Wecke das Fahrzeug auf [[wait]]",
-          "nl": "Maak het voertuig wakker [[wait]]"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          },
-          {
-            "type": "dropdown",
-            "name": "wait",
-            "title": {
-              "en": "and wait?",
-              "de": "und warte?",
-              "nl": "en wacht?s"
-            },
-            "values": [
-              {
-                "id": "wait",
-                "title": {
-                  "en": "and wait",
-                  "de": "und warte",
-                  "nl": "en wacht"
-                }
-              },
-              {
-                "id": "continue",
-                "title": {
-                  "en": "and don't wait",
-                  "de": "und warte nicht",
-                  "nl": "en wacht niet"
-                }
-              }
-            ]
-          }
-        ],
-        "id": "wake_up"
       }
     ]
   },
@@ -3198,6 +3183,7 @@
         "measure_charge_current_max",
         "measure_charge_energy_added",
         "measure_charge_minutes_to_full_charge",
+        "charging_port_cable",
         "measure_battery_power",
         "charging_port",
         "charging_on",
@@ -3263,21 +3249,21 @@
       "capabilities": [
         "measure_battery",
         "last_update",
-        "state",
-        "meter_odo",
-        "measure_car_software_version",
-        "measure_car_software_update_version",
-        "software_update_state",
-        "measure_drive_shift_state",
-        "measure_drive_speed",
+        "car_state",
+        "meter_car_odo",
+        "car_software_version",
+        "car_software_update_version",
+        "car_software_update_state",
+        "car_shift_state",
+        "measure_car_drive_speed",
         "measure_car_tpms_pressure_fl",
         "measure_car_tpms_pressure_fr",
         "measure_car_tpms_pressure_rl",
         "measure_car_tpms_pressure_rr",
         "alarm_api_error",
-        "measure_api_error",
-        "refresh",
-        "wake_up",
+        "api_error",
+        "car_refresh",
+        "car_wake_up",
         "car_doors_locked",
         "car_sentry_mode"
       ],
@@ -3502,7 +3488,7 @@
             {
               "id": "command_wake_up",
               "type": "checkbox",
-              "value": false,
+              "value": true,
               "label": {
                 "en": "Wake up to send commands",
                 "de": "Aufwecken, um Kommandos zu senden",
@@ -3988,6 +3974,19 @@
       "uiComponent": null,
       "icon": "/assets/capability_icons/alarm_api_error.svg"
     },
+    "api_error": {
+      "type": "string",
+      "title": {
+        "en": "API error",
+        "de": "API-Fehler",
+        "nl": "API-fout"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/api_error.svg"
+    },
     "battery_heater": {
       "type": "boolean",
       "title": {
@@ -4034,6 +4033,19 @@
       "uiComponent": "button",
       "icon": "./assets/capability_icons/car_doors_locked.svg"
     },
+    "car_refresh": {
+      "type": "boolean",
+      "title": {
+        "en": "Refresh",
+        "de": "Aktualisieren",
+        "nl": "Updaten"
+      },
+      "insights": false,
+      "getable": false,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_refresh.svg"
+    },
     "car_sentry_mode": {
       "type": "boolean",
       "title": {
@@ -4049,7 +4061,7 @@
       "titleFasle": {
         "en": "Sentry mode deactivated",
         "de": "Sentry-Modus deaktiviert",
-        "nl": "Sentry-modus deaktiviert"
+        "nl": "Sentry-modus gedeactiveerd"
       },
       "insightsTitleTrue": {
         "en": "Sentry mode activated",
@@ -4059,13 +4071,156 @@
       "insightsTitleFalse": {
         "en": "Sentry mode deactivated",
         "de": "Sentry-Modus deaktiviert",
-        "nl": "Sentry-modus deaktiviert"
+        "nl": "Sentry-modus gedeactiveerd"
       },
       "insights": true,
       "getable": true,
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/car_sentry_mode.svg"
+    },
+    "car_shift_state": {
+      "type": "string",
+      "title": {
+        "en": "Shift state",
+        "de": "Schaltzustand",
+        "nl": "Schakelstand"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/car_shift_state.svg"
+    },
+    "car_software_update_state": {
+      "type": "enum",
+      "title": {
+        "en": "Update state",
+        "de": "Aktualisierungs-Status",
+        "nl": "Status bijwerken"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/car_software_update_state.svg",
+      "values": [
+        {
+          "id": "",
+          "title": {
+            "en": "-"
+          }
+        },
+        {
+          "id": "available",
+          "title": {
+            "en": "Available",
+            "de": "Verfügbar",
+            "nl": "Beschikbaar"
+          }
+        },
+        {
+          "id": "scheduled",
+          "title": {
+            "en": "Asleep",
+            "de": "Geplant",
+            "nl": "Gepland"
+          }
+        },
+        {
+          "id": "downloading_wifi_wait",
+          "title": {
+            "en": "Waiting for Wifi download",
+            "de": "Warte auf Wifi-Download",
+            "nl": "Wachten op wifi-download"
+          }
+        },
+        {
+          "id": "downloading",
+          "title": {
+            "en": "Downloading",
+            "de": "Wird heruntergeladen",
+            "nl": "Downloaden"
+          }
+        },
+        {
+          "id": "installing",
+          "title": {
+            "en": "Installing",
+            "de": "Wird installiert",
+            "nl": "Is being installed"
+          }
+        }
+      ]
+    },
+    "car_software_update_version": {
+      "type": "string",
+      "title": {
+        "en": "Available software",
+        "de": "Verfügbare Software",
+        "nl": "Beschikbare software"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/car_software_update_version.svg"
+    },
+    "car_software_version": {
+      "type": "string",
+      "title": {
+        "en": "Software",
+        "de": "Software",
+        "nl": "Software"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/car_software_version.svg"
+    },
+    "car_state": {
+      "type": "enum",
+      "title": {
+        "en": "State",
+        "de": "Status",
+        "nl": "Toestand"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/car_state.svg",
+      "values": [
+        {
+          "id": "online",
+          "title": {
+            "en": "Online"
+          }
+        },
+        {
+          "id": "offline",
+          "title": {
+            "en": "Offline"
+          }
+        },
+        {
+          "id": "asleep",
+          "title": {
+            "en": "Asleep",
+            "de": "Schlafend",
+            "nl": "In slaap"
+          }
+        }
+      ]
+    },
+    "car_wake_up": {
+      "type": "boolean",
+      "title": {
+        "en": "Wake up",
+        "de": "Aufwecken",
+        "nl": "Wakker worden"
+      },
+      "insights": false,
+      "getable": false,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_wake_up.svg"
     },
     "charging_on": {
       "type": "boolean",
@@ -4132,6 +4287,51 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/charging_port.svg"
+    },
+    "charging_port_cable": {
+      "type": "string",
+      "title": {
+        "en": "Charging cable",
+        "de": "Ladekabel",
+        "nl": "Oplaadkabel"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/charging_port_cable.svg"
+    },
+    "charging_port_latch": {
+      "type": "boolean",
+      "title": {
+        "en": "Charge port latch",
+        "de": "Ladeanschlussverriegelung",
+        "nl": "Laadpoortvergrendeling"
+      },
+      "titleTrue": {
+        "en": "locked",
+        "de": "verriegelt",
+        "nl": "op slot"
+      },
+      "titleFalse": {
+        "en": "unlocked",
+        "de": "entriegelt",
+        "nl": "ontgrendeld"
+      },
+      "insightsTitleTrue": {
+        "en": "locked",
+        "de": "verriegelt",
+        "nl": "op slot"
+      },
+      "insightsTitleFalse": {
+        "en": "unlocked",
+        "de": "entriegelt",
+        "nl": "ontgrendeld"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/charging_port_latch.svg"
     },
     "charging_port_unlock": {
       "type": "boolean",
@@ -4368,7 +4568,7 @@
       "title": {
         "en": "Preconditioning",
         "de": "Vorkonditionierung",
-        "nl": "Voorconditionering"
+        "nl": "Climate control"
       },
       "insights": false,
       "getable": true,
@@ -4615,7 +4815,7 @@
       "title": {
         "en": "Last update",
         "de": "Letzte Aktualisierung",
-        "nl": "Letzte Actualisering"
+        "nl": "Laatste keer bijgewerkt"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -4633,19 +4833,6 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
-    },
-    "measure_api_error": {
-      "type": "string",
-      "title": {
-        "en": "API error",
-        "de": "API-Fehler",
-        "nl": "API-fout"
-      },
-      "insights": false,
-      "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "icon": "./assets/capability_icons/measure_api_error.svg"
     },
     "measure_battery_level": {
       "type": "number",
@@ -4724,29 +4911,20 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_battery_useable.svg"
     },
-    "measure_car_software_update_version": {
-      "type": "string",
+    "measure_car_drive_speed": {
+      "type": "number",
       "title": {
-        "en": "Available software",
-        "de": "Verfügbare Software",
-        "nl": "Beschikbare software"
+        "en": "Speed",
+        "de": "Geschwindigkeit",
+        "nl": "Snelheid"
+      },
+      "units": {
+        "en": "km/h"
       },
       "insights": true,
       "getable": true,
       "setable": false,
-      "icon": "./assets/capability_icons/measure_car_software_update_version.svg"
-    },
-    "measure_car_software_version": {
-      "type": "string",
-      "title": {
-        "en": "Software",
-        "de": "Software",
-        "nl": "Software"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_car_software_version.svg"
+      "icon": "./assets/capability_icons/measure_car_drive_speed.svg"
     },
     "measure_car_tpms_pressure_fl": {
       "type": "number",
@@ -4961,33 +5139,6 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
     },
-    "measure_drive_shift_state": {
-      "type": "string",
-      "title": {
-        "en": "Shift state",
-        "de": "Schaltzustand",
-        "nl": "Schakelstand"
-      },
-      "insights": false,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_shift_state.svg"
-    },
-    "measure_drive_speed": {
-      "type": "number",
-      "title": {
-        "en": "Speed",
-        "de": "Geschwindigkeit",
-        "nl": "Snelheid"
-      },
-      "units": {
-        "en": "km/h"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_drive_speed.svg"
-    },
     "measure_location_heading": {
       "type": "number",
       "title": {
@@ -5029,7 +5180,7 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_location_longitude.svg"
     },
-    "meter_odo": {
+    "meter_car_odo": {
       "type": "number",
       "title": {
         "en": "Odometer",
@@ -5043,127 +5194,7 @@
       "insights": true,
       "getable": true,
       "setable": false,
-      "icon": "./assets/capability_icons/meter_odo.svg"
-    },
-    "refresh": {
-      "type": "boolean",
-      "title": {
-        "en": "Refresh",
-        "de": "Aktualisieren",
-        "nl": "Updaten"
-      },
-      "insights": false,
-      "getable": false,
-      "setable": true,
-      "uiComponent": "button",
-      "icon": "./assets/capability_icons/refresh.svg"
-    },
-    "software_update_state": {
-      "type": "enum",
-      "title": {
-        "en": "Update state",
-        "de": "Aktualisierungs-Status",
-        "nl": "Status bijwerken"
-      },
-      "uiComponent": "sensor",
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/software_update_state.svg",
-      "values": [
-        {
-          "id": "",
-          "title": {
-            "en": "-"
-          }
-        },
-        {
-          "id": "available",
-          "title": {
-            "en": "Available",
-            "de": "Verfügbar",
-            "nl": "Beschikbaar"
-          }
-        },
-        {
-          "id": "scheduled",
-          "title": {
-            "en": "Asleep",
-            "de": "Geplant",
-            "nl": "Gepland"
-          }
-        },
-        {
-          "id": "downloading_wifi_wait",
-          "title": {
-            "en": "Waiting for Wifi download",
-            "de": "Warte auf Wifi-Download",
-            "nl": "Wachten op wifi-download"
-          }
-        },
-        {
-          "id": "downloading",
-          "title": {
-            "en": "Downloading",
-            "de": "Wird heruntergeladen",
-            "nl": "Downloaden"
-          }
-        },
-        {
-          "id": "installing",
-          "title": {
-            "en": "Installing",
-            "de": "Wird installiert",
-            "nl": "Is being installed"
-          }
-        }
-      ]
-    },
-    "state": {
-      "type": "enum",
-      "title": {
-        "en": "State",
-        "de": "Status",
-        "nl": "Toestand"
-      },
-      "uiComponent": "sensor",
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/state.svg",
-      "values": [
-        {
-          "id": "online",
-          "title": {
-            "en": "Online"
-          }
-        },
-        {
-          "id": "offline",
-          "title": {
-            "en": "Offline"
-          }
-        },
-        {
-          "id": "asleep",
-          "title": {
-            "en": "Asleep",
-            "de": "Schlafend",
-            "nl": "In slaap"
-          }
-        }
-      ]
-    },
-    "wake_up": {
-      "type": "boolean",
-      "title": {
-        "en": "Wake up",
-        "de": "Aufwecken",
-        "nl": "Wakker worden"
-      },
-      "insights": false,
-      "getable": false,
-      "setable": true,
-      "uiComponent": "button",
-      "icon": "./assets/capability_icons/wake_up.svg"
+      "icon": "./assets/capability_icons/meter_car_odo.svg"
     }
   }
 }

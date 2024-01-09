@@ -8,7 +8,7 @@
     "uiComponent": "sensor",
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/software_update_state.svg",
+    "icon": "./assets/capability_icons/car_software_update_state.svg",
     "values": [
         {
             "id": "",

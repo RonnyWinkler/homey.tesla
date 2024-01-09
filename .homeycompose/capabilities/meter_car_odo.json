@@ -12,5 +12,5 @@
     "insights": true,
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/meter_odo.svg"
+    "icon": "./assets/capability_icons/meter_car_odo.svg"
   }

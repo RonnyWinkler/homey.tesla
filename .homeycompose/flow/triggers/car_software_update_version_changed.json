@@ -6,7 +6,7 @@
     },
     "tokens": [
        {
-            "name": "measure_car_software_update_version",
+            "name": "car_software_update_version",
             "type": "string",
             "title": {
                 "en": "Available Software",

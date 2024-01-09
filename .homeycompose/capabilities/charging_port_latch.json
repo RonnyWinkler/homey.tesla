@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Charge port latch",
+      "de": "Ladeanschlussverriegelung",
+      "nl": "Laadpoortvergrendeling"
+    },
+    "titleTrue": {
+      "en": "locked",
+      "de": "verriegelt",
+      "nl": "op slot"
+    },
+    "titleFalse": {
+      "en": "unlocked",
+      "de": "entriegelt",
+      "nl": "ontgrendeld"
+    },
+    "insightsTitleTrue": {
+      "en": "locked",
+      "de": "verriegelt",
+      "nl": "op slot"
+    },
+    "insightsTitleFalse": {
+      "en": "unlocked",
+      "de": "entriegelt",
+      "nl": "ontgrendeld"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/charging_port_latch.svg"
+  }

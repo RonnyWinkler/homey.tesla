@@ -6,7 +6,7 @@
     },
     "tokens": [
        {
-            "name": "measure_car_software_version",
+            "name": "car_software_version",
             "type": "string",
             "title": {
                 "en": "Software",

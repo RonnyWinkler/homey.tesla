@@ -1,1 +1,1 @@
-Tesla App
+Tesla App for HomeyPro

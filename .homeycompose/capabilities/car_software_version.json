@@ -8,5 +8,5 @@
     "insights": true,
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/measure_car_software_version.svg"
+    "icon": "./assets/capability_icons/car_software_version.svg"
   }

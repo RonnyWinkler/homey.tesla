@@ -74,7 +74,7 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('measure_charge_voltage') && data.charge_state && data.charge_state.charger_voltage != undefined){
       this.setCapabilityValue('measure_charge_voltage', data.charge_state.charger_voltage);
     }
-    if (this.hasCapability('measure_charge_phases') && data.charge_state && data.charge_state.charger_phases != undefined){
+    if (this.hasCapability('measure_charge_phases') && data.charge_state && (data.charge_state.charger_phases != undefined || data.charge_state.charger_phases == null)){
       switch (data.charge_state.charger_phases){
         case 1:
           this.setCapabilityValue('measure_charge_phases', 1);
@@ -94,86 +94,35 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('charging_on') && data.charge_state && data.charge_state.charging_state != undefined){
       this.setCapabilityValue('charging_on', data.charge_state.charging_state == 'Charging');
     }
+    if (this.hasCapability('charging_port_cable') && data.charge_state && data.charge_state.conn_charge_cable != undefined){
+      this.setCapabilityValue('charging_port_cable', data.charge_state.conn_charge_cable == '<invalid>' ? '' : data.charge_state.conn_charge_cable );
+    }
 
   }
 
   // Commands =======================================================================================
   async _commandChargePort(state){
     await this.getCarDevice().sendCommand('commandChargePort', {state});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandChargePort(this.getCarDevice().getCommandApi(), this.getData().id, state);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandChargeOn(state){
     await this.getCarDevice().sendCommand('commandChargeOn', {state});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandChargeOn(this.getCarDevice().getCommandApi(), this.getData().id, state);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandChargeLimit(limit){
     await this.getCarDevice().sendCommand('commandChargeLimit', {limit});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandChargeLimit(this.getCarDevice().getCommandApi(), this.getData().id, limit);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandChargeCurrent(current){
     await this.getCarDevice().sendCommand('commandChargeCurrent', {current});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandChargeCurrent(this.getCarDevice().getCommandApi(), this.getData().id, current);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandScheduleCharging(action, hh, mm){
     await this.getCarDevice().sendCommand('commandScheduleCharging', {action, hh, mm});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandScheduleCharging(this.getCarDevice().getCommandApi(), this.getData().id, action, hh, mm);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
   async _commandScheduleDeparture(action, hh, mm){
     await this.getCarDevice().sendCommand('commandScheduleDeparture', {action, hh, mm});
-    // try{
-    //   await this.getCarDevice().wakeUpIfNeeded();
-    //   await this.getCarDevice().oAuth2Client.commandScheduleDeparture(this.getCarDevice().getCommandApi(), this.getData().id, action, hh, mm);
-    //   await this.getCarDevice().handleApiOk();
-    // }
-    // catch(error){
-    //   await this.getCarDevice().handleApiError(error);
-    //   throw error;
-    // }
   }
 
 

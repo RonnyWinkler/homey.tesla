@@ -5,7 +5,7 @@
         "nl": "Status bijwerken gewijzigd"
     },
     "tokens": [{
-            "name": "software_update_state",
+            "name": "car_software_update_state",
             "type": "string",
             "title": {
                 "en": "Update state",

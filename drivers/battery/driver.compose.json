@@ -33,7 +33,9 @@
         "measure_charge_energy_added",
         "measure_charge_minutes_to_full_charge",
 
+        "charging_port_cable",
         "measure_battery_power",
+
 
         "charging_port",
         "charging_on",

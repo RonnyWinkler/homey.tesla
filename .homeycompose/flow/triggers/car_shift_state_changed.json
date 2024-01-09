@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "measure_drive_shift_speed",
+            "name": "car_shift_state",
             "type": "number",
             "title": {
                 "en": "Shift state",

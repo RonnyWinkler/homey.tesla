@@ -1,7 +1,7 @@
 {
     "id": "command_wake_up",
     "type": "checkbox",
-    "value": false,
+    "value": true,
     "label": {
       "en": "Wake up to send commands",
       "de": "Aufwecken, um Kommandos zu senden",
