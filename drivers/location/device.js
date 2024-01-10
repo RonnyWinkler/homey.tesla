@@ -5,6 +5,7 @@ const CONSTANTS = require('../../lib/constants');
 const ChildDevice = require('../child_device');
 const OpenStreetMap = require('../../lib/OpenStreetMap'); 
 const SETTINGS_LOCATIONS_NR = 5;
+const LOCATION_DISTANCE_DEFAULT = 100; // 100 m default distance
 
 module.exports = class LocationDevice extends ChildDevice {
 
@@ -165,6 +166,27 @@ module.exports = class LocationDevice extends ChildDevice {
     if (distNew > distance && distOld > distance){
       return 'off_location';
     }
+  }
+
+	// FLOW TRIGGER ======================================================================================
+  async flowConditionLocationOnSiteRunListener(args){
+    let state = await this.flowTriggerLocationRunListener(args);
+    return (state  == 'at_location');
+  }
+
+  async flowConditionLocationOnTheWayRunListener(args){
+    
+    let locations = this.getLocations();
+    for (let i=0; i<locations.length; i++){
+      let location = locations[i];
+      let state = await this._checkFlowTriggerCoordinatesCoordinates(location.latitude, location.longitude, location.url, LOCATION_DISTANCE_DEFAULT);
+      this.log("flowConditionLocationOnTheWayRunListener() Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+"m - State: "+ state);
+      if (state == 'at_location'){
+        return false;
+      }
+    }
+    
+    return true;
   }
 
   // Device =======================================================================================

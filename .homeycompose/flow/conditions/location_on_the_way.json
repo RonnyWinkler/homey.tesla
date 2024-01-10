@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "!{{Is|Is not}} on the way",
+        "de": "!{{Ist|Ist nicht}} unterwegs",
+        "nl": "!{{Is|Is niet}} onderweg"
+    },
+    "titleFormatted": {
+        "en": "!{{Is|Is not}} on the way",
+        "de": "!{{Ist|Ist nicht}} unterwegs",
+        "nl": "!{{Is|Is niet}} onderweg"
+    },
+    "hint": {
+        "en": "This condition applies if the vehicle is not in any of the defined locations.",
+        "de": "Diese Bedingung ist zutreffend, wenn sich das Fahrzeug an keinem der definierten Standorte befindet.",
+        "nl": "Deze voorwaarde is van toepassing als het voertuig zich niet op een van de gedefinieerde locaties bevindt."
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+        }
+    ]
+}

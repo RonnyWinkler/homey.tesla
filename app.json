@@ -1,16 +1,16 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
   ],
   "sdk": 3,
   "name": {
-    "en": "Tesla Vehicle",
-    "de": "Tesla Fahrzeug",
-    "nl": "Tesla Voertuig"
+    "en": "Tesla",
+    "de": "Tesla",
+    "nl": "Tesla"
   },
   "description": {
     "en": "Zero emissions. Zero compromises.",
@@ -2052,6 +2052,75 @@
           }
         ],
         "id": "climate_steering_wheel_heat_level"
+      },
+      {
+        "title": {
+          "en": "!{{Is|Is not}} at location",
+          "de": "!{{Befindet sich|sich nicht}} am Standort",
+          "nl": "!{{Is|Is niet}} op locatie"
+        },
+        "titleFormatted": {
+          "en": "!{{Is|Is not}} at location [[location]] with tolerance [[distance]] m",
+          "de": "!{{Befindet sich|Befindet sich nicht}} am Standort [[location]] mit Toleranz [[distance]] m",
+          "nl": "!{{Is|Is niet}} op locatie [[location]] met tolerantie [[distance]] m"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          },
+          {
+            "name": "location",
+            "type": "autocomplete",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Plaats"
+            }
+          },
+          {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Distance (m)",
+              "de": "Entfernung (m)",
+              "nl": "Afstand (m)"
+            },
+            "placeholder": {
+              "en": "Default: 100m",
+              "de": "Standard: 100m",
+              "nl": "Standaard: 100m"
+            }
+          }
+        ],
+        "id": "location_on_site"
+      },
+      {
+        "title": {
+          "en": "!{{Is|Is not}} on the way",
+          "de": "!{{Ist|Ist nicht}} unterwegs",
+          "nl": "!{{Is|Is niet}} onderweg"
+        },
+        "titleFormatted": {
+          "en": "!{{Is|Is not}} on the way",
+          "de": "!{{Ist|Ist nicht}} unterwegs",
+          "nl": "!{{Is|Is niet}} onderweg"
+        },
+        "hint": {
+          "en": "This condition applies if the vehicle is not in any of the defined locations.",
+          "de": "Diese Bedingung ist zutreffend, wenn sich das Fahrzeug an keinem der definierten Standorte befindet.",
+          "nl": "Deze voorwaarde is van toepassing als het voertuig zich niet op een van de gedefinieerde locaties bevindt."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_on_the_way"
       }
     ],
     "actions": [

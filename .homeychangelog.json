@@ -56,5 +56,8 @@
   },
   "0.0.19": {
     "en": "Redesign for capabilities & flows. Added CommandApi"
+  },
+  "0.0.20": {
+    "en": "Added location conditions."
   }
 }

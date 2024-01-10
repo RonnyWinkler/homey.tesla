@@ -1,0 +1,43 @@
+{
+    "title": {
+        "en": "!{{Is|Is not}} at location",
+        "de": "!{{Befindet sich|sich nicht}} am Standort",
+        "nl": "!{{Is|Is niet}} op locatie"
+    },
+    "titleFormatted": {
+        "en": "!{{Is|Is not}} at location [[location]] with tolerance [[distance]] m",
+        "de": "!{{Befindet sich|Befindet sich nicht}} am Standort [[location]] mit Toleranz [[distance]] m",
+        "nl": "!{{Is|Is niet}} op locatie [[location]] met tolerantie [[distance]] m"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+        },
+        {
+            "name": "location",
+            "type": "autocomplete",
+                "title": {
+                    "en": "Location",
+                    "de": "Standort",
+                    "nl": "Plaats"
+                }
+        },
+        {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "title": { 
+                "en": "Distance (m)",
+                "de": "Entfernung (m)",
+                "nl": "Afstand (m)"
+            },
+            "placeholder": { 
+                "en": "Default: 100m",
+                "de": "Standard: 100m",
+                "nl": "Standaard: 100m"
+            }
+        }    
+    ]
+}

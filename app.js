@@ -218,6 +218,22 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       return (args.device.getCapabilityValue('climate_steering_wheel_heat_level') == args.level);
     })
 
+    this.homey.flow.getConditionCard('location_on_site')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowConditionLocationOnSiteRunListener(args));
+    })
+    .registerArgumentAutocompleteListener('location', async (query, args) => {
+      const locationList = args.device.getAutocompleteLocationList();
+      return locationList.filter((result) => { 
+        return result.name.toLowerCase().includes(query.toLowerCase());
+      });
+    });
+
+    this.homey.flow.getConditionCard('location_on_the_way')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowConditionLocationOnTheWayRunListener(args));
+    });
+
   }
 
 }

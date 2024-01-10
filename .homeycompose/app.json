@@ -1,13 +1,13 @@
 {
   "id": "com.tesla.car",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
   "name": {
-    "en": "Tesla Vehicle",
-    "de": "Tesla Fahrzeug",
-    "nl": "Tesla Voertuig"
+    "en": "Tesla",
+    "de": "Tesla",
+    "nl": "Tesla"
   },
   "description": {
     "en": "Zero emissions. Zero compromises.",
