@@ -1,6 +1,6 @@
 {
   "id": "com.tesla.car",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
@@ -15,7 +15,7 @@
     "nl": "Geen uitstoot. Geen compromis."
   },
   "tags": { 
-    "en": ["Tesla", "car", "charger", "charging"],
+    "en": ["Tesla", "car", "vehicle", "charger", "charging"],
     "de": ["Tesla", "Auto", "Fahrzeug", "Lader", "Laden"],
     "nl": ["Tesla", "auto", "voertuig", "oplader", "opladen"]
   },
@@ -32,7 +32,7 @@
     "large": "/assets/images/large.png"
   },
   "source": "https://github.com/RonnyWinkler/homey.tesla",
-  "homeyCommunityTopicId": 0,
+  "homeyCommunityTopicId": 100824,
   "permissions": [],
   "contributing": {
       "donate": {

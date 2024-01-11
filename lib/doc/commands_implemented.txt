@@ -1,0 +1,12 @@
+Car:
+vehicleControlSetSentryModeAction       OK
+vehicleControlFlashLightsAction         OK
+vehicleControlHonkHornAction            Not tested
+RKE_ACTION_LOCK, RKE_ACTION_UNLOCK      MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+vehicleControlWindowAction              MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+
+Battery:
+commandChargeLimit                      OK
+chargePortDoorOpen, chargePortDoorClose OK
+chargingStartStopActionStart, 
+    chargingStartStopActionStop         MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES

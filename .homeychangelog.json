@@ -59,5 +59,8 @@
   },
   "0.0.20": {
     "en": "Added location conditions."
+  },
+  "0.0.21": {
+    "en": "CommansAPI extended."
   }
 }

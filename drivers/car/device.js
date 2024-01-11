@@ -463,10 +463,69 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       params: {}
     };
     switch (apiFunction) {
+      // car actions
+      case 'commandSentryMode':
+        result.command = 'vehicleControlSetSentryModeAction';
+        result.params = { on: params.state};
+        break;
+
+      // case 'commandDoorLock':
+      //   if (params.locked){
+      //     result.command = 'RKE_ACTION_LOCK';
+      //   }
+      //   else{
+      //     result.command = 'RKE_ACTION_UNLOCK';
+      //   }
+      //   result.params = {};
+      //   break;
+
+      case 'commandFlashLights':
+        result.command = 'vehicleControlFlashLightsAction';
+        result.params = {};
+        break;
+      
+      case 'commandHonkHorn':
+        result.command = 'vehicleControlHonkHornAction';
+        result.params = {};
+        break;
+  
+      case 'commandWindowPosition':
+        if (params.position == 'vent'){
+          result.command = 'vehicleControlWindowActionVent';
+        }
+        else{
+          result.command = 'vehicleControlWindowActionClose';
+        }
+        result.params = { action : 3};
+        break;
+          
+      // charging actions
       case 'commandChargeLimit':
         result.command = 'chargingSetLimitAction';
         result.params = { percent: params.limit};
         break;
+
+      case 'commandChargePort':
+        if (params.state){
+          result.command = 'chargePortDoorOpen';
+        }
+        else{
+          result.command = 'chargePortDoorClose';
+        }
+        result.params = { };
+        break;
+
+      case 'commandChargeOn':
+        if (params.state){
+          result.command = 'chargingStartStopActionStart';
+        }
+        else{
+          result.command = 'chargingStartStopActionStop';
+        }
+        params.state = {};
+        break;
+  
+      // error if not valid
       default:
         throw new Error("REST command "+apiFunction+" not supported yet for direct CommandProtocol");
     }

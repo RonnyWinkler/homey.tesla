@@ -1,0 +1,50 @@
+message VehicleAction {
+    reserved 11;
+    reserved 60;
+    reserved 76;
+    oneof vehicle_action_msg {
+        ChargingSetLimitAction chargingSetLimitAction = 5;
+        ChargingStartStopAction chargingStartStopAction = 6;
+        DrivingClearSpeedLimitPinAction drivingClearSpeedLimitPinAction = 7;
+        DrivingSetSpeedLimitAction drivingSetSpeedLimitAction = 8;
+        DrivingSpeedLimitAction drivingSpeedLimitAction = 9;
+        HvacAutoAction hvacAutoAction = 10;
+        HvacSetPreconditioningMaxAction hvacSetPreconditioningMaxAction = 12;
+        HvacSteeringWheelHeaterAction hvacSteeringWheelHeaterAction = 13;
+        HvacTemperatureAdjustmentAction hvacTemperatureAdjustmentAction = 14;
+        MediaUpdateVolume mediaUpdateVolume = 16;
+        MediaNextFavorite mediaNextFavorite = 17;
+        MediaPreviousFavorite mediaPreviousFavorite = 18;
+        MediaNextTrack mediaNextTrack = 19;
+        MediaPreviousTrack mediaPreviousTrack = 20;
+        GetNearbyChargingSites getNearbyChargingSites = 23;
+        VehicleControlCancelSoftwareUpdateAction vehicleControlCancelSoftwareUpdateAction = 25;
+        VehicleControlFlashLightsAction vehicleControlFlashLightsAction = 26;
+        VehicleControlHonkHornAction vehicleControlHonkHornAction = 27;
+        VehicleControlResetValetPinAction vehicleControlResetValetPinAction = 28;
+        VehicleControlScheduleSoftwareUpdateAction vehicleControlScheduleSoftwareUpdateAction = 29;
+        VehicleControlSetSentryModeAction vehicleControlSetSentryModeAction = 30;
+        VehicleControlSetValetModeAction vehicleControlSetValetModeAction = 31;
+        VehicleControlSunroofOpenCloseAction vehicleControlSunroofOpenCloseAction = 32;
+        VehicleControlTriggerHomelinkAction vehicleControlTriggerHomelinkAction = 33;
+        VehicleControlWindowAction vehicleControlWindowAction = 34;
+        HvacBioweaponModeAction hvacBioweaponModeAction = 35;
+        HvacSeatHeaterActions hvacSeatHeaterActions = 36;
+        ScheduledChargingAction scheduledChargingAction = 41;
+        ScheduledDepartureAction scheduledDepartureAction = 42;
+        SetChargingAmpsAction setChargingAmpsAction = 43;
+        HvacClimateKeeperAction hvacClimateKeeperAction = 44;
+        Ping ping = 46;
+        AutoSeatClimateAction autoSeatClimateAction = 48;
+        HvacSeatCoolerActions hvacSeatCoolerActions = 49;
+        SetCabinOverheatProtectionAction setCabinOverheatProtectionAction = 50;
+        SetVehicleNameAction setVehicleNameAction = 54;
+        ChargePortDoorClose chargePortDoorClose = 61;
+        ChargePortDoorOpen chargePortDoorOpen = 62;
+        VehicleState.GuestMode guestModeAction = 65;
+        SetCopTempAction setCopTempAction = 66;
+        EraseUserDataAction eraseUserDataAction = 72;
+        VehicleControlSetPinToDriveAction vehicleControlSetPinToDriveAction = 77;
+        VehicleControlResetPinToDriveAction vehicleControlResetPinToDriveAction = 78;
+    }
+}
