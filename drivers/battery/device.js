@@ -169,7 +169,7 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   async flowActionChargeCurrent(current){
     await this._commandChargeCurrent(current);
-    await this.setCapabilityValue('measure_charge_current', current );
+    await this.setCapabilityValue('measure_charge_current_max', current );
   }
 
   async flowActionChargeScheduleCharging(action, hh, mm){

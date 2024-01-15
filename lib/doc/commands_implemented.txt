@@ -10,21 +10,20 @@ commandChargeLimit                      OK
 chargePortDoorOpen, chargePortDoorClose OK
 chargingStartStopActionStart, 
     chargingStartStopActionStop         MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
-setChargingAmpsAction                   Not tested
-scheduledChargingAction                 Not tested
-scheduledChargingAction                 Not tested
+setChargingAmpsAction                   Action ok, Parameters not working or only if connected
+scheduledChargingAction                 Enable:ok; Time: not working
+scheduledDepartureAction                Disable:ok, Parameters not working
 
 Location:
 API commandNavigateGpsRequest           No action found
 
 Climate:
-hvacTemperatureAdjustmentAction         Not tested
-commandPreconditioning:                 Not tested, Correct params?
-    HvacClimateKeeperActionClimateKeeperAction_On
-    HvacClimateKeeperActionClimateKeeperAction_Off
-setCabinOverheatProtectionAction:       Not tested
-setCopTempAction                        Not tested
-hvacSetPreconditioningMaxAction         Not tested
-hvacSteeringWheelHeaterAction           Not tested, No auto/level, only on/off possible!
+hvacTemperatureAdjustmentAction         Action ok, Parameters not working
+hvacClimateKeeperAction:                Not in app (dog mode tec.)
+setCabinOverheatProtectionAction:       OK
+setCopTempAction                        OK
+hvacAutoAction (preconditioning):       Command ok, Parameters not working
+hvacSetPreconditioningMaxAction         OK (deaktivieren lässt Klima an)
+hvacSteeringWheelHeaterAction           cabin comfort remote settings not enabled, No auto/level, only on/off possible!
 autoSeatClimateAction                   Not implementeed, params unknown
 hvacSeatHeaterActions                   Not implementeed, params unknown

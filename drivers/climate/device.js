@@ -164,12 +164,12 @@ module.exports = class ClimateDevice extends ChildDevice {
     await this.getCarDevice().sendCommand('commandPreconditioning', {on});
   }
   // Overheat protection mode
-  async _commandPreconditioningMode(mode){
-    await this.getCarDevice().sendCommand('commandPreconditioningMode', {mode});
+  async _commandOverheatprotectionMode(mode){
+    await this.getCarDevice().sendCommand('commandOverheatprotectionMode', {mode});
   }
   // Overheat protection level
-  async _commandPreconditioningLevel(level){
-    await this.getCarDevice().sendCommand('commandPreconditioningLevel', {level});
+  async _commandOverheatprotectionLevel(level){
+    await this.getCarDevice().sendCommand('commandOverheatprotectionLevel', {level});
   }
 
   async _commandDefrost(on){
@@ -252,13 +252,13 @@ module.exports = class ClimateDevice extends ChildDevice {
     }
   }
 
-  async flowActionPreconditioningMode(mode){
-    await this._commandPreconditioningMode(mode);
+  async flowActionOverheatprotectionMode(mode){
+    await this._commandOverheatprotectionMode(mode);
     await this.setCapabilityValue('climate_overheat_protection_mode', mode );
   }
 
-  async flowActionPreconditioningLevel(level){
-    await this._commandPreconditioningLevel(level);
+  async flowActionOverheatprotectionLevel(level){
+    await this._commandOverheatprotectionLevel(level);
     await this.setCapabilityValue('climate_overheat_protection_level', level );
   }
 

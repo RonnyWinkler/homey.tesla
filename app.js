@@ -73,12 +73,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getActionCard('climate_overheat_protection_mode')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionPreconditioningMode(args.mode);
+				await args.device.flowActionOverheatprotectionMode(args.mode);
 		});
 
     this.homey.flow.getActionCard('climate_overheat_protection_level')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionPreconditioningLevel(args.level);
+				await args.device.flowActionOverheatprotectionLevel(args.level);
 		});
 
     this.homey.flow.getActionCard('climate_steering_wheel_heat_level')
@@ -128,12 +128,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getActionCard('charge_schedule_charging')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionChargeScheduleCharging(args.action, args,hh, args.mm);
+				await args.device.flowActionChargeScheduleCharging(args.action, args.hh, args.mm);
 		});
 
     this.homey.flow.getActionCard('charge_schedule_departure')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionChargeScheduleDeparture(args.action, args,hh, args.mm);
+				await args.device.flowActionChargeScheduleDeparture(args.action, args.hh, args.mm);
 		});
 
     this.homey.flow.getActionCard('location_navigate_to_location')

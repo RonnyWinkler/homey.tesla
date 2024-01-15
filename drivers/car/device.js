@@ -463,7 +463,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _sendSignedCommand(apiFunction, apiParams){
     let {command, params} = this._getSignedCommand(apiFunction, apiParams);
-    this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Pameter: ",params);
+    this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
     await this.commandApi.sendSignedCommand(command, params);
     this.log("Send signed command: Success");
   }
@@ -545,15 +545,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.command = 'scheduledChargingAction';
         result.params = { 
           enabled: (params.action == 'on'),
-          time: (params.hh * 24 + params.mm)
+          charging_time : (params.hh * 60 + params.mm)
         };
         break;
 
       case 'commandScheduleDeparture':
+
+      // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
         result.command = 'scheduledDepartureAction';
         result.params = { 
           enabled: (params.action == 'on'),
-          charging_time: (params.hh * 24 + params.mm)
+          departure_time: (params.hh * 60 + params.mm)
+          // preconditioning_times: 
+          // off_peak_charging_times:
+          // off_peak_hours_end_time: 0
         };
         break;
   
@@ -573,24 +578,36 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         break;
 
       case 'commandPreconditioning':
-        result.command = 'HvacClimateKeeperAction';
+        result.command = 'hvacAutoAction';
         result.params = { 
-          ClimateKeeperAction: (params.on ? 1 : 0) 
+          power_on : params.on
+          // manual_override: true
         };
         break;
 
-      case 'commandPreconditioningMode':
+      case 'commandOverheatprotectionMode':
         result.command = 'setCabinOverheatProtectionAction';
         result.params = {
           on: (params.mode != 'off'),
-          fan_only: (mode == 'fan_only')
+          fan_only: (params.mode == 'fan_only')
          };
         break;
 
-      case 'commandPreconditioningLevel':
+      case 'commandOverheatprotectionLevel':
+        let cop_temp = 1;
+        if (params.level == 'low'){
+          cop_temp = 1;
+        }
+        else if (params.level == 'medium'){
+          cop_temp = 2;
+        }
+        else if (params.level == 'high'){
+          cop_temp = 3;
+        }
+    
         result.command = 'setCopTempAction';
         result.params = {
-          copActivationTemp: params.cop_temp
+          copActivationTemp: cop_temp
         };
         break;
   
