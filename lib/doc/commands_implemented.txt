@@ -10,3 +10,21 @@ commandChargeLimit                      OK
 chargePortDoorOpen, chargePortDoorClose OK
 chargingStartStopActionStart, 
     chargingStartStopActionStop         MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+setChargingAmpsAction                   Not tested
+scheduledChargingAction                 Not tested
+scheduledChargingAction                 Not tested
+
+Location:
+API commandNavigateGpsRequest           No action found
+
+Climate:
+hvacTemperatureAdjustmentAction         Not tested
+commandPreconditioning:                 Not tested, Correct params?
+    HvacClimateKeeperActionClimateKeeperAction_On
+    HvacClimateKeeperActionClimateKeeperAction_Off
+setCabinOverheatProtectionAction:       Not tested
+setCopTempAction                        Not tested
+hvacSetPreconditioningMaxAction         Not tested
+hvacSteeringWheelHeaterAction           Not tested, No auto/level, only on/off possible!
+autoSeatClimateAction                   Not implementeed, params unknown
+hvacSeatHeaterActions                   Not implementeed, params unknown

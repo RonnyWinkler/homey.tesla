@@ -174,6 +174,8 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       });
     });
 
+    // this._flowTriggerCarSoftwareUpdateAvailable = this.homey.flow.getDeviceTriggerCard('car_software_update_available');
+
   }
 
   // FLOW CONDITIONS ==============================================================================
@@ -190,7 +192,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getConditionCard('charging_state')
     .registerRunListener(async (args, state) => {
-      return (args.device.getCapabilityValue('charging_state') == args.state);
+      if (args.state == 'Connected'){
+        return (args.device.getCapabilityValue('charging_state') != 'Disconnected');
+      }
+      else{
+        return (args.device.getCapabilityValue('charging_state') == args.state);
+      }
     })
 
     this.homey.flow.getConditionCard('climate_overheat_protection_mode')

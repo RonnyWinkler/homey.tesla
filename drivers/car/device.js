@@ -320,10 +320,22 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this.hasCapability('car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
       await this.setCapabilityValue('car_software_version', data.vehicle_state.car_version.split(' ')[0]);
     }
-    if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+    if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.version != undefined){
       await this.setCapabilityValue('car_software_update_version', data.vehicle_state.software_update.version);
     }
-    if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update != undefined){
+
+    if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.status != undefined){
+      if (  this.getCapabilityValue('car_software_update_state') != data.vehicle_state.software_update.status &&
+            data.vehicle_state.software_update.status == 'available'){
+        // Trigger software available flow
+        let tokens = {
+          car_software_update_state: data.vehicle_state.software_update.status,
+          car_software_version: data.vehicle_state.car_version.split(' ')[0],
+          car_software_update_version: data.vehicle_state.software_update.version
+        }
+        await this.homey.flow.getDeviceTriggerCard('car_software_update_available').trigger(this, tokens);
+      }
+
       await this.setCapabilityValue('car_software_update_state', data.vehicle_state.software_update.status);
       // Possible states:
       // available
@@ -331,7 +343,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // installing
       // downloading
       // downloading_wifi_wait
-
     }
 
     
@@ -489,7 +500,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = {};
         break;
   
-      case 'commandWindowPosition':
+      case 'commandWindowPosition':       // car and climate
         if (params.position == 'vent'){
           result.command = 'vehicleControlWindowActionVent';
         }
@@ -505,6 +516,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = { percent: params.limit};
         break;
 
+      case 'commandChargeCurrent':
+        result.command = 'setChargingAmpsAction';
+        result.params = { charging_amps : params.current};
+        break;
+  
       case 'commandChargePort':
         if (params.state){
           result.command = 'chargePortDoorOpen';
@@ -524,7 +540,92 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
         params.state = {};
         break;
+
+      case 'commandScheduleCharging':
+        result.command = 'scheduledChargingAction';
+        result.params = { 
+          enabled: (params.action == 'on'),
+          time: (params.hh * 24 + params.mm)
+        };
+        break;
+
+      case 'commandScheduleDeparture':
+        result.command = 'scheduledDepartureAction';
+        result.params = { 
+          enabled: (params.action == 'on'),
+          charging_time: (params.hh * 24 + params.mm)
+        };
+        break;
   
+      // location actions
+      // case 'commandNavigateGpsRequest':
+      //   result.command = 'chargingSetLimitAction';
+      //   result.params = { percent: params.limit};
+      //   break;
+
+      // climate actions
+      case 'commandSetTemperature':
+        result.command = 'hvacTemperatureAdjustmentAction';
+        result.params = { 
+          driver_temp_celsius : params.driverTemperature,
+          passenger_temp_celsius : params.passengerTemperature
+        };
+        break;
+
+      case 'commandPreconditioning':
+        result.command = 'HvacClimateKeeperAction';
+        result.params = { 
+          ClimateKeeperAction: (params.on ? 1 : 0) 
+        };
+        break;
+
+      case 'commandPreconditioningMode':
+        result.command = 'setCabinOverheatProtectionAction';
+        result.params = {
+          on: (params.mode != 'off'),
+          fan_only: (mode == 'fan_only')
+         };
+        break;
+
+      case 'commandPreconditioningLevel':
+        result.command = 'setCopTempAction';
+        result.params = {
+          copActivationTemp: params.cop_temp
+        };
+        break;
+  
+      case 'commandDefrost':
+        result.command = 'hvacSetPreconditioningMaxAction';
+        result.params = {
+          on: params.on
+        };
+        break;
+
+      case 'commandSteeringWheelHeatLevel':
+        result.command = 'hvacSteeringWheelHeaterAction';
+        result.params = {
+          power_on: (params.level != 0)
+        };
+        break;
+
+      // case 'commandSeatHeatLevel':
+      //   if (params.level == 'auto'){
+      //     result.command = 'autoSeatClimateAction';
+      //     result.params = {
+      //       on: true,
+      //       seat_position : params.seat
+      //     };
+      //   }
+      //   else{
+      //     result.command = 'hvacSeatHeaterActions';
+      //     result.params = {
+      //       on: true,
+      //       seat_position : params.seat
+      //     };
+      //   }
+      //   break;
+          
+
       // error if not valid
       default:
         throw new Error("REST command "+apiFunction+" not supported yet for direct CommandProtocol");

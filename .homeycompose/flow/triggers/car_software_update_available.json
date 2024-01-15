@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Update available",
+        "de": "Aktualisisierung verfügbar",
+        "nl": "Update beschikbaar"
+    },
+    "tokens": [
+        {
+            "name": "car_software_update_state",
+            "type": "string",
+            "title": {
+                "en": "Update state",
+                "de": "Aktualisisierungsstatus",
+                "nl": "Status bijwerken"
+            }
+        },
+        {
+            "name": "car_software_version",
+            "type": "string",
+            "title": {
+                "en": "Current software",
+                "de": "Aktuelle Software",
+                "nl": "Actuele software"
+            }
+        },
+        {
+            "name": "car_software_update_version",
+            "type": "string",
+            "title": {
+                "en": "Available software",
+                "de": "Verfügbare Software",
+                "nl": "Beschikbare oftware"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

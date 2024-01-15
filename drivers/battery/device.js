@@ -24,23 +24,23 @@ module.exports = class BatteryDevice extends ChildDevice {
     await super.updateDevice(data);
 
     // Battery
-    if (this.hasCapability('measure_battery_level') && data.charge_state && data.charge_state.battery_level != undefined){
-      this.setCapabilityValue('measure_battery_level', data.charge_state.battery_level);
+    if (this.hasCapability('measure_soc_level') && data.charge_state && data.charge_state.battery_level != undefined){
+      this.setCapabilityValue('measure_soc_level', data.charge_state.battery_level);
     }
-    if (this.hasCapability('measure_battery_usable') && data.charge_state && data.charge_state.usable_battery_level != undefined){
-      this.setCapabilityValue('measure_battery_usable', data.charge_state.usable_battery_level);
+    if (this.hasCapability('measure_soc_usable') && data.charge_state && data.charge_state.usable_battery_level != undefined){
+      this.setCapabilityValue('measure_soc_usable', data.charge_state.usable_battery_level);
     }
-    if (this.hasCapability('measure_battery_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined){
-      this.setCapabilityValue('measure_battery_range_estimated', data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM);
+    if (this.hasCapability('measure_soc_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined){
+      this.setCapabilityValue('measure_soc_range_estimated', data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM);
     }
-    if (this.hasCapability('measure_battery_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined){
-      this.setCapabilityValue('measure_battery_range_ideal', data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM);
+    if (this.hasCapability('measure_soc_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined){
+      this.setCapabilityValue('measure_soc_range_ideal', data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM);
     }
     if (this.hasCapability('battery_heater') && data.charge_state && data.charge_state.battery_heater_on != undefined){
       this.setCapabilityValue('battery_heater', data.charge_state.battery_heater_on);
     }
-    if (this.hasCapability('measure_battery_power') && data.drive_state && data.drive_state.power != undefined){
-      await this.setCapabilityValue('measure_battery_power', data.drive_state.power);
+    if (this.hasCapability('measure_io_battery_power') && data.drive_state && data.drive_state.power != undefined){
+      await this.setCapabilityValue('measure_io_battery_power', data.drive_state.power);
     }
 
     // Charging

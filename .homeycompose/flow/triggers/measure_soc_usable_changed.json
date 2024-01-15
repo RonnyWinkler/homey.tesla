@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "measure_battery_useable",
+            "name": "measure_soc_usable",
             "type": "number",
             "title": {
                 "en": "Usable battery level",

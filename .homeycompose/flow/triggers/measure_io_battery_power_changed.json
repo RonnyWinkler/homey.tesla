@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "measure_battery_power",
+            "name": "measure_io_battery_power",
             "type": "number",
             "title": {
                 "en": "Power",

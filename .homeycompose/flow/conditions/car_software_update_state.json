@@ -25,12 +25,6 @@
             },
             "values": [
                 {
-                    "id": "",
-                    "title": {
-                        "en": "-"
-                    }
-                },
-                {
                     "id": "available",
                     "title": {
                         "en": "Available",
@@ -41,7 +35,7 @@
                 {
                     "id": "scheduled",
                     "title": {
-                        "en": "Asleep",
+                        "en": "Planned",
                         "de": "Geplant",
                         "nl": "Gepland"
                     }
@@ -52,6 +46,14 @@
                         "en": "Waiting for Wifi download",
                         "de": "Warte auf Wifi-Download",
                         "nl": "Wachten op wifi-download"
+                    }
+                },
+                {
+                    "id": "downloading",
+                    "title": {
+                        "en": "Downloading",
+                        "de": "Wird heruntergeladen",
+                        "nl": "Downloaden"
                     }
                 },
                 {

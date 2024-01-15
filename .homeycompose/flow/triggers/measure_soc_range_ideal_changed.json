@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "measure_battery_range_ideal",
+            "name": "measure_soc_range_ideal",
             "type": "number",
             "title": {
                 "en": "Battery range ideal",

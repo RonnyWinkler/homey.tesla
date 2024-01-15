@@ -11,5 +11,5 @@
     "insights": true,
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/measure_battery_useable.svg"
+    "icon": "./assets/capability_icons/measure_soc_usable.svg"
   }

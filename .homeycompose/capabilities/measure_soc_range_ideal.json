@@ -12,5 +12,5 @@
     "insights": true,
     "getable": true,
     "setable": false,
-    "icon": "./assets/capability_icons/measure_battery_range_ideal.svg"
+    "icon": "./assets/capability_icons/measure_soc_range_ideal.svg"
   }

@@ -6,7 +6,7 @@
     },
     "tokens": [
         {
-            "name": "measure_battery_range_estimated",
+            "name": "measure_soc_range_estimated",
             "type": "number",
             "title": {
                 "en": "Battery range estimated (km)",

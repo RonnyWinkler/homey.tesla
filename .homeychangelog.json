@@ -65,5 +65,8 @@
   },
   "1.0.0": {
     "en": "Live version."
+  },
+  "1.0.1": {
+    "en": "Capability changes in battery device. New 'Software available' trigger. New charging state 'connected' condition. New direct commands."
   }
 }

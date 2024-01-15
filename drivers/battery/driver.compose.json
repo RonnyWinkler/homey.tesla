@@ -12,11 +12,11 @@
     "class": "sensor",
     "connectivity": [ "cloud" ],
     "capabilities": [
-        "measure_battery_level",
-        "measure_battery_usable",
+        "measure_soc_level",
+        "measure_soc_usable",
 
-        "measure_battery_range_estimated",
-        "measure_battery_range_ideal",
+        "measure_soc_range_estimated",
+        "measure_soc_range_ideal",
         
         "measure_charge_limit_soc",
         "battery_heater",
@@ -34,7 +34,7 @@
         "measure_charge_minutes_to_full_charge",
 
         "charging_port_cable",
-        "measure_battery_power",
+        "measure_io_battery_power",
 
 
         "charging_port",

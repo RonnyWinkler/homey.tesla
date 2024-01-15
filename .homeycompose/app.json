@@ -1,6 +1,6 @@
 {
   "id": "com.tesla.car",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
@@ -31,6 +31,7 @@
     "small": "/assets/images/small.png",
     "large": "/assets/images/large.png"
   },
+  "homepage": "https://rwdevelopment.de/homeypro-apps/tesla/",
   "source": "https://github.com/RonnyWinkler/homey.tesla",
   "homeyCommunityTopicId": 100824,
   "permissions": [],

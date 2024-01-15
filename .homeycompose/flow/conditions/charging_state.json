@@ -25,6 +25,14 @@
             },
             "values": [
                 {
+                    "id": "Connected",
+                    "title": {
+                        "en": "Connected",
+                        "de": "Verbunden",
+                        "nl": "Verbonden"
+                    }
+                },
+                {
                     "id": "Disconnected",
                     "title": {
                         "en": "Disconnected",

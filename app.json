@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -52,6 +52,7 @@
     "small": "/assets/images/small.png",
     "large": "/assets/images/large.png"
   },
+  "homepage": "https://rwdevelopment.de/homeypro-apps/tesla/",
   "source": "https://github.com/RonnyWinkler/homey.tesla",
   "homeyCommunityTopicId": 100824,
   "permissions": [],
@@ -228,6 +229,50 @@
           }
         ],
         "id": "car_shift_state_changed"
+      },
+      {
+        "title": {
+          "en": "Update available",
+          "de": "Aktualisisierung verfügbar",
+          "nl": "Update beschikbaar"
+        },
+        "tokens": [
+          {
+            "name": "car_software_update_state",
+            "type": "string",
+            "title": {
+              "en": "Update state",
+              "de": "Aktualisisierungsstatus",
+              "nl": "Status bijwerken"
+            }
+          },
+          {
+            "name": "car_software_version",
+            "type": "string",
+            "title": {
+              "en": "Current software",
+              "de": "Aktuelle Software",
+              "nl": "Actuele software"
+            }
+          },
+          {
+            "name": "car_software_update_version",
+            "type": "string",
+            "title": {
+              "en": "Available software",
+              "de": "Verfügbare Software",
+              "nl": "Beschikbare oftware"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_software_update_available"
       },
       {
         "title": {
@@ -1010,140 +1055,6 @@
       },
       {
         "title": {
-          "en": "Battery level changed",
-          "de": "Batteriestand hat sich geändert",
-          "nl": "Batterijniveau gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_battery_level",
-            "type": "number",
-            "title": {
-              "en": "Battery level",
-              "de": "Batteriestand",
-              "nl": "Batterijniveau"
-            },
-            "example": "80"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
-          }
-        ],
-        "id": "measure_battery_level_changed"
-      },
-      {
-        "title": {
-          "en": "Battery power has changed",
-          "de": "Die Batterieleistung hat sich geändert",
-          "nl": "Het batterijvermogen is gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_battery_power",
-            "type": "number",
-            "title": {
-              "en": "Power",
-              "de": "Leistung",
-              "nl": "Stroom"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
-          }
-        ],
-        "id": "measure_battery_power_changed"
-      },
-      {
-        "title": {
-          "en": "Battery range estimated changed",
-          "de": "Batteriereichweite geschätzt hat sich geändert",
-          "nl": "Batterijbereik geschat gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_battery_range_estimated",
-            "type": "number",
-            "title": {
-              "en": "Battery range estimated (km)",
-              "de": "Batteriereichweite geschätzt (km)",
-              "nl": "Batterijbereik geschat (km)"
-            },
-            "example": "250"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
-          }
-        ],
-        "id": "measure_battery_range_estimated_changed"
-      },
-      {
-        "title": {
-          "en": "Battery range ideal changed",
-          "de": "Batteriereichweite ideal hat sich geändert",
-          "nl": "Batterijbereik ideaal gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_battery_range_ideal",
-            "type": "number",
-            "title": {
-              "en": "Battery range ideal",
-              "de": "Batteriereichweite ideal",
-              "nl": "Batterijbereik ideaal"
-            },
-            "example": "250"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
-          }
-        ],
-        "id": "measure_battery_range_ideal_changed"
-      },
-      {
-        "title": {
-          "en": "Usable battery level changed",
-          "de": "Nutzbarer Batteriestand hat sich geändert",
-          "nl": "Bruikbaar batterijniveau gewijzigd"
-        },
-        "tokens": [
-          {
-            "name": "measure_battery_useable",
-            "type": "number",
-            "title": {
-              "en": "Usable battery level",
-              "de": "Nutzbarer Batteriestand",
-              "nl": "Bruikbaar batterijniveau"
-            },
-            "example": "75"
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
-          }
-        ],
-        "id": "measure_battery_useable_changed"
-      },
-      {
-        "title": {
           "en": "Speed changed",
           "de": "Geschwindigkeit hat sich geändert",
           "nl": "Snelheid gewijzigd"
@@ -1540,6 +1451,32 @@
       },
       {
         "title": {
+          "en": "Battery power has changed",
+          "de": "Die Batterieleistung hat sich geändert",
+          "nl": "Het batterijvermogen is gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_io_battery_power",
+            "type": "number",
+            "title": {
+              "en": "Power",
+              "de": "Leistung",
+              "nl": "Stroom"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_io_battery_power_changed"
+      },
+      {
+        "title": {
           "en": "Compass changed",
           "de": "Kompass hat sich geändert",
           "nl": "Kompas gewijzigd"
@@ -1615,6 +1552,114 @@
           }
         ],
         "id": "measure_location_longitude_changed"
+      },
+      {
+        "title": {
+          "en": "Battery level changed",
+          "de": "Batteriestand hat sich geändert",
+          "nl": "Batterijniveau gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_soc_level",
+            "type": "number",
+            "title": {
+              "en": "Battery level",
+              "de": "Batteriestand",
+              "nl": "Batterijniveau"
+            },
+            "example": "80"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_soc_level_changed"
+      },
+      {
+        "title": {
+          "en": "Battery range estimated changed",
+          "de": "Batteriereichweite geschätzt hat sich geändert",
+          "nl": "Batterijbereik geschat gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_soc_range_estimated",
+            "type": "number",
+            "title": {
+              "en": "Battery range estimated (km)",
+              "de": "Batteriereichweite geschätzt (km)",
+              "nl": "Batterijbereik geschat (km)"
+            },
+            "example": "250"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_soc_range_estimated_changed"
+      },
+      {
+        "title": {
+          "en": "Battery range ideal changed",
+          "de": "Batteriereichweite ideal hat sich geändert",
+          "nl": "Batterijbereik ideaal gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_soc_range_ideal",
+            "type": "number",
+            "title": {
+              "en": "Battery range ideal",
+              "de": "Batteriereichweite ideal",
+              "nl": "Batterijbereik ideaal"
+            },
+            "example": "250"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_soc_range_ideal_changed"
+      },
+      {
+        "title": {
+          "en": "Usable battery level changed",
+          "de": "Nutzbarer Batteriestand hat sich geändert",
+          "nl": "Bruikbaar batterijniveau gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_soc_usable",
+            "type": "number",
+            "title": {
+              "en": "Usable battery level",
+              "de": "Nutzbarer Batteriestand",
+              "nl": "Bruikbaar batterijniveau"
+            },
+            "example": "75"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "measure_soc_usable_changed"
       },
       {
         "title": {
@@ -1701,12 +1746,6 @@
             },
             "values": [
               {
-                "id": "",
-                "title": {
-                  "en": "-"
-                }
-              },
-              {
                 "id": "available",
                 "title": {
                   "en": "Available",
@@ -1717,7 +1756,7 @@
               {
                 "id": "scheduled",
                 "title": {
-                  "en": "Asleep",
+                  "en": "Planned",
                   "de": "Geplant",
                   "nl": "Gepland"
                 }
@@ -1728,6 +1767,14 @@
                   "en": "Waiting for Wifi download",
                   "de": "Warte auf Wifi-Download",
                   "nl": "Wachten op wifi-download"
+                }
+              },
+              {
+                "id": "downloading",
+                "title": {
+                  "en": "Downloading",
+                  "de": "Wird heruntergeladen",
+                  "nl": "Downloaden"
                 }
               },
               {
@@ -1820,6 +1867,14 @@
               "nl": "Oplaadstatus"
             },
             "values": [
+              {
+                "id": "Connected",
+                "title": {
+                  "en": "Connected",
+                  "de": "Verbunden",
+                  "nl": "Verbonden"
+                }
+              },
               {
                 "id": "Disconnected",
                 "title": {
@@ -3239,10 +3294,10 @@
         "cloud"
       ],
       "capabilities": [
-        "measure_battery_level",
-        "measure_battery_usable",
-        "measure_battery_range_estimated",
-        "measure_battery_range_ideal",
+        "measure_soc_level",
+        "measure_soc_usable",
+        "measure_soc_range_estimated",
+        "measure_soc_range_ideal",
         "measure_charge_limit_soc",
         "battery_heater",
         "charging_state",
@@ -3254,7 +3309,7 @@
         "measure_charge_energy_added",
         "measure_charge_minutes_to_full_charge",
         "charging_port_cable",
-        "measure_battery_power",
+        "measure_io_battery_power",
         "charging_port",
         "charging_on",
         "charging_port_unlock"
@@ -3545,7 +3600,7 @@
                 {
                   "id": "tvcp",
                   "label": {
-                    "en": "Tesla Vehicle Command Protocol"
+                    "en": "Tesla Vehicle Command Protocol (Beta)"
                   }
                 }
               ],
@@ -4904,83 +4959,6 @@
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
     },
-    "measure_battery_level": {
-      "type": "number",
-      "title": {
-        "en": "Battery level",
-        "de": "Batteriestand",
-        "nl": "Batterijniveau"
-      },
-      "units": {
-        "en": "%"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_battery_level.svg"
-    },
-    "measure_battery_power": {
-      "type": "number",
-      "title": {
-        "en": "Battery power",
-        "de": "Batterieleistung",
-        "nl": "Batterij vermogen"
-      },
-      "units": {
-        "en": "kW"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_battery_power.svg"
-    },
-    "measure_battery_range_estimated": {
-      "type": "number",
-      "title": {
-        "en": "Battery range estimated",
-        "de": "Batteriereichweite geschätzt",
-        "nl": "Batterijbereik geschat"
-      },
-      "units": {
-        "en": "km"
-      },
-      "decimals": 2,
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_battery_range_estimated.svg"
-    },
-    "measure_battery_range_ideal": {
-      "type": "number",
-      "title": {
-        "en": "Battery range ideal",
-        "de": "Batteriereichweite ideal",
-        "nl": "Batterijbereik ideaal"
-      },
-      "units": {
-        "en": "km"
-      },
-      "decimals": 2,
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_battery_range_ideal.svg"
-    },
-    "measure_battery_usable": {
-      "type": "number",
-      "title": {
-        "en": "Battery level (usable)",
-        "de": "Batteriestand (nutzbar)",
-        "nl": "Batterijniveau (bruikbaar)"
-      },
-      "units": {
-        "en": "%"
-      },
-      "insights": true,
-      "getable": true,
-      "setable": false,
-      "icon": "./assets/capability_icons/measure_battery_useable.svg"
-    },
     "measure_car_drive_speed": {
       "type": "number",
       "title": {
@@ -5209,6 +5187,21 @@
       "setable": false,
       "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
     },
+    "measure_io_battery_power": {
+      "type": "number",
+      "title": {
+        "en": "Battery power",
+        "de": "Batterieleistung",
+        "nl": "Batterij vermogen"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_io_battery_power.svg"
+    },
     "measure_location_heading": {
       "type": "number",
       "title": {
@@ -5249,6 +5242,68 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_location_longitude.svg"
+    },
+    "measure_soc_level": {
+      "type": "number",
+      "title": {
+        "en": "Battery level",
+        "de": "Batteriestand",
+        "nl": "Batterijniveau"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_soc_level.svg"
+    },
+    "measure_soc_range_estimated": {
+      "type": "number",
+      "title": {
+        "en": "Battery range estimated",
+        "de": "Batteriereichweite geschätzt",
+        "nl": "Batterijbereik geschat"
+      },
+      "units": {
+        "en": "km"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_soc_range_estimated.svg"
+    },
+    "measure_soc_range_ideal": {
+      "type": "number",
+      "title": {
+        "en": "Battery range ideal",
+        "de": "Batteriereichweite ideal",
+        "nl": "Batterijbereik ideaal"
+      },
+      "units": {
+        "en": "km"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_soc_range_ideal.svg"
+    },
+    "measure_soc_usable": {
+      "type": "number",
+      "title": {
+        "en": "Battery level (usable)",
+        "de": "Batteriestand (nutzbar)",
+        "nl": "Batterijniveau (bruikbaar)"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_soc_usable.svg"
     },
     "meter_car_odo": {
       "type": "number",
