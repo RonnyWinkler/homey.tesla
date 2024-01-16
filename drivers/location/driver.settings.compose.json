@@ -26,7 +26,9 @@
           "id": "location_01_name",
           "type": "text",
           "label": {
-            "en": "Name"
+            "en": "Name",
+            "de": "Name",
+            "nl": "Naam"
           },
           "value": ""
         },
@@ -34,7 +36,9 @@
           "id": "location_01_latitude",
           "type": "number",
           "label": {
-            "en": "Latitude"
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
           },
           "value": 0
         },
@@ -42,7 +46,9 @@
           "id": "location_01_longitude",
           "type": "number",
           "label": {
-            "en": "Longitude"
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
           },
           "value": 0
         },
@@ -74,7 +80,9 @@
           "id": "location_02_name",
           "type": "text",
           "label": {
-            "en": "Name"
+            "en": "Name",
+            "de": "Name",
+            "nl": "Naam"
           },
           "value": ""
         },
@@ -82,7 +90,9 @@
           "id": "location_02_latitude",
           "type": "number",
           "label": {
-            "en": "Latitude"
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
           },
           "value": 0
         },
@@ -90,7 +100,9 @@
           "id": "location_02_longitude",
           "type": "number",
           "label": {
-            "en": "Longitude"
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
           },
           "value": 0
         },
@@ -122,7 +134,9 @@
           "id": "location_03_name",
           "type": "text",
           "label": {
-            "en": "Name"
+            "en": "Name",
+            "de": "Name",
+            "nl": "Naam"
           },
           "value": ""
         },
@@ -130,7 +144,9 @@
           "id": "location_03_latitude",
           "type": "number",
           "label": {
-            "en": "Latitude"
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
           },
           "value": 0
         },
@@ -138,7 +154,9 @@
           "id": "location_03_longitude",
           "type": "number",
           "label": {
-            "en": "Longitude"
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
           },
           "value": 0
         },
@@ -170,7 +188,9 @@
           "id": "location_04_name",
           "type": "text",
           "label": {
-            "en": "Name"
+            "en": "Name",
+            "de": "Name",
+            "nl": "Naam"
           },
           "value": ""
         },
@@ -178,7 +198,9 @@
           "id": "location_04_latitude",
           "type": "number",
           "label": {
-            "en": "Latitude"
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
           },
           "value": 0
         },
@@ -186,7 +208,9 @@
           "id": "location_04_longitude",
           "type": "number",
           "label": {
-            "en": "Longitude"
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
           },
           "value": 0
         },
@@ -218,7 +242,9 @@
           "id": "location_05_name",
           "type": "text",
           "label": {
-            "en": "Name"
+            "en": "Name",
+            "de": "Name",
+            "nl": "Naam"
           },
           "value": ""
         },
@@ -226,7 +252,9 @@
           "id": "location_05_latitude",
           "type": "number",
           "label": {
-            "en": "Latitude"
+            "en": "Latitude",
+            "de": "Breitengrad",
+            "nl": "Breedtegraad"
           },
           "value": 0
         },
@@ -234,7 +262,9 @@
           "id": "location_05_longitude",
           "type": "number",
           "label": {
-            "en": "Longitude"
+            "en": "Longitude",
+            "de": "Längengrad",
+            "nl": "Lengtegraad"
           },
           "value": 0
         },

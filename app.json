@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -177,7 +177,7 @@
         "title": {
           "en": "Sentry mode has been deactivated",
           "de": "Sentry-Modus wurde deaktiviert",
-          "nl": "Sentry-modus is gedeactiveerd"
+          "nl": "Sentry mode is gedeactiveerd"
         },
         "args": [
           {
@@ -193,7 +193,7 @@
         "title": {
           "en": "Sentry mode has been activated",
           "de": "Sentry-Modus wurde aktiviert",
-          "nl": "Sentry-modus is geactiveerd"
+          "nl": "Sentry mode is geactiveerd"
         },
         "args": [
           {
@@ -2291,12 +2291,12 @@
         "title": {
           "en": "Sentry mode",
           "de": "Sentry-Modus",
-          "nl": "Wachtmodus"
+          "nl": "Sentry Mode"
         },
         "titleFormatted": {
           "en": "Sentry Mode [[action]]",
           "de": "Sentry-Modus [[action]]",
-          "nl": "Wachtmodus [[action]]"
+          "nl": "Sentry Mode [[action]]"
         },
         "args": [
           {
@@ -3839,7 +3839,9 @@
               "id": "location_01_name",
               "type": "text",
               "label": {
-                "en": "Name"
+                "en": "Name",
+                "de": "Name",
+                "nl": "Naam"
               },
               "value": ""
             },
@@ -3847,7 +3849,9 @@
               "id": "location_01_latitude",
               "type": "number",
               "label": {
-                "en": "Latitude"
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
               },
               "value": 0
             },
@@ -3855,7 +3859,9 @@
               "id": "location_01_longitude",
               "type": "number",
               "label": {
-                "en": "Longitude"
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
               },
               "value": 0
             },
@@ -3886,7 +3892,9 @@
               "id": "location_02_name",
               "type": "text",
               "label": {
-                "en": "Name"
+                "en": "Name",
+                "de": "Name",
+                "nl": "Naam"
               },
               "value": ""
             },
@@ -3894,7 +3902,9 @@
               "id": "location_02_latitude",
               "type": "number",
               "label": {
-                "en": "Latitude"
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
               },
               "value": 0
             },
@@ -3902,7 +3912,9 @@
               "id": "location_02_longitude",
               "type": "number",
               "label": {
-                "en": "Longitude"
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
               },
               "value": 0
             },
@@ -3933,7 +3945,9 @@
               "id": "location_03_name",
               "type": "text",
               "label": {
-                "en": "Name"
+                "en": "Name",
+                "de": "Name",
+                "nl": "Naam"
               },
               "value": ""
             },
@@ -3941,7 +3955,9 @@
               "id": "location_03_latitude",
               "type": "number",
               "label": {
-                "en": "Latitude"
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
               },
               "value": 0
             },
@@ -3949,7 +3965,9 @@
               "id": "location_03_longitude",
               "type": "number",
               "label": {
-                "en": "Longitude"
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
               },
               "value": 0
             },
@@ -3980,7 +3998,9 @@
               "id": "location_04_name",
               "type": "text",
               "label": {
-                "en": "Name"
+                "en": "Name",
+                "de": "Name",
+                "nl": "Naam"
               },
               "value": ""
             },
@@ -3988,7 +4008,9 @@
               "id": "location_04_latitude",
               "type": "number",
               "label": {
-                "en": "Latitude"
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
               },
               "value": 0
             },
@@ -3996,7 +4018,9 @@
               "id": "location_04_longitude",
               "type": "number",
               "label": {
-                "en": "Longitude"
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
               },
               "value": 0
             },
@@ -4027,7 +4051,9 @@
               "id": "location_05_name",
               "type": "text",
               "label": {
-                "en": "Name"
+                "en": "Name",
+                "de": "Name",
+                "nl": "Naam"
               },
               "value": ""
             },
@@ -4035,7 +4061,9 @@
               "id": "location_05_latitude",
               "type": "number",
               "label": {
-                "en": "Latitude"
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad"
               },
               "value": 0
             },
@@ -4043,7 +4071,9 @@
               "id": "location_05_longitude",
               "type": "number",
               "label": {
-                "en": "Longitude"
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad"
               },
               "value": 0
             },
@@ -4176,27 +4206,27 @@
       "title": {
         "en": "Sentry mode",
         "de": "Sentry-Modus",
-        "nl": "Sentry-modus"
+        "nl": "Sentry mode"
       },
       "titleTrue": {
         "en": "Sentry mode activated",
         "de": "Sentry-Modus aktiviert",
-        "nl": "Sentry-modus geactiveerd"
+        "nl": "Sentry mode geactiveerd"
       },
       "titleFasle": {
         "en": "Sentry mode deactivated",
         "de": "Sentry-Modus deaktiviert",
-        "nl": "Sentry-modus gedeactiveerd"
+        "nl": "Sentry mode gedeactiveerd"
       },
       "insightsTitleTrue": {
         "en": "Sentry mode activated",
         "de": "Sentry-Modus aktiviert",
-        "nl": "Sentry-modus geactiveerd"
+        "nl": "Sentry mode geactiveerd"
       },
       "insightsTitleFalse": {
         "en": "Sentry mode deactivated",
         "de": "Sentry-Modus deaktiviert",
-        "nl": "Sentry-modus gedeactiveerd"
+        "nl": "Sentry mode gedeactiveerd"
       },
       "insights": true,
       "getable": true,
