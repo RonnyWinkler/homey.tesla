@@ -2,12 +2,12 @@
     "title": {
         "en": "Sentry mode",
         "de": "Sentry-Modus",
-        "nl": "Wachtmodus"
+        "nl": "Sentry Mode"
     },
     "titleFormatted": {
         "en": "Sentry Mode [[action]]",
         "de": "Sentry-Modus [[action]]",
-        "nl": "Wachtmodus [[action]]"
+        "nl": "Sentry Mode [[action]]"
     },
     "args": [
         {

@@ -3,27 +3,27 @@
     "title": {
       "en": "Sentry mode",
       "de": "Sentry-Modus",
-      "nl": "Sentry-modus"
+      "nl": "Sentry mode"
     },
     "titleTrue":{
       "en": "Sentry mode activated",
       "de": "Sentry-Modus aktiviert",
-      "nl": "Sentry-modus geactiveerd"
+      "nl": "Sentry mode geactiveerd"
     },
     "titleFasle":{
       "en": "Sentry mode deactivated",
       "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry-modus gedeactiveerd"      
+      "nl": "Sentry mode gedeactiveerd"      
     },
     "insightsTitleTrue":{
       "en": "Sentry mode activated",
       "de": "Sentry-Modus aktiviert",
-      "nl": "Sentry-modus geactiveerd"
+      "nl": "Sentry mode geactiveerd"
     },
     "insightsTitleFalse":{
       "en": "Sentry mode deactivated",
       "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry-modus gedeactiveerd"      
+      "nl": "Sentry mode gedeactiveerd"      
     },
     "insights": true,
     "getable": true,
