@@ -2,7 +2,7 @@
     "title": {
         "en": "Sentry mode",
         "de": "Sentry-Modus",
-        "nl": "Wachtmodus"
+        "nl": "Sentry Mode"
     },
     "titleFormatted": {
         "en": "Sentry Mode [[action]]",
