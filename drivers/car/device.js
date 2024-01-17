@@ -295,11 +295,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // Drive state
-    if (this.hasCapability('car_shift_state') && data.drive_state && data.drive_state.shift_state != undefined){
-      await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
+    if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state == null)){
+      if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
+        await this.setCapabilityValue('car_shift_state', 'P');
+      }
+      else{
+        await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
+      }
+      // states:
+      // R
+      // D
+      // null = P
     }
     if (this.hasCapability('measure_car_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
-      await this.setCapabilityValue('measure_car_drive_speed', data.drive_state.speed * CONSTANTS.MILES_TO_KM);
+      await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.drive_state.speed * CONSTANTS.MILES_TO_KM ) );
     }
 
     // Tires/TPMS

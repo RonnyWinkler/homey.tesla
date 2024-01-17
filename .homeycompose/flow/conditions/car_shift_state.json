@@ -1,0 +1,54 @@
+{
+    "title": {
+        "en": "Shift state !{{is|isn't}}",
+        "de": "Schaltzustand !{{ist|ist nicht}}",
+        "nl": "Schakelstand !{{is|is niet}}"
+    },
+    "titleFormatted": {
+        "en": "Shift state !{{is|isn't}} [[state]]",
+        "de": "Schaltzustand !{{ist|ist nicht}} [[state]]",
+        "nl": "Schakelstand !{{is|is niet}} [[state]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "state",
+            "type": "dropdown",
+            "title": { 
+                "en": "Shift state",
+                "de": "Schaltzustand",
+                "nl": "Schakelstand"
+            },
+            "values": [
+                {
+                    "id": "P",
+                    "title": {
+                        "en": "P - Park",
+                        "de": "P - Parken",
+                        "nl": "P - Park"
+                    }
+                },
+                {
+                    "id": "D",
+                    "title": {
+                        "en": "D - Drive",
+                        "de": "D - Fahren",
+                        "nl": "D - Drijfveer"
+                    }
+                },
+                {
+                    "id": "R",
+                    "title": {
+                        "en": "R - Reverse",
+                        "de": "R - Rückwärts",
+                        "nl": "R - Achteruit"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -7,7 +7,7 @@
     "tokens": [
         {
             "name": "car_shift_state",
-            "type": "number",
+            "type": "string",
             "title": {
                 "en": "Shift state",
                 "de": "Schaltzustand",

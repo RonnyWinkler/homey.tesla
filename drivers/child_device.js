@@ -47,10 +47,13 @@ module.exports = class ChildDevice extends Homey.Device {
       for (let i=0; i<deviceCapabilities.length; i++){
         let filter = capabilities.filter((e) => {return (e == deviceCapabilities[i]);});
         if (filter.length == 0 ){
-          try{
-            await this.removeCapability(deviceCapabilities[i]);
+          // exclude dynamic capabilities
+          if (deviceCapabilities[i] != 'measure_power'){
+            try{
+              await this.removeCapability(deviceCapabilities[i]);
+            }
+            catch(error){}
           }
-          catch(error){}
         }
       }
       // add missing capabilities

@@ -1,15 +1,73 @@
 {
-    "id": "battery_charge_power_location",
-    "type": "checkbox",
-    "value": false,
-    "label": {
-      "en": "Use charge power only at location",
-      "de": "Verwende Ladeleistung nur am Standort",
-      "nl": "Gebruik laadstroom alleen op locatie"
+  "id": "battery_charge_power_location",
+  "type": "dropdown",
+  "value": "-1",
+  "label": {
+    "en": "Use charge power only at location",
+    "de": "Verwende Ladeleistung nur am Standort",
+    "nl": "Gebruik laadstroom alleen op locatie"
+  },
+  "hint":{
+    "en": "A location device is required. Location retrieval must be active.",
+    "de": "Ein Standort-Gerät wird benötigt. Der Standortabruf muss aktiv sein.",
+    "nl": "Er is een locatieapparaat vereist. Locatie ophalen moet actief zijn."
+  },
+  "values":[
+    {
+      "id": "-1",
+      "label":{
+          "en": "No restriction",
+          "de": "Keine Einschränkung",
+          "nl": "Geen beperkingen"
+      }
     },
-    "hint":{
-      "en": "A location device is required.",
-      "de": "Ein Standort-Gerät wird benötigt.",
-      "nl": "Er is een locatieapparaat vereist."
+    {
+      "id": "0",
+      "label":{
+          "en": "Home (Homey location)",
+          "de": "Zuhause (Homey-Standort)",
+          "nl": "Thuis (Homey locatie)"
+      }
+    },
+    {
+      "id": "1",
+      "label":{
+          "en": "Location 1",
+          "de": "Standort 1",
+          "nl": "Locatie 1"
+      }
+    },
+    {
+      "id": "2",
+      "label":{
+          "en": "Location 2",
+          "de": "Standort 2",
+          "nl": "Locatie 2"
+      }
+    },
+    {
+      "id": "3",
+      "label":{
+          "en": "Location 3",
+          "de": "Standort 3",
+          "nl": "Locatie 3"
+      }
+    },
+    {
+      "id": "4",
+      "label":{
+          "en": "Location 4",
+          "de": "Standort 4",
+          "nl": "Locatie 4"
+      }
+    },
+    {
+      "id": "5",
+      "label":{
+          "en": "Location 5",
+          "de": "Standort 5",
+          "nl": "Locatie 5"
+      }
     }
-  }
+  ]
+}

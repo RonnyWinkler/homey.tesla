@@ -19,7 +19,14 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
     return device; 
   }
-  
+  getLocationDevice(){
+    let device = this.homey.drivers.getDriver('location').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];
+    if (device == undefined){
+      throw new Error('No location device found.');
+    }
+    return device; 
+  }
+
   // SYNC =======================================================================================
   async updateDevice(data){
     await super.updateDevice(data);
@@ -69,7 +76,23 @@ module.exports = class BatteryDevice extends ChildDevice {
       }
       if (this.hasCapability('measure_power')){
         // Optional: Add location based power handling
-        this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+        if (this._settings.battery_charge_power_location == -1){
+          this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+        }
+        else{
+          try{
+            let device = this.getLocationDevice();
+            if ( await device.isAtLocation(this._settings.battery_charge_power_location)){
+              this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+            }
+            else{
+              this.setCapabilityValue('measure_power', 0);
+            }
+          }
+          catch(error){
+            this.setCapabilityValue('measure_power', 0);
+          }
+        }
       }
     }
     if (this.hasCapability('measure_charge_current') && data.charge_state && data.charge_state.charger_actual_current != undefined){

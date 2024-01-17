@@ -215,12 +215,17 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getConditionCard('car_software_update_state')
     .registerRunListener(async (args, state) => {
-      return (args.device.getCapabilityValue('software_update_state') == args.state);
+      return (args.device.getCapabilityValue('car_software_update_state') == args.state);
     })
 
     this.homey.flow.getConditionCard('car_state')
     .registerRunListener(async (args, state) => {
-      return (args.device.getCapabilityValue('state') == args.state);
+      return (args.device.getCapabilityValue('car_state') == args.state);
+    })
+
+    this.homey.flow.getConditionCard('car_shift_state')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('car_shift_state') == args.state);
     })
 
     this.homey.flow.getConditionCard('climate_steering_wheel_heat_level')

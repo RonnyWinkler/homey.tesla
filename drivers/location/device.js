@@ -130,7 +130,7 @@ module.exports = class LocationDevice extends ChildDevice {
     }
     if (location != undefined && ((location.latitude != undefined && location.longitude != undefined) || location.url != '')){
       let state = await this._checkFlowTriggerCoordinatesCoordinates(location.latitude, location.longitude, location.url, args.distance);
-      this.log("flowTriggerLocationReachedRunListener() Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+"m - State: "+ state);
+      this.log("flowTriggerLocationReachedRunListener() Location: "+location.name+" Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+" m - State: "+ state);
       return state;
     }
     return 'unknown';
@@ -190,24 +190,34 @@ module.exports = class LocationDevice extends ChildDevice {
   }
 
   // Device =======================================================================================
+  async isAtLocation(id){
+    let args = {
+      location:{
+        id: id
+      }
+     };
+    let state = await this.flowTriggerLocationRunListener(args);
+    return (state  == 'at_location');
+  }
+
   getLocations(){
     let settings = this.getSettings();
     let locations = [];
 
     // Add Homey location aas default, needs location permission
-    // try{
-    //   let location = {
-    //     id: 0,
-    //     name: this.homey.__('devices.location.homey_location_name'),
-    //     latitude: this.homey.geolocation.getLatitude(),
-    //     longitude: this.homey.geolocation.getLongitude(),
-    //     url: ''
-    //   }
-    //   locations.push(location);
-    // }
-    // catch(error){
-    //   this.log("Error reading Homey location: ", error.message);
-    // };
+    try{
+      let location = {
+        id: 0,
+        name: this.homey.__('devices.location.homey_location_name'),
+        latitude: this.homey.geolocation.getLatitude(),
+        longitude: this.homey.geolocation.getLongitude(),
+        url: ''
+      }
+      locations.push(location);
+    }
+    catch(error){
+      this.log("Error reading Homey location: ", error.message);
+    };
 
     for(let i=1; i<=SETTINGS_LOCATIONS_NR; i++){
       if (settings['location_0'+i+'_name'] != undefined && 
