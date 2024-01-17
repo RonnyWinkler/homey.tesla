@@ -291,20 +291,29 @@ module.exports = class LocationDevice extends ChildDevice {
 
     // unshorten Link
     try{
-      // let response = await https.request( 
-      //   'GET',
-      //   url,
-      //   {},
-      //   ''
-      // );
+      let coordinates;
+      // try to read long URL (including coordinates)
+      let regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
+      let coordinatesArray = regex.exec(url);
+      if (coordinatesArray && coordinatesArray[0]){
+        coordinates = coordinatesArray[0];
+        this.log("Coordinates: ", coordinates);
+        if (coordinates.split(',')[0] != undefined && coordinates.split(',')[1] != undefined){
+          return {
+            latitude: coordinates.split(',')[0],
+            longitude: coordinates.split(',')[1]
+          }
+        }
+      }
+      // If not found, try to read/convert short link
       this.log("Converting GoogleMaps URL to Lan/Lon: ", url);
       let response = await https.getRedirectUrl( 
         url,
         {}
       );
       this.log("Short URL: ", response);
-      let regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
-      let coordinates = regex.exec(response)[0];
+      regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
+      coordinates = regex.exec(response)[0];
       this.log("Coordinates: ", coordinates);
       return {
         latitude: coordinates.split(',')[0],

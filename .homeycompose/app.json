@@ -1,6 +1,6 @@
 {
   "id": "com.tesla.car",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
@@ -35,7 +35,7 @@
   "source": "https://github.com/RonnyWinkler/homey.tesla",
   "homeyCommunityTopicId": 100824,
   "permissions": [
-
+    "homey:manager:geolocation"
   ],
   "contributing": {
       "donate": {
