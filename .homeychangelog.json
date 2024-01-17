@@ -86,5 +86,8 @@
   },
   "1.1.2": {
     "en": "Added location based power (Homey energy). Fixed shift state. Added shift state condition."
+  },
+  "1.1.3": {
+    "en": "Fixed Homey energy (W instead of kW)"
   }
 }

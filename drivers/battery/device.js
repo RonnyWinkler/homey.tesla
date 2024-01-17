@@ -77,13 +77,13 @@ module.exports = class BatteryDevice extends ChildDevice {
       if (this.hasCapability('measure_power')){
         // Optional: Add location based power handling
         if (this._settings.battery_charge_power_location == -1){
-          this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+          this.setCapabilityValue('measure_power', data.charge_state.charger_power * 1000); // kW => W
         }
         else{
           try{
             let device = this.getLocationDevice();
             if ( await device.isAtLocation(this._settings.battery_charge_power_location)){
-              this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+              this.setCapabilityValue('measure_power', data.charge_state.charger_power * 1000); // kW => W
             }
             else{
               this.setCapabilityValue('measure_power', 0);
