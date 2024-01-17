@@ -41,6 +41,16 @@
         "charging_on",
         "charging_port_unlock"
     ],
+    "capabilitiesOptions":{
+        "measure_power": {
+            "title": {
+                "en": "Charge power (Homey energy)",
+                "de": "Ladeleistung (Homey Energie)",
+                "nl": "Laad vermogen (Homey energie)"
+            },
+            "uiComponent": null
+        }
+    },
     "energy": {
         "batteries": [
             "OTHER"

@@ -1,0 +1,10 @@
+{
+    "id": "battery_charge_power",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Show charge power in Homey energy",
+      "de": "Zeige Ladeleistung in Homey Energie",
+      "nl": "Toon laadvermogen in Homey energie"
+    }
+  }

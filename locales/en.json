@@ -25,5 +25,15 @@
             "auth": "Change Login",
             "register_app": "Register app in car"
         }
+    },
+    "devices":{
+        "location":{
+            "homey_location_name": "Home (Homey location)"
+        }
+    },
+    "app":{
+        "update":{
+            "update_message": "The next version of Tesla app addes a new permission (Homey location). Auto update is not working in this case. Please check for updates manually next days and install the next version from app store."
+        }
     }
 }

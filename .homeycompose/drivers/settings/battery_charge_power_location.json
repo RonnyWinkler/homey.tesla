@@ -1,0 +1,15 @@
+{
+    "id": "battery_charge_power_location",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Use charge power only at location",
+      "de": "Verwende Ladeleistung nur am Standort",
+      "nl": "Gebruik laadstroom alleen op locatie"
+    },
+    "hint":{
+      "en": "A location device is required.",
+      "de": "Ein Standort-Gerät wird benötigt.",
+      "nl": "Er is een locatieapparaat vereist."
+    }
+  }

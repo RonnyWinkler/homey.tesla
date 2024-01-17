@@ -168,7 +168,7 @@ module.exports = class LocationDevice extends ChildDevice {
     }
   }
 
-	// FLOW TRIGGER ======================================================================================
+	// FLOW CONDITIONS ======================================================================================
   async flowConditionLocationOnSiteRunListener(args){
     let state = await this.flowTriggerLocationRunListener(args);
     return (state  == 'at_location');
@@ -193,7 +193,23 @@ module.exports = class LocationDevice extends ChildDevice {
   getLocations(){
     let settings = this.getSettings();
     let locations = [];
-    for(let i=0; i<SETTINGS_LOCATIONS_NR; i++){
+
+    // Add Homey location aas default, needs location permission
+    // try{
+    //   let location = {
+    //     id: 0,
+    //     name: this.homey.__('devices.location.homey_location_name'),
+    //     latitude: this.homey.geolocation.getLatitude(),
+    //     longitude: this.homey.geolocation.getLongitude(),
+    //     url: ''
+    //   }
+    //   locations.push(location);
+    // }
+    // catch(error){
+    //   this.log("Error reading Homey location: ", error.message);
+    // };
+
+    for(let i=1; i<=SETTINGS_LOCATIONS_NR; i++){
       if (settings['location_0'+i+'_name'] != undefined && 
           settings['location_0'+i+'_name'] != '' &&
           ((
@@ -231,7 +247,7 @@ module.exports = class LocationDevice extends ChildDevice {
 
   async _updateLocationSettings(){
     let settings = this.getSettings();
-    for(let i=0; i<SETTINGS_LOCATIONS_NR; i++){
+    for(let i=1; i<=SETTINGS_LOCATIONS_NR; i++){
       if (  settings['location_0'+i+'_url'] != '' && 
             ( settings['location_0'+i+'_latitude'] == '' ||
               settings['location_0'+i+'_latitude'] == 0 )
@@ -239,11 +255,16 @@ module.exports = class LocationDevice extends ChildDevice {
             ( settings['location_0'+i+'_longitude'] == '' ||
               settings['location_0'+i+'_longitude'] == 0 )
       ){
-        let coord = await this.getGoogleMapsCoordinates(settings['location_0'+i+'_url']);
-        let newSettings = {};
-        newSettings['location_0'+i+'_latitude'] = Number(coord.latitude);
-        newSettings['location_0'+i+'_longitude'] = Number(coord.longitude);
-        await this.setSettings(newSettings);
+        try{
+          let coord = await this.getGoogleMapsCoordinates(settings['location_0'+i+'_url']);
+          let newSettings = {};
+          newSettings['location_0'+i+'_latitude'] = Number(coord.latitude);
+          newSettings['location_0'+i+'_longitude'] = Number(coord.longitude);
+          await this.setSettings(newSettings);
+        }
+        catch(error){
+          this.log("Error updating settings coordinates by Google URL");
+        }
       }
     }
   }
@@ -291,6 +312,7 @@ module.exports = class LocationDevice extends ChildDevice {
       }
     }
     catch(error){
+      this.log(error.message);
       throw Error('Google URL is invalid.')
     }
 

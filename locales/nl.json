@@ -25,5 +25,15 @@
             "auth": "Wijzig login",
             "register_app": "App registreren in auto"
         }
+    },
+    "devices":{
+        "location":{
+            "homey_location_name": "Thuis (Homey plaats)"
+        }
+    },
+    "app":{
+        "update":{
+            "update_message": "De volgende versie van de Tesla-app voegt een nieuwe toestemming toe (Homey-locatie). Automatische update werkt in dit geval niet. Controleer de volgende dagen handmatig op updates en installeer de volgende versie vanuit de app store."
+        }
     }
 }

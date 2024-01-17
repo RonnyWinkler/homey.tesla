@@ -25,5 +25,15 @@
             "auth": "Anmeldung ändern",
             "register_app": "App-Registrierung im Fahrzeug"
         }
+    },
+    "devices":{
+        "location":{
+            "homey_location_name": "Zuhause (Homey Standort)"
+        }
+    },
+    "app":{
+        "update":{
+            "update_message": "Die nächste Version der Tesla App fügt eine neue Berechtigung hinzu (Homey-Standort). Die automatische Aktualisierung funktioniert in diesem Fall nicht. Bitte prüfe in den nächsten Tagen manuell auf Updates und installiere die nächste Version aus dem App Store."
+        }
     }
 }

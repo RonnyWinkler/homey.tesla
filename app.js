@@ -21,6 +21,9 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     await this._initFlowActions();
     await this._initFlowTriggers();
     await this._initFlowConditions();
+
+    this.homey.notifications.createNotification({excerpt: this.homey.__('app.update.update_message')}).catch(error => {this.error('Error sending notification: '+error.message)});
+
   }
 
   // FLOW ACTIONS ==============================================================================

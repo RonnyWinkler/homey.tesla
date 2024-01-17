@@ -56,7 +56,9 @@
           "id": "location_01_url",
           "type": "text",
           "label": {
-            "en": "Google Maps URL"
+            "en": "Google Maps URL (short link)",
+            "de": "Google Maps URL (Kurzlink)",
+            "nl": "Google Maps URL (Korte link)"
           },
           "value": "",
           "hint":{
@@ -110,7 +112,9 @@
           "id": "location_02_url",
           "type": "text",
           "label": {
-            "en": "Google Maps URL"
+            "en": "Google Maps URL (short link)",
+            "de": "Google Maps URL (Kurzlink)",
+            "nl": "Google Maps URL (Korte link)"
           },
           "value": "",
           "hint":{
@@ -164,7 +168,9 @@
           "id": "location_03_url",
           "type": "text",
           "label": {
-            "en": "Google Maps URL"
+            "en": "Google Maps URL (short link)",
+            "de": "Google Maps URL (Kurzlink)",
+            "nl": "Google Maps URL (Korte link)"
           },
           "value": "",
           "hint":{
@@ -218,7 +224,9 @@
           "id": "location_04_url",
           "type": "text",
           "label": {
-            "en": "Google Maps URL"
+            "en": "Google Maps URL (short link)",
+            "de": "Google Maps URL (Kurzlink)",
+            "nl": "Google Maps URL (Korte link)"
           },
           "value": "",
           "hint":{
@@ -272,7 +280,9 @@
           "id": "location_05_url",
           "type": "text",
           "label": {
-            "en": "Google Maps URL"
+            "en": "Google Maps URL (short link)",
+            "de": "Google Maps URL (Kurzlink)",
+            "nl": "Google Maps URL (Korte link)"
           },
           "value": "",
           "hint":{

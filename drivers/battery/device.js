@@ -8,6 +8,7 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   async onInit() {
     await super.onInit();
+    this._settings = this.getSettings();
   }
 
   // Device handling =======================================================================================
@@ -62,8 +63,14 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
     }
-    if (this.hasCapability('measure_charge_power') && data.charge_state && data.charge_state.charger_power != undefined){
-      this.setCapabilityValue('measure_charge_power', data.charge_state.charger_power);
+    if (data.charge_state && data.charge_state.charger_power != undefined){
+      if (this.hasCapability('measure_charge_power')){
+        this.setCapabilityValue('measure_charge_power', data.charge_state.charger_power);
+      }
+      if (this.hasCapability('measure_power')){
+        // Optional: Add location based power handling
+        this.setCapabilityValue('measure_power', data.charge_state.charger_power);
+      }
     }
     if (this.hasCapability('measure_charge_current') && data.charge_state && data.charge_state.charger_actual_current != undefined){
       this.setCapabilityValue('measure_charge_current', data.charge_state.charger_actual_current);
@@ -179,5 +186,32 @@ module.exports = class BatteryDevice extends ChildDevice {
   async flowActionChargeScheduleDeparture(action, hh, mm){
     await this._commandScheduleDeparture(action, hh, mm);
   }
+
+  // Device =======================================================================================
+
+  async onSettings({ oldSettings, newSettings, changedKeys }) {
+    this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
+    this._settings = newSettings;
+    try {
+      if (changedKeys.indexOf('battery_charge_power') > -1){
+          if (newSettings['battery_charge_power']){
+            if (!this.hasCapability('measure_power')){
+              this.log("onSettings(): Add measure_power");
+              await this.addCapability('measure_power');
+            }
+          }
+          else{
+              if (this.hasCapability('measure_power')){
+                this.log("onSettings(): Remove measure_power");
+                await this.removeCapability('measure_power');
+              }
+            } 
+      }
+    }
+    catch(error){
+      this.log("Error onSettings(): " + error.message);
+    }
+}
+
 
 }

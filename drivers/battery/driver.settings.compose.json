@@ -1,5 +1,19 @@
 [
-    {
+  {
+    "type": "group",
+    "label": {
+      "en": "Energy settings",
+      "de": "Energie-Einstellungen",
+      "nl": "Energie-instellingen"
+    },
+    "children": [
+      {
+        "$extends": "battery_charge_power",
+        "id": "battery_charge_power"
+      }
+    ]
+  },
+  {
       "type": "group",
       "label": {
         "en": "Assigned to car",
