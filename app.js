@@ -203,6 +203,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       }
     })
 
+    this.homey.flow.getConditionCard('charging_port')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('charging_port'));
+    })
+
     this.homey.flow.getConditionCard('climate_overheat_protection_mode')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('climate_overheat_protection_mode') == args.mode);
@@ -211,6 +216,21 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getConditionCard('climate_overheat_protection_level')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('climate_overheat_protection_level') == args.level);
+    })
+
+    this.homey.flow.getConditionCard('climate_preconditioning')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_preconditioning'));
+    })
+
+    this.homey.flow.getConditionCard('climate_defrost')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_defrost'));
+    })
+
+    this.homey.flow.getConditionCard('climate_window_vent')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_window_vent'));
     })
 
     this.homey.flow.getConditionCard('car_software_update_state')
@@ -226,6 +246,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getConditionCard('car_shift_state')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('car_shift_state') == args.state);
+    })
+
+    this.homey.flow.getConditionCard('car_doors_locked')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('car_doors_locked'));
+    })
+
+    this.homey.flow.getConditionCard('car_sentry_mode')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('car_sentry_mode'));
     })
 
     this.homey.flow.getConditionCard('climate_steering_wheel_heat_level')

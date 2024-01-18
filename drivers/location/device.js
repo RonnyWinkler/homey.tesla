@@ -302,8 +302,10 @@ module.exports = class LocationDevice extends ChildDevice {
     // unshorten Link
     try{
       let coordinates;
+      // let regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
+      let regex = /(?<=[\/|\/@])([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
+
       // try to read long URL (including coordinates)
-      let regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
       let coordinatesArray = regex.exec(url);
       if (coordinatesArray && coordinatesArray[0]){
         coordinates = coordinatesArray[0];
@@ -315,6 +317,7 @@ module.exports = class LocationDevice extends ChildDevice {
           }
         }
       }
+
       // If not found, try to read/convert short link
       this.log("Converting GoogleMaps URL to Lan/Lon: ", url);
       let response = await https.getRedirectUrl( 
@@ -322,7 +325,6 @@ module.exports = class LocationDevice extends ChildDevice {
         {}
       );
       this.log("Short URL: ", response);
-      regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
       coordinates = regex.exec(response)[0];
       this.log("Coordinates: ", coordinates);
       return {

@@ -89,5 +89,8 @@
   },
   "1.1.3": {
     "en": "Fixed Homey energy (W instead of kW)"
+  },
+  "1.1.4": {
+    "en": "Extended GoogleURL check. Added yes/no conditions."
   }
 }

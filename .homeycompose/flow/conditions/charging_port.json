@@ -1,0 +1,14 @@
+{
+    "title": {
+        "en": "Charge port !{{is|isn't}} open",
+        "de": "Ladeanschluss !{{ist|ist nicht}} ist geöffnet",
+        "nl": "Laadpoort  !{{is|is niet}} open"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        }
+    ]
+}

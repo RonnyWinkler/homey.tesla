@@ -1,0 +1,14 @@
+{
+    "title": {
+        "en": "Doors !{{are|aren't}} locked",
+        "de": "Türen !{{sind|sind nicht nicht}} verriegelt",
+        "nl": "Deuren !{{zijn |zijn niet}} op slot"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}
