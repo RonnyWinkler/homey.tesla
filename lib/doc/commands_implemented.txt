@@ -4,6 +4,7 @@ vehicleControlFlashLightsAction         OK
 vehicleControlHonkHornAction            Not tested
 RKE_ACTION_LOCK, RKE_ACTION_UNLOCK      MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
 vehicleControlWindowAction              MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+vehicleControlScheduleSoftwareUpdateAction  Not tested
 
 Battery:
 commandChargeLimit                      OK

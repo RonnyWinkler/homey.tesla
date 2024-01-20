@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -2816,6 +2816,40 @@
       },
       {
         "title": {
+          "en": "Schedule software update",
+          "de": "Plane Software-Aktualisierung",
+          "nl": "Software-update plannen"
+        },
+        "titleFormatted": {
+          "en": "Schedule software update in [[minutes]] minutes",
+          "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
+          "nl": "Plan een software-update over [[minutes]] minuten"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes",
+              "de": "Minuten",
+              "nl": "Minuten"
+            },
+            "placeholder": {
+              "en": "Minutes",
+              "de": "Minuten",
+              "nl": "Minuten"
+            }
+          }
+        ],
+        "id": "charge_schedule_software_update"
+      },
+      {
+        "title": {
           "en": "Start/stop charging",
           "de": "Laden starten/stoppen",
           "nl": "Start/stop het opladen"
@@ -3421,6 +3455,48 @@
           }
         ],
         "id": "location_navigate_to_location"
+      },
+      {
+        "title": {
+          "en": "Set location (for test only!)"
+        },
+        "titleFormatted": {
+          "en": "Set location [[latitude]] [[longitude]]"
+        },
+        "args": [
+          {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Latitude",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad"
+            },
+            "placeholder": {
+              "en": "13.40000"
+            }
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": {
+              "en": "Longitude",
+              "de": "Längengrad",
+              "nl": "Lengtegraad"
+            },
+            "placeholder": {
+              "en": "52.50000"
+            }
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "set_location"
       }
     ]
   },

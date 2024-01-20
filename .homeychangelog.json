@@ -92,5 +92,8 @@
   },
   "1.1.4": {
     "en": "Extended GoogleURL check. Added yes/no conditions."
+  },
+  "1.1.5": {
+    "en": "Optimized localization settings."
   }
 }

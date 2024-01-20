@@ -29,6 +29,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
   // FLOW ACTIONS ==============================================================================
   async _initFlowActions(){
 
+    // TEST TEST TEST 
+    // this.homey.flow.getActionCard('set_location')
+    // .registerRunListener(async (args, state) => {
+		// 		await args.device.flowActionSetLocation(args.latitude, args.longitude);
+		// });
+
     this.homey.flow.getActionCard('car_refresh')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionRefresh();
@@ -38,11 +44,6 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionWakeUp( (args.wait=='wait') );
 		});
-
-    // this.homey.flow.getActionCard('set_location')
-    // .registerRunListener(async (args, state) => {
-		// 		await args.device.flowActionSetLocation(args.latitude, args.longitude);
-		// });
 
     this.homey.flow.getActionCard('car_doors')
     .registerRunListener(async (args, state) => {
@@ -67,6 +68,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getActionCard('car_window_position')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionWindowPosition(args.position);
+		});
+
+    this.homey.flow.getActionCard('charge_schedule_software_update')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionScheduleSoftwareUpdate(args.minutes);
 		});
 
     this.homey.flow.getActionCard('climate_preconditioning')

@@ -1,0 +1,33 @@
+{
+    "title": {
+        "en": "Schedule software update",
+        "de": "Plane Software-Aktualisierung",
+        "nl": "Software-update plannen"
+    },
+    "titleFormatted": {
+        "en": "Schedule software update in [[minutes]] minutes",
+        "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
+        "nl": "Plan een software-update over [[minutes]] minuten"
+    },
+    "args": [
+      {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=car"
+      },
+      {
+          "name": "minutes",
+          "type": "number",
+          "title": {
+            "en": "Minutes",
+            "de": "Minuten",
+            "nl": "Minuten"
+          },
+          "placeholder": {
+            "en": "Minutes",
+            "de": "Minuten",
+            "nl": "Minuten"
+          }
+      }
+  ]
+}

@@ -250,13 +250,18 @@ module.exports = class LocationDevice extends ChildDevice {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
 
-    if (changedKeys.filter( (e) => { return (e.startsWith('location_')) } )[0].length > 0){
-      this.homey.setTimeout( async ()=>{await this._updateLocationSettings();}, 1000 );
+    for(let i=0; i<SETTINGS_LOCATIONS_NR; i++){
+      if (changedKeys[i] == 'location_0'+(i+1)+'_url'){
+        this.homey.setTimeout( async ()=>{await this._updateLocationSetting(i+1);}, 1000 );
+      }
     }
+
+    // if (changedKeys.filter( (e) => { return (e.startsWith('location_')) } )[0].length > 0){
+    //   this.homey.setTimeout( async ()=>{await this._updateLocationSettings();}, 1000 );
+    // }
   }
 
   async _updateLocationSettings(){
-    let settings = this.getSettings();
     for(let i=1; i<=SETTINGS_LOCATIONS_NR; i++){
       if (  settings['location_0'+i+'_url'] != '' && 
             ( settings['location_0'+i+'_latitude'] == '' ||
@@ -275,6 +280,22 @@ module.exports = class LocationDevice extends ChildDevice {
         catch(error){
           this.log("Error updating settings coordinates by Google URL");
         }
+      }
+    }
+  }
+
+  async _updateLocationSetting(id){
+    let settings = this.getSettings();
+    if (  settings['location_0'+id+'_url'] != ''){
+      try{
+        let coord = await this.getGoogleMapsCoordinates(settings['location_0'+id+'_url']);
+        let newSettings = {};
+        newSettings['location_0'+id+'_latitude'] = Number(coord.latitude);
+        newSettings['location_0'+id+'_longitude'] = Number(coord.longitude);
+        await this.setSettings(newSettings);
+      }
+      catch(error){
+        this.log("Error updating settings coordinates by Google URL");
       }
     }
   }
@@ -359,44 +380,44 @@ module.exports = class LocationDevice extends ChildDevice {
   // FLOW ACTIONS =======================================================================================
 
   // // Test for changing coordinates 
-  // async flowActionSetLocation(latitude, longitude){
+  async flowActionSetLocation(latitude, longitude){
 
-  //   if (this.hasCapability('measure_location_latitude') && latitude != undefined){
-  //     await this.setCapabilityValue('measure_location_latitude', latitude);
-  //   }
-  //   if (this.hasCapability('measure_location_longitude') && longitude != undefined){
-  //     await this.setCapabilityValue('measure_location_longitude', longitude);
-  //   }
+    if (this.hasCapability('measure_location_latitude') && latitude != undefined){
+      await this.setCapabilityValue('measure_location_latitude', latitude);
+    }
+    if (this.hasCapability('measure_location_longitude') && longitude != undefined){
+      await this.setCapabilityValue('measure_location_longitude', longitude);
+    }
 
-  //   // Trigger reached/left Location flow;
-  //   let address = await this._osm.getAddress( 
-  //     this.getCapabilityValue('measure_location_latitude'), 
-  //     this.getCapabilityValue('measure_location_longitude'), 
-  //     this.homey.i18n.getLanguage()
-  //     );
+    // Trigger reached/left Location flow;
+    let address = await this._osm.getAddress( 
+      this.getCapabilityValue('measure_location_latitude'), 
+      this.getCapabilityValue('measure_location_longitude'), 
+      this.homey.i18n.getLanguage()
+      );
 
-  //   let tokens = {
-  //     location_latitude: this.getCapabilityValue('measure_location_latitude'),
-  //     location_longitude: this.getCapabilityValue('measure_location_longitude'),
-  //     location_name: address.display_name,
-  //     location_street: address.street,
-  //     location_city: address.city,
-  //     location_postcode: address.postcode,
-  //     location_country: address.country
+    let tokens = {
+      location_latitude: this.getCapabilityValue('measure_location_latitude'),
+      location_longitude: this.getCapabilityValue('measure_location_longitude'),
+      location_name: address.display_name,
+      location_street: address.street,
+      location_city: address.city,
+      location_postcode: address.postcode,
+      location_country: address.country
 
-  //   }
-  //   // let args = await this._flowTriggerLocationCoordinatesLeftOrReached.getArgumentValues(this);
-  //   // if (args != undefined && args.length > 0){
-  //     await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
-  //   // }
+    }
+    // let args = await this._flowTriggerLocationCoordinatesLeftOrReached.getArgumentValues(this);
+    // if (args != undefined && args.length > 0){
+      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
+    // }
 
-  //   // Trigger reached/left Location flow
-  //   if (this.getLocations().length > 0){
-  //     await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens);
-  //   }
+    // Trigger reached/left Location flow
+    if (this.getLocations().length > 0){
+      await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens);
+    }
     
-  //   this.updateLastLocation();
-  // }
+    this.updateLastLocation();
+  }
 
   async flowActionNavigateToLocation(args){
     let coordinates = {};

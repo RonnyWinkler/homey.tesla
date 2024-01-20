@@ -466,6 +466,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this._sendSignedCommand(apiFunction, params);
     }
     else{
+      this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
     }
   }
@@ -518,7 +519,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
         result.params = { action : 3};
         break;
-          
+
+      case 'commandScheduleSoftwareUpdate':
+        result.command = 'vehicleControlScheduleSoftwareUpdateAction';
+        result.params = { offset_sec: params.minutes * 60};
+        break;
+  
       // charging actions
       case 'commandChargeLimit':
         result.command = 'chargingSetLimitAction';
@@ -679,6 +685,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.sendCommand('commandWindowPosition', {position});
   }
 
+  async _commandScheduleSoftwareUpdate(minutes){
+    await this.sendCommand('commandScheduleSoftwareUpdate', {minutes});
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -731,6 +741,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async flowActionWindowPosition(position){
     await this._commandWindowPosition(position);
+  }
+
+  async flowActionScheduleSoftwareUpdate(minutes){
+    await this._commandScheduleSoftwareUpdate(minutes);
   }
 
 }
