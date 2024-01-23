@@ -9,7 +9,7 @@
             "type": "string",
             "title": {
                 "en": "State",
-                "de": "Statue",
+                "de": "Status",
                 "nl": "Toestand"
             },
             "example": "online"

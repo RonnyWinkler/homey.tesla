@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -366,7 +366,7 @@
             "type": "string",
             "title": {
               "en": "State",
-              "de": "Statue",
+              "de": "Status",
               "nl": "Toestand"
             },
             "example": "online"
@@ -2411,6 +2411,31 @@
       },
       {
         "title": {
+          "en": "Ping the car",
+          "de": "Pinge das Auto an",
+          "nl": "Ping de auto"
+        },
+        "titleFormatted": {
+          "en": "Ping the car",
+          "de": "Pinge das Auto an",
+          "nl": "Ping de auto"
+        },
+        "hint": {
+          "en": "This command is only available for the Tesla Vehicle Command Protocol API.",
+          "de": "Dieses Kommando ist nur für die Tesla Vehicle Command Protocol API verfügbar.",
+          "nl": "Deze opdracht is alleen beschikbaar voor de Tesla Vehicle Command Protocol API."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_ping"
+      },
+      {
+        "title": {
           "en": "Refresh car data",
           "de": "Aktualisere Fahrzeugdaten",
           "nl": "Bijgewerkte voertuiggegevens"
@@ -2433,6 +2458,40 @@
           }
         ],
         "id": "car_refresh"
+      },
+      {
+        "title": {
+          "en": "Schedule software update",
+          "de": "Plane Software-Aktualisierung",
+          "nl": "Software-update plannen"
+        },
+        "titleFormatted": {
+          "en": "Schedule software update in [[minutes]] minutes",
+          "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
+          "nl": "Plan een software-update over [[minutes]] minuten"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes",
+              "de": "Minuten",
+              "nl": "Minuten"
+            },
+            "placeholder": {
+              "en": "Minutes",
+              "de": "Minuten",
+              "nl": "Minuten"
+            }
+          }
+        ],
+        "id": "car_schedule_software_update"
       },
       {
         "title": {
@@ -2611,6 +2670,46 @@
       },
       {
         "title": {
+          "en": "Disable scheduled charging",
+          "de": "Geplantes Laden deaktivieren",
+          "nl": "Schakel gepland laden uit"
+        },
+        "titleFormatted": {
+          "en": "Disable scheduled charging",
+          "de": "Geplantes Laden deaktivieren",
+          "nl": "Schakel gepland laden uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charge_deactivate_scheduled_charging"
+      },
+      {
+        "title": {
+          "en": "Disable scheduled departure",
+          "de": "Geplante Abfahrt deaktivieren",
+          "nl": "Deactiveer gepland vertrek"
+        },
+        "titleFormatted": {
+          "en": "Disable scheduled departure",
+          "de": "Geplante Abfahrt deaktivieren",
+          "nl": "Deactiveer gepland vertrek"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charge_deactivate_scheduled_departure"
+      },
+      {
+        "title": {
           "en": "Set charge limit SoC",
           "de": "Ladelimit SoC setzen",
           "nl": "Stel Laadlimiet SoC in"
@@ -2655,9 +2754,9 @@
           "nl": "Stel gepland opladen in"
         },
         "titleFormatted": {
-          "en": "[[action]] scheduled charging for [[hh]]:[[mm]] o'clock",
-          "de": "[[action]] geplantes Laden für [[hh]]:[[mm]] Uhr",
-          "nl": "[[action]] gepland opladen voor [[hh]]:[[mm]] uur"
+          "en": "Schedule charging for [[hh]]:[[mm]] o'clock",
+          "de": "Plane Laden für [[hh]]:[[mm]] Uhr",
+          "nl": "Plan opladen voor [[hh]]:[[mm]] uur"
         },
         "hint": {
           "en": "Sets a time at which charging should be completed.",
@@ -2669,28 +2768,6 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=battery"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "Activate",
-                  "de": "Aktiviere",
-                  "nl": "Activeren"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Deactivate",
-                  "de": "Deaktiviere",
-                  "nl": "Deactiveren"
-                }
-              }
-            ]
           },
           {
             "name": "hh",
@@ -2738,9 +2815,9 @@
           "nl": "Gepland vertrek instellen"
         },
         "titleFormatted": {
-          "en": "[[action]] scheduled departure to [[hh]]:[[mm]] o'clock",
-          "de": "[[action]] geplante Abfahrt für [[hh]]:[[mm]] Uhr",
-          "nl": "[[action]] gepland vertrek voor [[hh]]:[[mm]] uur"
+          "en": "Schedule departure to [[hh]]:[[mm]] o'clock with parameters: \nPreconditioning [[preconditioning_enabled]], \nweekdays only [[preconditioning_weekdays_only]]. \nOff peak charging [[off_peak_charging_enabled]], \nweekdays only [[off_peak_charging_weekdays_only]], \nends at [[op_hh]]:[[op_mm]] o'clock",
+          "de": "Planen Sie die Abfahrt um [[hh]]:[[mm]] Uhr mit den Parametern: \nVorkonditionierung [[preconditioning_enabled]], \nnur an Wochentagen [[preconditioning_weekdays_only]]. \nLaden außerhalb der Spitzenzeiten [[off_peak_charging_enabled]], \nnur wochentags [[off_peak_charging_weekdays_only]], \nendet um [[op_hh]]:[[op_mm]] Uhr",
+          "nl": "Vertrek plannen tot [[hh]]:[[mm]] uur met parameters: \nPreconditioning [[preconditioning_enabled]], \nalleen weekdagen [[preconditioning_weekdays_only]]. \nLaden buiten de piekuren [[off_peak_charging_enabled]], \nalleen op weekdagen [[off_peak_charging_weekdays_only]], \neindigt om [[op_hh]]:[[op_mm]] uur"
         },
         "hint": {
           "en": "Sets a time at which departure should be completed.",
@@ -2754,26 +2831,20 @@
             "filter": "driver_id=battery"
           },
           {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "Activate",
-                  "de": "Aktiviere",
-                  "nl": "Activeren"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Deactivate",
-                  "de": "Deaktiviere",
-                  "nl": "Deactiveren"
-                }
-              }
-            ]
+            "name": "preconditioning_enabled",
+            "type": "checkbox"
+          },
+          {
+            "name": "preconditioning_weekdays_only",
+            "type": "checkbox"
+          },
+          {
+            "name": "off_peak_charging_enabled",
+            "type": "checkbox"
+          },
+          {
+            "name": "off_peak_charging_weekdays_only",
+            "type": "checkbox"
           },
           {
             "name": "hh",
@@ -2810,43 +2881,45 @@
               "de": "mm",
               "nl": "mm"
             }
-          }
-        ],
-        "id": "charge_schedule_departure"
-      },
-      {
-        "title": {
-          "en": "Schedule software update",
-          "de": "Plane Software-Aktualisierung",
-          "nl": "Software-update plannen"
-        },
-        "titleFormatted": {
-          "en": "Schedule software update in [[minutes]] minutes",
-          "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
-          "nl": "Plan een software-update over [[minutes]] minuten"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
           },
           {
-            "name": "minutes",
-            "type": "number",
+            "name": "op_hh",
+            "type": "range",
+            "min": 0,
+            "max": 23,
+            "step": 1,
+            "labelDecimals": 0,
             "title": {
-              "en": "Minutes",
-              "de": "Minuten",
-              "nl": "Minuten"
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
             },
             "placeholder": {
-              "en": "Minutes",
-              "de": "Minuten",
-              "nl": "Minuten"
+              "en": "hh",
+              "de": "hh",
+              "nl": "hh"
+            }
+          },
+          {
+            "name": "op_mm",
+            "type": "range",
+            "min": 0,
+            "max": 59,
+            "step": 1,
+            "labelDecimals": 0,
+            "title": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
+            },
+            "placeholder": {
+              "en": "mm",
+              "de": "mm",
+              "nl": "mm"
             }
           }
         ],
-        "id": "charge_schedule_software_update"
+        "id": "charge_schedule_departure"
       },
       {
         "title": {
@@ -3455,48 +3528,6 @@
           }
         ],
         "id": "location_navigate_to_location"
-      },
-      {
-        "title": {
-          "en": "Set location (for test only!)"
-        },
-        "titleFormatted": {
-          "en": "Set location [[latitude]] [[longitude]]"
-        },
-        "args": [
-          {
-            "name": "latitude",
-            "type": "number",
-            "required": false,
-            "title": {
-              "en": "Latitude",
-              "de": "Breitengrad",
-              "nl": "Breedtegraad"
-            },
-            "placeholder": {
-              "en": "13.40000"
-            }
-          },
-          {
-            "name": "longitude",
-            "type": "number",
-            "required": false,
-            "title": {
-              "en": "Longitude",
-              "de": "Längengrad",
-              "nl": "Lengtegraad"
-            },
-            "placeholder": {
-              "en": "52.50000"
-            }
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=location"
-          }
-        ],
-        "id": "set_location"
       }
     ]
   },

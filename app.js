@@ -35,6 +35,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 		// 		await args.device.flowActionSetLocation(args.latitude, args.longitude);
 		// });
 
+    this.homey.flow.getActionCard('car_ping')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionPing();
+		});
+
     this.homey.flow.getActionCard('car_refresh')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionRefresh();
@@ -70,7 +75,7 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionWindowPosition(args.position);
 		});
 
-    this.homey.flow.getActionCard('charge_schedule_software_update')
+    this.homey.flow.getActionCard('car_schedule_software_update')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionScheduleSoftwareUpdate(args.minutes);
 		});
@@ -137,12 +142,31 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getActionCard('charge_schedule_charging')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionChargeScheduleCharging(args.action, args.hh, args.mm);
+				await args.device.flowActionChargeScheduleCharging({hh: args.hh, mm: args.mm});
 		});
 
     this.homey.flow.getActionCard('charge_schedule_departure')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionChargeScheduleDeparture(args.action, args.hh, args.mm);
+				await args.device.flowActionChargeScheduleDeparture({
+          hh: args.hh,
+          mm: args.mm,
+          op_hh: args.op_hh,
+          op_mm: args.op_mm,
+          preconditioning_enabled: args.preconditioning_enabled,
+          preconditioning_weekdays_only: args.preconditioning_weekdays_only,
+          off_peak_charging_enabled: args.off_peak_charging_enabled,
+          off_peak_charging_weekdays_only: args.off_peak_charging_weekdays_only
+        });
+		});
+
+    this.homey.flow.getActionCard('charge_deactivate_scheduled_charging')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeDeactivateScheduledCharging();
+		});
+
+    this.homey.flow.getActionCard('charge_deactivate_scheduled_departure')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeDeactivateScheduledDeparture();
 		});
 
     this.homey.flow.getActionCard('location_navigate_to_location')

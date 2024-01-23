@@ -95,5 +95,8 @@
   },
   "1.1.5": {
     "en": "Optimized localization settings."
+  },
+  "1.1.6": {
+    "en": "Optimized online/offline state check. Fixed schedule charging/departure flow actions."
   }
 }

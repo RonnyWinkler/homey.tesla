@@ -192,10 +192,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // SYNC =======================================================================================
 
   async _sync() {
+    this.log("Car data request...");
+    let state;
     // Step 1: Get car status (online/offline/asleep) and check device availability
     try{
       // get current device state
-      await this.getCarState();
+      state = await this.getCarState();
       this.setAvailable();
     }
     catch(error){
@@ -204,8 +206,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.handleApiError(error);
     };
 
-    // Step 2: Get car data
-    if (this.isOnline()){
+    // Step 2: Get car data, verify ONLINE state with a direct car request 
+    if (state == CONSTANTS.STATE_ONLINE){
       try{
         // update the device
         await this.getCarData();
@@ -226,11 +228,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let oldState = this.getCapabilityValue('car_state');
     let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
 
+    this.log("Car state: ", vehicle.state);
+
     // If state changed, then adjust sync interval
     if (vehicle.state != oldState){
-      await this.setCapabilityValue('car_state', vehicle.state);
-      let time = this._getLocalTimeString(new Date());
-      await this.setCapabilityValue('last_update', time);
+      // Update state only if != ONLINE. Check ONLINE state in getCarData( ) to verify direct online request.
+      if (vehicle.state != CONSTANTS.STATE_ONLINE){
+        await this.setCapabilityValue('car_state', vehicle.state);
+        let time = this._getLocalTimeString(new Date());
+        await this.setCapabilityValue('last_update', time);
+      }
 
       // From asleep to online/offline or back?
       // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
@@ -242,6 +249,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         this._startSync();
       }
     }
+    return vehicle.state;
   }
 
   // Read car data. Car must be awake.
@@ -259,6 +267,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // Set car state to "offline"
       // Forward all other errors
       if (error.status && error.status == 408){
+        this.log("Car data request error: ", error.status);
         let oldState = this.getCapabilityValue('car_state');
         await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
         let time = this._getLocalTimeString(new Date());
@@ -274,6 +283,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       else{
         throw error;
       }
+    }
+
+    this.log("Car data request state: ", data.state);
+
+    // Update car state to ONLINE if request was successful
+    if (data.state == CONSTANTS.STATE_ONLINE){
+      await this.setCapabilityValue('car_state', data.state);
+      let time = this._getLocalTimeString(new Date());
+      await this.setCapabilityValue('last_update', time);
     }
 
     // Car state
@@ -406,11 +424,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     await this.oAuth2Client.commandWakeUp(this.getData().id);
     if (wait){
+      let state;
       for (let i=0; i<WAIT_ON_WAKE_UP; i++){
         this.log("Wake up the car...Online-Check "+i);
         await this._wait();
-        await this.getCarState();
-        if (this.isOnline()){
+        state = await this.getCarState();
+        if (state == CONSTANTS.STATE_ONLINE){
           this.log("Wake up the car...Car is online now");
           // automatically sync data after wake up
           await this._sync()
@@ -466,6 +485,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this._sendSignedCommand(apiFunction, params);
     }
     else{
+      if (apiFunction == 'ping'){
+        throw new Error("Command "+apiFunction+" not supported for REST or Proxy API.");
+      }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
     }
@@ -485,6 +507,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     };
     switch (apiFunction) {
       // car actions
+      case 'ping':
+        result.command = 'ping';
+        result.params = { };
+        break;
+
       case 'commandSentryMode':
         result.command = 'vehicleControlSetSentryModeAction';
         result.params = { on: params.state};
@@ -559,24 +586,49 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case 'commandScheduleCharging':
         result.command = 'scheduledChargingAction';
         result.params = { 
-          enabled: (params.action == 'on'),
+          enabled: true,
           charging_time : (params.hh * 60 + params.mm)
         };
         break;
 
-      case 'commandScheduleDeparture':
-
-      // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
-        result.command = 'scheduledDepartureAction';
+      case 'commandDeactivateScheduledCharging':
+        result.command = 'scheduledChargingAction';
         result.params = { 
-          enabled: (params.action == 'on'),
-          departure_time: (params.hh * 60 + params.mm)
-          // preconditioning_times: 
-          // off_peak_charging_times:
-          // off_peak_hours_end_time: 0
+          enabled: false,
+          charging_time : 0
         };
         break;
   
+      case 'commandScheduleDeparture':
+      // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
+        result.command = 'scheduledDepartureAction';
+        result.params = { 
+          enabled: true,
+          departure_time: (params.hh * 60 + params.mm),
+          preconditioning_enabled: params.preconditioning_enabled,
+          preconditioning_weekdays_only: params.preconditioning_weekdays_only,
+          off_peak_charging_enabled: params.off_peak_charging_enabled,
+          off_peak_charging_weekdays_only: params.off_peak_charging_weekdays_only,
+          end_off_peak_time: (params.op_hh * 60 + params.op_mm)
+  
+        };
+        break;
+
+      case 'commandDeactivateScheduledDeparture':
+        // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
+          result.command = 'scheduledDepartureAction';
+          result.params = { 
+            enabled: false,
+            departure_time: 0,
+            preconditioning_enabled: false,
+            preconditioning_weekdays_only: false,
+            off_peak_charging_enabled: false,
+            off_peak_charging_weekdays_only: false,
+            end_off_peak_time: 0
+    
+          };
+          break;
+    
       // location actions
       // case 'commandNavigateGpsRequest':
       //   result.command = 'chargingSetLimitAction';
@@ -665,6 +717,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     return result;
   }
 
+  async _commandPing(){
+    await this.sendCommand('ping', {});
+  }
+
   async _commandSentryMode(state){
     await this.sendCommand('commandSentryMode', {state});
   }
@@ -713,7 +769,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // FLOW ACTIONS =======================================================================================
 
-  async flowActionRefresh(wait=true){
+  async flowActionPing(){
+    await this._commandPing();
+  }
+
+  async flowActionRefresh(){
     await this._sync();
   }
 

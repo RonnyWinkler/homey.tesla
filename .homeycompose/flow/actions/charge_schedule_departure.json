@@ -5,9 +5,9 @@
       "nl": "Gepland vertrek instellen"
     },
     "titleFormatted": {
-      "en": "[[action]] scheduled departure to [[hh]]:[[mm]] o'clock",
-      "de": "[[action]] geplante Abfahrt für [[hh]]:[[mm]] Uhr",
-      "nl": "[[action]] gepland vertrek voor [[hh]]:[[mm]] uur"
+      "en": "Schedule departure to [[hh]]:[[mm]] o'clock with parameters: \nPreconditioning [[preconditioning_enabled]], \nweekdays only [[preconditioning_weekdays_only]]. \nOff peak charging [[off_peak_charging_enabled]], \nweekdays only [[off_peak_charging_weekdays_only]], \nends at [[op_hh]]:[[op_mm]] o'clock",
+      "de": "Planen Sie die Abfahrt um [[hh]]:[[mm]] Uhr mit den Parametern: \nVorkonditionierung [[preconditioning_enabled]], \nnur an Wochentagen [[preconditioning_weekdays_only]]. \nLaden außerhalb der Spitzenzeiten [[off_peak_charging_enabled]], \nnur wochentags [[off_peak_charging_weekdays_only]], \nendet um [[op_hh]]:[[op_mm]] Uhr",
+      "nl": "Vertrek plannen tot [[hh]]:[[mm]] uur met parameters: \nPreconditioning [[preconditioning_enabled]], \nalleen weekdagen [[preconditioning_weekdays_only]]. \nLaden buiten de piekuren [[off_peak_charging_enabled]], \nalleen op weekdagen [[off_peak_charging_weekdays_only]], \neindigt om [[op_hh]]:[[op_mm]] uur"
   },
     "hint":{
       "en": "Sets a time at which departure should be completed.",
@@ -21,26 +21,20 @@
           "filter": "driver_id=battery"
       },
       {
-        "name": "action",
-        "type": "dropdown",
-        "values": [
-          {
-            "id": "on",
-            "label": {
-              "en": "Activate",
-              "de": "Aktiviere",
-              "nl": "Activeren"
-            }
-          },
-          {
-            "id": "off",
-            "label": {
-              "en": "Deactivate",
-              "de": "Deaktiviere",
-              "nl": "Deactiveren"
-            }
-          }
-        ]
+        "name": "preconditioning_enabled",
+        "type": "checkbox"
+      },
+      {
+        "name": "preconditioning_weekdays_only",
+        "type": "checkbox"
+      },
+      {
+        "name": "off_peak_charging_enabled",
+        "type": "checkbox"
+      },
+      {
+        "name": "off_peak_charging_weekdays_only",
+        "type": "checkbox"
       },
       {
           "name": "hh",
@@ -77,6 +71,42 @@
           "de": "mm",
           "nl": "mm"
         }
+    },
+    {
+      "name": "op_hh",
+      "type": "range",
+      "min": 0,
+      "max": 23,
+      "step": 1,
+      "labelDecimals": 0,
+      "title": {
+        "en": "hh",
+        "de": "hh",
+        "nl": "hh"
+      },
+      "placeholder": {
+        "en": "hh",
+        "de": "hh",
+        "nl": "hh"
+      }
+  },
+  {
+    "name": "op_mm",
+    "type": "range",
+    "min": 0,
+    "max": 59,
+    "step": 1,
+    "labelDecimals": 0,
+    "title": {
+      "en": "mm",
+      "de": "mm",
+      "nl": "mm"
+    },
+    "placeholder": {
+      "en": "mm",
+      "de": "mm",
+      "nl": "mm"
     }
+}
 ]
 }

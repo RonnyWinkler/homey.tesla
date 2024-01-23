@@ -28,3 +28,164 @@ hvacSetPreconditioningMaxAction         OK (deaktivieren lässt Klima an)
 hvacSteeringWheelHeaterAction           cabin comfort remote settings not enabled, No auto/level, only on/off possible!
 autoSeatClimateAction                   Not implementeed, params unknown
 hvacSeatHeaterActions                   Not implementeed, params unknown
+
+
+
+Command details:
+
+Door lock
+    RKE_ACTION_LOCK
+    { }
+
+Door unlock
+    RKE_ACTION_UNLOCK
+    { }
+
+Sentry mode on/off
+    vehicleControlSetSentryModeAction
+    {
+        on: true/false
+    }
+
+
+FLash lights
+    vehicleControlFlashLightsAction
+    { }
+
+Honk Horn 
+No testet yet
+    vehicleControlHonkHornAction
+    { }
+
+Set window position: vent
+Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+    vehicleControlWindowActionVent
+    { }
+
+Set window position: close
+Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+    vehicleControlWindowActionClose
+    { }
+
+
+
+Schedule Software Update
+Not tested yet
+    vehicleControlScheduleSoftwareUpdateAction
+    { 
+        offset_sec:  int (seconds)
+    }
+
+
+Set charging limit
+    chargingSetLimitAction
+    {
+        percent: int (%)
+    }
+
+Set charging amps
+Command was accepted, but apms not changed (cable was not connected)
+    setChargingAmpsAction
+    {
+        charging_amps: int (ampere)
+    }
+
+Charge port open Door
+    chargePortDoorOpen
+    { }
+
+Chagre port close Door
+    chargePortDoorClose
+    { }
+
+Start charging
+Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+    chargingStartStopActionStart
+    { }
+
+Stop charging
+Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+    chargingStartStopActionStop
+    { }
+
+Schedule charging 
+Parameters missing? Enable schedule works, but time is not updated
+    scheduledChargingAction
+    {
+        enabled: true/false
+        charging_time: int (minutes since 0:00h)
+    }
+
+Schedule departure 
+Parameters missing? Disable schedule works, but time is not updated
+    scheduledDepartureAction
+    {
+        enabled: true/false
+        departure_time: int (minutes since 0:00h)
+        ( Parameters not known: 
+            preconditioning_enabled: true/false,
+            preconditioning_weekdays_only: true/false,
+            off_peak_charging_enabled: true/false,
+            off_peak_charging_weekdays_only: true/false,
+        )
+        end_off_peak_time: int (minutes since 0:00h)
+    }
+
+Set temperature
+No error, but temp is not changed
+    hvacTemperatureAdjustmentAction
+    {
+        driver_temp_celsius: 
+        passenger_temp_celsius:
+    }
+
+preconditioning
+No error, but not working
+    hvacAutoAction
+    {
+        power_on: true/false
+    }
+
+Preconditioning Max
+    hvacSetPreconditioningMaxAction
+    {
+        on: true/false
+    }
+
+Overheat protection
+    setCabinOverheatProtectionAction
+    {
+        on: true/false
+        fan_only: true/false
+    }
+
+Overheat protection level
+    setCopTempAction
+    {
+        cop_temp: int (1=low, 2=medium, 3=high)
+    }
+
+Steering wheel heating
+Error: "cabin comfort remote settings not enabled"
+Paratemers unknown, no auto mode or level possible?
+    hvacSteeringWheelHeaterAction
+    {
+        power_on: true/false
+    }
+
+Seat cooling
+Parameters unknown
+    autoSeatClimateAction
+    {
+        ??
+    }
+
+Seat heating
+Parameters unknown
+    hvacSeatHeaterActions
+    {
+        ??
+    }
+
+Nevigation request
+No action found

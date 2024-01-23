@@ -5,9 +5,9 @@
       "nl": "Stel gepland opladen in"
     },
     "titleFormatted": {
-      "en": "[[action]] scheduled charging for [[hh]]:[[mm]] o'clock",
-      "de": "[[action]] geplantes Laden für [[hh]]:[[mm]] Uhr",
-      "nl": "[[action]] gepland opladen voor [[hh]]:[[mm]] uur"
+      "en": "Schedule charging for [[hh]]:[[mm]] o'clock",
+      "de": "Plane Laden für [[hh]]:[[mm]] Uhr",
+      "nl": "Plan opladen voor [[hh]]:[[mm]] uur"
   },
     "hint":{
       "en": "Sets a time at which charging should be completed.",
@@ -19,28 +19,6 @@
           "name": "device",
           "type": "device",
           "filter": "driver_id=battery"
-      },
-      {
-        "name": "action",
-        "type": "dropdown",
-        "values": [
-          {
-            "id": "on",
-            "label": {
-              "en": "Activate",
-              "de": "Aktiviere",
-              "nl": "Activeren"
-            }
-          },
-          {
-            "id": "off",
-            "label": {
-              "en": "Deactivate",
-              "de": "Deaktiviere",
-              "nl": "Deactiveren"
-            }
-          }
-        ]
       },
       {
           "name": "hh",

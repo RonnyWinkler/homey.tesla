@@ -147,14 +147,21 @@ module.exports = class BatteryDevice extends ChildDevice {
     await this.getCarDevice().sendCommand('commandChargeCurrent', {current});
   }
 
-  async _commandScheduleCharging(action, hh, mm){
-    await this.getCarDevice().sendCommand('commandScheduleCharging', {action, hh, mm});
+  async _commandScheduleCharging(args){
+    await this.getCarDevice().sendCommand('commandScheduleCharging', args);
   }
 
-  async _commandScheduleDeparture(action, hh, mm){
-    await this.getCarDevice().sendCommand('commandScheduleDeparture', {action, hh, mm});
+  async _commandScheduleDeparture(args){
+    await this.getCarDevice().sendCommand('commandScheduleDeparture', args);
   }
 
+  async _commandDeactivateScheduledCharging(){
+    await this.getCarDevice().sendCommand('commandDeactivateScheduledCharging', {});
+  }
+
+  async _commandDeactivateScheduledDeparture(){
+    await this.getCarDevice().sendCommand('commandDeactivateScheduledDeparture', {});
+  }
 
   // CAPABILITIES =======================================================================================
 
@@ -202,12 +209,20 @@ module.exports = class BatteryDevice extends ChildDevice {
     await this.setCapabilityValue('measure_charge_current_max', current );
   }
 
-  async flowActionChargeScheduleCharging(action, hh, mm){
-    await this._commandScheduleCharging(action, hh, mm);
+  async flowActionChargeScheduleCharging(args){
+    await this._commandScheduleCharging(args);
   }
 
-  async flowActionChargeScheduleDeparture(action, hh, mm){
-    await this._commandScheduleDeparture(action, hh, mm);
+  async flowActionChargeScheduleDeparture(args){
+    await this._commandScheduleDeparture(args);
+  }
+
+  async flowActionChargeDeactivateScheduledCharging(){
+    await this._commandDeactivateScheduledCharging();
+  }
+
+  async flowActionChargeDeactivateScheduledDeparture(){
+    await this._commandDeactivateScheduledDeparture();
   }
 
   // Device =======================================================================================

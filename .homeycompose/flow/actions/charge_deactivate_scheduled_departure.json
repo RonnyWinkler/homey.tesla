@@ -1,0 +1,19 @@
+{
+    "title": {
+      "en": "Disable scheduled departure",
+      "de": "Geplante Abfahrt deaktivieren",
+      "nl": "Deactiveer gepland vertrek"
+    },
+    "titleFormatted": {
+      "en": "Disable scheduled departure",
+      "de": "Geplante Abfahrt deaktivieren",
+      "nl": "Deactiveer gepland vertrek"
+    },
+    "args": [
+      {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=battery"
+      }
+  ]
+}
