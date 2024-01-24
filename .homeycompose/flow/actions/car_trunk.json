@@ -1,0 +1,41 @@
+{
+    "title": {
+        "en": "Actuate front/rear trunk",
+        "de": "Bediene vorderen/hinteren Kofferraum",
+        "nl": "Voorkant/achterkant kofferbak bedienen"
+    },
+    "titleFormatted": {
+        "en": "Actuate [[trunk]] trunk",
+        "de": "Bediene [[trunk]] Kofferraum",
+        "nl": "[[trunk]] kofferbak bedienen"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "trunk",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "front",
+                "label": {
+                  "en": "front",
+                  "de": "vorderen",
+                  "nl": "Voorkant"
+                }
+              },
+              {
+                "id": "rear",
+                "label": {
+                  "en": "rear",
+                  "de": "hinteren",
+                  "nl": "Achterkant"
+                }
+              }
+            ]
+        }
+    ]
+}

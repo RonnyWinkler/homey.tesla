@@ -39,8 +39,10 @@
         "car_wake_up",
 
         "car_doors_locked",
-        "car_sentry_mode"
-        
+        "car_sentry_mode",
+
+        "car_trunk_rear",
+        "car_trunk_front"        
     ],
     "energy": {
         "batteries": [

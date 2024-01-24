@@ -29,6 +29,9 @@
     "devices":{
         "location":{
             "homey_location_name": "Home (Homey location)"
+        },
+        "car": {
+            "trunk_not_allowed": "Trunk operation disabled in device settings"
         }
     },
     "app":{

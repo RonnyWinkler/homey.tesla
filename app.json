@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1833,6 +1833,12 @@
             },
             "values": [
               {
+                "id": "",
+                "title": {
+                  "en": "-"
+                }
+              },
+              {
                 "id": "available",
                 "title": {
                   "en": "Available",
@@ -1986,6 +1992,14 @@
                 }
               },
               {
+                "id": "Calibrating",
+                "title": {
+                  "en": "Calibrating",
+                  "de": "Kalibrieren",
+                  "nl": "Kalibreren"
+                }
+              },
+              {
                 "id": "Starting",
                 "title": {
                   "en": "Starting",
@@ -2023,6 +2037,14 @@
                   "en": "No Power",
                   "de": "Keine Energie",
                   "nl": "Geen kracht"
+                }
+              },
+              {
+                "id": "Unknown",
+                "title": {
+                  "en": "Unknown",
+                  "de": "Unbekannt",
+                  "nl": "Onbekend"
                 }
               }
             ]
@@ -2534,6 +2556,48 @@
           }
         ],
         "id": "car_sentry_mode"
+      },
+      {
+        "title": {
+          "en": "Actuate front/rear trunk",
+          "de": "Bediene vorderen/hinteren Kofferraum",
+          "nl": "Voorkant/achterkant kofferbak bedienen"
+        },
+        "titleFormatted": {
+          "en": "Actuate [[trunk]] trunk",
+          "de": "Bediene [[trunk]] Kofferraum",
+          "nl": "[[trunk]] kofferbak bedienen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "trunk",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "front",
+                "label": {
+                  "en": "front",
+                  "de": "vorderen",
+                  "nl": "Voorkant"
+                }
+              },
+              {
+                "id": "rear",
+                "label": {
+                  "en": "rear",
+                  "de": "hinteren",
+                  "nl": "Achterkant"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "car_trunk"
       },
       {
         "title": {
@@ -3747,7 +3811,9 @@
         "car_refresh",
         "car_wake_up",
         "car_doors_locked",
-        "car_sentry_mode"
+        "car_sentry_mode",
+        "car_trunk_rear",
+        "car_trunk_front"
       ],
       "energy": {
         "batteries": [
@@ -4021,6 +4087,26 @@
                 "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
               },
               "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Car settings",
+            "de": "Fahrzeug-Einstellungen",
+            "nl": "Voertuiginstellingen"
+          },
+          "children": [
+            {
+              "id": "car_trunk",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Allow trunk control from device buttons",
+                "de": "Kofferraumsteuerung über Gerätetasten zulassen",
+                "nl": "Opdrachten opnieuw proberen"
+              }
             }
           ]
         },
@@ -4642,7 +4728,7 @@
         {
           "id": "scheduled",
           "title": {
-            "en": "Asleep",
+            "en": "Planned",
             "de": "Geplant",
             "nl": "Gepland"
           }
@@ -4730,6 +4816,72 @@
           }
         }
       ]
+    },
+    "car_trunk_front": {
+      "type": "boolean",
+      "title": {
+        "en": "Front trunk",
+        "de": "Vorderer Kofferraum",
+        "nl": "Voorste kofferbak"
+      },
+      "titleTrue": {
+        "en": "Front trunk open",
+        "de": "Vorderer Kofferraum geöffnet",
+        "nl": "Voorste kofferbak open"
+      },
+      "titleFasle": {
+        "en": "Front trunk closed",
+        "de": "Vorderer Kofferraum geschlossen",
+        "nl": "Voorste kofferbak gesloten"
+      },
+      "insightsTitleTrue": {
+        "en": "Front trunk open",
+        "de": "Vorderer Kofferraum geöffnet",
+        "nl": "Voorste kofferbak open"
+      },
+      "insightsTitleFalse": {
+        "en": "Front trunk closed",
+        "de": "Vorderer Kofferraum geschlossen",
+        "nl": "Voorste kofferbak gesloten"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_trunk_front.svg"
+    },
+    "car_trunk_rear": {
+      "type": "boolean",
+      "title": {
+        "en": "Trunk",
+        "de": "Kofferraum",
+        "nl": "Kofferbak"
+      },
+      "titleTrue": {
+        "en": "Trunk open",
+        "de": "Kofferraum geöffnet",
+        "nl": "Kofferbak open"
+      },
+      "titleFasle": {
+        "en": "Trunk closed",
+        "de": "Kofferraum geschlossen",
+        "nl": "Kofferbak gesloten"
+      },
+      "insightsTitleTrue": {
+        "en": "Trunk open",
+        "de": "Kofferraum geöffnet",
+        "nl": "Kofferbak open"
+      },
+      "insightsTitleFalse": {
+        "en": "Trunk closed",
+        "de": "Kofferraum geschlossen",
+        "nl": "Kofferbak gesloten"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "icon": "./assets/capability_icons/car_trunk_rear.svg"
     },
     "car_wake_up": {
       "type": "boolean",
@@ -4889,6 +5041,14 @@
           }
         },
         {
+          "id": "Calibrating",
+          "title": {
+            "en": "Calibrating",
+            "de": "Kalibrieren",
+            "nl": "Kalibreren"
+          }
+        },
+        {
           "id": "Starting",
           "title": {
             "en": "Starting",
@@ -4926,6 +5086,14 @@
             "en": "No Power",
             "de": "Keine Energie",
             "nl": "Geen kracht"
+          }
+        },
+        {
+          "id": "Unknown",
+          "title": {
+            "en": "Unknown",
+            "de": "Unbekannt",
+            "nl": "Onbekend"
           }
         }
       ]

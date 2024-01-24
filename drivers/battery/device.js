@@ -60,12 +60,14 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
     if (this.hasCapability('charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
       this.setCapabilityValue('charging_state', data.charge_state.charging_state);
-      // Values:
-      // Charging
-      // Complete
-      // Disconnected
-      // NoPower 
-      // Starting 
+      // "Disconnected"
+      // "Calibrating"
+      // "Complete"
+      // "NoPower"
+      // "Stopped"
+      // "Unknown"
+      // "Starting"
+      // "Charging"
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
@@ -126,7 +128,21 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
     if (this.hasCapability('charging_port_cable') && data.charge_state && data.charge_state.conn_charge_cable != undefined){
       this.setCapabilityValue('charging_port_cable', data.charge_state.conn_charge_cable == '<invalid>' ? '' : data.charge_state.conn_charge_cable );
+      // "IEC"
+      // "SAE"
+      // "SNA"
+      // "GB_AC"
+      // "GB_DC"
     }
+
+    // off_peak_charging_times:
+    // "all_week"
+    // "weekdays"
+
+    // scheduled_charging_mode:
+    // "Off"
+    // "StartAt"
+    // "DepartBy"
 
   }
 

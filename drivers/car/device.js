@@ -343,6 +343,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('measure_car_tpms_pressure_rr', data.vehicle_state.tpms_pressure_rr);
     }
 
+    // Trunk
+    if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft != undefined){
+      //ft==0: closed
+      await this.setCapabilityValue('car_trunk_front', data.vehicle_state.ft != 0);
+    }
+    if (this.hasCapability('car_trunk_rear') && data.vehicle_state && data.vehicle_state.rt != undefined){
+      //rt==0: closed
+      await this.setCapabilityValue('car_trunk_rear', data.vehicle_state.rt != 0);
+    }
+
     // Software
     if (this.hasCapability('car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
       await this.setCapabilityValue('car_software_version', data.vehicle_state.car_version.split(' ')[0]);
@@ -417,8 +427,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // Commands =======================================================================================
   async _wakeUp(wait=true){
     this.log("Wake up the car...");
-    await this.getCarState();
-    if (this.isOnline()){
+    let state = await this.getCarState();
+    if (state == CONSTANTS.STATE_ONLINE){
       this.log("Car is already online.");
       return true;
     }
@@ -494,9 +504,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _sendSignedCommand(apiFunction, apiParams){
-    let {command, params} = this._getSignedCommand(apiFunction, apiParams);
+    let {command, params, domain} = this._getSignedCommand(apiFunction, apiParams);
     this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
-    await this.commandApi.sendSignedCommand(command, params);
+    await this.commandApi.sendSignedCommand(command, params, domain);
     this.log("Send signed command: Success");
   }
 
@@ -517,21 +527,29 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = { on: params.state};
         break;
 
-      // case 'commandDoorLock':
-      //   if (params.locked){
-      //     result.command = 'RKE_ACTION_LOCK';
-      //   }
-      //   else{
-      //     result.command = 'RKE_ACTION_UNLOCK';
-      //   }
-      //   result.params = {};
-      //   break;
+      case 'commandDoorLock':
+        if (params.locked){
+          result.command = 1;
+          // result.command = 'RKE_ACTION_LOCK';
+        }
+        else{
+          result.command = 0;
+          // result.command = 'RKE_ACTION_UNLOCK';
+        }
+        result.params = {};
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        break;
 
       case 'commandFlashLights':
         result.command = 'vehicleControlFlashLightsAction';
         result.params = {};
         break;
-      
+
+      // case 'commandTrunk':
+      //   result.command = '???';
+      //   result.params = {};
+      //   break;
+  
       case 'commandHonkHorn':
         result.command = 'vehicleControlHonkHornAction';
         result.params = {};
@@ -576,9 +594,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case 'commandChargeOn':
         if (params.state){
           result.command = 'chargingStartStopActionStart';
+          // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         }
         else{
           result.command = 'chargingStartStopActionStop';
+          // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         }
         params.state = {};
         break;
@@ -745,6 +765,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.sendCommand('commandScheduleSoftwareUpdate', {minutes});
   }
 
+  async _commandTrunk(trunk){
+    await this.sendCommand('commandTrunk', {trunk});
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -765,6 +789,27 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if( capabilityValues["car_sentry_mode"] != undefined){
       await this._commandSentryMode(capabilityValues["car_sentry_mode"]);
     }
+
+    if( capabilityValues["car_trunk_front"] != undefined){
+      if (this._settings.car_trunk){
+        await this.setCapabilityValue("car_trunk_front", true);
+        await this._commandTrunk(CONSTANTS.TRUNK_FRONT);
+      }
+      else{
+        throw new Error(this.homey.__('devices.car.trunk_not_allowed'));
+      }
+    }
+
+    if( capabilityValues["car_trunk_rear"] != undefined){
+      if (this._settings.car_trunk){
+        await this.setCapabilityValue("car_trunk_rear", !this.getCapabilityValue("car_trunk_rear"));
+        await this._commandTrunk(CONSTANTS.TRUNK_REAR);
+      }
+      else{
+        throw new Error(this.homey.__('devices.car.trunk_not_allowed'));
+      }
+    }
+
   }
 
   // FLOW ACTIONS =======================================================================================
@@ -805,6 +850,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async flowActionScheduleSoftwareUpdate(minutes){
     await this._commandScheduleSoftwareUpdate(minutes);
+  }
+
+  async flowActionTrunk(trunk){
+    await this._commandTrunk(trunk);
   }
 
 }

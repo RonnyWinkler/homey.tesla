@@ -26,10 +26,10 @@ module.exports = class ClimateDevice extends ChildDevice {
     // window state
     // vent mode is not direclty readable. Only windows open/closed can be checked.
     if (this.hasCapability('climate_window_vent') && data.vehicle_state && 
-        data.vehicle_state.fd_window == 0 && // front driver window 0=clodes
-        data.vehicle_state.rd_window == 0 && // read driver window 0=clodes
-        data.vehicle_state.fp_window == 0 && // front passenger window 0=clodes
-        data.vehicle_state.rp_window == 0    // rear passenger window 0=clodes
+        data.vehicle_state.fd_window == 0 && // front driver window 0=closed
+        data.vehicle_state.rd_window == 0 && // read driver window 0=closed
+        data.vehicle_state.fp_window == 0 && // front passenger window 0=closed
+        data.vehicle_state.rp_window == 0    // rear passenger window 0=closed
       ){
       await this.setCapabilityValue('climate_window_vent', false);
     }
@@ -111,7 +111,7 @@ module.exports = class ClimateDevice extends ChildDevice {
         data.climate_state.steering_wheel_heat_level != undefined){
       let value = data.climate_state.steering_wheel_heat_level.toString();
       // 1 = Level 1
-      // 3 = LEvel 2
+      // 3 = Level 2
       if (data.climate_state.auto_steering_wheel_heat == true){
         value = value + '-auto';
       }

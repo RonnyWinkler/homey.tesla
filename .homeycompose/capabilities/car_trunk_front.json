@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "Front trunk",
+      "de": "Vorderer Kofferraum",
+      "nl": "Voorste kofferbak"
+    },
+    "titleTrue":{
+      "en": "Front trunk open",
+      "de": "Vorderer Kofferraum geöffnet",
+      "nl": "Voorste kofferbak open"
+    },
+    "titleFasle":{
+      "en": "Front trunk closed",
+      "de": "Vorderer Kofferraum geschlossen",
+      "nl": "Voorste kofferbak gesloten"
+    },
+    "insightsTitleTrue":{
+      "en": "Front trunk open",
+      "de": "Vorderer Kofferraum geöffnet",
+      "nl": "Voorste kofferbak open"
+    },
+    "insightsTitleFalse":{
+      "en": "Front trunk closed",
+      "de": "Vorderer Kofferraum geschlossen",
+      "nl": "Voorste kofferbak gesloten"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "button",
+    "icon": "./assets/capability_icons/car_trunk_front.svg"
+  }

@@ -255,8 +255,21 @@ module.exports = class LocationDevice extends ChildDevice {
     this._settings = newSettings;
 
     for(let i=0; i<SETTINGS_LOCATIONS_NR; i++){
-      if (changedKeys[i] == 'location_0'+(i+1)+'_url'){
-        this.homey.setTimeout( async ()=>{await this._updateLocationSetting(i+1);}, 1000 );
+      let updated = false;
+      for (let j=0; j<changedKeys.length; j++){
+        if (changedKeys[j] == 'location_0'+(i+1)+'_url'){
+          this.homey.setTimeout( async ()=>{await this._updateLocationSetting(i+1);}, 1000 );
+          updated = true;
+        }
+      }
+      if (!updated){
+        if (
+          newSettings['location_0'+(i+1)+'_url'] != '' &&
+          ( newSettings['location_0'+(i+1)+'_latitude'] == '' || newSettings['location_0'+(i+1)+'_latitude'] == 0 ||
+            newSettings['location_0'+(i+1)+'_longitude'] == '' || newSettings['location_0'+(i+1)+'_longitude'] == 0 )
+        ){
+          this.homey.setTimeout( async ()=>{await this._updateLocationSetting(i+1);}, 1000 );
+        }
       }
     }
 

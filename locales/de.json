@@ -29,6 +29,9 @@
     "devices":{
         "location":{
             "homey_location_name": "Zuhause (Homey Standort)"
+        },
+        "car": {
+            "trunk_not_allowed": "Bedienung des Kofferraums in Geräteeinstellungen deaktiviert"
         }
     },
     "app":{

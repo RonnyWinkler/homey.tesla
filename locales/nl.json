@@ -29,6 +29,9 @@
     "devices":{
         "location":{
             "homey_location_name": "Thuis (Homey plaats)"
+        },
+        "car": {
+            "trunk_not_allowed": "Trunkbediening uitgeschakeld in apparaatinstellingen"
         }
     },
     "app":{

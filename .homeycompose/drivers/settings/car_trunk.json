@@ -1,0 +1,10 @@
+{
+    "id": "car_trunk",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Allow trunk control from device buttons",
+      "de": "Kofferraumsteuerung über Gerätetasten zulassen",
+      "nl": "Opdrachten opnieuw proberen"
+    }
+}

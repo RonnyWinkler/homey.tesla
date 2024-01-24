@@ -41,6 +41,14 @@
                     }
                 },
                 {
+                    "id": "Calibrating",
+                    "title": {
+                        "en": "Calibrating",
+                        "de": "Kalibrieren",
+                        "nl": "Kalibreren"
+                    }
+                },
+                        {
                     "id": "Starting",
                     "title": {
                         "en": "Starting",
@@ -78,6 +86,14 @@
                         "en": "No Power",
                         "de": "Keine Energie",
                         "nl": "Geen kracht"
+                    }
+                },
+                {
+                    "id": "Unknown",
+                    "title": {
+                        "en": "Unknown",
+                        "de": "Unbekannt",
+                        "nl": "Onbekend"
                     }
                 }
             ]

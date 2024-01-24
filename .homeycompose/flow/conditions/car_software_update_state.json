@@ -25,6 +25,12 @@
             },
             "values": [
                 {
+                    "id": "",
+                    "title": {
+                        "en": "-"
+                    }
+                },
+                {
                     "id": "available",
                     "title": {
                         "en": "Available",

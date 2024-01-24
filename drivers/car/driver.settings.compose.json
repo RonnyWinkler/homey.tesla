@@ -75,6 +75,21 @@
     {
       "type": "group",
       "label": {
+        "en": "Car settings",
+        "de": "Fahrzeug-Einstellungen",
+        "nl": "Voertuiginstellingen"
+      },
+      "children": [
+        {
+          "$extends": "car_trunk",
+          "id": "car_trunk"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
         "en": "Car data",
         "de": "Fahrzeugdaten",
         "nl": "Voertuiggegevens"
