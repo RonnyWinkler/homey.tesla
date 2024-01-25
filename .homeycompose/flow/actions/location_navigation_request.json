@@ -1,0 +1,28 @@
+{
+    "title": {
+        "en": "Navigate to Adresse",
+        "de": "Navigiere zu Adresse",
+        "nl": "Navigeer naar Adresse"
+    },
+    "titleFormatted": {
+      "en": "Navigate to location [[location]]",
+      "de": "Navigiere zu Standort [[location]]",
+      "nl": "Navigeer naar locatie [[location]]"
+  },
+    "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=location"
+        },
+        {
+          "name": "location",
+          "type": "text",
+            "title": {
+              "en": "Address",
+              "de": "Adresse",
+              "nl": "Adres"
+            }
+      }
+  ]
+}

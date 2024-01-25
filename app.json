@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3592,6 +3592,35 @@
           }
         ],
         "id": "location_navigate_to_location"
+      },
+      {
+        "title": {
+          "en": "Navigate to Adresse",
+          "de": "Navigiere zu Adresse",
+          "nl": "Navigeer naar Adresse"
+        },
+        "titleFormatted": {
+          "en": "Navigate to location [[location]]",
+          "de": "Navigiere zu Standort [[location]]",
+          "nl": "Navigeer naar locatie [[location]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          },
+          {
+            "name": "location",
+            "type": "text",
+            "title": {
+              "en": "Address",
+              "de": "Adresse",
+              "nl": "Adres"
+            }
+          }
+        ],
+        "id": "location_navigation_request"
       }
     ]
   },
@@ -4105,7 +4134,7 @@
               "label": {
                 "en": "Allow trunk control from device buttons",
                 "de": "Kofferraumsteuerung über Gerätetasten zulassen",
-                "nl": "Opdrachten opnieuw proberen"
+                "nl": "Laat trunkbediening toe via apparaatknoppen"
               }
             }
           ]

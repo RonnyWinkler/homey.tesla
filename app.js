@@ -185,6 +185,17 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       });
     });
 
+    this.homey.flow.getActionCard('location_navigation_request')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionNavigationRequest(args);
+		})
+    .registerArgumentAutocompleteListener('location', async (query, args) => {
+      const locationList = args.device.getAutocompleteLocationList();
+      return locationList.filter((result) => { 
+        return result.name.toLowerCase().includes(query.toLowerCase());
+      });
+    });
+
     this.homey.flow.getActionCard('location_navigate_to_coordinates')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionNavigateToCoordinates(args);

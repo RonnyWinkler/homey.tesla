@@ -101,5 +101,8 @@
   },
   "1.1.7": {
     "en": "Added front/rear trunk control. Fixed location settings."
+  },
+  "1.1.8": {
+    "en": "Fixed interval. Force REST API for navigation (location/GPS) flows. Translations."
   }
 }

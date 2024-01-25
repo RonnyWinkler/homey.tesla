@@ -393,6 +393,10 @@ module.exports = class LocationDevice extends ChildDevice {
     //   throw error;
     // }
   }
+
+  async _commandNavigationRequest(request, locale, time){
+    await this.getCarDevice().sendCommand('commandNavigationRequest', {request, locale, time});
+  }
   
   // FLOW ACTIONS =======================================================================================
 
@@ -456,6 +460,13 @@ module.exports = class LocationDevice extends ChildDevice {
       throw new Error('No coordinates set');
     }
     await this._commandNavigateGpsRequest(coordinates.latitude, coordinates.longitude);
+  }
+
+  async flowActionNavigationRequest(args){
+    let request = args.location;
+    let locale = this.homey.i18n.getLanguage();
+    let time = Math.floor(new Date().getTime() / 1000);
+    await this._commandNavigationRequest(request, locale, time);
   }
 
   async flowActionNavigateToCoordinates(args){
