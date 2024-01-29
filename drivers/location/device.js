@@ -12,7 +12,7 @@ module.exports = class LocationDevice extends ChildDevice {
   async onInit() {
     await super.onInit();
     this._osm = new OpenStreetMap();
-    this.updateLastLocation();
+    // this.updateLastLocation();
 
   }
 
@@ -25,20 +25,20 @@ module.exports = class LocationDevice extends ChildDevice {
     return device; 
   }
   
-  updateLastLocation(){
-    if (this._lastLocation == undefined){
-      this._lastLocation = {
-        latitude: null,
-        longitude: null
-      };
-    }
-    if (this.hasCapability('measure_location_latitude')){
-      this._lastLocation.latitude = this.getCapabilityValue('measure_location_latitude');
-    }
-    if (this.hasCapability('measure_location_longitude')){
-      this._lastLocation.longitude = this.getCapabilityValue('measure_location_longitude');
-    }
-  }
+  // updateLastLocation(){
+  //   if (this._lastLocation == undefined){
+  //     this._lastLocation = {
+  //       latitude: null,
+  //       longitude: null
+  //     };
+  //   }
+  //   if (this.hasCapability('measure_location_latitude')){
+  //     this._lastLocation.latitude = this.getCapabilityValue('measure_location_latitude');
+  //   }
+  //   if (this.hasCapability('measure_location_longitude')){
+  //     this._lastLocation.longitude = this.getCapabilityValue('measure_location_longitude');
+  //   }
+  // }
 
   // SYNC =======================================================================================
   // Read car data. Car must be awake.
@@ -46,6 +46,16 @@ module.exports = class LocationDevice extends ChildDevice {
     await super.updateDevice(data);
 
     let locationChanged = false;
+    // this.updateLastLocation();
+
+    let longitude_prev = this.getCapabilityValue('measure_location_longitude');
+    if (!longitude_prev){
+      longitude_prev = data.drive_state.longitude;
+    }
+    let latitude_prev = this.getCapabilityValue('measure_location_latitude');
+    if (!latitude_prev){
+      latitude_prev = data.drive_state.latitude;
+    }
 
     // Location
     if (this.hasCapability('location_last_update') && data.drive_state && data.drive_state.timestamp != undefined){
@@ -89,17 +99,22 @@ module.exports = class LocationDevice extends ChildDevice {
       await this.homey.flow.getDeviceTriggerCard('location_changed').trigger(this, tokens)
         .catch(error => {this.log("Error running trigger: location_changed", error.message)} );
 
+      let state = {
+        latitude: data.drive_state.latitude,
+        longitude: data.drive_state.longitude,
+        latitude_prev: latitude_prev,
+        longitude_prev: longitude_prev
+      }
       // Trigger reached/left coordinates flow
-      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens)
+      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens, state)
         .catch(error => {this.log("Error running trigger: location_coordinates_left_or_reached", error.message)} );
 
       // Trigger reached/left Location flow
       if (this.getLocations().length > 0){
-        await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens)
+        await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens, state)
           .catch(error => {this.log("Error running trigger: location_left_or_reached", error.message)} );
       }
     }
-    this.updateLastLocation();
   }
 
   // CAPABILITIES =======================================================================================
@@ -114,15 +129,28 @@ module.exports = class LocationDevice extends ChildDevice {
     return this.getLocations();
   }
 
-  async flowTriggerLocationCoordinatesRunListener(args){
+  async flowTriggerLocationCoordinatesRunListener(args, state){
     this.log("flowTriggerLocationCoordinatesReachedRunListener()...");
-    let state = await this._checkFlowTriggerCoordinatesCoordinates(args.latitude, args.longitude, args.url, args.distance);
-    this.log("flowTriggerLocationCoordinatesReachedRunListener() Coordinates: "+args.latitude+", "+args.longitude+" "+args.url+" "+args.distance+"m - State: "+ state);
-    return state;
+    let locationState = await this._checkFlowTriggerCoordinates(args.latitude, args.longitude, args.url, args.distance, state);
+    this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitudes_prev +', '+ state.latitude_prev);
+    this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitudesv +', '+ state.latitude) 
+    this.log("flowTriggerLocationCoordinatesReachedRunListener() Coordinates: "+args.latitude+", "+args.longitude+" "+args.url+" "+args.distance+"m - State: "+ locationState);
+    return locationState;
   }
 
-  async flowTriggerLocationRunListener(args){
+  async flowTriggerLocationRunListener(args, state){
     this.log("flowTriggerLocationReachedRunListener()...");
+
+    // use current coordinates if not passes as parameter
+    if (state == undefined){
+      state = {
+        latitude: this.getCapabilityValue('measure_location_latitude'),
+        longitude: this.getCapabilityValue('measure_location_longitude'),
+        latitude_prev: this.getCapabilityValue('measure_location_latitude'),
+        longitude_prev: this.getCapabilityValue('measure_location_longitude')
+      };
+    }
+    
     // Get settings for argument location.
     let location = this.getLocations().filter(e => {return (e.id == args.location.id)})[0];
     if (location.latitude == 0 || location.latitude == ''){
@@ -132,15 +160,16 @@ module.exports = class LocationDevice extends ChildDevice {
       location.longitude = undefined;
     }
     if (location != undefined && ((location.latitude != undefined && location.longitude != undefined) || location.url != '')){
-      let state = await this._checkFlowTriggerCoordinatesCoordinates(location.latitude, location.longitude, location.url, args.distance);
-      this.log("flowTriggerLocationReachedRunListener() Current coordinates: "+ this.getCapabilityValue('measure_location_latitude')+', '+this.getCapabilityValue('measure_location_longitude')) 
-      this.log("flowTriggerLocationReachedRunListener() Location: "+location.name+" Coordinates: "+location.latitude+", "+location.longitude+" "+location.url+" "+args.distance+" m - State: "+ state);
-      return state;
+      let locationState = await this._checkFlowTriggerCoordinates(location.latitude, location.longitude, location.url, args.distance, state);
+      this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitudes_prev +', '+ state.latitude_prev);
+      this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitudesv +', '+ state.latitude) 
+      this.log("flowTriggerLocationReachedRunListener() Location: "+location.name+" Coordinates: "+location.latitude+", "+location.longitude+" "+location.url+" "+args.distance+" m - State: "+ locationState);
+      return locationState;
     }
     return 'unknown';
   }
 
-  async _checkFlowTriggerCoordinatesCoordinates(latitude, longitude, url, distance){
+  async _checkFlowTriggerCoordinates(latitude, longitude, url, distance, state){
     if (distance == undefined){
       distance = 100;
     }
@@ -154,8 +183,8 @@ module.exports = class LocationDevice extends ChildDevice {
     else{
       throw new Error("args not set");
     }
-    let distNew = this.getCoordinatesDistance(coord.latitude, coord.longitude, this.getCapabilityValue('measure_location_latitude'), this.getCapabilityValue('measure_location_longitude'));
-    let distOld = this.getCoordinatesDistance(coord.latitude, coord.longitude, this._lastLocation.latitude, this._lastLocation.longitude);
+    let distNew = this.getCoordinatesDistance(coord.latitude, coord.longitude, state.latitude, state.longitude);
+    let distOld = this.getCoordinatesDistance(coord.latitude, coord.longitude, state.latitude_prev, state.longitude_prev);
 
 
     if (distNew > distance && distOld <= distance){
@@ -183,7 +212,7 @@ module.exports = class LocationDevice extends ChildDevice {
     let locations = this.getLocations();
     for (let i=0; i<locations.length; i++){
       let location = locations[i];
-      let state = await this._checkFlowTriggerCoordinatesCoordinates(location.latitude, location.longitude, location.url, LOCATION_DISTANCE_DEFAULT);
+      let state = await this._checkFlowTriggerCoordinates(location.latitude, location.longitude, location.url, LOCATION_DISTANCE_DEFAULT);
       this.log("flowConditionLocationOnTheWayRunListener() Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+"m - State: "+ state);
       if (state == 'at_location'){
         return false;
@@ -403,6 +432,9 @@ module.exports = class LocationDevice extends ChildDevice {
   // // Test for changing coordinates 
   async flowActionSetLocation(latitude, longitude){
 
+    let longitude_prev = this.getCapabilityValue('measure_location_longitude');
+    let latitude_prev = this.getCapabilityValue('measure_location_latitude');
+
     if (this.hasCapability('measure_location_latitude') && latitude != undefined){
       await this.setCapabilityValue('measure_location_latitude', latitude);
     }
@@ -425,19 +457,26 @@ module.exports = class LocationDevice extends ChildDevice {
       location_city: address.city,
       location_postcode: address.postcode,
       location_country: address.country
-
     }
+
+    let state = {
+      latitude: latitude,
+      longitude: longitude,
+      latitude_prev: latitude_prev,
+      longitude_prev: longitude_prev
+    }
+
     // let args = await this._flowTriggerLocationCoordinatesLeftOrReached.getArgumentValues(this);
     // if (args != undefined && args.length > 0){
-      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens);
+      await this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached').trigger(this, tokens, state);
     // }
 
     // Trigger reached/left Location flow
     if (this.getLocations().length > 0){
-      await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens);
+      await this.homey.flow.getDeviceTriggerCard('location_left_or_reached').trigger(this, tokens, state);
     }
     
-    this.updateLastLocation();
+    // this.updateLastLocation();
   }
 
   async flowActionNavigateToLocation(args){
@@ -462,13 +501,6 @@ module.exports = class LocationDevice extends ChildDevice {
     await this._commandNavigateGpsRequest(coordinates.latitude, coordinates.longitude);
   }
 
-  async flowActionNavigationRequest(args){
-    let request = args.location;
-    let locale = this.homey.i18n.getLanguage();
-    let time = Math.floor(new Date().getTime() / 1000);
-    await this._commandNavigationRequest(request, locale, time);
-  }
-
   async flowActionNavigateToCoordinates(args){
     let coordinates = {
       latitude: args.latitude,
@@ -487,6 +519,13 @@ module.exports = class LocationDevice extends ChildDevice {
       throw new Error('No coordinates set');
     }
     await this._commandNavigateGpsRequest(coordinates.latitude, coordinates.longitude, args.order);
+  }
+
+  async flowActionNavigationRequest(args){
+    let request = args.location;
+    let locale = this.homey.i18n.getLanguage();
+    let time = Math.floor(new Date().getTime() / 1000);
+    await this._commandNavigationRequest(request, locale, time);
   }
 
 }

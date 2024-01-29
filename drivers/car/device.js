@@ -254,7 +254,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _sync() {
     this.log("Car data request...");
-    let state;
     try{
       // update the device
       await this.getCarData();
@@ -322,6 +321,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let data = {};
     try{
       data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
+
+      this.log("Car data request state: ", data.state);
+      // Update car state to ONLINE if request was successful
+      await this.setCapabilityValue('car_state', data.state);
+      let time = this._getLocalTimeString(new Date());
+      await this.setCapabilityValue('last_update', time);
+      if (oldState == CONSTANTS.STATE_ASLEEP){
+        // From asleep to online?
+        // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
+        this._startSync();
+      }
+
+      this._updateDevice(data);
     }
     catch(error){
       // Check for "Offline" errors (408)
@@ -345,22 +357,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         throw error;
       }
     }
+  }
 
-    this.log("Car data request state: ", data.state);
-
-    // Update car state to ONLINE if request was successful
-    await this.setCapabilityValue('car_state', data.state);
-    let time = this._getLocalTimeString(new Date());
-    await this.setCapabilityValue('last_update', time);
-    if (oldState == CONSTANTS.STATE_ASLEEP){
-      // From asleep to online?
-      // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
-      this._startSync();
-    }
-
+  async _updateDevice(data){
     // Car state
     if (this.hasCapability('car_doors_locked') && data.charge_state && data.vehicle_state.locked != undefined){
-      await this.setCapabilityValue('car_doors_locked', data.vehicle_state.locked);
+      await this.setCapabilityValue('car_doors_locked', !data.vehicle_state.locked);
     }
     if (this.hasCapability('car_sentry_mode') && data.charge_state && data.vehicle_state.sentry_mode != undefined){
       await this.setCapabilityValue('car_sentry_mode', data.vehicle_state.sentry_mode);
@@ -846,7 +848,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     if( capabilityValues["car_doors_locked"] != undefined){
-      await this._commandDoorLock(capabilityValues["car_doors_locked"]);
+      await this._commandDoorLock(!capabilityValues["car_doors_locked"]);
     }
 
     if( capabilityValues["car_sentry_mode"] != undefined){
@@ -895,8 +897,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async flowActionSentryMode(state){
-    await this._commandSentryMode(state);
-    this.setCapabilityValue('car_sentry_mode', state);
+    await this._commandSentryMode(!state);
+    this.setCapabilityValue('car_sentry_mode', !state);
   }
 
   async flowActionFlashLights(){

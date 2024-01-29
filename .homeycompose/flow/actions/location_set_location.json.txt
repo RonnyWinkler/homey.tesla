@@ -3,7 +3,7 @@
         "en": "Set location (for test only!)"
     },
     "titleFormatted": {
-        "en": "Set location [[latitude]] [[longitude]]"
+        "en": "Set location [[longitude]] [[latitude]]"
     },
     "args": [
         {
@@ -16,7 +16,7 @@
                 "nl": "Breedtegraad"
             },
             "placeholder": { 
-                "en": "13.40000"
+                "en": "52.50000"
             }
         },
         {
@@ -29,7 +29,7 @@
                 "nl": "Lengtegraad"
             },
             "placeholder": { 
-                "en": "52.50000"
+                "en": "13.400-00"
             }
         },
         {

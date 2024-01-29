@@ -104,5 +104,8 @@
   },
   "1.1.8": {
     "en": "Fixed interval. Force REST API for navigation (location/GPS) flows. Translations."
+  },
+  "1.1.9": {
+    "en": "Changed/optimized interval handling Updated location reahed/left trigger. Changed door button to appear dar if locked."
   }
 }

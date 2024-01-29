@@ -1,9 +1,9 @@
 {
     "type": "boolean",
     "title": {
-      "en": "Doors locked",
-      "de": "Türen verriegelt",
-      "nl": "Deuren op slot"
+      "en": "Doors",
+      "de": "Türen",
+      "nl": "Deuren"
     },
     "insights": false,
     "getable": true,

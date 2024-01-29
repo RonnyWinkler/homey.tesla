@@ -30,10 +30,15 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
   async _initFlowActions(){
 
     // TEST TEST TEST 
-    // this.homey.flow.getActionCard('set_location')
-    // .registerRunListener(async (args, state) => {
-		// 		await args.device.flowActionSetLocation(args.latitude, args.longitude);
-		// });
+    try{
+      this.homey.flow.getActionCard('location_set_location')
+      .registerRunListener(async (args, state) => {
+          await args.device.flowActionSetLocation(args.latitude, args.longitude);
+      })
+    }    
+    catch(error){
+      this.log("Flow action [location_set_location] not active for test.");
+    }
 
     this.homey.flow.getActionCard('car_ping')
 		.registerRunListener(async (args, state) => {
@@ -209,12 +214,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getDeviceTriggerCard('location_coordinates_left_or_reached')
     .registerRunListener(async (args, state) => {
-      return (await args.device.flowTriggerLocationCoordinatesRunListener(args) == args.action);
+      return (await args.device.flowTriggerLocationCoordinatesRunListener(args, state) == args.action);
     });
 
     this.homey.flow.getDeviceTriggerCard('location_left_or_reached')
     .registerRunListener(async (args, state) => {
-      return (await args.device.flowTriggerLocationRunListener(args) == args.action);
+      return (await args.device.flowTriggerLocationRunListener(args, state) == args.action);
     })
     .registerArgumentAutocompleteListener('location', async (query, args) => {
       const locationList = args.device.getAutocompleteLocationList();
@@ -296,7 +301,7 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getConditionCard('car_doors_locked')
     .registerRunListener(async (args, state) => {
-      return (args.device.getCapabilityValue('car_doors_locked'));
+      return (!args.device.getCapabilityValue('car_doors_locked'));
     })
 
     this.homey.flow.getConditionCard('car_sentry_mode')
