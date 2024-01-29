@@ -1,15 +1,16 @@
 {
     "title": {
-        "en": "Navigate to Adresse",
+        "en": "Navigate to address",
         "de": "Navigiere zu Adresse",
-        "nl": "Navigeer naar Adresse"
+        "nl": "Navigeer naar adres"
     },
     "titleFormatted": {
-      "en": "Navigate to location [[location]]",
-      "de": "Navigiere zu Standort [[location]]",
-      "nl": "Navigeer naar locatie [[location]]"
+      "en": "Navigate to address [[location]]",
+      "de": "Navigiere zu Adresse [[location]]",
+      "nl": "Navigeer naar adres [[location]]"
   },
-    "args": [
+    "args": 
+      [
         {
           "name": "device",
           "type": "device",
@@ -18,11 +19,16 @@
         {
           "name": "location",
           "type": "text",
-            "title": {
-              "en": "Address",
-              "de": "Adresse",
-              "nl": "Adres"
-            }
-      }
-  ]
+          "title": {
+            "en": "Address",
+            "de": "Adresse",
+            "nl": "Adres"
+          },
+          "placeholder":{
+            "en": "123 Street, City",
+            "de": "Musterstraße 123, Ort",
+            "nl": "Straat 123, Stad"
+          } 
+        }      
+      ]
 }

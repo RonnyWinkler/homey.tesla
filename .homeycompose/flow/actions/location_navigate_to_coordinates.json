@@ -5,10 +5,10 @@
         "nl": "Navigeer naar coördinaten"
     },
     "titleFormatted": {
-      "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with oder [[order]]",
-      "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Reihenfolge [[order]]",
-      "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]] met bestelling [[order]]"
-  },
+      "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]]",
+      "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]]",
+      "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]]"
+    },
     "args": [
       {
         "name": "device",
@@ -53,19 +53,6 @@
         "placeholder": { 
             "en": "https://maps.app.goo.gl/..."
         }
-    },
-    {
-      "name": "order",
-      "type": "number",
-      "required": false,
-      "title": { 
-          "en": "Order",
-          "de": "Reihenfolge",
-          "nl": "Reeks"
-      },
-      "placeholder": { 
-          "en": "1"
-      }
-  }
-]
+    }
+    ]
 }

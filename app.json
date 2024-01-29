@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3499,9 +3499,9 @@
           "nl": "Navigeer naar coördinaten"
         },
         "titleFormatted": {
-          "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with oder [[order]]",
-          "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Reihenfolge [[order]]",
-          "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]] met bestelling [[order]]"
+          "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]]",
+          "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]]",
+          "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]]"
         },
         "args": [
           {
@@ -3547,19 +3547,6 @@
             "placeholder": {
               "en": "https://maps.app.goo.gl/..."
             }
-          },
-          {
-            "name": "order",
-            "type": "number",
-            "required": false,
-            "title": {
-              "en": "Order",
-              "de": "Reihenfolge",
-              "nl": "Reeks"
-            },
-            "placeholder": {
-              "en": "1"
-            }
           }
         ],
         "id": "location_navigate_to_coordinates"
@@ -3595,14 +3582,14 @@
       },
       {
         "title": {
-          "en": "Navigate to Adresse",
+          "en": "Navigate to address",
           "de": "Navigiere zu Adresse",
-          "nl": "Navigeer naar Adresse"
+          "nl": "Navigeer naar adres"
         },
         "titleFormatted": {
-          "en": "Navigate to location [[location]]",
-          "de": "Navigiere zu Standort [[location]]",
-          "nl": "Navigeer naar locatie [[location]]"
+          "en": "Navigate to address [[location]]",
+          "de": "Navigiere zu Adresse [[location]]",
+          "nl": "Navigeer naar adres [[location]]"
         },
         "args": [
           {
@@ -3617,6 +3604,11 @@
               "en": "Address",
               "de": "Adresse",
               "nl": "Adres"
+            },
+            "placeholder": {
+              "en": "123 Street, City",
+              "de": "Musterstraße 123, Ort",
+              "nl": "Straat 123, Stad"
             }
           }
         ],

@@ -552,10 +552,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _sendCommand(apiFunction, params){
     // Use direct Command Protocol?
-    if (  this.getCommandApi() == CONSTANTS.COMMAND_API_CMD &&
+    if (  this.getCommandApi() == CONSTANTS.COMMAND_API_CMD 
+          &&
           // Endpoints that will only work with REST API: 
-          apiFunction != commandNavigateGpsRequest &&
-          apiFunction != commandNavigationRequest
+          apiFunction != 'commandNavigateGpsRequest' &&
+          apiFunction != 'commandNavigationRequest' &&
+          apiFunction != 'commandNavigateGpsRequest'
         ){
       await this._sendSignedCommand(apiFunction, params);
     }

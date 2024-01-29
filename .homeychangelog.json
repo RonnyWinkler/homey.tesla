@@ -106,6 +106,9 @@
     "en": "Fixed interval. Force REST API for navigation (location/GPS) flows. Translations."
   },
   "1.1.9": {
-    "en": "Changed/optimized interval handling Updated location reahed/left trigger. Changed door button to appear dar if locked."
+    "en": "Changed/optimized interval handling Updated location reached/left trigger. Changed door button to appear dark if locked."
+  },
+  "1.1.10": {
+    "en": "Changed/extended 'navigate to' flow cards."
   }
 }
