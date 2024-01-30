@@ -113,5 +113,8 @@
   },
   "1.1.11": {
     "en": "Added unit support für distance, temperature, pressure."
+  },
+  "1.1.12": {
+    "en": "Fixed device update error."
   }
 }

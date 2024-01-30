@@ -37,21 +37,6 @@ module.exports = class ClimateDevice extends ChildDevice {
       await this.setCapabilityValue('climate_window_vent', true);
     }    
 
-    // Capability units
-    let co = this.getCapabilityOptions("target_temperature");
-    if (!co || !co.units || co.units != data.gui_settings.gui_temperature_units){
-      co['units'] = '°'+data.gui_settings.gui_temperature_units;
-      this.setCapabilityOptions('target_temperature', co);
-      co = this.getCapabilityOptions("measure_temperature");
-      co['units'] = '°'+data.gui_settings.gui_temperature_units;
-      this.setCapabilityOptions('measure_temperature', co);
-      co = this.getCapabilityOptions("measure_climate_temperature_in");
-      co['units'] = '°'+data.gui_settings.gui_temperature_units;
-      this.setCapabilityOptions('measure_climate_temperature_in', co);
-      co = this.getCapabilityOptions("measure_climate_temperature_out");
-      co['units'] = '°'+data.gui_settings.gui_temperature_units;
-      this.setCapabilityOptions('measure_climate_temperature_out', co);
-    }
     // Temperatures
     if (this.hasCapability('target_temperature') && data.climate_state && data.climate_state.driver_temp_setting != undefined){
       await this.setCapabilityValue('target_temperature', data.climate_state.driver_temp_setting );
@@ -61,9 +46,31 @@ module.exports = class ClimateDevice extends ChildDevice {
     }
     if (this.hasCapability('measure_climate_temperature_in') && data.climate_state && data.climate_state.inside_temp != undefined){
       await this.setCapabilityValue('measure_climate_temperature_in', data.gui_settings.gui_temperature_units == 'C' ? data.climate_state.inside_temp :data.climate_state.inside_temp*9/5+32 );
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_climate_temperature_in");
+      }
+      catch(error){}
+      let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+      if (!co || !co.units || co.units != tempUnit){
+        co['units'] = tempUnit;
+        this.setCapabilityOptions('measure_climate_temperature_in', co);
+      }
     }
     if (this.hasCapability('measure_climate_temperature_out') && data.climate_state && data.climate_state.outside_temp != undefined){
       await this.setCapabilityValue('measure_climate_temperature_out', data.gui_settings.gui_temperature_units == 'C' ? data.climate_state.outside_temp : data.climate_state.outside_temp*9/5+32 );
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_climate_temperature_out");
+      }
+      catch(error){}
+      let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+      if (!co || !co.units || co.units != tempUnit){
+        co['units'] = tempUnit;
+        this.setCapabilityOptions('measure_climate_temperature_out', co);
+      }
     }
 
     // Adjust temperature capabilities

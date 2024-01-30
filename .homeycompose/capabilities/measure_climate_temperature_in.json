@@ -5,9 +5,7 @@
       "de": "Innentemperatur",
       "nl": "Binnentemperatuur"
     },
-    "units": {
-      "en": "°C"
-    },
+    "units": "°C",
     "decimals": 2,
     "insights": true,
     "getable": true,

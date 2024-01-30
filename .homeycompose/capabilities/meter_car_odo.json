@@ -5,9 +5,7 @@
       "de": "Kilometerzähler",
       "nl": "Kilometerteller"
     },
-    "units": {
-      "en": "km"
-    },
+    "units": "km",
     "decimals": 2,
     "insights": true,
     "getable": true,

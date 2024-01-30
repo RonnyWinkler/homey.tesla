@@ -5,9 +5,8 @@
       "de": "Geschwindigkeit",
       "nl": "Snelheid"
     },
-    "units": {
-      "en": "km/h"
-    },
+    "units": "km/h",
+    "decimals": 0,
     "insights": true,
     "getable": true,
     "setable": false,

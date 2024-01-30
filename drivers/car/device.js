@@ -376,13 +376,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     // Meter Odo
     if (this.hasCapability('meter_car_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
       await this.setCapabilityValue('meter_car_odo', data.gui_settings.gui_distance_units == 'km/hr' ? data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM : data.vehicle_state.odometer);
-    }
-    // Capability units
-    let co = this.getCapabilityOptions("meter_car_odo");
-    let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
-    if (!co || !co.units || co.units != distUnit){
-      co['units'] = distUnit;
-      this.setCapabilityOptions('meter_car_odo', co);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("meter_car_odo");
+      }
+      catch(error){}
+      let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+      if (!co || !co.units || co.units != distUnit){
+        co['units'] = distUnit;
+        this.setCapabilityOptions('meter_car_odo', co);
+      }
     }
 
     // Drive state
@@ -398,39 +402,74 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // D
       // null = P
     }
-    if (this.hasCapability('measure_car_drive_speed') && data.drive_state && data.drive_state.speed != undefined){
-      await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.gui_settings.gui_distance_units == 'km/hr' ? data.drive_state.speed * CONSTANTS.MILES_TO_KM :  data.drive_state.speed ) );
-    }
-    // Capability units
-    co = this.getCapabilityOptions("measure_car_drive_speed");
-    let speedUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km/h' : 'mi/h';
-    if (!co || !co.units || co.units != speedUnit){
-      co['units'] = speedUnit;
-      this.setCapabilityOptions('measure_car_drive_speed', co);
+    if (this.hasCapability('measure_car_drive_speed') && data.drive_state && ( data.drive_state.speed != undefined || data.drive_state.speed == null)){
+      let speed = data.drive_state.speed == null ? 0 : data.drive_state.speed;
+      await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.gui_settings.gui_distance_units == 'km/hr' ? speed * CONSTANTS.MILES_TO_KM :  speed ) );
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_car_drive_speed");
+      }
+      catch(error){}
+      let speedUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km/h' : 'mi/h';
+      if (!co || !co.units || co.units != speedUnit){
+        co['units'] = speedUnit;
+        this.setCapabilityOptions('measure_car_drive_speed', co);
+      }
     }
 
     // Tires/TPMS
     if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined){
-
       await this.setCapabilityValue('measure_car_tpms_pressure_fl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fl : data.vehicle_state.tpms_pressure_fl * 14,5038);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_car_tpms_pressure_fl");
+      }
+      catch(error){}
+      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+        co['units'] = data.gui_settings.gui_tirepressure_units;
+        this.setCapabilityOptions('measure_car_tpms_pressure_fl', co);
+      }
     }
     if (this.hasCapability('measure_car_tpms_pressure_fr') && data.vehicle_state && data.vehicle_state.tpms_pressure_fr != undefined){
       await this.setCapabilityValue('measure_car_tpms_pressure_fr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fr : data.vehicle_state.tpms_pressure_fr * 14,5038);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_car_tpms_pressure_fr");
+      }
+      catch(error){}
+      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+        co['units'] = data.gui_settings.gui_tirepressure_units;
+        this.setCapabilityOptions('measure_car_tpms_pressure_fr', co);
+      }
     }
     if (this.hasCapability('measure_car_tpms_pressure_rl') && data.vehicle_state && data.vehicle_state.tpms_pressure_rl != undefined){
       await this.setCapabilityValue('measure_car_tpms_pressure_rl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rl : data.vehicle_state.tpms_pressure_rl * 14,5038);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_car_tpms_pressure_rl");
+      }
+      catch(error){}
+      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+        co['units'] = data.gui_settings.gui_tirepressure_units;
+        this.setCapabilityOptions('measure_car_tpms_pressure_rl', co);
+      }
     }
     if (this.hasCapability('measure_car_tpms_pressure_rr') && data.vehicle_state && data.vehicle_state.tpms_pressure_rr != undefined){
       await this.setCapabilityValue('measure_car_tpms_pressure_rr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rr : data.vehicle_state.tpms_pressure_rr * 14,5038);
-    }
-    // Capability units
-    co = this.getCapabilityOptions("measure_car_tpms_pressure_fl");
-    if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
-      co['units'] = data.gui_settings.gui_tirepressure_units;
-      this.setCapabilityOptions('measure_car_tpms_pressure_fl', co);
-      this.setCapabilityOptions('measure_car_tpms_pressure_fr', co);
-      this.setCapabilityOptions('measure_car_tpms_pressure_rl', co);
-      this.setCapabilityOptions('measure_car_tpms_pressure_rr', co);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_car_tpms_pressure_rr");
+      }
+      catch(error){}
+      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+        co['units'] = data.gui_settings.gui_tirepressure_units;
+        this.setCapabilityOptions('measure_car_tpms_pressure_rr', co);
+      }
     }
 
     // Trunk

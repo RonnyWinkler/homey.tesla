@@ -5,9 +5,7 @@
       "de": "Außentemperatur",
       "nl": "Buitentemperatuur"
     },
-    "units": {
-      "en": "°C"
-    },
+    "units": "°C",
     "decimals": 2,
     "insights": true,
     "getable": true,
