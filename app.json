@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -5567,9 +5567,7 @@
         "de": "TPMS vorn links",
         "nl": "TPMS linksvoor"
       },
-      "units": {
-        "en": "Bar"
-      },
+      "units": "Bar",
       "decimals": 2,
       "insights": true,
       "getable": true,
@@ -5583,9 +5581,7 @@
         "de": "TPMS vorn rechts",
         "nl": "TPMS rechtsvoor"
       },
-      "units": {
-        "en": "Bar"
-      },
+      "units": "Bar",
       "decimals": 2,
       "insights": true,
       "getable": true,
@@ -5599,9 +5595,7 @@
         "de": "TPMS hinten links",
         "nl": "TPMS linksachter"
       },
-      "units": {
-        "en": "Bar"
-      },
+      "units": "Bar",
       "decimals": 2,
       "insights": true,
       "getable": true,
@@ -5615,9 +5609,7 @@
         "de": "TPMS hinten rechts",
         "nl": "TPMS rechtsachter"
       },
-      "units": {
-        "en": "Bar"
-      },
+      "units": "Bar",
       "decimals": 2,
       "insights": true,
       "getable": true,

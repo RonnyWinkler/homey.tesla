@@ -110,5 +110,8 @@
   },
   "1.1.10": {
     "en": "Changed/extended 'navigate to' flow cards."
+  },
+  "1.1.11": {
+    "en": "Added unit support für distance, temperature, pressure."
   }
 }

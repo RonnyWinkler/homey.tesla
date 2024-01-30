@@ -38,12 +38,24 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('measure_soc_usable') && data.charge_state && data.charge_state.usable_battery_level != undefined){
       this.setCapabilityValue('measure_soc_usable', data.charge_state.usable_battery_level);
     }
+
     if (this.hasCapability('measure_soc_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined){
-      this.setCapabilityValue('measure_soc_range_estimated', data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM);
+      this.setCapabilityValue('measure_soc_range_estimated', data.gui_settings.gui_distance_units == 'km/hr' ? data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM : data.charge_state.est_battery_range);
     }
     if (this.hasCapability('measure_soc_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined){
-      this.setCapabilityValue('measure_soc_range_ideal', data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM);
+      this.setCapabilityValue('measure_soc_range_ideal', data.gui_settings.gui_distance_units == 'km/hr' ? data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM : data.charge_state.ideal_battery_range);
     }
+    // Capability units
+    let co = this.getCapabilityOptions("measure_soc_range_estimated");
+    let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+    if (!co || !co.units || co.units != distUnit){
+      co['units'] = distUnit;
+      this.setCapabilityOptions('measure_soc_range_estimated', co);
+      co = this.getCapabilityOptions("measure_soc_range_ideal");
+      co['units'] = distUnit;
+      this.setCapabilityOptions('measure_soc_range_ideal', co);
+    }
+
     if (this.hasCapability('battery_heater') && data.charge_state && data.charge_state.battery_heater_on != undefined){
       this.setCapabilityValue('battery_heater', data.charge_state.battery_heater_on);
     }

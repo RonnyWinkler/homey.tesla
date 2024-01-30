@@ -5,9 +5,7 @@
       "de": "TPMS vorn rechts",
       "nl": "TPMS rechtsvoor"
     },
-    "units": {
-      "en": "Bar"
-    },
+    "units": "Bar",
     "decimals": 2,
     "insights": true,
     "getable": true,
