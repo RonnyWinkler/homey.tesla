@@ -116,5 +116,8 @@
   },
   "1.1.12": {
     "en": "Fixed device update error."
+  },
+  "1.1.13": {
+    "en": "Added app registration check for signed commands."
   }
 }

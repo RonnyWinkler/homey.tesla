@@ -17,6 +17,9 @@
         },
         "location":{
             "name": "location"
+        },
+        "media":{
+            "name": "media"
         }
     },
     "repair":{
@@ -31,7 +34,10 @@
             "homey_location_name": "Home (Homey location)"
         },
         "car": {
-            "trunk_not_allowed": "Trunk operation disabled in device settings"
+            "trunk_not_allowed": "Trunk operation disabled in device settings",
+            "command_pair_state_paired": "paired",
+            "command_pair_state_unpaired": "unpaired",
+            "app_not_registered": "App is not registered in the car. Register via car device repair process."
         }
     },
     "app":{

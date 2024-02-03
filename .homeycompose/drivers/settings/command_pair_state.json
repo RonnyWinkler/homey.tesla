@@ -1,0 +1,10 @@
+{
+    "id": "command_pair_state",
+    "type": "label",
+    "label": {
+      "en": "App registry state as car key",
+      "de": "App-Registrierungsstatus als Autoschlüssel",
+      "nl": "App-registratiestatus als autosleutel"
+    },
+    "value": ""
+  }

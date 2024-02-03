@@ -17,6 +17,9 @@
         },
         "location":{
             "name": "Plaats"
+        },
+        "media":{
+            "name": "Media"
         }
     },
     "repair":{
@@ -31,7 +34,10 @@
             "homey_location_name": "Thuis (Homey plaats)"
         },
         "car": {
-            "trunk_not_allowed": "Trunkbediening uitgeschakeld in apparaatinstellingen"
+            "trunk_not_allowed": "Trunkbediening uitgeschakeld in apparaatinstellingen",
+            "command_pair_state_paired": "gepaard",
+            "command_pair_state_unpaired": "ongepaard",
+            "app_not_registered": "App is niet geregistreerd in de auto. Registreer u via het reparatieproces van het autoapparaat."
         }
     },
     "app":{

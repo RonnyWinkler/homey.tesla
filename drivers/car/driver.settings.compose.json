@@ -98,6 +98,10 @@
         {
           "$extends": "car_data_vin",
           "id": "car_data_vin"
+        },
+        {
+          "$extends": "command_pair_state",
+          "id": "command_pair_state"
         }
       ]
     }  

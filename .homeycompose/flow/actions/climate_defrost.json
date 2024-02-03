@@ -1,12 +1,12 @@
 {
     "title": {
         "en": "Defrost mode",
-        "de": "Entfrosten",
+        "de": "Enteisen",
         "nl": "Ontdooien"
     },
     "titleFormatted": {
         "en": "[[action]] defrost mode",
-        "de": "Entfrosten [[action]]",
+        "de": "Enteisen [[action]]",
         "nl": "Ontdooien [[action]]"
     },
     "args": [

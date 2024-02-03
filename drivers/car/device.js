@@ -5,7 +5,8 @@ const Eckey = require('eckey-utils');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
-const WAIT_ON_WAKE_UP = 20; // 20 sec
+const WAIT_ON_WAKE_UP = 30; // 20 sec
+const RETRY_ON_WAKE_UP = 10; // Retry wakeup every 10 seconds
 const RETRY_COUNT = 3; // number of retries sending commands
 const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 
@@ -181,6 +182,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     this._syncInterval = this.homey.setInterval(() => this._sync(), interval);
     // this._sync();
+
+    // read app registry state
+    await this.isAppRegistered();
   }
 
   async _stopSync(){
@@ -296,6 +300,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // Read car data. Car must be awake.
   async getCarData(){
+    // Get car state
     let oldState = this.getCapabilityValue('car_state');
 
     // get buffered car state
@@ -320,6 +325,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     let data = {};
     try{
+      // Get car data
       data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
 
       this.log("Car data request state: ", data.state);
@@ -548,6 +554,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  async isAppRegistered(){
+    // Get car app registry state
+    let carRegistry = await this.oAuth2Client.getVehicleAppRegistry(this.getData().id);
+    this.log("Car/app registry state: ", carRegistry);
+    if (carRegistry.key_paired_vins.length > 0){
+      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_paired') }); 
+      return true;
+    }
+    else{
+      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_unpaired') });
+      return false;
+    }
+  }
+
   // Commands =======================================================================================
   async _wakeUp(wait=true){
     this.log("Wake up the car...");
@@ -568,6 +588,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // automatically sync data after wake up
           await this._sync()
           return true;
+        }
+        // Send wake up call again every 10 seconds
+        if ( ((i+1) % RETRY_ON_WAKE_UP) == 0 ){
+          this.log("Wake up the car again...");
+          await this.oAuth2Client.commandWakeUp(this.getData().id);
         }
       }
     }
@@ -622,11 +647,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           apiFunction != 'commandNavigationRequest' &&
           apiFunction != 'commandNavigateGpsRequest'
         ){
+      if (!await this.isAppRegistered()){
+        throw new Error(this.homey.__("devices.car.app_not_registered"));
+      }
       await this._sendSignedCommand(apiFunction, params);
     }
     else{
       if (apiFunction == 'ping'){
         throw new Error("Command "+apiFunction+" not supported for REST or Proxy API.");
+      }
+      if ( this.getCommandApi() == CONSTANTS.COMMAND_API_PROXY && !await this.isAppRegistered()){
+        throw new Error(this.homey.__("devices.car.app_not_registered"));
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);

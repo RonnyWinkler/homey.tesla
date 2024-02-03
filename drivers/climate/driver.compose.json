@@ -35,6 +35,11 @@
         "climate_window_vent"
 
     ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ]
+    },
     "capabilitiesOptions": {
         "target_temperature":{
             "type": "range",

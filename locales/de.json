@@ -17,6 +17,9 @@
         },
         "location":{
             "name": "Standort"
+        },
+        "media":{
+            "name": "Medien"
         }
     },
     "repair":{
@@ -31,7 +34,10 @@
             "homey_location_name": "Zuhause (Homey Standort)"
         },
         "car": {
-            "trunk_not_allowed": "Bedienung des Kofferraums in Geräteeinstellungen deaktiviert"
+            "trunk_not_allowed": "Bedienung des Kofferraums in Geräteeinstellungen deaktiviert",
+            "command_pair_state_paired": "verbunden",
+            "command_pair_state_unpaired": "nicht verbunden",
+            "app_not_registered": "App ist nicht im Auto registriert. Registrieren die App im 'Reparieren'-Dialog des Auto-Gerät."
         }
     },
     "app":{
