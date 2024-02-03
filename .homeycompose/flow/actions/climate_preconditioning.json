@@ -1,12 +1,12 @@
 {
     "title": {
         "en": "Climate preconditioning",
-        "de": "Klimavorkonditionierung",
-        "nl": "Klimaatvoorbereiding"
+        "de": "Klimatisierung",
+        "nl": "Climate control"
     },
     "titleFormatted": {
         "en": "[[action]] climate preconditioning",
-        "de": "Klimavorkonditionierung [[action]]",
+        "de": "Klimatisierung [[action]]",
         "nl": "Climate control [[action]]"
     },
     "args": [

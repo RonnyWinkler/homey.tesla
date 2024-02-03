@@ -556,13 +556,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async isAppRegistered(){
     // Get car app registry state
-    let carRegistry = await this.oAuth2Client.getVehicleAppRegistry(this.getData().id);
-    this.log("Car/app registry state: ", carRegistry);
-    if (carRegistry.key_paired_vins.length > 0){
-      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_paired') }); 
-      return true;
+    try{
+      let carRegistry = await this.oAuth2Client.getVehicleAppRegistry(this.getData().id);
+      this.log("Car/app registry state: ", carRegistry);
+      if (carRegistry.key_paired_vins.length > 0){
+        await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_paired') }); 
+        return true;
+      }
+      else{
+        await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_unpaired') });
+        return false;
+      }
     }
-    else{
+    catch(error){
       await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_unpaired') });
       return false;
     }
