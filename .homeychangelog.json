@@ -125,5 +125,8 @@
   },
   "1.1.15": {
     "en": "Added media device. Fixed app registration check (Tesla API bug)."
+  },
+  "1.2.0": {
+    "en": "Version update (publish live version including all changes since 1.1.5)."
   }
 }
