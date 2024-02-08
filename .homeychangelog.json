@@ -122,5 +122,8 @@
   },
   "1.1.14": {
     "en": "Fixed app registration check for signed commands. Fixed translations"
+  },
+  "1.1.15": {
+    "en": "Added media device. Fixed app registration check (Tesla API bug)."
   }
 }

@@ -37,6 +37,7 @@
             "trunk_not_allowed": "Trunkbediening uitgeschakeld in apparaatinstellingen",
             "command_pair_state_paired": "gepaard",
             "command_pair_state_unpaired": "ongepaard",
+            "command_pair_state_undefined": "onbekend",
             "app_not_registered": "App is niet geregistreerd in de auto. Registreer u via het reparatieproces van het autoapparaat."
         }
     },

@@ -531,6 +531,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (locationDevice){
       await locationDevice.updateDevice(data);
     }
+    let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    if (mediaDevice){
+      await mediaDevice.updateDevice(data);
+    }
 
   }
 
@@ -569,8 +573,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
     }
     catch(error){
-      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_unpaired') });
-      return false;
+      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_undefined') });
+      return true;
     }
   }
 
@@ -651,7 +655,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // Endpoints that will only work with REST API: 
           apiFunction != 'commandNavigateGpsRequest' &&
           apiFunction != 'commandNavigationRequest' &&
-          apiFunction != 'commandNavigateGpsRequest'
+
+          apiFunction != 'commandMediaNextTrack' &&
+          apiFunction != 'commandMediaPrevTrack' &&
+          apiFunction != 'commandMediaTogglePlayback'
         ){
       if (!await this.isAppRegistered()){
         throw new Error(this.homey.__("devices.car.app_not_registered"));

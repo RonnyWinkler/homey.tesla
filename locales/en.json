@@ -37,6 +37,7 @@
             "trunk_not_allowed": "Trunk operation disabled in device settings",
             "command_pair_state_paired": "paired",
             "command_pair_state_unpaired": "unpaired",
+            "command_pair_state_undefined": "unknown",
             "app_not_registered": "App is not registered in the car. Register via car device repair process."
         }
     },
