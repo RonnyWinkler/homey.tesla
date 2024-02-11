@@ -131,5 +131,8 @@
   },
   "1.2.1": {
     "en": "Added media next/prev favorite flow action. Update charging state on charge action."
+  },
+  "1.2.2": {
+    "en": "Fix stop sync after device got deleted."
   }
 }

@@ -42,12 +42,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async onOAuth2Deleted() {
+    await this._stopSync();
     await super.onOAuth2Deleted();
-    await _stopSync();
   }
 
   async onDeleted(){
-    await _stopSync();
+    await this._stopSync();
     await super.onDeleted();
   }
 
