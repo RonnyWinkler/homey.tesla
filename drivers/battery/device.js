@@ -148,7 +148,7 @@ module.exports = class BatteryDevice extends ChildDevice {
       this.setCapabilityValue('charging_port', data.charge_state.charge_port_door_open);
     }
     if (this.hasCapability('charging_on') && data.charge_state && data.charge_state.charging_state != undefined){
-      this.setCapabilityValue('charging_on', data.charge_state.charging_state == 'Charging');
+      this.setCapabilityValue('charging_on', data.charge_state.charging_state == CONSTANTS.CHARGING_STATE_CHARGING);
     }
     if (this.hasCapability('charging_port_cable') && data.charge_state && data.charge_state.conn_charge_cable != undefined){
       this.setCapabilityValue('charging_port_cable', data.charge_state.conn_charge_cable == '<invalid>' ? '' : data.charge_state.conn_charge_cable );
@@ -218,6 +218,13 @@ module.exports = class BatteryDevice extends ChildDevice {
 
     if( capabilityValues["charging_on"] != undefined){
       await this._commandChargeOn(capabilityValues["charging_on"]);
+      // set charging state directly to have current state availabe as condition until next sync
+      if (capabilityValues["charging_on"]){
+        await this.setCapabilityValue('charging_state', CONSTANTS.CHARGING_STATE_CHARGING );
+      }
+      else{
+        await this.setCapabilityValue('charging_state', CONSTANTS.CHARGING_STATE_STOPPED );
+      }
     }
 
   }
@@ -237,6 +244,13 @@ module.exports = class BatteryDevice extends ChildDevice {
   async flowActionChargeOn(state){
     await this._commandChargeOn(state);
     await this.setCapabilityValue('charging_on', state );
+    // set charging state directly to have current state availabe as condition until next sync
+    if (state){
+      await this.setCapabilityValue('charging_state', CONSTANTS.CHARGING_STATE_CHARGING );
+    }
+    else{
+      await this.setCapabilityValue('charging_state', CONSTANTS.CHARGING_STATE_STOPPED );
+    }
   }
 
   async flowActionChargeLimit(limit){

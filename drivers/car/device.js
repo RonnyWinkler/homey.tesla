@@ -275,26 +275,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     // let oldState = this.getCapabilityValue('car_state');
     let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
     this.log("Car state: ", vehicle.state);
-
-    // // If state changed, then adjust sync interval
-    // if (vehicle.state != oldState){
-    //   // Update state only if != ONLINE. Check ONLINE state in getCarData( ) to verify direct online request.
-    //   if (vehicle.state != CONSTANTS.STATE_ONLINE){
-    //     await this.setCapabilityValue('car_state', vehicle.state);
-    //     let time = this._getLocalTimeString(new Date());
-    //     await this.setCapabilityValue('last_update', time);
-    //   }
-
-    //   // From asleep to online/offline or back?
-    //   // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
-    //   if (
-    //       ( vehicle.state == CONSTANTS.STATE_ASLEEP && oldState != CONSTANTS.STATE_ASLEEP )
-    //         ||
-    //       ( vehicle.state != CONSTANTS.STATE_ASLEEP && oldState == CONSTANTS.STATE_ASLEEP )
-    //   ){
-    //     this._startSync(vehicle.state);
-    //   }
-    // }
     return vehicle.state;
   }
 
@@ -641,6 +621,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
       }
       await this.handleApiOk();
+      // Get new states after command execution
+      // await this._sync();
     }
     catch(error){
       await this.handleApiError(error);

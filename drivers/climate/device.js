@@ -39,7 +39,12 @@ module.exports = class ClimateDevice extends ChildDevice {
 
     // Temperatures
     if (this.hasCapability('target_temperature') && data.climate_state && data.climate_state.driver_temp_setting != undefined){
-      await this.setCapabilityValue('target_temperature', data.climate_state.driver_temp_setting );
+      try{
+        await this.setCapabilityValue('target_temperature', data.climate_state.driver_temp_setting );
+      }
+      catch(error){
+        this.log("Error set target_temperature: ", error.message);
+      }
     }
     if (this.hasCapability('measure_temperature') && data.climate_state && data.climate_state.inside_temp ){
       await this.setCapabilityValue('measure_temperature', data.climate_state.inside_temp );

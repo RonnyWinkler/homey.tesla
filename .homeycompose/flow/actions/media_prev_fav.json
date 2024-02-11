@@ -1,0 +1,24 @@
+{
+    "title": {
+        "en": "Play previous favorite",
+        "de": "Spiele den vorherigen Favoriten",
+        "nl": "Speel het vorig favoriete"
+    },
+    "titleFormatted": {
+        "en": "Play previous favorite",
+        "de": "Spiele den vorherigen Favoriten",
+        "nl": "Speel het vorig favoriete"
+    },
+    "hint":{
+        "en": "The feature navigates through your library's Spotify favorites as well as radio favorites.",
+        "de": "Die Funktion navigiert durch die Spotify-Favoriten deiner Bibliothek sowie durch die Radio-Favoriten.",
+        "nl": "De functie navigeert door de Spotify-favorieten van uw bibliotheek en door radiofavorieten."
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=media"
+        }
+    ]
+}

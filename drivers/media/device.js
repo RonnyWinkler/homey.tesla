@@ -1,6 +1,7 @@
 "use strict";
 const Homey = require('homey');
-// const CONSTANTS = require('../../lib/constants');
+
+const CONSTANTS = require('../../lib/constants');
 const ChildDevice = require('../child_device');
 
 module.exports = class MediaDevice extends ChildDevice {
@@ -28,7 +29,7 @@ module.exports = class MediaDevice extends ChildDevice {
 
     // Media information
     if (this.hasCapability('speaker_playing') && data.vehicle_state && data.vehicle_state.media_info && data.vehicle_state.media_info.media_playback_status != undefined){
-      await this.setCapabilityValue('speaker_playing', ( data.vehicle_state.media_info.media_playback_status == 'Playing' ));
+      await this.setCapabilityValue('speaker_playing', ( data.vehicle_state.media_info.media_playback_status == CONSTANTS.MEDIA_PLAYBACK_STATE_PLAYING ));
       // states:
       // Playing
       // Stopped
@@ -70,6 +71,12 @@ module.exports = class MediaDevice extends ChildDevice {
   }
   async _commandMediaAdjustVolume(volume){
     await this.getCarDevice().sendCommand('commandMediaAdjustVolume', {volume});
+  }
+  async _commandMediaNextFav(){
+    await this.getCarDevice().sendCommand('commandMediaNextFav', {});
+  }
+  async _commandMediaPrevFav(){
+    await this.getCarDevice().sendCommand('commandMediaPrevFav', {});
   }
 
   // CAPABILITIES =======================================================================================
@@ -114,8 +121,12 @@ module.exports = class MediaDevice extends ChildDevice {
   // }
 
   // FLOW ACTIONS =======================================================================================
-  // async flowActionNavigationRequest(request){
-  //   await this._commandNavigationRequest(request);
-  // }
+  async flowActionMediaNextFav(){
+    await this._commandMediaNextFav();
+  }
+
+  async flowActionMediaPrevFav(){
+    await this._commandMediaPrevFav();
+  }
 
 }

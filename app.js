@@ -206,6 +206,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     //   });
     // });
 
+    this.homey.flow.getActionCard('media_next_fav')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionMediaNextFav();
+		});
+
+    this.homey.flow.getActionCard('media_prev_fav')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionMediaPrevFav();
+		});
+
   }
 
   // FLOW TRIGGER ======================================================================================
