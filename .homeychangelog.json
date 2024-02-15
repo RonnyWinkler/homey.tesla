@@ -134,5 +134,8 @@
   },
   "1.2.2": {
     "en": "Fix stop sync after device got deleted."
+  },
+  "1.2.3": {
+    "en": "Fixed handling of deleted devices."
   }
 }

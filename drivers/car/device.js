@@ -2,6 +2,7 @@ const TeslaOAuth2Device = require('../../lib/TeslaOAuth2Device');
 const Homey = require('homey');
 const { CarServer } = require('../../lib/CarServer.js');
 const Eckey = require('eckey-utils');
+const crypt = require('../../lib/crypt');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
@@ -28,16 +29,26 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       //     this.log("_onCapability() Error: ",error.message);
       //     throw error;
       // }
-  }, CAPABILITY_DEBOUNCE);
+    }, CAPABILITY_DEBOUNCE);
 
 
     this._settings = this.getSettings();
     await this._startSync();
     this._sync();
 
-    // Init Tesla Vehicle COmmand Protocol
-    let keyFile = Homey.env.APP_PRIV_KEY;
-    let key = Eckey.parsePem(keyFile);
+    // ENCRYPT
+    // const symKey = crypt.generateSymmetricKey();
+    // const { ciphertext, iv, tag } = crypt.encryptSymmetric(symKey, Homey.env.CLIENT_PROXY_KEY);
+    // const encSymKey = crypt.publicEncrypt(symKey);
+
+    // DECRYPT
+    const symKey = crypt.privateDecrypt(Homey.env.K);
+    const proxyKey = crypt.decryptSymmetric(symKey, Homey.env.TVCP, Homey.env.I, Homey.env.T);
+
+
+    // Init Tesla Vehicle Command Protocol
+    // let proxyKey = Homey.env.CLIENT_PROXY_KEY; 
+    let key = Eckey.parsePem(proxyKey);
     this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
   }
 
@@ -46,10 +57,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await super.onOAuth2Deleted();
   }
 
-  async onDeleted(){
-    await this._stopSync();
-    await super.onDeleted();
-  }
+  // async onDeleted(){
+  //   await this._stopSync();
+  //   await super.onDeleted();
+  // }
 
   async onOAuth2Saved() {
     this.log("onOAuth2Saved()");
@@ -553,7 +564,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
     }
     catch(error){
-      await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_undefined') });
+      try{
+        await this.setSettings({ command_pair_state: this.homey.__('devices.car.command_pair_state_undefined') });
+      }
+      catch(error){}
       return true;
     }
   }
