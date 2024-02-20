@@ -657,6 +657,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           apiFunction != 'commandMediaTogglePlayback'
         ){
       if (!await this.isAppRegistered()){
+        try{
+          this.homey.notifications.createNotification({excerpt: this.homey.__("devices.car.app_not_registered")});
+        }
+        catch(error){
+          this.log('Error sending notification: '+error.message)
+        }
         throw new Error(this.homey.__("devices.car.app_not_registered"));
       }
       await this._sendSignedCommand(apiFunction, params);
@@ -670,6 +676,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
+      this.log("Send REST command: Success API: "+this.getCommandApi());
     }
   }
 
@@ -677,7 +684,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let {command, params, domain} = this._getSignedCommand(apiFunction, apiParams);
     this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
     await this.commandApi.sendSignedCommand(command, params, domain);
-    this.log("Send signed command: Success");
+    this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command);
   }
 
   _getSignedCommand(apiFunction, params){

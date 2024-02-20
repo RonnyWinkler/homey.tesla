@@ -4,10 +4,12 @@
             "title": "App-Registrierung",
             "subtitle": "Registriere diese Homey-App in deinem Fahrzeug.",
             "text1": "Registriere die App, um Homey zu erlauben, Befehle an das Fahrzeug zu schicken.",
-            "text2": "Folge diesem <a href='javascript:void(0);' onclick='showUrl(\"https://www.tesla.com/_ak/rwdevelopment.de\");'>Link</a> oder tippe auf das Tesla-Icon, um die Registrierung in der Tesla-App zu starten. Sollte der Link im Browser geöffnet werden, dann folge dem 'Öffnen in Tesla App'-Hinweis.",
+            "text2": "Verwenden den Registrierungs-Button, um die Registrierung in der Tesla-App zu starten. Sollte der Link im Browser geöffnet werden, dann folge dem 'Öffnen in Tesla App'-Hinweis.",
             "text3": "Diese Registrierung ist notwendig zur Verwendung des 'Tesla Vehicle Commands Protocol' und der damit verwendeten Ende-zu-Ende-Verschlüsselung von an das Fahrzeug gesendeten Kommandos.",
             "text4": "Vor-2021er Modelle S/X sind davon ausgenommen. Diese können weiterhin über die REST-API gesteuert werden. Bitte wähle in den Geräteeinstellungen die Kommando-API aus.",
-            "text5": "Diese Registrierung kann über den 'Gerät Reparieren'-Dialog wiederholt werden."
+            "text5": "Diese Registrierung kann über den 'Gerät Reparieren'-Dialog wiederholt werden.",
+            "button": "Registrierung als Fahrzeugschlüssel"
+
         },
         "battery":{
             "name": "Batterie"

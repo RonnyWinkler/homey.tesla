@@ -16,6 +16,16 @@
     margin-top: 30px;
     width: 50%;
   }
+
+  #imgRegisterCar {
+    background-image: url(car_key.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    display: block;
+    width: 100px;
+    height: 100%;
+  }
 </style>
 
 <!-- <header class="homey-header">
@@ -34,7 +44,14 @@
     <p data-i18n="pair.register.text4"></p>
     <p data-i18n="pair.register.text5"></p>
     <!-- <p data-i18n="pair.register.url"></p> -->
-    <a onclick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')"><img src='logo.png' class='logo'></a>
+    <p>
+      <button id="btnRegisterCar" class="homey-button-primary-full" onClick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')">
+        <span id="spanRegisterCar" data-i18n="pair.register.button"></span>
+        <span id="imgRegisterCar"></span>
+      </button>
+    </p>
+
+    <!-- <a onclick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')"><img src='logo.png' class='logo'></a> -->
   </div>
 </fieldset>
 

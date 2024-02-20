@@ -137,5 +137,8 @@
   },
   "1.2.3": {
     "en": "Fixed handling of deleted devices."
+  },
+  "1.2.4": {
+    "en": "Added timeline hint for unpaired cars. Updated pair/regitration screen."
   }
 }
