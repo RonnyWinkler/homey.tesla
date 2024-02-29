@@ -139,6 +139,9 @@
     "en": "Fixed handling of deleted devices."
   },
   "1.2.4": {
-    "en": "Added timeline hint for unpaired cars. Updated pair/regitration screen."
+    "en": "Added timeline hint for unpaired cars. Updated pair/registration screen."
+  },
+  "1.2.5": {
+    "en": "Fixed Sentry mode flow actions."
   }
 }

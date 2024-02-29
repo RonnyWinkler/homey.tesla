@@ -1009,8 +1009,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async flowActionSentryMode(state){
-    await this._commandSentryMode(!state);
-    this.setCapabilityValue('car_sentry_mode', !state);
+    await this._commandSentryMode(state);
+    this.setCapabilityValue('car_sentry_mode', state);
   }
 
   async flowActionFlashLights(){
