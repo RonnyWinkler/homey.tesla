@@ -1,8 +1,8 @@
 {
     "title": {
-        "en": "Defrost has been deactivated",
-        "de": "Enteisen wurde deaktiviert",
-        "nl": "Ontdooien is geactiveerd"
+        "en": "Defrost has been activated",
+        "de": "Enteisen wurde aktiviert",
+        "nl": "Ontdooien is activeerd"
     },
     "args": [
         {

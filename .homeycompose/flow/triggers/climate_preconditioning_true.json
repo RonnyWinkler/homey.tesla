@@ -1,8 +1,8 @@
 {
     "title": {
-        "en": "Climate preconditioning has been deactivated",
-        "de": "Klimatisierung wurde deaktiviert",
-        "nl": "Climate control is geactiveerd"
+        "en": "Climate preconditioning has been activated",
+        "de": "Klimatisierung wurde aktiviert",
+        "nl": "Climate control is activeerd"
     },
     "args": [
         {

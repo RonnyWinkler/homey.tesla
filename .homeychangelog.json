@@ -143,5 +143,8 @@
   },
   "1.2.5": {
     "en": "Fixed Sentry mode flow actions."
+  },
+  "1.2.6": {
+    "en": "Fixed Climate flow trigger."
   }
 }
