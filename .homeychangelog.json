@@ -149,5 +149,8 @@
   },
   "1.2.7": {
     "en": "Added API error whitelist, starting with 'already_set'."
+  },
+  "1.2.8": {
+    "en": "Added API error whitelist, starting with 'already_set'."
   }
 }
