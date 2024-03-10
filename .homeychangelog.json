@@ -146,5 +146,8 @@
   },
   "1.2.6": {
     "en": "Fixed Climate flow trigger."
+  },
+  "1.2.7": {
+    "en": "Added API error whitelist, starting with 'already_set'."
   }
 }
