@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3381,6 +3381,53 @@
       },
       {
         "title": {
+          "en": "Heated steering wheel on/off",
+          "de": "Lenkradheizung an/aus",
+          "nl": "Stuurwielverwarming aan/uit"
+        },
+        "titleFormatted": {
+          "en": "Heated steering wheel [[level]]",
+          "de": "Schalte Lenkradheizung [[level]]",
+          "nl": "Stuurwielverwarming [[level]]"
+        },
+        "hint": {
+          "en": "This function is only available for vehicles where the heated steering wheel can only be switched on or off.",
+          "de": "Diese Funktion ist nur bei Fahrzeugen verfügbar, wo die Lenkradheizung nur an oder aus geschaltet werden kann.",
+          "nl": "Deze functie is alleen beschikbaar voor voertuigen waar het stuurwielverwarming alleen aan of uit kan worden geschakeld."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "level",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "de": "Aus",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "de": "An",
+                  "nl": "Aan"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_steering_wheel_heat"
+      },
+      {
+        "title": {
           "en": "Heated steering wheel level",
           "de": "Lenkradheizungsstufe",
           "nl": "Verwarmingsniveau stuurwiel"
@@ -3389,6 +3436,11 @@
           "en": "Set heated steering wheel level to [[level]]",
           "de": "Setze Lenkradheizungsstufe auf [[level]]",
           "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]"
+        },
+        "hint": {
+          "en": "This function is only available for vehicles where the heated steering wheel can be switched in levels.",
+          "de": "Diese Funktion ist nur für Fahrzeuge verfügbar, bei denen die Lenkradheizung in Stufen geschaltet werden kann.",
+          "nl": "Deze functie is alleen beschikbaar voor voertuigen waarbij het verwarmingsniveau van het stuurwiel in niveaus kan worden geschakeld."
         },
         "args": [
           {

@@ -9,6 +9,11 @@
         "de": "Setze Lenkradheizungsstufe auf [[level]]",
         "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]"
     },
+    "hint": {
+      "en": "This function is only available for vehicles where the heated steering wheel can be switched in levels.",
+      "de": "Diese Funktion ist nur für Fahrzeuge verfügbar, bei denen die Lenkradheizung in Stufen geschaltet werden kann.",
+      "nl": "Deze functie is alleen beschikbaar voor voertuigen waarbij het verwarmingsniveau van het stuurwiel in niveaus kan worden geschakeld."
+    },
     "args": [
         {
           "name": "device",

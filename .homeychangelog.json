@@ -155,5 +155,8 @@
   },
   "1.2.9": {
     "en": "Extended API error whitelist: 'not_charging'."
+  },
+  "1.2.10": {
+    "en": "Added flow action for simple steering wheal heating on/off. Extended API error whitelist: 'is_charging'."
   }
 }

@@ -207,6 +207,10 @@ module.exports = class ClimateDevice extends ChildDevice {
     await this.getCarDevice().sendCommand('commandSteeringWheelHeatLevel', {level});
   }
 
+  async _commandSteeringWheelHeat(level){
+    await this.getCarDevice().sendCommand('commandSteeringWheelHeat', {level});
+  }
+
   async _commandSeatHeatLevel(level, seat){
     await this.getCarDevice().sendCommand('commandSeatHeatLevel', {level, seat});
   }
@@ -309,6 +313,11 @@ module.exports = class ClimateDevice extends ChildDevice {
 
   async flowActionSteeringWheelHeatLevel(level){
     await this._commandSteeringWheelHeatLevel(level);
+    // await this.setCapabilityValue('climate_steering_wheel_heat_level', level );
+  }
+
+  async flowActionSteeringWheelHeat(level){
+    await this._commandSteeringWheelHeat(level);
     // await this.setCapabilityValue('climate_steering_wheel_heat_level', level );
   }
 

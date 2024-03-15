@@ -889,6 +889,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         };
         break;
 
+      case 'commandSteeringWheelHeat':
+        result.command = 'hvacSteeringWheelHeaterAction';
+        result.params = {
+          power_on: (params.level != 0)
+        };
+        break;
+  
       // case 'commandSeatHeatLevel':
       //   if (params.level == 'auto'){
       //     result.command = 'autoSeatClimateAction';

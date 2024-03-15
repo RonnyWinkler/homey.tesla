@@ -110,6 +110,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionSteeringWheelHeatLevel(args.level);
 		});
 
+    this.homey.flow.getActionCard('climate_steering_wheel_heat')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionSteeringWheelHeat(args.level);
+		});
+
     this.homey.flow.getActionCard('climate_seat_heat_level')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionSeatHeatLevel(args.level, args.seat);
