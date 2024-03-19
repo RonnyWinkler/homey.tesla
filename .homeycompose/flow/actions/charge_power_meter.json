@@ -1,0 +1,35 @@
+{
+    "title": {
+        "en": "Set charging power meter",
+        "de": "Ladeenergiezähler einstellen",
+        "nl": "Laadvermogenmeter instellen"
+    },
+    "titleFormatted": {
+        "en": "Set charging power meter to [[power]] kWh",
+        "de": "Stelle Ladeenergiezähler auf [[power]] kWh",
+        "nl": "Stel de Laadvermogenmeter in op [[power]] kWh"
+    },
+    "args": [
+      {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=battery"
+      },
+      {
+        "name": "power",
+        "type": "number",
+        "label": "kWh",
+        "labelDecimals": 0,
+        "title": {
+          "en": "Charging energy",
+          "de": "Ladeenergie",
+          "nl": "Laadvermogen"
+        },
+        "placeholder": {
+          "en": "Charging energy",
+          "de": "Ladeenergie",
+          "nl": "Laadvermogen"
+        }
+      }
+  ]
+}

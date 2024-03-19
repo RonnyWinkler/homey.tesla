@@ -48,7 +48,7 @@ module.exports = class ChildDevice extends Homey.Device {
         let filter = capabilities.filter((e) => {return (e == deviceCapabilities[i]);});
         if (filter.length == 0 ){
           // exclude dynamic capabilities
-          if (deviceCapabilities[i] != 'measure_power'){
+          if (deviceCapabilities[i] != 'measure_power' && deviceCapabilities[i] != 'meter_power'){
             try{
               await this.removeCapability(deviceCapabilities[i]);
             }

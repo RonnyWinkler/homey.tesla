@@ -92,7 +92,11 @@ module.exports = class BatteryDevice extends ChildDevice {
       // "Unknown"
       // "Starting"
       // "Charging"
-      // call the async function without await 
+
+      // add current added energy to power meter 
+      await this.addChargingPowerMeter(data.charge_state);
+      // add charging session to history
+      // call async function without await
       this.addChargingHistory(data.charge_state);
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
@@ -172,12 +176,26 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   }
 
+  async addChargingPowerMeter(chargeState){
+    if (
+      this.hasCapabilityCalue('meter_charge_power')
+      &&
+      chargeState.charging_state == CONSTANTS.CHARGING_STATE_DISCONNECTED 
+      &&
+      this.getCapabilityValue('charging_state') != CONSTANTS.CHARGING_STATE_DISCONNECTED 
+      &&
+      data.charge_state.charge_energy_added > 0
+    ){
+      let oldValue = this.getCapabilityCalue('meter_charge_power');
+      await this.setCapabilityValue('meter_charge_power', oldValue + chargeState.charge_energy_added);
+      if (this.hasCapabilityCalue('meter_charge_power')){
+        await this.setCapabilityValue('meter_power', oldValue + chargeState.charge_energy_added);
+      }
+    }
+  }
+
   async addChargingHistory(chargeState){
     // check state change
-
-    // TEST 
-    // chargeState.charging_state = CONSTANTS.CHARGING_STATE_CHARGING;
-
     let action;
     if (chargeState.charging_state == CONSTANTS.CHARGING_STATE_DISCONNECTED 
       &&
@@ -457,6 +475,15 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
   }
 
+  async flowActionChargePowerMeter(power){
+    if (this.hasCapability('meter_charge_power')){
+      await this.setCapabilityValue('meter_charge_power', power );
+    }
+    if (this.hasCapability('meter_power')){
+      await this.setCapabilityValue('meter_power', power );
+    }
+  }
+
   // Device =======================================================================================
 
   async getChargingHistorySuc(days){
@@ -539,7 +566,21 @@ module.exports = class BatteryDevice extends ChildDevice {
               }
             } 
       }
+      if (changedKeys.indexOf('battery_charge_power_meter') > -1){
+        if (newSettings['battery_charge_power_meter']){
+          if (!this.hasCapability('meter_power')){
+            this.log("onSettings(): Add meter_power");
+            await this.addCapability('meter_power');
+          }
+        }
+        else{
+            if (this.hasCapability('meter_power')){
+              this.log("onSettings(): Remove meter_power");
+              await this.removeCapability('meter_power');
+            }
+          } 
     }
+  }
     catch(error){
       this.log("Error onSettings(): " + error.message);
     }

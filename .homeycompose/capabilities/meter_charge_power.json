@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Charging energy meter",
+      "de": "Ladeenergiezähler",
+      "nl": "Energiemeter opladen"
+    },
+    "units": {
+      "en": "kWh"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "./assets/capability_icons/meter_charge_power.svg"
+  }

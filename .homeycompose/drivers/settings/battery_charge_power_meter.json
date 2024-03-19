@@ -1,0 +1,10 @@
+{
+    "id": "battery_charge_power_meter",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Show charging energy meter in Homey energy",
+      "de": "Zeige Ladeenergiezähler in Homey Energie",
+      "nl": "Toon Energiemeter opladen in Homey energie"
+    }
+  }

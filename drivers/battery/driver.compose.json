@@ -36,6 +36,7 @@
         "charging_port_cable",
         "measure_io_battery_power",
 
+        "meter_charge_power",
 
         "charging_port",
         "charging_on",
@@ -47,6 +48,14 @@
                 "en": "Charge power (Homey energy)",
                 "de": "Ladeleistung (Homey Energie)",
                 "nl": "Laad vermogen (Homey energie)"
+            },
+            "uiComponent": null
+        },
+        "meter_power": {
+            "title": {
+                "en": "Charging energy meter (Homey energy)",
+                "de": "Ladeenergiezähler (Homey Energie)",
+                "nl": "Energiemeter opladen (Homey energie)"
             },
             "uiComponent": null
         }
