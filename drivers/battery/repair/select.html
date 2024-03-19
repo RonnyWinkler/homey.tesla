@@ -1,0 +1,40 @@
+
+<style>
+    .button {
+        text-align: center;
+        width: 100%;
+        position: relative;
+        /* margin: 10px 0px;
+        left:-20px; */
+        cursor: pointer;
+    }
+</style>
+<script type="application/javascript">
+
+    Homey.setTitle(Homey.__("repair.select.title"));
+    // Homey.setNavigationClose();
+
+    function onSelectChargingHistory(){
+        Homey.showView("charging_history");
+    }
+
+    function onSelectChargingHistorySuc(){
+        Homey.showView("charging_history_suc");
+    }
+
+</script>
+
+<div>
+    <fieldset>
+        <div>
+            <p>
+                <button id="btnChargingHistory" class="homey-button-primary-full" onClick="onSelectChargingHistory()"><span data-i18n="repair.select.charging_history"></span></button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button id="btnChargingHistorySuc" class="homey-button-primary-full" onClick="onSelectChargingHistorySuc()"><span data-i18n="repair.select.charging_history_suc"></span></button>
+            </p>
+        </div>
+    </fieldset>
+</div>

@@ -92,6 +92,8 @@ module.exports = class BatteryDevice extends ChildDevice {
       // "Unknown"
       // "Starting"
       // "Charging"
+      // call the async function without await 
+      this.addChargingHistory(data.charge_state);
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
@@ -170,6 +172,112 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   }
 
+  async addChargingHistory(chargeState){
+    // check state change
+
+    // TEST 
+    // chargeState.charging_state = CONSTANTS.CHARGING_STATE_CHARGING;
+
+    let action;
+    if (chargeState.charging_state == CONSTANTS.CHARGING_STATE_DISCONNECTED 
+      &&
+      this.getCapabilityValue('charging_state') != CONSTANTS.CHARGING_STATE_DISCONNECTED 
+      // &&
+      // data.charge_state.charge_energy_added > 0
+    ){
+      action = 'stopped';
+    }
+    if (chargeState.charging_state == CONSTANTS.CHARGING_STATE_CHARGING
+      &&
+      this.getCapabilityValue('charging_state') != CONSTANTS.CHARGING_STATE_CHARGING 
+    ){
+      action = 'started';
+    }
+    if (!action){
+      return;
+    }
+
+    // read history
+    let hist = this.getStoreValue('charging_history');
+    if (hist == undefined){
+      hist = [];
+    }
+    // get location
+    let locationName = '';
+    try{
+      let device = this.getLocationDevice();
+      if (device && device.getCapabilityValue('location_name')){
+
+        locationName = device.getCapabilityValue('location_name');
+      }
+    }
+    catch (error){}
+    // get time
+    let tz = this.homey.clock.getTimezone();
+    let timeUtc = new Date();
+    let timeUtcString = timeUtc.toLocaleString(this.homey.i18n.getLanguage(), 
+    { 
+        hour12: false, 
+        timeZone: tz,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
+
+    let entry = {};
+    switch (action){
+      case 'started':
+        entry = hist[hist.length - 1];
+        if(entry && entry['state'] == 'started'){
+          this.log("Charging history entry already existing: ", entry);
+        }
+        else{
+          entry = {
+            state: 'started',
+            timeStarted: timeUtcString, 
+            timeStopped : '',
+            socStart: chargeState.battery_level,
+            socStop: 0,
+            energyAdded: 0,
+            location: locationName
+          }
+          hist.push(entry);
+          this.log("Added charging history entry: ", entry);
+        }
+        break;
+
+      case 'stopped':
+        entry = hist[hist.length - 1];
+        if(!entry){
+          entry = {
+            state: 'stopped',
+            timeStarted: '', 
+            timeStopped : timeUtcString,
+            socStart: 0,
+            socStop: chargeState.battery_level,
+            energyAdded: chargeState.charge_energy_added,
+            location: locationName
+          };
+          hist.push(entry);
+          this.log("Added charging history entry: ", entry);
+        }
+        else{
+          entry['state'] = 'stopped';
+          entry['timeStopped'] = timeUtcString;
+          entry['socStop'] = chargeState.battery_level;
+          entry['energyAdded'] = chargeState.charge_energy_added;
+          hist[hist.length - 1] = entry;
+          this.log("Updated charging history entry: ", entry);
+        }
+        break;
+    }
+
+    await this.setStoreValue('charging_history', hist);
+  }
+
   // Commands =======================================================================================
   async _commandChargePort(state){
     await this.getCarDevice().sendCommand('commandChargePort', {state});
@@ -201,6 +309,68 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   async _commandDeactivateScheduledDeparture(){
     await this.getCarDevice().sendCommand('commandDeactivateScheduledDeparture', {});
+  }
+
+  async _commandChargingHistorySuc(days){
+
+    let startTimeString;
+    if (days != undefined){
+      // let time = new Date().getTime();
+      // startTime = new Date(time - (days * 24 * 60 * 60 * 1000));
+      // startTime.setHours(0, 0, 0, 0);
+
+      let tz  = this.homey.clock.getTimezone();
+      let timeUtc = new Date();
+      let timeUtcString = timeUtc.toLocaleString('en-US', 
+      { 
+          hour12: false, 
+          timeZone: tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+      });
+      let timeLocale = new Date(timeUtcString);
+
+      let startTimeLocale = new Date(timeLocale.getTime() - (days * 24 * 60 * 60 * 1000));
+      startTimeLocale.setHours(0, 0, 0, 0);
+
+      let diff = timeLocale.getTime() - timeUtc.getTime();
+      diff = diff / 1000 / 60 / 60;
+      let sign = '+';
+      if (diff < 0){
+        sign = '-';
+      }
+      diff = Math.round(Math.abs(diff)).toString();
+      if (diff.length == 1){
+        diff = '0' + diff;
+      }
+
+      startTimeString = startTimeLocale.toISOString();
+      startTimeString = startTimeString.split('.')[0]+sign+diff+':00';
+      this.log(startTimeString);
+
+    }
+
+    return await this.getCarDevice().sendCommand('commandChargingHistory', {startTime: startTimeString});
+  }
+
+  // Helpers =======================================================================================
+  _getLocalTimeString(){
+    let tz  = this.homey.clock.getTimezone();
+    let now = new Date().toLocaleString(this.homey.i18n.getLanguage(), 
+    { 
+        hour12: false, 
+        timeZone: tz,
+        hour: "2-digit",
+        minute: "2-digit",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
+    return now.replace(',', '');
   }
 
   // CAPABILITIES =======================================================================================
@@ -279,7 +449,77 @@ module.exports = class BatteryDevice extends ChildDevice {
     await this._commandDeactivateScheduledDeparture();
   }
 
+  async flowActionChargingHistorySuc(days){
+    let hist = await this._commandChargingHistorySuc(days);
+    return {
+      history_json: JSON.stringify(hist),
+      history_count: hist.length
+    }
+  }
+
   // Device =======================================================================================
+
+  async getChargingHistorySuc(days){
+    let hist = await this._commandChargingHistorySuc(days);
+    let tz  = this.homey.clock.getTimezone();
+    let result = [];
+    for (let i=0; i<hist.length; i++){
+
+      let entry = hist[i];
+      let newEntry = {};
+
+      newEntry['id'] = i+1;
+      newEntry['chargeStopDateTime'] = entry.chargeStopDateTime;
+      newEntry['chargeStartDateTime'] = new Date(entry.chargeStartDateTime).toLocaleString(this.homey.i18n.getLanguage(), 
+      { 
+          hour12: false, 
+          timeZone: tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+      });
+      newEntry['chargeStopDateTime'] = new Date(entry.chargeStopDateTime).toLocaleString(this.homey.i18n.getLanguage(), 
+      { 
+          hour12: false, 
+          timeZone: tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+      });
+
+      newEntry['siteLocationName'] = entry.siteLocationName;
+
+      for (let j=0; j<entry.fees.length; j++){
+        if (entry.fees[j].feeType == 'CHARGING'){
+          newEntry['energyAdded'] = entry.fees[j].usageBase;
+          newEntry['chargingGrossAmount'] = entry.fees[j].totalDue;
+        }
+        if (entry.fees[j].feeType == 'PARKING'){
+          newEntry['parkingGrossAmount'] = entry.fees[j].totalDue;
+        }
+      }
+
+
+      result.push( newEntry );
+    }
+    return result;
+  }
+
+  getChargingHistory(){
+    let hist = this.getStoreValue('charging_history');
+    let result = [];
+    for (let i=hist.length-1; i>=0; i--){
+      hist[i]['id'] = hist.length -i;
+      result.push(hist[i]);
+    }
+    return hist;
+  }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);

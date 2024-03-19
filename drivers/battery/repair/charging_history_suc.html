@@ -1,0 +1,104 @@
+<script type="application/javascript">
+    Homey.setTitle(Homey.__("repair.charging_history_suc.title"));
+</script>
+
+<div>
+    <!-- <table style="width:100%">
+        <tr>
+            <td>
+                <button id="btnClearChargingHistory" class="homey-button-danger-shadow" onClick="onClearChargingHistory()"><span data-i18n="repair.charging_history.clear"></span></button>
+            </td>
+            <td>
+                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.json"></span></button>
+            </td>
+        </tr>
+    </table> -->
+
+    <table id="tableHistorySuc" class="display">
+        <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Start</th>
+                <th>kWh</th>
+                <th>Charging</th>
+                <th>Parking</th>
+                <th>Stop</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="./dataTables.css"/>
+<script src="./dataTables.js"></script>
+
+
+<script type="application/javascript">
+
+    async function getChargingHistory(){
+        return await Homey.emit('get_charging_history_suc');
+    }
+
+    // function onClearChargingHistory(){
+    //     Homey.emit('clear_charging_history').then(function () {
+    //         getChargingHistory();
+    //     });
+    // }
+
+    // function onJsonChargingHistory(){
+    //     Homey.showView("charging_history_json");
+    // }
+
+    (async function () {
+        Homey.showLoadingOverlay();
+        let history = await getChargingHistory();
+        Homey.hideLoadingOverlay();
+
+        let table = new DataTable('#tableHistorySuc', {
+            searching: true,
+            paging: true,
+            pagingType: 'full_numbers',
+            scrollX: true,
+            data: history,
+            order: [[0, 'asc']],
+            columns: [
+                { data: 'id' },
+                { data: 'chargeStartDateTime' },
+                { data: 'energyAdded' },
+                { data: 'chargingGrossAmount' },
+                { data: 'parkingGrossAmount' },
+                { data: 'chargeStopDateTime' },
+                { 
+                    data: 'siteLocationName',
+                    render: function (data, type, row, meta) {
+                        return '<p style="white-space: nowrap;">' + data + '</p>';
+                    }
+                }
+            ],
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'All']
+            ],
+            layout: {
+                topStart: {
+                    'search' :{
+                        text: ''
+                    }
+                },
+                topEnd: null,
+                bottomStart: null,
+                bottomEnd: null,
+                bottom: 'paging',
+                bottom2: 'info'
+            }
+        });
+    })();
+
+</script>

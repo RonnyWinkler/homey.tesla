@@ -28,7 +28,17 @@
         "select":{
             "title": "Auswahl",
             "auth": "Anmeldung ändern",
-            "register_app": "App-Registrierung im Fahrzeug"
+            "register_app": "App-Registrierung im Fahrzeug",
+            "charging_history": "Ladehistorie",
+            "charging_history_suc": "SuC Ladehistorie"
+        },
+        "charging_history":{
+            "title": "Ladehistorie",
+            "clear": "Ladehistorie löschen",
+            "json": "Ladehistorie (JSON)"
+        },
+        "charging_history_suc":{
+            "title": "SuC Ladehistorie"
         }
     },
     "devices":{

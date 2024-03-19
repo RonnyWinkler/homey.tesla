@@ -27,7 +27,17 @@
         "select":{
             "title": "Selection",
             "auth": "Change Login",
-            "register_app": "Register app in car"
+            "register_app": "Register app in car",
+            "charging_history": "Charging history",
+            "charging_history_suc": "SuC Charging history"
+        },
+        "charging_history":{
+            "title": "Charging history",
+            "clear": "Clear history",
+            "json": "History (JSON)"
+        },
+        "charging_history_suc":{
+            "title": "SuC Charging history"
         }
     },
     "devices":{

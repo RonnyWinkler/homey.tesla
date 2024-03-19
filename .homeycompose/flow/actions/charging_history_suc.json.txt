@@ -1,0 +1,50 @@
+{
+    "title": {
+        "en": "Get SuC charging history",
+        "de": "SuC Ladehistorie abrufen",
+        "nl": "SuC Laadgeschiedenis ophalen"
+    },
+    "titleFormatted": {
+        "en": "Get SuC charging history of the last [[days]] days",
+        "de": "SuC Ladehistorie abrufen der letzzte [[days]] Tage",
+        "nl": "SuC Laadgeschiedenis ophalen van de laatste [[days]] dagen"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+        },
+        {
+            "name": "days",
+            "type": "number",
+            "required": false,
+            "title": {
+                "en": "Days",
+                "de": "Tage",
+                "nl": "Dagen"
+            }
+        }                        
+    ],
+    "tokens": [
+        {
+            "name": "history_json",
+            "type": "string",
+            "title": {
+                "en": "History as JSON",
+                "de": "Historie als JSON",
+                "nl": "Geschiedenis als JSON"
+            }
+        },
+        {
+            "name": "history_count",
+            "type": "number",
+            "title": {
+                "en": "Number of charging sessions",
+                "de": "Anzahl Ladevorgänge",
+                "nl": "Aantal laadsessies"
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,165 @@
+<script type="application/javascript">
+    Homey.setTitle(Homey.__("repair.charging_history.title"));
+</script>
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <button id="btnClearChargingHistory" class="homey-button-danger-shadow" onClick="onClearChargingHistory()"><span data-i18n="repair.charging_history.clear"></span></button>
+            </td>
+            <td>
+                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.json"></span></button>
+            </td>
+        </tr>
+    </table>
+
+    <table id="tableHistory" class="display">
+        <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Start</th>
+                <th>kWh</th>
+                <th>SoC From</th>
+                <th>SoC To</th>
+                <th>Stop</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <div id="wrapper"></div> -->
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="./dataTables.css"/>
+<script src="./dataTables.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="./mermaid.min.css"/>
+<script src="./gridjs.umd.js"></script> -->
+
+<script type="application/javascript">
+
+    async function getChargingHistory(){
+        return await Homey.emit('get_charging_history');
+    }
+
+    function onClearChargingHistory(){
+        Homey.emit('clear_charging_history').then(function () {
+            getChargingHistory();
+        });
+    }
+
+    function onJsonChargingHistory(){
+        Homey.showView("charging_history_json");
+    }
+
+    (async function () {
+        let history = await getChargingHistory();
+        let table = new DataTable('#tableHistory', {
+            searching: true,
+            paging: true,
+            pagingType: 'full_numbers',
+            scrollX: true,
+            data: history,
+            order: [[0, 'asc']],
+            columns: [
+                { data: 'id' },
+                { data: 'timeStarted' },
+                { data: 'energyAdded' },
+                { data: 'socStart' },
+                { data: 'socStop' },
+                { data: 'timeStopped' },
+                { 
+                    data: 'location', 
+                    render: function (data, type, row, meta) {
+                        return '<p style="white-space: nowrap;">' + data + '</p>';
+                    }
+                }
+            ],
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'All']
+            ],
+            layout: {
+                topStart: {
+                    'search' :{
+                        text: ''
+                    }
+                },
+                topEnd: null,
+                bottomStart: null,
+                bottomEnd: null,
+                bottom: 'paging',
+                bottom2: 'info'
+            }
+        });
+    })();
+
+    // (async function () {
+    //     let history = await getChargingHistory();
+    //     new gridjs.Grid({
+    //         sort: true,
+    //         search:true,
+    //         pagination: true,
+    //         columns: [
+    //             {
+    //                 "id": "timeStarted",
+    //                 "name": "Start"
+    //             },
+    //             { 
+    //                 "id": "energyAdded",
+    //                 "name":  "kWh"
+    //             },
+    //             {
+    //                 "id": "socStart",
+    //                 "name": "SoC From"
+    //             },
+    //             { 
+    //                 "id": "socStop",
+    //                 "name": "SoC To"
+    //             },
+    //             {
+    //                 "id": "timeStopped",
+    //                 "name": "Stop"
+    //             },
+    //             {
+    //                 "id": "location",
+    //                 "name": "Locatiob"
+    //             },
+    //         ],
+    //         style: {
+    //             th:{
+    //                 'padding-right': '2px',
+    //                 'padding-left': '2px',
+    //                 'padding-bottom': '2px',
+    //                 'padding-top': '2px',
+    //                 'min-width': '80px',
+    //                 'text-align': 'center'
+    //             },
+    //             td: {
+    //                 'padding-right': '2px',
+    //                 'padding-left': '2px',
+    //                 'padding-bottom': '2px',
+    //                 'padding-top': '2px',
+    //                 'text-align': 'center'
+    //             }
+    //             // table: {
+    //             //     'font-size': '14px'
+    //             // },
+
+    //         },
+
+    //         data: history //async () => await getChargingHistory()
+    //         }).render(document.getElementById("wrapper"));
+    // })();
+
+</script>

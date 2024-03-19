@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3783,6 +3783,29 @@
           "template": "add_devices",
           "navigation": {
             "prev": "list_devices"
+          }
+        }
+      ],
+      "repair": [
+        {
+          "id": "select"
+        },
+        {
+          "id": "charging_history",
+          "navigation": {
+            "prev": "select"
+          }
+        },
+        {
+          "id": "charging_history_json",
+          "navigation": {
+            "prev": "charging_history"
+          }
+        },
+        {
+          "id": "charging_history_suc",
+          "navigation": {
+            "prev": "select"
           }
         }
       ],

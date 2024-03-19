@@ -621,8 +621,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       for (let i=0; i<=retryCount; i++){
         try{
-          await this._sendCommand(apiFunction, params);
-          break;
+          return await this._sendCommand(apiFunction, params);
         }
         catch(error){
           if (i==retryCount){
@@ -654,7 +653,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
           apiFunction != 'commandMediaNextTrack' &&
           apiFunction != 'commandMediaPrevTrack' &&
-          apiFunction != 'commandMediaTogglePlayback'
+          apiFunction != 'commandMediaTogglePlayback' &&
+
+          apiFunction != 'commandChargingHistory'
         ){
       if (!await this.isAppRegistered()){
         try{
@@ -675,8 +676,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         throw new Error(this.homey.__("devices.car.app_not_registered"));
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
-      await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
+      let result = await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
       this.log("Send REST command: Success API: "+this.getCommandApi());
+      return result;
     }
   }
 
@@ -777,7 +779,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           result.command = 'chargingStartStopActionStop';
           // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         }
-        params.state = {};
+        result.params = {};
         break;
 
       case 'commandScheduleCharging':

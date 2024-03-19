@@ -27,7 +27,17 @@
         "select":{
             "title": "Selectie",
             "auth": "Wijzig login",
-            "register_app": "App registreren in auto"
+            "register_app": "App registreren in auto",
+            "charging_history": "Laadgeschiedenis",
+            "charging_history_suc": "SuC laadgeschiedenis"
+        },
+        "charging_history":{
+            "title": "Laadgeschiedenis",
+            "clear": "Laadgeschiedenis verwijderen",
+            "json": "Laadgeschiedenis (JSON)"
+        },
+        "charging_history_suc":{
+            "title": "SuC Laadgeschiedenis"
         }
     },
     "devices":{

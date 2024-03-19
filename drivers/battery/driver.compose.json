@@ -71,5 +71,28 @@
                 "prev": "list_devices"
             }
         }
+    ],
+    "repair": [
+        {
+            "id": "select"
+        },
+        {
+            "id": "charging_history",
+            "navigation": {
+                "prev": "select"
+            }
+        },
+        {
+            "id": "charging_history_json",
+            "navigation": {
+                "prev": "charging_history"
+            }
+        },
+        {
+            "id": "charging_history_suc",
+            "navigation": {
+                "prev": "select"
+            }
+        }
     ]
 }

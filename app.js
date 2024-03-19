@@ -184,6 +184,18 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionChargeDeactivateScheduledDeparture();
 		});
 
+      // TEST TEST TEST 
+    try{
+      this.homey.flow.getActionCard('charging_history_suc')
+      .registerRunListener(async (args, state) => {
+          let result = await args.device.flowActionChargingHistorySuc(args.days);
+          return result;
+      });
+    }    
+    catch(error){
+      this.log("Flow action [charging_history] not active for test.");
+    }
+
     this.homey.flow.getActionCard('location_navigate_to_location')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionNavigateToLocation(args);

@@ -11,6 +11,23 @@ module.exports = class BatteryDriver extends Homey.Driver {
     });
   } // end onPair
 
+  async onRepair(session, device) {
+    this.log("onRepair()");
+
+    session.setHandler("get_charging_history", async () => {
+        return await this.getChargingHistory(session, device);
+    });
+
+    session.setHandler("clear_charging_history", async () => {
+      return await this.clearChargingHistory(session, device);
+    });
+
+    session.setHandler("get_charging_history_suc", async () => {
+      return await this.getChargingHistorySuc(session, device);
+  });
+
+  } // end onPair
+
   async onPairListDevices(session) {
     this.log("onPairListDevices()" );
     let devices = [];
@@ -31,5 +48,18 @@ module.exports = class BatteryDriver extends Homey.Driver {
     this.log("Found devices:");
     this.log(devices);
     return devices;
+  }
+
+  async getChargingHistory(session, device) {
+    return device.getChargingHistory();
+  }
+
+  async getChargingHistorySuc(session, device) {
+    let hist =  await device.getChargingHistorySuc();
+    return hist;
+  }
+
+  async clearChargingHistory(session, device) {
+    return device.setStoreValue('charging_history', []);
   }
 }
