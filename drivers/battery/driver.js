@@ -18,6 +18,14 @@ module.exports = class BatteryDriver extends Homey.Driver {
         return await this.getChargingHistory(session, device);
     });
 
+    session.setHandler("get_charging_history_data", async () => {
+      return await this.getChargingHistoryData(session, device);
+    });
+
+    session.setHandler("update_charging_history_data", async (data) => {
+      return await this.updateChargingHistoryData(session, device, data);
+    });
+
     session.setHandler("clear_charging_history", async () => {
       return await this.clearChargingHistory(session, device);
     });
@@ -52,6 +60,14 @@ module.exports = class BatteryDriver extends Homey.Driver {
 
   async getChargingHistory(session, device) {
     return device.getChargingHistory();
+  }
+
+  async getChargingHistoryData(session, device) {
+    return device.getStoreValue('charging_history');
+  }
+
+  async updateChargingHistoryData(session, device, json) {
+    await device.setStoreValue('charging_history', json);
   }
 
   async getChargingHistorySuc(session, device) {

@@ -15,9 +15,20 @@
     
 </script>
 
+<table style="width:100%">
+    <tr>
+        <td>
+            <button id="btnJsonSaveChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonSave()"><span data-i18n="repair.charging_history.save"></span></button>
+        </td>
+        <td>
+            <button id="btnJsonClearChargingHistory" class="homey-button-danger-shadow" onClick="onJsonClear()"><span data-i18n="repair.charging_history.clear"></span></button>
+        </td>
+    </tr>
+</table>
+
 <div>
     <fieldset>
-            <pre class="preChargingHistoryJson" id="chargingHistoryJson"></pre>
+            <pre class="preChargingHistoryJson" id="chargingHistoryJson" contenteditable="true"></pre>
     </fieldset>
 </div>
 
@@ -26,10 +37,22 @@
     getChargingHistory();
 
     function getChargingHistory(){
-        Homey.emit('get_charging_history').then(function (hist) {
+        Homey.emit('get_charging_history_data').then(function (hist) {
             let string = JSON.stringify(hist, null, "  ");
             chargingHistoryJson.textContent = string;
         });
     }
+
+    function onJsonSave(){
+        
+        Homey.emit('update_charging_history_data', JSON.parse( chargingHistoryJson.textContent )).then(async function () {
+            getChargingHistory();
+        });
+    }
+
+    function onJsonClear(){
+        chargingHistoryJson.textContent = '[]';
+    }
+
 
 </script>

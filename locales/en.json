@@ -33,8 +33,10 @@
         },
         "charging_history":{
             "title": "Charging history",
-            "clear": "Clear history",
-            "json": "History (JSON)"
+            "clear": "clear",
+            "json": "JSON",
+            "edit": "Edit",
+            "save": "Save"
         },
         "charging_history_suc":{
             "title": "SuC Charging history"

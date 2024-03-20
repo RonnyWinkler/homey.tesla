@@ -77,13 +77,12 @@ module.exports = class BatteryDevice extends ChildDevice {
 
     // Charging
     if (this.hasCapability('measure_charge_limit_soc') && data.charge_state && data.charge_state.charge_limit_soc != undefined){
-      this.setCapabilityValue('measure_charge_limit_soc', data.charge_state.charge_limit_soc);
+      await this.setCapabilityValue('measure_charge_limit_soc', data.charge_state.charge_limit_soc);
     }
     if (this.hasCapability('measure_charge_energy_added') && data.charge_state && data.charge_state.charge_energy_added != undefined){
-      this.setCapabilityValue('measure_charge_energy_added', data.charge_state.charge_energy_added);
+      await this.setCapabilityValue('measure_charge_energy_added', data.charge_state.charge_energy_added);
     }
     if (this.hasCapability('charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
-      this.setCapabilityValue('charging_state', data.charge_state.charging_state);
       // "Disconnected"
       // "Calibrating"
       // "Complete"
@@ -97,7 +96,10 @@ module.exports = class BatteryDevice extends ChildDevice {
       await this.addChargingPowerMeter(data.charge_state);
       // add charging session to history
       // call async function without await
-      this.addChargingHistory(data.charge_state);
+      await this.addChargingHistory(data.charge_state);
+
+      await this.setCapabilityValue('charging_state', data.charge_state.charging_state);
+
     }
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);

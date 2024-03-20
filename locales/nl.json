@@ -33,8 +33,10 @@
         },
         "charging_history":{
             "title": "Laadgeschiedenis",
-            "clear": "Laadgeschiedenis verwijderen",
-            "json": "Laadgeschiedenis (JSON)"
+            "clear": "Verwijderen",
+            "json": "JSON",
+            "edit": "Bewerken",
+            "save": "Opslaan"
         },
         "charging_history_suc":{
             "title": "SuC Laadgeschiedenis"

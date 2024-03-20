@@ -170,5 +170,8 @@
   },
   "1.2.14": {
     "en": "Testversion: Charge energy meter."
+  },
+  "1.2.15": {
+    "en": "Testversion: Charge history."
   }
 }

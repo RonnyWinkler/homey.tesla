@@ -6,11 +6,11 @@
     <table style="width:100%">
         <tr>
             <td>
-                <button id="btnClearChargingHistory" class="homey-button-danger-shadow" onClick="onClearChargingHistory()"><span data-i18n="repair.charging_history.clear"></span></button>
+                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.edit"></span></button>
             </td>
-            <td>
+            <!-- <td>
                 <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.json"></span></button>
-            </td>
+            </td> -->
         </tr>
     </table>
 
@@ -47,11 +47,11 @@
         return await Homey.emit('get_charging_history');
     }
 
-    function onClearChargingHistory(){
-        Homey.emit('clear_charging_history').then(async function () {
-            Homey.prevView();
-        });
-    }
+    // function onClearChargingHistory(){
+    //     Homey.emit('clear_charging_history').then(async function () {
+    //         Homey.prevView();
+    //     });
+    // }
 
     function onJsonChargingHistory(){
         Homey.showView("charging_history_json");
