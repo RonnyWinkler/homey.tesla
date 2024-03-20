@@ -36,15 +36,10 @@
         </tbody>
     </table>
 
-    <!-- <div id="wrapper"></div> -->
-
 </div>
 
 <link rel="stylesheet" type="text/css" href="./dataTables.css"/>
 <script src="./dataTables.js"></script>
-
-<!-- <link rel="stylesheet" type="text/css" href="./mermaid.min.css"/>
-<script src="./gridjs.umd.js"></script> -->
 
 <script type="application/javascript">
 
@@ -53,8 +48,8 @@
     }
 
     function onClearChargingHistory(){
-        Homey.emit('clear_charging_history').then(function () {
-            getChargingHistory();
+        Homey.emit('clear_charging_history').then(async function () {
+            Homey.prevView();
         });
     }
 
@@ -100,66 +95,11 @@
                 bottomEnd: null,
                 bottom: 'paging',
                 bottom2: 'info'
+            },
+            language: {
+                emptyTable: 'No data available.'
             }
         });
     })();
-
-    // (async function () {
-    //     let history = await getChargingHistory();
-    //     new gridjs.Grid({
-    //         sort: true,
-    //         search:true,
-    //         pagination: true,
-    //         columns: [
-    //             {
-    //                 "id": "timeStarted",
-    //                 "name": "Start"
-    //             },
-    //             { 
-    //                 "id": "energyAdded",
-    //                 "name":  "kWh"
-    //             },
-    //             {
-    //                 "id": "socStart",
-    //                 "name": "SoC From"
-    //             },
-    //             { 
-    //                 "id": "socStop",
-    //                 "name": "SoC To"
-    //             },
-    //             {
-    //                 "id": "timeStopped",
-    //                 "name": "Stop"
-    //             },
-    //             {
-    //                 "id": "location",
-    //                 "name": "Locatiob"
-    //             },
-    //         ],
-    //         style: {
-    //             th:{
-    //                 'padding-right': '2px',
-    //                 'padding-left': '2px',
-    //                 'padding-bottom': '2px',
-    //                 'padding-top': '2px',
-    //                 'min-width': '80px',
-    //                 'text-align': 'center'
-    //             },
-    //             td: {
-    //                 'padding-right': '2px',
-    //                 'padding-left': '2px',
-    //                 'padding-bottom': '2px',
-    //                 'padding-top': '2px',
-    //                 'text-align': 'center'
-    //             }
-    //             // table: {
-    //             //     'font-size': '14px'
-    //             // },
-
-    //         },
-
-    //         data: history //async () => await getChargingHistory()
-    //         }).render(document.getElementById("wrapper"));
-    // })();
 
 </script>

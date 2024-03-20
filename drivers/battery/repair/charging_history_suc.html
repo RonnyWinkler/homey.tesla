@@ -3,17 +3,6 @@
 </script>
 
 <div>
-    <!-- <table style="width:100%">
-        <tr>
-            <td>
-                <button id="btnClearChargingHistory" class="homey-button-danger-shadow" onClick="onClearChargingHistory()"><span data-i18n="repair.charging_history.clear"></span></button>
-            </td>
-            <td>
-                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.json"></span></button>
-            </td>
-        </tr>
-    </table> -->
-
     <table id="tableHistorySuc" class="display">
         <thead>
             <tr>
@@ -33,7 +22,6 @@
 
         </tbody>
     </table>
-
 </div>
 
 <link rel="stylesheet" type="text/css" href="./dataTables.css"/>
@@ -45,16 +33,6 @@
     async function getChargingHistory(){
         return await Homey.emit('get_charging_history_suc');
     }
-
-    // function onClearChargingHistory(){
-    //     Homey.emit('clear_charging_history').then(function () {
-    //         getChargingHistory();
-    //     });
-    // }
-
-    // function onJsonChargingHistory(){
-    //     Homey.showView("charging_history_json");
-    // }
 
     (async function () {
         Homey.showLoadingOverlay();
@@ -97,6 +75,9 @@
                 bottomEnd: null,
                 bottom: 'paging',
                 bottom2: 'info'
+            },
+            language: {
+                emptyTable: 'No data available.'
             }
         });
     })();

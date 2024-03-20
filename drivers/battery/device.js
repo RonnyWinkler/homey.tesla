@@ -184,7 +184,7 @@ module.exports = class BatteryDevice extends ChildDevice {
       &&
       this.getCapabilityValue('charging_state') != CONSTANTS.CHARGING_STATE_DISCONNECTED 
       &&
-      data.charge_state.charge_energy_added > 0
+      chargeState.charge_energy_added > 0
     ){
       let oldValue = this.getCapabilityCalue('meter_charge_power');
       await this.setCapabilityValue('meter_charge_power', oldValue + chargeState.charge_energy_added);
