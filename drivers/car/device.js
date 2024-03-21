@@ -13,12 +13,21 @@ const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 
 const CONSTANTS = require('../../lib/constants');
 
+let ENV_PRIVATE;
+try{
+  // ENV_PRIVATE = require('../../lib/constants');
+  ENV_PRIVATE = require('../../env_private.json');
+}
+catch(error){
+}
+
+
 module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onOAuth2Init() {
     this.log("onOAuth2Init()");
     await super.onOAuth2Init();
-    
+
     await this._updateCapabilities();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
@@ -36,20 +45,25 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._startSync();
     this._sync();
 
-    // ENCRYPT
-    // const symKey = crypt.generateSymmetricKey();
-    // const { ciphertext, iv, tag } = crypt.encryptSymmetric(symKey, Homey.env.CLIENT_PROXY_KEY);
-    // const encSymKey = crypt.publicEncrypt(symKey);
 
-    // DECRYPT
-    const symKey = crypt.privateDecrypt(Homey.env.K);
-    const proxyKey = crypt.decryptSymmetric(symKey, Homey.env.TVCP, Homey.env.I, Homey.env.T);
+    if (ENV_PRIVATE){
+      // ENCRYPT
+      // const symKey = crypt.generateSymmetricKey();
+      // const { ciphertext, iv, tag } = crypt.encryptSymmetric(symKey, Homey.env.CLIENT_PROXY_KEY);
+      // const encSymKey = crypt.publicEncrypt(symKey, Homey.env.PUBLIC_KEY);
+
+      // DECRYPT
+      // const symKey = crypt.privateDecrypt(Homey.env.K, Homey.env.PRIV_KEY);
+      // const proxyKey = crypt.decryptSymmetric(symKey, Homey.env.TVCP, Homey.env.I, Homey.env.T);
+      const symKey = crypt.privateDecrypt(ENV_PRIVATE.K, ENV_PRIVATE.PRIV_KEY);
+      const proxyKey = crypt.decryptSymmetric(symKey, ENV_PRIVATE.TVCP, ENV_PRIVATE.I, ENV_PRIVATE.T);
 
 
-    // Init Tesla Vehicle Command Protocol
-    // let proxyKey = Homey.env.CLIENT_PROXY_KEY; 
-    let key = Eckey.parsePem(proxyKey);
-    this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+      // Init Tesla Vehicle Command Protocol
+      // let proxyKey = Homey.env.CLIENT_PROXY_KEY; 
+      let key = Eckey.parsePem(proxyKey);
+      this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+    }
   }
 
   async onOAuth2Deleted() {
@@ -683,6 +697,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _sendSignedCommand(apiFunction, apiParams){
+    if (!this.commandApi){
+      throw new Error("Command API is only for test purposes.");
+    }
     let {command, params, domain} = this._getSignedCommand(apiFunction, apiParams);
     this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
     await this.commandApi.sendSignedCommand(command, params, domain);

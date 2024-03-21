@@ -3,3 +3,4 @@ node_modules/
 build/
 test/
 /.homeybuild/
+env_private*
