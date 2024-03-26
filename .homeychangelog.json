@@ -176,5 +176,8 @@
   },
   "1.2.16": {
     "en": "Testversion: Charge history."
+  },
+  "1.3.0": {
+    "en": "Added charging history (battery device, repair view). Added charged energy meter (battery device)."
   }
 }
