@@ -80,7 +80,20 @@ module.exports = class LocationDevice extends ChildDevice {
 
     if (this.hasCapability('measure_location_distance_from_home')){
       let distance = this.getCoordinatesDistance(data.drive_state.latitude, data.drive_state.longitude, this.homey.geolocation.getLatitude(), this.homey.geolocation.getLongitude());
-      await this.setCapabilityValue('measure_location_distance_from_home', distance);
+      distance = Math.round(distance / 10) / 100;
+      await this.setCapabilityValue('measure_location_distance_from_home', data.gui_settings.gui_distance_units == 'km/hr' ? distance : distance / CONSTANTS.MILES_TO_KM);
+      // Capability units
+      let co = {};
+      try{
+        co = this.getCapabilityOptions("measure_location_distance_from_home");
+      }
+      catch(error){}
+      let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+      if (!co || !co.units || co.units != distUnit){
+        co['units'] = distUnit;
+        this.setCapabilityOptions('measure_location_distance_from_home', co);
+      }
+
     }
 
     if (locationChanged){

@@ -5,7 +5,8 @@
       "de": "Entfernung von zu Hause",
       "nl": "Afstand van huis"
     },
-    "units": "m",
+    "units": "km",
+    "decimals": 2,
     "insights": false,
     "getable": true,
     "setable": false,
