@@ -77,7 +77,17 @@ module.exports = class LocationDevice extends ChildDevice {
       }
       await this.setCapabilityValue('measure_location_longitude', data.drive_state.longitude);
     }
+
+    if (this.hasCapability('measure_location_distance_from_home')){
+      let distance = this.getCoordinatesDistance(data.drive_state.latitude, data.drive_state.longitude, this.homey.geolocation.getLatitude(), this.homey.geolocation.getLongitude());
+      await this.setCapabilityValue('measure_location_distance_from_home', distance);
+    }
+
     if (locationChanged){
+
+      // let distance = this.getCoordinatesDistance(data.drive_state.latitude, data.drive_state.longitude, this.homey.geolocation.getLatitude(), this.homey.geolocation.getLongitude());
+      // await this.setCapabilityValue('measure_location_distance_from_home', distance);
+
       let address = await this._osm.getAddress( 
         data.drive_state.latitude, 
         data.drive_state.longitude, 

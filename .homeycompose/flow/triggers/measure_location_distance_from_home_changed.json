@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Distance from home changed",
+        "de": "Entfernung von zu Hause hat sich geändert",
+        "nl": "Afstand van huis veranderd"
+      },
+    "tokens": [
+        {
+            "name": "measure_location_distance_from_home",
+            "type": "number",
+            "title": {
+                "en": "Distance from home",
+                "de": "Entfernung von zu Hause",
+                "nl": "Afstand van huis"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

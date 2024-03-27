@@ -18,7 +18,9 @@
         "measure_location_latitude",
         "measure_location_longitude",
 
-        "measure_location_heading"
+        "measure_location_heading",
+
+        "measure_location_distance_from_home"
 
     ],
     "energy": {

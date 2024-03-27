@@ -1,0 +1,14 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Distance from home",
+      "de": "Entfernung von zu Hause",
+      "nl": "Afstand van huis"
+    },
+    "units": "m",
+    "insights": false,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "./assets/capability_icons/measure_location_distance_from_home.svg"
+  }
