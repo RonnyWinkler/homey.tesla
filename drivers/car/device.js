@@ -586,6 +586,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  // API Requests ===================================================================================
+  async getRequest(apiFunction, params){
+    this.log("Send REST request: API function: "+apiFunction+"; Parameter: ",params);
+    let result = await this.oAuth2Client[apiFunction](this.getData().id, params);
+    this.log("Send REST request: Success");
+    return result;
+  }
+
   // Commands =======================================================================================
   async _wakeUp(wait=true){
     this.log("Wake up the car...");
@@ -664,12 +672,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // Endpoints that will only work with REST API: 
           apiFunction != 'commandNavigateGpsRequest' &&
           apiFunction != 'commandNavigationRequest' &&
+          apiFunction != 'commandNavigateScRequest' &&
 
           apiFunction != 'commandMediaNextTrack' &&
           apiFunction != 'commandMediaPrevTrack' &&
-          apiFunction != 'commandMediaTogglePlayback' &&
-
-          apiFunction != 'commandChargingHistory'
+          apiFunction != 'commandMediaTogglePlayback'
         ){
       if (!await this.isAppRegistered()){
         try{

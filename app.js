@@ -228,6 +228,17 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     //   });
     // });
 
+    this.homey.flow.getActionCard('location_navigate_to_nearby_suc')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionNavigateToSuc(args.suc.id);
+		})
+    .registerArgumentAutocompleteListener('suc', async (query, args) => {
+      const nearbySucList = await args.device.getAutocompleteNearbySucList();
+      return nearbySucList.filter((result) => { 
+        return result.name.toLowerCase().includes(query.toLowerCase());
+      });
+    });
+
     this.homey.flow.getActionCard('media_next_fav')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionMediaNextFav();

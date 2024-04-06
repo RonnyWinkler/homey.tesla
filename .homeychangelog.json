@@ -185,5 +185,8 @@
   },
   "1.3.2": {
     "en": "Changed distance to home to km."
+  },
+  "1.3.3": {
+    "en": "Added 'Navigate to SuC' flow card (location device)."
   }
 }

@@ -1,0 +1,29 @@
+{
+    "title": {
+        "en": "Navigate to nearby SuC",
+        "de": "Navigiere zu nahegelegenem SuC",
+        "nl": "Navigeer naar dichtstbijzijnde SuC"
+    },
+    "titleFormatted": {
+      "en": "Navigate to nearby SuC [[suc]]",
+      "de": "Navigiere zu nahegelegenem SuC [[suc]]",
+      "nl": "Navigeer naar dichtstbijzijnde SuC [[suc]]"
+  },
+  "hint": {
+    "de": "Für den SuC-Abruf muss das Fahrzeug wach und wird deshalb geweckt.",
+    "en": "For the SuC retrieval the vehicle has to be awake and will be woken up.",
+    "nl": "Voor het ophalen van de SuC moet het voertuig wakker zijn en wordt het wakker gemaakt."
+  },
+  "args": [
+      {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+      },
+      {
+        "name": "suc",
+        "type": "autocomplete",
+          "title": "SuC"
+    }
+  ]
+}

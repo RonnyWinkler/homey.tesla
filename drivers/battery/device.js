@@ -331,7 +331,7 @@ module.exports = class BatteryDevice extends ChildDevice {
     await this.getCarDevice().sendCommand('commandDeactivateScheduledDeparture', {});
   }
 
-  async _commandChargingHistorySuc(days){
+  async _getChargingHistorySuc(days){
 
     let startTimeString;
     if (days != undefined){
@@ -374,7 +374,7 @@ module.exports = class BatteryDevice extends ChildDevice {
 
     }
 
-    return await this.getCarDevice().sendCommand('commandChargingHistory', {startTime: startTimeString});
+    return await this.getCarDevice().getRequest('getChargingHistory', {startTime: startTimeString});
   }
 
   // Helpers =======================================================================================
@@ -489,7 +489,7 @@ module.exports = class BatteryDevice extends ChildDevice {
   // Device =======================================================================================
 
   async getChargingHistorySuc(days){
-    let hist = await this._commandChargingHistorySuc(days);
+    let hist = await this._getChargingHistorySuc(days);
     let tz  = this.homey.clock.getTimezone();
     let result = [];
     for (let i=0; i<hist.length; i++){

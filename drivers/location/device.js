@@ -152,6 +152,20 @@ module.exports = class LocationDevice extends ChildDevice {
     return this.getLocations();
   }
 
+  async getAutocompleteNearbySucList(){
+    let result = [];
+    let list = await this._getNearbyChargingSites();
+    for (let i=0; i<list.superchargers.length; i++){
+      result.push({
+        id: list.superchargers[i].id,
+        name: list.superchargers[i].name + 
+              ' ('+list.superchargers[i].available_stalls + '/' + list.superchargers[i].total_stalls + ') '+
+              Math.round( list.superchargers[i].distance_miles * CONSTANTS.MILES_TO_KM *10)/10+ ' km'
+      });
+    }
+    return result;
+  }
+
   async flowTriggerLocationCoordinatesRunListener(args, state){
     this.log("flowTriggerLocationCoordinatesReachedRunListener()...");
     let locationState = await this._checkFlowTriggerCoordinates(args.latitude, args.longitude, args.url, args.distance, state);
@@ -302,6 +316,10 @@ module.exports = class LocationDevice extends ChildDevice {
     return locations;
   }
 
+  async getNearbyChargingSites(count, radius){
+    return await this._getNearbyChargingSites(count, radius);
+  }
+
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
@@ -445,7 +463,16 @@ module.exports = class LocationDevice extends ChildDevice {
     let time = Date.now().toString();
     await this.getCarDevice().sendCommand('commandNavigationRequest', {request, locale, time});
   }
+
+  async _commandNavigateScRequest(sucId, order){
+    await this.getCarDevice().sendCommand('commandNavigateScRequest', {sucId, order});
+  }
   
+  async _getNearbyChargingSites(count = 20, radius = Math.round(100/CONSTANTS.MILES_TO_KM)){
+    await this.getCarDevice().wakeUpIfNeeded();
+    return await this.getCarDevice().getRequest('getNearbyChargingSites', {count, radius});
+  }
+
   // FLOW ACTIONS =======================================================================================
 
   // // Test for changing coordinates 
@@ -554,4 +581,11 @@ module.exports = class LocationDevice extends ChildDevice {
     await this._commandNavigationRequest(request);
   }
 
+  async flowActionNavigateToSuc(sucId, order){
+    await this._commandNavigateScRequest(sucId, order);
+  }
+
+  async flowActionNavigateToNearbySuc(args){
+
+  }
 }
