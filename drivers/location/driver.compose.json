@@ -43,5 +43,16 @@
                 "prev": "list_devices"
             }
         }
+    ],
+    "repair": [
+        {
+            "id": "select"
+        },
+        {
+            "id": "nearest_suc",
+            "navigation": {
+                "prev": "select"
+            }
+        }
     ]
 }

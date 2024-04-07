@@ -1,0 +1,123 @@
+<style>
+    .button_nav {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    .img_nav {
+        width: 25px;
+    }
+</style>
+
+
+<script type="application/javascript">
+    Homey.setTitle(Homey.__("repair.location_nearest_suc.title"));
+</script>
+
+<div>
+    <table id="tableNearestSuc" class="display hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>km</th>
+                <th></th>
+                <th>Stalls</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="../../../assets/js/dataTables.css"/>
+<script src="../../../assets/js/dataTables.js"></script>
+
+<script type="application/javascript">
+
+    async function getNearestSucList(){
+        return await Homey.emit('get_nearest_suc_list');
+    }
+
+    async function navigateToSuc(id){
+        if (await Homey.confirm( 'Navigate tu SuC?') ){
+            return await Homey.emit('navigate_to_suc', id);
+        }
+    }
+
+    (async function () {
+        let nearestSucList = await getNearestSucList();
+        let table = new DataTable('#tableNearestSuc', {
+            searching: true,
+            paging: true,
+            pagingType: 'full_numbers',
+            scrollX: true,
+            select: {
+                items: 'row'
+            },
+            data: nearestSucList,
+            order: [[1, 'asc']],
+            columns: [
+                { 
+                    data: 'id', 
+                    render: function (data, type, row, meta) {
+                        // return '<p style="white-space: nowrap;">' + data + '</p>';
+                        return '<button onClick="navigateToSuc('+data+');" class="button_nav">'+
+                        '<img src="nav.svg" class="img_nav">'+
+                        '</button>';
+                        // '<a href="javascript:navigateToSuc('+data+');">' + data + '</a>'
+                    }
+                },
+                { data: 'distance' },
+                { data: 'compass' },
+                { data: 'stalls' },
+                { 
+                    data: 'name', 
+                    render: function (data, type, row, meta) {
+                        return '<p style="white-space: nowrap;">' + data + '</p>';
+                        // return '<p style="white-space: nowrap;"><a href="javascript:navigateToSuc('+row+', '+data+');">' + data + '</a></p>';
+                    }
+                }
+            ],
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'All']
+            ],
+            layout: {
+                topStart: {
+                    'search' :{
+                        text: ''
+                    }
+                },
+                topEnd: null,
+                bottomStart: null,
+                bottomEnd: null,
+                bottom: 'paging',
+                bottom2: 'info'
+            },
+            language: {
+                emptyTable: 'No data available or car is offline.'
+            }
+        });
+    })();
+
+    $(document).on('select.dt', function (e, dt, type, indexes) {
+        Homey.alert('Selected');
+    // if (type === 'row') {
+        var data = table
+            .rows(indexes)
+            .data()
+            .pluck('id');
+        Homey.alert(data);
+        // do something with the ID of the selected items
+        // }
+    });
+</script>

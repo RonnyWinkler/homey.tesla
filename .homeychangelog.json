@@ -188,5 +188,8 @@
   },
   "1.3.3": {
     "en": "Added 'Navigate to SuC' flow card (location device)."
+  },
+  "1.3.4": {
+    "en": "Added 'nearest SuC' list to location repair view."
   }
 }

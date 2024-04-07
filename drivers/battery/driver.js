@@ -32,7 +32,7 @@ module.exports = class BatteryDriver extends Homey.Driver {
 
     session.setHandler("get_charging_history_suc", async () => {
       return await this.getChargingHistorySuc(session, device);
-  });
+    });
 
   } // end onPair
 

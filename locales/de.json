@@ -41,6 +41,13 @@
         },
         "charging_history_suc":{
             "title": "SuC Ladehistorie"
+        },
+        "location_select":{
+            "title": "Auswahl",
+            "nearest_suc": "Nächster SuC"
+        },
+        "location_nearest_suc":{
+            "title": "Nächster SuC"
         }
     },
     "devices":{

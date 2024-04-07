@@ -158,9 +158,10 @@ module.exports = class LocationDevice extends ChildDevice {
     for (let i=0; i<list.superchargers.length; i++){
       result.push({
         id: list.superchargers[i].id,
-        name: list.superchargers[i].name + 
-              ' ('+list.superchargers[i].available_stalls + '/' + list.superchargers[i].total_stalls + ') '+
-              Math.round( list.superchargers[i].distance_miles * CONSTANTS.MILES_TO_KM *10)/10+ ' km'
+        name: list.superchargers[i].name, 
+        description: list.superchargers[i].available_stalls + '/' + list.superchargers[i].total_stalls + ', '+
+              Math.round( list.superchargers[i].distance_miles * CONSTANTS.MILES_TO_KM *10)/10+ ' km',
+        
       });
     }
     return result;
@@ -320,6 +321,10 @@ module.exports = class LocationDevice extends ChildDevice {
     return await this._getNearbyChargingSites(count, radius);
   }
 
+  async navigateToSuc(sucId){
+    await this._commandNavigateScRequest(sucId);
+  }
+
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
@@ -403,6 +408,24 @@ module.exports = class LocationDevice extends ChildDevice {
     dist = dist * 60 * 1.1515 * 1.609344 * 1000; // result in meters
     dist = dist < 1 ? 0 : Math.round(dist);
     return dist;
+  }
+
+  getCoordinatesBearing(lat1, lon1, lat2, lon2) {
+    var radians = getAtan2((lon1 - lon2), (lat1 - lat2));
+
+    function getAtan2(y, x) {
+        return Math.atan2(y, x);
+    };
+
+    var compassReading = radians * (180 / Math.PI);
+
+    var coordNames = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
+    var coordIndex = Math.round(compassReading / 45);
+    if (coordIndex < 0) {
+        coordIndex = coordIndex + 8
+    };
+
+    return coordNames[coordIndex]; // returns the coordinate value
   }
 
   async getGoogleMapsCoordinates(url){
@@ -585,7 +608,4 @@ module.exports = class LocationDevice extends ChildDevice {
     await this._commandNavigateScRequest(sucId, order);
   }
 
-  async flowActionNavigateToNearbySuc(args){
-
-  }
 }
