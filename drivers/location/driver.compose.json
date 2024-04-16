@@ -53,6 +53,12 @@
             "navigation": {
                 "prev": "select"
             }
+        },
+        {
+            "id": "nearest_dest",
+            "navigation": {
+                "prev": "select"
+            }
         }
     ]
 }

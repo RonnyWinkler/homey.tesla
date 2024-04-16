@@ -43,10 +43,16 @@
         },
         "location_select":{
             "title": "Selection",
-            "nearest_suc": "Nearest SuC"
+            "nearest_suc": "Nearest Supercharger",
+            "nearest_dest": "Nearest Destination Charger"
         },
         "location_nearest_suc":{
-            "title": "Nearest SuC"
+            "title": "Nearest Supercharger",
+            "navigate": "Navigate to Supercharger?"
+        },
+        "location_nearest_dest":{
+            "title": "Nearest Destination Charger",
+            "navigate": "Navigate to Destination Charger?"
         }
     },
     "devices":{

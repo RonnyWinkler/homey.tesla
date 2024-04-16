@@ -12,18 +12,17 @@
 
 
 <script type="application/javascript">
-    Homey.setTitle(Homey.__("repair.location_nearest_suc.title"));
+    Homey.setTitle(Homey.__("repair.location_nearest_dest.title"));
 </script>
 
 <div>
-    <table id="tableNearestSuc" class="display hover">
+    <table id="tableNearestDest" class="display hover">
         <thead>
             <tr>
                 <th>Nav</th>
                 <th>Map</th>
                 <th>km</th>
                 <th></th>
-                <th>Stalls</th>
                 <th>Name</th>
             </tr>
         </thead>
@@ -44,13 +43,13 @@
 
 <script type="application/javascript">
 
-    async function getNearestSucList(){
-        return await Homey.emit('get_nearest_suc_list');
+    async function getNearestDestList(){
+        return await Homey.emit('get_nearest_dest_list');
     }
 
-    async function navigateToSuc(id){
-        if (await Homey.confirm( Homey.__("repair.location_nearest_suc.navigate")) ){
-            return await Homey.emit('navigate_to_suc', id);
+    async function navigateToDest(id){
+        if (await Homey.confirm( Homey.__("repair.location_nearest_dest.navigate")) ){
+            return await Homey.emit('navigate_to_dest', id);
         }
     }
 
@@ -59,8 +58,8 @@
     }
 
     (async function () {
-        let nearestSucList = await getNearestSucList();
-        let table = new DataTable('#tableNearestSuc', {
+        let nearestSucList = await getNearestDestList();
+        let table = new DataTable('#tableNearestDest', {
             searching: true,
             paging: true,
             pagingType: 'full_numbers',
@@ -75,7 +74,7 @@
                     data: 'id', 
                     render: function (data, type, row, meta) {
                         // return '<p style="white-space: nowrap;">' + data + '</p>';
-                        return '<button onClick="navigateToSuc('+data+');" class="button_nav">'+
+                        return '<button onClick="navigateToDest('+data+');" class="button_nav">'+
                         '<img src="nav.svg" class="img_nav">'+
                         '</button>';
                         // '<a href="javascript:navigateToSuc('+data+');">' + data + '</a>'
@@ -93,7 +92,6 @@
                 },
                 { data: 'distance' },
                 { data: 'compass' },
-                { data: 'stalls' },
                 { 
                     data: 'name', 
                     render: function (data, type, row, meta) {

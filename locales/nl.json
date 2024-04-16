@@ -43,10 +43,16 @@
         },
         "location_select":{
             "title": "Selectie",
-            "nearest_suc": "Dichtstbijzijnde SuC"
+            "nearest_suc": "Dichtstbijzijnde Supercharger",
+            "nearest_dest": "Dichtstbijzijnde Destination Charger"
         },
         "location_nearest_suc":{
-            "title": "Dichtstbijzijnde SuC"
+            "title": "Dichtstbijzijnde Supercharger",
+            "navigate": "Navigeren naar Supercharger?"
+        },
+        "location_nearest_dest":{
+            "title": "Dichtstbijzijnde Destination Charger",
+            "navigate": "Navigeren naar Destination Charger?"
         }
     },
     "devices":{

@@ -19,9 +19,18 @@ module.exports = class LocationDriver extends Homey.Driver {
         return await this.getNearestSucList(session, device);
     });
 
+    session.setHandler("get_nearest_dest_list", async () => {
+      return await this.getNearestDestList(session, device);
+    });
+
     session.setHandler("navigate_to_suc", async (id) => {
       return await this.onNavigateToSuc(session, device, id);
     });
+
+    session.setHandler("navigate_to_dest", async (id) => {
+      return await this.onNavigateToDest(session, device, id);
+    });
+
   } // end onPair
 
   async onPairListDevices(session) {
@@ -55,6 +64,7 @@ module.exports = class LocationDriver extends Homey.Driver {
     catch(eror){
       return result;
     };
+
     for (let i=0; i<list.superchargers.length; i++){
       let distance = Math.round( list.superchargers[i].distance_miles * CONSTANTS.MILES_TO_KM *10)/10;
       let compass = device.getCoordinatesBearing( 
@@ -69,12 +79,47 @@ module.exports = class LocationDriver extends Homey.Driver {
         name: list.superchargers[i].name,
         distance:  distance,
         stalls: (list.superchargers[i].available_stalls == undefined? '?' : list.superchargers[i].available_stalls) + '/' + (list.superchargers[i].total_stalls == undefined? '?' : list.superchargers[i].total_stalls),
-        compass: compass
+        compass: compass,
+        latitude: list.superchargers[i].location.lat,
+        longitude: list.superchargers[i].location.long,
+        coordinates: list.superchargers[i].location.lat+','+list.superchargers[i].location.long
       });
     }
     return result;
   }
 
+  async getNearestDestList(session, device) {
+    let result = [];
+    let list = [];
+    try{
+      list = await device.getNearbyChargingSites(50, 200);
+    }
+    catch(eror){
+      return result;
+    };
+
+    for (let i=0; i<list.destination_charging.length; i++){
+      let distance = Math.round( list.destination_charging[i].distance_miles * CONSTANTS.MILES_TO_KM *10)/10;
+      let compass = device.getCoordinatesBearing( 
+        list.destination_charging[i].location.lat, 
+        list.destination_charging[i].location.long,
+        device.getCapabilityValue('measure_location_latitude'),
+        device.getCapabilityValue('measure_location_longitude')
+      );
+      result.push({
+        nr: i+1,
+        id: list.destination_charging[i].id,
+        name: list.destination_charging[i].name,
+        distance:  distance,
+        compass: compass,
+        latitude: list.destination_charging[i].location.lat,
+        longitude: list.destination_charging[i].location.long,
+        coordinates: list.destination_charging[i].location.lat+','+list.destination_charging[i].location.long
+      });
+    }
+    return result;
+  }
+  
   async onNavigateToSuc(session, device, id) {
     let result = false;
     try{
@@ -86,4 +131,17 @@ module.exports = class LocationDriver extends Homey.Driver {
     }
     return result;
   }
+
+  async onNavigateToDest(session, device, id) {
+    let result = false;
+    try{
+      result = await device.navigateToSuc(id);
+    }
+    catch(error){
+      this.log("Error navigating to supercharger: " + error);
+      throw error;
+    }
+    return result;
+  }
+
 }

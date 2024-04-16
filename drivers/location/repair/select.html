@@ -18,6 +18,10 @@
         Homey.showView("nearest_suc");
     }
 
+    function onSelectNearestDest(){
+        Homey.showView("nearest_dest");
+    }
+
 </script>
 
 <div>
@@ -25,6 +29,11 @@
         <div>
             <p>
                 <button id="btnNearestSuc" class="homey-button-primary-full" onClick="onSelectNearestSuc()"><span data-i18n="repair.location_select.nearest_suc"></span></button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button id="btnNearestDest" class="homey-button-primary-full" onClick="onSelectNearestDest()"><span data-i18n="repair.location_select.nearest_dest"></span></button>
             </p>
         </div>
     <!-- </fieldset> -->
