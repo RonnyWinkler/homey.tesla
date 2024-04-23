@@ -200,5 +200,8 @@
   },
   "1.4.0": {
     "en": "Version update (publish live version including all changes since 1.3.0)."
+  },
+  "1.4.1": {
+    "en": "Added car state check before sending commands."
   }
 }

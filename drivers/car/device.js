@@ -600,7 +600,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let state = await this.getCarState();
     if (state == CONSTANTS.STATE_ONLINE){
       this.log("Car is already online.");
-      return true;
+      return state;
     }
     await this.oAuth2Client.commandWakeUp(this.getData().id);
     if (wait){
@@ -613,7 +613,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           this.log("Wake up the car...Car is online now");
           // automatically sync data after wake up
           await this._sync()
-          return true;
+          return state;
         }
         // Send wake up call again every 10 seconds
         if ( ((i+1) % RETRY_ON_WAKE_UP) == 0 ){
@@ -621,6 +621,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           await this.oAuth2Client.commandWakeUp(this.getData().id);
         }
       }
+    }
+    else{
+      // return state retrieved by first check (without waiting for result)
+      return state;
     }
     this.log("Wake up the car...Car is not online yet.");
     let error = new Error("Waking up the vehicle was not successful.");
@@ -630,13 +634,28 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async wakeUpIfNeeded(){
     if (this.getSetting('command_wake_up')){
-      await this._wakeUp(true);
+      // return state retrieved by wakeUp()
+      return await this._wakeUp(true);
+    }
+    else{
+      // return undefined as car state (not)
+      return undefined;
     }
   }
 
   async sendCommand(apiFunction, params){
     try{
-      await this.wakeUpIfNeeded();
+      // Wake up the car if needed
+      let state = await this.wakeUpIfNeeded();
+      // If wakeUp is processed, the car state is returned. If not, "undefined" is returned.
+      // Check online state if not already done.
+      if ( state == undefined){
+        state = await this.getCarState();
+      }
+      if (state != CONSTANTS.STATE_ONLINE){
+        throw new Error("Car is offline. Sending commands is not possible.");
+      }
+
       let retryCount = 0;
       if (this._settings.command_retry){
         retryCount = RETRY_COUNT - 1;
