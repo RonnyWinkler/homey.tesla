@@ -352,6 +352,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       return (args.device.getCapabilityValue('car_sentry_mode'));
     })
 
+    this.homey.flow.getConditionCard('car_user_present')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('car_user_present'));
+    })
+
     this.homey.flow.getConditionCard('climate_steering_wheel_heat_level')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('climate_steering_wheel_heat_level') == args.level);

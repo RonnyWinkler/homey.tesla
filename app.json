@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -380,6 +380,36 @@
           }
         ],
         "id": "car_state_changed"
+      },
+      {
+        "title": {
+          "en": "User detected as absent",
+          "de": "Benutzer als abwesend erkannt",
+          "nl": "Gebruiker gedetecteerd als afwezig"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_user_present_false"
+      },
+      {
+        "title": {
+          "en": "User detected as present",
+          "de": "Benutzer als anwesend erkannt",
+          "nl": "Gebruiker gedetecteerd als aanwezig"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_user_present_true"
       },
       {
         "highlight": true,
@@ -1959,6 +1989,21 @@
           }
         ],
         "id": "car_state"
+      },
+      {
+        "title": {
+          "en": "User !{{is|isn't}} present",
+          "de": "Benutzer !{{ist|ist nicht}} anwesend",
+          "nl": "Gebruiker !{{is|is niet}} aanwezig"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_user_present"
       },
       {
         "title": {
@@ -4070,7 +4115,8 @@
         "car_doors_locked",
         "car_sentry_mode",
         "car_trunk_rear",
-        "car_trunk_front"
+        "car_trunk_front",
+        "car_user_present"
       ],
       "energy": {
         "batteries": [
@@ -5240,6 +5286,39 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/car_trunk_rear.svg"
+    },
+    "car_user_present": {
+      "type": "boolean",
+      "title": {
+        "en": "User is present",
+        "de": "Benutzer anwesend",
+        "nl": "Gebruiker aanwezig"
+      },
+      "titleTrue": {
+        "en": "User is present",
+        "de": "Benutzer anwesend",
+        "nl": "Gebruiker aanwezig"
+      },
+      "titleFasle": {
+        "en": "User is absent",
+        "de": "Benutzer abwesend",
+        "nl": "Gebruiker afwezig"
+      },
+      "insightsTitleTrue": {
+        "en": "User is present",
+        "de": "Benutzer anwesend",
+        "nl": "Gebruiker aanwezig"
+      },
+      "insightsTitleFalse": {
+        "en": "User is absent",
+        "de": "Benutzer abwesend",
+        "nl": "Gebruiker afwezig"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/car_user_present.svg"
     },
     "car_wake_up": {
       "type": "boolean",

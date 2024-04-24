@@ -372,11 +372,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _updateDevice(data){
     // Car state
-    if (this.hasCapability('car_doors_locked') && data.charge_state && data.vehicle_state.locked != undefined){
+    if (this.hasCapability('car_doors_locked') && data.vehicle_state.locked != undefined){
       await this.setCapabilityValue('car_doors_locked', !data.vehicle_state.locked);
     }
-    if (this.hasCapability('car_sentry_mode') && data.charge_state && data.vehicle_state.sentry_mode != undefined){
+    if (this.hasCapability('car_sentry_mode') && data.vehicle_state.sentry_mode != undefined){
       await this.setCapabilityValue('car_sentry_mode', data.vehicle_state.sentry_mode);
+    }
+
+    // User prersent?
+    if (this.hasCapability('car_user_present') && data.vehicle_state.is_user_present != undefined){
+      await this.setCapabilityValue('car_user_present', data.vehicle_state.is_user_present);
     }
 
     // Battery

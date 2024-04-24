@@ -203,5 +203,8 @@
   },
   "1.4.1": {
     "en": "Added car state check before sending commands."
+  },
+  "1.4.2": {
+    "en": "Added user presence for car device (flow trigger and condition)."
   }
 }

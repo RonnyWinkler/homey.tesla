@@ -1,0 +1,33 @@
+{
+    "type": "boolean",
+    "title": {
+      "en": "User is present",
+      "de": "Benutzer anwesend",
+      "nl": "Gebruiker aanwezig"
+    },
+    "titleTrue":{
+      "en": "User is present",
+      "de": "Benutzer anwesend",
+      "nl": "Gebruiker aanwezig"
+    },
+    "titleFasle":{
+      "en": "User is absent",
+      "de": "Benutzer abwesend",
+      "nl": "Gebruiker afwezig"      
+    },
+    "insightsTitleTrue":{
+      "en": "User is present",
+      "de": "Benutzer anwesend",
+      "nl": "Gebruiker aanwezig"
+    },
+    "insightsTitleFalse":{
+      "en": "User is absent",
+      "de": "Benutzer abwesend",
+      "nl": "Gebruiker afwezig"      
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": null,
+    "icon": "./assets/capability_icons/car_user_present.svg"
+  }

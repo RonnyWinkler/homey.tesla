@@ -1,0 +1,14 @@
+{
+    "title": {
+        "en": "User !{{is|isn't}} present",
+        "de": "Benutzer !{{ist|ist nicht}} anwesend",
+        "nl": "Gebruiker !{{is|is niet}} aanwezig"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}
