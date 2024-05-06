@@ -68,6 +68,10 @@
         {
           "$extends": "api_state",
           "id": "api_state"
+        },
+        {
+          "$extends": "api_rate_limit",
+          "id": "api_rate_limit"
         }
       ]
     },

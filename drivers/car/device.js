@@ -3,6 +3,7 @@ const Homey = require('homey');
 const { CarServer } = require('../../lib/CarServer.js');
 const Eckey = require('eckey-utils');
 const crypt = require('../../lib/crypt');
+const SlidingWindowLog = require('../../lib/SlidingWindowLog.js');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
@@ -40,6 +41,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // }
     }, CAPABILITY_DEBOUNCE);
 
+    // Rate limit log
+    this.rateLimitLog = new SlidingWindowLog();
 
     this._settings = this.getSettings();
     await this._startSync();
@@ -162,6 +165,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         };
         await this.homey.flow.getDeviceTriggerCard('alarm_api_error_on').trigger(this, tokens);
       }
+      // // Add readable message for http-426 (update required)
+      // if (error.status == 426 || error.status == 412){
+      //   error.message = 'App update required. Please update the app in the Homey app store or enable automatic updates.';
+      // }
     }
     catch(error){
       this.log(error);
@@ -288,6 +295,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.getCarData();
       await this.handleApiOk();
       this.setAvailable();
+
+      // Update rate limit state
+      this.rateLimitLog.refresh();
+      await this.setSettings({
+        api_rate_limit: this.rateLimitLog.getState() + ' %'
+      });
+
     }
     catch(error){
       this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
@@ -650,6 +664,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async sendCommand(apiFunction, params){
     try{
+      try{
+        this.rateLimitLog.add();
+        this.log("RateLimit: "+this.rateLimitLog.getState()+"%");
+        await this.setSettings({
+          api_rate_limit: this.rateLimitLog.getState() + ' %'
+        });
+      }
+      catch(error){
+        this.log("RateLimit exeeded: "+this.rateLimitLog.getState()+"%");
+        await this.setSettings({
+          api_rate_limit: this.rateLimitLog.getState() + ' %'
+        });
+        throw error;
+      }
       // Wake up the car if needed
       let state = await this.wakeUpIfNeeded();
       // If wakeUp is processed, the car state is returned. If not, "undefined" is returned.

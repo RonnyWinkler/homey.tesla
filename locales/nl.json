@@ -64,7 +64,8 @@
             "command_pair_state_paired": "gepaard",
             "command_pair_state_unpaired": "ongepaard",
             "command_pair_state_undefined": "onbekend",
-            "app_not_registered": "App is niet geregistreerd in de auto. Registreer u via het reparatieproces van het autoapparaat."
+            "app_not_registered": "App is niet geregistreerd in de auto. Registreer u via het reparatieproces van het autoapparaat.",
+            "command_error_426": "App-update vereist. Update de app in de Homey app store of schakel automatische updates in."
         }
     },
     "app":{

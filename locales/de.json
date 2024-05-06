@@ -65,7 +65,8 @@
             "command_pair_state_paired": "verbunden",
             "command_pair_state_unpaired": "nicht verbunden",
             "command_pair_state_undefined": "nicht bekannt",
-            "app_not_registered": "App ist nicht im Auto registriert. Registrieren die App im 'Reparieren'-Dialog des Auto-Gerät."
+            "app_not_registered": "App ist nicht im Auto registriert. Registrieren die App im 'Reparieren'-Dialog des Auto-Gerät.",
+            "command_error_426": "App-Update erforderlich. Bitte aktualisiere die App im Homey App-Store oder aktiviere automatische App-Updates."
         }
     },
     "app":{
