@@ -212,5 +212,8 @@
   },
   "1.4.4": {
     "en": "Added rate limit and app version check for proxy commands."
+  },
+  "1.5.0": {
+    "en": "Version update (publish live version including all changes since 1.4.1)."
   }
 }
