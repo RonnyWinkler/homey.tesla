@@ -30,6 +30,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await super.onOAuth2Init();
 
     await this._updateCapabilities();
+    await this._updateSettings();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
       // try{
@@ -116,6 +117,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  async _updateSettings(){
+    // remove location check settings
+    // let settings = this.getSettings();
+    // if (settings['polling_location'] != undefined){
+    //   settings['polling_location'] = null;
+    //   await this.setSettings(settings);
+    // }
+  }
+
   async handleApiOk(){
     try{
       await this.setSettings({
@@ -175,6 +185,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  isPollingLocationActive(){
+    let result = false;
+    let device = this.homey.drivers.getDriver('location').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];
+    if (device != undefined){
+      result = true;
+    }
+
+    return result;
+  }
+
   // SETTINGS =======================================================================================
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -226,68 +246,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   // SYNC =======================================================================================
-
-  // async _sync() {
-  //   this.log("Car data request...");
-  //   let state;
-  //   // Step 1: Get car status (online/offline/asleep) and check device availability
-  //   try{
-  //     // get current device state
-  //     state = await this.getCarState();
-  //     this.setAvailable();
-  //   }
-  //   catch(error){
-  //     this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
-  //     this.setUnavailable(error.message).catch(this.error);
-  //     await this.handleApiError(error);
-  //   };
-
-  //   // Step 2: Get car data, verify ONLINE state with a direct car request 
-  //   if (state == CONSTANTS.STATE_ONLINE){
-  //     try{
-  //       // update the device
-  //       await this.getCarData();
-  //       await this.handleApiOk();
-  //     }
-  //     catch(error){
-  //       this.log("Device update error (getData): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
-  //       await this.handleApiError(error);
-  //     }
-  //   }
-  //   else{
-  //     await this.handleApiOk();
-  //   }
-  // }
-
-  // Read cas status (onlien or not)
-  // async getCarState(){
-  //   let oldState = this.getCapabilityValue('car_state');
-  //   let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
-
-  //   this.log("Car state: ", vehicle.state);
-
-  //   // If state changed, then adjust sync interval
-  //   if (vehicle.state != oldState){
-  //     // Update state only if != ONLINE. Check ONLINE state in getCarData( ) to verify direct online request.
-  //     if (vehicle.state != CONSTANTS.STATE_ONLINE){
-  //       await this.setCapabilityValue('car_state', vehicle.state);
-  //       let time = this._getLocalTimeString(new Date());
-  //       await this.setCapabilityValue('last_update', time);
-  //     }
-
-  //     // From asleep to online/offline or back?
-  //     // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
-  //     if (
-  //         ( vehicle.state == CONSTANTS.STATE_ASLEEP && oldState != CONSTANTS.STATE_ASLEEP )
-  //           ||
-  //         ( vehicle.state != CONSTANTS.STATE_ASLEEP && oldState == CONSTANTS.STATE_ASLEEP )
-  //     ){
-  //       this._startSync(vehicle.state);
-  //     }
-  //   }
-  //   return vehicle.state;
-  // }
-
   async _sync() {
     this.log("Car data request...");
     try{
@@ -301,6 +259,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setSettings({
         api_rate_limit: this.rateLimitLog.getState() + ' %'
       });
+      if (this.hasCapability('measure_api_rate_limit')){
+        this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+      }
 
     }
     catch(error){
@@ -339,7 +300,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // car data
     let query = ['charge_state', 'climate_state', 'closures_state', 'drive_state', 'gui_settings', 'vehicle_config', 'vehicle_state'];
-    if (this._settings.polling_location){
+    // if (this._settings.polling_location){
+    if (this.isPollingLocationActive()){
       query.push('location_data');
     }
     let data = {};
@@ -670,12 +632,18 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.setSettings({
           api_rate_limit: this.rateLimitLog.getState() + ' %'
         });
+        if (this.hasCapability('measure_api_rate_limit')){
+          this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+        }
       }
       catch(error){
         this.log("RateLimit exeeded: "+this.rateLimitLog.getState()+"%");
         await this.setSettings({
           api_rate_limit: this.rateLimitLog.getState() + ' %'
         });
+        if (this.hasCapability('measure_api_rate_limit')){
+          this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+        }
         throw error;
       }
       // Wake up the car if needed

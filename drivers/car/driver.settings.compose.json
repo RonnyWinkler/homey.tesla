@@ -26,10 +26,6 @@
         {
           "$extends": "polling_unit_offline",
           "id": "polling_unit_offline"
-        },
-        {
-          "$extends": "polling_location",
-          "id": "polling_location"
         }
       ]
     },

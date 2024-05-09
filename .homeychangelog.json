@@ -215,5 +215,8 @@
   },
   "1.5.0": {
     "en": "Version update (publish live version including all changes since 1.4.1)."
+  },
+  "1.5.1": {
+    "en": "Added insights and flows for rate limit usage. Changed location request: requested if a location device is present."
   }
 }

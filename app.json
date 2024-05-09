@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1084,6 +1084,32 @@
           }
         ],
         "id": "location_left_or_reached"
+      },
+      {
+        "title": {
+          "en": "API rate limit changed",
+          "de": "API Rate Limit hat sich geändert",
+          "nl": "API rate limiet gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_rate_limit",
+            "type": "number",
+            "title": {
+              "en": "API rate limit usage in %",
+              "de": "API Rate Limit Nutzung in %",
+              "nl": "API rate limiet gebruik in %"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_rate_limit_changed"
       },
       {
         "title": {
@@ -4108,15 +4134,16 @@
         "measure_car_tpms_pressure_fr",
         "measure_car_tpms_pressure_rl",
         "measure_car_tpms_pressure_rr",
-        "alarm_api_error",
-        "api_error",
         "car_refresh",
         "car_wake_up",
         "car_doors_locked",
         "car_sentry_mode",
         "car_trunk_rear",
         "car_trunk_front",
-        "car_user_present"
+        "alarm_api_error",
+        "api_error",
+        "car_user_present",
+        "measure_api_rate_limit"
       ],
       "energy": {
         "batteries": [
@@ -4275,21 +4302,6 @@
                   }
                 }
               ]
-            },
-            {
-              "id": "polling_location",
-              "type": "checkbox",
-              "value": false,
-              "label": {
-                "en": "Read location",
-                "de": "Standort lesen",
-                "nl": "Locatie lezen"
-              },
-              "hint": {
-                "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
-                "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
-                "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'."
-              }
             }
           ]
         },
@@ -5975,6 +5987,21 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
+    },
+    "measure_api_rate_limit": {
+      "type": "number",
+      "title": {
+        "en": "API rate limit",
+        "de": "API Rate Limit",
+        "nl": "API rate limiet"
+      },
+      "units": "%",
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
     },
     "measure_car_drive_speed": {
       "type": "number",

@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "API rate limit",
+      "de": "API Rate Limit",
+      "nl": "API rate limiet"
+    },
+    "units": "%",
+    "decimals": 0,
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "uiComponent": null,
+    "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
+  }

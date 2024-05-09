@@ -32,8 +32,6 @@
         "measure_car_tpms_pressure_rr",
 
 
-        "alarm_api_error",
-        "api_error",
 
         "car_refresh",
         "car_wake_up",
@@ -44,7 +42,12 @@
         "car_trunk_rear",
         "car_trunk_front",
 
-        "car_user_present"
+
+        "alarm_api_error",
+        "api_error",
+
+        "car_user_present",
+        "measure_api_rate_limit"
     ],
     "energy": {
         "batteries": [

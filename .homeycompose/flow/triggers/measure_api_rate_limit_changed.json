@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "API rate limit changed",
+        "de": "API Rate Limit hat sich geändert",
+        "nl": "API rate limiet gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_api_rate_limit",
+            "type": "number",
+            "title": {
+                "en": "API rate limit usage in %",
+                "de": "API Rate Limit Nutzung in %",
+                "nl": "API rate limiet gebruik in %"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}
