@@ -700,7 +700,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         ){
       if (!await this.isAppRegistered()){
         try{
-          this.homey.notifications.createNotification({excerpt: this.homey.__("devices.car.app_not_registered")});
+          await this.homey.notifications.createNotification({excerpt: this.homey.__("devices.car.app_not_registered")});
         }
         catch(error){
           this.log('Error sending notification: '+error.message)

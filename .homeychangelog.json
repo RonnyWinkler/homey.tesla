@@ -221,5 +221,8 @@
   },
   "1.5.2": {
     "en": "Force IPv4 instead of IPv6 in auth process."
+  },
+  "1.5.3": {
+    "en": "Extended error handling."
   }
 }
