@@ -1,0 +1,46 @@
+{
+    "type": "enum",
+    "title": {
+      "en": "Climate control mode",
+      "de": "Klimatisierungsoption",
+      "nl": "Klimaatregelingsoptie"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker",
+    "values": [
+      {
+        "id": "off",
+        "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit"
+        }
+      },
+      {
+        "id": "on",
+        "title": {
+          "en": "Keep activated",
+          "de": "Aktiviert lassen",
+          "nl": "Actief houden"
+        }
+      },
+      {
+        "id": "dog",
+        "title": {
+          "en": "Dog mode",
+          "de": "Hundemodus",
+          "nl": "Hondenmodus"
+        }
+      },
+      {
+        "id": "camp",
+        "title": {
+          "en": "Camp mode",
+          "de": "Camping-Modus",
+          "nl": "Kampeermodus"
+        }
+      }
+  ]
+}

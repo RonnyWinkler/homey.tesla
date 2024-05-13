@@ -130,6 +130,10 @@ module.exports = class ClimateDevice extends ChildDevice {
         await this.setCapabilityValue('climate_overheat_protection_level', 'high' );
       }
     }
+    // Climate keeper mode
+    if (this.hasCapability('climate_keeper_mode') && data.climate_state && data.climate_state.climate_keeper_mode != undefined){
+      await this.setCapabilityValue('climate_keeper_mode', data.climate_state.climate_keeper_mode );
+    }
 
     // Steering wheel heating
     if (this.hasCapability('climate_steering_wheel_heat_level') && 
@@ -198,6 +202,10 @@ module.exports = class ClimateDevice extends ChildDevice {
   async _commandOverheatprotectionLevel(level){
     await this.getCarDevice().sendCommand('commandOverheatprotectionLevel', {level});
   }
+  // Klima-Modus
+  async _commandClimateKeeperMode(mode){
+    await this.getCarDevice().sendCommand('commandClimateKeeperMode', {mode});
+  }
 
   async _commandDefrost(on){
     await this.getCarDevice().sendCommand('commandDefrost', {on});
@@ -257,6 +265,12 @@ module.exports = class ClimateDevice extends ChildDevice {
       );
     }
 
+    if( capabilityValues["climate_keeper_mode"] != undefined){
+      await this._commandClimateKeeperMode(
+        capabilityValues["climate_keeper_mode"]
+      );
+    }
+
     if( capabilityValues["climate_defrost"] != undefined){
       await this._commandDefrost(
         capabilityValues["climate_defrost"]
@@ -291,6 +305,11 @@ module.exports = class ClimateDevice extends ChildDevice {
   async flowActionOverheatprotectionLevel(level){
     await this._commandOverheatprotectionLevel(level);
     await this.setCapabilityValue('climate_overheat_protection_level', level );
+  }
+
+  async flowActionClimateKeeperMode(mode){
+    await this._commandClimateKeeperMode(mode);
+    await this.setCapabilityValue('climate_keeper_mode', mode );
   }
 
   async flowActionDefrost(on){

@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Climate control mode changed",
+        "de": "Klimatisierungsoption geändert",
+        "nl": "Klimaatregelingsoptie gewijzigd"
+      },
+    "tokens": [{
+            "name": "climate_keeper_mode",
+            "type": "string",
+            "title": {
+                "en": "Climate keeper mode",
+                "de": "Klimaüberwachungsmodus",
+                "nl": "Klimaatbewakingsmodus"
+                      },
+            "example": "dog"
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=climate"
+    }]
+}

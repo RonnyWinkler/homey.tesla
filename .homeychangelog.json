@@ -224,5 +224,8 @@
   },
   "1.5.3": {
     "en": "Extended error handling."
+  },
+  "1.5.4": {
+    "en": "Force IPv4 instead of IPv6 for command proxy."
   }
 }

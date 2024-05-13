@@ -105,6 +105,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionOverheatprotectionLevel(args.level);
 		});
 
+    this.homey.flow.getActionCard('climate_keeper_mode')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionClimateKeeperMode(args.mode);
+		});
+
     this.homey.flow.getActionCard('climate_steering_wheel_heat_level')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionSteeringWheelHeatLevel(args.level);
@@ -310,6 +315,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getConditionCard('climate_overheat_protection_level')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('climate_overheat_protection_level') == args.level);
+    })
+
+    this.homey.flow.getConditionCard('climate_keeper_mode')
+    .registerRunListener(async (args, state) => {
+      return (args.device.getCapabilityValue('climate_keeper_mode') == args.mode);
     })
 
     this.homey.flow.getConditionCard('climate_preconditioning')
