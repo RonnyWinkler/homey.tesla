@@ -12,6 +12,8 @@
     "class": "sensor",
     "connectivity": [ "cloud" ],
     "capabilities": [
+        "device_state",
+
         "location_last_update",
         "location_name",
 

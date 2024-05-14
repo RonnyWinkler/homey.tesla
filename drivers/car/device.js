@@ -272,7 +272,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async getCarState(){
-    // let oldState = this.getCapabilityValue('car_state');
     let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
     this.log("Car state: ", vehicle.state);
     return vehicle.state;
@@ -288,6 +287,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log("Car state: ", vehicle.state);
     if (vehicle.state == CONSTANTS.STATE_ASLEEP){
       await this.setCapabilityValue('car_state', vehicle.state);
+      await this.setDeviceState(false);
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
       // From asleep to online/offline or back?
@@ -312,6 +312,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log("Car data request state: ", data.state);
       // Update car state to ONLINE if request was successful
       await this.setCapabilityValue('car_state', data.state);
+      await this.setDeviceState(true);
+
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
       if (oldState == CONSTANTS.STATE_ASLEEP){
@@ -330,6 +332,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         this.log("Car data request error: ", error.status);
         let oldState = this.getCapabilityValue('car_state');
         await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
+        await this.setDeviceState(false);
         let time = this._getLocalTimeString(new Date());
         await this.setCapabilityValue('last_update', time);
         // state change from asleep to offline => Start new sync interval
@@ -542,6 +545,35 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     else{
       return false;
     }
+  }
+
+  // Set device tile state. true=online, false=asleep/offline
+  async setDeviceState(state){
+    try{
+      await this.setCapabilityValue('device_state_insights', state);
+
+      // Update child devices
+      let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+      if (batteryDevice){
+        await batteryDevice.setCapabilityValue('device_state', state);
+      }
+      let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+      if (climateDevice){
+        await climateDevice.setCapabilityValue('device_state', state);
+      }
+      let locationDevice = this.homey.drivers.getDriver('location').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+      if (locationDevice){
+        await locationDevice.setCapabilityValue('device_state', state);
+      }
+      let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+      if (mediaDevice){
+        await mediaDevice.setCapabilityValue('device_state', state);
+      }
+    }
+    catch(error){
+      this.log("setDeviceState error: ",error.message);
+    }
+
   }
 
   async isAppRegistered(){

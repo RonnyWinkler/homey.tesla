@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -4046,6 +4046,7 @@
         "cloud"
       ],
       "capabilities": [
+        "device_state",
         "measure_soc_level",
         "measure_soc_usable",
         "measure_soc_range_estimated",
@@ -4270,6 +4271,7 @@
       ],
       "capabilities": [
         "measure_battery",
+        "device_state_insights",
         "last_update",
         "car_state",
         "meter_car_odo",
@@ -4639,6 +4641,7 @@
         "climate_overheat_protection_mode",
         "climate_overheat_protection_level",
         "climate_keeper_mode",
+        "device_state",
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",
         "climate_ac",
@@ -4718,6 +4721,7 @@
         "cloud"
       ],
       "capabilities": [
+        "device_state",
         "location_last_update",
         "location_name",
         "measure_location_latitude",
@@ -5075,6 +5079,7 @@
         "cloud"
       ],
       "capabilities": [
+        "device_state",
         "speaker_playing",
         "speaker_next",
         "speaker_prev",
@@ -5784,7 +5789,7 @@
         "de": "Enteisen",
         "nl": "Ontdooien"
       },
-      "insights": true,
+      "insights": false,
       "getable": true,
       "setable": true,
       "uiComponent": "button",
@@ -6146,6 +6151,75 @@
       "setable": true,
       "uiComponent": "button",
       "icon": "./assets/capability_icons/climate_window_vent.svg"
+    },
+    "device_state": {
+      "type": "boolean",
+      "uiQuickAction": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false,
+      "preventInsights": true,
+      "preventTag": true,
+      "title": {
+        "en": "Online state",
+        "de": "Online-Status",
+        "nl": "Online status"
+      },
+      "titleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+      },
+      "titleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+      },
+      "insightsTitleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+      },
+      "insightsTitleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+      }
+    },
+    "device_state_insights": {
+      "type": "boolean",
+      "uiQuickAction": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": true,
+      "preventTag": true,
+      "title": {
+        "en": "Online state",
+        "de": "Online-Status",
+        "nl": "Online status"
+      },
+      "titleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+      },
+      "titleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+      },
+      "insightsTitleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+      },
+      "insightsTitleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+      }
     },
     "last_update": {
       "type": "string",

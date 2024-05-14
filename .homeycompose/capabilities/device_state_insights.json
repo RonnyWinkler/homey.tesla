@@ -1,0 +1,34 @@
+{
+    "type": "boolean",
+    "uiQuickAction": true,
+    "getable": true,
+    "setable": false,
+    "uiComponent": null,
+    "insights": true,
+    "preventTag": true,
+    "title": {
+        "en": "Online state",
+        "de": "Online-Status",
+        "nl": "Online status"
+    },
+    "titleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+    },
+    "titleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+    },
+    "insightsTitleTrue": {
+        "en": "Online",
+        "de": "Online",
+        "nl": "Online"
+    },
+    "insightsTitleFalse": {
+        "en": "Offline",
+        "de": "Offline",
+        "nl": "Offline"
+    }
+  }

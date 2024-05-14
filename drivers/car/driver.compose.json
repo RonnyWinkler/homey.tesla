@@ -13,6 +13,7 @@
     "connectivity": [ "cloud" ],
     "capabilities": [
         "measure_battery",
+        "device_state_insights",
 
         "last_update",
         "car_state",

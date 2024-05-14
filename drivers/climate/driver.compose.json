@@ -17,6 +17,7 @@
         "climate_overheat_protection_mode",
         "climate_overheat_protection_level",
         "climate_keeper_mode",
+        "device_state",
 
         "measure_climate_temperature_in",
         "measure_climate_temperature_out",

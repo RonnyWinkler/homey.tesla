@@ -226,9 +226,12 @@
     "en": "Extended error handling."
   },
   "1.5.4": {
-    "en": "Force IPv4 instead of IPv6 for command proxy."
+    "en": "Added climate keeper mode. Force IPv4 instead of IPv6 for command proxy."
   },
   "1.5.5": {
     "en": "Force IPv4 instead of IPv6 for command proxy."
+  },
+  "1.5.6": {
+    "en": "Added device tile state. Devices are shown inactive if car is offline/asleep."
   }
 }

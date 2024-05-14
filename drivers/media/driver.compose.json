@@ -12,6 +12,8 @@
     "class": "sensor",
     "connectivity": [ "cloud" ],
     "capabilities": [
+        "device_state",
+
         "speaker_playing",
         "speaker_next",
         "speaker_prev",

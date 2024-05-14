@@ -5,7 +5,7 @@
       "de": "Enteisen",
       "nl": "Ontdooien"
     },
-    "insights": true,
+    "insights": false,
     "getable": true,
     "setable": true,
     "uiComponent": "button",
