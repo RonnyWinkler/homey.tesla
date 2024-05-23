@@ -233,5 +233,8 @@
   },
   "1.5.6": {
     "en": "Added device tile state. Devices are shown inactive if car is offline/asleep."
+  },
+  "1.6.0": {
+    "en": "Version update (publish live version including all changes since 1.5.1)."
   }
 }
