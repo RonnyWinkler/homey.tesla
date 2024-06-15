@@ -247,10 +247,18 @@ module.exports = class LocationDevice extends ChildDevice {
 
   async flowConditionLocationOnTheWayRunListener(args){
     
+    // use current coordinates as parameter
+    let locationState = {
+        latitude: this.getCapabilityValue('measure_location_latitude'),
+        longitude: this.getCapabilityValue('measure_location_longitude'),
+        latitude_prev: this.getCapabilityValue('measure_location_latitude'),
+        longitude_prev: this.getCapabilityValue('measure_location_longitude')
+    };
+
     let locations = this.getLocations();
     for (let i=0; i<locations.length; i++){
       let location = locations[i];
-      let state = await this._checkFlowTriggerCoordinates(location.latitude, location.longitude, location.url, LOCATION_DISTANCE_DEFAULT);
+      let state = await this._checkFlowTriggerCoordinates(location.latitude, location.longitude, location.url, LOCATION_DISTANCE_DEFAULT, locationState);
       this.log("flowConditionLocationOnTheWayRunListener() Coordinates: "+location.latitude+","+location.longitude+" "+location.url+" "+args.distance+"m - State: "+ state);
       if (state == 'at_location'){
         return false;

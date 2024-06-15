@@ -236,5 +236,8 @@
   },
   "1.6.0": {
     "en": "Version update (publish live version including all changes since 1.5.1)."
+  },
+  "1.6.1": {
+    "en": "Fixed location flow condition 'Is on the way'."
   }
 }
