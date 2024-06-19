@@ -1,0 +1,14 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Request limit",
+      "de": "Abfrage-Limit",
+      "nl": "Aanvraaglimiet"
+    },
+    "hint": {
+      "en": "Daily limit of API requests",
+      "de": "Tägliches Limit der API-Anfragen",
+      "nl": "Dagelijks limiet van API-aanvragen"
+    },
+    "value": "300"
+  }

@@ -48,7 +48,9 @@
         "api_error",
 
         "car_user_present",
-        "measure_api_rate_limit"
+        "measure_api_rate_limit",
+        "measure_api_request_count"
+
     ],
     "energy": {
         "batteries": [

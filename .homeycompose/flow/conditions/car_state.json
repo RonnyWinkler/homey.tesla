@@ -43,6 +43,14 @@
                         "de": "Schlafend",
                         "nl": "In slaap"
                     }
+                },
+                {
+                    "id": "ratelimit",
+                    "title": {
+                        "en": "Rate limit",
+                        "de": "Rate limit",
+                        "nl": "Rate limit"
+                    }
                 }
             ]
         }

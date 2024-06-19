@@ -1,17 +1,17 @@
 {
     "title": {
-        "en": "API rate limit changed",
-        "de": "API Rate Limit hat sich geändert",
-        "nl": "API rate limiet gewijzigd"
+        "en": "Command API rate limit usage changed",
+        "de": "Command-API Rate-Limit Verbrauch hat sich geändert",
+        "nl": "Command-API rate-limit gebruik gewijzigd"
     },
     "tokens": [
         {
             "name": "measure_api_rate_limit",
             "type": "number",
             "title": {
-                "en": "API rate limit usage in %",
-                "de": "API Rate Limit Nutzung in %",
-                "nl": "API rate limiet gebruik in %"
+                "en": "Command API rate limit usage in %",
+                "de": "Command-API Rate-Limit Verbrauch in %",
+                "nl": "Command-API rate-limit gebruik in %"
             }
         }
     ],

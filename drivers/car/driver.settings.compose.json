@@ -33,6 +33,33 @@
     {
       "type": "group",
       "label": {
+        "en": "Tesla API",
+        "de": "Tesla API",
+        "nl": "Tesla API"
+      },
+      "children": [
+        {
+          "$extends": "api_state",
+          "id": "api_state"
+        },
+        {
+          "$extends": "api_request_count",
+          "id": "api_request_count"
+        },
+        {
+          "$extends": "api_rate_limit_reset",
+          "id": "api_rate_limit_reset"
+        },
+        {
+          "$extends": "api_rate_limit_retry_after",
+          "id": "api_rate_limit_retry_after"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
         "en": "Command settings",
         "de": "Kommando-Einstellungen",
         "nl": "Commando-instellingen"
@@ -56,15 +83,11 @@
     {
       "type": "group",
       "label": {
-        "en": "Tesla API",
-        "de": "Tesla API",
-        "nl": "Tesla API"
+        "en": "Command API",
+        "de": "Kommando-API",
+        "nl": "Commando-API"
       },
       "children": [
-        {
-          "$extends": "api_state",
-          "id": "api_state"
-        },
         {
           "$extends": "api_rate_limit",
           "id": "api_rate_limit"

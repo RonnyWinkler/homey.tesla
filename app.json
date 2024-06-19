@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1114,18 +1114,44 @@
       },
       {
         "title": {
-          "en": "API rate limit changed",
-          "de": "API Rate Limit hat sich geändert",
-          "nl": "API rate limiet gewijzigd"
+          "en": "API commmand count changed",
+          "de": "API Kommandoanzahl geändert",
+          "nl": "API commando teller veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_command_count",
+            "type": "number",
+            "title": {
+              "en": "Commands per day",
+              "de": "Kommandos pro Tag",
+              "nl": "Commando's per dag"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_command_count_changed"
+      },
+      {
+        "title": {
+          "en": "Command API rate limit usage changed",
+          "de": "Command-API Rate-Limit Verbrauch hat sich geändert",
+          "nl": "Command-API rate-limit gebruik gewijzigd"
         },
         "tokens": [
           {
             "name": "measure_api_rate_limit",
             "type": "number",
             "title": {
-              "en": "API rate limit usage in %",
-              "de": "API Rate Limit Nutzung in %",
-              "nl": "API rate limiet gebruik in %"
+              "en": "Command API rate limit usage in %",
+              "de": "Command-API Rate-Limit Verbrauch in %",
+              "nl": "Command-API rate-limit gebruik in %"
             }
           }
         ],
@@ -1137,6 +1163,32 @@
           }
         ],
         "id": "measure_api_rate_limit_changed"
+      },
+      {
+        "title": {
+          "en": "Tesla API queries count changed",
+          "de": "Tesla API Abfragenanzahl geändert",
+          "nl": "Tesla API aanvragen tellen gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_request_count",
+            "type": "number",
+            "title": {
+              "en": "Queries per day",
+              "de": "Abfragen pro Tag",
+              "nl": "Aanvragen per dag"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_request_count_changed"
       },
       {
         "title": {
@@ -2036,6 +2088,14 @@
                   "en": "Asleep",
                   "de": "Schlafend",
                   "nl": "In slaap"
+                }
+              },
+              {
+                "id": "ratelimit",
+                "title": {
+                  "en": "Rate limit",
+                  "de": "Rate limit",
+                  "nl": "Rate limit"
                 }
               }
             ]
@@ -4293,7 +4353,8 @@
         "alarm_api_error",
         "api_error",
         "car_user_present",
-        "measure_api_rate_limit"
+        "measure_api_rate_limit",
+        "measure_api_request_count"
       ],
       "energy": {
         "batteries": [
@@ -4458,6 +4519,76 @@
         {
           "type": "group",
           "label": {
+            "en": "Tesla API",
+            "de": "Tesla API",
+            "nl": "Tesla API"
+          },
+          "children": [
+            {
+              "id": "api_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_request_count",
+              "type": "label",
+              "label": {
+                "en": "Requests made",
+                "de": "Abfragen ausgeführt",
+                "nl": "Verzoeken gedaan"
+              },
+              "hint": {
+                "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
+                "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
+                "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag."
+              },
+              "value": "300"
+            },
+            {
+              "id": "api_rate_limit_reset",
+              "type": "label",
+              "label": {
+                "en": "Rate limit Reset",
+                "de": "Rate-Limit Zurücksetzen",
+                "nl": "Rate-limit resetten"
+              },
+              "hint": {
+                "en": "Time of lifting the limit",
+                "de": "Zeitpunkt des Aufheben des Limits",
+                "nl": "Tijd van opheffing van de limiet"
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_rate_limit_retry_after",
+              "type": "label",
+              "label": {
+                "en": "Rate limit active for hours/minutes",
+                "de": "Rate-Limit aktiv für Stunden/Minuten",
+                "nl": "Rate-limit actief voor uren/minuten"
+              },
+              "hint": {
+                "en": "Time until rate limit lockout is lifted",
+                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
+                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Command settings",
             "de": "Kommando-Einstellungen",
             "nl": "Commando-instellingen"
@@ -4533,37 +4664,22 @@
         {
           "type": "group",
           "label": {
-            "en": "Tesla API",
-            "de": "Tesla API",
-            "nl": "Tesla API"
+            "en": "Command API",
+            "de": "Kommando-API",
+            "nl": "Commando-API"
           },
           "children": [
-            {
-              "id": "api_state",
-              "type": "label",
-              "label": {
-                "en": "API state",
-                "de": "API-status",
-                "nl": "API-Status"
-              },
-              "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
-              },
-              "value": ""
-            },
             {
               "id": "api_rate_limit",
               "type": "label",
               "label": {
-                "en": "API rate limit",
-                "de": "API Rate Limit",
-                "nl": "API rate limiet"
+                "en": "Command API rate limit",
+                "de": "Command API Rate Limit",
+                "nl": "Command API rate limit"
               },
               "hint": {
-                "en": "This field shows the current rate limit usage. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
-                "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
+                "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
+                "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
                 "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt."
               },
               "value": "0 %"
@@ -5398,6 +5514,14 @@
             "en": "Asleep",
             "de": "Schlafend",
             "nl": "In slaap"
+          }
+        },
+        {
+          "id": "ratelimit",
+          "title": {
+            "en": "Rate limit",
+            "de": "Rate limit",
+            "nl": "Rate limit"
           }
         }
       ]
@@ -6260,9 +6384,9 @@
     "measure_api_rate_limit": {
       "type": "number",
       "title": {
-        "en": "API rate limit",
-        "de": "API Rate Limit",
-        "nl": "API rate limiet"
+        "en": "Command API rate limit usage",
+        "de": "Command-API Rate-Limit Verbrauch",
+        "nl": "Command-API rate-limit gebruik"
       },
       "units": "%",
       "decimals": 0,
@@ -6271,6 +6395,25 @@
       "setable": false,
       "uiComponent": null,
       "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
+    },
+    "measure_api_request_count": {
+      "type": "number",
+      "title": {
+        "en": "Tesla API queries count",
+        "de": "Tesla API Abfragenanzahl",
+        "nl": "Tesla API aanvragen tellen"
+      },
+      "units": {
+        "en": "Queries per day",
+        "de": "Abfragen pro Tag",
+        "nl": "Aanvragen per dag"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_request_count.svg"
     },
     "measure_car_drive_speed": {
       "type": "number",

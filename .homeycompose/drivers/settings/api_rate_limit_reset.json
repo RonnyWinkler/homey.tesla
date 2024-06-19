@@ -1,0 +1,14 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Rate limit Reset",
+      "de": "Rate-Limit Zurücksetzen",
+      "nl": "Rate-limit resetten"
+    },
+    "hint": {
+      "en": "Time of lifting the limit",
+      "de": "Zeitpunkt des Aufheben des Limits",
+      "nl": "Tijd van opheffing van de limiet"
+    },
+    "value": "0"
+  }

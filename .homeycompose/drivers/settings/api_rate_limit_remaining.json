@@ -1,0 +1,14 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Requests remaining",
+      "de": "Verbleibende Abfragen",
+      "nl": "Verzoeken over"
+    },
+    "hint": {
+      "en": "Remaining API requests",
+      "de": "Verbleibende API-Abfragen",
+      "nl": "Resterende API-verzoeken"
+    },
+    "value": "300"
+  }

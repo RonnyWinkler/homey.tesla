@@ -239,5 +239,8 @@
   },
   "1.6.1": {
     "en": "Fixed location flow condition 'Is on the way'."
+  },
+  "1.7.0": {
+    "en": "Optimized API usage to reduce rate limit risk."
   }
 }

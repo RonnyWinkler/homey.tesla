@@ -1,0 +1,14 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Rate limit active for hours/minutes",
+      "de": "Rate-Limit aktiv für Stunden/Minuten",
+      "nl": "Rate-limit actief voor uren/minuten"
+    },
+    "hint": {
+      "en": "Time until rate limit lockout is lifted",
+      "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
+      "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet"
+    },
+    "value": "0"
+  }

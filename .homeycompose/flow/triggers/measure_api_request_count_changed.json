@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "Tesla API queries count changed",
+        "de": "Tesla API Abfragenanzahl geändert",
+        "nl": "Tesla API aanvragen tellen gewijzigd"
+    },
+    "tokens": [
+        {
+            "name": "measure_api_request_count",
+            "type": "number",
+            "title": {
+                "en": "Queries per day",
+                "de": "Abfragen pro Tag",
+                "nl": "Aanvragen per dag"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

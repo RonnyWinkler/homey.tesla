@@ -1,9 +1,9 @@
 {
     "type": "number",
     "title": {
-      "en": "API rate limit",
-      "de": "API Rate Limit",
-      "nl": "API rate limiet"
+      "en": "Command API rate limit usage",
+      "de": "Command-API Rate-Limit Verbrauch",
+      "nl": "Command-API rate-limit gebruik"
     },
     "units": "%",
     "decimals": 0,

@@ -1,0 +1,23 @@
+{
+    "title": {
+        "en": "API commmand count changed",
+        "de": "API Kommandoanzahl geändert",
+        "nl": "API commando teller veranderd"
+      },
+    "tokens": [
+        {
+            "name": "measure_api_command_count",
+            "type": "number",
+            "title": {
+                "en": "Commands per day",
+                "de": "Kommandos pro Tag",
+                "nl": "Commando's per dag"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

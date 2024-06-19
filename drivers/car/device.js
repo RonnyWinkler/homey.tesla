@@ -46,6 +46,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.rateLimitLog = new SlidingWindowLog();
 
     this._settings = this.getSettings();
+    await this._startApiCounterResetTimer();
     await this._startSync();
     this._sync();
 
@@ -72,6 +73,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onOAuth2Deleted() {
     await this._stopSync();
+    await this._stopApiCounterResetTimer();
     await super.onOAuth2Deleted();
   }
 
@@ -201,15 +203,50 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
     this._startSync();
-    this._sync();
+
+    this.homey.setTimeout(() => this._sync(), 1000);
   }
 
   getCommandApi(){
     return this._settings.command_api;
   }
 
-  // SYNC Logic =======================================================================================
+  // API statistics =======================================================================================
+  async _countApiRequest(){
+    let counter = this.getCapabilityValue('measure_api_request_count');
+    if (!counter){
+      counter = 0;
+    }
+    counter = counter + 1;
+    await this.setCapabilityValue('measure_api_request_count', counter);
+    this.setSettings({
+      api_request_count: counter + '/' + CONSTANTS.API_RATELIMIT_LIMIT
+    })
+  }
 
+  async _startApiCounterResetTimer(){
+    await this._stopApiCounterResetTimer();
+
+    let d = new Date();
+    let h = d.getHours();
+    let m = d.getMinutes();
+    let s = d.getSeconds();
+    let interval = (24*60*60) - (h*60*60) - (m*60) - s;
+    this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval * 1000);
+  }
+
+  async _stopApiCounterResetTimer(){
+    if (this._apiCounterResetInterval) {
+      this.homey.clearInterval(this._apiCounterResetInterval);
+    }
+  }
+
+  async _resetApiCounter(){
+    await this.setCapabilityValue('measure_api_request_count', 0);
+    await this._startApiCounterResetTimer();
+  }
+
+  // SYNC Logic =======================================================================================
   async _startSync(){
     await this._stopSync();
     if (!this._settings.polling_active){
@@ -222,14 +259,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       if (this._settings.polling_unit_online == 'min'){
         interval = interval * 60;
       }
-      this.log(`[Device] ${this.getName()}: Start ONLINE Poll interval: ${interval} sec.`);
+      this.log(`[Device] ${this.getName()}: Start ONLINE Poll interval: ${interval} msec.`);
     }
     else{
       interval = this._settings.polling_interval_offline * 1000;
       if (this._settings.polling_unit_offline == 'min'){
         interval = interval * 60;
       }
-      this.log(`[Device] ${this.getName()}: Start OFFLINE Poll interval: ${interval} sec.`);
+      this.log(`[Device] ${this.getName()}: Start OFFLINE Poll interval: ${interval} msec.`);
     }
 
     this._syncInterval = this.homey.setInterval(() => this._sync(), interval);
@@ -249,6 +286,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _sync() {
     this.log("Car data request...");
     try{
+
+      // Reset rate limit information
+      await this.setSettings({
+        api_rate_limit_reset: '',
+        api_rate_limit_retry_after: ''
+      });
+    
       // update the device
       await this.getCarData();
       await this.handleApiOk();
@@ -266,6 +310,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     catch(error){
       this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
+
       this.setUnavailable(error.message).catch(this.error);
       await this.handleApiError(error);
     };
@@ -284,15 +329,22 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // get buffered car state
     let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
-    this.log("Car state: ", vehicle.state);
-    if (vehicle.state == CONSTANTS.STATE_ASLEEP){
+    this.log("Car state: ", vehicle.state); 
+
+    // Workaround for missing asleep state since Softwware 2024.14.x
+    // if (vehicle.state == CONSTANTS.STATE_ASLEEP){
+    if (vehicle.state != CONSTANTS.STATE_ONLINE){
+
       await this.setCapabilityValue('car_state', vehicle.state);
       await this.setDeviceState(false);
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
       // From asleep to online/offline or back?
       // Change Sync only if state changed from online/offline to asleep or from asleep to online/offline
-      if ( oldState != CONSTANTS.STATE_ASLEEP ){
+
+      // Workaround for missing asleep state since Softwware 2024.14.x
+      // if ( oldState != CONSTANTS.STATE_ASLEEP ){
+      if ( oldState == CONSTANTS.STATE_ONLINE ){
         this._startSync();
       }
       return;
@@ -306,6 +358,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     let data = {};
     try{
+      // Count API statistics
+      await this._countApiRequest();
       // Get car data
       data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
 
@@ -323,15 +377,39 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
 
       this._updateDevice(data);
+
     }
     catch(error){
       // Check for "Offline" errors (408)
       // Set car state to "offline"
       // Forward all other errors
-      if (error.status && error.status == 408){
+      if (error.status && ( error.status == 408 || error.status == 429 ) ){
         this.log("Car data request error: ", error.status);
         let oldState = this.getCapabilityValue('car_state');
-        await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
+
+        if (error.status == 408){
+          await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
+        }
+        if (error.status == 429){
+          await this.setCapabilityValue('car_state', CONSTANTS.STATE_RATE_LIMIT);
+          // set rate limit settings
+          let settings = {};
+          let currentTime = new Date();
+          let resetTime = new Date(currentTime.getTime() + (error.ratelimitReset * 1000));
+          let resetTimeString = this._getLocalTimeString(resetTime);
+          settings['api_rate_limit_reset'] = resetTimeString;
+      
+          let hh = Math.floor(error.rateLimitRetryAfter / 3600);
+          if (hh < 10){
+            hh = '0' + hh;
+          }
+          let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
+          if (mm < 10){
+            mm = '0' + mm;
+          }
+          settings['api_rate_limit_retry_after'] = hh + ':' + mm;
+          await this.setSettings( settings );
+        }
         await this.setDeviceState(false);
         let time = this._getLocalTimeString(new Date());
         await this.setCapabilityValue('last_update', time);
