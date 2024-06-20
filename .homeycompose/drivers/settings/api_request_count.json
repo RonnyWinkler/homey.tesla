@@ -10,5 +10,5 @@
       "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
       "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag."
     },
-    "value": "300"
+    "value": "0"
   }

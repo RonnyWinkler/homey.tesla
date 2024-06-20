@@ -242,5 +242,8 @@
   },
   "1.7.0": {
     "en": "Optimized API usage to reduce rate limit risk."
+  },
+  "1.7.1": {
+    "en": "Fixed preset for API counter."
   }
 }
