@@ -2,9 +2,9 @@
     "id": "api_rate_limit",
     "type": "label",
     "label": {
-      "en": "Command API rate limit",
-      "de": "Command API Rate Limit",
-      "nl": "Command API rate limit"
+      "en": "Command API rate limit (app internal)",
+      "de": "Command API Rate Limit (App-intern)",
+      "nl": "Command API rate limit (app intern)"
     },
     "hint": {
       "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",

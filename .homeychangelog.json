@@ -245,5 +245,8 @@
   },
   "1.7.1": {
     "en": "Fixed preset for API counter."
+  },
+  "1.7.2": {
+    "en": "Added command API counter."
   }
 }

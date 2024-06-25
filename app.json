@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -4354,7 +4354,8 @@
         "api_error",
         "car_user_present",
         "measure_api_rate_limit",
-        "measure_api_request_count"
+        "measure_api_request_count",
+        "measure_api_command_count"
       ],
       "energy": {
         "batteries": [
@@ -4519,76 +4520,6 @@
         {
           "type": "group",
           "label": {
-            "en": "Tesla API",
-            "de": "Tesla API",
-            "nl": "Tesla API"
-          },
-          "children": [
-            {
-              "id": "api_state",
-              "type": "label",
-              "label": {
-                "en": "API state",
-                "de": "API-status",
-                "nl": "API-Status"
-              },
-              "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
-              },
-              "value": ""
-            },
-            {
-              "id": "api_request_count",
-              "type": "label",
-              "label": {
-                "en": "Requests made",
-                "de": "Abfragen ausgeführt",
-                "nl": "Verzoeken gedaan"
-              },
-              "hint": {
-                "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
-                "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
-                "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag."
-              },
-              "value": "0"
-            },
-            {
-              "id": "api_rate_limit_reset",
-              "type": "label",
-              "label": {
-                "en": "Rate limit Reset",
-                "de": "Rate-Limit Zurücksetzen",
-                "nl": "Rate-limit resetten"
-              },
-              "hint": {
-                "en": "Time of lifting the limit",
-                "de": "Zeitpunkt des Aufheben des Limits",
-                "nl": "Tijd van opheffing van de limiet"
-              },
-              "value": "0"
-            },
-            {
-              "id": "api_rate_limit_retry_after",
-              "type": "label",
-              "label": {
-                "en": "Rate limit active for hours/minutes",
-                "de": "Rate-Limit aktiv für Stunden/Minuten",
-                "nl": "Rate-limit actief voor uren/minuten"
-              },
-              "hint": {
-                "en": "Time until rate limit lockout is lifted",
-                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
-                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
             "en": "Command settings",
             "de": "Kommando-Einstellungen",
             "nl": "Commando-instellingen"
@@ -4664,31 +4595,6 @@
         {
           "type": "group",
           "label": {
-            "en": "Command API",
-            "de": "Kommando-API",
-            "nl": "Commando-API"
-          },
-          "children": [
-            {
-              "id": "api_rate_limit",
-              "type": "label",
-              "label": {
-                "en": "Command API rate limit",
-                "de": "Command API Rate Limit",
-                "nl": "Command API rate limit"
-              },
-              "hint": {
-                "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
-                "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
-                "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt."
-              },
-              "value": "0 %"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
             "en": "Car settings",
             "de": "Fahrzeug-Einstellungen",
             "nl": "Voertuiginstellingen"
@@ -4703,6 +4609,191 @@
                 "de": "Kofferraumsteuerung über Gerätetasten zulassen",
                 "nl": "Laat trunkbediening toe via apparaatknoppen"
               }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Tesla API",
+            "de": "Tesla API",
+            "nl": "Tesla API"
+          },
+          "children": [
+            {
+              "id": "api_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_request_count",
+              "type": "label",
+              "label": {
+                "en": "Requests made",
+                "de": "Abfragen ausgeführt",
+                "nl": "Verzoeken gedaan"
+              },
+              "hint": {
+                "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
+                "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
+                "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_command_count",
+              "type": "label",
+              "label": {
+                "en": "Commands sent",
+                "de": "Befehle gesendet",
+                "nl": "Opdrachten verzonden"
+              },
+              "hint": {
+                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_rate_limit_reset",
+              "type": "label",
+              "label": {
+                "en": "Rate limit Reset",
+                "de": "Rate-Limit Zurücksetzen",
+                "nl": "Rate-limit resetten"
+              },
+              "hint": {
+                "en": "Time of lifting the limit",
+                "de": "Zeitpunkt des Aufheben des Limits",
+                "nl": "Tijd van opheffing van de limiet"
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_rate_limit_retry_after",
+              "type": "label",
+              "label": {
+                "en": "Rate limit active for hours/minutes",
+                "de": "Rate-Limit aktiv für Stunden/Minuten",
+                "nl": "Rate-limit actief voor uren/minuten"
+              },
+              "hint": {
+                "en": "Time until rate limit lockout is lifted",
+                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
+                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet"
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_rate_limit_limit",
+              "type": "label",
+              "label": {
+                "en": "Rate limit",
+                "de": "Rate-Limit",
+                "nl": "Rate-limit"
+              },
+              "hint": {
+                "en": "Current limit provided by API error response.",
+                "de": "Aktuelle Limit aus der API-Fehlerantwort.",
+                "nl": "Huidige limiet verstrekt door API-foutreactie."
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Command API",
+            "de": "Kommando-API",
+            "nl": "Commando-API"
+          },
+          "children": [
+            {
+              "id": "api_command_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_command_count",
+              "type": "label",
+              "label": {
+                "en": "Commands sent",
+                "de": "Befehle gesendet",
+                "nl": "Opdrachten verzonden"
+              },
+              "hint": {
+                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_command_rate_limit_reset",
+              "type": "label",
+              "label": {
+                "en": "Rate limit Reset",
+                "de": "Rate-Limit Zurücksetzen",
+                "nl": "Rate-limit resetten"
+              },
+              "hint": {
+                "en": "Time of lifting the limit",
+                "de": "Zeitpunkt des Aufheben des Limits",
+                "nl": "Tijd van opheffing van de limiet"
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_command_rate_limit_retry_after",
+              "type": "label",
+              "label": {
+                "en": "Rate limit active for hours/minutes",
+                "de": "Rate-Limit aktiv für Stunden/Minuten",
+                "nl": "Rate-limit actief voor uren/minuten"
+              },
+              "hint": {
+                "en": "Time until rate limit lockout is lifted",
+                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
+                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet"
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_rate_limit",
+              "type": "label",
+              "label": {
+                "en": "Command API rate limit (app internal)",
+                "de": "Command API Rate Limit (App-intern)",
+                "nl": "Command API rate limit (app intern)"
+              },
+              "hint": {
+                "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
+                "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
+                "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt."
+              },
+              "value": "0 %"
             }
           ]
         },
@@ -6380,6 +6471,25 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
+    },
+    "measure_api_command_count": {
+      "type": "number",
+      "title": {
+        "en": "Tesla API command count",
+        "de": "Tesla API Kommandoanzahl",
+        "nl": "Tesla API commando tellen"
+      },
+      "units": {
+        "en": "Commands per day",
+        "de": "Kommandos pro Tag",
+        "nl": "Commando's per dag"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_command_count.svg"
     },
     "measure_api_rate_limit": {
       "type": "number",

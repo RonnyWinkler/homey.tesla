@@ -1,0 +1,14 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Commands sent",
+      "de": "Befehle gesendet",
+      "nl": "Opdrachten verzonden"
+    },
+    "hint": {
+      "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+      "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+      "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC."
+    },
+    "value": "0"
+  }

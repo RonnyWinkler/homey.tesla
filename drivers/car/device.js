@@ -128,11 +128,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     // }
   }
 
-  async handleApiOk(){
+  async handleApiOk(type = CONSTANTS.API_ERROR_READ){
     try{
-      await this.setSettings({
-        api_state: 'OK' 
-      }); 
+      switch (type){
+        case CONSTANTS.API_ERROR_READ:
+          await this.setSettings({ api_state: 'OK' });
+          break;
+        case CONSTANTS.API_ERROR_COMMAND:
+          await this.setSettings({ api_command_state: 'OK' });
+          break;
+      }
       let oldState = this.getCapabilityValue('alarm_api_error');
       await this.setCapabilityValue('api_error', null);
       await this.setCapabilityValue('alarm_api_error', false);
@@ -145,7 +150,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
-  async handleApiError(error){
+  async handleApiError(error, type = CONSTANTS.API_ERROR_READ){
     try{
       let apiState = 'Error';
       switch (error.constructor.name){
@@ -165,9 +170,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           this.log("API Error: "+ error.message);
           apiState = error.message;
       }
-      await this.setSettings({
-        api_state: apiState 
-      });
+      switch (type){
+        case CONSTANTS.API_ERROR_READ:
+          await this.setSettings({ api_state: apiState });
+          break;
+        case CONSTANTS.API_ERROR_COMMAND:
+          await this.setSettings({ api_command_state: apiState });
+          break;
+      }
       let oldState = this.getCapabilityValue('alarm_api_error');
       await this.setCapabilityValue('api_error', apiState);
       await this.setCapabilityValue('alarm_api_error', true);
@@ -212,16 +222,32 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   // API statistics =======================================================================================
-  async _countApiRequest(){
-    let counter = this.getCapabilityValue('measure_api_request_count');
+  async _countApiRequest(type = CONSTANTS.API_REQUEST_COUNTER_READ){
+    let counter = 0;
+    switch (type){
+      case CONSTANTS.API_REQUEST_COUNTER_READ:
+        counter = this.getCapabilityValue('measure_api_request_count');
+        break;
+      case CONSTANTS.API_REQUEST_COUNTER_COMMAND:
+        counter = this.getCapabilityValue('measure_api_command_count');
+        break;
+    }
+
     if (!counter){
       counter = 0;
     }
     counter = counter + 1;
-    await this.setCapabilityValue('measure_api_request_count', counter);
-    this.setSettings({
-      api_request_count: counter + '/' + CONSTANTS.API_RATELIMIT_LIMIT
-    })
+
+    switch (type){
+      case CONSTANTS.API_REQUEST_COUNTER_READ:
+        await this.setCapabilityValue('measure_api_request_count', counter);
+        this.setSettings({ api_request_count: counter.toString() });
+        break;
+      case CONSTANTS.API_REQUEST_COUNTER_COMMAND:
+        await this.setCapabilityValue('measure_api_command_count', counter);
+        this.setSettings({ api_command_count: counter.toString() });
+        break;
+    }
   }
 
   async _startApiCounterResetTimer(){
@@ -243,6 +269,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _resetApiCounter(){
     await this.setCapabilityValue('measure_api_request_count', 0);
+    await this.setCapabilityValue('measure_api_command_count', 0);
     await this._startApiCounterResetTimer();
   }
 
@@ -290,7 +317,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // Reset rate limit information
       await this.setSettings({
         api_rate_limit_reset: '',
-        api_rate_limit_retry_after: ''
+        api_rate_limit_retry_after: '',
+        api_rate_limit_limit: ''
       });
     
       // update the device
@@ -359,7 +387,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let data = {};
     try{
       // Count API statistics
-      await this._countApiRequest();
+      await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
       // Get car data
       data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
 
@@ -408,6 +436,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
             mm = '0' + mm;
           }
           settings['api_rate_limit_retry_after'] = hh + ':' + mm;
+          settings['api_rate_limit_limit'] = error.ratelimitLimit;
           await this.setSettings( settings );
         }
         await this.setDeviceState(false);
@@ -785,12 +814,37 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           }
         }
       }
-      await this.handleApiOk();
+      await this.handleApiOk(CONSTANTS.API_ERROR_COMMAND);
       // Get new states after command execution
       // await this._sync();
     }
     catch(error){
-      await this.handleApiError(error);
+      await this.handleApiError(error, CONSTANTS.API_ERROR_COMMAND);
+
+      if (error.status == 429){
+        // await this.setCapabilityValue('car_state', CONSTANTS.STATE_RATE_LIMIT);
+        // set rate limit settings
+        let settings = {};
+        settings['api_command_state'] = error.statusText;
+
+        let currentTime = new Date();
+        let resetTime = new Date(currentTime.getTime() + (error.rateLimitRetryAfter * 1000));
+        let resetTimeString = this._getLocalTimeString(resetTime);
+        settings['api_command_rate_limit_reset'] = resetTimeString;
+    
+        let hh = Math.floor(error.rateLimitRetryAfter / 3600);
+        if (hh < 10){
+          hh = '0' + hh;
+        }
+        let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
+        if (mm < 10){
+          mm = '0' + mm;
+        }
+        settings['api_command_rate_limit_retry_after'] = hh + ':' + mm;
+        // settings['api_rate_limit_limit'] = error.ratelimitLimit;
+        await this.setSettings( settings );
+      }
+
       throw error;
     }
   }
@@ -827,6 +881,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         throw new Error(this.homey.__("devices.car.app_not_registered"));
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
+      await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );
       let result = await this.oAuth2Client[apiFunction](this.getCommandApi(), this.getData().id, params);
       this.log("Send REST command: Success API: "+this.getCommandApi());
       return result;

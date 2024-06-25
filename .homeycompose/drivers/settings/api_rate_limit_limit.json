@@ -1,14 +1,14 @@
 {
     "type": "label",
     "label": {
-      "en": "Request limit",
-      "de": "Abfrage-Limit",
-      "nl": "Aanvraaglimiet"
+      "en": "Rate limit",
+      "de": "Rate-Limit",
+      "nl": "Rate-limit"
     },
     "hint": {
-      "en": "Daily limit of API requests",
-      "de": "Tägliches Limit der API-Anfragen",
-      "nl": "Dagelijks limiet van API-aanvragen"
+      "en": "Current limit provided by API error response.",
+      "de": "Aktuelle Limit aus der API-Fehlerantwort.",
+      "nl": "Huidige limiet verstrekt door API-foutreactie."
     },
-    "value": "300"
+    "value": ""
   }

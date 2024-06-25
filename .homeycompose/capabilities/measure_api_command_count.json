@@ -1,0 +1,19 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Tesla API command count",
+      "de": "Tesla API Kommandoanzahl",
+      "nl": "Tesla API commando tellen"
+    },
+    "units": {
+      "en": "Commands per day",
+      "de": "Kommandos pro Tag",
+      "nl": "Commando's per dag"
+    },
+    "decimals": 0,
+    "insights": true,
+    "getable": true,
+    "setable": true,
+    "uiComponent": null,
+    "icon": "./assets/capability_icons/measure_api_command_count.svg"
+  }
