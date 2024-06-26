@@ -248,5 +248,8 @@
   },
   "1.7.2": {
     "en": "Added command API counter."
+  },
+  "1.7.3": {
+    "en": "Added flow action to set online interval."
   }
 }

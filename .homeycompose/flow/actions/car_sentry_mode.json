@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Sentry mode",
         "de": "Sentry-Modus",
         "nl": "Sentry Mode"

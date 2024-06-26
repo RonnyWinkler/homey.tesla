@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Climate preconditioning",
         "de": "Klimatisierung",
         "nl": "Climate control"

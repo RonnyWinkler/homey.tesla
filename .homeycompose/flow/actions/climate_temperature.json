@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Set Temperature",
         "de": "Temperatur setzen",
         "nl": "Stel temperatuur in"

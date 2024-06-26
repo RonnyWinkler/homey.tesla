@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Open/close charge port",
         "de": "Ladeanschluss öffnen/schließen",
         "nl": "Laadpoort open/dichtbij"

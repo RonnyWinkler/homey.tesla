@@ -1,4 +1,5 @@
 {
+    "highlight": true,
     "title": {
         "en": "Charging state !{{is|isn't}}",
         "de": "Ladezustand !{{ist|ist nicht}}",

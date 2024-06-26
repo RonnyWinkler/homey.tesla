@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
       "en": "Unlock/open charge port",
       "de": "Ladeanschluss entriegeln/öffnen",
       "nl": "Ontgrendel/open laadpoort"

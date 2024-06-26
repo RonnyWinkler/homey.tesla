@@ -646,7 +646,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   isAsleep(){
-    if (this.getCapabilityValue('car_state') == CONSTANTS.STATE_ASLEEP){
+    if (this.getCapabilityValue('car_state') != CONSTANTS.STATE_ONLINE){
       return true;
     }
     else{
@@ -1208,6 +1208,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   // FLOW ACTIONS =======================================================================================
+
+  async flowActionSetOnlineInterval(interval = 5, unit = 'min'){
+    await this.setSettings(
+      {
+        polling_interval_online: interval,
+        polling_unit_online: unit
+      }
+    );
+    // this._settings.polling_interval_online = interval;
+    // this._settings.polling_unit_online = unit;
+    this._settings = this.getSettings();
+    await this._startSync();
+  }
 
   async flowActionPing(){
     await this._commandPing();

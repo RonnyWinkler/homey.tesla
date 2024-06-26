@@ -1,4 +1,5 @@
 {
+    "highlight": true,
     "title": {
         "en": "State !{{is|isn't}}",
         "de": "Status !{{ist|ist nicht}}",

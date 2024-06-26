@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Start/stop charging",
         "de": "Laden starten/stoppen",
         "nl": "Start/stop het opladen"

@@ -40,6 +40,14 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
       this.log("Flow action [location_set_location] not active for test.");
     }
 
+    // API
+    this.homey.flow.getActionCard('api_set_online_interval')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionSetOnlineInterval(args.interval, args.unit);
+		});
+
+
+    // Car
     this.homey.flow.getActionCard('car_ping')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionPing();

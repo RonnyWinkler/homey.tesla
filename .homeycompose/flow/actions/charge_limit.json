@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Set charge limit SoC",
         "de": "Ladelimit SoC setzen",
         "nl": "Stel Laadlimiet SoC in"

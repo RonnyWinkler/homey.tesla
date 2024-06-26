@@ -1,0 +1,55 @@
+{
+    "title": {
+        "en": "Set onnline interval",
+        "de": "Setze Online-Intervall",
+        "nl": "Stel online-interval in"
+    },
+    "titleFormatted": {
+        "en": "Set online interval to [[interval]] [[unit]]",
+        "de": "Setze Online-Intervall auf [[interval]] [[unit]]",
+        "nl": "Stel online-interval in op [[interval]] [[unit]]"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        },
+        {
+            "name": "interval",
+            "type": "number",
+            "title": {
+                "en": "Interval",
+                "de": "Intervall",
+                "nl": "Interval"
+            }
+        },
+        {
+            "name": "unit",
+            "type": "dropdown",
+            "title": { 
+              "en": "Interval unit",
+              "de": "Intervall-Einheit",
+              "nl": "Interval eenheid"
+            },
+            "values":[
+                {
+                    "id": "min",
+                    "title":{
+                        "en": "Minutes",
+                        "de": "Minuten",
+                        "nl": "Minuten"
+                    }
+                },
+                {
+                    "id": "sec",
+                    "title":{
+                        "en": "Seconds",
+                        "de": "Sekunden",
+                        "nl": "Seconden"
+                    }
+                }
+            ]
+        }
+    ]
+}

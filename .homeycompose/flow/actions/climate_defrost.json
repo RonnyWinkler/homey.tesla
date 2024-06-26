@@ -1,5 +1,6 @@
 {
-    "title": {
+  "highlight": true,
+  "title": {
         "en": "Defrost mode",
         "de": "Enteisen",
         "nl": "Ontdooien"

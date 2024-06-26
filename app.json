@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -355,6 +355,7 @@
         "id": "car_software_version_changed"
       },
       {
+        "highlight": true,
         "title": {
           "en": "State changed",
           "de": "Status hat sich geändert",
@@ -503,6 +504,7 @@
         "id": "charging_port_true"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Charging state changed",
           "de": "Ladezustand hat sich geändert",
@@ -731,6 +733,7 @@
         "id": "climate_preconditioning_true"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Location changed",
           "de": "Standort hat sich geändert",
@@ -977,6 +980,7 @@
         "id": "location_coordinates_left_or_reached"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Location has been left or reached",
           "de": "Standort wurde verlassen oder erreicht",
@@ -2045,6 +2049,7 @@
         "id": "car_software_update_state"
       },
       {
+        "highlight": true,
         "title": {
           "en": "State !{{is|isn't}}",
           "de": "Status !{{ist|ist nicht}}",
@@ -2134,6 +2139,7 @@
         "id": "charging_port"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Charging state !{{is|isn't}}",
           "de": "Ladezustand !{{ist|ist nicht}}",
@@ -2237,6 +2243,7 @@
         "id": "charging_state"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Defrost !{{is|isn't}} active",
           "de": "Enteisen !{{ist|ist nicht}} aktiviert",
@@ -2598,6 +2605,62 @@
     "actions": [
       {
         "title": {
+          "en": "Set onnline interval",
+          "de": "Setze Online-Intervall",
+          "nl": "Stel online-interval in"
+        },
+        "titleFormatted": {
+          "en": "Set online interval to [[interval]] [[unit]]",
+          "de": "Setze Online-Intervall auf [[interval]] [[unit]]",
+          "nl": "Stel online-interval in op [[interval]] [[unit]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "interval",
+            "type": "number",
+            "title": {
+              "en": "Interval",
+              "de": "Intervall",
+              "nl": "Interval"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Interval unit",
+              "de": "Intervall-Einheit",
+              "nl": "Interval eenheid"
+            },
+            "values": [
+              {
+                "id": "min",
+                "title": {
+                  "en": "Minutes",
+                  "de": "Minuten",
+                  "nl": "Minuten"
+                }
+              },
+              {
+                "id": "sec",
+                "title": {
+                  "en": "Seconds",
+                  "de": "Sekunden",
+                  "nl": "Seconden"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "api_set_online_interval"
+      },
+      {
+        "title": {
           "en": "Lock/unlock doors",
           "de": "Türen verriegeln/entriegeln",
           "nl": "Deuren vergrendelen/ontgrendelen"
@@ -2704,6 +2767,7 @@
         "id": "car_ping"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Refresh car data",
           "de": "Aktualisere Fahrzeugdaten",
@@ -2763,6 +2827,7 @@
         "id": "car_schedule_software_update"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Sentry mode",
           "de": "Sentry-Modus",
@@ -2847,6 +2912,7 @@
         "id": "car_trunk"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Wake up the car",
           "de": "Wecke das Fahrzeug auf",
@@ -2941,6 +3007,7 @@
         "id": "car_window_position"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Set charge current",
           "de": "Ladestrom einstellen",
@@ -3020,6 +3087,7 @@
         "id": "charge_deactivate_scheduled_departure"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Set charge limit SoC",
           "de": "Ladelimit SoC setzen",
@@ -3269,6 +3337,7 @@
         "id": "charge_schedule_departure"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Start/stop charging",
           "de": "Laden starten/stoppen",
@@ -3311,6 +3380,7 @@
         "id": "charging_on"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Open/close charge port",
           "de": "Ladeanschluss öffnen/schließen",
@@ -3353,6 +3423,7 @@
         "id": "charging_port"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Unlock/open charge port",
           "de": "Ladeanschluss entriegeln/öffnen",
@@ -3373,6 +3444,7 @@
         "id": "charging_port_unlock"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Defrost mode",
           "de": "Enteisen",
@@ -3573,6 +3645,7 @@
         "id": "climate_overheat_protection_mode"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Climate preconditioning",
           "de": "Klimatisierung",
@@ -3827,6 +3900,7 @@
         "id": "climate_steering_wheel_heat_level"
       },
       {
+        "highlight": true,
         "title": {
           "en": "Set Temperature",
           "de": "Temperatur setzen",
