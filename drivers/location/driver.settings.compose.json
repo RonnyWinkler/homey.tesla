@@ -4,7 +4,15 @@
       "label": {
         "en": "Assigned to car",
         "de": "Mit Fahrzeug verknüpft",
-        "nl": "Toegekend aan auto"
+        "nl": "Toegekend aan auto",
+        "fr": "Assigné à une voiture",
+        "it": "Assegnato all'auto",
+        "sv": "Tilldelad till bilen",
+        "no": "Tildelt til bilen",
+        "es": "Asignado al coche",
+        "da": "Tildelt til bilen",
+        "ru": "Назначено автомобилю",
+        "pl": "Przypisane do samochodu"
       },
       "children": [
         {
@@ -19,7 +27,15 @@
       "label": {
         "en": "Location 1",
         "de": "Standort 1",
-        "nl": "Plaats 1"
+        "nl": "Plaats 1",
+        "fr": "Emplacement 1",
+        "it": "Posizione 1",
+        "sv": "Plats 1",
+        "no": "Sted 1",
+        "es": "Ubicación 1",
+        "da": "Sted 1",
+        "ru": "Место 1",
+        "pl": "Lokalizacja 1"
       },
       "children": [
         {
@@ -28,7 +44,15 @@
           "label": {
             "en": "Name",
             "de": "Name",
-            "nl": "Naam"
+            "nl": "Naam",
+            "fr": "Nom",
+            "it": "Nome",
+            "sv": "Namn",
+            "no": "Navn",
+            "es": "Nombre",
+            "da": "Navn",
+            "ru": "Имя",
+            "pl": "Nazwa"
           },
           "value": ""
         },
@@ -38,7 +62,15 @@
           "label": {
             "en": "Latitude",
             "de": "Breitengrad",
-            "nl": "Breedtegraad"
+            "nl": "Breedtegraad",
+            "fr": "Latitude",
+            "it": "Latitudine",
+            "sv": "Latitud",
+            "no": "Breddegrad",
+            "es": "Latitud",
+            "da": "Breddegrad",
+            "ru": "Широта",
+            "pl": "Szerokość geograficzna"
           },
           "value": 0
         },
@@ -48,7 +80,15 @@
           "label": {
             "en": "Longitude",
             "de": "Längengrad",
-            "nl": "Lengtegraad"
+            "nl": "Lengtegraad",
+            "fr": "Longitude",
+            "it": "Longitudine",
+            "sv": "Longitud",
+            "no": "Lengdegrad",
+            "es": "Longitud",
+            "da": "Længdegrad",
+            "ru": "Долгота",
+            "pl": "Długość geograficzna"
           },
           "value": 0
         },
@@ -58,13 +98,29 @@
           "label": {
             "en": "Google Maps URL",
             "de": "Google Maps URL",
-            "nl": "Google Maps URL"
+            "nl": "Google Maps URL",
+            "fr": "URL Google Maps",
+            "it": "URL Google Maps",
+            "sv": "Google Maps URL",
+            "no": "Google Maps URL",
+            "es": "URL de Google Maps",
+            "da": "Google Maps URL",
+            "ru": "URL Google Maps",
+            "pl": "URL Google Maps"
           },
           "value": "",
           "hint":{
             "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
             "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
-            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL.",
+            "fr": "Si une URL est spécifiée alors que les coordonnées ne sont pas spécifiées, alors lorsque le paramètre est enregistré, les coordonnées sont déterminées en fonction de l'URL et adoptées dans le paramètre. Cela permet d'utiliser les coordonnées dans le traitement du flux sans réinspection de l'URL.",
+            "it": "Se viene specificato un URL mentre non vengono specificate le coordinate, allora quando viene salvata l'impostazione, le coordinate vengono determinate in base all'URL e adottate nell'impostazione. Ciò consente di utilizzare le coordinate all'interno del flusso di elaborazione senza reinserimento dell'URL.",
+            "sv": "Om en URL anges medan inga koordinater anges, då när inställningen sparas bestäms koordinaterna baserat på URL:en och antas i inställningen. Detta gör det möjligt att använda koordinaterna inom flödesbehandling utan URL-omprövning.",
+            "no": "Hvis en URL er angitt mens ingen koordinater er angitt, så når innstillingen lagres, blir koordinatene bestemt basert på URL-en og adoptert i innstillingen. Dette gjør det mulig å bruke koordinatene i flytbehandling uten URL-gjennomgang.",
+            "es": "Si se especifica una URL mientras no se especifican coordenadas, entonces cuando se guarda la configuración, las coordenadas se determinan en función de la URL y se adoptan en la configuración. Esto permite utilizar las coordenadas dentro del procesamiento del flujo sin reinspección de la URL.",
+            "da": "Hvis en URL er angivet, mens der ikke er angivet koordinater, så når indstillingen gemmes, bestemmes koordinaterne baseret på URL'en og vedtages i indstillingen. Dette gør det muligt at bruge koordinaterne inden for flowbehandling uden URL-geninspektion.",
+            "ru": "Если указан URL, но не указаны координаты, то при сохранении настроек координаты определяются на основе URL и принимаются в настройку. Это позволяет использовать координаты в обработке потока без повторной проверки URL.",
+            "pl": "Jeśli podano adres URL, podczas gdy nie podano współrzędnych, to po zapisaniu ustawienia współrzędne są określane na podstawie adresu URL i przyjmowane do ustawienia. Pozwala to na wykorzystanie współrzędnych w przetwarzaniu przepływu bez ponownej inspekcji adresu URL."
           }
         }
       ]
@@ -75,7 +131,15 @@
       "label": {
         "en": "Location 2",
         "de": "Standort 2",
-        "nl": "Plaats 2"
+        "nl": "Plaats 2",
+        "fr": "Emplacement 2",
+        "it": "Posizione 2",
+        "sv": "Plats 2",
+        "no": "Sted 2",
+        "es": "Ubicación 2",
+        "da": "Sted 2",
+        "ru": "Место 2",
+        "pl": "Lokalizacja 2"
       },
       "children": [
         {
@@ -84,7 +148,15 @@
           "label": {
             "en": "Name",
             "de": "Name",
-            "nl": "Naam"
+            "nl": "Naam",
+            "fr": "Nom",
+            "it": "Nome",
+            "sv": "Namn",
+            "no": "Navn",
+            "es": "Nombre",
+            "da": "Navn",
+            "ru": "Имя",
+            "pl": "Nazwa"
           },
           "value": ""
         },
@@ -94,7 +166,15 @@
           "label": {
             "en": "Latitude",
             "de": "Breitengrad",
-            "nl": "Breedtegraad"
+            "nl": "Breedtegraad",
+            "fr": "Latitude",
+            "it": "Latitudine",
+            "sv": "Latitud",
+            "no": "Breddegrad",
+            "es": "Latitud",
+            "da": "Breddegrad",
+            "ru": "Широта",
+            "pl": "Szerokość geograficzna"
           },
           "value": 0
         },
@@ -104,7 +184,15 @@
           "label": {
             "en": "Longitude",
             "de": "Längengrad",
-            "nl": "Lengtegraad"
+            "nl": "Lengtegraad",
+            "fr": "Longitude",
+            "it": "Longitudine",
+            "sv": "Longitud",
+            "no": "Lengdegrad",
+            "es": "Longitud",
+            "da": "Længdegrad",
+            "ru": "Долгота",
+            "pl": "Długość geograficzna"
           },
           "value": 0
         },
@@ -114,13 +202,29 @@
           "label": {
             "en": "Google Maps URL",
             "de": "Google Maps URL",
-            "nl": "Google Maps URL"
+            "nl": "Google Maps URL",
+            "fr": "URL Google Maps",
+            "it": "URL Google Maps",
+            "sv": "Google Maps URL",
+            "no": "Google Maps URL",
+            "es": "URL de Google Maps",
+            "da": "Google Maps URL",
+            "ru": "URL Google Maps",
+            "pl": "URL Google Maps"
           },
           "value": "",
           "hint":{
             "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
             "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
-            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL.",
+            "fr": "Si une URL est spécifiée alors que les coordonnées ne sont pas spécifiées, alors lorsque le paramètre est enregistré, les coordonnées sont déterminées en fonction de l'URL et adoptées dans le paramètre. Cela permet d'utiliser les coordonnées dans le traitement du flux sans réinspection de l'URL.",
+            "it": "Se viene specificato un URL mentre non vengono specificate le coordinate, allora quando viene salvata l'impostazione, le coordinate vengono determinate in base all'URL e adottate nell'impostazione. Ciò consente di utilizzare le coordinate all'interno del flusso di elaborazione senza reinserimento dell'URL.",
+            "sv": "Om en URL anges medan inga koordinater anges, då när inställningen sparas bestäms koordinaterna baserat på URL:en och antas i inställningen. Detta gör det möjligt att använda koordinaterna inom flödesbehandling utan URL-omprövning.",
+            "no": "Hvis en URL er angitt mens ingen koordinater er angitt, så når innstillingen lagres, blir koordinatene bestemt basert på URL-en og adoptert i innstillingen. Dette gjør det mulig å bruke koordinatene i flytbehandling uten URL-gjennomgang.",
+            "es": "Si se especifica una URL mientras no se especifican coordenadas, entonces cuando se guarda la configuración, las coordenadas se determinan en función de la URL y se adoptan en la configuración. Esto permite utilizar las coordenadas dentro del procesamiento del flujo sin reinspección de la URL.",
+            "da": "Hvis en URL er angivet, mens der ikke er angivet koordinater, så når indstillingen gemmes, bestemmes koordinaterne baseret på URL'en og vedtages i indstillingen. Dette gør det muligt at bruge koordinaterne inden for flowbehandling uden URL-geninspektion.",
+            "ru": "Если указан URL, но не указаны координаты, то при сохранении настроек координаты определяются на основе URL и принимаются в настройку. Это позволяет использовать координаты в обработке потока без повторной проверки URL.",
+            "pl": "Jeśli podano adres URL, podczas gdy nie podano współrzędnych, to po zapisaniu ustawienia współrzędne są określane na podstawie adresu URL i przyjmowane do ustawienia. Pozwala to na wykorzystanie współrzędnych w przetwarzaniu przepływu bez ponownej inspekcji adresu URL."
           }
         }
       ]
@@ -131,7 +235,15 @@
       "label": {
         "en": "Location 3",
         "de": "Standort 3",
-        "nl": "Plaats 3"
+        "nl": "Plaats 3",
+        "fr": "Emplacement 3",
+        "it": "Posizione 3",
+        "sv": "Plats 3",
+        "no": "Sted 3",
+        "es": "Ubicación 3",
+        "da": "Sted 3",
+        "ru": "Место 3",
+        "pl": "Lokalizacja 3"
       },
       "children": [
         {
@@ -140,7 +252,15 @@
           "label": {
             "en": "Name",
             "de": "Name",
-            "nl": "Naam"
+            "nl": "Naam",
+            "fr": "Nom",
+            "it": "Nome",
+            "sv": "Namn",
+            "no": "Navn",
+            "es": "Nombre",
+            "da": "Navn",
+            "ru": "Имя",
+            "pl": "Nazwa"
           },
           "value": ""
         },
@@ -150,7 +270,15 @@
           "label": {
             "en": "Latitude",
             "de": "Breitengrad",
-            "nl": "Breedtegraad"
+            "nl": "Breedtegraad",
+            "fr": "Latitude",
+            "it": "Latitudine",
+            "sv": "Latitud",
+            "no": "Breddegrad",
+            "es": "Latitud",
+            "da": "Breddegrad",
+            "ru": "Широта",
+            "pl": "Szerokość geograficzna"
           },
           "value": 0
         },
@@ -160,7 +288,15 @@
           "label": {
             "en": "Longitude",
             "de": "Längengrad",
-            "nl": "Lengtegraad"
+            "nl": "Lengtegraad",
+            "fr": "Longitude",
+            "it": "Longitudine",
+            "sv": "Longitud",
+            "no": "Lengdegrad",
+            "es": "Longitud",
+            "da": "Længdegrad",
+            "ru": "Долгота",
+            "pl": "Długość geograficzna"
           },
           "value": 0
         },
@@ -170,13 +306,29 @@
           "label": {
             "en": "Google Maps URL",
             "de": "Google Maps URL",
-            "nl": "Google Maps URL"
+            "nl": "Google Maps URL",
+            "fr": "URL Google Maps",
+            "it": "URL Google Maps",
+            "sv": "Google Maps URL",
+            "no": "Google Maps URL",
+            "es": "URL de Google Maps",
+            "da": "Google Maps URL",
+            "ru": "URL Google Maps",
+            "pl": "URL Google Maps"
           },
           "value": "",
           "hint":{
             "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
             "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
-            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL.",
+            "fr": "Si une URL est spécifiée alors que les coordonnées ne sont pas spécifiées, alors lorsque le paramètre est enregistré, les coordonnées sont déterminées en fonction de l'URL et adoptées dans le paramètre. Cela permet d'utiliser les coordonnées dans le traitement du flux sans réinspection de l'URL.",
+            "it": "Se viene specificato un URL mentre non vengono specificate le coordinate, allora quando viene salvata l'impostazione, le coordinate vengono determinate in base all'URL e adottate nell'impostazione. Ciò consente di utilizzare le coordinate all'interno del flusso di elaborazione senza reinserimento dell'URL.",
+            "sv": "Om en URL anges medan inga koordinater anges, då när inställningen sparas bestäms koordinaterna baserat på URL:en och antas i inställningen. Detta gör det möjligt att använda koordinaterna inom flödesbehandling utan URL-omprövning.",
+            "no": "Hvis en URL er angitt mens ingen koordinater er angitt, så når innstillingen lagres, blir koordinatene bestemt basert på URL-en og adoptert i innstillingen. Dette gjør det mulig å bruke koordinatene i flytbehandling uten URL-gjennomgang.",
+            "es": "Si se especifica una URL mientras no se especifican coordenadas, entonces cuando se guarda la configuración, las coordenadas se determinan en función de la URL y se adoptan en la configuración. Esto permite utilizar las coordenadas dentro del procesamiento del flujo sin reinspección de la URL.",
+            "da": "Hvis en URL er angivet, mens der ikke er angivet koordinater, så når indstillingen gemmes, bestemmes koordinaterne baseret på URL'en og vedtages i indstillingen. Dette gør det muligt at bruge koordinaterne inden for flowbehandling uden URL-geninspektion.",
+            "ru": "Если указан URL, но не указаны координаты, то при сохранении настроек координаты определяются на основе URL и принимаются в настройку. Это позволяет использовать координаты в обработке потока без повторной проверки URL.",
+            "pl": "Jeśli podano adres URL, podczas gdy nie podano współrzędnych, to po zapisaniu ustawienia współrzędne są określane na podstawie adresu URL i przyjmowane do ustawienia. Pozwala to na wykorzystanie współrzędnych w przetwarzaniu przepływu bez ponownej inspekcji adresu URL."
           }
         }
       ]
@@ -187,7 +339,15 @@
       "label": {
         "en": "Location 4",
         "de": "Standort 4",
-        "nl": "Plaats 4"
+        "nl": "Plaats 4",
+        "fr": "Emplacement 4",
+        "it": "Posizione 4",
+        "sv": "Plats 4",
+        "no": "Sted 4",
+        "es": "Ubicación 4",
+        "da": "Sted 4",
+        "ru": "Место 4",
+        "pl": "Lokalizacja 4"
       },
       "children": [
         {
@@ -196,7 +356,15 @@
           "label": {
             "en": "Name",
             "de": "Name",
-            "nl": "Naam"
+            "nl": "Naam",
+            "fr": "Nom",
+            "it": "Nome",
+            "sv": "Namn",
+            "no": "Navn",
+            "es": "Nombre",
+            "da": "Navn",
+            "ru": "Имя",
+            "pl": "Nazwa"
           },
           "value": ""
         },
@@ -206,7 +374,15 @@
           "label": {
             "en": "Latitude",
             "de": "Breitengrad",
-            "nl": "Breedtegraad"
+            "nl": "Breedtegraad",
+            "fr": "Latitude",
+            "it": "Latitudine",
+            "sv": "Latitud",
+            "no": "Breddegrad",
+            "es": "Latitud",
+            "da": "Breddegrad",
+            "ru": "Широта",
+            "pl": "Szerokość geograficzna"
           },
           "value": 0
         },
@@ -216,7 +392,15 @@
           "label": {
             "en": "Longitude",
             "de": "Längengrad",
-            "nl": "Lengtegraad"
+            "nl": "Lengtegraad",
+            "fr": "Longitude",
+            "it": "Longitudine",
+            "sv": "Longitud",
+            "no": "Lengdegrad",
+            "es": "Longitud",
+            "da": "Længdegrad",
+            "ru": "Долгота",
+            "pl": "Długość geograficzna"
           },
           "value": 0
         },
@@ -226,13 +410,29 @@
           "label": {
             "en": "Google Maps URL",
             "de": "Google Maps URL",
-            "nl": "Google Maps URL"
+            "nl": "Google Maps URL",
+            "fr": "URL Google Maps",
+            "it": "URL Google Maps",
+            "sv": "Google Maps URL",
+            "no": "Google Maps URL",
+            "es": "URL de Google Maps",
+            "da": "Google Maps URL",
+            "ru": "URL Google Maps",
+            "pl": "URL Google Maps"
           },
           "value": "",
           "hint":{
             "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
             "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
-            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL.",
+            "fr": "Si une URL est spécifiée alors que les coordonnées ne sont pas spécifiées, alors lorsque le paramètre est enregistré, les coordonnées sont déterminées en fonction de l'URL et adoptées dans le paramètre. Cela permet d'utiliser les coordonnées dans le traitement du flux sans réinspection de l'URL.",
+            "it": "Se viene specificato un URL mentre non vengono specificate le coordinate, allora quando viene salvata l'impostazione, le coordinate vengono determinate in base all'URL e adottate nell'impostazione. Ciò consente di utilizzare le coordinate all'interno del flusso di elaborazione senza reinserimento dell'URL.",
+            "sv": "Om en URL anges medan inga koordinater anges, då när inställningen sparas bestäms koordinaterna baserat på URL:en och antas i inställningen. Detta gör det möjligt att använda koordinaterna inom flödesbehandling utan URL-omprövning.",
+            "no": "Hvis en URL er angitt mens ingen koordinater er angitt, så når innstillingen lagres, blir koordinatene bestemt basert på URL-en og adoptert i innstillingen. Dette gjør det mulig å bruke koordinatene i flytbehandling uten URL-gjennomgang.",
+            "es": "Si se especifica una URL mientras no se especifican coordenadas, entonces cuando se guarda la configuración, las coordenadas se determinan en función de la URL y se adoptan en la configuración. Esto permite utilizar las coordenadas dentro del procesamiento del flujo sin reinspección de la URL.",
+            "da": "Hvis en URL er angivet, mens der ikke er angivet koordinater, så når indstillingen gemmes, bestemmes koordinaterne baseret på URL'en og vedtages i indstillingen. Dette gør det muligt at bruge koordinaterne inden for flowbehandling uden URL-geninspektion.",
+            "ru": "Если указан URL, но не указаны координаты, то при сохранении настроек координаты определяются на основе URL и принимаются в настройку. Это позволяет использовать координаты в обработке потока без повторной проверки URL.",
+            "pl": "Jeśli podano adres URL, podczas gdy nie podano współrzędnych, to po zapisaniu ustawienia współrzędne są określane na podstawie adresu URL i przyjmowane do ustawienia. Pozwala to na wykorzystanie współrzędnych w przetwarzaniu przepływu bez ponownej inspekcji adresu URL."
           }
         }
       ]
@@ -243,7 +443,15 @@
       "label": {
         "en": "Location 5",
         "de": "Standort 5",
-        "nl": "Plaats 5"
+        "nl": "Plaats 5",
+        "fr": "Emplacement 5",
+        "it": "Posizione 5",
+        "sv": "Plats 5",
+        "no": "Sted 5",
+        "es": "Ubicación 5",
+        "da": "Sted 5",
+        "ru": "Место 5",
+        "pl": "Lokalizacja 5"
       },
       "children": [
         {
@@ -252,7 +460,15 @@
           "label": {
             "en": "Name",
             "de": "Name",
-            "nl": "Naam"
+            "nl": "Naam",
+            "fr": "Nom",
+            "it": "Nome",
+            "sv": "Namn",
+            "no": "Navn",
+            "es": "Nombre",
+            "da": "Navn",
+            "ru": "Имя",
+            "pl": "Nazwa"
           },
           "value": ""
         },
@@ -262,7 +478,15 @@
           "label": {
             "en": "Latitude",
             "de": "Breitengrad",
-            "nl": "Breedtegraad"
+            "nl": "Breedtegraad",
+            "fr": "Latitude",
+            "it": "Latitudine",
+            "sv": "Latitud",
+            "no": "Breddegrad",
+            "es": "Latitud",
+            "da": "Breddegrad",
+            "ru": "Широта",
+            "pl": "Szerokość geograficzna"
           },
           "value": 0
         },
@@ -272,7 +496,15 @@
           "label": {
             "en": "Longitude",
             "de": "Längengrad",
-            "nl": "Lengtegraad"
+            "nl": "Lengtegraad",
+            "fr": "Longitude",
+            "it": "Longitudine",
+            "sv": "Longitud",
+            "no": "Lengdegrad",
+            "es": "Longitud",
+            "da": "Længdegrad",
+            "ru": "Долгота",
+            "pl": "Długość geograficzna"
           },
           "value": 0
         },
@@ -282,13 +514,29 @@
           "label": {
             "en": "Google Maps URL",
             "de": "Google Maps URL",
-            "nl": "Google Maps URL"
+            "nl": "Google Maps URL",
+            "fr": "URL Google Maps",
+            "it": "URL Google Maps",
+            "sv": "Google Maps URL",
+            "no": "Google Maps URL",
+            "es": "URL de Google Maps",
+            "da": "Google Maps URL",
+            "ru": "URL Google Maps",
+            "pl": "URL Google Maps"
           },
           "value": "",
           "hint":{
             "en": "If a URL is specified while no coordinates are specified, then when the setting is saved, the coordinates are determined based on the URL and adopted into the setting. This allows the coordinates to be used within flow processing without URL re-inspection.",
             "de": "Wird eine URL angegeben während keine Koordinaten angegeben werden, dann werden die Koordinaten beim Speichern der Einstellung anhand der URL ermittelt und in die Einstellung übernommen. Dies ermöglicht die Verwendung der Koordinaten innerhalb der Flow-Verarbeitung ohne erneute URL-Prüfung.",
-            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL."
+            "nl": "Als er een URL wordt opgegeven terwijl er geen coördinaten zijn opgegeven, worden bij het opslaan van de instelling de coördinaten bepaald op basis van de URL en overgenomen in de instelling. Hierdoor kunnen de coördinaten worden gebruikt binnen de stroomverwerking zonder hercontrole van de URL.",
+            "fr": "Si une URL est spécifiée alors que les coordonnées ne sont pas spécifiées, alors lorsque le paramètre est enregistré, les coordonnées sont déterminées en fonction de l'URL et adoptées dans le paramètre. Cela permet d'utiliser les coordonnées dans le traitement du flux sans réinspection de l'URL.",
+            "it": "Se viene specificato un URL mentre non vengono specificate le coordinate, allora quando viene salvata l'impostazione, le coordinate vengono determinate in base all'URL e adottate nell'impostazione. Ciò consente di utilizzare le coordinate all'interno del flusso di elaborazione senza reinserimento dell'URL.",
+            "sv": "Om en URL anges medan inga koordinater anges, då när inställningen sparas bestäms koordinaterna baserat på URL:en och antas i inställningen. Detta gör det möjligt att använda koordinaterna inom flödesbehandling utan URL-omprövning.",
+            "no": "Hvis en URL er angitt mens ingen koordinater er angitt, så når innstillingen lagres, blir koordinatene bestemt basert på URL-en og adoptert i innstillingen. Dette gjør det mulig å bruke koordinatene i flytbehandling uten URL-gjennomgang.",
+            "es": "Si se especifica una URL mientras no se especifican coordenadas, entonces cuando se guarda la configuración, las coordenadas se determinan en función de la URL y se adoptan en la configuración. Esto permite utilizar las coordenadas dentro del procesamiento del flujo sin reinspección de la URL.",
+            "da": "Hvis en URL er angivet, mens der ikke er angivet koordinater, så når indstillingen gemmes, bestemmes koordinaterne baseret på URL'en og vedtages i indstillingen. Dette gør det muligt at bruge koordinaterne inden for flowbehandling uden URL-geninspektion.",
+            "ru": "Если указан URL, но не указаны координаты, то при сохранении настроек координаты определяются на основе URL и принимаются в настройку. Это позволяет использовать координаты в обработке потока без повторной проверки URL.",
+            "pl": "Jeśli podano adres URL, podczas gdy nie podano współrzędnych, to po zapisaniu ustawienia współrzędne są określane na podstawie adresu URL i przyjmowane do ustawienia. Pozwala to na wykorzystanie współrzędnych w przetwarzaniu przepływu bez ponownej inspekcji adresu URL."
           }
         }
       ]

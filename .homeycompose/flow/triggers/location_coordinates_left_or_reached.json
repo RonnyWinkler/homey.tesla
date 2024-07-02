@@ -2,17 +2,41 @@
     "title": {
         "en": "Ccoordinates have been left or reached",
         "de": "Koordinaten wurden verlassen oder erreicht",
-        "nl": "Coördinaten zijn achtergelaten of bereikt"
+        "nl": "Coördinaten zijn achtergelaten of bereikt",
+        "fr": "Les coordonnées ont été quittées ou atteintes",
+        "it": "Le coordinate sono state lasciate o raggiunte",
+        "sv": "Koordinaterna har lämnats eller nåtts",
+        "no": "Koordinater har blitt forlatt eller nådd",
+        "es": "Las coordenadas han sido dejadas o alcanzadas",
+        "da": "Koordinater er blevet forladt eller nået",
+        "ru": "Координаты были покинуты или достигнуты",
+        "pl": "Współrzędne zostały opuszczone lub osiągnięte"
     },
     "titleFormatted": {
         "en": "Coordinates have been [[action]]: Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
         "de": "Koordinaten wurden [[action]]: Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
-        "nl": "Coördinaten zijn [[action]]: Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m"
+        "nl": "Coördinaten zijn [[action]]: Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m",
+        "fr": "Les coordonnées ont été [[action]] : Longitude [[longitude]] et Latitude [[latitude]] ou URL GoogleMaps [[url]] avec une tolérance de [[distance]] m",
+        "it": "Le coordinate sono state [[action]]: Longitudine [[longitude]] e Latitudine [[latitude]] o URL di GoogleMaps [[url]] con tolleranza [[distance]] m",
+        "sv": "Koordinaterna har [[action]]: Longitud [[longitude]] och Latitud [[latitude]] eller GoogleMaps URL [[url]] med tolerans [[distance]] m",
+        "no": "Koordinater har blitt [[action]]: Lengdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]] med toleranse [[distance]] m",
+        "es": "Las coordenadas han sido [[action]]: Longitud [[longitude]] y Latitud [[latitude]] o URL de GoogleMaps [[url]] con tolerancia [[distance]] m",
+        "da": "Koordinater er blevet [[action]]: Længdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]] med tolerance [[distance]] m",
+        "ru": "Координаты были [[action]]: Долгота [[longitude]] и Широта [[latitude]] или URL GoogleMaps [[url]] с допустимым отклонением [[distance]] м",
+        "pl": "Współrzędne zostały [[action]]: Długość geograficzna [[longitude]] i Szerokość geograficzna [[latitude]] lub URL GoogleMaps [[url]] z tolerancją [[distance]] m"
     },
     "hint": {
         "en": "The flow is triggered when the specified coordinates (specified as longitude/latitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",
         "de": "Der Flow wird ausgelöst, wenn die angebenen Koordinaten (angegben als Längengrad/Breitengrat oder GoogleMaps-Kurz-URL) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
-        "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als lengtegraad/breedtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+        "nl": "De stroom wordt geactiveerd wanneer de opgegeven coördinaten (gespecificeerd als lengtegraad/breedtegraad of korte URL van GoogleMaps) worden bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters.",
+        "fr": "Le flux est déclenché lorsque les coordonnées spécifiées (spécifiées en tant que longitude/latitude ou URL courte de GoogleMaps) sont atteintes ou quittées. La tolérance spécifie le rayon de la zone de géo-barrière en mètres.",
+        "it": "Il flusso viene attivato quando le coordinate specificate (specificato come longitudine/latitudine o URL breve di GoogleMaps) vengono raggiunte o lasciate. La tolleranza specifica il raggio dell'area di geofence in metri.",
+        "sv": "Flödet utlöses när de angivna koordinaterna (specificerade som longitud/latitud eller GoogleMaps kort URL) nås eller lämnas. Toleransen specificerar radie för geofence-området i meter.",
+        "no": "Flyten utløses når de angitte koordinatene (spesifisert som lengdegrad/breddegrad eller GoogleMaps kort URL) blir nådd eller forlatt. Toleransen angir radiusen til geofence-området i meter.",
+        "es": "El flujo se activa cuando se alcanzan o se abandonan las coordenadas especificadas (especificadas como longitud/latitud o URL corta de GoogleMaps). La tolerancia especifica el radio del área de geovalla en metros.",
+        "da": "Flowet udløses, når de angivne koordinater (specificeret som længdegrad/breddegrad eller GoogleMaps kort URL) nås eller forlades. Tolerancen angiver radius for geofence-området i meter.",
+        "ru": "Поток срабатывает, когда указанные координаты (указанные как долгота/широта или короткий URL GoogleMaps) достигаются или покидаются. Допустимое отклонение указывает радиус области геозабора в метрах.",
+        "pl": "Przepływ jest uruchamiany, gdy określone współrzędne (określone jako długość geograficzna/szerokość geograficzna lub krótki URL GoogleMaps) są osiągane lub opuszczane. Tolerancja określa promień obszaru geofence w metrach."
     },
     "tokens": [
         {
@@ -21,7 +45,15 @@
             "title": {
                 "en": "Latitude",
                 "de": "Breitengrad",
-                "nl": "Breedtegraad"
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
             }
         },
         {
@@ -30,7 +62,15 @@
             "title": {
                 "en": "Longitude",
                 "de": "Längengrad",
-                "nl": "Lengtegraad"
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
             }
         },
         {
@@ -39,7 +79,15 @@
             "title": {
                 "en": "Location name",
                 "de": "Standortname",
-                "nl": "Plaats naam"
+                "nl": "Plaats naam",
+                "fr": "Nom du lieu",
+                "it": "Nome del luogo",
+                "sv": "Platsnamn",
+                "no": "Stedsnavn",
+                "es": "Nombre del lugar",
+                "da": "Stednavn",
+                "ru": "Название места",
+                "pl": "Nazwa lokalizacji"
             }
         },
         {
@@ -48,7 +96,15 @@
             "title": {
                 "en": "Street",
                 "de": "Straße",
-                "nl": "Straat"
+                "nl": "Straat",
+                "fr": "Rue",
+                "it": "Via",
+                "sv": "Gata",
+                "no": "Gate",
+                "es": "Calle",
+                "da": "Gade",
+                "ru": "Улица",
+                "pl": "Ulica"
             }
         },
         {
@@ -57,7 +113,15 @@
             "title": {
                 "en": "City",
                 "de": "Ort",
-                "nl": "Plaats"
+                "nl": "Plaats",
+                "fr": "Ville",
+                "it": "Città",
+                "sv": "Stad",
+                "no": "By",
+                "es": "Ciudad",
+                "da": "By",
+                "ru": "Город",
+                "pl": "Miasto"
             }
         },
         {
@@ -66,7 +130,15 @@
             "title": {
                 "en": "Postcode",
                 "de": "Postleitzahl",
-                "nl": "postcode"
+                "nl": "postcode",
+                "fr": "Code postal",
+                "it": "Codice postale",
+                "sv": "Postnummer",
+                "no": "Postnummer",
+                "es": "Código postal",
+                "da": "Postnummer",
+                "ru": "Почтовый индекс",
+                "pl": "Kod pocztowy"
             }
         },
         {
@@ -75,7 +147,15 @@
             "title": {
                 "en": "Country",
                 "de": "Land",
-                "nl": "Land"
+                "nl": "Land",
+                "fr": "Pays",
+                "it": "Paese",
+                "sv": "Land",
+                "no": "Land",
+                "es": "País",
+                "da": "Land",
+                "ru": "Страна",
+                "pl": "Kraj"
             }
         }
     ],
@@ -89,7 +169,15 @@
                     "title": { 
                         "en": "reached",
                         "de": "erreicht",
-                        "nl": "bereikt"
+                        "nl": "bereikt",
+                        "fr": "atteint",
+                        "it": "raggiunto",
+                        "sv": "nått",
+                        "no": "nådd",
+                        "es": "alcanzado",
+                        "da": "nået",
+                        "ru": "достигнуто",
+                        "pl": "osiągnięte"
                     }
                 },
                 {
@@ -97,7 +185,15 @@
                     "title": { 
                         "en": "left",
                         "de": "verlassen",
-                        "nl": "verlaat"
+                        "nl": "verlaat",
+                        "fr": "quitté",
+                        "it": "lasciato",
+                        "sv": "lämnat",
+                        "no": "forlatt",
+                        "es": "dejado",
+                        "da": "forladt",
+                        "ru": "покинуто",
+                        "pl": "opuszczone"
                     }
                 }
             ]
@@ -109,7 +205,15 @@
             "title": { 
                 "en": "Latitude",
                 "de": "Breitengrad",
-                "nl": "Breedtegraad"
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
             },
             "placeholder": { 
                 "en": "13.40000"
@@ -122,7 +226,15 @@
             "title": { 
                 "en": "Longitude",
                 "de": "Längengrad",
-                "nl": "Lengtegraad"
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
             },
             "placeholder": { 
                 "en": "52.50000"
@@ -135,7 +247,15 @@
             "title": { 
                 "en": "GoogleMaps URL",
                 "de": "GoogleMaps URL",
-                "nl": "GoogleMaps URL"
+                "nl": "GoogleMaps URL",
+                "fr": "URL GoogleMaps",
+                "it": "URL di GoogleMaps",
+                "sv": "GoogleMaps URL",
+                "no": "GoogleMaps URL",
+                "es": "URL de GoogleMaps",
+                "da": "GoogleMaps URL",
+                "ru": "URL GoogleMaps",
+                "pl": "URL GoogleMaps"
             },
             "placeholder": { 
                 "en": "https://maps.app.goo.gl/..."
@@ -148,12 +268,28 @@
             "title": { 
                 "en": "Distance (m)",
                 "de": "Entfernung (m)",
-                "nl": "Afstand (m)"
+                "nl": "Afstand (m)",
+                "fr": "Distance (m)",
+                "it": "Distanza (m)",
+                "sv": "Avstånd (m)",
+                "no": "Avstand (m)",
+                "es": "Distancia (m)",
+                "da": "Afstand (m)",
+                "ru": "Расстояние (м)",
+                "pl": "Odległość (m)"
             },
             "placeholder": { 
                 "en": "Default: 100m",
                 "de": "Standard: 100m",
-                "nl": "Standaard: 100m"
+                "nl": "Standaard: 100m",
+                "fr": "Par défaut : 100m",
+                "it": "Predefinito: 100m",
+                "sv": "Standard: 100m",
+                "no": "Standard: 100m",
+                "es": "Predeterminado: 100m",
+                "da": "Standard: 100m",
+                "ru": "По умолчанию: 100м",
+                "pl": "Domyślnie: 100m"
             }
         },
         {

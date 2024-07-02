@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Charge voltage",
-      "de": "Ladespannung",
-      "nl": "Laad spanning"
-    },
-    "units": {
-      "en": "V"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_charge_voltage.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Charge voltage",
+    "de": "Ladespannung",
+    "nl": "Laad spanning",
+    "fr": "Tension de charge",
+    "it": "Tensione di carica",
+    "sv": "Laddningsspänning",
+    "no": "Ladespenning",
+    "es": "Voltaje de carga",
+    "da": "Opladningsspænding",
+    "ru": "Напряжение заряда",
+    "pl": "Napięcie ładowania"
+  },
+  "units": {
+    "en": "V"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_charge_voltage.svg"
+}

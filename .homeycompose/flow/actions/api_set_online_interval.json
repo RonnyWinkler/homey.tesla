@@ -1,13 +1,29 @@
 {
     "title": {
-        "en": "Set onnline interval",
+        "en": "Set online interval",
         "de": "Setze Online-Intervall",
-        "nl": "Stel online-interval in"
+        "nl": "Stel online-interval in",
+        "fr": "Définir l'intervalle en ligne",
+        "it": "Imposta intervallo online",
+        "sv": "Ställ in online-intervall",
+        "no": "Sett online-intervall",
+        "es": "Establecer intervalo en línea",
+        "da": "Indstil online-interval",
+        "ru": "Установить интервал онлайн",
+        "pl": "Ustaw interwał online"
     },
     "titleFormatted": {
         "en": "Set online interval to [[interval]] [[unit]]",
         "de": "Setze Online-Intervall auf [[interval]] [[unit]]",
-        "nl": "Stel online-interval in op [[interval]] [[unit]]"
+        "nl": "Stel online-interval in op [[interval]] [[unit]]",
+        "fr": "Définir l'intervalle en ligne à [[interval]] [[unit]]",
+        "it": "Imposta intervallo online a [[interval]] [[unit]]",
+        "sv": "Ställ in online-intervall till [[interval]] [[unit]]",
+        "no": "Sett online-intervall til [[interval]] [[unit]]",
+        "es": "Establecer intervalo en línea a [[interval]] [[unit]]",
+        "da": "Indstil online-interval til [[interval]] [[unit]]",
+        "ru": "Установить интервал онлайн на [[interval]] [[unit]]",
+        "pl": "Ustaw interwał online na [[interval]] [[unit]]"
     },
     "args": [
         {
@@ -21,7 +37,15 @@
             "title": {
                 "en": "Interval",
                 "de": "Intervall",
-                "nl": "Interval"
+                "nl": "Interval",
+                "fr": "Intervalle",
+                "it": "Intervallo",
+                "sv": "Intervall",
+                "no": "Intervall",
+                "es": "Intervalo",
+                "da": "Interval",
+                "ru": "Интервал",
+                "pl": "Interwał"
             }
         },
         {
@@ -30,7 +54,15 @@
             "title": { 
               "en": "Interval unit",
               "de": "Intervall-Einheit",
-              "nl": "Interval eenheid"
+              "nl": "Interval eenheid",
+              "fr": "Unité d'intervalle",
+              "it": "Unità di intervallo",
+              "sv": "Intervall enhet",
+              "no": "Intervall enhet",
+              "es": "Unidad de intervalo",
+              "da": "Intervallenhed",
+              "ru": "Единица интервала",
+              "pl": "Jednostka interwału"
             },
             "values":[
                 {
@@ -38,7 +70,15 @@
                     "title":{
                         "en": "Minutes",
                         "de": "Minuten",
-                        "nl": "Minuten"
+                        "nl": "Minuten",
+                        "fr": "Minutes",
+                        "it": "Minuti",
+                        "sv": "Minuter",
+                        "no": "Minutter",
+                        "es": "Minutos",
+                        "da": "Minutter",
+                        "ru": "Минуты",
+                        "pl": "Minuty"
                     }
                 },
                 {
@@ -46,7 +86,15 @@
                     "title":{
                         "en": "Seconds",
                         "de": "Sekunden",
-                        "nl": "Seconden"
+                        "nl": "Seconden",
+                        "fr": "Secondes",
+                        "it": "Secondi",
+                        "sv": "Sekunder",
+                        "no": "Sekunder",
+                        "es": "Segundos",
+                        "da": "Sekunder",
+                        "ru": "Секунды",
+                        "pl": "Sekundy"
                     }
                 }
             ]

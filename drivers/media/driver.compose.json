@@ -3,7 +3,15 @@
     "name": {
         "en": "Media",
         "de": "Medien",
-        "nl": "Media"
+        "nl": "Media",
+        "fr": "Média",
+        "it": "Media",
+        "sv": "Media",
+        "no": "Media",
+        "es": "Medios",
+        "da": "Medier",
+        "ru": "Медиа",
+        "pl": "Media"
     },
     "images": {
         "large": "/drivers/media/assets/images/large.png",

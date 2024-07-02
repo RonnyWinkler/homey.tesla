@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "A/C auto",
-      "de": "A/C auto",
-      "nl": "A/C auto"
-    },
-    "insights": false,
-    "titleTrue": {
-      "en": "A/C auto on",
-      "de": "A/C auto an",
-      "nl": "A/C auto aan"
-    },
-    "titleFalse": {
-      "en": "A/C auto off",
-      "de": "A/C auto aus",
-      "nl": "A/C auto uit"
-    },
-    "insightsTitleTrue": {
-      "en": "A/C auto on",
-      "de": "A/C auto an",
-      "nl": "A/C auto aan"
-    },
-    "insightsTitleFalse": {
-      "en": "A/C auto off",
-      "de": "A/C auto aus",
-      "nl": "A/C auto uit"
-    },
-    "getable": true,
-    "setable": false,
-    "uiComponent": "sensor",
-    "icon": "/assets/capability_icons/climate_ac_auto.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "A/C auto",
+    "de": "A/C auto",
+    "nl": "A/C auto",
+    "fr": "A/C auto",
+    "it": "A/C auto",
+    "sv": "A/C auto",
+    "no": "A/C auto",
+    "es": "A/C auto",
+    "da": "A/C auto",
+    "ru": "A/C auto",
+    "pl": "A/C auto"
+  },
+  "insights": false,
+  "titleTrue": {
+    "en": "A/C auto on",
+    "de": "A/C auto an",
+    "nl": "A/C auto aan",
+    "fr": "A/C auto activé",
+    "it": "A/C auto attivo",
+    "sv": "A/C auto på",
+    "no": "A/C auto på",
+    "es": "A/C auto encendido",
+    "da": "A/C auto tændt",
+    "ru": "A/C авто вкл",
+    "pl": "A/C auto włączone"
+  },
+  "titleFalse": {
+    "en": "A/C auto off",
+    "de": "A/C auto aus",
+    "nl": "A/C auto uit",
+    "fr": "A/C auto désactivé",
+    "it": "A/C auto spento",
+    "sv": "A/C auto av",
+    "no": "A/C auto av",
+    "es": "A/C auto apagado",
+    "da": "A/C auto slukket",
+    "ru": "A/C авто выкл",
+    "pl": "A/C auto wyłączone"
+  },
+  "insightsTitleTrue": {
+    "en": "A/C auto on",
+    "de": "A/C auto an",
+    "nl": "A/C auto aan",
+    "fr": "A/C auto activé",
+    "it": "A/C auto attivo",
+    "sv": "A/C auto på",
+    "no": "A/C auto på",
+    "es": "A/C auto encendido",
+    "da": "A/C auto tændt",
+    "ru": "A/C авто вкл",
+    "pl": "A/C auto włączone"
+  },
+  "insightsTitleFalse": {
+    "en": "A/C auto off",
+    "de": "A/C auto aus",
+    "nl": "A/C auto uit",
+    "fr": "A/C auto désactivé",
+    "it": "A/C auto spento",
+    "sv": "A/C auto av",
+    "no": "A/C auto av",
+    "es": "A/C auto apagado",
+    "da": "A/C auto slukket",
+    "ru": "A/C авто выкл",
+    "pl": "A/C auto wyłączone"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capability_icons/climate_ac_auto.svg"
+}

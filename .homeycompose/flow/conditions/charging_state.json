@@ -3,12 +3,27 @@
     "title": {
         "en": "Charging state !{{is|isn't}}",
         "de": "Ladezustand !{{ist|ist nicht}}",
-        "nl": "Oplaadstatus !{{is|is niet}}"
+        "nl": "Oplaadstatus !{{is|is niet}}",
+        "fr": "État de charge !{{est|n'est pas}}",
+        "it": "Stato di carica !{{è|non è}}",
+        "sv": "Laddningstillstånd !{{är|är inte}}",
+        "no": "Ladetilstand !{{er|er ikke}}",
+        "es": "Estado de carga !{{es|no es}}",
+        "da": "Opladningstilstand !{{er|er ikke}}",
+        "ru": "Состояние зарядки !{{есть|нет}}"
     },
     "titleFormatted": {
         "en": "Charging state !{{is|isn't}} [[state]]",
         "de": "Ladezustand !{{ist|ist nicht}} [[state]]",
-        "nl": "Oplaadstatus !{{is|is niet}} [[state]]"
+        "nl": "Oplaadstatus !{{is|is niet}} [[state]]",
+        "fr": "État de charge !{{est|n'est pas}} [[state]]",
+        "it": "Stato di carica !{{è|non è}} [[state]]",
+        "sv": "Laddningstillstånd !{{är|är inte}} [[state]]",
+        "no": "Ladetilstand !{{er|er ikke}} [[state]]",
+        "es": "Estado de carga !{{es|no es}} [[state]]",
+        "da": "Opladningstilstand !{{er|er ikke}} [[state]]",
+        "ru": "Состояние зарядки !{{есть|нет}} [[state]]",
+        "pl": "Stan ładowania !{{jest|nie jest}} [[state]]"
     },
     "args": [
         {
@@ -22,7 +37,15 @@
             "title": { 
                 "en": "Charging state",
                 "de": "Ladezustand",
-                "nl": "Oplaadstatus"
+                "nl": "Oplaadstatus",
+                "fr": "État de charge",
+                "it": "Stato di carica",
+                "sv": "Laddningstillstånd",
+                "no": "Ladetilstand",
+                "es": "Estado de carga",
+                "da": "Opladningstilstand",
+                "ru": "Состояние зарядки",
+                "pl": "Stan ładowania"
             },
             "values": [
                 {
@@ -30,7 +53,15 @@
                     "title": {
                         "en": "Connected",
                         "de": "Verbunden",
-                        "nl": "Verbonden"
+                        "nl": "Verbonden",
+                        "fr": "Connecté",
+                        "it": "Connesso",
+                        "sv": "Ansluten",
+                        "no": "Koblet til",
+                        "es": "Conectado",
+                        "da": "Tilsluttet",
+                        "ru": "Подключено",
+                        "pl": "Podłączony"
                     }
                 },
                 {
@@ -38,7 +69,15 @@
                     "title": {
                         "en": "Disconnected",
                         "de": "Getrennt",
-                        "nl": "Losgekoppeld"
+                        "nl": "Losgekoppeld",
+                        "fr": "Déconnecté",
+                        "it": "Disconnesso",
+                        "sv": "Frånkopplad",
+                        "no": "Frakoblet",
+                        "es": "Desconectado",
+                        "da": "Afbrydet",
+                        "ru": "Отключено",
+                        "pl": "Odłączony"
                     }
                 },
                 {
@@ -46,15 +85,31 @@
                     "title": {
                         "en": "Calibrating",
                         "de": "Kalibrieren",
-                        "nl": "Kalibreren"
+                        "nl": "Kalibreren",
+                        "fr": "Calibrage",
+                        "it": "Calibrando",
+                        "sv": "Kalibrering",
+                        "no": "Kalibrering",
+                        "es": "Calibrando",
+                        "da": "Kalibrering",
+                        "ru": "Калибровка",
+                        "pl": "Kalibracja"
                     }
                 },
-                        {
+                {
                     "id": "Starting",
                     "title": {
                         "en": "Starting",
                         "de": "Beginnend",
-                        "nl": "Beginnend"
+                        "nl": "Beginnend",
+                        "fr": "Démarrage",
+                        "it": "Avvio",
+                        "sv": "Startar",
+                        "no": "Starter",
+                        "es": "Iniciando",
+                        "da": "Starter",
+                        "ru": "Запуск",
+                        "pl": "Rozpoczynanie"
                     }
                 },
                 {
@@ -62,7 +117,15 @@
                     "title": {
                         "en": "Charging",
                         "de": "Laden",
-                        "nl": "Opladen"
+                        "nl": "Opladen",
+                        "fr": "En charge",
+                        "it": "In carica",
+                        "sv": "Laddar",
+                        "no": "Lader",
+                        "es": "Cargando",
+                        "da": "Oplader",
+                        "ru": "Зарядка",
+                        "pl": "Ładowanie"
                     }
                 },
                 {
@@ -70,7 +133,15 @@
                     "title": {
                         "en": "Stopped",
                         "de": "Gestoppt",
-                        "nl": "Gestopt"
+                        "nl": "Gestopt",
+                        "fr": "Arrêté",
+                        "it": "Fermato",
+                        "sv": "Stoppad",
+                        "no": "Stoppet",
+                        "es": "Detenido",
+                        "da": "Stoppet",
+                        "ru": "Остановлено",
+                        "pl": "Zatrzymany"
                     }
                 },
                 {
@@ -78,7 +149,15 @@
                     "title": {
                         "en": "Complete",
                         "de": "Abgeschlossen",
-                        "nl": "Compleet"
+                        "nl": "Compleet",
+                        "fr": "Terminé",
+                        "it": "Completo",
+                        "sv": "Slutförd",
+                        "no": "Fullført",
+                        "es": "Completo",
+                        "da": "Fuldført",
+                        "ru": "Завершено",
+                        "pl": "Zakończony"
                     }
                 },
                 {
@@ -86,7 +165,15 @@
                     "title": {
                         "en": "No Power",
                         "de": "Keine Energie",
-                        "nl": "Geen kracht"
+                        "nl": "Geen kracht",
+                        "fr": "Pas de courant",
+                        "it": "Nessuna alimentazione",
+                        "sv": "Ingen ström",
+                        "no": "Ingen strøm",
+                        "es": "Sin energía",
+                        "da": "Ingen strøm",
+                        "ru": "Нет питания",
+                        "pl": "Brak zasilania"
                     }
                 },
                 {
@@ -94,7 +181,15 @@
                     "title": {
                         "en": "Unknown",
                         "de": "Unbekannt",
-                        "nl": "Onbekend"
+                        "nl": "Onbekend",
+                        "fr": "Inconnu",
+                        "it": "Sconosciuto",
+                        "sv": "Okänd",
+                        "no": "Ukjent",
+                        "es": "Desconocido",
+                        "da": "Ukendt",
+                        "ru": "Неизвестно",
+                        "pl": "Nieznany"
                     }
                 }
             ]

@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "A/C",
-      "de": "A/C",
-      "nl": "A/C"
-    },
-    "insights": false,
-    "titleTrue": {
-      "en": "A/C on",
-      "de": "A/C an",
-      "nl": "A/C aan"
-    },
-    "titleFalse": {
-      "en": "A/C off",
-      "de": "A/C aus",
-      "nl": "A/C uit"
-    },
-    "insightsTitleTrue": {
-      "en": "A/C on",
-      "de": "A/C an",
-      "nl": "A/C aan"
-    },
-    "insightsTitleFalse": {
-      "en": "A/C off",
-      "de": "A/C aus",
-      "nl": "A/C uit"
-    },
-    "getable": true,
-    "setable": false,
-    "uiComponent": "sensor",
-    "icon": "/assets/capability_icons/climate_ac.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "A/C",
+    "de": "A/C",
+    "nl": "A/C",
+    "fr": "A/C",
+    "it": "A/C",
+    "sv": "A/C",
+    "no": "A/C",
+    "es": "A/C",
+    "da": "A/C",
+    "ru": "A/C",
+    "pl": "A/C"
+  },
+  "insights": false,
+  "titleTrue": {
+    "en": "A/C on",
+    "de": "A/C an",
+    "nl": "A/C aan",
+    "fr": "A/C allumé",
+    "it": "A/C acceso",
+    "sv": "A/C på",
+    "no": "A/C på",
+    "es": "A/C encendido",
+    "da": "A/C tændt",
+    "ru": "A/C включено",
+    "pl": "A/C włączone"
+  },
+  "titleFalse": {
+    "en": "A/C off",
+    "de": "A/C aus",
+    "nl": "A/C uit",
+    "fr": "A/C éteint",
+    "it": "A/C spento",
+    "sv": "A/C av",
+    "no": "A/C av",
+    "es": "A/C apagado",
+    "da": "A/C slukket",
+    "ru": "A/C выключено",
+    "pl": "A/C wyłączone"
+  },
+  "insightsTitleTrue": {
+    "en": "A/C on",
+    "de": "A/C an",
+    "nl": "A/C aan",
+    "fr": "A/C allumé",
+    "it": "A/C acceso",
+    "sv": "A/C på",
+    "no": "A/C på",
+    "es": "A/C encendido",
+    "da": "A/C tændt",
+    "ru": "A/C включено",
+    "pl": "A/C włączone"
+  },
+  "insightsTitleFalse": {
+    "en": "A/C off",
+    "de": "A/C aus",
+    "nl": "A/C uit",
+    "fr": "A/C éteint",
+    "it": "A/C spento",
+    "sv": "A/C av",
+    "no": "A/C av",
+    "es": "A/C apagado",
+    "da": "A/C slukket",
+    "ru": "A/C выключено",
+    "pl": "A/C wyłączone"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capability_icons/climate_ac.svg"
+}

@@ -2,7 +2,15 @@
     "title": {
         "en": "Update available",
         "de": "Aktualisisierung verfügbar",
-        "nl": "Update beschikbaar"
+        "nl": "Update beschikbaar",
+        "fr": "Mise à jour disponible",
+        "it": "Aggiornamento disponibile",
+        "sv": "Uppdatering tillgänglig",
+        "no": "Oppdatering tilgjengelig",
+        "es": "Actualización disponible",
+        "da": "Opdatering tilgængelig",
+        "ru": "Доступно обновление",
+        "pl": "Dostępna aktualizacja"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Update state",
                 "de": "Aktualisisierungsstatus",
-                "nl": "Status bijwerken"
+                "nl": "Status bijwerken",
+                "fr": "État de la mise à jour",
+                "it": "Stato dell'aggiornamento",
+                "sv": "Uppdateringsstatus",
+                "no": "Oppdateringsstatus",
+                "es": "Estado de la actualización",
+                "da": "Opdateringsstatus",
+                "ru": "Состояние обновления",
+                "pl": "Stan aktualizacji"
             }
         },
         {
@@ -20,7 +36,15 @@
             "title": {
                 "en": "Current software",
                 "de": "Aktuelle Software",
-                "nl": "Actuele software"
+                "nl": "Actuele software",
+                "fr": "Logiciel actuel",
+                "it": "Software attuale",
+                "sv": "Nuvarande programvara",
+                "no": "Gjeldende programvare",
+                "es": "Software actual",
+                "da": "Nuværende software",
+                "ru": "Текущее программное обеспечение",
+                "pl": "Aktualne oprogramowanie"
             }
         },
         {
@@ -29,7 +53,15 @@
             "title": {
                 "en": "Available software",
                 "de": "Verfügbare Software",
-                "nl": "Beschikbare oftware"
+                "nl": "Beschikbare software",
+                "fr": "Logiciel disponible",
+                "it": "Software disponibile",
+                "sv": "Tillgänglig programvara",
+                "no": "Tilgjengelig programvare",
+                "es": "Software disponible",
+                "da": "Tilgængelig software",
+                "ru": "Доступное программное обеспечение",
+                "pl": "Dostępne oprogramowanie"
             }
         }
     ],

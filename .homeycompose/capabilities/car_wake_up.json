@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Wake up",
-      "de": "Aufwecken",
-      "nl": "Wakker worden"
-    },
-    "insights": false,
-    "getable": false,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_wake_up.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Wake up",
+    "de": "Aufwecken",
+    "nl": "Wakker worden",
+    "fr": "Réveiller",
+    "it": "Sveglia",
+    "sv": "Vakna",
+    "no": "Våkne opp",
+    "es": "Despertar",
+    "da": "Vågn op",
+    "ru": "Проснуться",
+    "pl": "Obudź się"
+  },
+  "insights": false,
+  "getable": false,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_wake_up.svg"
+}

@@ -1,42 +1,74 @@
 {
   "highlight": true,
   "title": {
-        "en": "Climate preconditioning",
-        "de": "Klimatisierung",
-        "nl": "Climate control"
+    "en": "Climate preconditioning",
+    "de": "Klimatisierung",
+    "nl": "Climate control",
+    "fr": "Préconditionnement climatique",
+    "it": "Condizionamento climatico",
+    "sv": "Klimatförberedelse",
+    "no": "Klimaforberedelse",
+    "es": "Preacondicionamiento climático",
+    "da": "Klimaforberedelse",
+    "ru": "Климатическая предустановка",
+    "pl": "Klimatyzacja"
+  },
+  "titleFormatted": {
+    "en": "[[action]] climate preconditioning",
+    "de": "Klimatisierung [[action]]",
+    "nl": "Climate control [[action]]",
+    "fr": "[[action]] de préconditionnement climatique",
+    "it": "[[action]] condizionamento climatico",
+    "sv": "[[action]] klimatförberedelse",
+    "no": "[[action]] klimaforberedelse",
+    "es": "[[action]] preacondicionamiento climático",
+    "da": "[[action]] klimaforberedelse",
+    "ru": "[[action]] климатическая предустановка",
+    "pl": "[[action]] klimatyzacja"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "titleFormatted": {
-        "en": "[[action]] climate preconditioning",
-        "de": "Klimatisierung [[action]]",
-        "nl": "Climate control [[action]]"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
+          "id": "on",
+          "label": {
+            "en": "Activate",
+            "de": "aktivieren",
+            "nl": "activeren",
+            "fr": "Activer",
+            "it": "Attiva",
+            "sv": "Aktivera",
+            "no": "Aktiver",
+            "es": "Activar",
+            "da": "Aktiver",
+            "ru": "Активировать",
+            "pl": "Aktywuj"
+          }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "Activate",
-                  "de": "aktivieren",
-                  "nl": "activeren"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Deactivate",
-                  "de": "deaktivieren",
-                  "nl": "deactiveren"
-                }
-              }
-            ]
+          "id": "off",
+          "label": {
+            "en": "Deactivate",
+            "de": "deaktivieren",
+            "nl": "deactiveren",
+            "fr": "Désactiver",
+            "it": "Disattiva",
+            "sv": "Inaktivera",
+            "no": "Deaktiver",
+            "es": "Desactivar",
+            "da": "Deaktiver",
+            "ru": "Деактивировать",
+            "pl": "Dezaktywuj"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

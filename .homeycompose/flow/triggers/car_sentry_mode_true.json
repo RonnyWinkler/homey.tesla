@@ -3,7 +3,15 @@
     "title": {
         "en": "Sentry mode has been activated",
         "de": "Sentry-Modus wurde aktiviert",
-        "nl": "Sentry mode is geactiveerd"
+        "nl": "Sentry mode is geactiveerd",
+        "fr": "Le mode sentinelle a été activé",
+        "it": "La modalità sentinella è stata attivata",
+        "sv": "Sentry-läge har aktiverats",
+        "no": "Sentry-modus er aktivert",
+        "es": "El modo sentinela ha sido activado",
+        "da": "Sentry-tilstand er aktiveret",
+        "ru": "Режим сторожевого режима активирован",
+        "pl": "Tryb strażnika został aktywowany"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

@@ -1,20 +1,36 @@
 {
   "highlight": true,
   "title": {
-      "en": "Unlock/open charge port",
-      "de": "Ladeanschluss entriegeln/öffnen",
-      "nl": "Ontgrendel/open laadpoort"
-    },
-    "titleFormatted": {
-      "en": "Unlock/open charge port",
-      "de": "Ladeanschluss entriegeln/öffnen",
-      "nl": "Ontgrendel/open laadpoort"
-    },
-    "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=battery"
-      }
+    "en": "Unlock/open charge port",
+    "de": "Ladeanschluss entriegeln/öffnen",
+    "nl": "Ontgrendel/open laadpoort",
+    "fr": "Déverrouiller/ouvrir le port de charge",
+    "it": "Sblocca/apri porta di ricarica",
+    "sv": "Lås upp/öppna laddporten",
+    "no": "Lås opp/åpne ladeporten",
+    "es": "Desbloquear/abrir puerto de carga",
+    "da": "Lås op/åbn opladningsporten",
+    "ru": "Разблокировать/открыть зарядный порт",
+    "pl": "Odblokuj/otwórz port ładowania"
+  },
+  "titleFormatted": {
+    "en": "Unlock/open charge port",
+    "de": "Ladeanschluss entriegeln/öffnen",
+    "nl": "Ontgrendel/open laadpoort",
+    "fr": "Déverrouiller/ouvrir le port de charge",
+    "it": "Sblocca/apri porta di ricarica",
+    "sv": "Lås upp/öppna laddporten",
+    "no": "Lås opp/åpne ladeporten",
+    "es": "Desbloquear/abrir puerto de carga",
+    "da": "Lås op/åbn opladningsporten",
+    "ru": "Разблокировать/открыть зарядный порт",
+    "pl": "Odblokuj/otwórz port ładowania"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
+    }
   ]
 }

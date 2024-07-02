@@ -3,12 +3,28 @@
     "title": {
         "en": "Wake up the car",
         "de": "Wecke das Fahrzeug auf",
-        "nl": "Maak het voertuig wakker"
+        "nl": "Maak het voertuig wakker",
+        "fr": "Réveillez la voiture",
+        "it": "Sveglia l'auto",
+        "sv": "Väck upp bilen",
+        "no": "Vekk opp bilen",
+        "es": "Despertar el coche",
+        "da": "Væk bilen",
+        "ru": "Разбудить машину",
+        "pl": "Obudź samochód"
     },
     "titleFormatted": {
         "en": "Wake up the car [[wait]]",
         "de": "Wecke das Fahrzeug auf [[wait]]",
-        "nl": "Maak het voertuig wakker [[wait]]"
+        "nl": "Maak het voertuig wakker [[wait]]",
+        "fr": "Réveillez la voiture [[wait]]",
+        "it": "Sveglia l'auto [[wait]]",
+        "sv": "Väck upp bilen [[wait]]",
+        "no": "Vekk opp bilen [[wait]]",
+        "es": "Despertar el coche [[wait]]",
+        "da": "Væk bilen [[wait]]",
+        "ru": "Разбудить машину [[wait]]",
+        "pl": "Obudź samochód [[wait]]"
     },
     "args": [
         {
@@ -22,7 +38,15 @@
             "title": { 
                 "en": "and wait?", 
                 "de": "und warte?",
-                "nl": "en wacht?s"
+                "nl": "en wacht?",
+                "fr": "et attendre?",
+                "it": "e aspetta?",
+                "sv": "och vänta?",
+                "no": "og vent?",
+                "es": "¿y esperar?",
+                "da": "og vent?",
+                "ru": "и ждать?",
+                "pl": "i czekaj?"
             },
             "values": [
                 { 
@@ -30,7 +54,15 @@
                     "title": { 
                         "en": "and wait",
                         "de": "und warte", 
-                        "nl": "en wacht" 
+                        "nl": "en wacht",
+                        "fr": "et attendre",
+                        "it": "e aspetta",
+                        "sv": "och vänta",
+                        "no": "og vent",
+                        "es": "y esperar",
+                        "da": "og vent",
+                        "ru": "и ждать",
+                        "pl": "i czekaj"
                     } 
                 },
                 { 
@@ -38,7 +70,15 @@
                     "title": { 
                         "en": "and don't wait",
                         "de": "und warte nicht", 
-                        "nl": "en wacht niet" 
+                        "nl": "en wacht niet",
+                        "fr": "et ne pas attendre",
+                        "it": "e non aspettare",
+                        "sv": "och vänta inte",
+                        "no": "og ikke vent",
+                        "es": "y no esperar",
+                        "da": "og vent ikke",
+                        "ru": "и не ждать",
+                        "pl": "i nie czekaj"
                     } 
                 }
             ]

@@ -2,57 +2,97 @@
     "title": {
         "en": "Navigate to coordinates",
         "de": "Navigiere zu Koordinaten",
-        "nl": "Navigeer naar coördinaten"
+        "nl": "Navigeer naar coördinaten",
+        "fr": "Naviguer vers les coordonnées",
+        "it": "Naviga alle coordinate",
+        "sv": "Navigera till koordinater",
+        "no": "Naviger til koordinater",
+        "es": "Navegar a coordenadas",
+        "da": "Naviger til koordinater",
+        "ru": "Перейти к координатам",
+        "pl": "Przejdź do współrzędnych"
     },
     "titleFormatted": {
-      "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]]",
-      "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]]",
-      "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]]"
+        "en": "Navigate to coordinates Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]]",
+        "de": "Navigiere zu Koordinaten Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]]",
+        "nl": "Navigeer naar coördinaten Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]]",
+        "fr": "Naviguer vers les coordonnées Longitude [[longitude]] et Latitude [[latitude]] ou URL GoogleMaps [[url]]",
+        "it": "Naviga alle coordinate Longitudine [[longitude]] e Latitudine [[latitude]] o URL GoogleMaps [[url]]",
+        "sv": "Navigera till koordinater Longitud [[longitude]] och Latitud [[latitude]] eller GoogleMaps URL [[url]]",
+        "no": "Naviger til koordinater Lengdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]]",
+        "es": "Navegar a coordenadas Longitud [[longitude]] y Latitud [[latitude]] o URL de GoogleMaps [[url]]",
+        "da": "Naviger til koordinater Længdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]]",
+        "ru": "Перейти к координатам Долгота [[longitude]] и Широта [[latitude]] или URL GoogleMaps [[url]]",
+        "pl": "Przejdź do współrzędnych Długość geograficzna [[longitude]] i Szerokość geograficzna [[latitude]] lub URL GoogleMaps [[url]]"
     },
     "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=location"
-      },
-      {
-        "name": "latitude",
-        "type": "number",
-        "required": false,
-        "title": { 
-            "en": "Latitude",
-            "de": "Breitengrad",
-            "nl": "Breedtegraad"
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
         },
-        "placeholder": { 
-            "en": "13.40000"
-        }
-    },
-    {
-        "name": "longitude",
-        "type": "number",
-        "required": false,
-        "title": { 
-            "en": "Longitude",
-            "de": "Längengrad",
-            "nl": "Lengtegraad"
+        {
+            "name": "latitude",
+            "type": "number",
+            "required": false,
+            "title": {
+                "en": "Latitude",
+                "de": "Breitengrad",
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
+            },
+            "placeholder": {
+                "en": "13.40000"
+            }
         },
-        "placeholder": { 
-            "en": "52.50000"
-        }
-    },
-    {
-        "name": "url",
-        "type": "text",
-        "required": false,
-        "title": { 
-            "en": "GoogleMaps URL",
-            "de": "GoogleMaps URL",
-            "nl": "GoogleMaps URL"
+        {
+            "name": "longitude",
+            "type": "number",
+            "required": false,
+            "title": {
+                "en": "Longitude",
+                "de": "Längengrad",
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
+            },
+            "placeholder": {
+                "en": "52.50000"
+            }
         },
-        "placeholder": { 
-            "en": "https://maps.app.goo.gl/..."
+        {
+            "name": "url",
+            "type": "text",
+            "required": false,
+            "title": {
+                "en": "GoogleMaps URL",
+                "de": "GoogleMaps URL",
+                "nl": "GoogleMaps URL",
+                "fr": "URL GoogleMaps",
+                "it": "URL GoogleMaps",
+                "sv": "GoogleMaps URL",
+                "no": "GoogleMaps URL",
+                "es": "URL de GoogleMaps",
+                "da": "GoogleMaps URL",
+                "ru": "URL GoogleMaps",
+                "pl": "URL GoogleMaps"
+            },
+            "placeholder": {
+                "en": "https://maps.app.goo.gl/..."
+            }
         }
-    }
     ]
 }

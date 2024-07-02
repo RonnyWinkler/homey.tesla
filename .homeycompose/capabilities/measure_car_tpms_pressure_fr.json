@@ -1,14 +1,34 @@
 {
-    "type": "number",
-    "title": {
-      "en": "TPMS front right",
-      "de": "TPMS vorn rechts",
-      "nl": "TPMS rechtsvoor"
-    },
-    "units": "Bar",
-    "decimals": 2,
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "TPMS front right",
+    "de": "TPMS vorn rechts",
+    "nl": "TPMS rechtsvoor",
+    "fr": "TPMS avant droit",
+    "it": "TPMS anteriore destro",
+    "sv": "TPMS fram höger",
+    "no": "TPMS foran høyre",
+    "es": "TPMS delantero derecho",
+    "da": "TPMS forreste højre",
+    "ru": "TPMS передний правый",
+    "pl": "TPMS przedni prawy"
+  },
+  "units": {
+    "en": "Bar",
+    "de": "Bar",
+    "nl": "Bar",
+    "fr": "Bar",
+    "it": "Bar",
+    "sv": "Bar",
+    "no": "Bar",
+    "es": "Bar",
+    "da": "Bar",
+    "ru": "Bar",
+    "pl": "Bar"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_car_tpms_pressure.svg"
+}

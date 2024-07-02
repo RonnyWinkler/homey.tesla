@@ -1,14 +1,30 @@
 {
-    "type": "label",
-    "label": {
-      "en": "Requests remaining",
-      "de": "Verbleibende Abfragen",
-      "nl": "Verzoeken over"
-    },
-    "hint": {
-      "en": "Remaining API requests",
-      "de": "Verbleibende API-Abfragen",
-      "nl": "Resterende API-verzoeken"
-    },
-    "value": "300"
-  }
+  "type": "label",
+  "label": {
+    "en": "Requests remaining",
+    "de": "Verbleibende Abfragen",
+    "nl": "Verzoeken over",
+    "fr": "Requêtes restantes",
+    "it": "Richieste rimanenti",
+    "sv": "Återstående förfrågningar",
+    "no": "Gjenstående forespørsler",
+    "es": "Solicitudes restantes",
+    "da": "Resterende anmodninger",
+    "ru": "Оставшиеся запросы",
+    "pl": "Pozostałe żądania"
+  },
+  "hint": {
+    "en": "Remaining API requests",
+    "de": "Verbleibende API-Abfragen",
+    "nl": "Resterende API-verzoeken",
+    "fr": "Requêtes API restantes",
+    "it": "Richieste API rimanenti",
+    "sv": "Återstående API-förfrågningar",
+    "no": "Gjenstående API-forespørsler",
+    "es": "Solicitudes API restantes",
+    "da": "Resterende API-anmodninger",
+    "ru": "Оставшиеся запросы API",
+    "pl": "Pozostałe żądania API"
+  },
+  "value": "300"
+}

@@ -2,7 +2,15 @@
     "title": {
         "en": "Battery power has changed",
         "de": "Die Batterieleistung hat sich geändert",
-        "nl": "Het batterijvermogen is gewijzigd"
+        "nl": "Het batterijvermogen is gewijzigd",
+        "fr": "La puissance de la batterie a changé",
+        "it": "La potenza della batteria è cambiata",
+        "sv": "Batterikraften har ändrats",
+        "no": "Batterikraften har endret seg",
+        "es": "La potencia de la batería ha cambiado",
+        "da": "Batterikraften har ændret sig",
+        "ru": "Мощность батареи изменилась",
+        "pl": "Zmieniła się moc baterii"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Power",
                 "de": "Leistung",
-                "nl": "Stroom"
+                "nl": "Stroom",
+                "fr": "Puissance",
+                "it": "Potenza",
+                "sv": "Kraft",
+                "no": "Kraft",
+                "es": "Potencia",
+                "da": "Effekt",
+                "ru": "Мощность",
+                "pl": "Moc"
             }
         }
     ],

@@ -1,42 +1,74 @@
 {
   "highlight": true,
   "title": {
-        "en": "Sentry mode",
-        "de": "Sentry-Modus",
-        "nl": "Sentry Mode"
+    "en": "Sentry mode",
+    "de": "Sentry-Modus",
+    "nl": "Sentry Mode",
+    "fr": "Mode sentinelle",
+    "it": "Modalità sentinella",
+    "sv": "Vakthundsläge",
+    "no": "Vakthundmodus",
+    "es": "Modo centinela",
+    "da": "Vagthundtilstand",
+    "ru": "Режим сторожа",
+    "pl": "Tryb strażnika"
+  },
+  "titleFormatted": {
+    "en": "Sentry Mode [[action]]",
+    "de": "Sentry-Modus [[action]]",
+    "nl": "Sentry Mode [[action]]",
+    "fr": "Mode sentinelle [[action]]",
+    "it": "Modalità sentinella [[action]]",
+    "sv": "Vakthundsläge [[action]]",
+    "no": "Vakthundmodus [[action]]",
+    "es": "Modo centinela [[action]]",
+    "da": "Vagthundtilstand [[action]]",
+    "ru": "Режим сторожа [[action]]",
+    "pl": "Tryb strażnika [[action]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
     },
-    "titleFormatted": {
-        "en": "Sentry Mode [[action]]",
-        "de": "Sentry-Modus [[action]]",
-        "nl": "Sentry Mode [[action]]"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
+          "id": "on",
+          "label": {
+            "en": "Activate",
+            "de": "aktivieren",
+            "nl": "activeren",
+            "fr": "Activer",
+            "it": "Attiva",
+            "sv": "Aktivera",
+            "no": "Aktiver",
+            "es": "Activar",
+            "da": "Aktivér",
+            "ru": "Активировать",
+            "pl": "Aktywuj"
+          }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "Activate",
-                  "de": "aktivieren",
-                  "nl": "activeren"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Deactivate",
-                  "de": "deaktivieren",
-                  "nl": "deactiveren"
-                }
-              }
-            ]
+          "id": "off",
+          "label": {
+            "en": "Deactivate",
+            "de": "deaktivieren",
+            "nl": "deactiveren",
+            "fr": "Désactiver",
+            "it": "Disattiva",
+            "sv": "Inaktivera",
+            "no": "Deaktiver",
+            "es": "Desactivar",
+            "da": "Deaktivér",
+            "ru": "Деактивировать",
+            "pl": "Dezaktywuj"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

@@ -2,7 +2,15 @@
     "title": {
         "en": "Battery heater !{{is|isn't}} on",
         "de": "Batterie-Heizung !{{ist|ist nicht}} an",
-        "nl": "Batterijverwarmer  !{{is|is niet}} aan"
+        "nl": "Batterijverwarmer  !{{is|is niet}} aan",
+        "fr": "Chauffage de la batterie !{{est|n'est pas}} allumé",
+        "it": "Riscaldatore della batteria !{{è|non è}} acceso",
+        "sv": "Batterivärmare !{{är|är inte}} på",
+        "no": "Batterivarmer !{{er|er ikke}} på",
+        "es": "Calentador de batería !{{está|no está}} encendido",
+        "da": "Batterivarmer !{{er|er ikke}} tændt",
+        "ru": "Обогреватель аккумулятора !{{включен|выключен}}",
+        "pl": "Podgrzewacz baterii !{{jest|nie jest}} włączony"
     },
     "args": [
         {

@@ -1,12 +1,20 @@
 {
-    "type": "string",
-    "title": {
-      "en": "Location",
-      "de": "Standort",
-      "nl": "Locatie"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/location_name.svg"
-  }
+  "type": "string",
+  "title": {
+    "en": "Location",
+    "de": "Standort",
+    "nl": "Locatie",
+    "fr": "Emplacement",
+    "it": "Posizione",
+    "sv": "Plats",
+    "no": "Sted",
+    "es": "Ubicación",
+    "da": "Placering",
+    "ru": "Местоположение",
+    "pl": "Lokalizacja"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/location_name.svg"
+}

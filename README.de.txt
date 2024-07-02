@@ -7,10 +7,12 @@ Nach dem Hinzufügen hast du die Möglichkeit, die App in deinem Fahrzeug zu reg
 
 Anschließend kannst du weitere Geräte hinzufügen, um spezielle fahrzeugfunktionen zu steuern (Klima, Laden...).
 
-App:
-Diese App ist der Nachfolger der bisherigen "Tesla smart charger" App, die nach API-Änderung seitens Tesla ab 2024 nicht mehr unterstützt wird.
-
 API-Hinweise:
 Diese App verwendet die Tesla-Fleet-API. Damit wird eine Ende-zu-Ende-Verschlüsselung der an das Fahrzeug gesendeten Befehle unterstützt.
 Um Befehle an das Fahrzeug zu senden, muss die App im Fahrzeug registriert werden. Verwende dazu den Aufruf beim Hinzufügen des Fahrzeugs oder führe diesen Schritt nachträglich im Reparieren-Dialog durch.
 Das Hinzufügen als Fahrzeugschlüssel ist ggf. eingeschränkt, wenn du nicht der Inhaber bist, sondern das Fahrzeug auf den Leasinggeber registriert ist.
+
+API Rate-Limits:
+- 300 Datenablesungen pro Tag
+- ~50 Befehle pro Tag
+- weniger als 50 Start-/Stopp-Ladebefehle oder Weckbefehle pro Tag

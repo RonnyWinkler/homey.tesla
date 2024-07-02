@@ -1,38 +1,70 @@
 {
-    "type": "enum",
+  "type": "enum",
+  "title": {
+    "en": "Overheat protection level",
+    "de": "Überhitzungsschutz-Stufe",
+    "nl": "Beveiligingsniveau tegen oververhitting",
+    "fr": "Niveau de protection contre la surchauffe",
+    "it": "Livello di protezione da surriscaldamento",
+    "sv": "Överhettningsskyddsnivå",
+    "no": "Overopphetingsbeskyttelsesnivå",
+    "es": "Nivel de protección contra sobrecalentamiento",
+    "da": "Overophedningsbeskyttelsesniveau",
+    "ru": "Уровень защиты от перегрева",
+    "pl": "Poziom ochrony przed przegrzaniem"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "values": [
+    {
+    "id": "low",
     "title": {
-      "en": "Overheat protection level",
-      "de": "Überhitzungsschutz-Stufe",
-      "nl": "Beveiligingsniveau tegen oververhitting"
+      "en": "Low",
+      "de": "Niedrig",
+      "nl": "Laag",
+      "fr": "Faible",
+      "it": "Basso",
+      "sv": "Låg",
+      "no": "Lav",
+      "es": "Bajo",
+      "da": "Lav",
+      "ru": "Низкий",
+      "pl": "Niski"
+    }
     },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "picker",
-    "values": [
-      {
-        "id": "low",
-        "title": {
-          "en": "Low",
-          "de": "Niedrig",
-          "nl": "Laag"
-        }
-      },
-      {
-        "id": "medium",
-        "title": {
-          "en": "Medium",
-          "de": "Mittel",
-          "nl": "Medium"
-        }
-      },
-      {
-        "id": "high",
-        "title": {
-          "en": "High",
-          "de": "Hoch",
-          "nl": "Hoog"
-        }
-      }
+    {
+    "id": "medium",
+    "title": {
+      "en": "Medium",
+      "de": "Mittel",
+      "nl": "Medium",
+      "fr": "Moyen",
+      "it": "Medio",
+      "sv": "Medium",
+      "no": "Medium",
+      "es": "Medio",
+      "da": "Medium",
+      "ru": "Средний",
+      "pl": "Średni"
+    }
+    },
+    {
+    "id": "high",
+    "title": {
+      "en": "High",
+      "de": "Hoch",
+      "nl": "Hoog",
+      "fr": "Élevé",
+      "it": "Alto",
+      "sv": "Hög",
+      "no": "Høy",
+      "es": "Alto",
+      "da": "Høj",
+      "ru": "Высокий",
+      "pl": "Wysoki"
+    }
+    }
   ]
 }

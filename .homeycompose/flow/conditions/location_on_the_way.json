@@ -2,17 +2,41 @@
     "title": {
         "en": "!{{Is|Is not}} on the way",
         "de": "!{{Ist|Ist nicht}} unterwegs",
-        "nl": "!{{Is|Is niet}} onderweg"
+        "nl": "!{{Is|Is niet}} onderweg",
+        "fr": "!{{Est|N'est pas}} en chemin",
+        "it": "!{{È|Non è}} sulla strada",
+        "sv": "!{{Är|Är inte}} på väg",
+        "no": "!{{Er|Er ikke}} på vei",
+        "es": "!{{Está|No está}} en camino",
+        "da": "!{{Er|Er ikke}} på vej",
+        "ru": "!{{Находится|Не находится}} на пути",
+        "pl": "!{{Jest|Nie jest}} w drodze"
     },
     "titleFormatted": {
         "en": "!{{Is|Is not}} on the way",
         "de": "!{{Ist|Ist nicht}} unterwegs",
-        "nl": "!{{Is|Is niet}} onderweg"
+        "nl": "!{{Is|Is niet}} onderweg",
+        "fr": "!{{Est|N'est pas}} en chemin",
+        "it": "!{{È|Non è}} sulla strada",
+        "sv": "!{{Är|Är inte}} på väg",
+        "no": "!{{Er|Er ikke}} på vei",
+        "es": "!{{Está|No está}} en camino",
+        "da": "!{{Er|Er ikke}} på vej",
+        "ru": "!{{Находится|Не находится}} на пути",
+        "pl": "!{{Jest|Nie jest}} w drodze"
     },
     "hint": {
         "en": "This condition applies if the vehicle is not in any of the defined locations.",
         "de": "Diese Bedingung ist zutreffend, wenn sich das Fahrzeug an keinem der definierten Standorte befindet.",
-        "nl": "Deze voorwaarde is van toepassing als het voertuig zich niet op een van de gedefinieerde locaties bevindt."
+        "nl": "Deze voorwaarde is van toepassing als het voertuig zich niet op een van de gedefinieerde locaties bevindt.",
+        "fr": "Cette condition s'applique si le véhicule n'est pas dans l'un des emplacements définis.",
+        "it": "Questa condizione si applica se il veicolo non si trova in nessuna delle posizioni definite.",
+        "sv": "Denna villkor gäller om fordonet inte är på någon av de definierade platserna.",
+        "no": "Denne betingelsen gjelder hvis kjøretøyet ikke er på noen av de definerte stedene.",
+        "es": "Esta condición se aplica si el vehículo no está en ninguno de los lugares definidos.",
+        "da": "Denne betingelse gælder, hvis køretøjet ikke er på nogen af de definerede steder.",
+        "ru": "Это условие применяется, если транспортное средство не находится ни в одном из определенных мест.",
+        "pl": "To warunek dotyczy sytuacji, gdy pojazd nie znajduje się w żadnym z zdefiniowanych miejsc."
     },
     "args": [
         {

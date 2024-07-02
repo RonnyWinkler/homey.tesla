@@ -2,7 +2,15 @@
     "title": {
         "en": "Tesla API queries count changed",
         "de": "Tesla API Abfragenanzahl geändert",
-        "nl": "Tesla API aanvragen tellen gewijzigd"
+        "nl": "Tesla API aanvragen tellen gewijzigd",
+        "fr": "Nombre de requêtes API Tesla modifié",
+        "it": "Conteggio richieste API Tesla modificato",
+        "sv": "Antal Tesla API-förfrågningar ändrades",
+        "no": "Endret antall Tesla API-forespørsler",
+        "es": "Cambio en el recuento de consultas de la API de Tesla",
+        "da": "Ændret antal Tesla API-forespørgsler",
+        "ru": "Изменено количество запросов к API Tesla",
+        "pl": "Zmieniono liczbę zapytań API Tesli"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Queries per day",
                 "de": "Abfragen pro Tag",
-                "nl": "Aanvragen per dag"
+                "nl": "Aanvragen per dag",
+                "fr": "Requêtes par jour",
+                "it": "Richieste al giorno",
+                "sv": "Förfrågningar per dag",
+                "no": "Forespørsler per dag",
+                "es": "Consultas por día",
+                "da": "Forespørgsler pr. dag",
+                "ru": "Запросов в день",
+                "pl": "Zapytań na dzień"
             }
         }
     ],

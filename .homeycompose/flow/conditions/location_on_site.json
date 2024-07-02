@@ -2,12 +2,28 @@
     "title": {
         "en": "!{{Is|Is not}} at location",
         "de": "!{{Befindet sich|sich nicht}} am Standort",
-        "nl": "!{{Is|Is niet}} op locatie"
+        "nl": "!{{Is|Is niet}} op locatie",
+        "fr": "!{{Est|N'est pas}} à l'emplacement",
+        "it": "!{{È|Non è}} in posizione",
+        "sv": "!{{Är|Är inte}} på plats",
+        "no": "!{{Er|Er ikke}} på stedet",
+        "es": "!{{Está|No está}} en la ubicación",
+        "da": "!{{Er|Er ikke}} på placering",
+        "ru": "!{{Находится|Не находится}} на месте",
+        "pl": "!{{Jest|Nie jest}} na miejscu"
     },
     "titleFormatted": {
         "en": "!{{Is|Is not}} at location [[location]] with tolerance [[distance]] m",
         "de": "!{{Befindet sich|Befindet sich nicht}} am Standort [[location]] mit Toleranz [[distance]] m",
-        "nl": "!{{Is|Is niet}} op locatie [[location]] met tolerantie [[distance]] m"
+        "nl": "!{{Is|Is niet}} op locatie [[location]] met tolerantie [[distance]] m",
+        "fr": "!{{Est|N'est pas}} à l'emplacement [[location]] avec une tolérance de [[distance]] m",
+        "it": "!{{È|Non è}} in posizione [[location]] con tolleranza [[distance]] m",
+        "sv": "!{{Är|Är inte}} på plats [[location]] med tolerans [[distance]] m",
+        "no": "!{{Er|Er ikke}} på stedet [[location]] med toleranse [[distance]] m",
+        "es": "!{{Está|No está}} en la ubicación [[location]] con tolerancia [[distance]] m",
+        "da": "!{{Er|Er ikke}} på placering [[location]] med tolerance [[distance]] m",
+        "ru": "!{{Находится|Не находится}} на месте [[location]] с допустимым отклонением [[distance]] м",
+        "pl": "!{{Jest|Nie jest}} na miejscu [[location]] z tolerancją [[distance]] m"
     },
     "args": [
         {
@@ -18,26 +34,50 @@
         {
             "name": "location",
             "type": "autocomplete",
-                "title": {
-                    "en": "Location",
-                    "de": "Standort",
-                    "nl": "Plaats"
-                }
+            "title": {
+                "en": "Location",
+                "de": "Standort",
+                "nl": "Plaats",
+                "fr": "Emplacement",
+                "it": "Posizione",
+                "sv": "Plats",
+                "no": "Sted",
+                "es": "Ubicación",
+                "da": "Placering",
+                "ru": "Место",
+                "pl": "Miejsce"
+            }
         },
         {
             "name": "distance",
             "type": "number",
             "required": false,
-            "title": { 
+            "title": {
                 "en": "Distance (m)",
                 "de": "Entfernung (m)",
-                "nl": "Afstand (m)"
+                "nl": "Afstand (m)",
+                "fr": "Distance (m)",
+                "it": "Distanza (m)",
+                "sv": "Avstånd (m)",
+                "no": "Avstand (m)",
+                "es": "Distancia (m)",
+                "da": "Afstand (m)",
+                "ru": "Расстояние (м)",
+                "pl": "Odległość (m)"
             },
-            "placeholder": { 
+            "placeholder": {
                 "en": "Default: 100m",
                 "de": "Standard: 100m",
-                "nl": "Standaard: 100m"
+                "nl": "Standaard: 100m",
+                "fr": "Par défaut : 100m",
+                "it": "Predefinito: 100m",
+                "sv": "Standard: 100m",
+                "no": "Standard: 100m",
+                "es": "Predeterminado: 100m",
+                "da": "Standard: 100m",
+                "ru": "По умолчанию: 100м",
+                "pl": "Domyślnie: 100m"
             }
-        }    
+        }
     ]
 }

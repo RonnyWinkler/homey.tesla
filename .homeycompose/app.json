@@ -1,23 +1,47 @@
 {
   "id": "com.tesla.car",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
   "name": {
     "en": "Tesla",
     "de": "Tesla",
-    "nl": "Tesla"
+    "nl": "Tesla",
+    "fr": "Tesla",
+    "it": "Tesla",
+    "sv": "Tesla",
+    "no": "Tesla",
+    "es": "Tesla",
+    "da": "Tesla",
+    "ru": "Tesla",
+    "pl": "Tesla"
   },
   "description": {
     "en": "Zero emissions. Zero compromises.",
     "de": "Keine Emissionen. Keine Kompromisse.",
-    "nl": "Geen uitstoot. Geen compromis."
+    "nl": "Geen uitstoot. Geen compromis.",
+    "fr": "Zéro émission. Zéro compromis.",
+    "it": "Zero emissioni. Zero compromessi.",
+    "sv": "Noll utsläpp. Noll kompromisser.",
+    "no": "Null utslipp. Null kompromisser.",
+    "es": "Cero emisiones. Cero compromisos.",
+    "da": "Nul emissioner. Nul kompromiser.",
+    "ru": "Нулевые выбросы. Никаких компромиссов.",
+    "pl": "Zero emisji. Zero kompromisów."
   },
   "tags": { 
     "en": ["Tesla", "car", "vehicle", "charger", "charging"],
     "de": ["Tesla", "Auto", "Fahrzeug", "Lader", "Laden"],
-    "nl": ["Tesla", "auto", "voertuig", "oplader", "opladen"]
+    "nl": ["Tesla", "auto", "voertuig", "oplader", "opladen"],
+    "fr": ["Tesla", "voiture", "véhicule", "chargeur", "chargement"],
+    "it": ["Tesla", "auto", "veicolo", "caricatore", "caricamento"],
+    "sv": ["Tesla", "bil", "fordon", "laddare", "laddning"],
+    "no": ["Tesla", "bil", "kjøretøy", "lader", "lading"],
+    "es": ["Tesla", "coche", "vehículo", "cargador", "carga"],
+    "da": ["Tesla", "bil", "køretøj", "oplader", "opladning"],
+    "ru": ["Tesla", "автомобиль", "транспортное средство", "зарядное устройство", "зарядка"],
+    "pl": ["Tesla", "samochód", "pojazd", "ładowarka", "ładowanie"]
   },
   "category": [
     "tools"

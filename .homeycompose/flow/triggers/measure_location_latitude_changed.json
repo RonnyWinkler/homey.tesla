@@ -2,7 +2,15 @@
     "title": {
         "en": "Latitude changed",
         "de": "Breitengrad hat sich geändert",
-        "nl": "Breedtegraad gewijzigd"
+        "nl": "Breedtegraad gewijzigd",
+        "fr": "Latitude modifiée",
+        "it": "Latitudine modificata",
+        "sv": "Latitud ändrad",
+        "no": "Breddegrad endret",
+        "es": "Latitud cambiada",
+        "da": "Breddegrad ændret",
+        "ru": "Изменена широта",
+        "pl": "Zmieniona szerokość geograficzna"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Latitude",
                 "de": "Breitengrad",
-                "nl": "Breedtegraad"
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
             }
         }
     ],

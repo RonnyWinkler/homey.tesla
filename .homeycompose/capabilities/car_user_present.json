@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "User is present",
-      "de": "Benutzer anwesend",
-      "nl": "Gebruiker aanwezig"
-    },
-    "titleTrue":{
-      "en": "User is present",
-      "de": "Benutzer anwesend",
-      "nl": "Gebruiker aanwezig"
-    },
-    "titleFasle":{
-      "en": "User is absent",
-      "de": "Benutzer abwesend",
-      "nl": "Gebruiker afwezig"      
-    },
-    "insightsTitleTrue":{
-      "en": "User is present",
-      "de": "Benutzer anwesend",
-      "nl": "Gebruiker aanwezig"
-    },
-    "insightsTitleFalse":{
-      "en": "User is absent",
-      "de": "Benutzer abwesend",
-      "nl": "Gebruiker afwezig"      
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": null,
-    "icon": "./assets/capability_icons/car_user_present.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "User is present",
+    "de": "Benutzer anwesend",
+    "nl": "Gebruiker aanwezig",
+    "fr": "Utilisateur présent",
+    "it": "Utente presente",
+    "sv": "Användaren är närvarande",
+    "no": "Bruker er tilstede",
+    "es": "Usuario presente",
+    "da": "Bruger er til stede",
+    "ru": "Пользователь присутствует",
+    "pl": "Użytkownik jest obecny"
+  },
+  "titleTrue":{
+    "en": "User is present",
+    "de": "Benutzer anwesend",
+    "nl": "Gebruiker aanwezig",
+    "fr": "Utilisateur présent",
+    "it": "Utente presente",
+    "sv": "Användaren är närvarande",
+    "no": "Bruker er tilstede",
+    "es": "Usuario presente",
+    "da": "Bruger er til stede",
+    "ru": "Пользователь присутствует",
+    "pl": "Użytkownik jest obecny"
+  },
+  "titleFasle":{
+    "en": "User is absent",
+    "de": "Benutzer abwesend",
+    "nl": "Gebruiker afwezig",
+    "fr": "Utilisateur absent",
+    "it": "Utente assente",
+    "sv": "Användaren är frånvarande",
+    "no": "Bruker er fraværende",
+    "es": "Usuario ausente",
+    "da": "Bruger er fraværende",
+    "ru": "Пользователь отсутствует",
+    "pl": "Użytkownik jest nieobecny"
+  },
+  "insightsTitleTrue":{
+    "en": "User is present",
+    "de": "Benutzer anwesend",
+    "nl": "Gebruiker aanwezig",
+    "fr": "Utilisateur présent",
+    "it": "Utente presente",
+    "sv": "Användaren är närvarande",
+    "no": "Bruker er tilstede",
+    "es": "Usuario presente",
+    "da": "Bruger er til stede",
+    "ru": "Пользователь присутствует",
+    "pl": "Użytkownik jest obecny"
+  },
+  "insightsTitleFalse":{
+    "en": "User is absent",
+    "de": "Benutzer abwesend",
+    "nl": "Gebruiker afwezig",
+    "fr": "Utilisateur absent",
+    "it": "Utente assente",
+    "sv": "Användaren är frånvarande",
+    "no": "Bruker er fraværende",
+    "es": "Usuario ausente",
+    "da": "Bruger er fraværende",
+    "ru": "Пользователь отсутствует",
+    "pl": "Użytkownik jest nieobecny"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/car_user_present.svg"
+}

@@ -1,15 +1,31 @@
 {
-    "id": "api_rate_limit",
-    "type": "label",
-    "label": {
-      "en": "Command API rate limit (app internal)",
-      "de": "Command API Rate Limit (App-intern)",
-      "nl": "Command API rate limit (app intern)"
-    },
-    "hint": {
-      "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
-      "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
-      "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt."
-    },
-    "value": "0 %"
-  }
+  "id": "api_rate_limit",
+  "type": "label",
+  "label": {
+    "en": "Command API rate limit (app internal)",
+    "de": "Command API Rate Limit (App-intern)",
+    "nl": "Command API rate limit (app intern)",
+    "fr": "Limite de taux d'API de commande (interne à l'application)",
+    "it": "Limite di velocità API di comando (interna all'app)",
+    "sv": "Kommandot API-hastighetsbegränsning (app intern)",
+    "no": "Kommando API-hastighetsgrense (app intern)",
+    "es": "Límite de velocidad de API de comando (interno de la aplicación)",
+    "da": "Kommando API hastighedsbegrænsning (app intern)",
+    "ru": "Ограничение скорости API команды (внутреннее приложение)",
+    "pl": "Limit prędkości API polecenia (wewnętrzne dla aplikacji)"
+  },
+  "hint": {
+    "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
+    "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
+    "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt.",
+    "fr": "Ce champ affiche l'utilisation actuelle de la limite de taux d'API pour les demandes de proxy de commande. Si elle dépasse 100%, l'API sera bloquée pendant un certain temps jusqu'à ce que l'utilisation moyenne soit inférieure à 100% à nouveau.",
+    "it": "Questo campo mostra l'utilizzo corrente del limite di velocità API per le richieste di proxy di comando. Se supera il 100%, l'API verrà bloccata per un po' di tempo fino a quando l'utilizzo medio sarà di nuovo inferiore al 100%.",
+    "sv": "Det här fältet visar den aktuella användningen av hastighetsbegränsningen för kommandoproxyförfrågningar. Om den överstiger 100% blockeras API:et under en tid tills den genomsnittliga användningen är under 100% igen.",
+    "no": "Dette feltet viser gjeldende bruk av hastighetsgrensen for kommandoproksyforespørsler. Hvis den overstiger 100%, blir API-en blokkert en stund til gjennomsnittlig bruk er under 100% igjen.",
+    "es": "Este campo muestra el uso actual del límite de velocidad de la API para las solicitudes de proxy de comando. Si supera el 100%, la API se bloqueará durante un tiempo hasta que el uso promedio esté por debajo del 100% nuevamente.",
+    "da": "Dette felt viser den aktuelle hastighedsbegrænsningsbrug for kommandoproxyforespørgsler. Hvis den overstiger 100%, blokeres API'en i et stykke tid, indtil den gennemsnitlige brug er under 100% igen.",
+    "ru": "Это поле показывает текущее использование ограничения скорости API для запросов командного прокси. Если оно превышает 100%, API будет заблокировано на некоторое время, пока среднее использование не станет снова ниже 100%.",
+    "pl": "To pole pokazuje aktualne wykorzystanie limitu prędkości dla żądań proxy polecenia. Jeśli przekroczy 100%, API zostanie zablokowane na jakiś czas, aż średnie wykorzystanie będzie ponownie poniżej 100%."
+  },
+  "value": "0 %"
+}

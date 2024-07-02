@@ -1,35 +1,67 @@
 {
-    "title": {
-        "en": "Set charging power meter",
-        "de": "Ladeenergiezähler einstellen",
-        "nl": "Laadvermogenmeter instellen"
+  "title": {
+    "en": "Set charging power meter",
+    "de": "Ladeenergiezähler einstellen",
+    "nl": "Laadvermogenmeter instellen",
+    "fr": "Définir le compteur de puissance de charge",
+    "it": "Imposta il contatore di potenza di ricarica",
+    "sv": "Ställ in laddningskraftmätaren",
+    "no": "Sett ladekraftmåleren",
+    "es": "Establecer medidor de potencia de carga",
+    "da": "Indstil opladningskraftmåleren",
+    "ru": "Установить счетчик мощности зарядки",
+    "pl": "Ustaw miernik mocy ładowania"
+  },
+  "titleFormatted": {
+    "en": "Set charging power meter to [[power]] kWh",
+    "de": "Stelle Ladeenergiezähler auf [[power]] kWh",
+    "nl": "Stel de Laadvermogenmeter in op [[power]] kWh",
+    "fr": "Définir le compteur de puissance de charge à [[power]] kWh",
+    "it": "Imposta il contatore di potenza di ricarica a [[power]] kWh",
+    "sv": "Ställ in laddningskraftmätaren till [[power]] kWh",
+    "no": "Sett ladekraftmåleren til [[power]] kWh",
+    "es": "Establecer medidor de potencia de carga en [[power]] kWh",
+    "da": "Indstil opladningskraftmåleren til [[power]] kWh",
+    "ru": "Установить счетчик мощности зарядки на [[power]] кВт-ч",
+    "pl": "Ustaw miernik mocy ładowania na [[power]] kWh"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "titleFormatted": {
-        "en": "Set charging power meter to [[power]] kWh",
-        "de": "Stelle Ladeenergiezähler auf [[power]] kWh",
-        "nl": "Stel de Laadvermogenmeter in op [[power]] kWh"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
+    {
+      "name": "power",
+      "type": "number",
+      "label": "kWh",
+      "labelDecimals": 0,
+      "title": {
+        "en": "Charging energy",
+        "de": "Ladeenergie",
+        "nl": "Laadvermogen",
+        "fr": "Énergie de charge",
+        "it": "Energia di ricarica",
+        "sv": "Laddningsenergi",
+        "no": "Ladeenergi",
+        "es": "Energía de carga",
+        "da": "Opladningsenergi",
+        "ru": "Энергия зарядки",
+        "pl": "Energia ładowania"
       },
-      {
-        "name": "power",
-        "type": "number",
-        "label": "kWh",
-        "labelDecimals": 0,
-        "title": {
-          "en": "Charging energy",
-          "de": "Ladeenergie",
-          "nl": "Laadvermogen"
-        },
-        "placeholder": {
-          "en": "Charging energy",
-          "de": "Ladeenergie",
-          "nl": "Laadvermogen"
-        }
+      "placeholder": {
+        "en": "Charging energy",
+        "de": "Ladeenergie",
+        "nl": "Laadvermogen",
+        "fr": "Énergie de charge",
+        "it": "Energia di ricarica",
+        "sv": "Laddningsenergi",
+        "no": "Ladeenergi",
+        "es": "Energía de carga",
+        "da": "Opladningsenergi",
+        "ru": "Энергия зарядки",
+        "pl": "Energia ładowania"
       }
+    }
   ]
 }

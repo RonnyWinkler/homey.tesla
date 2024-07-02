@@ -4,7 +4,15 @@
     "label": {
       "en": "Assigned to car",
       "de": "Mit Fahrzeug verknüpft",
-      "nl": "Toegekend aan auto"
+      "nl": "Toegekend aan auto",
+      "fr": "Assigné à la voiture",
+      "it": "Assegnato all'auto",
+      "sv": "Tilldelad till bilen",
+      "no": "Tildelt til bilen",
+      "es": "Asignado al coche",
+      "da": "Tildelt til bilen",
+      "ru": "Назначено автомобилю",
+      "pl": "Przypisane do samochodu"
     },
     "children": [
       {

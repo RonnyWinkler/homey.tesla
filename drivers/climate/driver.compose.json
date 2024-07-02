@@ -3,7 +3,15 @@
     "name": {
         "en": "Climate",
         "de": "Klima",
-        "nl": "Klimaat"
+        "nl": "Klimaat",
+        "fr": "Climat",
+        "it": "Clima",
+        "sv": "Klimat",
+        "no": "Klima",
+        "es": "Clima",
+        "da": "Klima",
+        "ru": "Климат",
+        "pl": "Klimat"
     },
     "images": {
         "large": "/drivers/climate/assets/images/large.png",

@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Battery level",
-      "de": "Batteriestand",
-      "nl": "Batterijniveau"
-    },
-    "units": {
-      "en": "%"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_soc_level.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Battery level",
+    "de": "Batteriestand",
+    "nl": "Batterijniveau",
+    "fr": "Niveau de batterie",
+    "it": "Livello della batteria",
+    "sv": "Batterinivå",
+    "no": "Batterinivå",
+    "es": "Nivel de batería",
+    "da": "Batteriniveau",
+    "ru": "Уровень заряда батареи",
+    "pl": "Poziom baterii"
+  },
+  "units": {
+    "en": "%"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_soc_level.svg"
+}

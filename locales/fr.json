@@ -1,0 +1,76 @@
+{
+    "pair": {
+        "register": {
+            "title": "Enregistrement de l'application",
+            "subtitle": "Enregistrer l'application Homey dans votre voiture",
+            "text1": "Enregistrez l'application Homey dans votre voiture pour permettre à l'application d'envoyer des commandes à votre voiture.",
+            "text2": "Utilisez le bouton d'enregistrement pour commencer l'enregistrement dans l'application Tesla. Si le lien s'ouvre dans le navigateur, suivez l'indication 'Ouvrir dans l'application Tesla'.",
+            "text3": "Cet enregistrement est nécessaire pour utiliser le 'Protocole de commandes de véhicule Tesla' et le cryptage de bout en bout des commandes envoyées au véhicule.",
+            "text4": "Les modèles S/X antérieurs à 2021 sont exclus. Ils peuvent encore être contrôlés via l'API REST. Veuillez sélectionner l'API de commande dans les paramètres de l'appareil.",
+            "text5": "Cet enregistrement peut être répété via le dialogue 'Réparer l'appareil'.",
+            "button": "Enregistrer comme clé de voiture"
+        },
+        "battery": {
+            "name": "batterie"
+        },
+        "climate": {
+            "name": "climat"
+        },
+        "location": {
+            "name": "emplacement"
+        },
+        "media": {
+            "name": "média"
+        }
+    },
+    "repair": {
+        "select": {
+            "title": "Sélection",
+            "auth": "Changer de connexion",
+            "register_app": "Enregistrer l'application dans la voiture",
+            "charging_history": "Historique de charge",
+            "charging_history_suc": "Historique de charge SuC"
+        },
+        "charging_history": {
+            "title": "Historique de charge",
+            "clear": "effacer",
+            "json": "JSON",
+            "edit": "Modifier",
+            "save": "Enregistrer"
+        },
+        "charging_history_suc": {
+            "title": "Historique de charge SuC"
+        },
+        "location_select": {
+            "title": "Sélection",
+            "nearest_suc": "Superchargeur le plus proche",
+            "nearest_dest": "Chargeur de destination le plus proche"
+        },
+        "location_nearest_suc": {
+            "title": "Superchargeur le plus proche",
+            "navigate": "Naviguer vers le Superchargeur?"
+        },
+        "location_nearest_dest": {
+            "title": "Chargeur de destination le plus proche",
+            "navigate": "Naviguer vers le chargeur de destination?"
+        }
+    },
+    "devices": {
+        "location": {
+            "homey_location_name": "Domicile (emplacement Homey)"
+        },
+        "car": {
+            "trunk_not_allowed": "Opération du coffre désactivée dans les paramètres de l'appareil",
+            "command_pair_state_paired": "jumelé",
+            "command_pair_state_unpaired": "non jumelé",
+            "command_pair_state_undefined": "inconnu",
+            "app_not_registered": "L'application n'est pas enregistrée dans la voiture. Enregistrez-la via le processus de réparation de l'appareil de la voiture.",
+            "command_error_426": "Mise à jour de l'application requise. Veuillez mettre à jour l'application dans le magasin d'applications Homey ou activer les mises à jour automatiques."
+        }
+    },
+    "app": {
+        "update": {
+            "update_message": "La prochaine version de l'application Tesla ajoute une nouvelle autorisation (emplacement Homey). La mise à jour automatique ne fonctionne pas dans ce cas. Veuillez vérifier manuellement les mises à jour dans les prochains jours et installer la prochaine version depuis le magasin d'applications."
+        }
+    }
+}

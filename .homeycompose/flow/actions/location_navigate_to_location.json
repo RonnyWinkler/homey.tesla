@@ -1,28 +1,52 @@
 {
-    "title": {
-        "en": "Navigate to location",
-        "de": "Navigiere zu Standort",
-        "nl": "Navigeer naar locatie"
-    },
-    "titleFormatted": {
-      "en": "Navigate to location [[location]]",
-      "de": "Navigiere zu Standort [[location]]",
-      "nl": "Navigeer naar locatie [[location]]"
+  "title": {
+    "en": "Navigate to location",
+    "de": "Navigiere zu Standort",
+    "nl": "Navigeer naar locatie",
+    "fr": "Naviguer vers l'emplacement",
+    "it": "Naviga verso la posizione",
+    "sv": "Navigera till platsen",
+    "no": "Naviger til stedet",
+    "es": "Navegar a la ubicación",
+    "da": "Naviger til placeringen",
+    "ru": "Перейти к месту",
+    "pl": "Przejdź do lokalizacji"
   },
-    "args": [
-        {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=location"
-        },
-        {
-          "name": "location",
-          "type": "autocomplete",
-            "title": {
-              "en": "Location",
-              "de": "Standort",
-              "nl": "Plaats"
-            }
+  "titleFormatted": {
+    "en": "Navigate to location [[location]]",
+    "de": "Navigiere zu Standort [[location]]",
+    "nl": "Navigeer naar locatie [[location]]",
+    "fr": "Naviguer vers l'emplacement [[location]]",
+    "it": "Naviga verso la posizione [[location]]",
+    "sv": "Navigera till platsen [[location]]",
+    "no": "Naviger til stedet [[location]]",
+    "es": "Navegar a la ubicación [[location]]",
+    "da": "Naviger til placeringen [[location]]",
+    "ru": "Перейти к месту [[location]]",
+    "pl": "Przejdź do lokalizacji [[location]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=location"
+    },
+    {
+      "name": "location",
+      "type": "autocomplete",
+      "title": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Plaats",
+        "fr": "Emplacement",
+        "it": "Posizione",
+        "sv": "Plats",
+        "no": "Sted",
+        "es": "Ubicación",
+        "da": "Placering",
+        "ru": "Место",
+        "pl": "Lokalizacja"
       }
+    }
   ]
 }

@@ -2,7 +2,15 @@
     "title": {
         "en": "Overheat protection mode changed",
         "de": "Überhitzungsschutz-Modus hat sich geändert",
-        "nl": "Beveiligingsmodus tegen oververhitting gewijzigd"
+        "nl": "Beveiligingsmodus tegen oververhitting gewijzigd",
+        "fr": "Mode de protection contre la surchauffe modifié",
+        "it": "Modalità di protezione da surriscaldamento modificata",
+        "sv": "Överhettningsskyddsläge ändrat",
+        "no": "Overopphetingsbeskyttelsesmodus endret",
+        "es": "Modo de protección contra sobrecalentamiento cambiado",
+        "da": "Overophedningsbeskyttelsesmodus ændret",
+        "ru": "Изменен режим защиты от перегрева",
+        "pl": "Zmieniono tryb ochrony przed przegrzaniem"
     },
     "tokens": [{
             "name": "climate_overheat_protection_mode",
@@ -10,8 +18,16 @@
             "title": {
                 "en": "Overheat protection mode",
                 "de": "Überhitzungsschutz-Modus",
-                "nl": "Beveiligingsmodus tegen oververhitting"
-                      },
+                "nl": "Beveiligingsmodus tegen oververhitting",
+                "fr": "Mode de protection contre la surchauffe",
+                "it": "Modalità di protezione da surriscaldamento",
+                "sv": "Överhettningsskyddsläge",
+                "no": "Overopphetingsbeskyttelsesmodus",
+                "es": "Modo de protección contra sobrecalentamiento",
+                "da": "Overophedningsbeskyttelsesmodus",
+                "ru": "Режим защиты от перегрева",
+                "pl": "Tryb ochrony przed przegrzaniem"
+            },
             "example": "on"
         }
     ],

@@ -3,17 +3,41 @@
     "title": {
         "en": "Location has been left or reached",
         "de": "Standort wurde verlassen oder erreicht",
-        "nl": "Locatie is verlaten of bereikt"
+        "nl": "Locatie is verlaten of bereikt",
+        "fr": "L'emplacement a été quitté ou atteint",
+        "it": "La posizione è stata lasciata o raggiunta",
+        "sv": "Platsen har lämnats eller nåtts",
+        "no": "Stedet har blitt forlatt eller nådd",
+        "es": "Se ha dejado o alcanzado la ubicación",
+        "da": "Stedet er forladt eller nået",
+        "ru": "Местоположение было покинуто или достигнуто",
+        "pl": "Lokalizacja została opuszczona lub osiągnięta"
     },
     "titleFormatted": {
         "en": "Location [[location]] has been [[action]] with tolerance [[distance]] m",
         "de": "Standort [[location]] wurde [[action]] mit Toleranz [[distance]] m",
-        "nl": "Locatie [[location]] is [[action]] met tolerantie [[distance]] m"
+        "nl": "Locatie [[location]] is [[action]] met tolerantie [[distance]] m",
+        "fr": "L'emplacement [[location]] a été [[action]] avec une tolérance de [[distance]] m",
+        "it": "La posizione [[location]] è stata [[action]] con tolleranza [[distance]] m",
+        "sv": "Platsen [[location]] har [[action]] med tolerans [[distance]] m",
+        "no": "Stedet [[location]] har blitt [[action]] med toleranse [[distance]] m",
+        "es": "La ubicación [[location]] ha sido [[action]] con una tolerancia de [[distance]] m",
+        "da": "Stedet [[location]] er [[action]] med tolerance [[distance]] m",
+        "ru": "Местоположение [[location]] было [[action]] с допустимым отклонением [[distance]] м",
+        "pl": "Lokalizacja [[location]] została [[action]] z tolerancją [[distance]] m"
     },
     "hint": {
         "en": "The flow is triggered when the specified location (specified in device settings) ais reached or left. The tolerance specifies the radius of the geofence area in meters.",
         "de": "Der Flow wird ausgelöst, wenn der angebene Standort (angegben in den Geräteeinstellungen) erreicht oder verlassen werden. Die Toleranz gibt Radius des Geofence-Bereichs in Metern an.",
-        "nl": "De Flow wordt geactiveerd wanneer de opgegeven locatie (opgegeven in de apparaatinstellingen) wordt bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters."
+        "nl": "De Flow wordt geactiveerd wanneer de opgegeven locatie (opgegeven in de apparaatinstellingen) wordt bereikt of verlaten. De tolerantie specificeert de straal van het geofencegebied in meters.",
+        "fr": "Le flux est déclenché lorsque l'emplacement spécifié (spécifié dans les paramètres de l'appareil) est atteint ou quitté. La tolérance spécifie le rayon de la zone de géo-clôture en mètres.",
+        "it": "Il flusso viene attivato quando la posizione specificata (specificata nelle impostazioni del dispositivo) viene raggiunta o lasciata. La tolleranza specifica il raggio dell'area di geofencing in metri.",
+        "sv": "Flödet utlöses när den angivna platsen (specificerad i enhetsinställningarna) nås eller lämnas. Toleransen specificerar radie för geofence-området i meter.",
+        "no": "Flyten utløses når det angitte stedet (angitt i enhetsinnstillingene) nås eller forlates. Toleransen angir radiusen til geofence-området i meter.",
+        "es": "El flujo se activa cuando se alcanza o se deja la ubicación especificada (especificada en la configuración del dispositivo). La tolerancia especifica el radio del área de geovalla en metros.",
+        "da": "Flowet udløses, når det angivne sted (angivet i enhedsindstillingerne) nås eller forlades. Tolerancen angiver radius for geofence-området i meter.",
+        "ru": "Поток срабатывает, когда указанное местоположение (указанное в настройках устройства) достигается или покидается. Допустимое отклонение указывает радиус области геозабора в метрах.",
+        "pl": "Przepływ jest uruchamiany, gdy określone miejsce (określone w ustawieniach urządzenia) zostanie osiągnięte lub opuszczone. Tolerancja określa promień obszaru geofence w metrach."
     },
     "tokens": [
         {
@@ -22,7 +46,15 @@
             "title": {
                 "en": "Latitude",
                 "de": "Breitengrad",
-                "nl": "Breedtegraad"
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
             }
         },
         {
@@ -31,7 +63,15 @@
             "title": {
                 "en": "Longitude",
                 "de": "Längengrad",
-                "nl": "Lengtegraad"
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
             }
         },
         {
@@ -40,7 +80,15 @@
             "title": {
                 "en": "Location name",
                 "de": "Standortname",
-                "nl": "Plaats naam"
+                "nl": "Plaats naam",
+                "fr": "Nom de l'emplacement",
+                "it": "Nome posizione",
+                "sv": "Platsnamn",
+                "no": "Stedsnavn",
+                "es": "Nombre de ubicación",
+                "da": "Stednavn",
+                "ru": "Название местоположения",
+                "pl": "Nazwa lokalizacji"
             }
         },
         {
@@ -49,7 +97,15 @@
             "title": {
                 "en": "Street",
                 "de": "Straße",
-                "nl": "Straat"
+                "nl": "Straat",
+                "fr": "Rue",
+                "it": "Via",
+                "sv": "Gata",
+                "no": "Gate",
+                "es": "Calle",
+                "da": "Gade",
+                "ru": "Улица",
+                "pl": "Ulica"
             }
         },
         {
@@ -58,7 +114,15 @@
             "title": {
                 "en": "City",
                 "de": "Ort",
-                "nl": "Plaats"
+                "nl": "Plaats",
+                "fr": "Ville",
+                "it": "Città",
+                "sv": "Stad",
+                "no": "By",
+                "es": "Ciudad",
+                "da": "By",
+                "ru": "Город",
+                "pl": "Miasto"
             }
         },
         {
@@ -67,7 +131,15 @@
             "title": {
                 "en": "Postcode",
                 "de": "Postleitzahl",
-                "nl": "postcode"
+                "nl": "postcode",
+                "fr": "Code postal",
+                "it": "Codice postale",
+                "sv": "Postnummer",
+                "no": "Postnummer",
+                "es": "Código postal",
+                "da": "Postnummer",
+                "ru": "Почтовый индекс",
+                "pl": "Kod pocztowy"
             }
         },
         {
@@ -76,7 +148,15 @@
             "title": {
                 "en": "Country",
                 "de": "Land",
-                "nl": "Land"
+                "nl": "Land",
+                "fr": "Pays",
+                "it": "Paese",
+                "sv": "Land",
+                "no": "Land",
+                "es": "País",
+                "da": "Land",
+                "ru": "Страна",
+                "pl": "Kraj"
             }
         }
     ],
@@ -90,7 +170,15 @@
                     "title": { 
                         "en": "reached",
                         "de": "erreicht",
-                        "nl": "bereikt"
+                        "nl": "bereikt",
+                        "fr": "atteint",
+                        "it": "raggiunto",
+                        "sv": "nått",
+                        "no": "nådd",
+                        "es": "alcanzado",
+                        "da": "nået",
+                        "ru": "достигнуто",
+                        "pl": "osiągnięte"
                     }
                 },
                 {
@@ -98,7 +186,15 @@
                     "title": { 
                         "en": "left",
                         "de": "verlassen",
-                        "nl": "verlaat"
+                        "nl": "verlaat",
+                        "fr": "quitté",
+                        "it": "lasciato",
+                        "sv": "lämnat",
+                        "no": "forlatt",
+                        "es": "dejado",
+                        "da": "forladt",
+                        "ru": "покинуто",
+                        "pl": "opuszczone"
                     }
                 }
             ]
@@ -106,11 +202,19 @@
         {
             "name": "location",
             "type": "autocomplete",
-                "title": {
-                    "en": "Location",
-                    "de": "Standort",
-                    "nl": "Plaats"
-                }
+            "title": {
+                "en": "Location",
+                "de": "Standort",
+                "nl": "Plaats",
+                "fr": "Emplacement",
+                "it": "Posizione",
+                "sv": "Plats",
+                "no": "Sted",
+                "es": "Ubicación",
+                "da": "Sted",
+                "ru": "Местоположение",
+                "pl": "Lokalizacja"
+            }
         },
         {
             "name": "distance",
@@ -119,12 +223,28 @@
             "title": { 
                 "en": "Distance (m)",
                 "de": "Entfernung (m)",
-                "nl": "Afstand (m)"
+                "nl": "Afstand (m)",
+                "fr": "Distance (m)",
+                "it": "Distanza (m)",
+                "sv": "Avstånd (m)",
+                "no": "Avstand (m)",
+                "es": "Distancia (m)",
+                "da": "Afstand (m)",
+                "ru": "Расстояние (м)",
+                "pl": "Odległość (m)"
             },
             "placeholder": { 
                 "en": "Default: 100m",
                 "de": "Standard: 100m",
-                "nl": "Standaard: 100m"
+                "nl": "Standaard: 100m",
+                "fr": "Par défaut : 100m",
+                "it": "Predefinito: 100m",
+                "sv": "Standard: 100m",
+                "no": "Standard: 100m",
+                "es": "Predeterminado: 100m",
+                "da": "Standard: 100m",
+                "ru": "По умолчанию: 100м",
+                "pl": "Domyślnie: 100m"
             }
         },
         {

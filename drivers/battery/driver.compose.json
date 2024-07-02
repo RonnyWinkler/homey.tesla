@@ -3,7 +3,15 @@
     "name": {
         "en": "Battery & charging",
         "de": "Batterie & Laden",
-        "nl": "Accu & opladen"
+        "nl": "Accu & opladen",
+        "fr": "Batterie et charge",
+        "it": "Batteria e ricarica",
+        "sv": "Batteri & laddning",
+        "no": "Batteri og lading",
+        "es": "Batería y carga",
+        "da": "Batteri og opladning",
+        "ru": "Батарея и зарядка",
+        "pl": "Bateria i ładowanie"
     },
     "images": {
         "large": "/drivers/battery/assets/images/large.png",
@@ -49,7 +57,15 @@
             "title": {
                 "en": "Charge power (Homey energy)",
                 "de": "Ladeleistung (Homey Energie)",
-                "nl": "Laad vermogen (Homey energie)"
+                "nl": "Laad vermogen (Homey energie)",
+                "fr": "Puissance de charge (énergie Homey)",
+                "it": "Potenza di ricarica (energia Homey)",
+                "sv": "Laddningskraft (Homey energi)",
+                "no": "Ladekraft (Homey energi)",
+                "es": "Potencia de carga (energía Homey)",
+                "da": "Opladningskraft (Homey energi)",
+                "ru": "Мощность зарядки (энергия Homey)",
+                "pl": "Moc ładowania (energia Homey)"
             },
             "uiComponent": null
         },
@@ -57,7 +73,15 @@
             "title": {
                 "en": "Charging energy meter (Homey energy)",
                 "de": "Ladeenergiezähler (Homey Energie)",
-                "nl": "Energiemeter opladen (Homey energie)"
+                "nl": "Energiemeter opladen (Homey energie)",
+                "fr": "Compteur d'énergie de charge (énergie Homey)",
+                "it": "Contatore di energia di ricarica (energia Homey)",
+                "sv": "Laddningsenergimätare (Homey energi)",
+                "no": "Ladeenergimåler (Homey energi)",
+                "es": "Medidor de energía de carga (energía Homey)",
+                "da": "Opladningsenergimåler (Homey energi)",
+                "ru": "Счетчик энергии зарядки (энергия Homey)",
+                "pl": "Licznik energii ładowania (energia Homey)"
             },
             "uiComponent": null
         }

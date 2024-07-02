@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Charge energy added",
-      "de": "Ladeenergie hinzugefügt",
-      "nl": "Laadenergie toegevoegd"
-    },
-    "units": {
-      "en": "kWh"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Charge energy added",
+    "de": "Ladeenergie hinzugefügt",
+    "nl": "Laadenergie toegevoegd",
+    "fr": "Énergie de charge ajoutée",
+    "it": "Energia di ricarica aggiunta",
+    "sv": "Laddad energi tillagd",
+    "no": "Ladet energi lagt til",
+    "es": "Energía de carga añadida",
+    "da": "Opladningsenergi tilføjet",
+    "ru": "Добавленная энергия заряда",
+    "pl": "Dodana energia ładowania"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
+}

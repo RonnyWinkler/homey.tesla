@@ -1,54 +1,101 @@
 {
-    "title": {
-        "en": "Overheat protection level !{{is|isn't}}",
-        "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}}",
-        "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}}"
+  "title": {
+    "en": "Overheat protection level !{{is|isn't}}",
+    "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}}",
+    "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}}",
+    "fr": "Niveau de protection contre la surchauffe !{{est|n'est pas}}",
+    "it": "Livello di protezione da surriscaldamento !{{è|non è}}",
+    "sv": "Överhettningsskyddsnivå !{{är|är inte}}",
+    "no": "Overopphetingsbeskyttelsesnivå !{{er|er ikke}}",
+    "es": "Nivel de protección contra el sobrecalentamiento !{{es|no es}}",
+    "da": "Overophedningsbeskyttelsesniveau !{{er|er ikke}}",
+    "ru": "Уровень защиты от перегрева !{{есть|нет}}"
+  },
+  "titleFormatted": {
+    "en": "Overheat protection level !{{is|isn't}} [[level]]",
+    "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}} [[level]]",
+    "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}} [[level]]",
+    "fr": "Niveau de protection contre la surchauffe !{{est|n'est pas}} [[level]]",
+    "it": "Livello di protezione da surriscaldamento !{{è|non è}} [[level]]",
+    "sv": "Överhettningsskyddsnivå !{{är|är inte}} [[level]]",
+    "no": "Overopphetingsbeskyttelsesnivå !{{er|er ikke}} [[level]]",
+    "es": "Nivel de protección contra el sobrecalentamiento !{{es|no es}} [[level]]",
+    "da": "Overophedningsbeskyttelsesniveau !{{er|er ikke}} [[level]]",
+    "ru": "Уровень защиты от перегрева !{{есть|нет}} [[level]]",
+    "pl": "Poziom ochrony przed przegrzaniem !{{jest|nie jest}} [[level]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "titleFormatted": {
-        "en": "Overheat protection level !{{is|isn't}} [[level]]",
-        "de": "Überhitzungsschutz-Stufe !{{ist|ist nicht}} [[level]]",
-        "nl": "Beveiligingsniveau tegen oververhitting !{{is|is niet}} [[level]]"
-    },
-    "args": [
+    {
+      "name": "level",
+      "type": "dropdown",
+      "title": { 
+        "en": "Overheat protection level",
+        "de": "Überhitzungsschutz-Stufe",
+        "nl": "Beveiligingsniveau tegen oververhitting",
+        "fr": "Niveau de protection contre la surchauffe",
+        "it": "Livello di protezione da surriscaldamento",
+        "sv": "Överhettningsskyddsnivå",
+        "no": "Overopphetingsbeskyttelsesnivå",
+        "es": "Nivel de protección contra el sobrecalentamiento",
+        "da": "Overophedningsbeskyttelsesniveau",
+        "ru": "Уровень защиты от перегрева",
+        "pl": "Poziom ochrony przed przegrzaniem"
+      },
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
+        "id": "low",
+        "title": {
+          "en": "Low",
+          "de": "Niedrig",
+          "nl": "Laag",
+          "fr": "Faible",
+          "it": "Basso",
+          "sv": "Låg",
+          "no": "Lav",
+          "es": "Bajo",
+          "da": "Lav",
+          "ru": "Низкий",
+          "pl": "Niski"
+        }
         },
         {
-            "name": "level",
-            "type": "dropdown",
-            "title": { 
-              "en": "Overheat protection level",
-              "de": "Überhitzungsschutz-Stufe",
-              "nl": "Beveiligingsniveau tegen oververhitting"
-                    },
-            "values": [
-              {
-                "id": "low",
-                "title": {
-                  "en": "Low",
-                  "de": "Niedrig",
-                  "nl": "Laag"
-                }
-              },
-              {
-                "id": "medium",
-                "title": {
-                  "en": "Medium",
-                  "de": "Mittel",
-                  "nl": "Medium"
-                }
-              },
-              {
-                "id": "high",
-                "title": {
-                  "en": "High",
-                  "de": "Hoch",
-                  "nl": "Hoog"
-                }
-              }
-          ]
+        "id": "medium",
+        "title": {
+          "en": "Medium",
+          "de": "Mittel",
+          "nl": "Medium",
+          "fr": "Moyen",
+          "it": "Medio",
+          "sv": "Medium",
+          "no": "Medium",
+          "es": "Medio",
+          "da": "Medium",
+          "ru": "Средний",
+          "pl": "Średni"
         }
-    ]
+        },
+        {
+        "id": "high",
+        "title": {
+          "en": "High",
+          "de": "Hoch",
+          "nl": "Hoog",
+          "fr": "Élevé",
+          "it": "Alto",
+          "sv": "Hög",
+          "no": "Høy",
+          "es": "Alto",
+          "da": "Høj",
+          "ru": "Высокий",
+          "pl": "Wysoki"
+        }
+        }
+      ]
+    }
+  ]
 }

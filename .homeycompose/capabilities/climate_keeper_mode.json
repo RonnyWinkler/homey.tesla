@@ -1,46 +1,86 @@
 {
-    "type": "enum",
+  "type": "enum",
+  "title": {
+    "en": "Climate control mode",
+    "de": "Klimatisierungsoption",
+    "nl": "Klimaatregelingsoptie",
+    "fr": "Mode de contrôle climatique",
+    "it": "Modalità di controllo del clima",
+    "sv": "Klimatkontrollsläge",
+    "no": "Klimakontrollmodus",
+    "es": "Modo de control climático",
+    "da": "Klimakontroltilstand",
+    "ru": "Режим климат-контроля",
+    "pl": "Tryb kontroli klimatyzacji"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "values": [
+    {
+    "id": "off",
     "title": {
-      "en": "Climate control mode",
-      "de": "Klimatisierungsoption",
-      "nl": "Klimaatregelingsoptie"
+      "en": "Off",
+      "de": "Aus",
+      "nl": "Uit",
+      "fr": "Éteint",
+      "it": "Spento",
+      "sv": "Av",
+      "no": "Av",
+      "es": "Apagado",
+      "da": "Fra",
+      "ru": "Выключено",
+      "pl": "Wyłączone"
+    }
     },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "picker",
-    "values": [
-      {
-        "id": "off",
-        "title": {
-          "en": "Off",
-          "de": "Aus",
-          "nl": "Uit"
-        }
-      },
-      {
-        "id": "on",
-        "title": {
-          "en": "Keep activated",
-          "de": "Aktiviert lassen",
-          "nl": "Actief houden"
-        }
-      },
-      {
-        "id": "dog",
-        "title": {
-          "en": "Dog mode",
-          "de": "Hundemodus",
-          "nl": "Hondenmodus"
-        }
-      },
-      {
-        "id": "camp",
-        "title": {
-          "en": "Camp mode",
-          "de": "Camping-Modus",
-          "nl": "Kampeermodus"
-        }
-      }
+    {
+    "id": "on",
+    "title": {
+      "en": "Keep activated",
+      "de": "Aktiviert lassen",
+      "nl": "Actief houden",
+      "fr": "Maintenir activé",
+      "it": "Mantieni attivo",
+      "sv": "Håll aktiverad",
+      "no": "Hold aktivert",
+      "es": "Mantener activado",
+      "da": "Hold aktiveret",
+      "ru": "Сохранить активированным",
+      "pl": "Zachowaj aktywowane"
+    }
+    },
+    {
+    "id": "dog",
+    "title": {
+      "en": "Dog mode",
+      "de": "Hundemodus",
+      "nl": "Hondenmodus",
+      "fr": "Mode chien",
+      "it": "Modalità cane",
+      "sv": "Hundläge",
+      "no": "Hundemodus",
+      "es": "Modo perro",
+      "da": "Hundetilstand",
+      "ru": "Режим собаки",
+      "pl": "Tryb psa"
+    }
+    },
+    {
+    "id": "camp",
+    "title": {
+      "en": "Camp mode",
+      "de": "Camping-Modus",
+      "nl": "Kampeermodus",
+      "fr": "Mode camping",
+      "it": "Modalità campeggio",
+      "sv": "Campingläge",
+      "no": "Campingmodus",
+      "es": "Modo camping",
+      "da": "Campingtilstand",
+      "ru": "Режим кемпинга",
+      "pl": "Tryb kempingowy"
+    }
+    }
   ]
 }

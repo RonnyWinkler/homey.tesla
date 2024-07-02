@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Doors",
-      "de": "Türen",
-      "nl": "Deuren"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_doors_locked.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Doors",
+    "de": "Türen",
+    "nl": "Deuren",
+    "fr": "Portes",
+    "it": "Porte",
+    "sv": "Dörrar",
+    "no": "Dører",
+    "es": "Puertas",
+    "da": "Døre",
+    "ru": "Двери",
+    "pl": "Drzwi"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_doors_locked.svg"
+}

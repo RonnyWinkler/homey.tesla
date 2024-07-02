@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Window vent mode",
-      "de": "Fensterlüftungsmodus",
-      "nl": "Raamventilatiemodus"
-    },
-    "titleTrue":{
-      "en": "Windows in vent position",
-      "de": "Fenster in Lüftungsposition",
-      "nl": "Raam in ventilatiestand"
-    },
-    "titleFasle":{
-      "en": "Windows closed",
-      "de": "Fenster geschlossen",
-      "nl": "Raam gesloten"      
-    },
-    "insightsTitleTrue":{
-      "en": "Windows in vent position",
-      "de": "Fenster in Lüftungsposition",
-      "nl": "Raam in ventilatiestand"
-    },
-    "insightsTitleFalse":{
-      "en": "Windows closed",
-      "de": "Fenster geschlossen",
-      "nl": "Raam gesloten"      
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/climate_window_vent.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Window vent mode",
+    "de": "Fensterlüftungsmodus",
+    "nl": "Raamventilatiemodus",
+    "fr": "Mode de ventilation des fenêtres",
+    "it": "Modalità di aerazione finestra",
+    "sv": "Fönsterluftningsläge",
+    "no": "Vindusluftingsmodus",
+    "es": "Modo de ventilación de ventanas",
+    "da": "Vinduesventilationsfunktion",
+    "ru": "Режим вентиляции окна",
+    "pl": "Tryb wentylacji okna"
+  },
+  "titleTrue":{
+    "en": "Windows in vent position",
+    "de": "Fenster in Lüftungsposition",
+    "nl": "Raam in ventilatiestand",
+    "fr": "Fenêtres en position de ventilation",
+    "it": "Finestre in posizione di aerazione",
+    "sv": "Fönster i luftningsläge",
+    "no": "Vinduer i luftingsposisjon",
+    "es": "Ventanas en posición de ventilación",
+    "da": "Vinduer i ventilationsposition",
+    "ru": "Окна в положении вентиляции",
+    "pl": "Okna w pozycji wentylacji"
+  },
+  "titleFalse":{
+    "en": "Windows closed",
+    "de": "Fenster geschlossen",
+    "nl": "Raam gesloten",
+    "fr": "Fenêtres fermées",
+    "it": "Finestre chiuse",
+    "sv": "Fönster stängda",
+    "no": "Vinduer lukket",
+    "es": "Ventanas cerradas",
+    "da": "Vinduer lukket",
+    "ru": "Окна закрыты",
+    "pl": "Okna zamknięte"
+  },
+  "insightsTitleTrue":{
+    "en": "Windows in vent position",
+    "de": "Fenster in Lüftungsposition",
+    "nl": "Raam in ventilatiestand",
+    "fr": "Fenêtres en position de ventilation",
+    "it": "Finestre in posizione di aerazione",
+    "sv": "Fönster i luftningsläge",
+    "no": "Vinduer i luftingsposisjon",
+    "es": "Ventanas en posición de ventilación",
+    "da": "Vinduer i ventilationsposition",
+    "ru": "Окна в положении вентиляции",
+    "pl": "Okna w pozycji wentylacji"
+  },
+  "insightsTitleFalse":{
+    "en": "Windows closed",
+    "de": "Fenster geschlossen",
+    "nl": "Raam gesloten",
+    "fr": "Fenêtres fermées",
+    "it": "Finestre chiuse",
+    "sv": "Fönster stängda",
+    "no": "Vinduer lukket",
+    "es": "Ventanas cerradas",
+    "da": "Vinduer lukket",
+    "ru": "Окна закрыты",
+    "pl": "Okna zamknięte"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/climate_window_vent.svg"
+}

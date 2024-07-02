@@ -1,13 +1,21 @@
 {
-    "type": "string",
-    "title": {
-      "en": "API error",
-      "de": "API-Fehler",
-      "nl": "API-fout"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "uiComponent": null,
-    "icon": "./assets/capability_icons/api_error.svg"
-  }
+  "type": "string",
+  "title": {
+    "en": "API error",
+    "de": "API-Fehler",
+    "nl": "API-fout",
+    "fr": "Erreur API",
+    "it": "Errore API",
+    "sv": "API-fel",
+    "no": "API-feil",
+    "es": "Error de API",
+    "da": "API-fejl",
+    "ru": "Ошибка API",
+    "pl": "Błąd API"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/api_error.svg"
+}

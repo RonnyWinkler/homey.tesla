@@ -2,7 +2,15 @@
     "title": {
         "en": "Sentry mode !{{is|isn't}} active",
         "de": "Sentry-Modus !{{ist|ist nicht}} aktiviert",
-        "nl": "Sentry mode  !{{is|is niet}} geactiveerd"
+        "nl": "Sentry mode  !{{is|is niet}} geactiveerd",
+        "fr": "Mode sentinelle !{{est|n'est pas}} actif",
+        "it": "Modalità sentinella !{{è|non è}} attiva",
+        "sv": "Vaktpostläge !{{är|är inte}} aktiv",
+        "no": "Vaktpostmodus !{{er|er ikke}} aktiv",
+        "es": "Modo centinela !{{está|no está}} activo",
+        "da": "Vagtposttilstand !{{er|er ikke}} aktiv",
+        "ru": "Режим сторожевого режима !{{активен|не активен}}",
+        "pl": "Tryb strażnika !{{jest|nie jest}} aktywny"
     },
     "args": [
         {

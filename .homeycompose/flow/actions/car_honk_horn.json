@@ -2,12 +2,28 @@
     "title": {
         "en": "Honks the vehicle horn",
         "de": "Hupe betätigen",
-        "nl": "Toeteren"
+        "nl": "Toeteren",
+        "fr": "Actionner le klaxon du véhicule",
+        "it": "Suona il clacson del veicolo",
+        "sv": "Tutar fordonets horn",
+        "no": "Tuter kjøretøyets horn",
+        "es": "Hace sonar la bocina del vehículo",
+        "da": "Tuder køretøjets horn",
+        "ru": "Звук автомобильного гудка",
+        "pl": "Dzwoni klaksonem pojazdu"
     },
     "titleFormatted": {
         "en": "Honks the vehicle horn",
         "de": "Hupe betätigen",
-        "nl": "Toeteren"
+        "nl": "Toeteren",
+        "fr": "Actionner le klaxon du véhicule",
+        "it": "Suona il clacson del veicolo",
+        "sv": "Tutar fordonets horn",
+        "no": "Tuter kjøretøyets horn",
+        "es": "Hace sonar la bocina del vehículo",
+        "da": "Tuder køretøjets horn",
+        "ru": "Звук автомобильного гудка",
+        "pl": "Dzwoni klaksonem pojazdu"
     },
     "args": [
         {

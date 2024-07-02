@@ -1,15 +1,31 @@
 {
-    "id": "command_wake_up",
-    "type": "checkbox",
-    "value": true,
-    "label": {
-      "en": "Wake up to send commands",
-      "de": "Aufwecken, um Kommandos zu senden",
-      "nl": "Word wakker om opdrachten te verzenden"
-    },
-    "hint": {
-      "en": "Wakes up the vehicle to send commands if the vehicle is still sleeping. This ensures that commands are executed. Alternatively, the vehicle can be woken up separately and commands then sent.",
-      "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
-      "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden."
-    }
+  "id": "command_wake_up",
+  "type": "checkbox",
+  "value": true,
+  "label": {
+    "en": "Wake up to send commands",
+    "de": "Aufwecken, um Kommandos zu senden",
+    "nl": "Word wakker om opdrachten te verzenden",
+    "fr": "Réveillez-vous pour envoyer des commandes",
+    "it": "Svegliati per inviare comandi",
+    "sv": "Vakna för att skicka kommandon",
+    "no": "Våkne opp for å sende kommandoer",
+    "es": "Despiértate para enviar comandos",
+    "da": "Vågn op for at sende kommandoer",
+    "ru": "Проснитесь, чтобы отправить команды",
+    "pl": "Obudź się, aby wysłać polecenia"
+  },
+  "hint": {
+    "en": "Wakes up the vehicle to send commands if the vehicle is still sleeping. This ensures that commands are executed. Alternatively, the vehicle can be woken up separately and commands then sent.",
+    "de": "Weckt das Fahrzeug zum Senden von Kommandos auf, falls das Fahrzeug noch schläft. Das stellt die Ausführung von Kommandos sicher. Alternativ kann das Fahrzeug auch separat geweckt und anschließend Kommandos geschickt werden.",
+    "nl": "Maakt het voertuig wakker om opdrachten te verzenden als het voertuig nog slaapt. Dit zorgt ervoor dat opdrachten worden uitgevoerd. Als alternatief kan het voertuig afzonderlijk worden gewekt en vervolgens commando's worden verzonden.",
+    "fr": "Réveille le véhicule pour envoyer des commandes si le véhicule est encore en veille. Cela garantit que les commandes sont exécutées. Alternativement, le véhicule peut être réveillé séparément et les commandes ensuite envoyées.",
+    "it": "Sveglia il veicolo per inviare comandi se il veicolo è ancora in modalità di riposo. Ciò garantisce che i comandi vengano eseguiti. In alternativa, il veicolo può essere svegliato separatamente e quindi inviare i comandi.",
+    "sv": "Vaknar upp fordonet för att skicka kommandon om fordonet fortfarande sover. Detta säkerställer att kommandon utförs. Som alternativ kan fordonet väckas separat och kommandon sedan skickas.",
+    "no": "Vekker opp kjøretøyet for å sende kommandoer hvis kjøretøyet fortsatt sover. Dette sikrer at kommandoer blir utført. Alternativt kan kjøretøyet vekkes separat og kommandoer deretter sendes.",
+    "es": "Despierta el vehículo para enviar comandos si el vehículo todavía está en reposo. Esto asegura que los comandos se ejecuten. Alternativamente, el vehículo puede despertarse por separado y luego enviar los comandos.",
+    "da": "Vækker køretøjet for at sende kommandoer, hvis køretøjet stadig sover. Dette sikrer, at kommandoer udføres. Alternativt kan køretøjet vækkes separat, og kommandoer sendes derefter.",
+    "ru": "Разбудите автомобиль, чтобы отправить команды, если автомобиль все еще спит. Это гарантирует выполнение команд. В качестве альтернативы, автомобиль может быть разбужен отдельно, а затем отправить команды.",
+    "pl": "Obudź pojazd, aby wysłać polecenia, jeśli pojazd nadal śpi. Zapewnia to wykonanie poleceń. Alternatywnie, pojazd może zostać obudzony oddzielnie, a następnie wysłać polecenia."
+  }
 }

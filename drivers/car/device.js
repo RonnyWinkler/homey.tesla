@@ -1236,7 +1236,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async flowActionDoorLock(locked){
     await this._commandDoorLock(locked);
-    this.setCapabilityValue('car_doors_locked', locked);
+    this.setCapabilityValue('car_doors_locked', !locked);
   }
 
   async flowActionSentryMode(state){

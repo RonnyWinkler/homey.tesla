@@ -1,10 +1,18 @@
 {
-    "id": "battery_charge_power_meter",
-    "type": "checkbox",
-    "value": false,
-    "label": {
-      "en": "Show charging energy meter in Homey energy",
-      "de": "Zeige Ladeenergiezähler in Homey Energie",
-      "nl": "Toon Energiemeter opladen in Homey energie"
-    }
+  "id": "battery_charge_power_meter",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Show charging energy meter in Homey energy",
+    "de": "Zeige Ladeenergiezähler in Homey Energie",
+    "nl": "Toon Energiemeter opladen in Homey energie",
+    "fr": "Afficher le compteur d'énergie de charge dans l'énergie Homey",
+    "it": "Mostra il contatore di energia di ricarica nell'energia Homey",
+    "sv": "Visa laddningsenergimätare i Homey energi",
+    "no": "Vis ladningsenergimåler i Homey energi",
+    "es": "Mostrar medidor de energía de carga en la energía de Homey",
+    "da": "Vis opladningsenergimåler i Homey energi",
+    "ru": "Показывать счетчик зарядной энергии в энергии Homey",
+    "pl": "Pokaż licznik energii ładowania w energii Homey"
   }
+}

@@ -1,10 +1,18 @@
 {
-    "id": "battery_charge_power",
-    "type": "checkbox",
-    "value": false,
-    "label": {
-      "en": "Show charge power in Homey energy",
-      "de": "Zeige Ladeleistung in Homey Energie",
-      "nl": "Toon laadvermogen in Homey energie"
-    }
+  "id": "battery_charge_power",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Show charge power in Homey energy",
+    "de": "Zeige Ladeleistung in Homey Energie",
+    "nl": "Toon laadvermogen in Homey energie",
+    "fr": "Afficher la puissance de charge dans l'énergie Homey",
+    "it": "Mostra la potenza di carica nell'energia Homey",
+    "sv": "Visa laddningskraft i Homey energi",
+    "no": "Vis ladestrøm i Homey energi",
+    "es": "Mostrar potencia de carga en la energía de Homey",
+    "da": "Vis opladningskraft i Homey energi",
+    "ru": "Показывать мощность зарядки в энергии Homey",
+    "pl": "Pokaż moc ładowania w energii Homey"
   }
+}

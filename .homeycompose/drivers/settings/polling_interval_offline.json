@@ -1,16 +1,32 @@
 {
-    "id": "polling_interval_offline",
-    "type": "number",
-    "label": {
-      "en": "Offline polling interval",
-      "de": "Offline Abruf-Intervall",
-      "nl": "Offline polling interval"
-    },
-    "hint": {
-      "en": "Specifies the interval at which data is retrieved while the vehicle is asleep.",
-      "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug schläft.",
-      "nl": "Specificeert het interval waarmee gegevens worden opgehaald terwijl het voertuig slaapt."
-    },
-    "value": 10,
-    "min": 1
+  "id": "polling_interval_offline",
+  "type": "number",
+  "label": {
+    "en": "Offline polling interval",
+    "de": "Offline Abruf-Intervall",
+    "nl": "Offline polling interval",
+    "fr": "Intervalle de sondage hors ligne",
+    "it": "Intervallo di polling offline",
+    "sv": "Offline undersökningsintervall",
+    "no": "Frakoblet avstemningsintervall",
+    "es": "Intervalo de sondeo sin conexión",
+    "da": "Offline afstemningsinterval",
+    "ru": "Интервал опроса в автономном режиме",
+    "pl": "Interwał odpytywania w trybie offline"
+  },
+  "hint": {
+    "en": "Specifies the interval at which data is retrieved while the vehicle is asleep.",
+    "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug schläft.",
+    "nl": "Specificeert het interval waarmee gegevens worden opgehaald terwijl het voertuig slaapt.",
+    "fr": "Spécifie l'intervalle auquel les données sont récupérées pendant que le véhicule est endormi.",
+    "it": "Specifica l'intervallo in cui vengono recuperati i dati mentre il veicolo è in stato di riposo.",
+    "sv": "Specificerar intervallet då data hämtas medan fordonet sover.",
+    "no": "Angir intervallet der data hentes mens kjøretøyet sover.",
+    "es": "Especifica el intervalo en el que se recuperan los datos mientras el vehículo está dormido.",
+    "da": "Angiver intervallet, hvor data hentes, mens køretøjet sover.",
+    "ru": "Указывает интервал, с которым данные извлекаются во время сна автомобиля.",
+    "pl": "Określa interwał, w którym pobierane są dane, gdy pojazd jest w stanie uśpienia."
+  },
+  "value": 10,
+  "min": 1
 }

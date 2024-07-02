@@ -2,7 +2,15 @@
     "title": {
         "en": "Minutes to full charge changed",
         "de": "Minuten bis zur vollständigen Aufladung hat sich geändert",
-        "nl": "Minuten tot volledig opladen gewijzigd"
+        "nl": "Minuten tot volledig opladen gewijzigd",
+        "fr": "Minutes avant charge complète modifiées",
+        "it": "Minuti per la carica completa modificati",
+        "sv": "Minuter till full laddning ändrades",
+        "no": "Minutter til full lading endret",
+        "es": "Minutos para carga completa cambiados",
+        "da": "Minutter til fuld opladning ændret",
+        "ru": "Изменено время до полной зарядки",
+        "pl": "Zmieniono czas do pełnego naładowania"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Minutes to full charge",
                 "de": "Minuten bis zur vollständigen Aufladung",
-                "nl": "Minuten tot volledig opladen"
+                "nl": "Minuten tot volledig opladen",
+                "fr": "Minutes avant charge complète",
+                "it": "Minuti per la carica completa",
+                "sv": "Minuter till full laddning",
+                "no": "Minutter til full lading",
+                "es": "Minutos para carga completa",
+                "da": "Minutter til fuld opladning",
+                "ru": "Время до полной зарядки",
+                "pl": "Czas do pełnego naładowania"
             }
         }
     ],

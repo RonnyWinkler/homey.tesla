@@ -2,7 +2,15 @@
     "title": {
         "en": "Preconditioning !{{is|isn't}} active",
         "de": "Klimatisierung !{{ist|ist nicht}} aktiviert",
-        "nl": "Climate control !{{is|is niet}} geactiveerd"
+        "nl": "Climate control !{{is|is niet}} geactiveerd",
+        "fr": "Préconditionnement !{{est|n'est pas}} actif",
+        "it": "Condizionamento !{{è|non è}} attivo",
+        "sv": "Förkonditionering !{{är|är inte}} aktiv",
+        "no": "Forvarming !{{er|er ikke}} aktiv",
+        "es": "Preacondicionamiento !{{está|no está}} activo",
+        "da": "Forvarmning !{{er|er ikke}} aktiv",
+        "ru": "Предварительный нагрев !{{активен|не активен}}",
+        "pl": "Przedgrzewanie !{{jest|nie jest}} aktywne"
     },
     "args": [
         {

@@ -1,42 +1,74 @@
 {
   "highlight": true,
   "title": {
-        "en": "Defrost mode",
-        "de": "Enteisen",
-        "nl": "Ontdooien"
+    "en": "Defrost mode",
+    "de": "Enteisen",
+    "nl": "Ontdooien",
+    "fr": "Mode dégivrage",
+    "it": "Modalità sbrinamento",
+    "sv": "Avfrostningsläge",
+    "no": "Avrimingsmodus",
+    "es": "Modo de descongelación",
+    "da": "Afrimningsfunktion",
+    "ru": "Режим размораживания",
+    "pl": "Tryb rozmrażania"
+  },
+  "titleFormatted": {
+    "en": "[[action]] defrost mode",
+    "de": "Enteisen [[action]]",
+    "nl": "Ontdooien [[action]]",
+    "fr": "[[action]] mode dégivrage",
+    "it": "Modalità sbrinamento [[action]]",
+    "sv": "[[action]] avfrostningsläge",
+    "no": "[[action]] avrimingsmodus",
+    "es": "[[action]] modo de descongelación",
+    "da": "[[action]] afrimningsfunktion",
+    "ru": "[[action]] режим размораживания",
+    "pl": "[[action]] tryb rozmrażania"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "titleFormatted": {
-        "en": "[[action]] defrost mode",
-        "de": "Enteisen [[action]]",
-        "nl": "Ontdooien [[action]]"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
+          "id": "on",
+          "label": {
+            "en": "Activate",
+            "de": "aktivieren",
+            "nl": "activeren",
+            "fr": "Activer",
+            "it": "Attiva",
+            "sv": "Aktivera",
+            "no": "Aktiver",
+            "es": "Activar",
+            "da": "Aktiver",
+            "ru": "Активировать",
+            "pl": "Aktywuj"
+          }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "Activate",
-                  "de": "aktivieren",
-                  "nl": "activeren"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Deactivate",
-                  "de": "deaktivieren",
-                  "nl": "deactiveren"
-                }
-              }
-            ]
+          "id": "off",
+          "label": {
+            "en": "Deactivate",
+            "de": "deaktivieren",
+            "nl": "deactiveren",
+            "fr": "Désactiver",
+            "it": "Disattiva",
+            "sv": "Inaktivera",
+            "no": "Deaktiver",
+            "es": "Desactivar",
+            "da": "Deaktiver",
+            "ru": "Деактивировать",
+            "pl": "Dezaktywuj"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

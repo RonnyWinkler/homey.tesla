@@ -1,58 +1,98 @@
 {
-    "title": {
-      "en": "Heated steering wheel level",
-      "de": "Lenkradheizungsstufe",
-      "nl": "Verwarmingsniveau stuurwiel"
-      },
-    "titleFormatted": {
-        "en": "Set heated steering wheel level to [[level]]",
-        "de": "Setze Lenkradheizungsstufe auf [[level]]",
-        "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]"
+  "title": {
+    "en": "Heated steering wheel level",
+    "de": "Lenkradheizungsstufe",
+    "nl": "Verwarmingsniveau stuurwiel",
+    "fr": "Niveau de chauffage du volant",
+    "it": "Livello riscaldamento volante",
+    "sv": "Uppvärmningsnivå för ratt",
+    "no": "Oppvarmet ratt nivå",
+    "es": "Nivel de calefacción del volante",
+    "da": "Opvarmet ratniveau",
+    "ru": "Уровень подогрева руля",
+    "pl": "Poziom podgrzewania kierownicy"
+  },
+  "titleFormatted": {
+    "en": "Set heated steering wheel level to [[level]]",
+    "de": "Setze Lenkradheizungsstufe auf [[level]]",
+    "nl": "Zet het verwarmingsniveau van het stuurwiel op hoog [[level]]",
+    "fr": "Définir le niveau de chauffage du volant sur [[level]]",
+    "it": "Imposta il livello di riscaldamento del volante su [[level]]",
+    "sv": "Ställ in uppvärmningsnivån för ratt till [[level]]",
+    "no": "Sett oppvarmet ratt nivå til [[level]]",
+    "es": "Establecer nivel de calefacción del volante en [[level]]",
+    "da": "Indstil opvarmet ratniveau til [[level]]",
+    "ru": "Установить уровень подогрева руля на [[level]]",
+    "pl": "Ustaw poziom podgrzewania kierownicy na [[level]]"
+  },
+  "hint": {
+    "en": "This function is only available for vehicles where the heated steering wheel can be switched in levels.",
+    "de": "Diese Funktion ist nur für Fahrzeuge verfügbar, bei denen die Lenkradheizung in Stufen geschaltet werden kann.",
+    "nl": "Deze functie is alleen beschikbaar voor voertuigen waarbij het verwarmingsniveau van het stuurwiel in niveaus kan worden geschakeld.",
+    "fr": "Cette fonctionnalité n'est disponible que pour les véhicules où le volant chauffant peut être réglé sur différents niveaux.",
+    "it": "Questa funzione è disponibile solo per i veicoli in cui il volante riscaldato può essere regolato su diversi livelli.",
+    "sv": "Denna funktion är endast tillgänglig för fordon där rattvärmen kan justeras i olika nivåer.",
+    "no": "Denne funksjonen er bare tilgjengelig for kjøretøy der oppvarmet ratt kan justeres i ulike nivåer.",
+    "es": "Esta función solo está disponible para vehículos en los que el volante calefactable se puede ajustar en diferentes niveles.",
+    "da": "Denne funktion er kun tilgængelig for køretøjer, hvor den opvarmede rat kan justeres i niveauer.",
+    "ru": "Эта функция доступна только для транспортных средств, в которых подогрев руля может быть переключен на разные уровни.",
+    "pl": "Ta funkcja jest dostępna tylko dla pojazdów, w których poziom podgrzewania kierownicy można regulować na różnych poziomach."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "hint": {
-      "en": "This function is only available for vehicles where the heated steering wheel can be switched in levels.",
-      "de": "Diese Funktion ist nur für Fahrzeuge verfügbar, bei denen die Lenkradheizung in Stufen geschaltet werden kann.",
-      "nl": "Deze functie is alleen beschikbaar voor voertuigen waarbij het verwarmingsniveau van het stuurwiel in niveaus kan worden geschakeld."
-    },
-    "args": [
-        {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=climate"
-        },
-        {
-          "name": "level",
-          "type": "dropdown",
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto",
-                "de": "Auto",
-                "nl": "Auto"
-              }
-            },
-            {
-              "id": "0",
-              "title": {
-                "en": "Off",
-                "de": "Aus",
-                "nl": "Uit"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "1"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "2"
-              }
-            }
-          ]
+    {
+      "name": "level",
+      "type": "dropdown",
+      "values": [
+      {
+        "id": "auto",
+        "title": {
+          "en": "Auto",
+          "de": "Auto",
+          "nl": "Auto",
+          "fr": "Auto",
+          "it": "Auto",
+          "sv": "Auto",
+          "no": "Auto",
+          "es": "Auto",
+          "da": "Auto",
+          "ru": "Авто",
+          "pl": "Auto"
         }
-    ]
+      },
+      {
+        "id": "0",
+        "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit",
+          "fr": "Éteint",
+          "it": "Spento",
+          "sv": "Av",
+          "no": "Av",
+          "es": "Apagado",
+          "da": "Fra",
+          "ru": "Выключено",
+          "pl": "Wyłączone"
+        }
+      },
+      {
+        "id": "1",
+        "title": {
+          "en": "1"
+        }
+      },
+      {
+        "id": "3",
+        "title": {
+          "en": "2"
+        }
+      }
+      ]
+    }
+  ]
 }

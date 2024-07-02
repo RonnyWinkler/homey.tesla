@@ -2,7 +2,15 @@
     "title": {
         "en": "A/C was turned off",
         "de": "A/C wurde ausgeschaltet",
-        "nl": "A/C stond uit"
+        "nl": "A/C stond uit",
+        "fr": "La climatisation a été éteinte",
+        "it": "L'aria condizionata è stata spenta",
+        "sv": "A/C har stängts av",
+        "no": "A/C ble slått av",
+        "es": "El A/C fue apagado",
+        "da": "A/C blev slukket",
+        "ru": "Кондиционер был выключен",
+        "pl": "Klimatyzacja została wyłączona"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=climate"
         }
-      ]
+    ]
 }

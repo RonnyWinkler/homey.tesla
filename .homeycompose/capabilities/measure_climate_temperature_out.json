@@ -1,14 +1,22 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Outside temperature",
-      "de": "Außentemperatur",
-      "nl": "Buitentemperatuur"
-    },
-    "units": "°C",
-    "decimals": 2,
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Outside temperature",
+    "de": "Außentemperatur",
+    "nl": "Buitentemperatuur",
+    "fr": "Température extérieure",
+    "it": "Temperatura esterna",
+    "sv": "Utomhustemperatur",
+    "no": "Utvendig temperatur",
+    "es": "Temperatura exterior",
+    "da": "Udendørstemperatur",
+    "ru": "Температура на улице",
+    "pl": "Temperatura na zewnątrz"
+  },
+  "units": "°C",
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_climate_temperature_out.svg"
+}

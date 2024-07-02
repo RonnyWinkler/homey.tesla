@@ -2,12 +2,26 @@
     "title": {
         "en": "Shift state !{{is|isn't}}",
         "de": "Schaltzustand !{{ist|ist nicht}}",
-        "nl": "Schakelstand !{{is|is niet}}"
+        "nl": "Schakelstand !{{is|is niet}}",
+        "fr": "État de changement !{{est|n'est pas}}",
+        "it": "Stato di cambio !{{è|non è}}",
+        "sv": "Växelläge !{{är|är inte}}",
+        "no": "Skiftetilstand !{{er|er ikke}}",
+        "es": "Estado de cambio !{{es|no es}}",
+        "da": "Skifttilstand !{{er|er ikke}}",
+        "ru": "Состояние переключения !{{есть|нет}}"
     },
     "titleFormatted": {
         "en": "Shift state !{{is|isn't}} [[state]]",
         "de": "Schaltzustand !{{ist|ist nicht}} [[state]]",
-        "nl": "Schakelstand !{{is|is niet}} [[state]]"
+        "nl": "Schakelstand !{{is|is niet}} [[state]]",
+        "fr": "État de changement !{{est|n'est pas}} [[state]]",
+        "it": "Stato di cambio !{{è|non è}} [[state]]",
+        "sv": "Växelläge !{{är|är inte}} [[state]]",
+        "no": "Skiftetilstand !{{er|er ikke}} [[state]]",
+        "es": "Estado de cambio !{{es|no es}} [[state]]",
+        "da": "Skifttilstand !{{er|er ikke}} [[state]]",
+        "ru": "Состояние переключения !{{есть|нет}} [[state]]"
     },
     "args": [
         {
@@ -21,7 +35,15 @@
             "title": { 
                 "en": "Shift state",
                 "de": "Schaltzustand",
-                "nl": "Schakelstand"
+                "nl": "Schakelstand",
+                "fr": "État de changement",
+                "it": "Stato di cambio",
+                "sv": "Växelläge",
+                "no": "Skiftetilstand",
+                "es": "Estado de cambio",
+                "da": "Skifttilstand",
+                "ru": "Состояние переключения",
+                "pl": "Stan zmiany"
             },
             "values": [
                 {
@@ -29,7 +51,15 @@
                     "title": {
                         "en": "P - Park",
                         "de": "P - Parken",
-                        "nl": "P - Park"
+                        "nl": "P - Park",
+                        "fr": "P - Stationnement",
+                        "it": "P - Parcheggio",
+                        "sv": "P - Parkering",
+                        "no": "P - Parkering",
+                        "es": "P - Estacionamiento",
+                        "da": "P - Parkering",
+                        "ru": "P - Парковка",
+                        "pl": "P - Parkowanie"
                     }
                 },
                 {
@@ -37,7 +67,15 @@
                     "title": {
                         "en": "D - Drive",
                         "de": "D - Fahren",
-                        "nl": "D - Drijfveer"
+                        "nl": "D - Drijfveer",
+                        "fr": "D - Conduite",
+                        "it": "D - Guida",
+                        "sv": "D - Körning",
+                        "no": "D - Kjøring",
+                        "es": "D - Conducción",
+                        "da": "D - Kørsel",
+                        "ru": "D - Вождение",
+                        "pl": "D - Jazda"
                     }
                 },
                 {
@@ -45,7 +83,15 @@
                     "title": {
                         "en": "R - Reverse",
                         "de": "R - Rückwärts",
-                        "nl": "R - Achteruit"
+                        "nl": "R - Achteruit",
+                        "fr": "R - Marche arrière",
+                        "it": "R - Retromarcia",
+                        "sv": "R - Back",
+                        "no": "R - Revers",
+                        "es": "R - Reversa",
+                        "da": "R - Bakgear",
+                        "ru": "R - Реверс",
+                        "pl": "R - Wsteczny"
                     }
                 }
             ]

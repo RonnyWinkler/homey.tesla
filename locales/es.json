@@ -1,0 +1,76 @@
+{
+    "pair": {
+        "register": {
+            "title": "Registro de la aplicación",
+            "subtitle": "Registrar la aplicación Homey en tu coche",
+            "text1": "Registra la aplicación Homey en tu coche para permitir que la aplicación envíe comandos a tu coche.",
+            "text2": "Usa el botón de registro para comenzar a registrarte en la aplicación de Tesla. Si el enlace se abre en el navegador, sigue la indicación 'Abrir en la aplicación de Tesla'.",
+            "text3": "Este registro es necesario para usar el 'Protocolo de comandos del vehículo Tesla' y el cifrado de extremo a extremo de los comandos enviados al vehículo.",
+            "text4": "Los modelos S/X anteriores a 2021 están excluidos. Estos aún pueden ser controlados a través de la API REST. Selecciona la API de comandos en la configuración del dispositivo.",
+            "text5": "Este registro puede repetirse a través del diálogo 'Reparar dispositivo'.",
+            "button": "Registrar como llave de coche"
+        },
+        "battery": {
+            "name": "batería"
+        },
+        "climate": {
+            "name": "clima"
+        },
+        "location": {
+            "name": "ubicación"
+        },
+        "media": {
+            "name": "medios"
+        }
+    },
+    "repair": {
+        "select": {
+            "title": "Selección",
+            "auth": "Cambiar inicio de sesión",
+            "register_app": "Registrar la aplicación en el coche",
+            "charging_history": "Historial de carga",
+            "charging_history_suc": "Historial de carga SuC"
+        },
+        "charging_history": {
+            "title": "Historial de carga",
+            "clear": "borrar",
+            "json": "JSON",
+            "edit": "Editar",
+            "save": "Guardar"
+        },
+        "charging_history_suc": {
+            "title": "Historial de carga SuC"
+        },
+        "location_select": {
+            "title": "Selección",
+            "nearest_suc": "Supercargador más cercano",
+            "nearest_dest": "Cargador de destino más cercano"
+        },
+        "location_nearest_suc": {
+            "title": "Supercargador más cercano",
+            "navigate": "¿Navegar al Supercargador?"
+        },
+        "location_nearest_dest": {
+            "title": "Cargador de destino más cercano",
+            "navigate": "¿Navegar al cargador de destino?"
+        }
+    },
+    "devices": {
+        "location": {
+            "homey_location_name": "Hogar (ubicación Homey)"
+        },
+        "car": {
+            "trunk_not_allowed": "Operación del maletero desactivada en la configuración del dispositivo",
+            "command_pair_state_paired": "emparejado",
+            "command_pair_state_unpaired": "no emparejado",
+            "command_pair_state_undefined": "desconocido",
+            "app_not_registered": "La aplicación no está registrada en el coche. Regístrate a través del proceso de reparación del dispositivo del coche.",
+            "command_error_426": "Actualización de la aplicación requerida. Actualiza la aplicación en la tienda de aplicaciones de Homey o activa las actualizaciones automáticas."
+        }
+    },
+    "app": {
+        "update": {
+            "update_message": "La próxima versión de la aplicación de Tesla añade un nuevo permiso (ubicación de Homey). La actualización automática no funciona en este caso. Verifica manualmente si hay actualizaciones en los próximos días e instala la próxima versión desde la tienda de aplicaciones."
+        }
+    }
+}

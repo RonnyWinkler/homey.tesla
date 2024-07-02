@@ -3,7 +3,15 @@
     "title": {
         "en": "Charging state changed",
         "de": "Ladezustand hat sich geändert",
-        "nl": "Oplaadstatus gewijzigd"
+        "nl": "Oplaadstatus gewijzigd",
+        "fr": "État de charge modifié",
+        "it": "Stato di carica modificato",
+        "sv": "Laddningsstatus ändrad",
+        "no": "Ladetilstand endret",
+        "es": "Estado de carga cambiado",
+        "da": "Opladningstilstand ændret",
+        "ru": "Изменено состояние зарядки",
+        "pl": "Zmieniony stan ładowania"
     },
     "tokens": [{
             "name": "charging_state",
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Charging state",
                 "de": "Ladezustand",
-                "nl": "Oplaadstatus"
+                "nl": "Oplaadstatus",
+                "fr": "État de charge",
+                "it": "Stato di carica",
+                "sv": "Laddningsstatus",
+                "no": "Ladetilstand",
+                "es": "Estado de carga",
+                "da": "Opladningstilstand",
+                "ru": "Состояние зарядки",
+                "pl": "Stan ładowania"
             },
             "example": "Charging"
         }

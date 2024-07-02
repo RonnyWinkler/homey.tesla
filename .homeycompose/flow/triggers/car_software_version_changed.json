@@ -2,7 +2,15 @@
     "title": {
         "en": "Software changed",
         "de": "Software hat sich geändert",
-        "nl": "Software gewijzigd"
+        "nl": "Software gewijzigd",
+        "fr": "Changement de logiciel",
+        "it": "Software modificato",
+        "sv": "Programvara ändrad",
+        "no": "Programvare endret",
+        "es": "Software cambiado",
+        "da": "Software ændret",
+        "ru": "Изменение программного обеспечения",
+        "pl": "Zmieniono oprogramowanie"
     },
     "tokens": [
        {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Software",
                 "de": "Software",
-                "nl": "Software"
+                "nl": "Software",
+                "fr": "Logiciel",
+                "it": "Software",
+                "sv": "Programvara",
+                "no": "Programvare",
+                "es": "Software",
+                "da": "Software",
+                "ru": "Программное обеспечение",
+                "pl": "Oprogramowanie"
             }
         }
     ],

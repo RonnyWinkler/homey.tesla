@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Compass",
-      "de": "Kompass",
-      "nl": "Kompas"
-    },
-    "unit":{
-      "en": "°"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_location_heading.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Compass",
+    "de": "Kompass",
+    "nl": "Kompas",
+    "fr": "Boussole",
+    "it": "Bussola",
+    "sv": "Kompass",
+    "no": "Kompass",
+    "es": "Brújula",
+    "da": "Kompas",
+    "ru": "Компас",
+    "pl": "Kompas"
+  },
+  "unit":{
+    "en": "°"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_location_heading.svg"
+}

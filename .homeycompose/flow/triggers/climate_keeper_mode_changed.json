@@ -2,16 +2,32 @@
     "title": {
         "en": "Climate control mode changed",
         "de": "Klimatisierungsoption geändert",
-        "nl": "Klimaatregelingsoptie gewijzigd"
-      },
+        "nl": "Klimaatregelingsoptie gewijzigd",
+        "fr": "Mode de contrôle climatique modifié",
+        "it": "Modalità di controllo del clima modificata",
+        "sv": "Klimatkontrollläge ändrad",
+        "no": "Klimakontrollmodus endret",
+        "es": "Modo de control de clima cambiado",
+        "da": "Klimakontroltilstand ændret",
+        "ru": "Изменен режим климат-контроля",
+        "pl": "Zmieniono tryb sterowania klimatyzacją"
+    },
     "tokens": [{
             "name": "climate_keeper_mode",
             "type": "string",
             "title": {
                 "en": "Climate keeper mode",
                 "de": "Klimaüberwachungsmodus",
-                "nl": "Klimaatbewakingsmodus"
-                      },
+                "nl": "Klimaatbewakingsmodus",
+                "fr": "Mode de surveillance climatique",
+                "it": "Modalità di controllo del clima",
+                "sv": "Klimatkontrolläge",
+                "no": "Klimakontrollmodus",
+                "es": "Modo de control de clima",
+                "da": "Klimakontroltilstand",
+                "ru": "Режим климат-контроля",
+                "pl": "Tryb sterowania klimatyzacją"
+            },
             "example": "dog"
         }
     ],

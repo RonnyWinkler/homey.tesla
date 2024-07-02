@@ -1,14 +1,30 @@
 {
-    "type": "label",
-    "label": {
-      "en": "Rate limit",
-      "de": "Rate-Limit",
-      "nl": "Rate-limit"
-    },
-    "hint": {
-      "en": "Current limit provided by API error response.",
-      "de": "Aktuelle Limit aus der API-Fehlerantwort.",
-      "nl": "Huidige limiet verstrekt door API-foutreactie."
-    },
-    "value": ""
-  }
+  "type": "label",
+  "label": {
+    "en": "Rate limit",
+    "de": "Rate-Limit",
+    "nl": "Rate-limit",
+    "fr": "Limite de taux",
+    "it": "Limite di velocità",
+    "sv": "Hastighetsbegränsning",
+    "no": "Hastighetsgrense",
+    "es": "Límite de velocidad",
+    "da": "Hastighedsbegrænsning",
+    "ru": "Ограничение скорости",
+    "pl": "Limit prędkości"
+  },
+  "hint": {
+    "en": "Current limit provided by API error response.",
+    "de": "Aktuelle Limit aus der API-Fehlerantwort.",
+    "nl": "Huidige limiet verstrekt door API-foutreactie.",
+    "fr": "Limite actuelle fournie par la réponse d'erreur de l'API.",
+    "it": "Limite attuale fornita dalla risposta di errore dell'API.",
+    "sv": "Aktuell begränsning som tillhandahålls av API-felresponsen.",
+    "no": "Gjeldende grense gitt av API-feilresponsen.",
+    "es": "Límite actual proporcionado por la respuesta de error de la API.",
+    "da": "Aktuel grænse angivet af API-fejlresponsen.",
+    "ru": "Текущее ограничение, предоставленное ответом API с ошибкой.",
+    "pl": "Aktualny limit podany przez odpowiedź błędu API."
+  },
+  "value": ""
+}

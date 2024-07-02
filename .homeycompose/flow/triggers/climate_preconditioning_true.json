@@ -2,7 +2,15 @@
     "title": {
         "en": "Climate preconditioning has been activated",
         "de": "Klimatisierung wurde aktiviert",
-        "nl": "Climate control is activeerd"
+        "nl": "Climate control is activeerd",
+        "fr": "La préconditionnement climatique a été activé",
+        "it": "La climatizzazione è stata attivata",
+        "sv": "Klimatförutsättning har aktiverats",
+        "no": "Klimaforhold har blitt aktivert",
+        "es": "La climatización ha sido activada",
+        "da": "Klimaforhold er blevet aktiveret",
+        "ru": "Климатическая предустановка активирована",
+        "pl": "Klimatyzacja została aktywowana"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=climate"
         }
-      ]
+    ]
 }

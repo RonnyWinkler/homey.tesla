@@ -1,39 +1,71 @@
 {
   "highlight": true,
   "title": {
-        "en": "Set charge limit SoC",
-        "de": "Ladelimit SoC setzen",
-        "nl": "Stel Laadlimiet SoC in"
+    "en": "Set charge limit SoC",
+    "de": "Ladelimit SoC",
+    "nl": "Stel Laadlimiet SoC in",
+    "fr": "Définir la limite de charge SoC",
+    "it": "Imposta limite di carica SoC",
+    "sv": "Ställ in laddningsgräns SoC",
+    "no": "Sett ladegrense SoC",
+    "es": "Establecer límite de carga SoC",
+    "da": "Indstil opladningsgrænse SoC",
+    "ru": "Установить ограничение заряда SoC",
+    "pl": "Ustaw limit ładowania SoC"
+  },
+  "titleFormatted": {
+    "en": "Set charge limit SoC to [[limit]]",
+    "de": "Stelle Ladelimit SoC auf [[limit]]",
+    "nl": "Stel de Laadlimiet SoC in op [[limit]]",
+    "fr": "Définir la limite de charge SoC à [[limit]]",
+    "it": "Imposta limite di carica SoC a [[limit]]",
+    "sv": "Ställ in laddningsgräns SoC till [[limit]]",
+    "no": "Sett ladegrense SoC til [[limit]]",
+    "es": "Establecer límite de carga SoC en [[limit]]",
+    "da": "Indstil opladningsgrænse SoC til [[limit]]",
+    "ru": "Установить ограничение заряда SoC на [[limit]]",
+    "pl": "Ustaw limit ładowania SoC na [[limit]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "titleFormatted": {
-        "en": "Set charge limit SoC to [[limit]]",
-        "de": "Stelle Ladelimit SoC auf [[limit]]",
-        "nl": "Stel de Laadlimiet SoC in op [[limit]]"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
+    {
+      "name": "limit",
+      "type": "range",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "label": "%",
+      "labelDecimals": 1,
+      "title": {
+        "en": "Charge limit SoC",
+        "de": "Ladelimit SoC",
+        "nl": "Laadlimiet SoC",
+        "fr": "Limite de charge SoC",
+        "it": "Limite di carica SoC",
+        "sv": "Laddningsgräns SoC",
+        "no": "Ladegrense SoC",
+        "es": "Límite de carga SoC",
+        "da": "Opladningsgrænse SoC",
+        "ru": "Ограничение заряда SoC",
+        "pl": "Limit ładowania SoC"
       },
-      {
-          "name": "limit",
-          "type": "range",
-          "min": 50,
-          "max": 100,
-          "step": 1,
-          "label": "%",
-          "labelDecimals": 1,
-          "title": {
-            "en": "Charge limit SoC",
-            "de": "Ladelimit SoC",
-            "nl": "Laadlimiet SoC"
-                  },
-          "placeholder": {
-            "en": "Charge limit SoC",
-            "de": "Ladelimit SoC",
-            "nl": "Laadlimiet SoC"
-          }
+      "placeholder": {
+        "en": "Charge limit SoC",
+        "de": "Ladelimit SoC",
+        "nl": "Laadlimiet SoC",
+        "fr": "Limite de charge SoC",
+        "it": "Limite di carica SoC",
+        "sv": "Laddningsgräns SoC",
+        "no": "Ladegrense SoC",
+        "es": "Límite de carga SoC",
+        "da": "Opladningsgrænse SoC",
+        "ru": "Ограничение заряда SoC",
+        "pl": "Limit ładowania SoC"
       }
+    }
   ]
 }

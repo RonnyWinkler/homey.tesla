@@ -1,42 +1,74 @@
 {
   "highlight": true,
   "title": {
-        "en": "Start/stop charging",
-        "de": "Laden starten/stoppen",
-        "nl": "Start/stop het opladen"
+    "en": "Start/stop charging",
+    "de": "Laden starten/stoppen",
+    "nl": "Start/stop het opladen",
+    "fr": "Démarrer/arrêter la charge",
+    "it": "Avvia/ferma la ricarica",
+    "sv": "Starta/stoppa laddning",
+    "no": "Start/stopp lading",
+    "es": "Iniciar/detener carga",
+    "da": "Start/stop opladning",
+    "ru": "Запустить/остановить зарядку",
+    "pl": "Rozpocznij/zatrzymaj ładowanie"
+  },
+  "titleFormatted": {
+    "en": "[[action]] charging",
+    "de": "Laden [[action]]",
+    "nl": "[[action]] het opladen",
+    "fr": "[[action]] de charge",
+    "it": "[[action]] la ricarica",
+    "sv": "[[action]] laddning",
+    "no": "[[action]] lading",
+    "es": "[[action]] de carga",
+    "da": "[[action]] opladning",
+    "ru": "[[action]] зарядку",
+    "pl": "[[action]] ładowanie"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "titleFormatted": {
-        "en": "[[action]] charging",
-        "de": "Laden [[action]]",
-        "nl": "[[action]] het opladen"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
+          "id": "start",
+          "label": {
+            "en": "Start",
+            "de": "starten",
+            "nl": "Start",
+            "fr": "Démarrer",
+            "it": "Avvia",
+            "sv": "Starta",
+            "no": "Start",
+            "es": "Iniciar",
+            "da": "Start",
+            "ru": "Запустить",
+            "pl": "Rozpocznij"
+          }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "start",
-                "label": {
-                  "en": "Start",
-                  "de": "starten",
-                  "nl": "Start"
-                }
-              },
-              {
-                "id": "stop",
-                "label": {
-                  "en": "Stop",
-                  "de": "stoppen",
-                  "nl": "Stop"
-                }
-              }
-            ]
+          "id": "stop",
+          "label": {
+            "en": "Stop",
+            "de": "stoppen",
+            "nl": "Stop",
+            "fr": "Arrêter",
+            "it": "Ferma",
+            "sv": "Stoppa",
+            "no": "Stopp",
+            "es": "Detener",
+            "da": "Stop",
+            "ru": "Остановить",
+            "pl": "Zatrzymaj"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

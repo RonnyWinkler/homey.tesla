@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Battery heater",
-      "de": "Batterie-Heizung",
-      "nl": "Batterijverwarmer"
-    },
-    "titleTrue": {
-      "en": "Battery heater on",
-      "de": "Batterie-Heizung an",
-      "nl": "Batterijverwarmer aan"
-    },
-    "titleFalse": {
-      "en": "Battery heater off",
-      "de": "Batterie-Heizung aus",
-      "nl": "Batterijverwarmer uit"
-    },
-    "insightsTitleTrue": {
-      "en": "Battery heater on",
-      "de": "Batterie-Heizung an",
-      "nl": "Batterijverwarmer aan"
-    },
-    "insightsTitleFalse": {
-      "en": "Battery heater off",
-      "de": "Batterie-Heizung aus",
-      "nl": "Batterijverwarmer uit"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "uiComponent": "sensor",
-    "icon": "/assets/capability_icons/battery_heater.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Battery heater",
+    "de": "Batterie-Heizung",
+    "nl": "Batterijverwarmer",
+    "fr": "Chauffage de la batterie",
+    "it": "Riscaldatore della batteria",
+    "sv": "Batterivärmare",
+    "no": "Batterivarmer",
+    "es": "Calentador de batería",
+    "da": "Batterivarmer",
+    "ru": "Подогрев аккумулятора",
+    "pl": "Podgrzewacz baterii"
+  },
+  "titleTrue": {
+    "en": "Battery heater on",
+    "de": "Batterie-Heizung an",
+    "nl": "Batterijverwarmer aan",
+    "fr": "Chauffage de la batterie activé",
+    "it": "Riscaldatore della batteria acceso",
+    "sv": "Batterivärmare på",
+    "no": "Batterivarmer på",
+    "es": "Calentador de batería encendido",
+    "da": "Batterivarmer tændt",
+    "ru": "Подогрев аккумулятора включен",
+    "pl": "Podgrzewacz baterii włączony"
+  },
+  "titleFalse": {
+    "en": "Battery heater off",
+    "de": "Batterie-Heizung aus",
+    "nl": "Batterijverwarmer uit",
+    "fr": "Chauffage de la batterie désactivé",
+    "it": "Riscaldatore della batteria spento",
+    "sv": "Batterivärmare av",
+    "no": "Batterivarmer av",
+    "es": "Calentador de batería apagado",
+    "da": "Batterivarmer slukket",
+    "ru": "Подогрев аккумулятора выключен",
+    "pl": "Podgrzewacz baterii wyłączony"
+  },
+  "insightsTitleTrue": {
+    "en": "Battery heater on",
+    "de": "Batterie-Heizung an",
+    "nl": "Batterijverwarmer aan",
+    "fr": "Chauffage de la batterie activé",
+    "it": "Riscaldatore della batteria acceso",
+    "sv": "Batterivärmare på",
+    "no": "Batterivarmer på",
+    "es": "Calentador de batería encendido",
+    "da": "Batterivarmer tændt",
+    "ru": "Подогрев аккумулятора включен",
+    "pl": "Podgrzewacz baterii włączony"
+  },
+  "insightsTitleFalse": {
+    "en": "Battery heater off",
+    "de": "Batterie-Heizung aus",
+    "nl": "Batterijverwarmer uit",
+    "fr": "Chauffage de la batterie désactivé",
+    "it": "Riscaldatore della batteria spento",
+    "sv": "Batterivärmare av",
+    "no": "Batterivarmer av",
+    "es": "Calentador de batería apagado",
+    "da": "Batterivarmer slukket",
+    "ru": "Подогрев аккумулятора выключен",
+    "pl": "Podgrzewacz baterii wyłączony"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capability_icons/battery_heater.svg"
+}

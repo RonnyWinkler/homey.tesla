@@ -2,7 +2,15 @@
     "title": {
         "en": "User detected as present",
         "de": "Benutzer als anwesend erkannt",
-        "nl": "Gebruiker gedetecteerd als aanwezig"
+        "nl": "Gebruiker gedetecteerd als aanwezig",
+        "fr": "Utilisateur détecté comme présent",
+        "it": "Utente rilevato come presente",
+        "sv": "Användare upptäckt som närvarande",
+        "no": "Bruker oppdaget som tilstede",
+        "es": "Usuario detectado como presente",
+        "da": "Bruger registreret som til stede",
+        "ru": "Пользователь обнаружен как присутствующий",
+        "pl": "Użytkownik wykryty jako obecny"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

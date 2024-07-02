@@ -3,17 +3,41 @@
     "title": {
         "en": "Refresh car data",
         "de": "Aktualisere Fahrzeugdaten",
-        "nl": "Bijgewerkte voertuiggegevens"
+        "nl": "Bijgewerkte voertuiggegevens",
+        "fr": "Actualiser les données de la voiture",
+        "it": "Aggiorna dati dell'auto",
+        "sv": "Uppdatera fordonsdata",
+        "no": "Oppdater bildata",
+        "es": "Actualizar datos del coche",
+        "da": "Opdater bildata",
+        "ru": "Обновить данные автомобиля",
+        "pl": "Odśwież dane samochodu"
     },
     "titleFormatted": {
         "en": "Refresh car data",
         "de": "Aktualisere Fahrzeugdaten",
-        "nl": "Bijgewerkte voertuiggegevens"
+        "nl": "Bijgewerkte voertuiggegevens",
+        "fr": "Actualiser les données de la voiture",
+        "it": "Aggiorna dati dell'auto",
+        "sv": "Uppdatera fordonsdata",
+        "no": "Oppdater bildata",
+        "es": "Actualizar datos del coche",
+        "da": "Opdater bildata",
+        "ru": "Обновить данные автомобиля",
+        "pl": "Odśwież dane samochodu"
     },
     "hint": {
         "en": "The vehicle data can only be updated when the vehicle is online.",
         "de": "Die Fahrzeugdaten können nur aktualisiert werden, wenn das Fahrzeug online ist.",
-        "nl": "De voertuiggegevens kunnen alleen worden bijgewerkt als het voertuig online is."
+        "nl": "De voertuiggegevens kunnen alleen worden bijgewerkt als het voertuig online is.",
+        "fr": "Les données du véhicule ne peuvent être mises à jour que lorsque le véhicule est en ligne.",
+        "it": "I dati del veicolo possono essere aggiornati solo quando il veicolo è online.",
+        "sv": "Fordonsdata kan endast uppdateras när fordonet är online.",
+        "no": "Bildata kan bare oppdateres når bilen er online.",
+        "es": "Los datos del vehículo solo se pueden actualizar cuando el vehículo está en línea.",
+        "da": "Køretøjsdata kan kun opdateres, når køretøjet er online.",
+        "ru": "Данные автомобиля можно обновить только при наличии подключения к сети.",
+        "pl": "Dane pojazdu można aktualizować tylko wtedy, gdy pojazd jest online."
     },
     "args": [
         {

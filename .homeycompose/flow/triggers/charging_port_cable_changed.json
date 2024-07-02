@@ -2,7 +2,15 @@
     "title": {
         "en": "Charging cable changed",
         "de": "Ladekabel hat sich geändert",
-        "nl": "Oplaadkabel gewijzigd"
+        "nl": "Oplaadkabel gewijzigd",
+        "fr": "Câble de charge modifié",
+        "it": "Cavo di ricarica modificato",
+        "sv": "Laddningskabel ändrad",
+        "no": "Ladekabel endret",
+        "es": "Cable de carga cambiado",
+        "da": "Opladningskabel ændret",
+        "ru": "Изменен кабель зарядки",
+        "pl": "Zmieniono kabel ładowania"
     },
     "tokens": [{
             "name": "charging_port_cable",
@@ -10,7 +18,15 @@
             "title": {
                 "en": "Charging cable",
                 "de": "Ladekabel",
-                "nl": "Oplaadkabel"
+                "nl": "Oplaadkabel",
+                "fr": "Câble de charge",
+                "it": "Cavo di ricarica",
+                "sv": "Laddningskabel",
+                "no": "Ladekabel",
+                "es": "Cable de carga",
+                "da": "Opladningskabel",
+                "ru": "Кабель зарядки",
+                "pl": "Kabel ładowania"
             },
             "example": "IEC"
         }

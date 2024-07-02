@@ -2,7 +2,15 @@
     "title": {
         "en": "API error !{{is|isn't}} present",
         "de": "API-Fehler !{{ist|ist nicht}} vorhanden",
-        "nl": "API-fout  !{{is|is niet}} opgetreden"
+        "nl": "API-fout  !{{is|is niet}} opgetreden",
+        "fr": "Erreur API !{{est|n'est pas}} présente",
+        "it": "Errore API !{{è|non è}} presente",
+        "sv": "API-fel !{{är|är inte}} närvarande",
+        "no": "API-feil !{{er|er ikke}} tilstede",
+        "es": "Error de API !{{está|no está}} presente",
+        "da": "API-fejl !{{er|er ikke}} til stede",
+        "ru": "Ошибка API !{{есть|нет}}",
+        "pl": "Błąd API !{{jest|nie ma}}"
     },
     "args": [
         {

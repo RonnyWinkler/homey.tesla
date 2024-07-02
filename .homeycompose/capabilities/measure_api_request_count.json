@@ -1,19 +1,35 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Tesla API queries count",
-      "de": "Tesla API Abfragenanzahl",
-      "nl": "Tesla API aanvragen tellen"
-    },
-    "units": {
-      "en": "Queries per day",
-      "de": "Abfragen pro Tag",
-      "nl": "Aanvragen per dag"
-    },
-    "decimals": 0,
-    "insights": true,
-    "getable": true,
-    "setable": true,
-    "uiComponent": null,
-    "icon": "./assets/capability_icons/measure_api_request_count.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Tesla API queries count",
+    "de": "Tesla API Abfragenanzahl",
+    "nl": "Tesla API aanvragen tellen",
+    "fr": "Nombre de requêtes API Tesla",
+    "it": "Conteggio delle richieste API Tesla",
+    "sv": "Antal Tesla API-förfrågningar",
+    "no": "Antall Tesla API-forespørsler",
+    "es": "Recuento de consultas de API de Tesla",
+    "da": "Antal Tesla API-forespørgsler",
+    "ru": "Количество запросов к API Tesla",
+    "pl": "Liczba zapytań API Tesli"
+  },
+  "units": {
+    "en": "Queries per day",
+    "de": "Abfragen pro Tag",
+    "nl": "Aanvragen per dag",
+    "fr": "Requêtes par jour",
+    "it": "Richieste al giorno",
+    "sv": "Förfrågningar per dag",
+    "no": "Forespørsler per dag",
+    "es": "Consultas por día",
+    "da": "Forespørgsler pr. dag",
+    "ru": "Запросов в день",
+    "pl": "Zapytań na dzień"
+  },
+  "decimals": 0,
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_api_request_count.svg"
+}

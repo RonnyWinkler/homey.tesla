@@ -2,7 +2,15 @@
     "title": {
         "en": "Charge current changed",
         "de": "Ladestrom hat sich geändert",
-        "nl": "Laadstroom gewijzigd"
+        "nl": "Laadstroom gewijzigd",
+        "fr": "Courant de charge modifié",
+        "it": "Corrente di carica modificata",
+        "sv": "Laddningsström ändrad",
+        "no": "Lade strøm endret",
+        "es": "Corriente de carga cambiada",
+        "da": "Opladningsstrøm ændret",
+        "ru": "Изменение тока заряда",
+        "pl": "Zmiana prądu ładowania"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Charge current",
                 "de": "Ladestrom",
-                "nl": "Laadstroom"
+                "nl": "Laadstroom",
+                "fr": "Courant de charge",
+                "it": "Corrente di carica",
+                "sv": "Laddningsström",
+                "no": "Lade strøm",
+                "es": "Corriente de carga",
+                "da": "Opladningsstrøm",
+                "ru": "Ток заряда",
+                "pl": "Prąd ładowania"
             }
         }
     ],

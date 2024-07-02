@@ -2,7 +2,15 @@
     "title": {
         "en": "Doors !{{are|aren't}} locked",
         "de": "Türen !{{sind|sind nicht nicht}} verriegelt",
-        "nl": "Deuren !{{zijn |zijn niet}} op slot"
+        "nl": "Deuren !{{zijn |zijn niet}} op slot",
+        "fr": "Portes !{{sont|ne sont pas}} verrouillées",
+        "it": "Porte !{{sono|non sono}} bloccate",
+        "sv": "Dörrar !{{är|är inte}} låsta",
+        "no": "Dører !{{er|er ikke}} låst",
+        "es": "Puertas !{{están|no están}} bloqueadas",
+        "da": "Døre !{{er|er ikke}} låst",
+        "ru": "Двери !{{закрыты|не закрыты}}",
+        "pl": "Drzwi !{{są|nie są}} zamknięte"
     },
     "args": [
         {

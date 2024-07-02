@@ -2,7 +2,15 @@
     "title": {
         "en": "Speed changed",
         "de": "Geschwindigkeit hat sich geändert",
-        "nl": "Snelheid gewijzigd"
+        "nl": "Snelheid gewijzigd",
+        "fr": "Vitesse modifiée",
+        "it": "Velocità modificata",
+        "sv": "Hastighet ändrad",
+        "no": "Hastighet endret",
+        "es": "Velocidad cambiada",
+        "da": "Hastighed ændret",
+        "ru": "Изменена скорость",
+        "pl": "Zmieniona prędkość"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Speed (km/h)",
                 "de": "Geschrindigkeit (km/h)",
-                "nl": "Snelheid (km/h)"
+                "nl": "Snelheid (km/h)",
+                "fr": "Vitesse (km/h)",
+                "it": "Velocità (km/h)",
+                "sv": "Hastighet (km/h)",
+                "no": "Hastighet (km/h)",
+                "es": "Velocidad (km/h)",
+                "da": "Hastighed (km/h)",
+                "ru": "Скорость (км/ч)",
+                "pl": "Prędkość (km/h)"
             }
         }
     ],

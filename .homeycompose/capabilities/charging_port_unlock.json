@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Unlock/open charge port",
-      "de": "Ladeanschluss entriegeln/öffnen",
-      "nl": "Ontgrendel/open laadpoort"
-    },
-    "insights": false,
-    "getable": false,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/charging_port_unlock.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Unlock/open charge port",
+    "de": "Ladeanschluss entriegeln/öffnen",
+    "nl": "Ontgrendel/open laadpoort",
+    "fr": "Déverrouiller/ouvrir le port de charge",
+    "it": "Sblocca/apri la porta di ricarica",
+    "sv": "Lås upp/öppna laddporten",
+    "no": "Lås opp/åpne ladeporten",
+    "es": "Desbloquear/abrir puerto de carga",
+    "da": "Lås op/åbn opladningsporten",
+    "ru": "Разблокировать/открыть зарядный порт",
+    "pl": "Odblokuj/otwórz port ładowania"
+  },
+  "insights": false,
+  "getable": false,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/charging_port_unlock.svg"
+}

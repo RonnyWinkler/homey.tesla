@@ -1,0 +1,76 @@
+{
+    "pair": {
+        "register": {
+            "title": "Appregistrering",
+            "subtitle": "Registrer Homey-appen i bilen din",
+            "text1": "Registrer Homey-appen i bilen din for å tillate appen å sende kommandoer til bilen din.",
+            "text2": "Bruk registreringsknappen for å starte registreringen i Tesla-appen. Hvis lenken åpnes i nettleseren, følg da 'Åpne i Tesla App'-hintet.",
+            "text3": "Denne registreringen er nødvendig for å bruke 'Tesla Vehicle Commands Protocol' og ende-til-ende-kryptering av kommandoer sendt til kjøretøyet.",
+            "text4": "Modeller S/X før 2021 er ekskludert. Disse kan fortsatt kontrolleres via REST API. Vennligst velg kommando-API i enhetsinnstillingene.",
+            "text5": "Denne registreringen kan gjentas via 'Reparer enhet'-dialogen.",
+            "button": "Registrer som bilnøkkel"
+        },
+        "battery": {
+            "name": "batteri"
+        },
+        "climate": {
+            "name": "klima"
+        },
+        "location": {
+            "name": "plassering"
+        },
+        "media": {
+            "name": "media"
+        }
+    },
+    "repair": {
+        "select": {
+            "title": "Valg",
+            "auth": "Endre innlogging",
+            "register_app": "Registrer appen i bilen",
+            "charging_history": "Ladehistorikk",
+            "charging_history_suc": "SuC Ladehistorikk"
+        },
+        "charging_history": {
+            "title": "Ladehistorikk",
+            "clear": "fjern",
+            "json": "JSON",
+            "edit": "Rediger",
+            "save": "Lagre"
+        },
+        "charging_history_suc": {
+            "title": "SuC Ladehistorikk"
+        },
+        "location_select": {
+            "title": "Valg",
+            "nearest_suc": "Nærmeste Supercharger",
+            "nearest_dest": "Nærmeste Destinasjonslader"
+        },
+        "location_nearest_suc": {
+            "title": "Nærmeste Supercharger",
+            "navigate": "Naviger til Supercharger?"
+        },
+        "location_nearest_dest": {
+            "title": "Nærmeste Destinasjonslader",
+            "navigate": "Naviger til Destinasjonslader?"
+        }
+    },
+    "devices": {
+        "location": {
+            "homey_location_name": "Hjem (Homey plassering)"
+        },
+        "car": {
+            "trunk_not_allowed": "Bagasjeromsoperasjon deaktivert i enhetsinnstillingene",
+            "command_pair_state_paired": "parret",
+            "command_pair_state_unpaired": "uparret",
+            "command_pair_state_undefined": "ukjent",
+            "app_not_registered": "Appen er ikke registrert i bilen. Registrer via bilens enhetsreparasjonsprosess.",
+            "command_error_426": "Appoppdatering kreves. Vennligst oppdater appen i Homey app store eller aktiver automatiske oppdateringer."
+        }
+    },
+    "app": {
+        "update": {
+            "update_message": "Neste versjon av Tesla-appen legger til en ny tillatelse (Homey plassering). Automatisk oppdatering fungerer ikke i dette tilfellet. Vennligst sjekk for oppdateringer manuelt de neste dagene og installer neste versjon fra appbutikken."
+        }
+    }
+}

@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Refresh",
-      "de": "Aktualisieren",
-      "nl": "Updaten"
-    },
-    "insights": false,
-    "getable": false,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_refresh.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Refresh",
+    "de": "Aktualisieren",
+    "nl": "Updaten",
+    "fr": "Actualiser",
+    "it": "Aggiorna",
+    "sv": "Uppdatera",
+    "no": "Oppdater",
+    "es": "Actualizar",
+    "da": "Opdater",
+    "ru": "Обновить",
+    "pl": "Odśwież"
+  },
+  "insights": false,
+  "getable": false,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_refresh.svg"
+}

@@ -2,7 +2,15 @@
     "title": {
         "en": "Update state changed",
         "de": "Aktualisisierungsstatus hat sich geändert",
-        "nl": "Status bijwerken gewijzigd"
+        "nl": "Status bijwerken gewijzigd",
+        "fr": "État de mise à jour modifié",
+        "it": "Stato aggiornamento modificato",
+        "sv": "Uppdateringsstatus ändrad",
+        "no": "Oppdateringsstatus endret",
+        "es": "Estado de actualización cambiado",
+        "da": "Opdateringsstatus ændret",
+        "ru": "Изменено состояние обновления",
+        "pl": "Zmieniony stan aktualizacji"
     },
     "tokens": [{
             "name": "car_software_update_state",
@@ -10,13 +18,21 @@
             "title": {
                 "en": "Update state",
                 "de": "Aktualisisierungsstatus",
-                "nl": "Status bijwerken"
+                "nl": "Status bijwerken",
+                "fr": "État de mise à jour",
+                "it": "Stato aggiornamento",
+                "sv": "Uppdateringsstatus",
+                "no": "Oppdateringsstatus",
+                "es": "Estado de actualización",
+                "da": "Opdateringsstatus",
+                "ru": "Состояние обновления",
+                "pl": "Stan aktualizacji"
             }
         }
     ],
     "args": [{
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=car"
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
     }]
 }

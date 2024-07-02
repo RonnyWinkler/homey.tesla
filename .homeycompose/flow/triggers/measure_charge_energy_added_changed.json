@@ -2,7 +2,15 @@
     "title": {
         "en": "Charge energy added changed",
         "de": "Ladeenergie hinzugefügt hat sich geändert",
-        "nl": "Laadenergie toegevoegd gewijzigd"
+        "nl": "Laadenergie toegevoegd gewijzigd",
+        "fr": "Énergie de charge ajoutée modifiée",
+        "it": "Energia di ricarica aggiunta modificata",
+        "sv": "Laddad energi tillagd ändrad",
+        "no": "Ladeenergi lagt til endret",
+        "es": "Energía de carga añadida modificada",
+        "da": "Opladningsenergi tilføjet ændret",
+        "ru": "Изменение добавленной зарядной энергии",
+        "pl": "Zmiana dodanej energii ładowania"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Charge energy added",
                 "de": "Ladeenergie hinzugefügt",
-                "nl": "Laadenergie toegevoegd"
+                "nl": "Laadenergie toegevoegd",
+                "fr": "Énergie de charge ajoutée",
+                "it": "Energia di ricarica aggiunta",
+                "sv": "Laddad energi tillagd",
+                "no": "Ladeenergi lagt til",
+                "es": "Energía de carga añadida",
+                "da": "Opladningsenergi tilføjet",
+                "ru": "Добавленная зарядная энергия",
+                "pl": "Dodana energia ładowania"
             },
             "example": "40"
         }

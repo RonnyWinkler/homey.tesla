@@ -1,13 +1,21 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Latitude",
-      "de": "Breitengrad",
-      "nl": "Breedtegraad"
-    },
-    "decimals": 8,
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_location_latitude.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Latitude",
+    "de": "Breitengrad",
+    "nl": "Breedtegraad",
+    "fr": "Latitude",
+    "it": "Latitudine",
+    "sv": "Latitud",
+    "no": "Breddegrad",
+    "es": "Latitud",
+    "da": "Breddegrad",
+    "ru": "Широта",
+    "pl": "Szerokość geograficzna"
+  },
+  "decimals": 8,
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_location_latitude.svg"
+}

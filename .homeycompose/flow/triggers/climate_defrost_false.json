@@ -2,7 +2,15 @@
     "title": {
         "en": "Defrost has been deactivated",
         "de": "Enteisen wurde deaktiviert",
-        "nl": "Ontdooien is gedeactiveerd"
+        "nl": "Ontdooien is gedeactiveerd",
+        "fr": "Le dégivrage a été désactivé",
+        "it": "Lo sbrinamento è stato disattivato",
+        "sv": "Avfrostning har inaktiverats",
+        "no": "Avriming er deaktivert",
+        "es": "El deshielo ha sido desactivado",
+        "da": "Afrimning er blevet deaktiveret",
+        "ru": "Разморозка была деактивирована",
+        "pl": "Odszranianie zostało dezaktywowane"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=climate"
         }
-      ]
+    ]
 }

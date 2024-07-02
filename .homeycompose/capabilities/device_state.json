@@ -10,26 +10,66 @@
     "title": {
         "en": "Online state",
         "de": "Online-Status",
-        "nl": "Online status"
+        "nl": "Online status",
+        "fr": "État en ligne",
+        "it": "Stato online",
+        "sv": "Online-status",
+        "no": "Online-tilstand",
+        "es": "Estado en línea",
+        "da": "Online-tilstand",
+        "ru": "Онлайн-состояние",
+        "pl": "Stan online"
     },
     "titleTrue": {
         "en": "Online",
         "de": "Online",
-        "nl": "Online"
+        "nl": "Online",
+        "fr": "En ligne",
+        "it": "Online",
+        "sv": "Online",
+        "no": "Online",
+        "es": "En línea",
+        "da": "Online",
+        "ru": "Онлайн",
+        "pl": "Online"
     },
     "titleFalse": {
         "en": "Offline",
         "de": "Offline",
-        "nl": "Offline"
+        "nl": "Offline",
+        "fr": "Hors ligne",
+        "it": "Offline",
+        "sv": "Offline",
+        "no": "Offline",
+        "es": "Desconectado",
+        "da": "Offline",
+        "ru": "Офлайн",
+        "pl": "Offline"
     },
     "insightsTitleTrue": {
         "en": "Online",
         "de": "Online",
-        "nl": "Online"
+        "nl": "Online",
+        "fr": "En ligne",
+        "it": "Online",
+        "sv": "Online",
+        "no": "Online",
+        "es": "En línea",
+        "da": "Online",
+        "ru": "Онлайн",
+        "pl": "Online"
     },
     "insightsTitleFalse": {
         "en": "Offline",
         "de": "Offline",
-        "nl": "Offline"
+        "nl": "Offline",
+        "fr": "Hors ligne",
+        "it": "Offline",
+        "sv": "Offline",
+        "no": "Offline",
+        "es": "Desconectado",
+        "da": "Offline",
+        "ru": "Офлайн",
+        "pl": "Offline"
     }
-  }
+}

@@ -3,8 +3,16 @@
     "name": {
         "en": "Car",
         "de": "Fahrzeug",
-        "nl": "Voertuig"
-    },
+        "nl": "Voertuig",
+        "fr": "Voiture",
+        "it": "Auto",
+        "sv": "Bil",
+        "no": "Bil",
+        "es": "Coche",
+        "da": "Bil",
+        "ru": "Автомобиль",
+        "pl": "Samochód"
+        },
     "images": {
         "large": "/drivers/car/assets/images/large.png",
         "small": "/drivers/car/assets/images/small.png"

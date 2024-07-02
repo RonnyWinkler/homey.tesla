@@ -2,7 +2,15 @@
     "title": {
         "en": "User !{{is|isn't}} present",
         "de": "Benutzer !{{ist|ist nicht}} anwesend",
-        "nl": "Gebruiker !{{is|is niet}} aanwezig"
+        "nl": "Gebruiker !{{is|is niet}} aanwezig",
+        "fr": "Utilisateur !{{est|n'est pas}} présent",
+        "it": "Utente !{{è|non è}} presente",
+        "sv": "Användare !{{är|är inte}} närvarande",
+        "no": "Bruker !{{er|er ikke}} tilstede",
+        "es": "Usuario !{{está|no está}} presente",
+        "da": "Bruger !{{er|er ikke}} til stede",
+        "ru": "Пользователь !{{присутствует|отсутствует}}",
+        "pl": "Użytkownik !{{jest|nie jest}} obecny"
     },
     "args": [
         {

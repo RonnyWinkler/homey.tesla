@@ -1,15 +1,31 @@
 {
-    "id": "command_retry",
-    "type": "checkbox",
-    "value": true,
-    "label": {
-      "en": "Retry commands",
-      "de": "Kommandos wiederholen",
-      "nl": "Opdrachten opnieuw proberen"
-    },
-    "hint": {
-      "en": "Repeat commands up to 3 times if they could not be executed successfully.",
-      "de": "Wiederhole Kommandos bis zu 3x, wenn diese nicht erfolgreich ausgeführt werden konnten.",
-      "nl": "Herhaal opdrachten maximaal 3 keer als ze niet succesvol konden worden uitgevoerd."
-    }
+  "id": "command_retry",
+  "type": "checkbox",
+  "value": true,
+  "label": {
+    "en": "Retry commands",
+    "de": "Kommandos wiederholen",
+    "nl": "Opdrachten opnieuw proberen",
+    "fr": "Réessayer les commandes",
+    "it": "Riprova i comandi",
+    "sv": "Försök igen kommandon",
+    "no": "Prøv igjen kommandoer",
+    "es": "Reintentar comandos",
+    "da": "Forsøg igen kommandoer",
+    "ru": "Повторить команды",
+    "pl": "Ponów próby poleceń"
+  },
+  "hint": {
+    "en": "Repeat commands up to 3 times if they could not be executed successfully.",
+    "de": "Wiederhole Kommandos bis zu 3x, wenn diese nicht erfolgreich ausgeführt werden konnten.",
+    "nl": "Herhaal opdrachten maximaal 3 keer als ze niet succesvol konden worden uitgevoerd.",
+    "fr": "Répétez les commandes jusqu'à 3 fois si elles ne peuvent pas être exécutées avec succès.",
+    "it": "Ripeti i comandi fino a 3 volte se non possono essere eseguiti con successo.",
+    "sv": "Upprepa kommandon upp till 3 gånger om de inte kan utföras framgångsrikt.",
+    "no": "Gjenta kommandoer opptil 3 ganger hvis de ikke kan utføres vellykket.",
+    "es": "Repetir comandos hasta 3 veces si no se pueden ejecutar correctamente.",
+    "da": "Gentag kommandoer op til 3 gange, hvis de ikke kan udføres succesfuldt.",
+    "ru": "Повторите команды до 3 раз, если они не могут быть успешно выполнены.",
+    "pl": "Powtarzaj polecenia do 3 razy, jeśli nie można ich pomyślnie wykonać."
+  }
 }

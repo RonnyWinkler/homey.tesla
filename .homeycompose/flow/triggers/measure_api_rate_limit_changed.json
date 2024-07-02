@@ -2,7 +2,15 @@
     "title": {
         "en": "Command API rate limit usage changed",
         "de": "Command-API Rate-Limit Verbrauch hat sich geändert",
-        "nl": "Command-API rate-limit gebruik gewijzigd"
+        "nl": "Command-API rate-limit gebruik gewijzigd",
+        "fr": "Changement d'utilisation de la limite de taux de l'API de commande",
+        "it": "Cambiamento dell'utilizzo del limite di velocità dell'API di comando",
+        "sv": "Ändring av användning av kommandot API-hastighetsgräns",
+        "no": "Endring i bruk av kommandoen API-hastighetsgrense",
+        "es": "Cambio en el uso del límite de velocidad de la API de comando",
+        "da": "Ændring i brug af kommando API hastighedsgrænse",
+        "ru": "Изменение использования ограничения скорости API команды",
+        "pl": "Zmiana wykorzystania limitu prędkości API polecenia"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Command API rate limit usage in %",
                 "de": "Command-API Rate-Limit Verbrauch in %",
-                "nl": "Command-API rate-limit gebruik in %"
+                "nl": "Command-API rate-limit gebruik in %",
+                "fr": "Utilisation de la limite de taux de l'API de commande en %",
+                "it": "Utilizzo del limite di velocità dell'API di comando in %",
+                "sv": "Användning av kommandot API-hastighetsgräns i %",
+                "no": "Bruk av kommandoen API-hastighetsgrense i %",
+                "es": "Uso del límite de velocidad de la API de comando en %",
+                "da": "Brug af kommando API hastighedsgrænse i %",
+                "ru": "Использование ограничения скорости API команды в %",
+                "pl": "Wykorzystanie limitu prędkości API polecenia w %"
             }
         }
     ],

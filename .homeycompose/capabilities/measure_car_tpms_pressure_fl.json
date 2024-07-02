@@ -3,10 +3,30 @@
     "title": {
       "en": "TPMS front left",
       "de": "TPMS vorn links",
-      "nl": "TPMS linksvoor"
+      "nl": "TPMS linksvoor",
+      "fr": "TPMS avant gauche",
+      "it": "TPMS anteriore sinistra",
+      "sv": "TPMS fram vänster",
+      "no": "TPMS venstre foran",
+      "es": "TPMS delantero izquierdo",
+      "da": "TPMS forreste venstre",
+      "ru": "TPMS переднее левое",
+      "pl": "TPMS przód lewy"
     },
-    "units": "Bar",
-    "decimals": 2,
+    "units": {
+      "en": "Bar",
+      "de": "Bar",
+      "nl": "Bar",
+      "fr": "Bar",
+      "it": "Bar",
+      "sv": "Bar",
+      "no": "Bar",
+      "es": "Bar",
+      "da": "Bar",
+      "ru": "Bar",
+      "pl": "Bar"
+    },
+      "decimals": 2,
     "insights": true,
     "getable": true,
     "setable": false,

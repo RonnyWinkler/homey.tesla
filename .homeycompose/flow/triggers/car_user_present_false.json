@@ -2,7 +2,15 @@
     "title": {
         "en": "User detected as absent",
         "de": "Benutzer als abwesend erkannt",
-        "nl": "Gebruiker gedetecteerd als afwezig"
+        "nl": "Gebruiker gedetecteerd als afwezig",
+        "fr": "Utilisateur détecté comme absent",
+        "it": "Utente rilevato come assente",
+        "sv": "Användare upptäckt som frånvarande",
+        "no": "Bruker oppdaget som fraværende",
+        "es": "Usuario detectado como ausente",
+        "da": "Bruger opdaget som fraværende",
+        "ru": "Пользователь обнаружен отсутствующим",
+        "pl": "Użytkownik wykryty jako nieobecny"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

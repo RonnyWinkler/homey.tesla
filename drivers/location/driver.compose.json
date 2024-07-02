@@ -3,7 +3,15 @@
     "name": {
         "en": "Location & navigation",
         "de": "Standort & Navigation",
-        "nl": "Plaats & Navigatie"
+        "nl": "Plaats & Navigatie",
+        "fr": "Emplacement et navigation",
+        "it": "Posizione e navigazione",
+        "sv": "Plats och navigering",
+        "no": "Sted og navigasjon",
+        "es": "Ubicación y navegación",
+        "da": "Placering og navigation",
+        "ru": "Местоположение и навигация",
+        "pl": "Lokalizacja i nawigacja"
     },
     "images": {
         "large": "/drivers/location/assets/images/large.png",

@@ -5,12 +5,28 @@
   "label": {
     "en": "Use charge power only at location",
     "de": "Verwende Ladeleistung nur am Standort",
-    "nl": "Gebruik laadstroom alleen op locatie"
+    "nl": "Gebruik laadstroom alleen op locatie",
+    "fr": "Utiliser la puissance de charge uniquement à l'emplacement",
+    "it": "Utilizza la potenza di carica solo nella posizione",
+    "sv": "Använd laddningskraft endast på platsen",
+    "no": "Bruk ladestrøm bare på stedet",
+    "es": "Usar la potencia de carga solo en la ubicación",
+    "da": "Brug opladningskraft kun på placeringen",
+    "ru": "Использовать мощность зарядки только на месте",
+    "pl": "Użyj mocy ładowania tylko w miejscu"
   },
   "hint":{
     "en": "A location device is required. Location retrieval must be active.",
     "de": "Ein Standort-Gerät wird benötigt. Der Standortabruf muss aktiv sein.",
-    "nl": "Er is een locatieapparaat vereist. Locatie ophalen moet actief zijn."
+    "nl": "Er is een locatieapparaat vereist. Locatie ophalen moet actief zijn.",
+    "fr": "Un appareil de localisation est requis. La récupération de la localisation doit être active.",
+    "it": "È richiesto un dispositivo di localizzazione. Il recupero della posizione deve essere attivo.",
+    "sv": "En platsenhet krävs. Platsåterhämtning måste vara aktiv.",
+    "no": "En stedsenhet er påkrevd. Stedsinnhenting må være aktiv.",
+    "es": "Se requiere un dispositivo de ubicación. La recuperación de la ubicación debe estar activa.",
+    "da": "En placeringssensor er påkrævet. Placeringssporing skal være aktiv.",
+    "ru": "Требуется устройство для определения местоположения. Восстановление местоположения должно быть активно.",
+    "pl": "Wymagane jest urządzenie lokalizacyjne. Pobieranie lokalizacji musi być aktywne."
   },
   "values":[
     {
@@ -18,7 +34,15 @@
       "label":{
           "en": "No restriction",
           "de": "Keine Einschränkung",
-          "nl": "Geen beperkingen"
+          "nl": "Geen beperkingen",
+          "fr": "Aucune restriction",
+          "it": "Nessuna restrizione",
+          "sv": "Ingen begränsning",
+          "no": "Ingen begrensning",
+          "es": "Sin restricción",
+          "da": "Ingen begrænsning",
+          "ru": "Без ограничений",
+          "pl": "Brak ograniczeń"
       }
     },
     {
@@ -26,7 +50,15 @@
       "label":{
           "en": "Home (Homey location)",
           "de": "Zuhause (Homey-Standort)",
-          "nl": "Thuis (Homey locatie)"
+          "nl": "Thuis (Homey locatie)",
+          "fr": "Domicile (emplacement Homey)",
+          "it": "Casa (posizione Homey)",
+          "sv": "Hem (Homey-plats)",
+          "no": "Hjem (Homey-sted)",
+          "es": "Casa (ubicación de Homey)",
+          "da": "Hjem (Homey-placering)",
+          "ru": "Дом (местоположение Homey)",
+          "pl": "Dom (lokalizacja Homey)"
       }
     },
     {
@@ -34,7 +66,15 @@
       "label":{
           "en": "Location 1",
           "de": "Standort 1",
-          "nl": "Locatie 1"
+          "nl": "Locatie 1",
+          "fr": "Emplacement 1",
+          "it": "Posizione 1",
+          "sv": "Plats 1",
+          "no": "Sted 1",
+          "es": "Ubicación 1",
+          "da": "Placering 1",
+          "ru": "Место 1",
+          "pl": "Lokalizacja 1"
       }
     },
     {
@@ -42,7 +82,15 @@
       "label":{
           "en": "Location 2",
           "de": "Standort 2",
-          "nl": "Locatie 2"
+          "nl": "Locatie 2",
+          "fr": "Emplacement 2",
+          "it": "Posizione 2",
+          "sv": "Plats 2",
+          "no": "Sted 2",
+          "es": "Ubicación 2",
+          "da": "Placering 2",
+          "ru": "Место 2",
+          "pl": "Lokalizacja 2"
       }
     },
     {
@@ -50,7 +98,15 @@
       "label":{
           "en": "Location 3",
           "de": "Standort 3",
-          "nl": "Locatie 3"
+          "nl": "Locatie 3",
+          "fr": "Emplacement 3",
+          "it": "Posizione 3",
+          "sv": "Plats 3",
+          "no": "Sted 3",
+          "es": "Ubicación 3",
+          "da": "Placering 3",
+          "ru": "Место 3",
+          "pl": "Lokalizacja 3"
       }
     },
     {
@@ -58,7 +114,15 @@
       "label":{
           "en": "Location 4",
           "de": "Standort 4",
-          "nl": "Locatie 4"
+          "nl": "Locatie 4",
+          "fr": "Emplacement 4",
+          "it": "Posizione 4",
+          "sv": "Plats 4",
+          "no": "Sted 4",
+          "es": "Ubicación 4",
+          "da": "Placering 4",
+          "ru": "Место 4",
+          "pl": "Lokalizacja 4"
       }
     },
     {
@@ -66,7 +130,15 @@
       "label":{
           "en": "Location 5",
           "de": "Standort 5",
-          "nl": "Locatie 5"
+          "nl": "Locatie 5",
+          "fr": "Emplacement 5",
+          "it": "Posizione 5",
+          "sv": "Plats 5",
+          "no": "Sted 5",
+          "es": "Ubicación 5",
+          "da": "Placering 5",
+          "ru": "Место 5",
+          "pl": "Lokalizacja 5"
       }
     }
   ]

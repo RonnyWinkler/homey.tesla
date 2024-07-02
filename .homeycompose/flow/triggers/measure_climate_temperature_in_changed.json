@@ -2,7 +2,15 @@
     "title": {
         "en": "Inside temperature changed",
         "de": "Innentemperatur hat sich geändert",
-        "nl": "Binnentemperatuur gewijzigd"
+        "nl": "Binnentemperatuur gewijzigd",
+        "fr": "Température intérieure modifiée",
+        "it": "Temperatura interna modificata",
+        "sv": "Inomhustemperaturen ändrad",
+        "no": "Innetemperaturen endret",
+        "es": "Temperatura interior cambiada",
+        "da": "Indendørstemperaturen ændret",
+        "ru": "Изменение внутренней температуры",
+        "pl": "Zmiana temperatury wewnątrz"
     },
     "tokens": [
         {
@@ -11,8 +19,16 @@
             "title": {
                 "en": "Inside temperature",
                 "de": "Innentemperatur",
-                "nl": "Binnentemperatuur"
-                      }
+                "nl": "Binnentemperatuur",
+                "fr": "Température intérieure",
+                "it": "Temperatura interna",
+                "sv": "Inomhustemperatur",
+                "no": "Innetemperatur",
+                "es": "Temperatura interior",
+                "da": "Indendørstemperatur",
+                "ru": "Внутренняя температура",
+                "pl": "Temperatura wewnątrz"
+            }
         }
     ],
     "args": [{

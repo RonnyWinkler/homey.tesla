@@ -1,33 +1,65 @@
 {
-    "title": {
-        "en": "Schedule software update",
-        "de": "Plane Software-Aktualisierung",
-        "nl": "Software-update plannen"
+  "title": {
+    "en": "Schedule software update",
+    "de": "Plane Software-Aktualisierung",
+    "nl": "Software-update plannen",
+    "fr": "Planifier la mise à jour logicielle",
+    "it": "Pianifica l'aggiornamento del software",
+    "sv": "Schemalägg programuppdatering",
+    "no": "Planlegg programvareoppdatering",
+    "es": "Programar actualización de software",
+    "da": "Planlæg softwareopdatering",
+    "ru": "Запланировать обновление программного обеспечения",
+    "pl": "Zaplanuj aktualizację oprogramowania"
+  },
+  "titleFormatted": {
+    "en": "Schedule software update in [[minutes]] minutes",
+    "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
+    "nl": "Plan een software-update over [[minutes]] minuten",
+    "fr": "Planifier la mise à jour logicielle dans [[minutes]] minutes",
+    "it": "Pianifica l'aggiornamento del software tra [[minutes]] minuti",
+    "sv": "Schemalägg programuppdatering om [[minutes]] minuter",
+    "no": "Planlegg programvareoppdatering om [[minutes]] minutter",
+    "es": "Programar actualización de software en [[minutes]] minutos",
+    "da": "Planlæg softwareopdatering om [[minutes]] minutter",
+    "ru": "Запланировать обновление программного обеспечения через [[minutes]] минут",
+    "pl": "Zaplanuj aktualizację oprogramowania za [[minutes]] minut"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
     },
-    "titleFormatted": {
-        "en": "Schedule software update in [[minutes]] minutes",
-        "de": "Plane Software-Aktualisierung in [[minutes]] Minuten",
-        "nl": "Plan een software-update over [[minutes]] minuten"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=car"
+    {
+      "name": "minutes",
+      "type": "number",
+      "title": {
+        "en": "Minutes",
+        "de": "Minuten",
+        "nl": "Minuten",
+        "fr": "Minutes",
+        "it": "Minuti",
+        "sv": "Minuter",
+        "no": "Minutter",
+        "es": "Minutos",
+        "da": "Minutter",
+        "ru": "Минуты",
+        "pl": "Minuty"
       },
-      {
-          "name": "minutes",
-          "type": "number",
-          "title": {
-            "en": "Minutes",
-            "de": "Minuten",
-            "nl": "Minuten"
-          },
-          "placeholder": {
-            "en": "Minutes",
-            "de": "Minuten",
-            "nl": "Minuten"
-          }
+      "placeholder": {
+        "en": "Minutes",
+        "de": "Minuten",
+        "nl": "Minuten",
+        "fr": "Minutes",
+        "it": "Minuti",
+        "sv": "Minuter",
+        "no": "Minutter",
+        "es": "Minutos",
+        "da": "Minutter",
+        "ru": "Минуты",
+        "pl": "Minuty"
       }
+    }
   ]
 }

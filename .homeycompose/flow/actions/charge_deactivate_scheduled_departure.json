@@ -1,19 +1,35 @@
 {
-    "title": {
-      "en": "Disable scheduled departure",
-      "de": "Geplante Abfahrt deaktivieren",
-      "nl": "Deactiveer gepland vertrek"
-    },
-    "titleFormatted": {
-      "en": "Disable scheduled departure",
-      "de": "Geplante Abfahrt deaktivieren",
-      "nl": "Deactiveer gepland vertrek"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
-      }
+  "title": {
+    "en": "Disable scheduled departure",
+    "de": "Geplante Abfahrt deaktivieren",
+    "nl": "Deactiveer gepland vertrek",
+    "fr": "Désactiver le départ programmé",
+    "it": "Disattiva partenza programmata",
+    "sv": "Inaktivera schemalagd avgång",
+    "no": "Deaktiver planlagt avgang",
+    "es": "Desactivar salida programada",
+    "da": "Deaktiver planlagt afgang",
+    "ru": "Отключить запланированный выезд",
+    "pl": "Wyłącz zaplanowany wyjazd"
+  },
+  "titleFormatted": {
+    "en": "Disable scheduled departure",
+    "de": "Geplante Abfahrt deaktivieren",
+    "nl": "Deactiveer gepland vertrek",
+    "fr": "Désactiver le départ programmé",
+    "it": "Disattiva partenza programmata",
+    "sv": "Inaktivera schemalagd avgång",
+    "no": "Deaktiver planlagt avgang",
+    "es": "Desactivar salida programada",
+    "da": "Deaktiver planlagt afgang",
+    "ru": "Отключить запланированный выезд",
+    "pl": "Wyłącz zaplanowany wyjazd"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
+    }
   ]
 }

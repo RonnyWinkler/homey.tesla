@@ -1,34 +1,65 @@
 {
-    "title": {
-        "en": "Navigate to address",
-        "de": "Navigiere zu Adresse",
-        "nl": "Navigeer naar adres"
-    },
-    "titleFormatted": {
-      "en": "Navigate to address [[location]]",
-      "de": "Navigiere zu Adresse [[location]]",
-      "nl": "Navigeer naar adres [[location]]"
+  "title": {
+    "en": "Navigate to address",
+    "de": "Navigiere zu Adresse",
+    "nl": "Navigeer naar adres",
+    "fr": "Naviguer vers l'adresse",
+    "it": "Naviga all'indirizzo",
+    "sv": "Navigera till adressen",
+    "no": "Naviger til adresse",
+    "es": "Navegar a la dirección",
+    "da": "Naviger til adresse",
+    "ru": "Перейти по адресу",
+    "pl": "Przejdź do adresu"
   },
-    "args": 
-      [
-        {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=location"
-        },
-        {
-          "name": "location",
-          "type": "text",
-          "title": {
-            "en": "Address",
-            "de": "Adresse",
-            "nl": "Adres"
-          },
-          "placeholder":{
-            "en": "123 Street, City",
-            "de": "Musterstraße 123, Ort",
-            "nl": "Straat 123, Stad"
-          } 
-        }      
-      ]
+  "titleFormatted": {
+    "en": "Navigate to address [[location]]",
+    "de": "Navigiere zu Adresse [[location]]",
+    "nl": "Navigeer naar adres [[location]]",
+    "fr": "Naviguer vers l'adresse [[location]]",
+    "it": "Naviga all'indirizzo [[location]]",
+    "sv": "Navigera till adressen [[location]]",
+    "no": "Naviger til adresse [[location]]",
+    "es": "Navegar a la dirección [[location]]",
+    "da": "Naviger til adresse [[location]]",
+    "ru": "Перейти по адресу [[location]]",
+    "pl": "Przejdź do adresu [[location]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=location"
+    },
+    {
+      "name": "location",
+      "type": "text",
+      "title": {
+        "en": "Address",
+        "de": "Adresse",
+        "nl": "Adres",
+        "fr": "Adresse",
+        "it": "Indirizzo",
+        "sv": "Adress",
+        "no": "Adresse",
+        "es": "Dirección",
+        "da": "Adresse",
+        "ru": "Адрес",
+        "pl": "Adres"
+      },
+      "placeholder": {
+        "en": "123 Street, City",
+        "de": "Musterstraße 123, Ort",
+        "nl": "Straat 123, Stad",
+        "fr": "123 Rue, Ville",
+        "it": "Via 123, Città",
+        "sv": "Gata 123, Stad",
+        "no": "123 Gate, By",
+        "es": "Calle 123, Ciudad",
+        "da": "123 Gade, By",
+        "ru": "Улица 123, Город",
+        "pl": "Ulica 123, Miasto"
+      }
+    }
+  ]
 }

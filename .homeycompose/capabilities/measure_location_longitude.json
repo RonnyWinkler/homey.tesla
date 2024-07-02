@@ -1,13 +1,21 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Longitude",
-      "de": "Längengrad",
-      "nl": "Lengtegraad"
-    },
-    "decimals": 8,
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_location_longitude.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Longitude",
+    "de": "Längengrad",
+    "nl": "Lengtegraad",
+    "fr": "Longitude",
+    "it": "Longitudine",
+    "sv": "Longitud",
+    "no": "Lengdegrad",
+    "es": "Longitud",
+    "da": "Længdegrad",
+    "ru": "Долгота",
+    "pl": "Długość geograficzna"
+  },
+  "decimals": 8,
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_location_longitude.svg"
+}

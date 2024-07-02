@@ -2,7 +2,15 @@
     "title": {
         "en": "Compass changed",
         "de": "Kompass hat sich geändert",
-        "nl": "Kompas gewijzigd"
+        "nl": "Kompas gewijzigd",
+        "fr": "Boussole modifiée",
+        "it": "Bussola modificata",
+        "sv": "Kompass ändrad",
+        "no": "Kompass endret",
+        "es": "Brújula cambiada",
+        "da": "Kompas ændret",
+        "ru": "Изменение компаса",
+        "pl": "Zmiana kompasu"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Compass",
                 "de": "Kompass",
-                "nl": "Kompas"
+                "nl": "Kompas",
+                "fr": "Boussole",
+                "it": "Bussola",
+                "sv": "Kompass",
+                "no": "Kompass",
+                "es": "Brújula",
+                "da": "Kompas",
+                "ru": "Компас",
+                "pl": "Kompas"
             }
         }
     ],

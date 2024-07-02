@@ -1,41 +1,73 @@
 {
-    "title": {
-        "en": "Lock/unlock doors",
-        "de": "Türen verriegeln/entriegeln",
-        "nl": "Deuren vergrendelen/ontgrendelen"
+  "title": {
+    "en": "Lock/unlock doors",
+    "de": "Türen verriegeln/entriegeln",
+    "nl": "Deuren vergrendelen/ontgrendelen",
+    "fr": "Verrouiller/déverrouiller les portes",
+    "it": "Blocca/sblocca porte",
+    "sv": "Lås/upplås dörrar",
+    "no": "Lås/åpne dører",
+    "es": "Bloquear/desbloquear puertas",
+    "da": "Lås/oplås døre",
+    "ru": "Закрыть/открыть двери",
+    "pl": "Zamknij/otwórz drzwi"
+  },
+  "titleFormatted": {
+    "en": "[[action]] doors",
+    "de": "Türen [[action]]",
+    "nl": "Deuren [[action]]",
+    "fr": "[[action]] des portes",
+    "it": "[[action]] porte",
+    "sv": "[[action]] dörrar",
+    "no": "[[action]] dører",
+    "es": "[[action]] puertas",
+    "da": "[[action]] døre",
+    "ru": "[[action]] двери",
+    "pl": "[[action]] drzwi"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
     },
-    "titleFormatted": {
-        "en": "[[action]] doors",
-        "de": "Türen [[action]]",
-        "nl": "Deuren [[action]]"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
+        "id": "lock",
+        "label": {
+          "en": "Lock",
+          "de": "verriegeln",
+          "nl": "vergrendelen",
+          "fr": "Verrouiller",
+          "it": "Blocca",
+          "sv": "Lås",
+          "no": "Lås",
+          "es": "Bloquear",
+          "da": "Lås",
+          "ru": "Закрыть",
+          "pl": "Zamknij"
+        }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "lock",
-                "label": {
-                  "en": "Lock",
-                  "de": "verriegeln",
-                  "nl": "vergrendelen"
-                }
-              },
-              {
-                "id": "unlock",
-                "label": {
-                  "en": "Unlock",
-                  "de": "entriegeln",
-                  "nl": "ontgrendelen"
-                }
-              }
-            ]
+        "id": "unlock",
+        "label": {
+          "en": "Unlock",
+          "de": "entriegeln",
+          "nl": "ontgrendelen",
+          "fr": "Déverrouiller",
+          "it": "Sblocca",
+          "sv": "Upplås",
+          "no": "Åpne",
+          "es": "Desbloquear",
+          "da": "Oplås",
+          "ru": "Открыть",
+          "pl": "Otwórz"
         }
-    ]
+        }
+      ]
+    }
+  ]
 }

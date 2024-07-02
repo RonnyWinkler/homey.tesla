@@ -1,12 +1,20 @@
 {
-    "type": "string",
-    "title": {
-      "en": "Available software",
-      "de": "Verfügbare Software",
-      "nl": "Beschikbare software"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/car_software_update_version.svg"
-  }
+  "type": "string",
+  "title": {
+    "en": "Available software",
+    "de": "Verfügbare Software",
+    "nl": "Beschikbare software",
+    "fr": "Logiciel disponible",
+    "it": "Software disponibile",
+    "sv": "Tillgänglig programvara",
+    "no": "Tilgjengelig programvare",
+    "es": "Software disponible",
+    "da": "Tilgængelig software",
+    "ru": "Доступное программное обеспечение",
+    "pl": "Dostępne oprogramowanie"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/car_software_update_version.svg"
+}

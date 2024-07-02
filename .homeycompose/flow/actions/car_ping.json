@@ -2,17 +2,41 @@
     "title": {
         "en": "Ping the car",
         "de": "Pinge das Auto an",
-        "nl": "Ping de auto"
+        "nl": "Ping de auto",
+        "fr": "Faire un ping à la voiture",
+        "it": "Fai un ping alla macchina",
+        "sv": "Pinga bilen",
+        "no": "Ping bilen",
+        "es": "Hacer ping al coche",
+        "da": "Ping bilen",
+        "ru": "Пинговать автомобиль",
+        "pl": "Pinguj samochód"
     },
     "titleFormatted": {
         "en": "Ping the car",
         "de": "Pinge das Auto an",
-        "nl": "Ping de auto"
+        "nl": "Ping de auto",
+        "fr": "Faire un ping à la voiture",
+        "it": "Fai un ping alla macchina",
+        "sv": "Pinga bilen",
+        "no": "Ping bilen",
+        "es": "Hacer ping al coche",
+        "da": "Ping bilen",
+        "ru": "Пинговать автомобиль",
+        "pl": "Pinguj samochód"
     },
     "hint": {
         "en": "This command is only available for the Tesla Vehicle Command Protocol API.",
         "de": "Dieses Kommando ist nur für die Tesla Vehicle Command Protocol API verfügbar.",
-        "nl": "Deze opdracht is alleen beschikbaar voor de Tesla Vehicle Command Protocol API."
+        "nl": "Deze opdracht is alleen beschikbaar voor de Tesla Vehicle Command Protocol API.",
+        "fr": "Cette commande est uniquement disponible pour l'API de protocole de commande de véhicule Tesla.",
+        "it": "Questo comando è disponibile solo per l'API del protocollo di comando del veicolo Tesla.",
+        "sv": "Detta kommando är endast tillgängligt för Tesla Vehicle Command Protocol API.",
+        "no": "Denne kommandoen er bare tilgjengelig for Tesla Vehicle Command Protocol API.",
+        "es": "Este comando solo está disponible para la API de protocolo de comando de vehículos Tesla.",
+        "da": "Denne kommando er kun tilgængelig for Tesla Vehicle Command Protocol API.",
+        "ru": "Эта команда доступна только для Tesla Vehicle Command Protocol API.",
+        "pl": "To polecenie jest dostępne tylko dla interfejsu API protokołu komend pojazdu Tesla."
     },
     "args": [
         {

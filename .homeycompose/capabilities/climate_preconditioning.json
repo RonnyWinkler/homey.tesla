@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Preconditioning",
-      "de": "Klimatisierung",
-      "nl": "Climate control"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "/assets/capability_icons/climate_preconditioning.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Preconditioning",
+    "de": "Klimatisierung",
+    "nl": "Climate control",
+    "fr": "Préconditionnement",
+    "it": "Condizionamento",
+    "sv": "Klimatkontroll",
+    "no": "Klimakontroll",
+    "es": "Climatización",
+    "da": "Klimakontrol",
+    "ru": "Климат-контроль",
+    "pl": "Klimatyzacja"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "/assets/capability_icons/climate_preconditioning.svg"
+}

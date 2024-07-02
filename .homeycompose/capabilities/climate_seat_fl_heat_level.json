@@ -3,7 +3,15 @@
   "title": {
     "en": "Driver seat heating",
     "de": "Sitzheizung Fahrer",
-    "nl": "Verwarming bestuurdersstoel"
+    "nl": "Verwarming bestuurdersstoel",
+    "fr": "Chauffage siège conducteur",
+    "it": "Riscaldamento sedile guidatore",
+    "sv": "Förarstolsvärme",
+    "no": "Førersetevarme",
+    "es": "Calefacción del asiento del conductor",
+    "da": "Førersædevarme",
+    "ru": "Обогрев водительского сиденья",
+    "pl": "Ogrzewanie fotela kierowcy"
   },
   "insights": false,
   "getable": true,
@@ -16,7 +24,15 @@
       "title": {
         "en": "Off (auto)",
         "de": "Aus (auto)",
-        "nl": "Uit (auto)"
+        "nl": "Uit (auto)",
+        "fr": "Éteint (auto)",
+        "it": "Spento (auto)",
+        "sv": "Av (auto)",
+        "no": "Av (auto)",
+        "es": "Apagado (auto)",
+        "da": "Slukket (auto)",
+        "ru": "Выкл. (авто)",
+        "pl": "Wyłączone (auto)"
       }
     },
     {
@@ -24,13 +40,31 @@
       "title": {
         "en": "Off",
         "de": "Aus",
-        "nl": "Uit"
+        "nl": "Uit",
+        "fr": "Éteint",
+        "it": "Spento",
+        "sv": "Av",
+        "no": "Av",
+        "es": "Apagado",
+        "da": "Slukket",
+        "ru": "Выкл.",
+        "pl": "Wyłączone"
       }
     },
     {
       "id": "1-auto",
       "title": {
-        "en": "1 (auto)"
+        "en": "1 (auto)",
+        "de": "1 (auto)",
+        "nl": "1 (auto)",
+        "fr": "1 (auto)",
+        "it": "1 (auto)",
+        "sv": "1 (auto)",
+        "no": "1 (auto)",
+        "es": "1 (auto)",
+        "da": "1 (auto)",
+        "ru": "1 (авто)",
+        "pl": "1 (auto)"
       }
     },
     {
@@ -42,7 +76,17 @@
     {
       "id": "2-auto",
       "title": {
-        "en": "2 (auto)"
+        "en": "2 (auto)",
+        "de": "2 (auto)",
+        "nl": "2 (auto)",
+        "fr": "2 (auto)",
+        "it": "2 (auto)",
+        "sv": "2 (auto)",
+        "no": "2 (auto)",
+        "es": "2 (auto)",
+        "da": "2 (auto)",
+        "ru": "2 (авто)",
+        "pl": "2 (auto)"
       }
     },
     {
@@ -54,7 +98,17 @@
     {
       "id": "3-auto",
       "title": {
-        "en": "3 (auto)"
+        "en": "3 (auto)",
+        "de": "3 (auto)",
+        "nl": "3 (auto)",
+        "fr": "3 (auto)",
+        "it": "3 (auto)",
+        "sv": "3 (auto)",
+        "no": "3 (auto)",
+        "es": "3 (auto)",
+        "da": "3 (auto)",
+        "ru": "3 (авто)",
+        "pl": "3 (auto)"
       }
     },
     {

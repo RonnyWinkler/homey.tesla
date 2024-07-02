@@ -3,7 +3,15 @@
   "title": {
     "en": "Heated steering wheel",
     "de": "Lenkradheizung",
-    "nl": "Verwarmd stuur"
+    "nl": "Verwarmd stuur",
+    "fr": "Volant chauffant",
+    "it": "Volante riscaldato",
+    "sv": "Uppvärmd ratt",
+    "no": "Oppvarmet ratt",
+    "es": "Volante calefactable",
+    "da": "Opvarmet rat",
+    "ru": "Подогрев руля",
+    "pl": "Podgrzewane koło kierownicy"
   },
   "insights": false,
   "getable": true,
@@ -16,7 +24,15 @@
       "title": {
         "en": "Off (auto)",
         "de": "Aus (auto)",
-        "nl": "Uit (auto)"
+        "nl": "Uit (auto)",
+        "fr": "Éteint (auto)",
+        "it": "Spento (auto)",
+        "sv": "Av (auto)",
+        "no": "Av (auto)",
+        "es": "Apagado (auto)",
+        "da": "Fra (auto)",
+        "ru": "Выключено (авто)",
+        "pl": "Wyłączone (auto)"
       }
     },
     {
@@ -24,13 +40,31 @@
       "title": {
         "en": "Off",
         "de": "Aus",
-        "nl": "Uit"
+        "nl": "Uit",
+        "fr": "Éteint",
+        "it": "Spento",
+        "sv": "Av",
+        "no": "Av",
+        "es": "Apagado",
+        "da": "Fra",
+        "ru": "Выключено",
+        "pl": "Wyłączone"
       }
     },
     {
       "id": "1-auto",
       "title": {
-        "en": "1 (auto)"
+        "en": "1 (auto)",
+        "de": "1 (auto)",
+        "nl": "1 (auto)",
+        "fr": "1 (auto)",
+        "it": "1 (auto)",
+        "sv": "1 (auto)",
+        "no": "1 (auto)",
+        "es": "1 (auto)",
+        "da": "1 (auto)",
+        "ru": "1 (авто)",
+        "pl": "1 (auto)"
       }
     },
     {
@@ -42,7 +76,17 @@
     {
       "id": "3-auto",
       "title": {
-        "en": "2 (auto)"
+        "en": "2 (auto)",
+        "de": "2 (auto)",
+        "nl": "2 (auto)",
+        "fr": "2 (auto)",
+        "it": "2 (auto)",
+        "sv": "2 (auto)",
+        "no": "2 (auto)",
+        "es": "2 (auto)",
+        "da": "2 (auto)",
+        "ru": "2 (авто)",
+        "pl": "2 (auto)"
       }
     },
     {

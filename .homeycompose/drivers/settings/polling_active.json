@@ -1,10 +1,18 @@
 {
-    "id": "polling_active",
-    "type": "checkbox",
-    "value": true,
-    "label": {
-      "en": "Polling is active",
-      "de": "Abruf ist aktiviert",
-      "nl": "Pollen is geactiveerd"
-    }
+  "id": "polling_active",
+  "type": "checkbox",
+  "value": true,
+  "label": {
+    "en": "Polling is active",
+    "de": "Abruf ist aktiviert",
+    "nl": "Pollen is geactiveerd",
+    "fr": "Le sondage est actif",
+    "it": "Il polling è attivo",
+    "sv": "Undersökning är aktiv",
+    "no": "Avstemming er aktiv",
+    "es": "La encuesta está activa",
+    "da": "Afstemning er aktiv",
+    "ru": "Опрос активен",
+    "pl": "Ankieta jest aktywna"
+  }
 }

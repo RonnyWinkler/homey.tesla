@@ -2,7 +2,15 @@
     "title": {
         "en": "Longitude changed",
         "de": "Längengrad hat sich geändert",
-        "nl": "Snelheid gewijzigd"
+        "nl": "Snelheid gewijzigd",
+        "fr": "Longitude modifiée",
+        "it": "Longitudine modificata",
+        "sv": "Longitud ändrad",
+        "no": "Lengdegrad endret",
+        "es": "Longitud cambiada",
+        "da": "Længdegrad ændret",
+        "ru": "Изменение долготы",
+        "pl": "Zmiana długości geograficznej"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Longitude",
                 "de": "Längengrad",
-                "nl": "Lengtegraad"
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
             }
         }
     ],

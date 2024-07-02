@@ -3,7 +3,15 @@
     "title": {
         "en": "Battery heater has been deactivated",
         "de": "Batterie-Heizung wurde deaktiviert",
-        "nl": "Batterijverwarmer is gedeactiveerd"
+        "nl": "Batterijverwarmer is gedeactiveerd",
+        "fr": "Le chauffage de la batterie a été désactivé",
+        "it": "Il riscaldatore della batteria è stato disattivato",
+        "sv": "Batterivärmaren har inaktiverats",
+        "no": "Batterivarmeren er deaktivert",
+        "es": "El calentador de la batería ha sido desactivado",
+        "da": "Batterivarmeren er blevet deaktiveret",
+        "ru": "Обогреватель аккумулятора был деактивирован",
+        "pl": "Podgrzewacz baterii został dezaktywowany"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=battery"
         }
-      ]
+    ]
 }

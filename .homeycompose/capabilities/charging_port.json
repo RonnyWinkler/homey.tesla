@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Charge port",
-      "de": "Ladeanschluss",
-      "nl": "Laadpoort"
-    },
-    "titleTrue": {
-      "en": "opened",
-      "de": "geöffnet",
-      "nl": "geopend"
-    },
-    "titleFalse": {
-      "en": "closed",
-      "de": "gesloten",
-      "nl": "gesloten"
-    },
-    "insightsTitleTrue": {
-      "en": "Charge port opened",
-      "de": "Ladeanschluss geöffnet",
-      "nl": "Laadpoort geopend"
-    },
-    "insightsTitleFalse": {
-      "en": "Charge port closed",
-      "de": "Ladeanschluss gesloten",
-      "nl": "Laadpoort gesloten"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/charging_port.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Charge port",
+    "de": "Ladeanschluss",
+    "nl": "Laadpoort",
+    "fr": "Port de charge",
+    "it": "Porta di ricarica",
+    "sv": "Laddport",
+    "no": "Ladeport",
+    "es": "Puerto de carga",
+    "da": "Opladningsport",
+    "ru": "Порт зарядки",
+    "pl": "Port ładowania"
+  },
+  "titleTrue": {
+    "en": "opened",
+    "de": "geöffnet",
+    "nl": "geopend",
+    "fr": "ouvert",
+    "it": "aperto",
+    "sv": "öppen",
+    "no": "åpnet",
+    "es": "abierto",
+    "da": "åben",
+    "ru": "открыт",
+    "pl": "otwarty"
+  },
+  "titleFalse": {
+    "en": "closed",
+    "de": "gesloten",
+    "nl": "gesloten",
+    "fr": "fermé",
+    "it": "chiuso",
+    "sv": "stängd",
+    "no": "lukket",
+    "es": "cerrado",
+    "da": "lukket",
+    "ru": "закрыт",
+    "pl": "zamknięty"
+  },
+  "insightsTitleTrue": {
+    "en": "Charge port opened",
+    "de": "Ladeanschluss geöffnet",
+    "nl": "Laadpoort geopend",
+    "fr": "Port de charge ouvert",
+    "it": "Porta di ricarica aperta",
+    "sv": "Laddport öppen",
+    "no": "Ladeport åpnet",
+    "es": "Puerto de carga abierto",
+    "da": "Opladningsport åben",
+    "ru": "Порт зарядки открыт",
+    "pl": "Port ładowania otwarty"
+  },
+  "insightsTitleFalse": {
+    "en": "Charge port closed",
+    "de": "Ladeanschluss gesloten",
+    "nl": "Laadpoort gesloten",
+    "fr": "Port de charge fermé",
+    "it": "Porta di ricarica chiusa",
+    "sv": "Laddport stängd",
+    "no": "Ladeport lukket",
+    "es": "Puerto de carga cerrado",
+    "da": "Opladningsport lukket",
+    "ru": "Порт зарядки закрыт",
+    "pl": "Port ładowania zamknięty"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/charging_port.svg"
+}

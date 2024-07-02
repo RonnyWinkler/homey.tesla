@@ -2,17 +2,41 @@
     "title": {
         "en": "Play previous favorite",
         "de": "Spiele den vorherigen Favoriten",
-        "nl": "Speel het vorig favoriete"
+        "nl": "Speel het vorig favoriete",
+        "fr": "Jouer le favori précédent",
+        "it": "Riproduci il preferito precedente",
+        "sv": "Spela föregående favorit",
+        "no": "Spill forrige favoritt",
+        "es": "Reproducir favorito anterior",
+        "da": "Afspil tidligere favorit",
+        "ru": "Воспроизвести предыдущий избранный",
+        "pl": "Odtwórz poprzedni ulubiony"
     },
     "titleFormatted": {
         "en": "Play previous favorite",
         "de": "Spiele den vorherigen Favoriten",
-        "nl": "Speel het vorig favoriete"
+        "nl": "Speel het vorig favoriete",
+        "fr": "Jouer le favori précédent",
+        "it": "Riproduci il preferito precedente",
+        "sv": "Spela föregående favorit",
+        "no": "Spill forrige favoritt",
+        "es": "Reproducir favorito anterior",
+        "da": "Afspil tidligere favorit",
+        "ru": "Воспроизвести предыдущий избранный",
+        "pl": "Odtwórz poprzedni ulubiony"
     },
     "hint":{
         "en": "The feature navigates through your library's Spotify favorites as well as radio favorites.",
         "de": "Die Funktion navigiert durch die Spotify-Favoriten deiner Bibliothek sowie durch die Radio-Favoriten.",
-        "nl": "De functie navigeert door de Spotify-favorieten van uw bibliotheek en door radiofavorieten."
+        "nl": "De functie navigeert door de Spotify-favorieten van uw bibliotheek en door radiofavorieten.",
+        "fr": "La fonction navigue à travers les favoris Spotify de votre bibliothèque ainsi que les favoris radio.",
+        "it": "La funzione naviga tra i preferiti Spotify della tua libreria e i preferiti radio.",
+        "sv": "Funktionen navigerar genom ditt biblioteks Spotify-favoriter samt radiofavoriter.",
+        "no": "Funksjonen navigerer gjennom Spotify-favorittene i biblioteket ditt, samt radiofavoritter.",
+        "es": "La función navega a través de los favoritos de Spotify de tu biblioteca, así como de los favoritos de radio.",
+        "da": "Funktionen navigerer gennem dine biblioteks Spotify-favoritter samt radiofavoritter.",
+        "ru": "Функция позволяет перемещаться по избранным Spotify в вашей библиотеке, а также по избранным радиостанциям.",
+        "pl": "Funkcja nawiguje przez ulubione Spotify w Twojej bibliotece oraz ulubione stacje radiowe."
     },
     "args": [
         {

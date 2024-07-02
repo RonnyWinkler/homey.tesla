@@ -2,7 +2,15 @@
     "title": {
         "en": "Charge port !{{is|isn't}} open",
         "de": "Ladeanschluss !{{ist|ist nicht}} ist geöffnet",
-        "nl": "Laadpoort  !{{is|is niet}} open"
+        "nl": "Laadpoort  !{{is|is niet}} open",
+        "fr": "Port de charge !{{est|n'est pas}} ouvert",
+        "it": "Porta di ricarica !{{è|non è}} aperta",
+        "sv": "Laddporten !{{är|är inte}} öppen",
+        "no": "Ladeporten !{{er|er ikke}} åpen",
+        "es": "Puerto de carga !{{está|no está}} abierto",
+        "da": "Opladningsporten !{{er|er ikke}} åben",
+        "ru": "Порт зарядки !{{открыт|закрыт}}",
+        "pl": "Port ładowania !{{jest|nie jest}} otwarty"
     },
     "args": [
         {

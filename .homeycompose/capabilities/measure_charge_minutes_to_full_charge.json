@@ -1,15 +1,33 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Minutes to full charge",
-      "de": "Minuten bis zur vollständigen Aufladung",
-      "nl": "Minuten tot volledig opladen"
+  "type": "number",
+  "title": {
+    "en": "Minutes to full charge",
+    "de": "Minuten bis zur vollständigen Aufladung",
+    "nl": "Minuten tot volledig opladen",
+    "fr": "Minutes pour une charge complète",
+    "it": "Minuti per una carica completa",
+    "sv": "Minuter till full laddning",
+    "no": "Minutter til fulladet",
+    "es": "Minutos para carga completa",
+    "da": "Minutter til fuld opladning",
+    "ru": "Минуты до полной зарядки",
+    "pl": "Minuty do pełnego naładowania"
+  },
+  "units": {
+    "en": "min",
+    "de": "min",
+    "nl": "min",
+    "fr": "min",
+    "it": "min",
+    "sv": "min",
+    "no": "min",
+    "es": "min",
+    "da": "min",
+    "ru": "мин",
+    "pl": "min"
     },
-    "units": {
-      "en": "min"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_charge_minutes_to_full_charge.svg"
-  }
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_charge_minutes_to_full_charge.svg"
+}

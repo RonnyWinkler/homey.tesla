@@ -1,10 +1,18 @@
 {
-    "id": "car_trunk",
-    "type": "checkbox",
-    "value": false,
-    "label": {
-      "en": "Allow trunk control from device buttons",
-      "de": "Kofferraumsteuerung über Gerätetasten zulassen",
-      "nl": "Laat trunkbediening toe via apparaatknoppen"
-    }
+  "id": "car_trunk",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Allow trunk control from device buttons",
+    "de": "Kofferraumsteuerung über Gerätetasten zulassen",
+    "nl": "Laat trunkbediening toe via apparaatknoppen",
+    "fr": "Autoriser le contrôle du coffre depuis les boutons de l'appareil",
+    "it": "Consenti il controllo del bagagliaio dai pulsanti del dispositivo",
+    "sv": "Tillåt bagageutrymmeskontroll från enhetsknappar",
+    "no": "Tillat bagasjeromskontroll fra enhetsknapper",
+    "es": "Permitir control del maletero desde los botones del dispositivo",
+    "da": "Tillad bagagerumskontrol fra enhedsknapper",
+    "ru": "Разрешить управление багажником с помощью кнопок устройства",
+    "pl": "Zezwól na sterowanie bagażnikiem za pomocą przycisków urządzenia"
+  }
 }

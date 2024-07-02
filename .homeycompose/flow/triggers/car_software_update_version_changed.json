@@ -2,7 +2,15 @@
     "title": {
         "en": "Available Software changed",
         "de": "Verfügbare Software hat sich geändert",
-        "nl": "Beschikbare Software gewijzigd"
+        "nl": "Beschikbare Software gewijzigd",
+        "fr": "Changement de logiciel disponible",
+        "it": "Cambiamento del software disponibile",
+        "sv": "Tillgänglig programvara har ändrats",
+        "no": "Tilgjengelig programvare endret",
+        "es": "Cambio de software disponible",
+        "da": "Tilgængelig software ændret",
+        "ru": "Изменение доступного программного обеспечения",
+        "pl": "Zmiana dostępnego oprogramowania"
     },
     "tokens": [
        {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Available Software",
                 "de": "Verfügbare Software",
-                "nl": "Beschikbare Software"
+                "nl": "Beschikbare Software",
+                "fr": "Logiciel disponible",
+                "it": "Software disponibile",
+                "sv": "Tillgänglig programvara",
+                "no": "Tilgjengelig programvare",
+                "es": "Software disponible",
+                "da": "Tilgængelig software",
+                "ru": "Доступное программное обеспечение",
+                "pl": "Dostępne oprogramowanie"
             }
         }
     ],

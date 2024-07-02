@@ -1,54 +1,101 @@
 {
-    "title": {
-        "en": "Overheat protection mode !{{is|isn't}}",
-        "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}}",
-        "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}}"
+  "title": {
+    "en": "Overheat protection mode !{{is|isn't}}",
+    "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}}",
+    "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}}",
+    "fr": "Mode de protection contre la surchauffe !{{est|n'est pas}}",
+    "it": "Modalità di protezione da surriscaldamento !{{è|non è}}",
+    "sv": "Överhettningsskyddsläge !{{är|är inte}}",
+    "no": "Overopphetingsbeskyttelsesmodus !{{er|er ikke}}",
+    "es": "Modo de protección contra el sobrecalentamiento !{{es|no es}}",
+    "da": "Overophedningsbeskyttelsesfunktion !{{er|er ikke}}",
+    "ru": "Режим защиты от перегрева !{{есть|нет}}"
+  },
+  "titleFormatted": {
+    "en": "Overheat protection mode !{{is|isn't}} [[mode]]",
+    "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}} [[mode]]",
+    "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}} [[mode]]",
+    "fr": "Mode de protection contre la surchauffe !{{est|n'est pas}} [[mode]]",
+    "it": "Modalità di protezione da surriscaldamento !{{è|non è}} [[mode]]",
+    "sv": "Överhettningsskyddsläge !{{är|är inte}} [[mode]]",
+    "no": "Overopphetingsbeskyttelsesmodus !{{er|er ikke}} [[mode]]",
+    "es": "Modo de protección contra el sobrecalentamiento !{{es|no es}} [[mode]]",
+    "da": "Overophedningsbeskyttelsesfunktion !{{er|er ikke}} [[mode]]",
+    "ru": "Режим защиты от перегрева !{{есть|нет}} [[mode]]",
+    "pl": "Tryb ochrony przed przegrzaniem !{{jest|nie jest}} [[mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "titleFormatted": {
-        "en": "Overheat protection mode !{{is|isn't}} [[mode]]",
-        "de": "Überhitzungsschutz-Modus !{{ist|ist nicht}} [[mode]]",
-        "nl": "Beveiligingsmodus tegen oververhitting !{{is|is niet}} [[mode]]"
-    },
-    "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "title": { 
+        "en": "Overheat protection mode",
+        "de": "Überhitzungsschutz-Modus",
+        "nl": "Beveiligingsmodus tegen oververhitting",
+        "fr": "Mode de protection contre la surchauffe",
+        "it": "Modalità di protezione da surriscaldamento",
+        "sv": "Överhettningsskyddsläge",
+        "no": "Overopphetingsbeskyttelsesmodus",
+        "es": "Modo de protección contra el sobrecalentamiento",
+        "da": "Overophedningsbeskyttelsesfunktion",
+        "ru": "Режим защиты от перегрева",
+        "pl": "Tryb ochrony przed przegrzaniem"
+      },
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
+          "id": "off",
+          "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit",
+          "fr": "Désactivé",
+          "it": "Spento",
+          "sv": "Av",
+          "no": "Av",
+          "es": "Apagado",
+          "da": "Fra",
+          "ru": "Выключено",
+          "pl": "Wyłączone"
+          }
         },
         {
-            "name": "mode",
-            "type": "dropdown",
-            "title": { 
-              "en": "Overheat protection mode",
-              "de": "Überhitzungsschutz-Modus",
-              "nl": "Beveiligingsmodus tegen oververhitting"
-                    },
-            "values": [
-                {
-                  "id": "off",
-                  "title": {
-                    "en": "Off",
-                    "de": "Aus",
-                    "nl": "Uit"
-                  }
-                },
-                {
-                  "id": "fan_only",
-                  "title": {
-                    "en": "Without A/C",
-                    "de": "Ohne A/C",
-                    "nl": "Zonder A/C"
-                  }
-                },
-                {
-                  "id": "on",
-                  "title": {
-                    "en": "On",
-                    "de": "An",
-                    "nl": "Bij"
-                  }
-                }
-            ]
+          "id": "fan_only",
+          "title": {
+          "en": "Without A/C",
+          "de": "Ohne A/C",
+          "nl": "Zonder A/C",
+          "fr": "Sans A/C",
+          "it": "Senza A/C",
+          "sv": "Utan A/C",
+          "no": "Uten A/C",
+          "es": "Sin A/C",
+          "da": "Uden A/C",
+          "ru": "Без A/C",
+          "pl": "Bez A/C"
           }
-    ]
+        },
+        {
+          "id": "on",
+          "title": {
+          "en": "On",
+          "de": "An",
+          "nl": "Bij",
+          "fr": "Activé",
+          "it": "Acceso",
+          "sv": "På",
+          "no": "På",
+          "es": "Encendido",
+          "da": "Til",
+          "ru": "Включено",
+          "pl": "Włączone"
+          }
+        }
+      ]
+      }
+  ]
 }

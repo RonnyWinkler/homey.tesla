@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Charging",
-      "de": "Laden",
-      "nl": "Laden"
-    },
-    "titleTrue": {
-      "en": "started",
-      "de": "gestartet",
-      "nl": "gestart"
-    },
-    "titleFalse": {
-      "en": "stopped",
-      "de": "gestoppt",
-      "nl": "gestopt"
-    },
-    "insightsTitleTrue": {
-      "en": "Charging started",
-      "de": "Laden gestartet",
-      "nl": "Laden is gestart"
-    },
-    "insightsTitleFalse": {
-      "en": "Charging stopped",
-      "de": "Laden gestoppe",
-      "nl": "Laden is gestopt"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/charging_on.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Charging",
+    "de": "Laden",
+    "nl": "Laden",
+    "fr": "Chargement",
+    "it": "Caricamento",
+    "sv": "Laddning",
+    "no": "Lading",
+    "es": "Carga",
+    "da": "Opladning",
+    "ru": "Зарядка",
+    "pl": "Ładowanie"
+  },
+  "titleTrue": {
+    "en": "started",
+    "de": "gestartet",
+    "nl": "gestart",
+    "fr": "démarré",
+    "it": "avviato",
+    "sv": "startad",
+    "no": "startet",
+    "es": "iniciado",
+    "da": "startet",
+    "ru": "запущен",
+    "pl": "rozpoczęte"
+  },
+  "titleFalse": {
+    "en": "stopped",
+    "de": "gestoppt",
+    "nl": "gestopt",
+    "fr": "arrêté",
+    "it": "fermato",
+    "sv": "stoppad",
+    "no": "stoppet",
+    "es": "detenido",
+    "da": "stoppet",
+    "ru": "остановлен",
+    "pl": "zatrzymane"
+  },
+  "insightsTitleTrue": {
+    "en": "Charging started",
+    "de": "Laden gestartet",
+    "nl": "Laden is gestart",
+    "fr": "Chargement démarré",
+    "it": "Caricamento avviato",
+    "sv": "Laddning startad",
+    "no": "Lading startet",
+    "es": "Carga iniciada",
+    "da": "Opladning startet",
+    "ru": "Зарядка запущена",
+    "pl": "Ładowanie rozpoczęte"
+  },
+  "insightsTitleFalse": {
+    "en": "Charging stopped",
+    "de": "Laden gestoppt",
+    "nl": "Laden is gestopt",
+    "fr": "Chargement arrêté",
+    "it": "Caricamento fermato",
+    "sv": "Laddning stoppad",
+    "no": "Lading stoppet",
+    "es": "Carga detenida",
+    "da": "Opladning stoppet",
+    "ru": "Зарядка остановлена",
+    "pl": "Ładowanie zatrzymane"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/charging_on.svg"
+}

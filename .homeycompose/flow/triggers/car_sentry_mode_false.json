@@ -3,7 +3,15 @@
     "title": {
         "en": "Sentry mode has been deactivated",
         "de": "Sentry-Modus wurde deaktiviert",
-        "nl": "Sentry mode is gedeactiveerd"
+        "nl": "Sentry mode is gedeactiveerd",
+        "fr": "Le mode sentinelle a été désactivé",
+        "it": "La modalità sentinella è stata disattivata",
+        "sv": "Sentry-läget har inaktiverats",
+        "no": "Sentry-modus er deaktivert",
+        "es": "El modo sentinela ha sido desactivado",
+        "da": "Sentry-tilstand er deaktiveret",
+        "ru": "Режим сторожевой сигнализации деактивирован",
+        "pl": "Tryb strażnika został dezaktywowany"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

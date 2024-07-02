@@ -1,42 +1,74 @@
 {
   "highlight": true,
   "title": {
-        "en": "Open/close charge port",
-        "de": "Ladeanschluss öffnen/schließen",
-        "nl": "Laadpoort open/dichtbij"
+    "en": "Open/close charge port",
+    "de": "Ladeanschluss öffnen/schließen",
+    "nl": "Laadpoort open/dichtbij",
+    "fr": "Ouvrir/fermer le port de charge",
+    "it": "Apri/chiudi porta di ricarica",
+    "sv": "Öppna/stäng laddporten",
+    "no": "Åpne/lukke ladepunktet",
+    "es": "Abrir/cerrar puerto de carga",
+    "da": "Åbn/luk opladningsporten",
+    "ru": "Открыть/закрыть порт зарядки",
+    "pl": "Otwórz/zamknij port ładowania"
+  },
+  "titleFormatted": {
+    "en": "[[action]] charge port",
+    "de": "Ladeanschluss [[action]]",
+    "nl": "Laadpoort [[action]]",
+    "fr": "[[action]] le port de charge",
+    "it": "[[action]] porta di ricarica",
+    "sv": "[[action]] laddporten",
+    "no": "[[action]] ladepunktet",
+    "es": "[[action]] puerto de carga",
+    "da": "[[action]] opladningsporten",
+    "ru": "[[action]] порт зарядки",
+    "pl": "[[action]] port ładowania"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "titleFormatted": {
-        "en": "[[action]] charge port",
-        "de": "Ladeanschluss [[action]]",
-        "nl": "Laadpoort [[action]]"
-    },
-    "args": [
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=battery"
+          "id": "open",
+          "label": {
+            "en": "Open",
+            "de": "Öffnen",
+            "nl": "Open",
+            "fr": "Ouvrir",
+            "it": "Apri",
+            "sv": "Öppna",
+            "no": "Åpne",
+            "es": "Abrir",
+            "da": "Åbn",
+            "ru": "Открыть",
+            "pl": "Otwórz"
+          }
         },
         {
-            "name": "action",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "open",
-                "label": {
-                  "en": "Open",
-                  "de": "Öffnen",
-                  "nl": "Open"
-                }
-              },
-              {
-                "id": "close",
-                "label": {
-                  "en": "Close",
-                  "de": "Schließen",
-                  "nl": "Dichtbij"
-                }
-              }
-            ]
+          "id": "close",
+          "label": {
+            "en": "Close",
+            "de": "Schließen",
+            "nl": "Dichtbij",
+            "fr": "Fermer",
+            "it": "Chiudi",
+            "sv": "Stäng",
+            "no": "Lukke",
+            "es": "Cerrar",
+            "da": "Luk",
+            "ru": "Закрыть",
+            "pl": "Zamknij"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

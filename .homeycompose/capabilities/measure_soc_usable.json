@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Battery level (usable)",
-      "de": "Batteriestand (nutzbar)",
-      "nl": "Batterijniveau (bruikbaar)"
-    },
-    "units": {
-      "en": "%"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_soc_usable.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Battery level (usable)",
+    "de": "Batteriestand (nutzbar)",
+    "nl": "Batterijniveau (bruikbaar)",
+    "fr": "Niveau de batterie (utilisable)",
+    "it": "Livello della batteria (utilizzabile)",
+    "sv": "Batterinivå (användbar)",
+    "no": "Batterinivå (brukbar)",
+    "es": "Nivel de batería (utilizable)",
+    "da": "Batteriniveau (brugbar)",
+    "ru": "Уровень заряда батареи (используемый)",
+    "pl": "Poziom baterii (użyteczny)"
+  },
+  "units": {
+    "en": "%"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_soc_usable.svg"
+}

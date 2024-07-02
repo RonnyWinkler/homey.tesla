@@ -3,7 +3,15 @@
     "title": {
         "en": "State",
         "de": "Status",
-        "nl": "Toestand"
+        "nl": "Toestand",
+        "fr": "État",
+        "it": "Stato",
+        "sv": "Tillstånd",
+        "no": "Tilstand",
+        "es": "Estado",
+        "da": "Tilstand",
+        "ru": "Состояние",
+        "pl": "Stan"
     },
     "uiComponent": "sensor",
     "getable": true,
@@ -27,7 +35,15 @@
             "title": {
                 "en": "Asleep",
                 "de": "Schlafend",
-                "nl": "In slaap"
+                "nl": "In slaap",
+                "fr": "Endormi",
+                "it": "Addormentato",
+                "sv": "Sovande",
+                "no": "Søvn",
+                "es": "Dormido",
+                "da": "Sovende",
+                "ru": "Спит",
+                "pl": "Śpiący"
             }
         },
         {
@@ -35,7 +51,15 @@
             "title": {
                 "en": "Rate limit",
                 "de": "Rate limit",
-                "nl": "Rate limit"
+                "nl": "Rate limit",
+                "fr": "Limite de taux",
+                "it": "Limite di velocità",
+                "sv": "Hastighetsbegränsning",
+                "no": "Hastighetsgrense",
+                "es": "Límite de velocidad",
+                "da": "Hastighedsbegrænsning",
+                "ru": "Ограничение скорости",
+                "pl": "Ograniczenie prędkości"
             }
         }
     ]

@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Front trunk",
-      "de": "Vorderer Kofferraum",
-      "nl": "Voorste kofferbak"
-    },
-    "titleTrue":{
-      "en": "Front trunk open",
-      "de": "Vorderer Kofferraum geöffnet",
-      "nl": "Voorste kofferbak open"
-    },
-    "titleFalse":{
-      "en": "Front trunk closed",
-      "de": "Vorderer Kofferraum geschlossen",
-      "nl": "Voorste kofferbak gesloten"
-    },
-    "insightsTitleTrue":{
-      "en": "Front trunk open",
-      "de": "Vorderer Kofferraum geöffnet",
-      "nl": "Voorste kofferbak open"
-    },
-    "insightsTitleFalse":{
-      "en": "Front trunk closed",
-      "de": "Vorderer Kofferraum geschlossen",
-      "nl": "Voorste kofferbak gesloten"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_trunk_front.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Front trunk",
+    "de": "Vorderer Kofferraum",
+    "nl": "Voorste kofferbak",
+    "fr": "Coffre avant",
+    "it": "Bagagliaio anteriore",
+    "sv": "Framre bagageutrymme",
+    "no": "Fremre bagasjerom",
+    "es": "Maletero delantero",
+    "da": "Forreste bagagerum",
+    "ru": "Передний багажник",
+    "pl": "Przednia klapa bagażnika"
+  },
+  "titleTrue":{
+    "en": "Front trunk open",
+    "de": "Vorderer Kofferraum geöffnet",
+    "nl": "Voorste kofferbak open",
+    "fr": "Coffre avant ouvert",
+    "it": "Bagagliaio anteriore aperto",
+    "sv": "Framre bagageutrymme öppet",
+    "no": "Fremre bagasjerom åpent",
+    "es": "Maletero delantero abierto",
+    "da": "Forreste bagagerum åbent",
+    "ru": "Передний багажник открыт",
+    "pl": "Przednia klapa bagażnika otwarta"
+  },
+  "titleFalse":{
+    "en": "Front trunk closed",
+    "de": "Vorderer Kofferraum geschlossen",
+    "nl": "Voorste kofferbak gesloten",
+    "fr": "Coffre avant fermé",
+    "it": "Bagagliaio anteriore chiuso",
+    "sv": "Framre bagageutrymme stängd",
+    "no": "Fremre bagasjerom lukket",
+    "es": "Maletero delantero cerrado",
+    "da": "Forreste bagagerum lukket",
+    "ru": "Передний багажник закрыт",
+    "pl": "Przednia klapa bagażnika zamknięta"
+  },
+  "insightsTitleTrue":{
+    "en": "Front trunk open",
+    "de": "Vorderer Kofferraum geöffnet",
+    "nl": "Voorste kofferbak open",
+    "fr": "Coffre avant ouvert",
+    "it": "Bagagliaio anteriore aperto",
+    "sv": "Framre bagageutrymme öppet",
+    "no": "Fremre bagasjerom åpent",
+    "es": "Maletero delantero abierto",
+    "da": "Forreste bagagerum åbent",
+    "ru": "Передний багажник открыт",
+    "pl": "Przednia klapa bagażnika otwarta"
+  },
+  "insightsTitleFalse":{
+    "en": "Front trunk closed",
+    "de": "Vorderer Kofferraum geschlossen",
+    "nl": "Voorste kofferbak gesloten",
+    "fr": "Coffre avant fermé",
+    "it": "Bagagliaio anteriore chiuso",
+    "sv": "Framre bagageutrymme stängd",
+    "no": "Fremre bagasjerom lukket",
+    "es": "Maletero delantero cerrado",
+    "da": "Forreste bagagerum lukket",
+    "ru": "Передний багажник закрыт",
+    "pl": "Przednia klapa bagażnika zamknięta"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_trunk_front.svg"
+}

@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Command API rate limit usage",
-      "de": "Command-API Rate-Limit Verbrauch",
-      "nl": "Command-API rate-limit gebruik"
-    },
-    "units": "%",
-    "decimals": 0,
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "uiComponent": null,
-    "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Command API rate limit usage",
+    "de": "Command-API Rate-Limit Verbrauch",
+    "nl": "Command-API rate-limit gebruik",
+    "fr": "Utilisation de la limite de taux de l'API de commande",
+    "it": "Utilizzo del limite di velocità dell'API di comando",
+    "sv": "Användning av kommandot API-hastighetsbegränsning",
+    "no": "Bruk av kommandoen API-hastighetsgrense",
+    "es": "Uso del límite de velocidad de la API de comando",
+    "da": "Brug af kommando API-hastighedsgrænse",
+    "ru": "Использование ограничения скорости API команды",
+    "pl": "Użycie limitu prędkości API polecenia"
+  },
+  "units": "%",
+  "decimals": 0,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
+}

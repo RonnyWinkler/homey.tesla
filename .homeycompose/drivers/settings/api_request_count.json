@@ -1,14 +1,30 @@
 {
-    "type": "label",
-    "label": {
-      "en": "Requests made",
-      "de": "Abfragen ausgeführt",
-      "nl": "Verzoeken gedaan"
-    },
-    "hint": {
-      "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
-      "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
-      "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag."
-    },
-    "value": "0"
-  }
+  "type": "label",
+  "label": {
+    "en": "Requests made",
+    "de": "Abfragen ausgeführt",
+    "nl": "Verzoeken gedaan",
+    "fr": "Requêtes effectuées",
+    "it": "Richieste effettuate",
+    "sv": "Förfrågningar gjorda",
+    "no": "Forespørsler gjort",
+    "es": "Solicitudes realizadas",
+    "da": "Anmodninger foretaget",
+    "ru": "Сделано запросов",
+    "pl": "Wykonane żądania"
+  },
+  "hint": {
+    "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
+    "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
+    "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag.",
+    "fr": "Requêtes API effectuées depuis 00:00 UTC. Maximum 300 par jour.",
+    "it": "Richieste API effettuate dalle 00:00 UTC. Massimo 300 al giorno.",
+    "sv": "Förfrågningar gjorda sedan 00:00 UTC. Maximalt 300 per dag.",
+    "no": "Forespørsler gjort siden 00:00 UTC. Maksimalt 300 per dag.",
+    "es": "Solicitudes API realizadas desde las 00:00 UTC. Máximo 300 por día.",
+    "da": "Anmodninger foretaget siden 00:00 UTC. Maksimum 300 pr. dag.",
+    "ru": "Сделано запросов к API с 00:00 UTC. Максимум 300 в день.",
+    "pl": "Wykonane żądania API od 00:00 UTC. Maksymalnie 300 dziennie."
+  },
+  "value": "0"
+}

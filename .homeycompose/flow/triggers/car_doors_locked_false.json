@@ -1,9 +1,17 @@
 {
     "highlight": true,
     "title": {
-        "en": "Doors were unlocked",
-        "de": "Türen wurden aufgeschlossen",
-        "nl": "Deuren waren ontgrendeld"
+        "en": "Doors were locked",
+        "de": "Türen wurden verschlossen",
+        "nl": "Deuren waren op slot",
+        "fr": "Les portes étaient verrouillées",
+        "it": "Le porte erano chiuse a chiave",
+        "sv": "Dörrarna var låsta",
+        "no": "Dørene var låst",
+        "es": "Las puertas estaban cerradas con llave",
+        "da": "Dørene var låst",
+        "ru": "Двери были заперты",
+        "pl": "Drzwi były zamknięte"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

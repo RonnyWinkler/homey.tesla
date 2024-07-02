@@ -2,7 +2,15 @@
     "title": {
         "en": "Charge limit SoC changed",
         "de": "Ladelimit SoC hat sich geändert",
-        "nl": "Laadlimiet SoC gewijzigd"
+        "nl": "Laadlimiet SoC gewijzigd",
+        "fr": "Limite de charge SoC modifiée",
+        "it": "Limite di carica SoC modificata",
+        "sv": "Laddningsgräns SoC ändrad",
+        "no": "Ladegrense SoC endret",
+        "es": "Límite de carga SoC cambiado",
+        "da": "Opladningsgrænse SoC ændret",
+        "ru": "Изменение ограничения заряда SoC",
+        "pl": "Zmieniono limit ładowania SoC"
     },
     "tokens": [
         {
@@ -11,8 +19,16 @@
             "title": {
                 "en": "Charge limit SoC",
                 "de": "Ladelimit SoC",
-                "nl": "Laadlimiet SoC"
-                      },
+                "nl": "Laadlimiet SoC",
+                "fr": "Limite de charge SoC",
+                "it": "Limite di carica SoC",
+                "sv": "Laddningsgräns SoC",
+                "no": "Ladegrense SoC",
+                "es": "Límite de carga SoC",
+                "da": "Opladningsgrænse SoC",
+                "ru": "Ограничение заряда SoC",
+                "pl": "Limit ładowania SoC"
+            },
             "example": "80"
         }
     ],

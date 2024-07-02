@@ -4,7 +4,15 @@
       "label": {
         "en": "Data retrievals",
         "de": "Datenabruf",
-        "nl": "Gegevens ophalen"
+        "nl": "Gegevens ophalen",
+        "fr": "Récupération des données",
+        "it": "Recupero dati",
+        "sv": "Datahämtningar",
+        "no": "Datainnhenting",
+        "es": "Recuperación de datos",
+        "da": "Datahentning",
+        "ru": "Получение данных",
+        "pl": "Pobieranie danych"
       },
       "children": [
         {
@@ -35,7 +43,15 @@
       "label": {
         "en": "Command settings",
         "de": "Kommando-Einstellungen",
-        "nl": "Commando-instellingen"
+        "nl": "Commando-instellingen",
+        "fr": "Paramètres de commande",
+        "it": "Impostazioni comando",
+        "sv": "Kommandoinställningar",
+        "no": "Kommando innstillinger",
+        "es": "Configuración de comandos",
+        "da": "Kommandoindstillinger",
+        "ru": "Настройки команды",
+        "pl": "Ustawienia polecenia"
       },
       "children": [
         {
@@ -58,7 +74,15 @@
       "label": {
         "en": "Car settings",
         "de": "Fahrzeug-Einstellungen",
-        "nl": "Voertuiginstellingen"
+        "nl": "Voertuiginstellingen",
+        "fr": "Réglages de la voiture",
+        "it": "Impostazioni dell'auto",
+        "sv": "Bilinställningar",
+        "no": "Bilinnstillinger",
+        "es": "Configuración del coche",
+        "da": "Bilindstillinger",
+        "ru": "Настройки автомобиля",
+        "pl": "Ustawienia samochodu"
       },
       "children": [
         {
@@ -73,7 +97,15 @@
       "label": {
         "en": "Tesla API",
         "de": "Tesla API",
-        "nl": "Tesla API"
+        "nl": "Tesla API",
+        "fr": "Tesla API",
+        "it": "Tesla API",
+        "sv": "Tesla API",
+        "no": "Tesla API",
+        "es": "Tesla API",
+        "da": "Tesla API",
+        "ru": "Tesla API",
+        "pl": "Tesla API"
       },
       "children": [
         {
@@ -108,7 +140,15 @@
       "label": {
         "en": "Command API",
         "de": "Kommando-API",
-        "nl": "Commando-API"
+        "nl": "Commando-API",
+        "fr": "API de commande",
+        "it": "API di comando",
+        "sv": "Kommando-API",
+        "no": "Kommando-API",
+        "es": "API de comando",
+        "da": "Kommando-API",
+        "ru": "API команды",
+        "pl": "API polecenia"
       },
       "children": [
         {
@@ -139,7 +179,15 @@
       "label": {
         "en": "Car data",
         "de": "Fahrzeugdaten",
-        "nl": "Voertuiggegevens"
+        "nl": "Voertuiggegevens",
+        "fr": "Données de voiture",
+        "it": "Dati dell'auto",
+        "sv": "Bildata",
+        "no": "Bildata",
+        "es": "Datos del coche",
+        "da": "Bildata",
+        "ru": "Данные автомобиля",
+        "pl": "Dane samochodu"
       },
       "children": [
         {

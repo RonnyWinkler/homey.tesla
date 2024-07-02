@@ -3,12 +3,27 @@
     "title": {
         "en": "State !{{is|isn't}}",
         "de": "Status !{{ist|ist nicht}}",
-        "nl": "Toestand !{{is|is niet}}"
+        "nl": "Toestand !{{is|is niet}}",
+        "fr": "État !{{est|n'est pas}}",
+        "it": "Stato !{{è|non è}}",
+        "sv": "Tillstånd !{{är|är inte}}",
+        "no": "Tilstand !{{er|er ikke}}",
+        "es": "Estado !{{es|no es}}",
+        "da": "Tilstand !{{er|er ikke}}",
+        "ru": "Состояние !{{есть|нет}}"
     },
     "titleFormatted": {
         "en": "State !{{is|isn't}} [[state]]",
         "de": "Status !{{ist|ist nicht}} [[state]]",
-        "nl": "Toestand !{{is|is niet}} [[state]]"
+        "nl": "Toestand !{{is|is niet}} [[state]]",
+        "fr": "État !{{est|n'est pas}} [[state]]",
+        "it": "Stato !{{è|non è}} [[state]]",
+        "sv": "Tillstånd !{{är|är inte}} [[state]]",
+        "no": "Tilstand !{{er|er ikke}} [[state]]",
+        "es": "Estado !{{es|no es}} [[state]]",
+        "da": "Tilstand !{{er|er ikke}} [[state]]",
+        "ru": "Состояние !{{есть|нет}} [[state]]",
+        "pl": "Stan !{{jest|nie jest}} [[state]]"
     },
     "args": [
         {
@@ -22,19 +37,47 @@
             "title": { 
                 "en": "State",
                 "de": "Status",
-                "nl": "Toestand"
+                "nl": "Toestand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan"
             },
             "values": [
                 {
                     "id": "online",
                     "title": {
-                        "en": "Online"
+                        "en": "Online",
+                        "de": "Online",
+                        "nl": "Online",
+                        "fr": "En ligne",
+                        "it": "Online",
+                        "sv": "Online",
+                        "no": "Online",
+                        "es": "En línea",
+                        "da": "Online",
+                        "ru": "Онлайн",
+                        "pl": "Online"
                     }
                 },
                 {
                     "id": "offline",
                     "title": {
-                        "en": "Offline"
+                        "en": "Offline",
+                        "de": "Offline",
+                        "nl": "Offline",
+                        "fr": "Hors ligne",
+                        "it": "Offline",
+                        "sv": "Offline",
+                        "no": "Offline",
+                        "es": "Desconectado",
+                        "da": "Offline",
+                        "ru": "Не в сети",
+                        "pl": "Offline"
                     }
                 },
                 {
@@ -42,7 +85,14 @@
                     "title": {
                         "en": "Asleep",
                         "de": "Schlafend",
-                        "nl": "In slaap"
+                        "nl": "In slaap",
+                        "it": "Addormentato",
+                        "sv": "Sovande",
+                        "no": "Sovende",
+                        "es": "Dormido",
+                        "da": "Sovende",
+                        "ru": "Спит",
+                        "pl": "Śpiący"
                     }
                 },
                 {
@@ -50,7 +100,15 @@
                     "title": {
                         "en": "Rate limit",
                         "de": "Rate limit",
-                        "nl": "Rate limit"
+                        "nl": "Rate limit",
+                        "fr": "Limite de taux",
+                        "it": "Limite di velocità",
+                        "sv": "Hastighetsbegränsning",
+                        "no": "Hastighetsgrense",
+                        "es": "Límite de velocidad",
+                        "da": "Hastighedsbegrænsning",
+                        "ru": "Ограничение скорости",
+                        "pl": "Limit prędkości"
                     }
                 }
             ]

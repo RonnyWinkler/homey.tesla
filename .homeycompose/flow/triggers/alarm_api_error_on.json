@@ -3,7 +3,15 @@
     "title": {
         "en": "API error occurred",
         "de": "API-Fehler aufgetreten",
-        "nl": "Er is een API-fout opgetreden"
+        "nl": "Er is een API-fout opgetreden",
+        "fr": "Une erreur API s'est produite",
+        "it": "Si è verificato un errore API",
+        "sv": "Ett API-fel inträffade",
+        "no": "En API-feil oppstod",
+        "es": "Se produjo un error de API",
+        "da": "Der opstod en API-fejl",
+        "ru": "Произошла ошибка API",
+        "pl": "Wystąpił błąd API"
     },
     "tokens": [
         {
@@ -12,7 +20,15 @@
             "title": {
                 "en": "Error description",
                 "de": "Fehlerbeschreibung",
-                "nl": "Foutbeschrijving"
+                "nl": "Foutbeschrijving",
+                "fr": "Description de l'erreur",
+                "it": "Descrizione dell'errore",
+                "sv": "Felbeskrivning",
+                "no": "Feilbeskrivelse",
+                "es": "Descripción del error",
+                "da": "Fejlbeskrivelse",
+                "ru": "Описание ошибки",
+                "pl": "Opis błędu"
             }
         }
     ],
@@ -22,5 +38,5 @@
             "type": "device",
             "filter": "driver_id=car"
         }
-      ]
+    ]
 }

@@ -1,59 +1,107 @@
 {
   "highlight": true,
   "title": {
-        "en": "Set Temperature",
-        "de": "Temperatur setzen",
-        "nl": "Stel temperatuur in"
+    "en": "Set Temperature",
+    "de": "Temperatur setzen",
+    "nl": "Stel temperatuur in",
+    "fr": "Régler la température",
+    "it": "Imposta temperatura",
+    "sv": "Ställ in temperatur",
+    "no": "Sett temperatur",
+    "es": "Establecer temperatura",
+    "da": "Indstil temperatur",
+    "ru": "Установить температуру",
+    "pl": "Ustaw temperaturę"
+  },
+  "titleFormatted": {
+    "en": "Set Temperature to [[temp_driver]], [[temp_passenger]]",
+    "de": "Stelle Temperatur auf [[temp_driver]], [[temp_passenger]]",
+    "nl": "Stel de temperatuur in op [[temp_driver]], [[temp_passenger]]",
+    "fr": "Régler la température sur [[temp_driver]], [[temp_passenger]]",
+    "it": "Imposta temperatura su [[temp_driver]], [[temp_passenger]]",
+    "sv": "Ställ in temperatur till [[temp_driver]], [[temp_passenger]]",
+    "no": "Sett temperatur til [[temp_driver]], [[temp_passenger]]",
+    "es": "Establecer temperatura a [[temp_driver]], [[temp_passenger]]",
+    "da": "Indstil temperatur til [[temp_driver]], [[temp_passenger]]",
+    "ru": "Установить температуру на [[temp_driver]], [[temp_passenger]]",
+    "pl": "Ustaw temperaturę na [[temp_driver]], [[temp_passenger]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "titleFormatted": {
-        "en": "Set Temperature to [[temp_driver]], [[temp_passenger]]",
-        "de": "Stelle Temperatur auf [[temp_driver]], [[temp_passenger]]",
-        "nl": "Stel de temperatuur in op [[temp_driver]], [[temp_passenger]]"
-    },
-    "args": [
-        {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-        },
-        {
-            "name": "temp_driver",
-            "type": "range",
-            "min": 15,
-            "max": 28,
-            "step": 0.5,
-            "label": "℃",
-            "labelDecimals": 1,
-                  "title": {
-              "en": "Driver temperature",
-              "de": "Fahrertemperatur",
-              "nl": "Temperatuur bestuurder"
-            },
-            "placeholder": {
-              "en": "Driver temperature",
-              "de": "Fahrertemperatur",
-              "nl": "Temperatuur bestuurder"
-            }
-        },
-        {
-          "name": "temp_passenger",
-          "type": "range",
-          "min": 15,
-          "max": 28,
-          "step": 0.5,
-          "label": "℃",
-          "labelDecimals": 1,
-              "required": false,
-          "title": {
-            "en": "Passenger temperature",
-            "de": "Beifahrertemperatur",
-            "nl": "Temperatuur passagier"
-          },
-          "placeholder": {
-            "en": "Passenger temperature",
-            "de": "Beifahrertemperatur",
-            "nl": "Temperatuur passagier"
-          }
+    {
+      "name": "temp_driver",
+      "type": "range",
+      "min": 15,
+      "max": 28,
+      "step": 0.5,
+      "label": "℃",
+      "labelDecimals": 1,
+      "title": {
+        "en": "Driver temperature",
+        "de": "Fahrertemperatur",
+        "nl": "Temperatuur bestuurder",
+        "fr": "Température conducteur",
+        "it": "Temperatura guidatore",
+        "sv": "Förartemperatur",
+        "no": "Førertemperatur",
+        "es": "Temperatura del conductor",
+        "da": "Førertemperatur",
+        "ru": "Температура водителя",
+        "pl": "Temperatura kierowcy"
+      },
+      "placeholder": {
+        "en": "Driver temperature",
+        "de": "Fahrertemperatur",
+        "nl": "Temperatuur bestuurder",
+        "fr": "Température conducteur",
+        "it": "Temperatura guidatore",
+        "sv": "Förartemperatur",
+        "no": "Førertemperatur",
+        "es": "Temperatura del conductor",
+        "da": "Førertemperatur",
+        "ru": "Температура водителя",
+        "pl": "Temperatura kierowcy"
       }
+    },
+    {
+      "name": "temp_passenger",
+      "type": "range",
+      "min": 15,
+      "max": 28,
+      "step": 0.5,
+      "label": "℃",
+      "labelDecimals": 1,
+      "required": false,
+      "title": {
+        "en": "Passenger temperature",
+        "de": "Beifahrertemperatur",
+        "nl": "Temperatuur passagier",
+        "fr": "Température passager",
+        "it": "Temperatura passeggero",
+        "sv": "Passagerartemperatur",
+        "no": "Passasjertemperatur",
+        "es": "Temperatura del pasajero",
+        "da": "Passagertemperatur",
+        "ru": "Температура пассажира",
+        "pl": "Temperatura pasażera"
+      },
+      "placeholder": {
+        "en": "Passenger temperature",
+        "de": "Beifahrertemperatur",
+        "nl": "Temperatuur passagier",
+        "fr": "Température passager",
+        "it": "Temperatura passeggero",
+        "sv": "Passagerartemperatur",
+        "no": "Passasjertemperatur",
+        "es": "Temperatura del pasajero",
+        "da": "Passagertemperatur",
+        "ru": "Температура пассажира",
+        "pl": "Temperatura pasażera"
+      }
+    }
   ]
 }

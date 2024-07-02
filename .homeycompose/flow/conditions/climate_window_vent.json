@@ -2,7 +2,15 @@
     "title": {
         "en": "Window vent mode !{{is|isn't}} active",
         "de": "Fensterlüftungsmodus !{{ist|ist nicht}} aktiviert",
-        "nl": "Raamventilatiemodus !{{is|is niet}} geactiveerd"
+        "nl": "Raamventilatiemodus !{{is|is niet}} geactiveerd",
+        "fr": "Mode de ventilation de la fenêtre !{{est|n'est pas}} actif",
+        "it": "Modalità di ventilazione finestra !{{è|non è}} attiva",
+        "sv": "Fönsterluftningsläge !{{är|är inte}} aktivt",
+        "no": "Vindusventilasjonsmodus !{{er|er ikke}} aktiv",
+        "es": "Modo de ventilación de ventana !{{está|no está}} activo",
+        "da": "Vinduesventilationsfunktion !{{er|er ikke}} aktiv",
+        "ru": "Режим вентиляции окна !{{активен|не активен}}",
+        "pl": "Tryb wentylacji okna !{{jest|nie jest}} aktywny"
     },
     "args": [
         {

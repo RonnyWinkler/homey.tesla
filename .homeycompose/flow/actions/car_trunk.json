@@ -1,41 +1,73 @@
 {
-    "title": {
-        "en": "Actuate front/rear trunk",
-        "de": "Bediene vorderen/hinteren Kofferraum",
-        "nl": "Voorkant/achterkant kofferbak bedienen"
+  "title": {
+    "en": "Actuate front/rear trunk",
+    "de": "Bediene vorderen/hinteren Kofferraum",
+    "nl": "Voorkant/achterkant kofferbak bedienen",
+    "fr": "Actionner le coffre avant/arrière",
+    "it": "Aziona il bagagliaio anteriore/posteriore",
+    "sv": "Aktivera fram/baklucka",
+    "no": "Aktiver front/bakluke",
+    "es": "Accionar maletero delantero/trasero",
+    "da": "Aktiver for/bagklap",
+    "ru": "Активировать передний/задний багажник",
+    "pl": "Aktywuj przedni/tylny bagażnik"
+  },
+  "titleFormatted": {
+    "en": "Actuate [[trunk]] trunk",
+    "de": "Bediene [[trunk]] Kofferraum",
+    "nl": "[[trunk]] kofferbak bedienen",
+    "fr": "Actionner le coffre [[trunk]]",
+    "it": "Aziona il bagagliaio [[trunk]]",
+    "sv": "Aktivera [[trunk]] lucka",
+    "no": "Aktiver [[trunk]] luke",
+    "es": "Accionar maletero [[trunk]]",
+    "da": "Aktiver [[trunk]] bagklap",
+    "ru": "Активировать [[trunk]] багажник",
+    "pl": "Aktywuj [[trunk]] bagażnik"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
     },
-    "titleFormatted": {
-        "en": "Actuate [[trunk]] trunk",
-        "de": "Bediene [[trunk]] Kofferraum",
-        "nl": "[[trunk]] kofferbak bedienen"
-    },
-    "args": [
+    {
+      "name": "trunk",
+      "type": "dropdown",
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
+        "id": "front",
+        "label": {
+          "en": "front",
+          "de": "vorderen",
+          "nl": "Voorkant",
+          "fr": "avant",
+          "it": "anteriore",
+          "sv": "fram",
+          "no": "front",
+          "es": "delantero",
+          "da": "for",
+          "ru": "передний",
+          "pl": "przedni"
+        }
         },
         {
-            "name": "trunk",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "front",
-                "label": {
-                  "en": "front",
-                  "de": "vorderen",
-                  "nl": "Voorkant"
-                }
-              },
-              {
-                "id": "rear",
-                "label": {
-                  "en": "rear",
-                  "de": "hinteren",
-                  "nl": "Achterkant"
-                }
-              }
-            ]
+        "id": "rear",
+        "label": {
+          "en": "rear",
+          "de": "hinteren",
+          "nl": "Achterkant",
+          "fr": "arrière",
+          "it": "posteriore",
+          "sv": "bak",
+          "no": "bak",
+          "es": "trasero",
+          "da": "bag",
+          "ru": "задний",
+          "pl": "tylny"
         }
-    ]
+        }
+      ]
+    }
+  ]
 }

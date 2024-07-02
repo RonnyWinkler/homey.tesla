@@ -2,7 +2,15 @@
     "title": {
         "en": "Battery range estimated changed",
         "de": "Batteriereichweite geschätzt hat sich geändert",
-        "nl": "Batterijbereik geschat gewijzigd"
+        "nl": "Batterijbereik geschat gewijzigd",
+        "fr": "Changement estimé de l'autonomie de la batterie",
+        "it": "Cambiamento stimato della autonomia della batteria",
+        "sv": "Uppskattad batteriräckvidd ändrad",
+        "no": "Estimert batterirekkevidde endret",
+        "es": "Cambio estimado en el rango de la batería",
+        "da": "Estimeret batterirækkevidde ændret",
+        "ru": "Изменение прогнозируемого запаса хода батареи",
+        "pl": "Zmiana szacowanego zasięgu baterii"
     },
     "tokens": [
         {
@@ -11,8 +19,16 @@
             "title": {
                 "en": "Battery range estimated (km)",
                 "de": "Batteriereichweite geschätzt (km)",
-                "nl": "Batterijbereik geschat (km)"
-                      },
+                "nl": "Batterijbereik geschat (km)",
+                "fr": "Autonomie de la batterie estimée (km)",
+                "it": "Autonomia della batteria stimata (km)",
+                "sv": "Uppskattad batteriräckvidd (km)",
+                "no": "Estimert batterirekkevidde (km)",
+                "es": "Rango de la batería estimado (km)",
+                "da": "Estimeret batterirækkevidde (km)",
+                "ru": "Прогнозируемый запас хода батареи (км)",
+                "pl": "Szacowany zasięg baterii (km)"
+            },
             "example": "250"
         }
     ],

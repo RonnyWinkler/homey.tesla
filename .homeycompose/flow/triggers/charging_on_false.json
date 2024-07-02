@@ -3,7 +3,15 @@
     "title": {
         "en": "Charging has stopped",
         "de": "Laden wurde gestoppt",
-        "nl": "Het laden is gestopt"
+        "nl": "Het laden is gestopt",
+        "fr": "La charge s'est arrêtée",
+        "it": "La ricarica si è interrotta",
+        "sv": "Laddningen har stoppats",
+        "no": "Ladingen har stoppet",
+        "es": "La carga se ha detenido",
+        "da": "Opladningen er stoppet",
+        "ru": "Зарядка остановлена",
+        "pl": "Ładowanie zostało zatrzymane"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=battery"
         }
-      ]
+    ]
 }

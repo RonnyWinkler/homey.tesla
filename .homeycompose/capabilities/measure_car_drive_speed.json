@@ -3,7 +3,15 @@
     "title": {
       "en": "Speed",
       "de": "Geschwindigkeit",
-      "nl": "Snelheid"
+      "nl": "Snelheid",
+      "fr": "Vitesse",
+      "it": "Velocità",
+      "sv": "Hastighet",
+      "no": "Hastighet",
+      "es": "Velocidad",
+      "da": "Hastighed",
+      "ru": "Скорость",
+      "pl": "Prędkość"
     },
     "units": "km/h",
     "decimals": 0,

@@ -2,8 +2,16 @@
     "title": {
         "en": "Distance from home changed",
         "de": "Entfernung von zu Hause hat sich geändert",
-        "nl": "Afstand van huis veranderd"
-      },
+        "nl": "Afstand van huis veranderd",
+        "fr": "Distance depuis la maison a changé",
+        "it": "Distanza da casa cambiata",
+        "sv": "Avstånd från hemmet har ändrats",
+        "no": "Avstand fra hjemmet endret seg",
+        "es": "Distancia desde casa cambiada",
+        "da": "Afstand fra hjemmet ændret sig",
+        "ru": "Расстояние от дома изменилось",
+        "pl": "Odległość od domu zmieniona"
+    },
     "tokens": [
         {
             "name": "measure_location_distance_from_home",
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Distance from home",
                 "de": "Entfernung von zu Hause",
-                "nl": "Afstand van huis"
+                "nl": "Afstand van huis",
+                "fr": "Distance depuis la maison",
+                "it": "Distanza da casa",
+                "sv": "Avstånd från hemmet",
+                "no": "Avstand fra hjemmet",
+                "es": "Distancia desde casa",
+                "da": "Afstand fra hjemmet",
+                "ru": "Расстояние от дома",
+                "pl": "Odległość od domu"
             }
         }
     ],

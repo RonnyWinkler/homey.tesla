@@ -2,12 +2,28 @@
     "title": {
         "en": "Flash the head lights",
         "de": "Lass die Scheinwerfer aufleuchten",
-        "nl": "Knipper de koplampen"
+        "nl": "Knipper de koplampen",
+        "fr": "Faites clignoter les phares",
+        "it": "Fai lampeggiare i fari",
+        "sv": "Blinka strålkastarna",
+        "no": "Blink frontlyktene",
+        "es": "Haz parpadear las luces delanteras",
+        "da": "Blink forlygterne",
+        "ru": "Мигнуть фарами",
+        "pl": "Migaj światłami przednimi"
     },
     "titleFormatted": {
         "en": "Flash the head lights",
         "de": "Lass die Scheinwerfer aufleuchten",
-        "nl": "Knipper de koplampen"
+        "nl": "Knipper de koplampen",
+        "fr": "Faites clignoter les phares",
+        "it": "Fai lampeggiare i fari",
+        "sv": "Blinka strålkastarna",
+        "no": "Blink frontlyktene",
+        "es": "Haz parpadear las luces delanteras",
+        "da": "Blink forlygterne",
+        "ru": "Мигнуть фарами",
+        "pl": "Migaj światłami przednimi"
     },
     "args": [
         {

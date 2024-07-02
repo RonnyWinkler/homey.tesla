@@ -1,39 +1,71 @@
 {
-    "highlight": true,
-    "title": {
-        "en": "Set charge current",
-        "de": "Ladestrom einstellen",
-        "nl": "Laadversterkers instellen"
+  "highlight": true,
+  "title": {
+    "en": "Set charge current",
+    "de": "Ladestrom einstellen",
+    "nl": "Laadversterkers instellen",
+    "fr": "Définir le courant de charge",
+    "it": "Imposta la corrente di carica",
+    "sv": "Ställ in laddström",
+    "no": "Sett ladestrøm",
+    "es": "Establecer corriente de carga",
+    "da": "Indstil ladestrøm",
+    "ru": "Установить ток зарядки",
+    "pl": "Ustaw prąd ładowania"
+  },
+  "titleFormatted": {
+    "en": "Set charge amps to [[current]]",
+    "de": "Stelle Ladestrom auf [[current]]",
+    "nl": "Stel de Laadversterkers in op [[current]]",
+    "fr": "Définir les ampères de charge sur [[current]]",
+    "it": "Imposta gli ampere di carica su [[current]]",
+    "sv": "Ställ in laddström till [[current]]",
+    "no": "Sett ladestrøm til [[current]]",
+    "es": "Establecer amperios de carga en [[current]]",
+    "da": "Indstil ladestrøm til [[current]]",
+    "ru": "Установить ток зарядки на [[current]]",
+    "pl": "Ustaw prąd ładowania na [[current]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "titleFormatted": {
-        "en": "Set charge amps to [[current]]",
-        "de": "Stelle Ladestrom auf [[current]]",
-        "nl": "Stel de Laadversterkers in op [[current]]"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
+    {
+      "name": "current",
+      "type": "range",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "label": "A",
+      "labelDecimals": 0,
+      "title": {
+        "en": "Charge current",
+        "de": "Ladestrom",
+        "nl": "Laadstroom",
+        "fr": "Courant de charge",
+        "it": "Corrente di carica",
+        "sv": "Laddström",
+        "no": "Ladestrøm",
+        "es": "Corriente de carga",
+        "da": "Ladestrøm",
+        "ru": "Ток зарядки",
+        "pl": "Prąd ładowania"
       },
-      {
-        "name": "current",
-        "type": "range",
-        "min": 0,
-        "max": 32,
-        "step": 1,
-        "label": "A",
-        "labelDecimals": 0,
-        "title": {
-          "en": "Charge current",
-          "de": "Ladestrom",
-          "nl": "Laadstroom"
-        },
-        "placeholder": {
-          "en": "Charge current",
-          "de": "Ladestrom",
-          "nl": "Laadstroom"
-        }
+      "placeholder": {
+        "en": "Charge current",
+        "de": "Ladestrom",
+        "nl": "Laadstroom",
+        "fr": "Courant de charge",
+        "it": "Corrente di carica",
+        "sv": "Laddström",
+        "no": "Ladestrøm",
+        "es": "Corriente de carga",
+        "da": "Ladestrøm",
+        "ru": "Ток зарядки",
+        "pl": "Prąd ładowania"
       }
+    }
   ]
 }

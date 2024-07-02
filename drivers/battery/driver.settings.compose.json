@@ -4,7 +4,15 @@
     "label": {
       "en": "Energy settings",
       "de": "Energie-Einstellungen",
-      "nl": "Energie-instellingen"
+      "nl": "Energie-instellingen",
+      "fr": "Paramètres d'énergie",
+      "it": "Impostazioni energetiche",
+      "sv": "Energiinställningar",
+      "no": "Energiinnstillinger",
+      "es": "Configuración de energía",
+      "da": "Energiindstillinger",
+      "ru": "Настройки энергии",
+      "pl": "Ustawienia energii"
     },
     "children": [
       {
@@ -22,17 +30,25 @@
     ]
   },
   {
-      "type": "group",
-      "label": {
-        "en": "Assigned to car",
-        "de": "Mit Fahrzeug verknüpft",
-        "nl": "Toegekend aan auto"
-      },
-      "children": [
-        {
-          "$extends": "car_data_vin",
-          "id": "car_data_vin"
-        }
-      ]
-    }  
-  ]
+    "type": "group",
+    "label": {
+      "en": "Assigned to car",
+      "de": "Mit Fahrzeug verknüpft",
+      "nl": "Toegekend aan auto",
+      "fr": "Assigné à la voiture",
+      "it": "Assegnato all'auto",
+      "sv": "Tilldelad till bilen",
+      "no": "Tildelt til bilen",
+      "es": "Asignado al coche",
+      "da": "Tildelt til bil",
+      "ru": "Назначено автомобилю",
+      "pl": "Przypisane do samochodu"
+    },
+    "children": [
+      {
+        "$extends": "car_data_vin",
+        "id": "car_data_vin"
+      }
+    ]
+  }
+]

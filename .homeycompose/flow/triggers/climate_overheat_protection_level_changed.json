@@ -2,7 +2,15 @@
     "title": {
         "en": "Overheat protection level changed",
         "de": "Überhitzungsschutz-Stufe hat sich geändert",
-        "nl": "Beveiligingsniveau tegen oververhitting gewijzigd"
+        "nl": "Beveiligingsniveau tegen oververhitting gewijzigd",
+        "fr": "Niveau de protection contre la surchauffe modifié",
+        "it": "Livello di protezione dal surriscaldamento modificato",
+        "sv": "Ändrat överhettningsskyddsnivå",
+        "no": "Endret overopphetingsbeskyttelsesnivå",
+        "es": "Nivel de protección contra el sobrecalentamiento modificado",
+        "da": "Ændret overophedningsbeskyttelsesniveau",
+        "ru": "Изменен уровень защиты от перегрева",
+        "pl": "Zmieniony poziom ochrony przed przegrzaniem"
     },
     "tokens": [{
             "name": "climate_overheat_protection_level",
@@ -10,7 +18,15 @@
             "title": {
                 "en": "Overheat protection level",
                 "de": "Überhitzungsschutz-Stufe",
-                "nl": "Beveiligingsniveau tegen oververhitting"
+                "nl": "Beveiligingsniveau tegen oververhitting",
+                "fr": "Niveau de protection contre la surchauffe",
+                "it": "Livello di protezione dal surriscaldamento",
+                "sv": "Överhettningsskyddsnivå",
+                "no": "Overopphetingsbeskyttelsesnivå",
+                "es": "Nivel de protección contra el sobrecalentamiento",
+                "da": "Overophedningsbeskyttelsesniveau",
+                "ru": "Уровень защиты от перегрева",
+                "pl": "Poziom ochrony przed przegrzaniem"
             },
             "example": "low"
         }

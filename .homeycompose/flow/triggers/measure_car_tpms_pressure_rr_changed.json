@@ -2,7 +2,15 @@
     "title": {
         "en": "TPMS rear right changed",
         "de": "TPMS hinten rechts hat sich geändert",
-        "nl": "TPMS rechtsachter gewijzigd"
+        "nl": "TPMS rechtsachter gewijzigd",
+        "fr": "TPMS arrière droit changé",
+        "it": "TPMS posteriore destro cambiato",
+        "sv": "TPMS bakre höger ändrad",
+        "no": "TPMS bakre høyre endret",
+        "es": "TPMS trasero derecho cambiado",
+        "da": "TPMS baghøjre ændret",
+        "ru": "TPMS заднее правое изменилось",
+        "pl": "TPMS tył prawy zmieniony"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "TPMS rear right",
                 "de": "TPMS rechts links",
-                "nl": "TPMS rechtsachter"
+                "nl": "TPMS rechtsachter",
+                "fr": "TPMS arrière droit",
+                "it": "TPMS posteriore destro",
+                "sv": "TPMS bakre höger",
+                "no": "TPMS bakre høyre",
+                "es": "TPMS trasero derecho",
+                "da": "TPMS baghøjre",
+                "ru": "TPMS заднее правое",
+                "pl": "TPMS tył prawy"
             },
             "example": "3.0"
         }

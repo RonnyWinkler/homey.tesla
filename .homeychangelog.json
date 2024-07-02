@@ -251,5 +251,8 @@
   },
   "1.7.3": {
     "en": "Added flow action to set online interval."
+  },
+  "1.8.0": {
+    "en": "Translation update, added languages: fr it sv no es da ru pl. Fixed door lock/unlock flow cards."
   }
 }

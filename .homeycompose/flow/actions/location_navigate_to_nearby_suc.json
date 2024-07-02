@@ -1,29 +1,53 @@
 {
-    "title": {
-        "en": "Navigate to nearby SuC",
-        "de": "Navigiere zu nahegelegenem SuC",
-        "nl": "Navigeer naar dichtstbijzijnde SuC"
-    },
-    "titleFormatted": {
-      "en": "Navigate to nearby SuC [[suc]]",
-      "de": "Navigiere zu nahegelegenem SuC [[suc]]",
-      "nl": "Navigeer naar dichtstbijzijnde SuC [[suc]]"
+  "title": {
+    "en": "Navigate to nearby SuC",
+    "de": "Navigiere zu nahegelegenem SuC",
+    "nl": "Navigeer naar dichtstbijzijnde SuC",
+    "fr": "Naviguer vers le SuC le plus proche",
+    "it": "Naviga verso il SuC più vicino",
+    "sv": "Navigera till närliggande SuC",
+    "no": "Naviger til nærmeste SuC",
+    "es": "Navegar al SuC más cercano",
+    "da": "Naviger til nærliggende SuC",
+    "ru": "Перейти к ближайшей Суперзарядке",
+    "pl": "Przejdź do najbliższego SuC"
+  },
+  "titleFormatted": {
+    "en": "Navigate to nearby SuC [[suc]]",
+    "de": "Navigiere zu nahegelegenem SuC [[suc]]",
+    "nl": "Navigeer naar dichtstbijzijnde SuC [[suc]]",
+    "fr": "Naviguer vers le SuC le plus proche [[suc]]",
+    "it": "Naviga verso il SuC più vicino [[suc]]",
+    "sv": "Navigera till närliggande SuC [[suc]]",
+    "no": "Naviger til nærmeste SuC [[suc]]",
+    "es": "Navegar al SuC más cercano [[suc]]",
+    "da": "Naviger til nærliggende SuC [[suc]]",
+    "ru": "Перейти к ближайшей Суперзарядке [[suc]]",
+    "pl": "Przejdź do najbliższego SuC [[suc]]"
   },
   "hint": {
     "de": "Für den SuC-Abruf muss das Fahrzeug wach und wird deshalb geweckt.",
     "en": "For the SuC retrieval the vehicle has to be awake and will be woken up.",
-    "nl": "Voor het ophalen van de SuC moet het voertuig wakker zijn en wordt het wakker gemaakt."
+    "nl": "Voor het ophalen van de SuC moet het voertuig wakker zijn en wordt het wakker gemaakt.",
+    "fr": "Pour la récupération du SuC, le véhicule doit être éveillé et sera réveillé.",
+    "it": "Per il recupero del SuC, il veicolo deve essere sveglio e verrà svegliato.",
+    "sv": "För att hämta SuC måste fordonet vara vaket och kommer att väckas.",
+    "no": "For å hente SuC må kjøretøyet være våkent og vil bli vekket.",
+    "es": "Para la recuperación del SuC, el vehículo debe estar despierto y se despertará.",
+    "da": "For at hente SuC skal køretøjet være vågen og vil blive vækket.",
+    "ru": "Для получения Суперзарядки транспортное средство должно быть активным и будет разбужено.",
+    "pl": "Aby odebrać SuC, pojazd musi być aktywny i zostanie obudzony."
   },
   "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=location"
-      },
-      {
-        "name": "suc",
-        "type": "autocomplete",
-          "title": "SuC"
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=location"
+    },
+    {
+      "name": "suc",
+      "type": "autocomplete",
+      "title": "SuC"
     }
   ]
 }

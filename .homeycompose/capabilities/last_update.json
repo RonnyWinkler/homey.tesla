@@ -3,7 +3,15 @@
     "title": {
         "en": "Last update",
         "de": "Letzte Aktualisierung",
-        "nl": "Laatste keer bijgewerkt"
+        "nl": "Laatste keer bijgewerkt",
+        "fr": "Dernière mise à jour",
+        "it": "Ultimo aggiornamento",
+        "sv": "Senaste uppdatering",
+        "no": "Siste oppdatering",
+        "es": "Última actualización",
+        "da": "Seneste opdatering",
+        "ru": "Последнее обновление",
+        "pl": "Ostatnia aktualizacja"
     },
     "uiComponent": "sensor",
     "getable": true,

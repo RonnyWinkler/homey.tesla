@@ -2,7 +2,15 @@
     "title": {
         "en": "Charge power changed",
         "de": "Ladeleistung hat sich geändert",
-        "nl": "Laad vermogen gewijzigd"
+        "nl": "Laad vermogen gewijzigd",
+        "fr": "Puissance de charge modifiée",
+        "it": "Potenza di carica modificata",
+        "sv": "Laddningskraft ändrad",
+        "no": "Ladekraft endret",
+        "es": "Potencia de carga modificada",
+        "da": "Opladningskraft ændret",
+        "ru": "Изменена мощность зарядки",
+        "pl": "Zmieniona moc ładowania"
     },
     "tokens": [
         {
@@ -11,7 +19,15 @@
             "title": {
                 "en": "Charge power",
                 "de": "Ladeleistung",
-                "nl": "Laad vermogen"
+                "nl": "Laad vermogen",
+                "fr": "Puissance de charge",
+                "it": "Potenza di carica",
+                "sv": "Laddningskraft",
+                "no": "Ladekraft",
+                "es": "Potencia de carga",
+                "da": "Opladningskraft",
+                "ru": "Мощность зарядки",
+                "pl": "Moc ładowania"
             }
         }
     ],

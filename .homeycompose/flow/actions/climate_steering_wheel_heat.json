@@ -1,46 +1,86 @@
 {
-    "title": {
-      "en": "Heated steering wheel on/off",
-      "de": "Lenkradheizung an/aus",
-      "nl": "Stuurwielverwarming aan/uit"
-      },
-    "titleFormatted": {
-        "en": "Heated steering wheel [[level]]",
-        "de": "Schalte Lenkradheizung [[level]]",
-        "nl": "Stuurwielverwarming [[level]]"
+  "title": {
+    "en": "Heated steering wheel on/off",
+    "de": "Lenkradheizung an/aus",
+    "nl": "Stuurwielverwarming aan/uit",
+    "fr": "Volant chauffant activé/désactivé",
+    "it": "Volante riscaldato on/off",
+    "sv": "Uppvärmd ratt på/av",
+    "no": "Oppvarmet ratt på/av",
+    "es": "Volante calefactable encendido/apagado",
+    "da": "Opvarmet rat tændt/slukket",
+    "ru": "Подогрев руля вкл/выкл",
+    "pl": "Podgrzewane koło kierownicy włączone/wyłączone"
+  },
+  "titleFormatted": {
+    "en": "Heated steering wheel [[level]]",
+    "de": "Schalte Lenkradheizung [[level]]",
+    "nl": "Stuurwielverwarming [[level]]",
+    "fr": "Volant chauffant [[level]]",
+    "it": "Volante riscaldato [[level]]",
+    "sv": "Uppvärmd ratt [[level]]",
+    "no": "Oppvarmet ratt [[level]]",
+    "es": "Volante calefactable [[level]]",
+    "da": "Opvarmet rat [[level]]",
+    "ru": "Подогрев руля [[level]]",
+    "pl": "Podgrzewane koło kierownicy [[level]]"
+  },
+  "hint": {
+    "en": "This function is only available for vehicles where the heated steering wheel can only be switched on or off.",
+    "de": "Diese Funktion ist nur bei Fahrzeugen verfügbar, wo die Lenkradheizung nur an oder aus geschaltet werden kann.",
+    "nl": "Deze functie is alleen beschikbaar voor voertuigen waar het stuurwielverwarming alleen aan of uit kan worden geschakeld.",
+    "fr": "Cette fonctionnalité n'est disponible que pour les véhicules où le volant chauffant peut être activé ou désactivé uniquement.",
+    "it": "Questa funzione è disponibile solo per i veicoli in cui il volante riscaldato può essere acceso o spento.",
+    "sv": "Denna funktion är endast tillgänglig för fordon där den uppvärmda ratten endast kan slås på eller av.",
+    "no": "Denne funksjonen er bare tilgjengelig for kjøretøy der den oppvarmede rattet bare kan slås på eller av.",
+    "es": "Esta función solo está disponible para vehículos en los que el volante calefactable solo se puede encender o apagar.",
+    "da": "Denne funktion er kun tilgængelig for køretøjer, hvor den opvarmede rat kun kan tændes eller slukkes.",
+    "ru": "Эта функция доступна только для транспортных средств, где подогрев руля может быть включен или выключен.",
+    "pl": "Ta funkcja jest dostępna tylko dla pojazdów, w których podgrzewane koło kierownicy można włączyć lub wyłączyć."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "hint": {
-      "en": "This function is only available for vehicles where the heated steering wheel can only be switched on or off.",
-      "de": "Diese Funktion ist nur bei Fahrzeugen verfügbar, wo die Lenkradheizung nur an oder aus geschaltet werden kann.",
-      "nl": "Deze functie is alleen beschikbaar voor voertuigen waar het stuurwielverwarming alleen aan of uit kan worden geschakeld."
-    },
-    "args": [
-        {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=climate"
-        },
-        {
-          "name": "level",
-          "type": "dropdown",
-          "values": [
-            {
-              "id": "off",
-              "title": {
-                "en": "Off",
-                "de": "Aus",
-                "nl": "Uit"
-              }
-            },
-            {
-              "id": "on",
-              "title": {
-                "en": "On",
-                "de": "An",
-                "nl": "Aan"
-              }
-            }
-          ]
+    {
+      "name": "level",
+      "type": "dropdown",
+      "values": [
+      {
+        "id": "off",
+        "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit",
+          "fr": "Éteint",
+          "it": "Spento",
+          "sv": "Av",
+          "no": "Av",
+          "es": "Apagado",
+          "da": "Slukket",
+          "ru": "Выключено",
+          "pl": "Wyłączone"
         }
-    ]
+      },
+      {
+        "id": "on",
+        "title": {
+          "en": "On",
+          "de": "An",
+          "nl": "Aan",
+          "fr": "Allumé",
+          "it": "Acceso",
+          "sv": "På",
+          "no": "På",
+          "es": "Encendido",
+          "da": "Tændt",
+          "ru": "Включено",
+          "pl": "Włączone"
+        }
+      }
+      ]
+    }
+  ]
 }

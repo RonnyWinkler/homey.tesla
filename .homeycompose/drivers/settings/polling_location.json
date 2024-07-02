@@ -1,15 +1,31 @@
 {
-    "id": "polling_location",
-    "type": "checkbox",
-    "value": false,
-    "label": {
-      "en": "Read location",
-      "de": "Standort lesen",
-      "nl": "Locatie lezen"
-    },
-    "hint":{
-      "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
-      "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
-      "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'."
-    }
+  "id": "polling_location",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Read location",
+    "de": "Standort lesen",
+    "nl": "Locatie lezen",
+    "fr": "Lire la localisation",
+    "it": "Leggi la posizione",
+    "sv": "Läs plats",
+    "no": "Les plassering",
+    "es": "Leer ubicación",
+    "da": "Læs placering",
+    "ru": "Читать местоположение",
+    "pl": "Odczytaj lokalizację"
+  },
+  "hint":{
+    "en": "Read vehicle location when retrieving data. This will result in the 'Location Sharing' icon being displayed at the top of the vehicle screen. The app must also be registered in the vehicle. The registration can be carried out later via the 'Repair device' dialog.",
+    "de": "Fahrzeugstandort beim Datenabruf lesen. Dies führt zur Anzeige des 'Location Sharing'-Icons am oberen Rand des Fahrzeugbildschirms. Die App muss ebenfalls im Fahrzeug registriert werden. Die Registrierung kann nachträglich über den 'Gerät reparieren'-Dialog durchgeführt werden.",
+    "nl": "Lees de voertuiglocatie bij het ophalen van gegevens. Dit heeft tot gevolg dat het pictogram 'Locatie delen' bovenaan het voertuigscherm wordt weergegeven. De app moet ook in het voertuig worden geregistreerd. De registratie kan later worden uitgevoerd via het dialoogvenster 'Apparaat repareren'.",
+    "fr": "Lire la localisation du véhicule lors de la récupération des données. Cela entraînera l'affichage de l'icône 'Partage de localisation' en haut de l'écran du véhicule. L'application doit également être enregistrée dans le véhicule. L'enregistrement peut être effectué ultérieurement via la boîte de dialogue 'Réparer l'appareil'.",
+    "it": "Leggi la posizione del veicolo durante il recupero dei dati. Ciò comporterà la visualizzazione dell'icona 'Condivisione posizione' in alto dello schermo del veicolo. L'app deve anche essere registrata nel veicolo. La registrazione può essere effettuata successivamente tramite la finestra di dialogo 'Ripara dispositivo'.",
+    "sv": "Läs fordonets plats vid hämtning av data. Detta resulterar i att ikonen 'Delning av plats' visas längst upp på fordonets skärm. Appen måste också vara registrerad i fordonet. Registreringen kan utföras senare via dialogrutan 'Reparera enhet'.",
+    "no": "Les plasseringen til kjøretøyet når du henter data. Dette vil resultere i at ikonet 'Deling av plassering' vises øverst på kjøretøyets skjerm. Appen må også være registrert i kjøretøyet. Registreringen kan utføres senere via dialogboksen 'Reparer enhet'.",
+    "es": "Leer la ubicación del vehículo al recuperar datos. Esto hará que se muestre el icono de 'Compartir ubicación' en la parte superior de la pantalla del vehículo. La aplicación también debe estar registrada en el vehículo. El registro se puede realizar más tarde a través del cuadro de diálogo 'Reparar dispositivo'.",
+    "da": "Læs køretøjets placering ved hentning af data. Dette resulterer i, at ikonet 'Del placering' vises øverst på køretøjets skærm. Appen skal også være registreret i køretøjet. Registreringen kan udføres senere via dialogboksen 'Reparer enhed'.",
+    "ru": "Читать местоположение автомобиля при получении данных. Это приведет к отображению значка 'Поделиться местоположением' в верхней части экрана автомобиля. Приложение также должно быть зарегистрировано в автомобиле. Регистрацию можно выполнить позже через диалоговое окно 'Исправить устройство'.",
+    "pl": "Odczytaj lokalizację pojazdu podczas pobierania danych. Spowoduje to wyświetlenie ikony 'Udostępnianie lokalizacji' na górze ekranu pojazdu. Aplikacja musi również być zarejestrowana w pojeździe. Rejestrację można przeprowadzić później za pomocą okna dialogowego 'Napraw urządzenie'."
   }
+}

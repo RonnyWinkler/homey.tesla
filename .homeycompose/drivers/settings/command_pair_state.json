@@ -1,10 +1,18 @@
 {
-    "id": "command_pair_state",
-    "type": "label",
-    "label": {
-      "en": "App registry state as car key",
-      "de": "App-Registrierungsstatus als Autoschlüssel",
-      "nl": "App-registratiestatus als autosleutel"
-    },
-    "value": ""
-  }
+  "id": "command_pair_state",
+  "type": "label",
+  "label": {
+    "en": "App registry state as car key",
+    "de": "App-Registrierungsstatus als Autoschlüssel",
+    "nl": "App-registratiestatus als autosleutel",
+    "fr": "État du registre de l'application en tant que clé de voiture",
+    "it": "Stato del registro dell'app come chiave dell'auto",
+    "sv": "App-registreringsstatus som bilnyckel",
+    "no": "App-registerstatus som bilnøkkel",
+    "es": "Estado del registro de la aplicación como llave del coche",
+    "da": "App-registreringsstatus som bilnøgle",
+    "ru": "Состояние реестра приложения как ключ автомобиля",
+    "pl": "Stan rejestracji aplikacji jako klucz samochodu"
+  },
+  "value": ""
+}

@@ -3,7 +3,15 @@
     "title": {
         "en": "Charging cable",
         "de": "Ladekabel",
-        "nl": "Oplaadkabel"
+        "nl": "Oplaadkabel",
+        "fr": "Câble de charge",
+        "it": "Cavo di ricarica",
+        "sv": "Laddningskabel",
+        "no": "Ladekabel",
+        "es": "Cable de carga",
+        "da": "Opladningskabel",
+        "ru": "Зарядный кабель",
+        "pl": "Kabel ładowania"
     },
     "uiComponent": "sensor",
     "getable": true,

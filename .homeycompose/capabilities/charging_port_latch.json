@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Charge port latch",
-      "de": "Ladeanschlussverriegelung",
-      "nl": "Laadpoortvergrendeling"
-    },
-    "titleTrue": {
-      "en": "locked",
-      "de": "verriegelt",
-      "nl": "op slot"
-    },
-    "titleFalse": {
-      "en": "unlocked",
-      "de": "entriegelt",
-      "nl": "ontgrendeld"
-    },
-    "insightsTitleTrue": {
-      "en": "locked",
-      "de": "verriegelt",
-      "nl": "op slot"
-    },
-    "insightsTitleFalse": {
-      "en": "unlocked",
-      "de": "entriegelt",
-      "nl": "ontgrendeld"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/charging_port_latch.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Charge port latch",
+    "de": "Ladeanschlussverriegelung",
+    "nl": "Laadpoortvergrendeling",
+    "fr": "Verrouillage du port de charge",
+    "it": "Serratura della porta di ricarica",
+    "sv": "Laddportlås",
+    "no": "Ladelås",
+    "es": "Cierre del puerto de carga",
+    "da": "Opladningsportlås",
+    "ru": "Замок порта зарядки",
+    "pl": "Zamek portu ładowania"
+  },
+  "titleTrue": {
+    "en": "locked",
+    "de": "verriegelt",
+    "nl": "op slot",
+    "fr": "verrouillé",
+    "it": "bloccato",
+    "sv": "låst",
+    "no": "låst",
+    "es": "bloqueado",
+    "da": "låst",
+    "ru": "заблокировано",
+    "pl": "zamknięte"
+  },
+  "titleFalse": {
+    "en": "unlocked",
+    "de": "entriegelt",
+    "nl": "ontgrendeld",
+    "fr": "déverrouillé",
+    "it": "sbloccato",
+    "sv": "olåst",
+    "no": "ulåst",
+    "es": "desbloqueado",
+    "da": "ulåst",
+    "ru": "разблокировано",
+    "pl": "otwarte"
+  },
+  "insightsTitleTrue": {
+    "en": "locked",
+    "de": "verriegelt",
+    "nl": "op slot",
+    "fr": "verrouillé",
+    "it": "bloccato",
+    "sv": "låst",
+    "no": "låst",
+    "es": "bloqueado",
+    "da": "låst",
+    "ru": "заблокировано",
+    "pl": "zamknięte"
+  },
+  "insightsTitleFalse": {
+    "en": "unlocked",
+    "de": "entriegelt",
+    "nl": "ontgrendeld",
+    "fr": "déverrouillé",
+    "it": "sbloccato",
+    "sv": "olåst",
+    "no": "ulåst",
+    "es": "desbloqueado",
+    "da": "ulåst",
+    "ru": "разблокировано",
+    "pl": "otwarte"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/charging_port_latch.svg"
+}

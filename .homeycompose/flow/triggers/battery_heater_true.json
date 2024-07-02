@@ -3,7 +3,15 @@
     "title": {
         "en": "Battery heater has been activated",
         "de": "Batterie-Heizung wurde aktiviert",
-        "nl": "Batterijverwarmer is geactiveerd"
+        "nl": "Batterijverwarmer is geactiveerd",
+        "fr": "Le chauffage de la batterie a été activé",
+        "it": "Il riscaldatore della batteria è stato attivato",
+        "sv": "Batterivärmaren har aktiverats",
+        "no": "Batterivarmeren er aktivert",
+        "es": "El calentador de la batería ha sido activado",
+        "da": "Batterivarmeren er blevet aktiveret",
+        "ru": "Обогреватель аккумулятора был активирован",
+        "pl": "Podgrzewacz baterii został aktywowany"
     },
     "args": [
         {
@@ -11,5 +19,5 @@
             "type": "device",
             "filter": "driver_id=battery"
         }
-      ]
+    ]
 }

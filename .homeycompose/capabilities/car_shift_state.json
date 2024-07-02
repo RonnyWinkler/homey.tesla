@@ -1,12 +1,20 @@
 {
-    "type": "string",
-    "title": {
-      "en": "Shift state",
-      "de": "Schaltzustand",
-      "nl": "Schakelstand"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/car_shift_state.svg"
-  }
+  "type": "string",
+  "title": {
+    "en": "Shift state",
+    "de": "Schaltzustand",
+    "nl": "Schakelstand",
+    "fr": "État de changement",
+    "it": "Stato di cambio",
+    "sv": "Växelläge",
+    "no": "Skiftetilstand",
+    "es": "Estado de cambio",
+    "da": "Skiftetilstand",
+    "ru": "Состояние переключения",
+    "pl": "Stan zmiany"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/car_shift_state.svg"
+}

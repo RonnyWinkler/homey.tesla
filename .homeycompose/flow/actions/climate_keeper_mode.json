@@ -1,57 +1,105 @@
 {
-    "title": {
-      "en": "Climate control mode",
-      "de": "Klimatisierungsoption",
-      "nl": "Klimaatregelingsoptie"
-      },
-    "titleFormatted": {
-        "en": "Set climate control mode to [[mode]]",
-        "de": "Stelle Klimatisierungsoption auf [[mode]]",
-        "nl": "Zet Klimaatregelingsoptie op [[mode]]"
+  "title": {
+    "en": "Climate control mode",
+    "de": "Klimatisierungsoption",
+    "nl": "Klimaatregelingsoptie",
+    "fr": "Mode de contrôle climatique",
+    "it": "Modalità di controllo del clima",
+    "sv": "Klimatkontrollsläge",
+    "no": "Klimakontrollmodus",
+    "es": "Modo de control climático",
+    "da": "Klimakontroltilstand",
+    "ru": "Режим климат-контроля",
+    "pl": "Tryb kontroli klimatyzacji"
+  },
+  "titleFormatted": {
+    "en": "Set climate control mode to [[mode]]",
+    "de": "Stelle Klimatisierungsoption auf [[mode]]",
+    "nl": "Zet Klimaatregelingsoptie op [[mode]]",
+    "fr": "Définir le mode de contrôle climatique sur [[mode]]",
+    "it": "Imposta la modalità di controllo del clima su [[mode]]",
+    "sv": "Ställ in klimatkontrollsläge till [[mode]]",
+    "no": "Sett klimakontrollmodus til [[mode]]",
+    "es": "Establecer modo de control climático en [[mode]]",
+    "da": "Indstil klimakontroltilstand til [[mode]]",
+    "ru": "Установить режим климат-контроля на [[mode]]",
+    "pl": "Ustaw tryb kontroli klimatyzacji na [[mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "args": [
-        {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=climate"
-        },
-        {
-          "name": "mode",
-          "type": "dropdown",
-          "values": [
-            {
-              "id": "off",
-              "title": {
-                "en": "Off",
-                "de": "Aus",
-                "nl": "Uit"
-              }
-            },
-            {
-              "id": "on",
-              "title": {
-                "en": "Keep activated",
-                "de": "Aktiviert lassen",
-                "nl": "Actief houden"
-              }
-            },
-            {
-              "id": "dog",
-              "title": {
-                "en": "Dog mode",
-                "de": "Hundemodus",
-                "nl": "Hondenmodus"
-              }
-            },
-            {
-              "id": "camp",
-              "title": {
-                "en": "Camp mode",
-                "de": "Camping-Modus",
-                "nl": "Kampeermodus"
-              }
-            }
-          ]      
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+      {
+        "id": "off",
+        "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit",
+          "fr": "Éteint",
+          "it": "Spento",
+          "sv": "Av",
+          "no": "Av",
+          "es": "Apagado",
+          "da": "Slukket",
+          "ru": "Выключено",
+          "pl": "Wyłączone"
+        }
+      },
+      {
+        "id": "on",
+        "title": {
+          "en": "Keep activated",
+          "de": "Aktiviert lassen",
+          "nl": "Actief houden",
+          "fr": "Garder activé",
+          "it": "Mantieni attivato",
+          "sv": "Behåll aktiverad",
+          "no": "Hold aktivert",
+          "es": "Mantener activado",
+          "da": "Hold aktiveret",
+          "ru": "Сохранить активированным",
+          "pl": "Zachowaj aktywowane"
+        }
+      },
+      {
+        "id": "dog",
+        "title": {
+        "en": "Dog mode",
+        "de": "Hundemodus",
+        "nl": "Hondenmodus",
+        "fr": "Mode chien",
+        "it": "Modalità cane",
+        "sv": "Hundläge",
+        "no": "Hundemodus",
+        "es": "Modo perro",
+        "da": "Hundetilstand",
+        "ru": "Режим собаки",
+        "pl": "Tryb psa"
+        }
+      },
+      {
+        "id": "camp",
+        "title": {
+        "en": "Camp mode",
+        "de": "Camping-Modus",
+        "nl": "Kampeermodus",
+        "fr": "Mode camping",
+        "it": "Modalità campeggio",
+        "sv": "Campingläge",
+        "no": "Campingmodus",
+        "es": "Modo camping",
+        "da": "Campingtilstand",
+        "ru": "Режим кемпинга",
+        "pl": "Tryb kempingowy"
+        }
       }
-    ]
+      ]      
+    }
+  ]
 }

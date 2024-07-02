@@ -1,13 +1,21 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Defrost",
-      "de": "Enteisen",
-      "nl": "Ontdooien"
-    },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "/assets/capability_icons/climate_defrost.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Defrost",
+    "de": "Enteisen",
+    "nl": "Ontdooien",
+    "fr": "Désembuage",
+    "it": "Sbrinamento",
+    "sv": "Avfrostning",
+    "no": "Avising",
+    "es": "Descongelar",
+    "da": "Afrimning",
+    "ru": "Разморозка",
+    "pl": "Odszranianie"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "/assets/capability_icons/climate_defrost.svg"
+}

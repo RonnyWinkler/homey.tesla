@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "API error",
-      "de": "API-Fehler",
-      "nl": "API-fout"
-    },
-    "insights": false,
-    "titleTrue": {
-      "en": "API error present",
-      "de": "API-Fehler vorhanden",
-      "nl": "API-fout opgetreden"
-    },
-    "titleFalse": {
-      "en": "No API error",
-      "de": "Kein API-Fehler",
-      "nl": "Geen API-fout"
-    },
-    "insightsTitleTrue": {
-      "en": "API error present",
-      "de": "API-Fehler vorhanden",
-      "nl": "API-fout opgetreden"
-    },
-    "insightsTitleFalse": {
-      "en": "No API error",
-      "de": "Kein API-Fehler",
-      "nl": "Geen API-fout"
-    },
-    "getable": true,
-    "setable": false,
-    "uiComponent": null,
-    "icon": "/assets/capability_icons/alarm_api_error.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "API error",
+    "de": "API-Fehler",
+    "nl": "API-fout",
+    "fr": "Erreur API",
+    "it": "Errore API",
+    "sv": "API-fel",
+    "no": "API-feil",
+    "es": "Error de API",
+    "da": "API-fejl",
+    "ru": "Ошибка API",
+    "pl": "Błąd API"
+  },
+  "insights": false,
+  "titleTrue": {
+    "en": "API error present",
+    "de": "API-Fehler vorhanden",
+    "nl": "API-fout opgetreden",
+    "fr": "Erreur API présente",
+    "it": "Errore API presente",
+    "sv": "API-fel närvarande",
+    "no": "API-feil tilstede",
+    "es": "Error de API presente",
+    "da": "API-fejl til stede",
+    "ru": "Ошибка API присутствует",
+    "pl": "Obecny błąd API"
+  },
+  "titleFalse": {
+    "en": "No API error",
+    "de": "Kein API-Fehler",
+    "nl": "Geen API-fout",
+    "fr": "Pas d'erreur API",
+    "it": "Nessun errore API",
+    "sv": "Ingen API-fel",
+    "no": "Ingen API-feil",
+    "es": "Sin error de API",
+    "da": "Ingen API-fejl",
+    "ru": "Нет ошибки API",
+    "pl": "Brak błędu API"
+  },
+  "insightsTitleTrue": {
+    "en": "API error present",
+    "de": "API-Fehler vorhanden",
+    "nl": "API-fout opgetreden",
+    "fr": "Erreur API présente",
+    "it": "Errore API presente",
+    "sv": "API-fel närvarande",
+    "no": "API-feil tilstede",
+    "es": "Error de API presente",
+    "da": "API-fejl til stede",
+    "ru": "Ошибка API присутствует",
+    "pl": "Obecny błąd API"
+  },
+  "insightsTitleFalse": {
+    "en": "No API error",
+    "de": "Kein API-Fehler",
+    "nl": "Geen API-fout",
+    "fr": "Pas d'erreur API",
+    "it": "Nessun errore API",
+    "sv": "Ingen API-fel",
+    "no": "Ingen API-feil",
+    "es": "Sin error de API",
+    "da": "Ingen API-fejl",
+    "ru": "Нет ошибки API",
+    "pl": "Brak błędu API"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "/assets/capability_icons/alarm_api_error.svg"
+}

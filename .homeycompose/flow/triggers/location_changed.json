@@ -3,7 +3,15 @@
     "title": {
         "en": "Location changed",
         "de": "Standort hat sich geändert",
-        "nl": "Plaats gewijzigd"
+        "nl": "Plaats gewijzigd",
+        "fr": "Emplacement modifié",
+        "it": "Posizione modificata",
+        "sv": "Plats ändrat",
+        "no": "Sted endret",
+        "es": "Ubicación cambiada",
+        "da": "Sted ændret",
+        "ru": "Изменение местоположения",
+        "pl": "Zmiana lokalizacji"
     },
     "tokens": [
         {
@@ -12,7 +20,15 @@
             "title": {
                 "en": "Latitude",
                 "de": "Breitengrad",
-                "nl": "Breedtegraad"
+                "nl": "Breedtegraad",
+                "fr": "Latitude",
+                "it": "Latitudine",
+                "sv": "Latitud",
+                "no": "Breddegrad",
+                "es": "Latitud",
+                "da": "Breddegrad",
+                "ru": "Широта",
+                "pl": "Szerokość geograficzna"
             }
         },
         {
@@ -21,7 +37,15 @@
             "title": {
                 "en": "Longitude",
                 "de": "Längengrad",
-                "nl": "Lengtegraad"
+                "nl": "Lengtegraad",
+                "fr": "Longitude",
+                "it": "Longitudine",
+                "sv": "Longitud",
+                "no": "Lengdegrad",
+                "es": "Longitud",
+                "da": "Længdegrad",
+                "ru": "Долгота",
+                "pl": "Długość geograficzna"
             }
         },
         {
@@ -30,7 +54,15 @@
             "title": {
                 "en": "Location name",
                 "de": "Standortname",
-                "nl": "Plaats naam"
+                "nl": "Plaats naam",
+                "fr": "Nom de l'emplacement",
+                "it": "Nome posizione",
+                "sv": "Platsnamn",
+                "no": "Stedsnavn",
+                "es": "Nombre de ubicación",
+                "da": "Stednavn",
+                "ru": "Название местоположения",
+                "pl": "Nazwa lokalizacji"
             }
         },
         {
@@ -39,7 +71,15 @@
             "title": {
                 "en": "Street",
                 "de": "Straße",
-                "nl": "Straat"
+                "nl": "Straat",
+                "fr": "Rue",
+                "it": "Via",
+                "sv": "Gata",
+                "no": "Gate",
+                "es": "Calle",
+                "da": "Gade",
+                "ru": "Улица",
+                "pl": "Ulica"
             }
         },
         {
@@ -48,7 +88,15 @@
             "title": {
                 "en": "City",
                 "de": "Ort",
-                "nl": "Plaats"
+                "nl": "Plaats",
+                "fr": "Ville",
+                "it": "Città",
+                "sv": "Stad",
+                "no": "By",
+                "es": "Ciudad",
+                "da": "By",
+                "ru": "Город",
+                "pl": "Miasto"
             }
         },
         {
@@ -57,7 +105,15 @@
             "title": {
                 "en": "Postcode",
                 "de": "Postleitzahl",
-                "nl": "postcode"
+                "nl": "postcode",
+                "fr": "Code postal",
+                "it": "Codice postale",
+                "sv": "Postnummer",
+                "no": "Postnummer",
+                "es": "Código postal",
+                "da": "Postnummer",
+                "ru": "Почтовый индекс",
+                "pl": "Kod pocztowy"
             }
         },
         {
@@ -66,7 +122,15 @@
             "title": {
                 "en": "Country",
                 "de": "Land",
-                "nl": "Land"
+                "nl": "Land",
+                "fr": "Pays",
+                "it": "Paese",
+                "sv": "Land",
+                "no": "Land",
+                "es": "País",
+                "da": "Land",
+                "ru": "Страна",
+                "pl": "Kraj"
             }
         }
     ],

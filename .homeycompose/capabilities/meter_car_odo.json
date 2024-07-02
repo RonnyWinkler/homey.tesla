@@ -1,14 +1,22 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Odometer",
-      "de": "Kilometerzähler",
-      "nl": "Kilometerteller"
-    },
-    "units": "km",
-    "decimals": 2,
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/meter_car_odo.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Odometer",
+    "de": "Kilometerzähler",
+    "nl": "Kilometerteller",
+    "fr": "Compteur kilométrique",
+    "it": "Contachilometri",
+    "sv": "Mätarställning",
+    "no": "Kilometerteller",
+    "es": "Odómetro",
+    "da": "Kilometertæller",
+    "ru": "Счетчик пробега",
+    "pl": "Licznik kilometrów"
+  },
+  "units": "km",
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_car_odo.svg"
+}

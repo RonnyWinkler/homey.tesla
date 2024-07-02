@@ -2,7 +2,15 @@
     "title": {
         "en": "Defrost has been activated",
         "de": "Enteisen wurde aktiviert",
-        "nl": "Ontdooien is activeerd"
+        "nl": "Ontdooien is activeerd",
+        "fr": "Le dégivrage a été activé",
+        "it": "Lo sbrinamento è stato attivato",
+        "sv": "Avfrostning har aktiverats",
+        "no": "Avriming er aktivert",
+        "es": "El deshielo ha sido activado",
+        "da": "Afrimning er blevet aktiveret",
+        "ru": "Разморозка была активирована",
+        "pl": "Rozmrażanie zostało aktywowane"
     },
     "args": [
         {
@@ -10,5 +18,5 @@
             "type": "device",
             "filter": "driver_id=climate"
         }
-      ]
+    ]
 }

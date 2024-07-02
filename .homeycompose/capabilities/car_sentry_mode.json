@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Sentry mode",
-      "de": "Sentry-Modus",
-      "nl": "Sentry mode"
-    },
-    "titleTrue":{
-      "en": "Sentry mode activated",
-      "de": "Sentry-Modus aktiviert",
-      "nl": "Sentry mode geactiveerd"
-    },
-    "titleFasle":{
-      "en": "Sentry mode deactivated",
-      "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry mode gedeactiveerd"      
-    },
-    "insightsTitleTrue":{
-      "en": "Sentry mode activated",
-      "de": "Sentry-Modus aktiviert",
-      "nl": "Sentry mode geactiveerd"
-    },
-    "insightsTitleFalse":{
-      "en": "Sentry mode deactivated",
-      "de": "Sentry-Modus deaktiviert",
-      "nl": "Sentry mode gedeactiveerd"      
-    },
-    "insights": true,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_sentry_mode.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Sentry mode",
+    "de": "Sentry-Modus",
+    "nl": "Sentry mode",
+    "fr": "Mode sentinelle",
+    "it": "Modalità sentinella",
+    "sv": "Vaktpostläge",
+    "no": "Vakthundmodus",
+    "es": "Modo centinela",
+    "da": "Vagttilstand",
+    "ru": "Режим сторожа",
+    "pl": "Tryb strażnika"
+  },
+  "titleTrue":{
+    "en": "Sentry mode activated",
+    "de": "Sentry-Modus aktiviert",
+    "nl": "Sentry mode geactiveerd",
+    "fr": "Mode sentinelle activé",
+    "it": "Modalità sentinella attivata",
+    "sv": "Vaktpostläge aktiverat",
+    "no": "Vakthundmodus aktivert",
+    "es": "Modo centinela activado",
+    "da": "Vagttilstand aktiveret",
+    "ru": "Режим сторожа активирован",
+    "pl": "Tryb strażnika aktywowany"
+  },
+  "titleFalse":{
+    "en": "Sentry mode deactivated",
+    "de": "Sentry-Modus deaktiviert",
+    "nl": "Sentry mode gedeactiveerd",
+    "fr": "Mode sentinelle désactivé",
+    "it": "Modalità sentinella disattivata",
+    "sv": "Vaktpostläge inaktiverat",
+    "no": "Vakthundmodus deaktivert",
+    "es": "Modo centinela desactivado",
+    "da": "Vagttilstand deaktiveret",
+    "ru": "Режим сторожа деактивирован",
+    "pl": "Tryb strażnika dezaktywowany"
+  },
+  "insightsTitleTrue":{
+    "en": "Sentry mode activated",
+    "de": "Sentry-Modus aktiviert",
+    "nl": "Sentry mode geactiveerd",
+    "fr": "Mode sentinelle activé",
+    "it": "Modalità sentinella attivata",
+    "sv": "Vaktpostläge aktiverat",
+    "no": "Vakthundmodus aktivert",
+    "es": "Modo centinela activado",
+    "da": "Vagttilstand aktiveret",
+    "ru": "Режим сторожа активирован",
+    "pl": "Tryb strażnika aktywowany"
+  },
+  "insightsTitleFalse":{
+    "en": "Sentry mode deactivated",
+    "de": "Sentry-Modus deaktiviert",
+    "nl": "Sentry mode gedeactiveerd",
+    "fr": "Mode sentinelle désactivé",
+    "it": "Modalità sentinella disattivata",
+    "sv": "Vaktpostläge inaktiverat",
+    "no": "Vakthundmodus deaktivert",
+    "es": "Modo centinela desactivado",
+    "da": "Vagttilstand deaktiveret",
+    "ru": "Режим сторожа деактивирован",
+    "pl": "Tryb strażnika dezaktywowany"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_sentry_mode.svg"
+}

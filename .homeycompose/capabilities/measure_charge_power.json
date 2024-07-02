@@ -1,15 +1,23 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Charge power",
-      "de": "Ladeleistung",
-      "nl": "Laad vermogen"
-    },
-    "units": {
-      "en": "kW"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_charge_power.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Charge power",
+    "de": "Ladeleistung",
+    "nl": "Laad vermogen",
+    "fr": "Puissance de charge",
+    "it": "Potenza di ricarica",
+    "sv": "Laddningskraft",
+    "no": "Ladekraft",
+    "es": "Potencia de carga",
+    "da": "Opladningskraft",
+    "ru": "Мощность зарядки",
+    "pl": "Moc ładowania"
+  },
+  "units": {
+    "en": "kW"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_charge_power.svg"
+}

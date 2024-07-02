@@ -1,60 +1,116 @@
 {
-    "title": {
-      "en": "Set scheduled charging",
-      "de": "Geplantes Laden festlegen",
-      "nl": "Stel gepland opladen in"
-    },
-    "titleFormatted": {
-      "en": "Schedule charging for [[hh]]:[[mm]] o'clock",
-      "de": "Plane Laden für [[hh]]:[[mm]] Uhr",
-      "nl": "Plan opladen voor [[hh]]:[[mm]] uur"
+  "title": {
+    "en": "Set scheduled charging",
+    "de": "Geplantes Laden festlegen",
+    "nl": "Stel gepland opladen in",
+    "fr": "Définir la charge planifiée",
+    "it": "Imposta la ricarica programmata",
+    "sv": "Ställ in schemalagd laddning",
+    "no": "Sett planlagt lading",
+    "es": "Establecer carga programada",
+    "da": "Indstil planlagt opladning",
+    "ru": "Установить запланированную зарядку",
+    "pl": "Ustaw zaplanowane ładowanie"
   },
-    "hint":{
-      "en": "Sets a time at which charging should be completed.",
-      "de": "Legt einen Zeitpunkt fest, zu dem der Ladevorgang abgeschlossen sein soll.",
-      "nl": "Stelt een tijdstip in waarop het opladen voltooid moet zijn."
+  "titleFormatted": {
+    "en": "Schedule charging for [[hh]]:[[mm]] o'clock",
+    "de": "Plane Laden für [[hh]]:[[mm]] Uhr",
+    "nl": "Plan opladen voor [[hh]]:[[mm]] uur",
+    "fr": "Planifier la charge pour [[hh]]:[[mm]] heures",
+    "it": "Programma la ricarica per le [[hh]]:[[mm]]",
+    "sv": "Schemalägg laddning för [[hh]]:[[mm]]",
+    "no": "Planlegg lading for [[hh]]:[[mm]]",
+    "es": "Programar carga para las [[hh]]:[[mm]] horas",
+    "da": "Planlæg opladning til [[hh]]:[[mm]]",
+    "ru": "Запланировать зарядку на [[hh]]:[[mm]] часов",
+    "pl": "Zaplanuj ładowanie na [[hh]]:[[mm]]"
+  },
+  "hint":{
+    "en": "Sets a time at which charging should be completed.",
+    "de": "Legt einen Zeitpunkt fest, zu dem der Ladevorgang abgeschlossen sein soll.",
+    "nl": "Stelt een tijdstip in waarop het opladen voltooid moet zijn.",
+    "fr": "Définit une heure à laquelle la charge doit être terminée.",
+    "it": "Imposta un'ora in cui la ricarica deve essere completata.",
+    "sv": "Ställer in en tidpunkt då laddningen ska vara klar.",
+    "no": "Setter en tidspunkt der ladingen skal være fullført.",
+    "es": "Establece una hora en la que la carga debe estar completada.",
+    "da": "Indstiller et tidspunkt, hvor opladningen skal være fuldført.",
+    "ru": "Устанавливает время, когда зарядка должна быть завершена.",
+    "pl": "Ustawia czas, w którym ładowanie powinno być zakończone."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
     },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
+    {
+      "name": "hh",
+      "type": "range",
+      "min": 0,
+      "max": 23,
+      "step": 1,
+      "labelDecimals": 0,
+      "title": {
+        "en": "hh",
+        "de": "hh",
+        "nl": "hh",
+        "fr": "hh",
+        "it": "hh",
+        "sv": "hh",
+        "no": "hh",
+        "es": "hh",
+        "da": "hh",
+        "ru": "чч",
+        "pl": "hh"
       },
-      {
-          "name": "hh",
-          "type": "range",
-          "min": 0,
-          "max": 23,
-          "step": 1,
-          "labelDecimals": 0,
-          "title": {
-            "en": "hh",
-            "de": "hh",
-            "nl": "hh"
-          },
-          "placeholder": {
-            "en": "hh",
-            "de": "hh",
-            "nl": "hh"
-          }
-      },
-      {
-        "name": "mm",
-        "type": "range",
-        "min": 0,
-        "max": 59,
-        "step": 1,
-        "labelDecimals": 0,
-        "title": {
-          "en": "mm",
-          "de": "mm",
-          "nl": "mm"
-        },
-        "placeholder": {
-          "en": "mm",
-          "de": "mm",
-          "nl": "mm"
-        }
+      "placeholder": {
+        "en": "hh",
+        "de": "hh",
+        "nl": "hh",
+        "fr": "hh",
+        "it": "hh",
+        "sv": "hh",
+        "no": "hh",
+        "es": "hh",
+        "da": "hh",
+        "ru": "чч",
+        "pl": "hh"
+      }
+    },
+    {
+    "name": "mm",
+    "type": "range",
+    "min": 0,
+    "max": 59,
+    "step": 1,
+    "labelDecimals": 0,
+    "title": {
+      "en": "mm",
+      "de": "mm",
+      "nl": "mm",
+      "fr": "mm",
+      "it": "mm",
+      "sv": "mm",
+      "no": "mm",
+      "es": "mm",
+      "da": "mm",
+      "ru": "мм",
+      "pl": "mm"
+    },
+    "placeholder": {
+      "en": "mm",
+      "de": "mm",
+      "nl": "mm",
+      "fr": "mm",
+      "it": "mm",
+      "sv": "mm",
+      "no": "mm",
+      "es": "mm",
+      "da": "mm",
+      "ru": "мм",
+      "pl": "mm"
     }
-]
+  }
+  ]
 }

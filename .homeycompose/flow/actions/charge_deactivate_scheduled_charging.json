@@ -1,19 +1,35 @@
 {
-    "title": {
-      "en": "Disable scheduled charging",
-      "de": "Geplantes Laden deaktivieren",
-      "nl": "Schakel gepland laden uit"
-    },
-    "titleFormatted": {
-      "en": "Disable scheduled charging",
-      "de": "Geplantes Laden deaktivieren",
-      "nl": "Schakel gepland laden uit"
-    },
-    "args": [
-      {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=battery"
-      }
+  "title": {
+    "en": "Disable scheduled charging",
+    "de": "Geplantes Laden deaktivieren",
+    "nl": "Schakel gepland laden uit",
+    "fr": "Désactiver la charge planifiée",
+    "it": "Disabilita la ricarica programmata",
+    "sv": "Inaktivera schemalagd laddning",
+    "no": "Deaktiver planlagt lading",
+    "es": "Desactivar carga programada",
+    "da": "Deaktiver planlagt opladning",
+    "ru": "Отключить запланированную зарядку",
+    "pl": "Wyłącz zaplanowane ładowanie"
+  },
+  "titleFormatted": {
+    "en": "Disable scheduled charging",
+    "de": "Geplantes Laden deaktivieren",
+    "nl": "Schakel gepland laden uit",
+    "fr": "Désactiver la charge planifiée",
+    "it": "Disabilita la ricarica programmata",
+    "sv": "Inaktivera schemalagd laddning",
+    "no": "Deaktiver planlagt lading",
+    "es": "Desactivar carga programada",
+    "da": "Deaktiver planlagt opladning",
+    "ru": "Отключить запланированную зарядку",
+    "pl": "Wyłącz zaplanowane ładowanie"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
+    }
   ]
 }

@@ -1,38 +1,70 @@
 {
-    "type": "enum",
+  "type": "enum",
+  "title": {
+    "en": "Overheat protection mode",
+    "de": "Überhitzungsschutz-Modus",
+    "nl": "Beveiligingsmodus tegen oververhitting",
+    "fr": "Mode de protection contre la surchauffe",
+    "it": "Modalità di protezione da surriscaldamento",
+    "sv": "Överhettningsskyddsläge",
+    "no": "Overopphetingsbeskyttelsesmodus",
+    "es": "Modo de protección contra el sobrecalentamiento",
+    "da": "Overophedningsbeskyttelsesfunktion",
+    "ru": "Режим защиты от перегрева",
+    "pl": "Tryb ochrony przed przegrzaniem"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "values": [
+    {
+    "id": "off",
     "title": {
-      "en": "Overheat protection mode",
-      "de": "Überhitzungsschutz-Modus",
-      "nl": "Beveiligingsmodus tegen oververhitting"
+      "en": "Off",
+      "de": "Aus",
+      "nl": "Uit",
+      "fr": "Désactivé",
+      "it": "Spento",
+      "sv": "Av",
+      "no": "Av",
+      "es": "Apagado",
+      "da": "Slukket",
+      "ru": "Выключено",
+      "pl": "Wyłączone"
+    }
     },
-    "insights": false,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "picker",
-    "values": [
-      {
-        "id": "off",
-        "title": {
-          "en": "Off",
-          "de": "Aus",
-          "nl": "Uit"
-        }
-      },
-      {
-        "id": "fan_only",
-        "title": {
-          "en": "Without A/C",
-          "de": "Ohne A/C",
-          "nl": "Zonder A/C"
-        }
-      },
-      {
-        "id": "on",
-        "title": {
-          "en": "On",
-          "de": "An",
-          "nl": "Bij"
-        }
-      }
+    {
+    "id": "fan_only",
+    "title": {
+      "en": "Without A/C",
+      "de": "Ohne A/C",
+      "nl": "Zonder A/C",
+      "fr": "Sans A/C",
+      "it": "Senza A/C",
+      "sv": "Utan A/C",
+      "no": "Uten A/C",
+      "es": "Sin A/C",
+      "da": "Uden A/C",
+      "ru": "Без A/C",
+      "pl": "Bez A/C"
+    }
+    },
+    {
+    "id": "on",
+    "title": {
+      "en": "On",
+      "de": "An",
+      "nl": "Bij",
+      "fr": "Activé",
+      "it": "Acceso",
+      "sv": "På",
+      "no": "På",
+      "es": "Encendido",
+      "da": "Tændt",
+      "ru": "Включено",
+      "pl": "Włączone"
+    }
+    }
   ]
 }

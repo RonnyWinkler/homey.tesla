@@ -2,12 +2,28 @@
     "title": {
         "en": "Set window position",
         "de": "Setze Fenster-Position",
-        "nl": "Raampositie instellen"
+        "nl": "Raampositie instellen",
+        "fr": "Définir la position de la fenêtre",
+        "it": "Imposta la posizione della finestra",
+        "sv": "Ställ fönsterposition",
+        "no": "Sett vindusposisjon",
+        "es": "Establecer posición de la ventana",
+        "da": "Indstil vinduesposition",
+        "ru": "Установить положение окна",
+        "pl": "Ustaw pozycję okna"
     },
     "titleFormatted": {
         "en": "Set window position to [[position]]",
         "de": "Setze Fenster-Position auf [[position]]",
-        "nl": "Zet de raampositie op [[position]]"
+        "nl": "Zet de raampositie op [[position]]",
+        "fr": "Définir la position de la fenêtre sur [[position]]",
+        "it": "Imposta la posizione della finestra su [[position]]",
+        "sv": "Ställ fönsterposition till [[position]]",
+        "no": "Sett vindusposisjon til [[position]]",
+        "es": "Establecer posición de la ventana a [[position]]",
+        "da": "Indstil vinduesposition til [[position]]",
+        "ru": "Установить положение окна на [[position]]",
+        "pl": "Ustaw pozycję okna na [[position]]"
     },
     "args": [
         {
@@ -21,7 +37,15 @@
             "title": { 
                 "en": "Position", 
                 "de": "Position",
-                "nl": "Positie"
+                "nl": "Positie",
+                "fr": "Position",
+                "it": "Posizione",
+                "sv": "Position",
+                "no": "Posisjon",
+                "es": "Posición",
+                "da": "Position",
+                "ru": "Положение",
+                "pl": "Pozycja"
             },
             "values": [
                 { 
@@ -29,7 +53,15 @@
                     "title": { 
                         "en": "Closed",
                         "de": "Geschlossen", 
-                        "nl": "Gesloten" 
+                        "nl": "Gesloten",
+                        "fr": "Fermé",
+                        "it": "Chiuso",
+                        "sv": "Stängd",
+                        "no": "Lukket",
+                        "es": "Cerrado",
+                        "da": "Lukket",
+                        "ru": "Закрыто",
+                        "pl": "Zamknięte"
                     } 
                 },
                 { 
@@ -37,7 +69,15 @@
                     "title": { 
                         "en": "Vent",
                         "de": "Entlüften", 
-                        "nl": "Ontluchten" 
+                        "nl": "Ontluchten",
+                        "fr": "Aérer",
+                        "it": "Aerare",
+                        "sv": "Ventilera",
+                        "no": "Ventilere",
+                        "es": "Ventilar",
+                        "da": "Ventilere",
+                        "ru": "Вентиляция",
+                        "pl": "Wentylacja"
                     } 
                 }
             ]

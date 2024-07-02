@@ -1,105 +1,177 @@
 {
-    "title": {
-      "en": "Seat heating level",
-      "de": "Sitzheizungsstufe",
-      "nl": "Niveau stoelverwarming"
-      },
-    "titleFormatted": {
-        "en": "Set seat heating level level to [[level]] for [[seat]]",
-        "de": "Setze Sitzheizungsstufe auf [[level]] für [[seat]]",
-        "nl": "Stel het niveau van de stoelverwarming in [[level]] voor [[seat]]"
+  "title": {
+    "en": "Seat heating level",
+    "de": "Sitzheizungsstufe",
+    "nl": "Niveau stoelverwarming",
+    "fr": "Niveau de chauffage du siège",
+    "it": "Livello riscaldamento sedile",
+    "sv": "Sätesvärmningsnivå",
+    "no": "Setevarmenivå",
+    "es": "Nivel de calefacción del asiento",
+    "da": "Sædevarmeniveau",
+    "ru": "Уровень обогрева сиденья",
+    "pl": "Poziom ogrzewania siedzenia"
+  },
+  "titleFormatted": {
+    "en": "Set seat heating level level to [[level]] for [[seat]]",
+    "de": "Setze Sitzheizungsstufe auf [[level]] für [[seat]]",
+    "nl": "Stel het niveau van de stoelverwarming in [[level]] voor [[seat]]",
+    "fr": "Définir le niveau de chauffage du siège sur [[level]] pour [[seat]]",
+    "it": "Imposta il livello di riscaldamento del sedile su [[level]] per [[seat]]",
+    "sv": "Ställ in sätesvärmningsnivån till [[level]] för [[seat]]",
+    "no": "Sett setevarmenivåen til [[level]] for [[seat]]",
+    "es": "Establecer el nivel de calefacción del asiento en [[level]] para [[seat]]",
+    "da": "Indstil sædevarmeniveauet til [[level]] for [[seat]]",
+    "ru": "Установить уровень обогрева сиденья на [[level]] для [[seat]]",
+    "pl": "Ustaw poziom ogrzewania siedzenia na [[level]] dla [[seat]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
     },
-    "args": [
-        {
-          "name": "device",
-          "type": "device",
-          "filter": "driver_id=climate"
-        },
-        {
-          "name": "level",
-          "type": "dropdown",
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto",
-                "de": "Auto",
-                "nl": "Auto"
-              }
-            },
-            {
-              "id": "0",
-              "title": {
-                "en": "Off",
-                "de": "Aus",
-                "nl": "Uit"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "1"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "2"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "3"
-              }
-            }
-          ]
-        },
-        {
-          "name": "seat",
-          "type": "dropdown",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Driver",
-                "de": "Fahrer",
-                "nl": "Bestuurder"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Passenger",
-                "de": "Beifahrer",
-                "nl": "Passagier"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Rear left",
-                "de": "Hinten links",
-                "nl": "Linksachter"
-              }
-            },
-            {
-              "id": "4",
-              "label": {
-                "en": "Rear center",
-                "de": "Hinten mittig",
-                "nl": "Midden achter"
-              }
-            },
-            {
-              "id": "5",
-              "label": {
-                "en": "Rear right",
-                "de": "Hinten rechts",
-                "nl": "Rechtsachter"
-              }
-            }
-          ]
+    {
+      "name": "level",
+      "type": "dropdown",
+      "values": [
+      {
+        "id": "auto",
+        "title": {
+          "en": "Auto",
+          "de": "Auto",
+          "nl": "Auto",
+          "fr": "Auto",
+          "it": "Auto",
+          "sv": "Auto",
+          "no": "Auto",
+          "es": "Auto",
+          "da": "Auto",
+          "ru": "Авто",
+          "pl": "Auto"
         }
-    ]
+      },
+      {
+        "id": "0",
+        "title": {
+          "en": "Off",
+          "de": "Aus",
+          "nl": "Uit",
+          "fr": "Éteint",
+          "it": "Spento",
+          "sv": "Av",
+          "no": "Av",
+          "es": "Apagado",
+          "da": "Fra",
+          "ru": "Выкл",
+          "pl": "Wyłączone"
+        }
+      },
+      {
+        "id": "1",
+        "title": {
+          "en": "1"
+        }
+      },
+      {
+        "id": "2",
+        "title": {
+          "en": "2"
+        }
+      },
+      {
+        "id": "3",
+        "title": {
+          "en": "3"
+        }
+      }
+      ]
+    },
+    {
+      "name": "seat",
+      "type": "dropdown",
+      "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Driver",
+          "de": "Fahrer",
+          "nl": "Bestuurder",
+          "fr": "Chauffeur",
+          "it": "Autista",
+          "sv": "Förare",
+          "no": "Fører",
+          "es": "Conductor",
+          "da": "Fører",
+          "ru": "Водитель",
+          "pl": "Kierowca"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Passenger",
+          "de": "Beifahrer",
+          "nl": "Passagier",
+          "fr": "Passager",
+          "it": "Passeggero",
+          "sv": "Passagerare",
+          "no": "Passasjer",
+          "es": "Pasajero",
+          "da": "Passager",
+          "ru": "Пассажир",
+          "pl": "Pasażer"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Rear left",
+          "de": "Hinten links",
+          "nl": "Linksachter",
+          "fr": "Arrière gauche",
+          "it": "Posteriore sinistro",
+          "sv": "Bakre vänster",
+          "no": "Bak venstre",
+          "es": "Trasero izquierdo",
+          "da": "Bagerste venstre",
+          "ru": "Задний левый",
+          "pl": "Tył lewy"
+        }
+      },
+      {
+        "id": "4",
+        "label": {
+          "en": "Rear center",
+          "de": "Hinten mittig",
+          "nl": "Midden achter",
+          "fr": "Centre arrière",
+          "it": "Centro posteriore",
+          "sv": "Bakre mitten",
+          "no": "Bak senter",
+          "es": "Centro trasero",
+          "da": "Bagerste center",
+          "ru": "Задний центр",
+          "pl": "Tył środek"
+        }
+      },
+      {
+        "id": "5",
+        "label": {
+          "en": "Rear right",
+          "de": "Hinten rechts",
+          "nl": "Rechtsachter",
+          "fr": "Arrière droit",
+          "it": "Posteriore destro",
+          "sv": "Bakre höger",
+          "no": "Bak høyre",
+          "es": "Trasero derecho",
+          "da": "Bagerste højre",
+          "ru": "Задний правый",
+          "pl": "Tył prawy"
+        }
+      }
+      ]
+    }
+  ]
 }

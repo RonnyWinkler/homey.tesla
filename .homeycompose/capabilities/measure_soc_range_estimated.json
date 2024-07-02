@@ -1,16 +1,24 @@
 {
-    "type": "number",
-    "title": {
-      "en": "Battery range estimated",
-      "de": "Batteriereichweite geschätzt",
-      "nl": "Batterijbereik geschat"
-    },
-    "units": {
-      "en": "km"
-    },
-    "decimals": 2,
-    "insights": true,
-    "getable": true,
-    "setable": false,
-    "icon": "./assets/capability_icons/measure_soc_range_estimated.svg"
-  }
+  "type": "number",
+  "title": {
+    "en": "Battery range estimated",
+    "de": "Batteriereichweite geschätzt",
+    "nl": "Batterijbereik geschat",
+    "fr": "Autonomie estimée de la batterie",
+    "it": "Autonomia stimata della batteria",
+    "sv": "Uppskattat batteriområde",
+    "no": "Estimert batterirekkevidde",
+    "es": "Autonomía estimada de la batería",
+    "da": "Estimeret batterirækkevidde",
+    "ru": "Предполагаемый запас хода батареи",
+    "pl": "Szacowany zasięg baterii"
+  },
+  "units": {
+    "en": "km"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_soc_range_estimated.svg"
+}

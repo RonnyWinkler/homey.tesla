@@ -1,33 +1,73 @@
 {
-    "type": "boolean",
-    "title": {
-      "en": "Trunk",
-      "de": "Kofferraum",
-      "nl": "Kofferbak"
-    },
-    "titleTrue":{
-      "en": "Trunk open",
-      "de": "Kofferraum geöffnet",
-      "nl": "Kofferbak open"
-    },
-    "titleFasle":{
-      "en": "Trunk closed",
-      "de": "Kofferraum geschlossen",
-      "nl": "Kofferbak gesloten"
-    },
-    "insightsTitleTrue":{
-      "en": "Trunk open",
-      "de": "Kofferraum geöffnet",
-      "nl": "Kofferbak open"
-    },
-    "insightsTitleFalse":{
-      "en": "Trunk closed",
-      "de": "Kofferraum geschlossen",
-      "nl": "Kofferbak gesloten"
-    },
-    "insights": true,
-    "getable": true,
-    "setable": true,
-    "uiComponent": "button",
-    "icon": "./assets/capability_icons/car_trunk_rear.svg"
-  }
+  "type": "boolean",
+  "title": {
+    "en": "Trunk",
+    "de": "Kofferraum",
+    "nl": "Kofferbak",
+    "fr": "Coffre",
+    "it": "Bagagliaio",
+    "sv": "Baklucka",
+    "no": "Bagasjerom",
+    "es": "Maletero",
+    "da": "Bagagerum",
+    "ru": "Багажник",
+    "pl": "Bagażnik"
+  },
+  "titleTrue":{
+    "en": "Trunk open",
+    "de": "Kofferraum geöffnet",
+    "nl": "Kofferbak open",
+    "fr": "Coffre ouvert",
+    "it": "Bagagliaio aperto",
+    "sv": "Baklucka öppen",
+    "no": "Bagasjerom åpent",
+    "es": "Maletero abierto",
+    "da": "Bagagerum åbent",
+    "ru": "Багажник открыт",
+    "pl": "Bagażnik otwarty"
+  },
+  "titleFalse":{
+    "en": "Trunk closed",
+    "de": "Kofferraum geschlossen",
+    "nl": "Kofferbak gesloten",
+    "fr": "Coffre fermé",
+    "it": "Bagagliaio chiuso",
+    "sv": "Baklucka stängd",
+    "no": "Bagasjerom lukket",
+    "es": "Maletero cerrado",
+    "da": "Bagagerum lukket",
+    "ru": "Багажник закрыт",
+    "pl": "Bagażnik zamknięty"
+  },
+  "insightsTitleTrue":{
+    "en": "Trunk open",
+    "de": "Kofferraum geöffnet",
+    "nl": "Kofferbak open",
+    "fr": "Coffre ouvert",
+    "it": "Bagagliaio aperto",
+    "sv": "Baklucka öppen",
+    "no": "Bagasjerom åpent",
+    "es": "Maletero abierto",
+    "da": "Bagagerum åbent",
+    "ru": "Багажник открыт",
+    "pl": "Bagażnik otwarty"
+  },
+  "insightsTitleFalse":{
+    "en": "Trunk closed",
+    "de": "Kofferraum geschlossen",
+    "nl": "Kofferbak gesloten",
+    "fr": "Coffre fermé",
+    "it": "Bagagliaio chiuso",
+    "sv": "Baklucka stängd",
+    "no": "Bagasjerom lukket",
+    "es": "Maletero cerrado",
+    "da": "Bagagerum lukket",
+    "ru": "Багажник закрыт",
+    "pl": "Bagażnik zamknięty"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "icon": "./assets/capability_icons/car_trunk_rear.svg"
+}

@@ -3,7 +3,15 @@
     "title": {
         "en": "Update state",
         "de": "Aktualisierungs-Status",
-        "nl": "Status bijwerken"
+        "nl": "Status bijwerken",
+        "fr": "État de mise à jour",
+        "it": "Stato aggiornamento",
+        "sv": "Uppdateringsstatus",
+        "no": "Oppdateringsstatus",
+        "es": "Estado de actualización",
+        "da": "Opdateringsstatus",
+        "ru": "Статус обновления",
+        "pl": "Stan aktualizacji"
     },
     "uiComponent": "sensor",
     "getable": true,
@@ -21,7 +29,15 @@
             "title": {
                 "en": "Available",
                 "de": "Verfügbar",
-                "nl": "Beschikbaar"
+                "nl": "Beschikbaar",
+                "fr": "Disponible",
+                "it": "Disponibile",
+                "sv": "Tillgänglig",
+                "no": "Tilgjengelig",
+                "es": "Disponible",
+                "da": "Tilgængelig",
+                "ru": "Доступно",
+                "pl": "Dostępne"
             }
         },
         {
@@ -29,7 +45,15 @@
             "title": {
                 "en": "Planned",
                 "de": "Geplant",
-                "nl": "Gepland"
+                "nl": "Gepland",
+                "fr": "Planifié",
+                "it": "Pianificato",
+                "sv": "Planerad",
+                "no": "Planlagt",
+                "es": "Planificado",
+                "da": "Planlagt",
+                "ru": "Запланировано",
+                "pl": "Zaplanowane"
             }
         },
         {
@@ -37,7 +61,15 @@
             "title": {
                 "en": "Waiting for Wifi download",
                 "de": "Warte auf Wifi-Download",
-                "nl": "Wachten op wifi-download"
+                "nl": "Wachten op wifi-download",
+                "fr": "En attente du téléchargement Wifi",
+                "it": "In attesa del download tramite Wifi",
+                "sv": "Väntar på Wifi-nedladdning",
+                "no": "Venter på Wifi-nedlasting",
+                "es": "Esperando descarga por Wifi",
+                "da": "Venter på Wifi-download",
+                "ru": "Ожидание загрузки по Wi-Fi",
+                "pl": "Oczekiwanie na pobieranie przez Wifi"
             }
         },
         {
@@ -45,7 +77,15 @@
             "title": {
                 "en": "Downloading",
                 "de": "Wird heruntergeladen",
-                "nl": "Downloaden"
+                "nl": "Downloaden",
+                "fr": "Téléchargement en cours",
+                "it": "Download in corso",
+                "sv": "Laddar ner",
+                "no": "Laster ned",
+                "es": "Descargando",
+                "da": "Downloader",
+                "ru": "Загрузка",
+                "pl": "Pobieranie"
             }
         },
         {
@@ -53,7 +93,15 @@
             "title": {
                 "en": "Installing",
                 "de": "Wird installiert",
-                "nl": "Is being installed"
+                "nl": "Is being installed",
+                "fr": "Installation en cours",
+                "it": "Installazione in corso",
+                "sv": "Installerar",
+                "no": "Installerer",
+                "es": "Instalando",
+                "da": "Installerer",
+                "ru": "Установка",
+                "pl": "Instalowanie"
             }
         }
     ]
