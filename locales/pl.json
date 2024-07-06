@@ -3,12 +3,12 @@
         "register": {
             "title": "Rejestracja aplikacji",
             "subtitle": "Zarejestruj aplikację Homey w swoim samochodzie",
-            "text1": "Zarejestruj aplikację Homey w swoim samochodzie, aby umożliwić aplikacji wysyłanie poleceń do Twojego samochodu.",
+            "text1": "Zarejestruj aplikację Homey w swoim samochodzie, aby umożliwić aplikacji wysyłanie poleceń do twojego samochodu.",
             "text2": "Użyj przycisku rejestracji, aby rozpocząć rejestrację w aplikacji Tesla. Jeśli link otwiera się w przeglądarce, postępuj zgodnie z instrukcją 'Otwórz w aplikacji Tesla'.",
-            "text3": "Rejestracja jest niezbędna do korzystania z 'Protokołu poleceń pojazdu Tesla' i szyfrowania end-to-end poleceń wysyłanych do pojazdu.",
-            "text4": "Modele S/X sprzed 2021 roku są wyłączone. Mogą być one nadal kontrolowane za pomocą REST API. Proszę wybrać API poleceń w ustawieniach urządzenia.",
-            "text5": "Rejestrację można powtórzyć za pomocą dialogu 'Napraw urządzenie'.",
-            "button": "Zarejestruj jako klucz do samochodu"
+            "text3": "Ta rejestracja jest konieczna do korzystania z 'Protokołu poleceń pojazdu Tesla' oraz szyfrowania end-to-end poleceń wysyłanych do pojazdu.",
+            "text4": "Modele S/X sprzed 2021 roku są wykluczone. Te nadal mogą być kontrolowane za pomocą REST API. Proszę wybrać API poleceń w ustawieniach urządzenia.",
+            "text5": "Ta rejestracja może być powtórzona poprzez dialog 'Napraw urządzenie'.",
+            "button": "Zarejestruj jako klucz samochodowy"
         },
         "battery": {
             "name": "bateria"
@@ -44,15 +44,23 @@
         "location_select": {
             "title": "Wybór",
             "nearest_suc": "Najbliższy Supercharger",
-            "nearest_dest": "Najbliższa stacja docelowa"
+            "nearest_dest": "Najbliższa ładowarka docelowa",
+            "driving_history": "Historia podróży"
+        },
+        "driving_history": {
+            "title": "Historia podróży",
+            "clear": "wyczyść",
+            "json": "JSON",
+            "edit": "Edytuj",
+            "save": "Zapisz"
         },
         "location_nearest_suc": {
             "title": "Najbliższy Supercharger",
             "navigate": "Nawigować do Superchargera?"
         },
         "location_nearest_dest": {
-            "title": "Najbliższa stacja docelowa",
-            "navigate": "Nawigować do stacji docelowej?"
+            "title": "Najbliższa ładowarka docelowa",
+            "navigate": "Nawigować do ładowarki docelowej?"
         }
     },
     "devices": {
@@ -60,17 +68,17 @@
             "homey_location_name": "Dom (lokalizacja Homey)"
         },
         "car": {
-            "trunk_not_allowed": "Operacja bagażnika wyłączona w ustawieniach urządzenia",
-            "command_pair_state_paired": "sparowane",
-            "command_pair_state_unpaired": "niesparowane",
-            "command_pair_state_undefined": "nieznane",
-            "app_not_registered": "Aplikacja nie jest zarejestrowana w samochodzie. Zarejestruj się za pomocą procesu naprawy urządzenia samochodowego.",
-            "command_error_426": "Wymagana aktualizacja aplikacji. Zaktualizuj aplikację w sklepie aplikacji Homey lub włącz automatyczne aktualizacje."
+            "trunk_not_allowed": "Obsługa bagażnika wyłączona w ustawieniach urządzenia",
+            "command_pair_state_paired": "sparowany",
+            "command_pair_state_unpaired": "niesparowany",
+            "command_pair_state_undefined": "nieznany",
+            "app_not_registered": "Aplikacja nie jest zarejestrowana w samochodzie. Zarejestruj ją poprzez proces naprawy urządzenia samochodowego.",
+            "command_error_426": "Wymagana aktualizacja aplikacji. Proszę zaktualizować aplikację w sklepie Homey lub włączyć automatyczne aktualizacje."
         }
     },
     "app": {
         "update": {
-            "update_message": "Następna wersja aplikacji Tesla dodaje nowe uprawnienie (lokalizacja Homey). Automatyczna aktualizacja nie działa w tym przypadku. Sprawdź ręcznie aktualizacje w ciągu najbliższych dni i zainstaluj następną wersję ze sklepu aplikacji."
+            "update_message": "Następna wersja aplikacji Tesla dodaje nowe uprawnienie (lokalizacja Homey). Automatyczna aktualizacja nie działa w tym przypadku. Proszę sprawdzić ręcznie dostępność aktualizacji w ciągu najbliższych dni i zainstalować następną wersję ze sklepu z aplikacjami."
         }
     }
 }

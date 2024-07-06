@@ -22,6 +22,10 @@
         Homey.showView("nearest_dest");
     }
 
+    function onSelectDrivingHistory(){
+        Homey.showView("driving_history");
+    }
+
 </script>
 
 <div>
@@ -34,6 +38,11 @@
         <div>
             <p>
                 <button id="btnNearestDest" class="homey-button-primary-full" onClick="onSelectNearestDest()"><span data-i18n="repair.location_select.nearest_dest"></span></button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button id="btnDrivingHistory" class="homey-button-primary-full" onClick="onSelectDrivingHistory()"><span data-i18n="repair.location_select.driving_history"></span></button>
             </p>
         </div>
     <!-- </fieldset> -->

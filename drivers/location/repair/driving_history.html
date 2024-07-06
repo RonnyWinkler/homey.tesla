@@ -1,16 +1,13 @@
 <script type="application/javascript">
-    Homey.setTitle(Homey.__("repair.charging_history.title"));
+    Homey.setTitle(Homey.__("repair.driving_history.title"));
 </script>
 
 <div>
     <table style="width:100%">
         <tr>
             <td>
-                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.edit"></span></button>
+                <button id="btnJsonDrivingHistory" class="homey-button-secondary-shadow" onClick="onJsonDrivingHistory()"><span data-i18n="repair.driving_history.edit"></span></button>
             </td>
-            <!-- <td>
-                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.json"></span></button>
-            </td> -->
         </tr>
     </table>
 
@@ -19,11 +16,13 @@
             <tr>
                 <th>Nr</th>
                 <th>Start</th>
-                <th>kWh</th>
+                <th>Stop</th>
                 <th>SoC From</th>
                 <th>SoC To</th>
-                <th>Stop</th>
-                <th>Location</th>
+                <th>SoC Used</th>
+                <th>Distance</th>
+                <th>Location From</th>
+                <th>Location To</th>
             </tr>
         </thead>
         <tbody>
@@ -41,29 +40,18 @@
 <link rel="stylesheet" type="text/css" href="../../../assets/js/dataTables.css"/>
 <script src="../../../assets/js/dataTables.js"></script>
 
-
-<!-- <script src="../../../assets/js/datatables.compose.js"></script>
-<link rel="stylesheet" type="text/css" href="../../../assets/js/datatables.compose.css"/> -->
-
-
 <script type="application/javascript">
 
-    async function getChargingHistory(){
-        return await Homey.emit('get_charging_history');
+    async function getDrivingHistory(){
+        return await Homey.emit('get_driving_history');
     }
 
-    // function onClearChargingHistory(){
-    //     Homey.emit('clear_charging_history').then(async function () {
-    //         Homey.prevView();
-    //     });
-    // }
-
-    function onJsonChargingHistory(){
-        Homey.showView("charging_history_json");
+     function onJsonDrivingHistory(){
+        Homey.showView("driving_history_json");
     }
 
     (async function () {
-        let history = await getChargingHistory();
+        let history = await getDrivingHistory();
         let table = new DataTable('#tableHistory', {
             searching: true,
             paging: true,
@@ -74,12 +62,19 @@
             columns: [
                 { data: 'id' },
                 { data: 'timeStarted' },
-                { data: 'energyAdded' },
+                { data: 'timeStopped' },
                 { data: 'socStart' },
                 { data: 'socStop' },
-                { data: 'timeStopped' },
+                { data: 'socUsed' },
+                { data: 'distance' },
                 { 
-                    data: 'location', 
+                    data: 'locationStart', 
+                    render: function (data, type, row, meta) {
+                        return '<p style="white-space: nowrap;">' + data + '</p>';
+                    }
+                },
+                { 
+                    data: 'locationStop', 
                     render: function (data, type, row, meta) {
                         return '<p style="white-space: nowrap;">' + data + '</p>';
                     }

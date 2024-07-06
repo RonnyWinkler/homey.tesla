@@ -31,6 +31,22 @@ module.exports = class LocationDriver extends Homey.Driver {
       return await this.onNavigateToDest(session, device, id);
     });
 
+    session.setHandler("get_driving_history", async () => {
+      return await this.getDrivingHistory(session, device);
+    });
+
+    session.setHandler("get_driving_history_data", async () => {
+      return await this.getDrivingHistoryData(session, device);
+    });
+
+    session.setHandler("update_driving_history_data", async (data) => {
+      return await this.updateDrivingHistoryData(session, device, data);
+    });
+
+    session.setHandler("clear_driving_history", async () => {
+      return await this.clearDrivingHistory(session, device);
+    });
+
   } // end onPair
 
   async onPairListDevices(session) {
@@ -142,6 +158,22 @@ module.exports = class LocationDriver extends Homey.Driver {
       throw error;
     }
     return result;
+  }
+
+  async getDrivingHistory(session, device) {
+    return device.getDrivingHistory();
+  }
+
+  async getDrivingHistoryData(session, device) {
+    return device.getStoreValue('driving_history');
+  }
+
+  async updateDrivingHistoryData(session, device, json) {
+    await device.setStoreValue('driving_history', json);
+  }
+
+  async clearDrivingHistory(session, device) {
+    return device.setStoreValue('driving_history', []);
   }
 
 }

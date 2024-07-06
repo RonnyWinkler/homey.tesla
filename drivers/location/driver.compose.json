@@ -69,6 +69,18 @@
             "navigation": {
                 "prev": "select"
             }
+        },
+        {
+            "id": "driving_history",
+            "navigation": {
+                "prev": "select"
+            }
+        },
+        {
+            "id": "driving_history_json",
+            "navigation": {
+                "prev": "driving_history"
+            }
         }
     ]
 }

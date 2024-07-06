@@ -44,7 +44,15 @@
         "location_select":{
             "title": "Selectie",
             "nearest_suc": "Dichtstbijzijnde Supercharger",
-            "nearest_dest": "Dichtstbijzijnde Destination Charger"
+            "nearest_dest": "Dichtstbijzijnde Destination Charger",
+            "driving_history": "Reis geschiedenis"
+        },
+        "driving_history":{
+            "title": "Reis geschiedenis",
+            "clear": "Verwijderen",
+            "json": "JSON",
+            "edit": "Bewerken",
+            "save": "Opslaan"
         },
         "location_nearest_suc":{
             "title": "Dichtstbijzijnde Supercharger",

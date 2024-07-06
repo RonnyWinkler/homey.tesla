@@ -13,7 +13,7 @@ In order to send commands to the vehicle, the app must be registered in the vehi
 Adding as a vehicle key may be restricted if you are not the owner but the vehicle is registered to the lessor.
 
 API Rate limits:
-Tesla introduced rete limits:
+Tesla introduced rate limits:
 - 300 data readings a day
 - ~50 commands a day
 - less than 50 start/stop charging commands or wake up commandy a day

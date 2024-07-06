@@ -296,6 +296,20 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
 
     await this.setStoreValue('charging_history', hist);
+
+    // trigger flow for history entry
+    if (action == 'stopped'){
+      let tokens = {
+        started: entry['timeStarted'],
+        stopped: entry['timeStopped'],
+        soc_start: entry['socStart'],
+        soc_stop: entry['socStop'],
+        energy: entry['energyAdded'],
+        location: entry['location']
+      }
+      await this.homey.flow.getDeviceTriggerCard('charging_history_entry_added').trigger(this, tokens);
+
+    }
   }
 
   // Commands =======================================================================================

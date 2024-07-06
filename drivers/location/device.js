@@ -143,9 +143,137 @@ module.exports = class LocationDevice extends ChildDevice {
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
-    await super. _onCapability( capabilityValues, capabilityOptions);
+    await super._onCapability( capabilityValues, capabilityOptions);
 
   }
+
+  // HISTORY =======================================================================================
+  async addDrivingHistory(data){
+    let action = 'started';
+    if (data.drive_state.shift_state == 'P'){
+        action = 'stopped';
+    }
+    let distanceUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+    let odo = data.gui_settings.gui_distance_units == 'km/hr' ? data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM : data.vehicle_state.odometer;
+
+    // read history
+    let hist = this.getStoreValue('driving_history');
+    if (hist == undefined){
+      hist = [];
+    }
+
+    // get location
+    let locationName = '';
+    try{
+      let address = await this._osm.getAddress( 
+        data.drive_state.latitude, 
+        data.drive_state.longitude, 
+        this.homey.i18n.getLanguage()
+        );
+        if (address.display_name != undefined){
+          locationName = address.display_name;
+        }
+      }
+    catch (error){}
+
+    // get time
+    let tz = this.homey.clock.getTimezone();
+    let timeUtc = new Date();
+    let timeUtcString = timeUtc.toLocaleString(this.homey.i18n.getLanguage(), 
+    { 
+        hour12: false, 
+        timeZone: tz,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
+
+    let entry = {};
+    switch (action){
+      case 'started':
+        entry = hist[hist.length - 1];
+        if(entry && entry['state'] == 'started'){
+          this.log("Driving history entry already existing: ", entry);
+        }
+        else{
+          entry = {
+            state: 'started',
+            timeStarted: timeUtcString, 
+            timeStopped : '',
+            socStart: data.charge_state.battery_level,
+            socStop: 0,
+            socUsed: 0,
+            odoStart: odo,
+            odoStop: 0,
+            distance: 0,
+            distanceUnit: distanceUnit,
+            locationStart: locationName,
+            locationStop: ''
+          }
+          hist.push(entry);
+          this.log("Added driving history entry: ", entry);
+        }
+        break;
+
+      case 'stopped':
+        entry = hist[hist.length - 1];
+        if(!entry){
+          entry = {
+            state: 'stopped',
+            timeStarted: '', 
+            timeStopped : timeUtcString,
+            socStart: 0,
+            socStop: data.charge_state.battery_level,
+            socUsed: 0,
+            odoStart: 0,
+            odoStop: odo,
+            distance: 0,
+            distanceUnit: distanceUnit,
+            locationStart: '',
+            locationStop: locationName
+          }
+          hist.push(entry);
+          this.log("Added charging history entry: ", entry);
+        }
+        else{
+          entry['state'] = 'stopped';
+          entry['timeStopped'] = timeUtcString;
+          entry['socStop'] = data.charge_state.battery_level;
+          entry['socUsed'] = Math.round(( entry['socStart'] - entry['socStop'] ) * 100)/100;
+          entry['odoStop'] = odo;
+          entry['distance'] = entry['odoStop'] - entry['odoStart'];
+          entry['distanceUnit'] = entry['distanceUnit'];
+          entry['locationStop'] = locationName;
+          hist[hist.length - 1] = entry;
+          this.log("Updated driving history entry: ", entry);
+        }
+        break;
+    }
+
+    await this.setStoreValue('driving_history', hist);
+
+    // trigger flow for history entry
+    if (action == 'stopped'){
+      let tokens = {
+        started: entry['timeStarted'],
+        stopped: entry['timeStopped'],
+        soc_start: entry['socStart'],
+        soc_stop: entry['socStop'],
+        soc_used: entry['socUsed'],
+        odo_start: entry['odoStart'],
+        odo_stop: entry['odoStop'],
+        distance: entry['distance'], 
+        distance_unit: entry['distanceUnit'], 
+        location_start: entry['locationStart'],
+        location_stop: entry['locationStop']
+      }
+      await this.homey.flow.getDeviceTriggerCard('driving_history_entry_added').trigger(this, tokens);
+    }
+  }
+
 
 	// FLOW TRIGGER ======================================================================================
   getAutocompleteLocationList(){
@@ -398,6 +526,17 @@ module.exports = class LocationDevice extends ChildDevice {
         this.log("Error updating settings coordinates by Google URL");
       }
     }
+  }
+
+  getDrivingHistory(){
+    let hist = this.getStoreValue('driving_history');
+    let result = [];
+    for (let i=hist.length-1; i>=0; i--){
+      hist[i]['id'] = hist.length -i;
+      hist[i]['distance'] = Math.round(hist[i]['distance'] * 10) / 10;
+      result.push(hist[i]);
+    }
+    return hist;
   }
 
   // HELPERS =======================================================================================

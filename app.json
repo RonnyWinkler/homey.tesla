@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -687,6 +687,134 @@
       {
         "highlight": true,
         "title": {
+          "en": "Charging history entry added",
+          "de": "Ladehistorieeintrag hinzugefügt",
+          "nl": "Oplaadgeschiedenisitem toegevoegd",
+          "fr": "Ajout d'une entrée d'historique de charge",
+          "it": "Aggiunta voce cronologia di ricarica",
+          "sv": "Laddningshistorikpost tillagd",
+          "no": "Ladehistorikkoppføring lagt til",
+          "es": "Entrada de historial de carga agregada",
+          "da": "Opladningshistorikpost tilføjet",
+          "ru": "Добавлена запись в истории зарядки",
+          "pl": "Dodano wpis do historii ładowania"
+        },
+        "tokens": [
+          {
+            "name": "started",
+            "type": "string",
+            "title": {
+              "en": "Started",
+              "de": "Gestartet",
+              "nl": "Gestart",
+              "fr": "Démarré",
+              "it": "Avviato",
+              "sv": "Startad",
+              "no": "Startet",
+              "es": "Iniciado",
+              "da": "Startet",
+              "ru": "Начато",
+              "pl": "Rozpoczęto"
+            }
+          },
+          {
+            "name": "stopped",
+            "type": "string",
+            "title": {
+              "en": "Stopped",
+              "de": "Gestoppt",
+              "nl": "Gestopt",
+              "fr": "Arrêté",
+              "it": "Fermato",
+              "sv": "Stoppad",
+              "no": "Stoppet",
+              "es": "Detenido",
+              "da": "Stoppet",
+              "ru": "Остановлено",
+              "pl": "Zatrzymano"
+            }
+          },
+          {
+            "name": "soc_start",
+            "type": "number",
+            "title": {
+              "en": "SoC from",
+              "de": "SoC von",
+              "nl": "SoC van",
+              "fr": "SoC à partir de",
+              "it": "SoC da",
+              "sv": "SoC från",
+              "no": "SoC fra",
+              "es": "SoC desde",
+              "da": "SoC fra",
+              "ru": "SoC от",
+              "pl": "SoC od"
+            }
+          },
+          {
+            "name": "soc_stop",
+            "type": "number",
+            "title": {
+              "en": "SoC to",
+              "de": "SoC bis",
+              "nl": "SoC naar",
+              "fr": "SoC jusqu'à",
+              "it": "SoC a",
+              "sv": "SoC till",
+              "no": "SoC til",
+              "es": "SoC hasta",
+              "da": "SoC til",
+              "ru": "SoC до",
+              "pl": "SoC do"
+            }
+          },
+          {
+            "name": "energy",
+            "type": "number",
+            "title": {
+              "en": "kWh added",
+              "de": "kWh hinzugefügt",
+              "nl": "kWh toegevoegd",
+              "fr": "kWh ajouté",
+              "it": "kWh aggiunto",
+              "sv": "kWh tillagt",
+              "no": "kWh lagt til",
+              "es": "kWh agregado",
+              "da": "kWh tilføjet",
+              "ru": "кВтч добавлено",
+              "pl": "kWh dodano"
+            }
+          },
+          {
+            "name": "location",
+            "type": "string",
+            "title": {
+              "en": "Location",
+              "de": "Ort",
+              "nl": "Locatie",
+              "fr": "Emplacement",
+              "it": "Posizione",
+              "sv": "Plats",
+              "no": "Sted",
+              "es": "Ubicación",
+              "da": "Sted",
+              "ru": "Местоположение",
+              "pl": "Lokalizacja"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          }
+        ],
+        "id": "charging_history_entry_added"
+      },
+      {
+        "highlight": true,
+        "title": {
           "en": "Charging has stopped",
           "de": "Laden wurde gestoppt",
           "nl": "Het laden is gestopt",
@@ -1179,6 +1307,220 @@
           }
         ],
         "id": "climate_preconditioning_true"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Trip history entry added",
+          "de": "Fahrtverlaufseintrag hinzugefügt",
+          "nl": "Ritgeschiedenis toegevoegd",
+          "fr": "Entrée d'historique de trajet ajoutée",
+          "it": "Voce di cronologia del viaggio aggiunta",
+          "sv": "Läggt till resehistorikpost",
+          "no": "Reisehistorikkoppføring lagt til",
+          "es": "Entrada de historial de viaje agregada",
+          "da": "Tilføjet rejsehistorikpost",
+          "ru": "Добавлена запись истории поездок",
+          "pl": "Dodano wpis historii podróży"
+        },
+        "tokens": [
+          {
+            "name": "started",
+            "type": "string",
+            "title": {
+              "en": "Started",
+              "de": "Gestartet",
+              "nl": "Gestart",
+              "fr": "Démarré",
+              "it": "Avviato",
+              "sv": "Startad",
+              "no": "Startet",
+              "es": "Iniciado",
+              "da": "Startet",
+              "ru": "Начато",
+              "pl": "Rozpoczęto"
+            }
+          },
+          {
+            "name": "stopped",
+            "type": "string",
+            "title": {
+              "en": "Stopped",
+              "de": "Gestoppt",
+              "nl": "Gestopt",
+              "fr": "Arrêté",
+              "it": "Fermato",
+              "sv": "Stoppad",
+              "no": "Stoppet",
+              "es": "Detenido",
+              "da": "Stoppet",
+              "ru": "Остановлено",
+              "pl": "Zatrzymano"
+            }
+          },
+          {
+            "name": "soc_start",
+            "type": "number",
+            "title": {
+              "en": "SoC from",
+              "de": "SoC von",
+              "nl": "SoC van",
+              "fr": "SoC à partir de",
+              "it": "SoC da",
+              "sv": "SoC från",
+              "no": "SoC fra",
+              "es": "SoC desde",
+              "da": "SoC fra",
+              "ru": "SoC от",
+              "pl": "SoC od"
+            }
+          },
+          {
+            "name": "soc_stop",
+            "type": "number",
+            "title": {
+              "en": "SoC to",
+              "de": "SoC bis",
+              "nl": "SoC naar",
+              "fr": "SoC jusqu'à",
+              "it": "SoC a",
+              "sv": "SoC till",
+              "no": "SoC til",
+              "es": "SoC hasta",
+              "da": "SoC til",
+              "ru": "SoC до",
+              "pl": "SoC do"
+            }
+          },
+          {
+            "name": "soc_used",
+            "type": "number",
+            "title": {
+              "en": "SoC % used",
+              "de": "SoC % verwendet",
+              "nl": "SoC % gebruikt",
+              "fr": "SoC % utilisé",
+              "it": "SoC % utilizzato",
+              "sv": "SoC % använd",
+              "no": "SoC % brukt",
+              "es": "SoC % utilizado",
+              "da": "SoC % brugt",
+              "ru": "Использовано SoC %",
+              "pl": "SoC % użyte"
+            }
+          },
+          {
+            "name": "odo_start",
+            "type": "number",
+            "title": {
+              "en": "Odo from",
+              "de": "Kilometerstand von",
+              "nl": "Odo van",
+              "fr": "Odo à partir de",
+              "it": "Odo da",
+              "sv": "Odo från",
+              "no": "Odo fra",
+              "es": "Odo desde",
+              "da": "Odo fra",
+              "ru": "Одометр от",
+              "pl": "Odo od"
+            }
+          },
+          {
+            "name": "odo_stop",
+            "type": "number",
+            "title": {
+              "en": "Odo to",
+              "de": "Kilometerstand bis",
+              "nl": "Odo naar",
+              "fr": "Odo jusqu'à",
+              "it": "Odo a",
+              "sv": "Odo till",
+              "no": "Odo til",
+              "es": "Odo hasta",
+              "da": "Odo til",
+              "ru": "Одометр до",
+              "pl": "Odo do"
+            }
+          },
+          {
+            "name": "distance",
+            "type": "number",
+            "title": {
+              "en": "Distance",
+              "de": "Entfernung",
+              "nl": "Afstand",
+              "fr": "Distance",
+              "it": "Distanza",
+              "sv": "Avstånd",
+              "no": "Avstand",
+              "es": "Distancia",
+              "da": "Afstand",
+              "ru": "Расстояние",
+              "pl": "Dystans"
+            }
+          },
+          {
+            "name": "distance_unit",
+            "type": "string",
+            "title": {
+              "en": "Distance Unit",
+              "de": "Entfernungseinheit",
+              "nl": "Afstandseenheid",
+              "fr": "Unité de distance",
+              "it": "Unità di misura della distanza",
+              "sv": "Avståndsenhet",
+              "no": "Avstandsenhet",
+              "es": "Unidad de distancia",
+              "da": "Afstandsenhed",
+              "ru": "Единица измерения расстояния",
+              "pl": "Jednostka odległości"
+            },
+            "example": "km"
+          },
+          {
+            "name": "location_start",
+            "type": "string",
+            "title": {
+              "en": "Location from",
+              "de": "Standort von",
+              "nl": "Locatie van",
+              "fr": "Emplacement de",
+              "it": "Posizione da",
+              "sv": "Plats från",
+              "no": "Sted fra",
+              "es": "Ubicación desde",
+              "da": "Sted fra",
+              "ru": "Местоположение от",
+              "pl": "Lokalizacja od"
+            }
+          },
+          {
+            "name": "location_stop",
+            "type": "string",
+            "title": {
+              "en": "Location to",
+              "de": "Standort bis",
+              "nl": "Locatie naar",
+              "fr": "Emplacement jusqu'à",
+              "it": "Posizione a",
+              "sv": "Plats till",
+              "no": "Sted til",
+              "es": "Ubicación hasta",
+              "da": "Sted til",
+              "ru": "Местоположение до",
+              "pl": "Lokalizacja do"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "driving_history_entry_added"
       },
       {
         "highlight": true,
@@ -8162,37 +8504,6 @@
               "value": "0"
             },
             {
-              "id": "api_command_count",
-              "type": "label",
-              "label": {
-                "en": "Commands sent",
-                "de": "Befehle gesendet",
-                "nl": "Opdrachten verzonden",
-                "fr": "Commandes envoyées",
-                "it": "Comandi inviati",
-                "sv": "Kommandon skickade",
-                "no": "Kommandoer sendt",
-                "es": "Comandos enviados",
-                "da": "Kommandoer sendt",
-                "ru": "Отправленные команды",
-                "pl": "Wysłane polecenia"
-              },
-              "hint": {
-                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
-                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
-                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
-                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
-                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
-                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
-                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
-                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
-                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
-              },
-              "value": "0"
-            },
-            {
               "id": "api_rate_limit_reset",
               "type": "label",
               "label": {
@@ -8674,6 +8985,18 @@
           "id": "nearest_dest",
           "navigation": {
             "prev": "select"
+          }
+        },
+        {
+          "id": "driving_history",
+          "navigation": {
+            "prev": "select"
+          }
+        },
+        {
+          "id": "driving_history_json",
+          "navigation": {
+            "prev": "driving_history"
           }
         }
       ],

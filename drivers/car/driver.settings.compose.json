@@ -117,10 +117,6 @@
           "id": "api_request_count"
         },
         {
-          "$extends": "api_command_count",
-          "id": "api_command_count"
-        },
-        {
           "$extends": "api_rate_limit_reset",
           "id": "api_rate_limit_reset"
         },

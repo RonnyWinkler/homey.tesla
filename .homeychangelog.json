@@ -254,5 +254,11 @@
   },
   "1.8.0": {
     "en": "Translation update, added languages: fr it sv no es da ru pl. Fixed door lock/unlock flow cards."
+  },
+  "1.8.1": {
+    "en": "Added flow trigger for charging history entry."
+  },
+  "1.9.0": {
+    "en": "Added trip history for location device (repair view) including flow trigger."
   }
 }

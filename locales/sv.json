@@ -3,11 +3,11 @@
         "register": {
             "title": "Appregistrering",
             "subtitle": "Registrera Homey-appen i din bil",
-            "text1": "Registrera Homey-appen i din bil för att låta appen skicka kommandon till din bil.",
-            "text2": "Använd registreringsknappen för att börja registreringen i Tesla-appen. Om länken öppnas i webbläsaren, följ då 'Öppna i Tesla-appen'-tipset.",
+            "text1": "Registrera Homey-appen i din bil för att tillåta appen att skicka kommandon till din bil.",
+            "text2": "Använd registreringsknappen för att börja registrera dig i Tesla-appen. Om länken öppnas i webbläsaren, följ då instruktionen 'Öppna i Tesla-appen'.",
             "text3": "Denna registrering är nödvändig för att använda 'Tesla Vehicle Commands Protocol' och end-to-end-kryptering av kommandon som skickas till fordonet.",
-            "text4": "Modeller S/X före 2021 är exkluderade. Dessa kan fortfarande styras via REST API. Vänligen välj kommandon API i enhetsinställningarna.",
-            "text5": "Denna registrering kan upprepas via 'Reparera enhet'-dialogrutan.",
+            "text4": "Modeller S/X före 2021 är exkluderade. Dessa kan fortfarande styras via REST API. Vänligen välj kommandot API i enhetsinställningarna.",
+            "text5": "Denna registrering kan upprepas via dialogrutan 'Reparera enhet'.",
             "button": "Registrera som bilnyckel"
         },
         "battery": {
@@ -26,33 +26,41 @@
     "repair": {
         "select": {
             "title": "Val",
-            "auth": "Byt inloggning",
-            "register_app": "Registrera appen i bilen",
-            "charging_history": "Laddningshistorik",
-            "charging_history_suc": "SuC Laddningshistorik"
+            "auth": "Ändra inloggning",
+            "register_app": "Registrera app i bil",
+            "charging_history": "Laddhistorik",
+            "charging_history_suc": "Laddhistorik SuC"
         },
         "charging_history": {
-            "title": "Laddningshistorik",
+            "title": "Laddhistorik",
             "clear": "rensa",
             "json": "JSON",
             "edit": "Redigera",
             "save": "Spara"
         },
         "charging_history_suc": {
-            "title": "SuC Laddningshistorik"
+            "title": "Laddhistorik SuC"
         },
         "location_select": {
             "title": "Val",
             "nearest_suc": "Närmaste Supercharger",
-            "nearest_dest": "Närmaste Destination Charger"
+            "nearest_dest": "Närmaste destinationsladdare",
+            "driving_history": "Resehistorik"
+        },
+        "driving_history": {
+            "title": "Resehistorik",
+            "clear": "rensa",
+            "json": "JSON",
+            "edit": "Redigera",
+            "save": "Spara"
         },
         "location_nearest_suc": {
             "title": "Närmaste Supercharger",
             "navigate": "Navigera till Supercharger?"
         },
         "location_nearest_dest": {
-            "title": "Närmaste Destination Charger",
-            "navigate": "Navigera till Destination Charger?"
+            "title": "Närmaste destinationsladdare",
+            "navigate": "Navigera till destinationsladdare?"
         }
     },
     "devices": {
@@ -60,17 +68,17 @@
             "homey_location_name": "Hem (Homey-plats)"
         },
         "car": {
-            "trunk_not_allowed": "Bagageutrymmets operation inaktiverad i enhetsinställningarna",
+            "trunk_not_allowed": "Bagageutrymmet är avaktiverat i enhetsinställningarna",
             "command_pair_state_paired": "parad",
             "command_pair_state_unpaired": "oparad",
             "command_pair_state_undefined": "okänd",
-            "app_not_registered": "Appen är inte registrerad i bilen. Registrera via bilens enhetsreparationsprocess.",
-            "command_error_426": "Appuppdatering krävs. Uppdatera appen i Homey-appbutiken eller aktivera automatiska uppdateringar."
+            "app_not_registered": "Appen är inte registrerad i bilen. Registrera den via bilens enhetsreparationsprocess.",
+            "command_error_426": "Appuppdatering krävs. Uppdatera appen i Homey app store eller aktivera automatiska uppdateringar."
         }
     },
     "app": {
         "update": {
-            "update_message": "Nästa version av Tesla-appen lägger till en ny behörighet (Homey-plats). Automatisk uppdatering fungerar inte i detta fall. Kontrollera manuellt för uppdateringar de kommande dagarna och installera nästa version från appbutiken."
+            "update_message": "Nästa version av Tesla-appen lägger till en ny behörighet (Homey-plats). Automatisk uppdatering fungerar inte i detta fall. Kontrollera manuellt efter uppdateringar de närmaste dagarna och installera nästa version från appbutiken."
         }
     }
 }

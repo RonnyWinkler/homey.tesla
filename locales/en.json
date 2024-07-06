@@ -44,7 +44,15 @@
         "location_select":{
             "title": "Selection",
             "nearest_suc": "Nearest Supercharger",
-            "nearest_dest": "Nearest Destination Charger"
+            "nearest_dest": "Nearest Destination Charger",
+            "driving_history": "Trip history"
+        },
+        "driving_history":{
+            "title": "Trip history",
+            "clear": "clear",
+            "json": "JSON",
+            "edit": "Edit",
+            "save": "Save"
         },
         "location_nearest_suc":{
             "title": "Nearest Supercharger",

@@ -207,6 +207,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     return result;
   }
 
+  getLocationDevice(){
+    let device = this.homey.drivers.getDriver('location').getDevices().filter(e=>{ return ( e.getData().id == this.getData().id ) })[0];
+    if (device == undefined){
+      throw new Error('No location device found.');
+    }
+    return device; 
+  }
+
   // SETTINGS =======================================================================================
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -241,11 +249,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     switch (type){
       case CONSTANTS.API_REQUEST_COUNTER_READ:
         await this.setCapabilityValue('measure_api_request_count', counter);
-        this.setSettings({ api_request_count: counter.toString() });
+        await this.setSettings({ api_request_count: counter.toString() });
         break;
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND:
         await this.setCapabilityValue('measure_api_command_count', counter);
-        this.setSettings({ api_command_count: counter.toString() });
+        await this.setSettings({ api_command_count: counter.toString() });
         break;
     }
   }
@@ -269,7 +277,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _resetApiCounter(){
     await this.setCapabilityValue('measure_api_request_count', 0);
+    await this.setSettings({ api_request_count: '0' });
+    await this.setSettings({ api_rate_limit_reset: '' });
+    await this.setSettings({ api_rate_limit_retry_after: '' });
+    await this.setSettings({ api_rate_limit_limit: '' });
     await this.setCapabilityValue('measure_api_command_count', 0);
+    await this.setSettings({ api_command_count: '0' });
+    await this.setSettings({ api_command_rate_limit_reset: '' });
+    await this.setSettings({ api_command_rate_limit_retry_after: '' });
     await this._startApiCounterResetTimer();
   }
 
@@ -493,12 +508,26 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // Drive state
     if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state == null)){
+      let previousShiftState = this.getCapabilityValue('car_shift_state');
       if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
         await this.setCapabilityValue('car_shift_state', 'P');
       }
       else{
         await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
       }
+
+      // add driving history to location device if driving state has changed
+      let shiftState = this.getCapabilityValue('car_shift_state');
+      if (previousShiftState != shiftState
+          &&
+        (
+          previousShiftState == 'P' && shiftState != 'P'
+          ||
+          previousShiftState != 'P' && shiftState == 'P'
+        )){
+        this.getLocationDevice().addDrivingHistory(data);
+      }
+
       // states:
       // R
       // D
@@ -675,6 +704,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
       if (mediaDevice){
         await mediaDevice.setCapabilityValue('device_state', state);
+        if (!state){
+          await mediaDevice.setCapabilityValue('speaker_playing', false);
+        }
       }
     }
     catch(error){

@@ -5,10 +5,10 @@
             "subtitle": "Registrare l'app Homey nella tua auto",
             "text1": "Registrare l'app Homey nella tua auto per consentire all'app di inviare comandi alla tua auto.",
             "text2": "Usa il pulsante di registrazione per iniziare a registrarti nell'app Tesla. Se il link si apre nel browser, segui l'indicazione 'Apri nell'app Tesla'.",
-            "text3": "Questa registrazione è necessaria per utilizzare il 'Protocollo dei comandi del veicolo Tesla' e la crittografia end-to-end dei comandi inviati al veicolo.",
-            "text4": "I modelli S/X antecedenti al 2021 sono esclusi. Possono ancora essere controllati tramite l'API REST. Si prega di selezionare l'API dei comandi nelle impostazioni del dispositivo.",
-            "text5": "Questa registrazione può essere ripetuta tramite il dialogo 'Ripara dispositivo'.",
-            "button": "Registrati come chiave auto"
+            "text3": "Questa registrazione è necessaria per utilizzare il 'Protocollo di Comandi del Veicolo Tesla' e la crittografia end-to-end dei comandi inviati al veicolo.",
+            "text4": "I modelli S/X precedenti al 2021 sono esclusi. Questi possono ancora essere controllati tramite l'API REST. Seleziona l'API di comando nelle impostazioni del dispositivo.",
+            "text5": "Questa registrazione può essere ripetuta tramite la finestra di dialogo 'Ripara Dispositivo'.",
+            "button": "Registrare come chiave dell'auto"
         },
         "battery": {
             "name": "batteria"
@@ -26,8 +26,8 @@
     "repair": {
         "select": {
             "title": "Selezione",
-            "auth": "Cambia login",
-            "register_app": "Registrare l'app nella macchina",
+            "auth": "Cambia accesso",
+            "register_app": "Registrare l'app nella tua auto",
             "charging_history": "Storico delle ricariche",
             "charging_history_suc": "Storico delle ricariche SuC"
         },
@@ -44,7 +44,15 @@
         "location_select": {
             "title": "Selezione",
             "nearest_suc": "Supercharger più vicino",
-            "nearest_dest": "Caricatore di destinazione più vicino"
+            "nearest_dest": "Caricatore di destinazione più vicino",
+            "driving_history": "Storico dei viaggi"
+        },
+        "driving_history": {
+            "title": "Storico dei viaggi",
+            "clear": "cancella",
+            "json": "JSON",
+            "edit": "Modifica",
+            "save": "Salva"
         },
         "location_nearest_suc": {
             "title": "Supercharger più vicino",
@@ -52,7 +60,7 @@
         },
         "location_nearest_dest": {
             "title": "Caricatore di destinazione più vicino",
-            "navigate": "Navigare verso il caricatore di destinazione?"
+            "navigate": "Navigare verso il Caricatore di Destinazione?"
         }
     },
     "devices": {
@@ -61,16 +69,16 @@
         },
         "car": {
             "trunk_not_allowed": "Operazione del bagagliaio disabilitata nelle impostazioni del dispositivo",
-            "command_pair_state_paired": "accoppiato",
-            "command_pair_state_unpaired": "non accoppiato",
+            "command_pair_state_paired": "associato",
+            "command_pair_state_unpaired": "non associato",
             "command_pair_state_undefined": "sconosciuto",
-            "app_not_registered": "L'app non è registrata nella macchina. Registrati tramite il processo di riparazione del dispositivo della macchina.",
-            "command_error_426": "Aggiornamento dell'app richiesto. Si prega di aggiornare l'app nel negozio di app Homey o abilitare gli aggiornamenti automatici."
+            "app_not_registered": "L'app non è registrata nella tua auto. Registrala tramite il processo di riparazione del dispositivo dell'auto.",
+            "command_error_426": "È richiesta l'aggiornamento dell'app. Aggiorna l'app nel negozio di app Homey o abilita gli aggiornamenti automatici."
         }
     },
     "app": {
         "update": {
-            "update_message": "La prossima versione dell'app Tesla aggiunge una nuova autorizzazione (posizione Homey). L'aggiornamento automatico non funziona in questo caso. Si prega di controllare manualmente gli aggiornamenti nei prossimi giorni e installare la prossima versione dal negozio di app."
+            "update_message": "La prossima versione dell'app Tesla aggiunge una nuova autorizzazione (posizione Homey). L'aggiornamento automatico non funziona in questo caso. Controlla manualmente gli aggiornamenti nei prossimi giorni e installa la prossima versione dal negozio di app."
         }
     }
 }

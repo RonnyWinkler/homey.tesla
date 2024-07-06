@@ -1,0 +1,125 @@
+{
+    "highlight": true,
+    "title": {
+        "en": "Charging history entry added",
+        "de": "Ladehistorieeintrag hinzugefügt",
+        "nl": "Oplaadgeschiedenisitem toegevoegd",
+        "fr": "Ajout d'une entrée d'historique de charge",
+        "it": "Aggiunta voce cronologia di ricarica",
+        "sv": "Laddningshistorikpost tillagd",
+        "no": "Ladehistorikkoppføring lagt til",
+        "es": "Entrada de historial de carga agregada",
+        "da": "Opladningshistorikpost tilføjet",
+        "ru": "Добавлена запись в истории зарядки",
+        "pl": "Dodano wpis do historii ładowania"
+    },
+    "tokens": [
+        {
+            "name": "started",
+            "type": "string",
+            "title": {
+                "en": "Started",
+                "de": "Gestartet",
+                "nl": "Gestart",
+                "fr": "Démarré",
+                "it": "Avviato",
+                "sv": "Startad",
+                "no": "Startet",
+                "es": "Iniciado",
+                "da": "Startet",
+                "ru": "Начато",
+                "pl": "Rozpoczęto"
+            }
+        },
+        {
+            "name": "stopped",
+            "type": "string",
+            "title": {
+                "en": "Stopped",
+                "de": "Gestoppt",
+                "nl": "Gestopt",
+                "fr": "Arrêté",
+                "it": "Fermato",
+                "sv": "Stoppad",
+                "no": "Stoppet",
+                "es": "Detenido",
+                "da": "Stoppet",
+                "ru": "Остановлено",
+                "pl": "Zatrzymano"
+            }
+        },
+        {
+            "name": "soc_start",
+            "type": "number",
+            "title": {
+                "en": "SoC from",
+                "de": "SoC von",
+                "nl": "SoC van",
+                "fr": "SoC à partir de",
+                "it": "SoC da",
+                "sv": "SoC från",
+                "no": "SoC fra",
+                "es": "SoC desde",
+                "da": "SoC fra",
+                "ru": "SoC от",
+                "pl": "SoC od"
+            }
+        },
+        {
+            "name": "soc_stop",
+            "type": "number",
+            "title": {
+                "en": "SoC to",
+                "de": "SoC bis",
+                "nl": "SoC naar",
+                "fr": "SoC jusqu'à",
+                "it": "SoC a",
+                "sv": "SoC till",
+                "no": "SoC til",
+                "es": "SoC hasta",
+                "da": "SoC til",
+                "ru": "SoC до",
+                "pl": "SoC do"
+            }
+        },
+        {
+            "name": "energy",
+            "type": "number",
+            "title": {
+                "en": "kWh added",
+                "de": "kWh hinzugefügt",
+                "nl": "kWh toegevoegd",
+                "fr": "kWh ajouté",
+                "it": "kWh aggiunto",
+                "sv": "kWh tillagt",
+                "no": "kWh lagt til",
+                "es": "kWh agregado",
+                "da": "kWh tilføjet",
+                "ru": "кВтч добавлено",
+                "pl": "kWh dodano"
+            }
+        },
+        {
+            "name": "location",
+            "type": "string",
+            "title": {
+                "en": "Location",
+                "de": "Ort",
+                "nl": "Locatie",
+                "fr": "Emplacement",
+                "it": "Posizione",
+                "sv": "Plats",
+                "no": "Sted",
+                "es": "Ubicación",
+                "da": "Sted",
+                "ru": "Местоположение",
+                "pl": "Lokalizacja"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=battery"
+    }]
+}

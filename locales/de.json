@@ -45,7 +45,15 @@
         "location_select":{
             "title": "Auswahl",
             "nearest_suc": "Nächster Supercharger",
-            "nearest_dest": "Nächster Destination Charger"
+            "nearest_dest": "Nächster Destination Charger",
+            "driving_history": "Fahrtenbuch"
+        },
+        "driving_history":{
+            "title": "Fahrtenbuch",
+            "clear": "löschen",
+            "json": "JSON",
+            "edit": "Bearbeiten",
+            "save": "Speichern"
         },
         "location_nearest_suc":{
             "title": "Nächster Supercharger",
