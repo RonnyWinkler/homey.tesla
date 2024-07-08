@@ -525,7 +525,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           ||
           previousShiftState != 'P' && shiftState == 'P'
         )){
-        this.getLocationDevice().addDrivingHistory(data);
+        try{
+          this.getLocationDevice().addDrivingHistory(data);
+        }
+        catch(error){ }
       }
 
       // states:

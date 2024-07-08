@@ -263,5 +263,8 @@
   },
   "1.9.1": {
     "en": "Fixed trip history (stopped state)."
+  },
+  "1.9.2": {
+    "en": "Fixed data update for missing location device."
   }
 }
