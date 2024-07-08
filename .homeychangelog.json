@@ -266,5 +266,8 @@
   },
   "1.9.2": {
     "en": "Fixed data update for missing location device."
+  },
+  "1.9.3": {
+    "en": "Simplified rate limit information (car device settings)."
   }
 }

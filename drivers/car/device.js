@@ -279,12 +279,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.setCapabilityValue('measure_api_request_count', 0);
     await this.setSettings({ api_request_count: '0' });
     await this.setSettings({ api_rate_limit_reset: '' });
-    await this.setSettings({ api_rate_limit_retry_after: '' });
+    // await this.setSettings({ api_rate_limit_retry_after: '' });
     await this.setSettings({ api_rate_limit_limit: '' });
     await this.setCapabilityValue('measure_api_command_count', 0);
     await this.setSettings({ api_command_count: '0' });
     await this.setSettings({ api_command_rate_limit_reset: '' });
-    await this.setSettings({ api_command_rate_limit_retry_after: '' });
+    // await this.setSettings({ api_command_rate_limit_retry_after: '' });
     await this._startApiCounterResetTimer();
   }
 
@@ -442,15 +442,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           let resetTimeString = this._getLocalTimeString(resetTime);
           settings['api_rate_limit_reset'] = resetTimeString;
       
-          let hh = Math.floor(error.rateLimitRetryAfter / 3600);
-          if (hh < 10){
-            hh = '0' + hh;
-          }
-          let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
-          if (mm < 10){
-            mm = '0' + mm;
-          }
-          settings['api_rate_limit_retry_after'] = hh + ':' + mm;
+          // let hh = Math.floor(error.rateLimitRetryAfter / 3600);
+          // if (hh < 10){
+          //   hh = '0' + hh;
+          // }
+          // let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
+          // if (mm < 10){
+          //   mm = '0' + mm;
+          // }
+          // settings['api_rate_limit_retry_after'] = hh + ':' + mm;
+
           settings['api_rate_limit_limit'] = error.ratelimitLimit;
           await this.setSettings( settings );
         }
@@ -867,15 +868,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         let resetTimeString = this._getLocalTimeString(resetTime);
         settings['api_command_rate_limit_reset'] = resetTimeString;
     
-        let hh = Math.floor(error.rateLimitRetryAfter / 3600);
-        if (hh < 10){
-          hh = '0' + hh;
-        }
-        let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
-        if (mm < 10){
-          mm = '0' + mm;
-        }
-        settings['api_command_rate_limit_retry_after'] = hh + ':' + mm;
+        // let hh = Math.floor(error.rateLimitRetryAfter / 3600);
+        // if (hh < 10){
+        //   hh = '0' + hh;
+        // }
+        // let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
+        // if (mm < 10){
+        //   mm = '0' + mm;
+        // }
+        // settings['api_command_rate_limit_retry_after'] = hh + ':' + mm;
+
         // settings['api_rate_limit_limit'] = error.ratelimitLimit;
         await this.setSettings( settings );
       }

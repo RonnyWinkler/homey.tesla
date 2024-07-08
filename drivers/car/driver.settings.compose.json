@@ -121,10 +121,6 @@
           "id": "api_rate_limit_reset"
         },
         {
-          "$extends": "api_rate_limit_retry_after",
-          "id": "api_rate_limit_retry_after"
-        },
-        {
           "$extends": "api_rate_limit_limit",
           "id": "api_rate_limit_limit"
         }
@@ -158,10 +154,6 @@
         {
           "$extends": "api_rate_limit_reset",
           "id": "api_command_rate_limit_reset"
-        },
-        {
-          "$extends": "api_rate_limit_retry_after",
-          "id": "api_command_rate_limit_retry_after"
         },
         {
           "$extends": "api_rate_limit",

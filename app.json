@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -8535,37 +8535,6 @@
               "value": "0"
             },
             {
-              "id": "api_rate_limit_retry_after",
-              "type": "label",
-              "label": {
-                "en": "Rate limit active for hours/minutes",
-                "de": "Rate-Limit aktiv für Stunden/Minuten",
-                "nl": "Rate-limit actief voor uren/minuten",
-                "fr": "Limite de taux active pour heures/minutes",
-                "it": "Limite di velocità attiva per ore/minuti",
-                "sv": "Hastighetsbegränsning aktiv i timmar/minuter",
-                "no": "Hastighetsbegrensning aktiv i timer/minutter",
-                "es": "Límite de velocidad activo durante horas/minutos",
-                "da": "Hastighedsbegrænsning aktiv i timer/minutter",
-                "ru": "Ограничение скорости активно в течение часов/минут",
-                "pl": "Limit prędkości aktywny przez godziny/minuty"
-              },
-              "hint": {
-                "en": "Time until rate limit lockout is lifted",
-                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
-                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet",
-                "fr": "Temps jusqu'à la levée du verrouillage de la limite de taux",
-                "it": "Tempo fino alla rimozione del blocco del limite di velocità",
-                "sv": "Tid tills hastighetsbegränsningen hävs",
-                "no": "Tid til hastighetsbegrensningen oppheves",
-                "es": "Tiempo hasta que se levante el bloqueo de la limitación de velocidad",
-                "da": "Tid indtil hastighedsbegrænsningen ophæves",
-                "ru": "Время до снятия блокировки ограничения скорости",
-                "pl": "Czas do zdjęcia blokady limitu prędkości"
-              },
-              "value": "0"
-            },
-            {
               "id": "api_rate_limit_limit",
               "type": "label",
               "label": {
@@ -8704,37 +8673,6 @@
                 "da": "Tidspunkt for ophævelse af grænsen",
                 "ru": "Время снятия ограничения",
                 "pl": "Czas zniesienia limitu"
-              },
-              "value": "0"
-            },
-            {
-              "id": "api_command_rate_limit_retry_after",
-              "type": "label",
-              "label": {
-                "en": "Rate limit active for hours/minutes",
-                "de": "Rate-Limit aktiv für Stunden/Minuten",
-                "nl": "Rate-limit actief voor uren/minuten",
-                "fr": "Limite de taux active pour heures/minutes",
-                "it": "Limite di velocità attiva per ore/minuti",
-                "sv": "Hastighetsbegränsning aktiv i timmar/minuter",
-                "no": "Hastighetsbegrensning aktiv i timer/minutter",
-                "es": "Límite de velocidad activo durante horas/minutos",
-                "da": "Hastighedsbegrænsning aktiv i timer/minutter",
-                "ru": "Ограничение скорости активно в течение часов/минут",
-                "pl": "Limit prędkości aktywny przez godziny/minuty"
-              },
-              "hint": {
-                "en": "Time until rate limit lockout is lifted",
-                "de": "Zeitraum bis zum Aufheben der Rate-Limit-Sperre",
-                "nl": "Tijd tot de opheffing van de blokkering van de snelheidslimiet",
-                "fr": "Temps jusqu'à la levée du verrouillage de la limite de taux",
-                "it": "Tempo fino alla rimozione del blocco del limite di velocità",
-                "sv": "Tid tills hastighetsbegränsningen hävs",
-                "no": "Tid til hastighetsbegrensningen oppheves",
-                "es": "Tiempo hasta que se levante el bloqueo de la limitación de velocidad",
-                "da": "Tid indtil hastighedsbegrænsningen ophæves",
-                "ru": "Время до снятия блокировки ограничения скорости",
-                "pl": "Czas do zdjęcia blokady limitu prędkości"
               },
               "value": "0"
             },

@@ -298,8 +298,8 @@ module.exports = class LocationDevice extends ChildDevice {
   async flowTriggerLocationCoordinatesRunListener(args, state){
     this.log("flowTriggerLocationCoordinatesReachedRunListener()...");
     let locationState = await this._checkFlowTriggerCoordinates(args.latitude, args.longitude, args.url, args.distance, state);
-    this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitudes_prev +', '+ state.latitude_prev);
-    this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitudesv +', '+ state.latitude) 
+    this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitude_prev +', '+ state.latitude_prev);
+    this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitude +', '+ state.latitude) 
     this.log("flowTriggerLocationCoordinatesReachedRunListener() Coordinates: "+args.latitude+", "+args.longitude+" "+args.url+" "+args.distance+"m - State: "+ locationState);
     return locationState;
   }
@@ -327,8 +327,8 @@ module.exports = class LocationDevice extends ChildDevice {
     }
     if (location != undefined && ((location.latitude != undefined && location.longitude != undefined) || location.url != '')){
       let locationState = await this._checkFlowTriggerCoordinates(location.latitude, location.longitude, location.url, args.distance, state);
-      this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitudes_prev +', '+ state.latitude_prev);
-      this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitudesv +', '+ state.latitude) 
+      this.log("flowTriggerLocationReachedRunListener() Previous coordinates: "+ state.longitude_prev +', '+ state.latitude_prev);
+      this.log("flowTriggerLocationReachedRunListener() Current coordinates:  "+ state.longitude +', '+ state.latitude) 
       this.log("flowTriggerLocationReachedRunListener() Location: "+location.name+" Coordinates: "+location.latitude+", "+location.longitude+" "+location.url+" "+args.distance+" m - State: "+ locationState);
       return locationState;
     }
