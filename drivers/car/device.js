@@ -329,12 +329,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log("Car data request...");
     try{
 
-      // Reset rate limit information
-      await this.setSettings({
-        api_rate_limit_reset: '',
-        api_rate_limit_retry_after: '',
-        api_rate_limit_limit: ''
-      });
+      // // Reset rate limit information
+      // await this.setSettings({
+      //   api_rate_limit_reset: '',
+      //   api_rate_limit_retry_after: '',
+      //   api_rate_limit_limit: ''
+      // });
     
       // update the device
       await this.getCarData();

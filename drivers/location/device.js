@@ -150,7 +150,7 @@ module.exports = class LocationDevice extends ChildDevice {
   // HISTORY =======================================================================================
   async addDrivingHistory(data){
     let action = 'started';
-    if (data.drive_state.shift_state == 'P'){
+    if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
         action = 'stopped';
     }
     let distanceUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';

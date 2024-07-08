@@ -260,5 +260,8 @@
   },
   "1.9.0": {
     "en": "Added trip history for location device (repair view) including flow trigger."
+  },
+  "1.9.1": {
+    "en": "Fixed trip history (stopped state)."
   }
 }
