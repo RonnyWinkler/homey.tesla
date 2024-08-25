@@ -428,6 +428,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // Forward all other errors
       if (error.status && ( error.status == 408 || error.status == 429 ) ){
         this.log("Car data request error: ", error.status);
+        this.log("Error details: ", error)
         let oldState = this.getCapabilityValue('car_state');
 
         if (error.status == 408){
@@ -437,11 +438,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           await this.setCapabilityValue('car_state', CONSTANTS.STATE_RATE_LIMIT);
           // set rate limit settings
           let settings = {};
-          let currentTime = new Date();
-          let resetTime = new Date(currentTime.getTime() + (error.ratelimitReset * 1000));
-          let resetTimeString = this._getLocalTimeString(resetTime);
-          settings['api_rate_limit_reset'] = resetTimeString;
-      
+          if (error.ratelimitReset){
+            let currentTime = new Date();
+            let resetTime = new Date(currentTime.getTime() + (error.ratelimitReset * 1000));
+            let resetTimeString = this._getLocalTimeString(resetTime);
+            settings['api_rate_limit_reset'] = resetTimeString;
+          }
           // let hh = Math.floor(error.rateLimitRetryAfter / 3600);
           // if (hh < 10){
           //   hh = '0' + hh;
@@ -452,7 +454,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // }
           // settings['api_rate_limit_retry_after'] = hh + ':' + mm;
 
-          settings['api_rate_limit_limit'] = error.ratelimitLimit;
+          if (error.ratelimitLimit){
+            settings['api_rate_limit_limit'] = error.ratelimitLimit;
+          }
           await this.setSettings( settings );
         }
         await this.setDeviceState(false);
