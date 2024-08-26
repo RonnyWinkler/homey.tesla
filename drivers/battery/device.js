@@ -307,6 +307,16 @@ module.exports = class BatteryDevice extends ChildDevice {
         energy: entry['energyAdded'],
         location: entry['location']
       }
+      if (!tokens.energy){
+        tokens.energy = 0;
+      }
+      if (!tokens.soc_start){
+        tokens.soc_start = 0;
+      }
+      if (!tokens.soc_stop){
+        tokens.soc_stop = 0;
+      }
+      // trigger flow
       await this.homey.flow.getDeviceTriggerCard('charging_history_entry_added').trigger(this, tokens);
 
     }

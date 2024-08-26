@@ -276,12 +276,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _resetApiCounter(){
-    await this.setCapabilityValue('measure_api_request_count', 0);
+    if (this.hasCapability('measure_api_request_count')){
+      await this.setCapabilityValue('measure_api_request_count', 0);
+    }
     await this.setSettings({ api_request_count: '0' });
     await this.setSettings({ api_rate_limit_reset: '' });
     // await this.setSettings({ api_rate_limit_retry_after: '' });
     await this.setSettings({ api_rate_limit_limit: '' });
-    await this.setCapabilityValue('measure_api_command_count', 0);
+    if (this.hasCapability('measure_api_command_count')){
+      await this.setCapabilityValue('measure_api_command_count', 0);
+    }
     await this.setSettings({ api_command_count: '0' });
     await this.setSettings({ api_command_rate_limit_reset: '' });
     // await this.setSettings({ api_command_rate_limit_retry_after: '' });

@@ -272,5 +272,8 @@
   },
   "1.9.4": {
     "en": "Extended debug log."
+  },
+  "1.9.5": {
+    "en": "Error checking for invalid API data."
   }
 }
