@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "API charge commmand count changed",
+        "de": "API Lade-Kommandoanzahl geändert",
+        "nl": "API lade-commando teller veranderd",
+        "fr": "Nombre de commandes API modifié",
+        "it": "Conteggio comandi API modificato",
+        "sv": "API-lad-kommandoräkning åndrad",
+        "no": "Endret API-lade-kommandotelling",
+        "es": "Recuento de comandos de API cambiado",
+        "da": "Ændret API-lade-kommandotal",
+        "ru": "Изменено количество команд API",
+        "pl": "Zmieniono liczbę poleceń API"
+    },
+    "tokens": [
+        {
+            "name": "measure_api_command_count",
+            "type": "number",
+            "title": {
+                "en": "Commands per day",
+                "de": "Kommandos pro Tag",
+                "nl": "Commando's per dag",
+                "fr": "Commandes par jour",
+                "it": "Comandi al giorno",
+                "sv": "Kommandon per dag",
+                "no": "Kommandoer per dag",
+                "es": "Comandos por día",
+                "da": "Kommandoer pr. dag",
+                "ru": "Команд в день",
+                "pl": "Polecenia na dzień"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

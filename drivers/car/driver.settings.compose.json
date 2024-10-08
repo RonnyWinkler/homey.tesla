@@ -154,7 +154,57 @@
         {
           "$extends": "api_rate_limit_reset",
           "id": "api_command_rate_limit_reset"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Charge command API",
+        "de": "Lade-Kommando-API",
+        "nl": "Ladecommando-API",
+        "fr": "API de commande de charge",
+        "it": "API di comando di carica",
+        "sv": "Lad-kommando-API",
+        "no": "Lad-kommando-API",
+        "es": "API de comando de carga",
+        "da": "Lad-kommando-API",
+        "ru": "API команды",
+        "pl": "API polecenia"
+      },
+      "children": [
+        {
+          "$extends": "api_state",
+          "id": "api_command_charge_state"
         },
+        {
+          "$extends": "api_command_charge_count",
+          "id": "api_command_charge_count"
+        },
+        {
+          "$extends": "api_rate_limit_reset",
+          "id": "api_command_charge_rate_limit_reset"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "App internal control",
+        "de": "App interner Steuerung",
+        "nl": "App interne beveiliging",
+        "fr": "Contrôle interne de l'application",
+        "it": "Controllo interno all'app",
+        "sv": "App-innehållsbehandling",
+        "no": "App-innholdsberegning",
+        "es": "Control interno de la aplicación",
+        "da": "App-innholdsberegning",
+        "ru": "Внутреннее управление приложением",
+        "pl": "Kontrola wewnętrzna aplikacji"
+      },
+      "children": [
         {
           "$extends": "api_rate_limit",
           "id": "api_rate_limit"

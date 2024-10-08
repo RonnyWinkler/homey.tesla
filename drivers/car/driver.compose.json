@@ -58,7 +58,8 @@
         "car_user_present",
         "measure_api_rate_limit",
         "measure_api_request_count",
-        "measure_api_command_count"
+        "measure_api_command_count",
+        "measure_api_command_charge_count"
 
     ],
     "energy": {

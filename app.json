@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "compatibility": ">=8.1.0",
   "platforms": [
     "local"
@@ -2225,6 +2225,48 @@
           }
         ],
         "id": "location_left_or_reached"
+      },
+      {
+        "title": {
+          "en": "API charge commmand count changed",
+          "de": "API Lade-Kommandoanzahl geändert",
+          "nl": "API lade-commando teller veranderd",
+          "fr": "Nombre de commandes API modifié",
+          "it": "Conteggio comandi API modificato",
+          "sv": "API-lad-kommandoräkning åndrad",
+          "no": "Endret API-lade-kommandotelling",
+          "es": "Recuento de comandos de API cambiado",
+          "da": "Ændret API-lade-kommandotal",
+          "ru": "Изменено количество команд API",
+          "pl": "Zmieniono liczbę poleceń API"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_command_count",
+            "type": "number",
+            "title": {
+              "en": "Commands per day",
+              "de": "Kommandos pro Tag",
+              "nl": "Commando's per dag",
+              "fr": "Commandes par jour",
+              "it": "Comandi al giorno",
+              "sv": "Kommandon per dag",
+              "no": "Kommandoer per dag",
+              "es": "Comandos por día",
+              "da": "Kommandoer pr. dag",
+              "ru": "Команд в день",
+              "pl": "Polecenia na dzień"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_command_charge_count_changed"
       },
       {
         "title": {
@@ -7976,7 +8018,8 @@
         "car_user_present",
         "measure_api_rate_limit",
         "measure_api_request_count",
-        "measure_api_command_count"
+        "measure_api_command_count",
+        "measure_api_command_charge_count"
       ],
       "energy": {
         "batteries": [
@@ -8619,7 +8662,7 @@
               "type": "label",
               "label": {
                 "en": "Commands sent",
-                "de": "Befehle gesendet",
+                "de": "Kommandos gesendet",
                 "nl": "Opdrachten verzonden",
                 "fr": "Commandes envoyées",
                 "it": "Comandi inviati",
@@ -8675,7 +8718,136 @@
                 "pl": "Czas zniesienia limitu"
               },
               "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Charge command API",
+            "de": "Lade-Kommando-API",
+            "nl": "Ladecommando-API",
+            "fr": "API de commande de charge",
+            "it": "API di comando di carica",
+            "sv": "Lad-kommando-API",
+            "no": "Lad-kommando-API",
+            "es": "API de comando de carga",
+            "da": "Lad-kommando-API",
+            "ru": "API команды",
+            "pl": "API polecenia"
+          },
+          "children": [
+            {
+              "id": "api_command_charge_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status",
+                "fr": "État de l'API",
+                "it": "Stato API",
+                "sv": "API-status",
+                "no": "API-status",
+                "es": "Estado de la API",
+                "da": "API-status",
+                "ru": "Состояние API",
+                "pl": "Stan API"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+              },
+              "value": ""
             },
+            {
+              "id": "api_command_charge_count",
+              "type": "label",
+              "label": {
+                "en": "Charge commands sent",
+                "de": "Lade-Kommandos gesendet",
+                "nl": "Lade-commando's verzonden",
+                "fr": "Commandes de charge envoyées",
+                "it": "Comandi di carica inviati",
+                "sv": "Lad-kommandon skickade",
+                "no": "Lade-kommandoer sendt",
+                "es": "Comandos de carga enviados",
+                "da": "Lade-kommandoer sendt",
+                "ru": "Отправленные команды",
+                "pl": "Wysłane polecenia"
+              },
+              "hint": {
+                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
+                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
+                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
+                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
+                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
+                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
+                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_command_charge_rate_limit_reset",
+              "type": "label",
+              "label": {
+                "en": "Rate limit Reset",
+                "de": "Rate-Limit Zurücksetzen",
+                "nl": "Rate-limit resetten",
+                "fr": "Réinitialisation de la limite de taux",
+                "it": "Reset del limite di velocità",
+                "sv": "Hastighetsbegränsning återställs",
+                "no": "Rategrense tilbakestilles",
+                "es": "Restablecimiento del límite de velocidad",
+                "da": "Nulstilling af hastighedsbegrænsning",
+                "ru": "Сброс ограничения скорости",
+                "pl": "Reset limitu prędkości"
+              },
+              "hint": {
+                "en": "Time of lifting the limit",
+                "de": "Zeitpunkt des Aufheben des Limits",
+                "nl": "Tijd van opheffing van de limiet",
+                "fr": "Heure de levée de la limite",
+                "it": "Orario di sollevamento del limite",
+                "sv": "Tid för upphävande av begränsningen",
+                "no": "Tidspunkt for oppheving av grensen",
+                "es": "Hora de levantar el límite",
+                "da": "Tidspunkt for ophævelse af grænsen",
+                "ru": "Время снятия ограничения",
+                "pl": "Czas zniesienia limitu"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "App internal control",
+            "de": "App interner Steuerung",
+            "nl": "App interne beveiliging",
+            "fr": "Contrôle interne de l'application",
+            "it": "Controllo interno all'app",
+            "sv": "App-innehållsbehandling",
+            "no": "App-innholdsberegning",
+            "es": "Control interno de la aplicación",
+            "da": "App-innholdsberegning",
+            "ru": "Внутреннее управление приложением",
+            "pl": "Kontrola wewnętrzna aplikacji"
+          },
+          "children": [
             {
               "id": "api_rate_limit",
               "type": "label",
@@ -11771,6 +11943,41 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
+    },
+    "measure_api_command_charge_count": {
+      "type": "number",
+      "title": {
+        "en": "Tesla API charge command count",
+        "de": "Tesla API Kommandoanzahl",
+        "nl": "Tesla API commando tellen",
+        "fr": "Nombre de commandes de l'API Tesla",
+        "it": "Conteggio comandi API Tesla",
+        "sv": "Tesla API kommandoräkning",
+        "no": "Tesla API kommandotelling",
+        "es": "Recuento de comandos de la API de Tesla",
+        "da": "Tesla API kommandotal",
+        "ru": "Количество команд API Tesla",
+        "pl": "Liczba poleceń API Tesli"
+      },
+      "units": {
+        "en": "Commands per day",
+        "de": "Kommandos pro Tag",
+        "nl": "Commando's per dag",
+        "fr": "Commandes par jour",
+        "it": "Comandi al giorno",
+        "sv": "Kommandon per dag",
+        "no": "Kommandoer per dag",
+        "es": "Comandos por día",
+        "da": "Kommandoer pr. dag",
+        "ru": "Команд в день",
+        "pl": "Polecenia na dzień"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_command_count.svg"
     },
     "measure_api_command_count": {
       "type": "number",

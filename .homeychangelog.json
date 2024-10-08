@@ -275,5 +275,8 @@
   },
   "1.9.5": {
     "en": "Error checking for invalid API data."
+  },
+  "1.9.6": {
+    "en": "Added charge commands count and rate limit information."
   }
 }
