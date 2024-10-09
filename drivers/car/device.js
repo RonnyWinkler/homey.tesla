@@ -242,7 +242,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE:
         counter = this.getCapabilityValue('measure_api_command_charge_count');
         break;
-      }
+      case CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES:
+        counter = this.getCapabilityValue('measure_api_command_wakes_count');
+        break;
+    }
 
     if (!counter){
       counter = 0;
@@ -261,6 +264,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE:
         await this.setCapabilityValue('measure_api_command_charge_count', counter);
         await this.setSettings({ api_command_charge_count: counter.toString() });
+        break;
+      case CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES:
+        await this.setCapabilityValue('measure_api_command_wakes_count', counter);
+        await this.setSettings({ api_command_wakes_count: counter.toString() });
         break;
       }
   }
@@ -296,10 +303,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this.hasCapability('measure_api_command_charge_count')){
       await this.setCapabilityValue('measure_api_command_charge_count', 0);
     }
+    if (this.hasCapability('measure_api_command_wakes_count')){
+      await this.setCapabilityValue('measure_api_command_wakes_count', 0);
+    }
     await this.setSettings({ api_command_count: '0' });
     await this.setSettings({ api_command_rate_limit_reset: '' });
     await this.setSettings({ api_command_charge_count: '0' });
     await this.setSettings({ api_command_charge_rate_limit_reset: '' });
+    await this.setSettings({ api_command_wakes_count: '0' });
+    await this.setSettings({ api_command_wakes_rate_limit_reset: '' });
     // await this.setSettings({ api_command_rate_limit_retry_after: '' });
     await this._startApiCounterResetTimer();
   }
@@ -778,7 +790,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log("Car is already online.");
       return state;
     }
-    await this.oAuth2Client.commandWakeUp(this.getData().id);
+    // await this.oAuth2Client.commandWakeUp(this.getData().id);
+    await this._sendCommand( 'commandWakeUp', {} );
     if (wait){
       let state;
       for (let i=0; i<WAIT_ON_WAKE_UP; i++){
@@ -794,7 +807,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         // Send wake up call again every 10 seconds
         if ( ((i+1) % RETRY_ON_WAKE_UP) == 0 ){
           this.log("Wake up the car again...");
-          await this.oAuth2Client.commandWakeUp(this.getData().id);
+          // await this.oAuth2Client.commandWakeUp(this.getData().id);
+          await this._sendCommand( 'commandWakeUp', {} );
         }
       }
     }
@@ -826,6 +840,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case 'commandChargeOn':
       case 'commandChargeLimit':
         return CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE;
+      case 'commandWakeUp':
+        return CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES;
       default:
         return CONSTANTS.API_COMMAND_TYPE_COMMAND;
     }
@@ -936,7 +952,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
           apiFunction != 'commandMediaNextTrack' &&
           apiFunction != 'commandMediaPrevTrack' &&
-          apiFunction != 'commandMediaTogglePlayback'
+          apiFunction != 'commandMediaTogglePlayback' && 
+
+          apiFunction != 'commandWakeUp'
         ){
       if (!await this.isAppRegistered()){
         try{
@@ -960,6 +978,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       switch (this.getCommandType(apiFunction)) {
         case CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE:
           await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE );
+          break;
+        case CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES:
+          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES );
           break;
         default:
           await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );

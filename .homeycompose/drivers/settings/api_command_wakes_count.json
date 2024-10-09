@@ -1,0 +1,30 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Wake commands sent",
+      "de": "Weck-Kommandos gesendet",
+      "nl": "Weck-commando's verzonden",
+      "fr": "Commandes Wake envoyées",
+      "it": "Comandi Wake inviati",
+      "sv": "Weck-kommandon skickade",
+      "no": "Weck-kommandoer sendt",
+      "es": "Comandos Wake enviados",
+      "da": "Weck-kommandoer sendt",
+      "ru": "Отправленные команды",
+      "pl": "Wysłane polecenia"
+    },
+    "hint": {
+      "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+      "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+      "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
+      "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
+      "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
+      "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
+      "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+      "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
+      "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+      "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
+      "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
+    },
+    "value": "0"
+  }

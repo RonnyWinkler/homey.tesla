@@ -15,17 +15,17 @@
     "pl": "Stan API"
   },
   "hint": {
-    "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-    "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+    "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+    "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
   },
   "value": ""
 }

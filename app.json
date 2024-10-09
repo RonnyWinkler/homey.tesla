@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "compatibility": ">=8.1.0",
   "platforms": [
     "local"
@@ -8019,7 +8019,8 @@
         "measure_api_rate_limit",
         "measure_api_request_count",
         "measure_api_command_count",
-        "measure_api_command_charge_count"
+        "measure_api_command_charge_count",
+        "measure_api_command_wakes_count"
       ],
       "energy": {
         "batteries": [
@@ -8501,17 +8502,17 @@
                 "pl": "Stan API"
               },
               "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
               },
               "value": ""
             },
@@ -8545,6 +8546,37 @@
                 "pl": "Wykonane żądania API od 00:00 UTC. Maksymalnie 300 dziennie."
               },
               "value": "0"
+            },
+            {
+              "id": "api_request_limit",
+              "type": "label",
+              "label": {
+                "en": "Limit",
+                "de": "Limit",
+                "nl": "Limiet",
+                "fr": "Limite",
+                "it": "Limite",
+                "sv": "Begränsning",
+                "no": "Grense",
+                "es": "Limite",
+                "da": "Grænse",
+                "ru": "Лимит",
+                "pl": "Limit"
+              },
+              "hint": {
+                "en": "Daily limit",
+                "de": "Tageslimit",
+                "nl": "Dagelimit",
+                "fr": "Limite quotidienne",
+                "it": "Limite giornaliero",
+                "sv": "Dagbegränsning",
+                "no": "Daglig grunner",
+                "es": "Límite diario",
+                "da": "Daglig grænse",
+                "ru": "Лимит на день",
+                "pl": "Limit dzienny"
+              },
+              "value": "300"
             },
             {
               "id": "api_rate_limit_reset",
@@ -8643,17 +8675,17 @@
                 "pl": "Stan API"
               },
               "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
               },
               "value": ""
             },
@@ -8687,6 +8719,37 @@
                 "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
               },
               "value": "0"
+            },
+            {
+              "id": "api_command_limit",
+              "type": "label",
+              "label": {
+                "en": "Limit",
+                "de": "Limit",
+                "nl": "Limiet",
+                "fr": "Limite",
+                "it": "Limite",
+                "sv": "Begränsning",
+                "no": "Grense",
+                "es": "Limite",
+                "da": "Grænse",
+                "ru": "Лимит",
+                "pl": "Limit"
+              },
+              "hint": {
+                "en": "Daily limit",
+                "de": "Tageslimit",
+                "nl": "Dagelimit",
+                "fr": "Limite quotidienne",
+                "it": "Limite giornaliero",
+                "sv": "Dagbegränsning",
+                "no": "Daglig grunner",
+                "es": "Límite diario",
+                "da": "Daglig grænse",
+                "ru": "Лимит на день",
+                "pl": "Limit dzienny"
+              },
+              "value": "50"
             },
             {
               "id": "api_command_rate_limit_reset",
@@ -8754,17 +8817,17 @@
                 "pl": "Stan API"
               },
               "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api?javascript#response-codes",
-                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api?javascript#response-codes"
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
               },
               "value": ""
             },
@@ -8800,7 +8863,180 @@
               "value": "0"
             },
             {
+              "id": "api_command_charge_limit",
+              "type": "label",
+              "label": {
+                "en": "Limit",
+                "de": "Limit",
+                "nl": "Limiet",
+                "fr": "Limite",
+                "it": "Limite",
+                "sv": "Begränsning",
+                "no": "Grense",
+                "es": "Limite",
+                "da": "Grænse",
+                "ru": "Лимит",
+                "pl": "Limit"
+              },
+              "hint": {
+                "en": "Daily limit",
+                "de": "Tageslimit",
+                "nl": "Dagelimit",
+                "fr": "Limite quotidienne",
+                "it": "Limite giornaliero",
+                "sv": "Dagbegränsning",
+                "no": "Daglig grunner",
+                "es": "Límite diario",
+                "da": "Daglig grænse",
+                "ru": "Лимит на день",
+                "pl": "Limit dzienny"
+              },
+              "value": "5"
+            },
+            {
               "id": "api_command_charge_rate_limit_reset",
+              "type": "label",
+              "label": {
+                "en": "Rate limit Reset",
+                "de": "Rate-Limit Zurücksetzen",
+                "nl": "Rate-limit resetten",
+                "fr": "Réinitialisation de la limite de taux",
+                "it": "Reset del limite di velocità",
+                "sv": "Hastighetsbegränsning återställs",
+                "no": "Rategrense tilbakestilles",
+                "es": "Restablecimiento del límite de velocidad",
+                "da": "Nulstilling af hastighedsbegrænsning",
+                "ru": "Сброс ограничения скорости",
+                "pl": "Reset limitu prędkości"
+              },
+              "hint": {
+                "en": "Time of lifting the limit",
+                "de": "Zeitpunkt des Aufheben des Limits",
+                "nl": "Tijd van opheffing van de limiet",
+                "fr": "Heure de levée de la limite",
+                "it": "Orario di sollevamento del limite",
+                "sv": "Tid för upphävande av begränsningen",
+                "no": "Tidspunkt for oppheving av grensen",
+                "es": "Hora de levantar el límite",
+                "da": "Tidspunkt for ophævelse af grænsen",
+                "ru": "Время снятия ограничения",
+                "pl": "Czas zniesienia limitu"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Wake command API",
+            "de": "Weck-Kommando-API",
+            "nl": "Weck-kommando-API",
+            "fr": "API de commande de Wake",
+            "it": "API di comando Wake",
+            "sv": "Weck-kommando-API",
+            "no": "Weck-kommando-API",
+            "es": "API de comando Wake",
+            "da": "Weck-kommando-API",
+            "ru": "API команды",
+            "pl": "API polecenia"
+          },
+          "children": [
+            {
+              "id": "api_command_wakes_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status",
+                "fr": "État de l'API",
+                "it": "Stato API",
+                "sv": "API-status",
+                "no": "API-status",
+                "es": "Estado de la API",
+                "da": "API-status",
+                "ru": "Состояние API",
+                "pl": "Stan API"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_command_wakes_count",
+              "type": "label",
+              "label": {
+                "en": "Wake commands sent",
+                "de": "Weck-Kommandos gesendet",
+                "nl": "Weck-commando's verzonden",
+                "fr": "Commandes Wake envoyées",
+                "it": "Comandi Wake inviati",
+                "sv": "Weck-kommandon skickade",
+                "no": "Weck-kommandoer sendt",
+                "es": "Comandos Wake enviados",
+                "da": "Weck-kommandoer sendt",
+                "ru": "Отправленные команды",
+                "pl": "Wysłane polecenia"
+              },
+              "hint": {
+                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
+                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
+                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
+                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
+                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
+                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
+                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
+                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_command_wakes_limit",
+              "type": "label",
+              "label": {
+                "en": "Limit",
+                "de": "Limit",
+                "nl": "Limiet",
+                "fr": "Limite",
+                "it": "Limite",
+                "sv": "Begränsning",
+                "no": "Grense",
+                "es": "Limite",
+                "da": "Grænse",
+                "ru": "Лимит",
+                "pl": "Limit"
+              },
+              "hint": {
+                "en": "Daily limit",
+                "de": "Tageslimit",
+                "nl": "Dagelimit",
+                "fr": "Limite quotidienne",
+                "it": "Limite giornaliero",
+                "sv": "Dagbegränsning",
+                "no": "Daglig grunner",
+                "es": "Límite diario",
+                "da": "Daglig grænse",
+                "ru": "Лимит на день",
+                "pl": "Limit dzienny"
+              },
+              "value": "15"
+            },
+            {
+              "id": "api_command_wakes_rate_limit_reset",
               "type": "label",
               "label": {
                 "en": "Rate limit Reset",
@@ -11993,6 +12229,41 @@
         "da": "Tesla API kommandotal",
         "ru": "Количество команд API Tesla",
         "pl": "Liczba poleceń API Tesli"
+      },
+      "units": {
+        "en": "Commands per day",
+        "de": "Kommandos pro Tag",
+        "nl": "Commando's per dag",
+        "fr": "Commandes par jour",
+        "it": "Comandi al giorno",
+        "sv": "Kommandon per dag",
+        "no": "Kommandoer per dag",
+        "es": "Comandos por día",
+        "da": "Kommandoer pr. dag",
+        "ru": "Команд в день",
+        "pl": "Polecenia na dzień"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_command_count.svg"
+    },
+    "measure_api_command_wakes_count": {
+      "type": "number",
+      "title": {
+        "en": "Tesla API wake command count",
+        "de": "Tesla API Weck-Kommandoanzahl",
+        "nl": "Tesla API weck-kommando tellen",
+        "fr": "Nombre de commandes de l'API de Wake",
+        "it": "Conteggio comandi API Wake",
+        "sv": "Tesla API weck-kommandoräkning",
+        "no": "Tesla API weck-kommandotelling",
+        "es": "Recuento de comandos de Wake de la API de Tesla",
+        "da": "Tesla API weck-kommandotal",
+        "ru": "Количество команд API Wake",
+        "pl": "Liczba poleceń API Wake"
       },
       "units": {
         "en": "Commands per day",
