@@ -825,9 +825,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case 'commandChargePort':
       case 'commandChargeOn':
       case 'commandChargeLimit':
-        return API_COMMAND_TYPE_COMMAND_CHARGE;
+        return CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE;
       default:
-        return API_COMMAND_TYPE_COMMAND;
+        return CONSTANTS.API_COMMAND_TYPE_COMMAND;
     }
   }
 
@@ -898,7 +898,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         let resetTime = new Date(currentTime.getTime() + (error.rateLimitRetryAfter * 1000));
         let resetTimeString = this._getLocalTimeString(resetTime);
         switch (this.getCommandType(apiFunction)) {
-          case API_COMMAND_TYPE_COMMAND_CHARGE:
+          case CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE:
             settings['api_command_charge_state'] = error.statusText;
             settings['api_command_charge_rate_limit_reset'] = resetTimeString;
             break;
@@ -958,7 +958,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       switch (this.getCommandType(apiFunction)) {
-        case API_COMMAND_TYPE_COMMAND_CHARGE:
+        case CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE:
           await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE );
           break;
         default:

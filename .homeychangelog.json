@@ -278,5 +278,8 @@
   },
   "1.9.6": {
     "en": "Added charge commands count and rate limit information."
+  },
+  "1.9.7": {
+    "en": "Fixed command error."
   }
 }
