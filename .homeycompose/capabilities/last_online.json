@@ -1,0 +1,20 @@
+{
+    "type": "string",
+    "title": {
+        "en": "Last online",
+        "de": "Zuletzt online",
+        "nl": "Laatst online",
+        "fr": "Dernier en ligne",
+        "it": "Ultimo aggiornamento",
+        "sv": "Senaste uppdatering",
+        "no": "Siste oppdatering",
+        "es": "Última actualización",
+        "da": "Seneste opdatering",
+        "ru": "Последнее обновление",
+        "pl": "Ostatnia aktualizacja"
+    },
+    "uiComponent": null,
+    "getable": true,
+    "setable": false,
+    "icon": "./assets/capability_icons/last_online.svg"
+}

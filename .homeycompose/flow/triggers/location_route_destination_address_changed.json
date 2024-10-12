@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Destination address changed",
+        "de": "Zieladresse geändert",
+        "nl": "Bestemming adres gewijzigd",
+        "fr": "Adresse de destination modifiée",
+        "it": "Indirizzo di destinazione modificato",
+        "sv": "Destination adress ändrat",
+        "no": "Destinasjonsadresse endret",
+        "es": "Dirección de destino cambiada",
+        "da": "Destination adresse æendret",
+        "ru": "Изменение адреса маршрута",
+        "pl": "Zmiana celu trasy"
+    },
+    "tokens": [
+        {
+            "name": "location_route_destination_address",
+            "type": "string",
+            "title": {
+                "en": "Destination address",
+                "de": "Zieladresse",
+                "nl": "Bestemming adres",
+                "fr": "Adresse de destination",
+                "it": "Indirizzo di destinazione",
+                "sv": "Destination adress",
+                "no": "Destinasjonsadresse",
+                "es": "Dirección de destino",
+                "da": "Destination adresse",
+                "ru": "Адрес назначения маршрута",
+                "pl": "Cel trasy"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

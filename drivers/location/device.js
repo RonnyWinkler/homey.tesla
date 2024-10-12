@@ -94,6 +94,41 @@ module.exports = class LocationDevice extends ChildDevice {
         this.setCapabilityOptions('measure_location_distance_from_home', co);
       }
 
+      // Route destination
+      if (this.hasCapability('location_route_destination_name') && data.drive_state && data.drive_state.active_route_destination != undefined){
+        await this.setCapabilityValue('location_route_destination_name', data.drive_state.active_route_destination);
+      }
+      if (this.hasCapability('location_route_destination_address') && data.drive_state && data.drive_state.active_route_latitude != undefined && data.drive_state.active_route_longitude != undefined){
+        let destination_address = await this._osm.getAddress( 
+          data.drive_state.active_route_latitude, 
+          data.drive_state.active_route_longitude, 
+          this.homey.i18n.getLanguage()
+        );
+        await this.setCapabilityValue('location_route_destination_address', destination_address.display_name);
+      }
+      if (this.hasCapability('location_route_destination_distance') && data.drive_state && data.drive_state.active_route_miles_to_arrival != undefined){
+        await this.setCapabilityValue('location_route_destination_distance', data.gui_settings.gui_distance_units == 'km/hr' ? data.drive_state.active_route_miles_to_arrival : data.drive_state.active_route_miles_to_arrival / CONSTANTS.MILES_TO_KM );
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("location_route_destination_distance");
+        }
+        catch(error){}
+        let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+        if (!co || !co.units || co.units != distUnit){
+          co['units'] = distUnit;
+          this.setCapabilityOptions('location_route_destination_distance', co);
+        }
+      }
+      if (this.hasCapability('location_route_destination_time') && data.drive_state && data.drive_state.active_route_minutes_to_arrival != undefined){
+        let hh = Math.floor(data.drive_state.active_route_minutes_to_arrival / 60);
+        let mm = Math.floor(data.drive_state.active_route_minutes_to_arrival % 60);
+        await this.setCapabilityValue('location_route_destination_time', hh + ':' + mm);
+      }
+      if (this.hasCapability('location_route_destination_energy') && data.drive_state && data.drive_state.active_route_energy_at_arrival != undefined){
+        await this.setCapabilityValue('location_route_destination_energy', data.drive_state.active_route_energy_at_arrival);
+      }
+
     }
 
     if (locationChanged){

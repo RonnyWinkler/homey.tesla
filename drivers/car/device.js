@@ -505,6 +505,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _updateDevice(data){
+    // last online timestamp
+    if (this.hasCapability('last_online') && data != undefined){
+      let time = this._getLocalTimeString(new Date());
+      await this.setCapabilityValue('last_online', time);
+    }
+
     // Car state
     if (this.hasCapability('car_doors_locked') && data.vehicle_state.locked != undefined){
       await this.setCapabilityValue('car_doors_locked', !data.vehicle_state.locked);

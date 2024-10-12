@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Distance to destination",
+    "de": "Entfernung zum Ziel",
+    "nl": "Afstand tot bestemming",
+    "fr": "Distance vers destination",
+    "it": "Distanza verso destinazione",
+    "sv": "Avuien till destination",
+    "no": "Avstand til destinasjon",
+    "es": "Distancia hasta destino",
+    "da": "Afstand til destination",
+    "ru": "Расстояние до места назначения",
+    "pl": "Odległosść do celu"
+  },
+  "units": "km",
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/location_route_destination_distance.svg"
+}

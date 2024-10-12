@@ -29,8 +29,15 @@
         "measure_location_longitude",
 
         "measure_location_heading",
+        "measure_location_distance_from_home",
 
-        "measure_location_distance_from_home"
+        "location_route_destination_name",
+        "location_route_destination_address",
+
+        "location_route_destination_distance",
+        "location_route_destination_time",
+
+        "location_route_destination_energy"
 
     ],
     "energy": {

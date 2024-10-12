@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.9.8",
+  "version": "1.10.0",
   "compatibility": ">=8.1.0",
   "platforms": [
     "local"
@@ -2225,6 +2225,216 @@
           }
         ],
         "id": "location_left_or_reached"
+      },
+      {
+        "title": {
+          "en": "Destination address changed",
+          "de": "Zieladresse geändert",
+          "nl": "Bestemming adres gewijzigd",
+          "fr": "Adresse de destination modifiée",
+          "it": "Indirizzo di destinazione modificato",
+          "sv": "Destination adress ändrat",
+          "no": "Destinasjonsadresse endret",
+          "es": "Dirección de destino cambiada",
+          "da": "Destination adresse æendret",
+          "ru": "Изменение адреса маршрута",
+          "pl": "Zmiana celu trasy"
+        },
+        "tokens": [
+          {
+            "name": "location_route_destination_address",
+            "type": "string",
+            "title": {
+              "en": "Destination address",
+              "de": "Zieladresse",
+              "nl": "Bestemming adres",
+              "fr": "Adresse de destination",
+              "it": "Indirizzo di destinazione",
+              "sv": "Destination adress",
+              "no": "Destinasjonsadresse",
+              "es": "Dirección de destino",
+              "da": "Destination adresse",
+              "ru": "Адрес назначения маршрута",
+              "pl": "Cel trasy"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_route_destination_address_changed"
+      },
+      {
+        "title": {
+          "en": "Distance to destination changed",
+          "de": "Entfernung zum Ziel geändert",
+          "nl": "Afstand tot bestemming gewijzigd",
+          "fr": "Distance vers destination modifiée",
+          "it": "Distanza verso destinazione modificata",
+          "sv": "Till destination avvikelse ändrat",
+          "no": "Avstand til destinasjon endret",
+          "es": "Distancia hasta destino cambiada",
+          "da": "Afstand til destination æendret",
+          "ru": "Изменение расстояния до места назначения",
+          "pl": "Odległoszcze do celu zmienione"
+        },
+        "tokens": [
+          {
+            "name": "location_route_destination_distance",
+            "type": "number",
+            "title": {
+              "en": "Distance to destination",
+              "de": "Entfernung zum Ziel",
+              "nl": "Afstand tot bestemming",
+              "fr": "Distance vers destination",
+              "it": "Distanza verso destinazione",
+              "sv": "Avuien till destination",
+              "no": "Avstand til destinasjon",
+              "es": "Distancia hasta destino",
+              "da": "Afstand til destination",
+              "ru": "Расстояние до места назначения",
+              "pl": "Odległosść do celu"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_route_destination_distance_changed"
+      },
+      {
+        "title": {
+          "en": "Energy at arrival changed",
+          "de": "Energie bei Ankunft geändert",
+          "nl": "Energie bij vertrek gewijzigd",
+          "fr": "Energie à l'arrivee modifiée",
+          "it": "Energia all'arrivo modificata",
+          "sv": "Energitid vid ankomst ändrat",
+          "no": "Energi ved ankomst endret",
+          "es": "Energía de llegada cambiada",
+          "da": "Opladningsenergi på destination æendret",
+          "ru": "Изменение энергии при прибытии",
+          "pl": "Zmiana energii dojazdu"
+        },
+        "tokens": [
+          {
+            "name": "location_route_destination_energy",
+            "type": "number",
+            "title": {
+              "en": "Energy at arrival",
+              "de": "Energie bei Ankunft",
+              "nl": "Energie bij vertrek",
+              "fr": "Energie à l'arrivee",
+              "it": "Energia all'arrivo",
+              "sv": "Energitid vid ankomst",
+              "no": "Energi ved ankomst",
+              "es": "Energía de llegada",
+              "da": "Opladningsenergi tilføjet",
+              "ru": "Энергия при прибытии",
+              "pl": "Energia dojazdu"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_route_destination_energy_changed"
+      },
+      {
+        "title": {
+          "en": "Route destination changed",
+          "de": "Navigationsziel geändert",
+          "nl": "Route bestemming gewijzigd",
+          "fr": "Destination de la route modifié",
+          "it": "Destinazione della rotta modificata",
+          "sv": "Rutet destination ändrat",
+          "no": "Rutet destinasjon endret",
+          "es": "Destino de la ruta cambiada",
+          "da": "Rutet destination ændret",
+          "ru": "Изменение местоположения маршрута",
+          "pl": "Zmiana celu trasy"
+        },
+        "tokens": [
+          {
+            "name": "location_route_destination_name",
+            "type": "string",
+            "title": {
+              "en": "Route destination",
+              "de": "Navigationsziel",
+              "nl": "Route bestemming",
+              "fr": "Destination de la route",
+              "it": "Destinazione della rotta",
+              "sv": "Rutet destination",
+              "no": "Rutet destinasjon",
+              "es": "Destino de la ruta",
+              "da": "Rutet destination",
+              "ru": "Место назначения маршрута",
+              "pl": "Cel trasy"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_route_destination_name_changed"
+      },
+      {
+        "title": {
+          "en": "Time to destination changed",
+          "de": "Zeit zum Ziel geändert",
+          "nl": "Tijd tot bestemming gewijzigd",
+          "fr": "Temps vers destination modifié",
+          "it": "Tempo verso destinazione modificato",
+          "sv": "Tid till destination ändrat",
+          "no": "Tid til destinasjon endret",
+          "es": "Tiempo hasta destino cambiado",
+          "da": "Tid til destination ændret",
+          "ru": "Изменение времени до места назначения",
+          "pl": "Czas do celu zmienione"
+        },
+        "tokens": [
+          {
+            "name": "location_route_destination_time",
+            "type": "string",
+            "title": {
+              "en": "Time to destination",
+              "de": "Zeit zum Ziel",
+              "nl": "Tijd tot bestemming",
+              "fr": "Temps vers destination",
+              "it": "Tempo verso destinazione",
+              "sv": "Tid till destination",
+              "no": "Tid til destinasjon",
+              "es": "Tiempo hasta destino",
+              "da": "Tid til destination",
+              "ru": "Время до места назначения",
+              "pl": "Czas do celu"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=location"
+          }
+        ],
+        "id": "location_route_destination_time_changed"
       },
       {
         "title": {
@@ -8020,7 +8230,8 @@
         "measure_api_request_count",
         "measure_api_command_count",
         "measure_api_command_charge_count",
-        "measure_api_command_wakes_count"
+        "measure_api_command_wakes_count",
+        "last_online"
       ],
       "energy": {
         "batteries": [
@@ -9294,7 +9505,12 @@
         "measure_location_latitude",
         "measure_location_longitude",
         "measure_location_heading",
-        "measure_location_distance_from_home"
+        "measure_location_distance_from_home",
+        "location_route_destination_name",
+        "location_route_destination_address",
+        "location_route_destination_distance",
+        "location_route_destination_time",
+        "location_route_destination_energy"
       ],
       "energy": {
         "batteries": [
@@ -12120,6 +12336,26 @@
         "pl": "Offline"
       }
     },
+    "last_online": {
+      "type": "string",
+      "title": {
+        "en": "Last online",
+        "de": "Zuletzt online",
+        "nl": "Laatst online",
+        "fr": "Dernier en ligne",
+        "it": "Ultimo aggiornamento",
+        "sv": "Senaste uppdatering",
+        "no": "Siste oppdatering",
+        "es": "Última actualización",
+        "da": "Seneste opdatering",
+        "ru": "Последнее обновление",
+        "pl": "Ostatnia aktualizacja"
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/last_online.svg"
+    },
     "last_update": {
       "type": "string",
       "title": {
@@ -12179,6 +12415,115 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/location_name.svg"
+    },
+    "location_route_destination_address": {
+      "type": "string",
+      "title": {
+        "en": "Destination address",
+        "de": "Zieladresse",
+        "nl": "Bestemming adres",
+        "fr": "Adresse de destination",
+        "it": "Indirizzo di destinazione",
+        "sv": "Destination adress",
+        "no": "Destinasjonsadresse",
+        "es": "Dirección de destino",
+        "da": "Destination adresse",
+        "ru": "Адрес назначения маршрута",
+        "pl": "Cel trasy"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/location_route_destination_address.svg"
+    },
+    "location_route_destination_distance": {
+      "type": "number",
+      "title": {
+        "en": "Distance to destination",
+        "de": "Entfernung zum Ziel",
+        "nl": "Afstand tot bestemming",
+        "fr": "Distance vers destination",
+        "it": "Distanza verso destinazione",
+        "sv": "Avuien till destination",
+        "no": "Avstand til destinasjon",
+        "es": "Distancia hasta destino",
+        "da": "Afstand til destination",
+        "ru": "Расстояние до места назначения",
+        "pl": "Odległosść do celu"
+      },
+      "units": "km",
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/location_route_destination_distance.svg"
+    },
+    "location_route_destination_energy": {
+      "type": "number",
+      "title": {
+        "en": "Energy at arrival",
+        "de": "Energie bei Ankunft",
+        "nl": "Energie bij vertrek",
+        "fr": "Energie à l'arrivee",
+        "it": "Energia all'arrivo",
+        "sv": "Energitid vid ankomst",
+        "no": "Energi ved ankomst",
+        "es": "Energía de llegada",
+        "da": "Opladningsenergi tilføjet",
+        "ru": "Энергия при прибытии",
+        "pl": "Energia dojazdu"
+      },
+      "units": "%",
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/location_route_destination_energy.svg"
+    },
+    "location_route_destination_name": {
+      "type": "string",
+      "title": {
+        "en": "Route destination",
+        "de": "Navigationsziel",
+        "nl": "Route bestemming",
+        "fr": "Destination de la route",
+        "it": "Destinazione della rotta",
+        "sv": "Rutet destination",
+        "no": "Rutet destinasjon",
+        "es": "Destino de la ruta",
+        "da": "Rutet destination",
+        "ru": "Место назначения маршрута",
+        "pl": "Cel trasy"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/location_route_destination_name.svg"
+    },
+    "location_route_destination_time": {
+      "type": "string",
+      "title": {
+        "en": "Time to destination",
+        "de": "Zeit zum Ziel",
+        "nl": "Tijd tot bestemming",
+        "fr": "Temps vers destination",
+        "it": "Tempo verso destinazione",
+        "sv": "Tid till destination",
+        "no": "Tid til destinasjon",
+        "es": "Tiempo hasta destino",
+        "da": "Tid til destination",
+        "ru": "Время до места назначения",
+        "pl": "Czas do celu"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/location_route_destination_time.svg"
     },
     "measure_api_command_charge_count": {
       "type": "number",

@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Destination address",
+    "de": "Zieladresse",
+    "nl": "Bestemming adres",
+    "fr": "Adresse de destination",
+    "it": "Indirizzo di destinazione",
+    "sv": "Destination adress",
+    "no": "Destinasjonsadresse",
+    "es": "Dirección de destino",
+    "da": "Destination adresse",
+    "ru": "Адрес назначения маршрута",
+    "pl": "Cel trasy"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/location_route_destination_address.svg"
+}

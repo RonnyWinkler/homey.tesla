@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Route destination",
+    "de": "Navigationsziel",
+    "nl": "Route bestemming",
+    "fr": "Destination de la route",
+    "it": "Destinazione della rotta",
+    "sv": "Rutet destination",
+    "no": "Rutet destinasjon",
+    "es": "Destino de la ruta",
+    "da": "Rutet destination",
+    "ru": "Место назначения маршрута",
+    "pl": "Cel trasy"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/location_route_destination_name.svg"
+}

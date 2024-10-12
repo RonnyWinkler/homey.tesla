@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Time to destination",
+    "de": "Zeit zum Ziel",
+    "nl": "Tijd tot bestemming",
+    "fr": "Temps vers destination",
+    "it": "Tempo verso destinazione",
+    "sv": "Tid till destination",
+    "no": "Tid til destinasjon",
+    "es": "Tiempo hasta destino",
+    "da": "Tid til destination",
+    "ru": "Время до места назначения",
+    "pl": "Czas do celu"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/location_route_destination_time.svg"
+}

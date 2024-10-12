@@ -60,7 +60,8 @@
         "measure_api_request_count",
         "measure_api_command_count",
         "measure_api_command_charge_count",
-        "measure_api_command_wakes_count"
+        "measure_api_command_wakes_count",
+        "last_online"
 
     ],
     "energy": {

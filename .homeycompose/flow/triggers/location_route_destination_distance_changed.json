@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Distance to destination changed",
+        "de": "Entfernung zum Ziel geändert",
+        "nl": "Afstand tot bestemming gewijzigd",
+        "fr": "Distance vers destination modifiée",
+        "it": "Distanza verso destinazione modificata",
+        "sv": "Till destination avvikelse ändrat",
+        "no": "Avstand til destinasjon endret",
+        "es": "Distancia hasta destino cambiada",
+        "da": "Afstand til destination æendret",
+        "ru": "Изменение расстояния до места назначения",
+        "pl": "Odległoszcze do celu zmienione"
+    },
+    "tokens": [
+        {
+            "name": "location_route_destination_distance",
+            "type": "number",
+            "title": {
+                "en": "Distance to destination",
+                "de": "Entfernung zum Ziel",
+                "nl": "Afstand tot bestemming",
+                "fr": "Distance vers destination",
+                "it": "Distanza verso destinazione",
+                "sv": "Avuien till destination",
+                "no": "Avstand til destinasjon",
+                "es": "Distancia hasta destino",
+                "da": "Afstand til destination",
+                "ru": "Расстояние до места назначения",
+                "pl": "Odległosść do celu"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

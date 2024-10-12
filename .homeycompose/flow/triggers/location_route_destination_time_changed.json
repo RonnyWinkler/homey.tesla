@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Time to destination changed",
+        "de": "Zeit zum Ziel geändert",
+        "nl": "Tijd tot bestemming gewijzigd",
+        "fr": "Temps vers destination modifié",
+        "it": "Tempo verso destinazione modificato",
+        "sv": "Tid till destination ändrat",
+        "no": "Tid til destinasjon endret",
+        "es": "Tiempo hasta destino cambiado",
+        "da": "Tid til destination ændret",
+        "ru": "Изменение времени до места назначения",
+        "pl": "Czas do celu zmienione"
+    },
+    "tokens": [
+        {
+            "name": "location_route_destination_time",
+            "type": "string",
+            "title": {
+                "en": "Time to destination",
+                "de": "Zeit zum Ziel",
+                "nl": "Tijd tot bestemming",
+                "fr": "Temps vers destination",
+                "it": "Tempo verso destinazione",
+                "sv": "Tid till destination",
+                "no": "Tid til destinasjon",
+                "es": "Tiempo hasta destino",
+                "da": "Tid til destination",
+                "ru": "Время до места назначения",
+                "pl": "Czas do celu"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

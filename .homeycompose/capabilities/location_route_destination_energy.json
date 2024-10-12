@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy at arrival",
+    "de": "Energie bei Ankunft",
+    "nl": "Energie bij vertrek",
+    "fr": "Energie à l'arrivee",
+    "it": "Energia all'arrivo",
+    "sv": "Energitid vid ankomst",
+    "no": "Energi ved ankomst",
+    "es": "Energía de llegada",
+    "da": "Opladningsenergi tilføjet",
+    "ru": "Энергия при прибытии",
+    "pl": "Energia dojazdu"
+  },
+  "units": "%",
+  "decimals": 0,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/location_route_destination_energy.svg"
+}

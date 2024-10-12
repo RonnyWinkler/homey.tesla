@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy at arrival changed",
+        "de": "Energie bei Ankunft geändert",
+        "nl": "Energie bij vertrek gewijzigd",
+        "fr": "Energie à l'arrivee modifiée",
+        "it": "Energia all'arrivo modificata",
+        "sv": "Energitid vid ankomst ändrat",
+        "no": "Energi ved ankomst endret",
+        "es": "Energía de llegada cambiada",
+        "da": "Opladningsenergi på destination æendret",
+        "ru": "Изменение энергии при прибытии",
+        "pl": "Zmiana energii dojazdu"
+    },
+    "tokens": [
+        {
+            "name": "location_route_destination_energy",
+            "type": "number",
+            "title": {
+                "en": "Energy at arrival",
+                "de": "Energie bei Ankunft",
+                "nl": "Energie bij vertrek",
+                "fr": "Energie à l'arrivee",
+                "it": "Energia all'arrivo",
+                "sv": "Energitid vid ankomst",
+                "no": "Energi ved ankomst",
+                "es": "Energía de llegada",
+                "da": "Opladningsenergi tilføjet",
+                "ru": "Энергия при прибытии",
+                "pl": "Energia dojazdu"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}

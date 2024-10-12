@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Route destination changed",
+        "de": "Navigationsziel geändert",
+        "nl": "Route bestemming gewijzigd",
+        "fr": "Destination de la route modifié",
+        "it": "Destinazione della rotta modificata",
+        "sv": "Rutet destination ändrat",
+        "no": "Rutet destinasjon endret",
+        "es": "Destino de la ruta cambiada",
+        "da": "Rutet destination ændret",
+        "ru": "Изменение местоположения маршрута",
+        "pl": "Zmiana celu trasy"
+    },
+    "tokens": [
+        {
+            "name": "location_route_destination_name",
+            "type": "string",
+            "title": {
+                "en": "Route destination",
+                "de": "Navigationsziel",
+                "nl": "Route bestemming",
+                "fr": "Destination de la route",
+                "it": "Destinazione della rotta",
+                "sv": "Rutet destination",
+                "no": "Rutet destinasjon",
+                "es": "Destino de la ruta",
+                "da": "Rutet destination",
+                "ru": "Место назначения маршрута",
+                "pl": "Cel trasy"
+              }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=location"
+    }]
+}
