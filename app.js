@@ -22,6 +22,7 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     await this._initFlowTriggers();
     await this._initFlowConditions();
 
+    await this._initWidgets();
     // this.homey.notifications.createNotification({excerpt: this.homey.__('app.update.update_message')}).catch(error => {this.error('Error sending notification: '+error.message)});
 
   }
@@ -397,5 +398,150 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     });
 
   }
+
+  // WIDGETS ==============================================================================
+  async _initWidgets(){
+    this.homey.dashboards.getWidget('car_main').registerSettingAutocompleteListener('device', async (query, settings) => {
+      let cars = [];
+
+      let devices = this.homey.drivers.getDriver('car').getDevices();
+      devices.forEach(device => {
+          cars.push({
+            name: device.getName(),
+            id: device.getData().id
+          })
+      });
+      return cars.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+    });
+  }
+
+  // WIDGET API ============================================================================
+  async apiGetCarData(id){
+    let data = { };
+    let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == id ) })[0];
+    if (car == undefined){
+      throw new Error('No car device found.');
+    }
+    data['car'] = { };
+    data.car.id = car.getData().id;
+    data.car.name = car.getName();
+    data.car.car_state = car.getCapabilityValue('car_state');
+
+    let carStateList = this.manifest.capabilities.car_state.values;
+    let carState = carStateList.find(state => state.id == data.car.car_state);
+    let lang = this.homey.i18n.getLanguage();
+    data.car.car_state_text = "";
+    if (carState && carState.title[lang]){
+      data.car.car_state_text = carState.title[lang];
+    }
+    else if (carState && carState.title['en']){
+      data.car.car_state_text = carState.title['en'];
+    }
+
+    data.car.last_online = car.getCapabilityValue('last_online');
+    data.car.car_doors_locked = car.getCapabilityValue('car_doors_locked');
+    data.car.car_sentry_mode = car.getCapabilityValue('car_sentry_mode');
+    data.car.meter_car_odo = car.getCapabilityValue('meter_car_odo');
+    data.car.meter_car_odo_unit = car.getCapabilityOptions('meter_car_odo').units;
+    data.car.measure_car_tpms_pressure_fl = car.getCapabilityValue('measure_car_tpms_pressure_fl');
+    data.car.measure_car_tpms_pressure_fr = car.getCapabilityValue('measure_car_tpms_pressure_fr');
+    data.car.measure_car_tpms_pressure_rl = car.getCapabilityValue('measure_car_tpms_pressure_rl');
+    data.car.measure_car_tpms_pressure_rr = car.getCapabilityValue('measure_car_tpms_pressure_rr');
+    data.car.measure_car_tpms_pressure_unit = car.getCapabilityOptions('measure_car_tpms_pressure_fl').units;
+
+    let battery = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == id)})[0];
+    if (battery){
+      data['battery'] = { };
+      data.battery.measure_soc_level = battery.getCapabilityValue('measure_soc_level');
+      data.battery.measure_soc_usable = battery.getCapabilityValue('measure_soc_usable');
+      data.battery.measure_soc_range_estimated = Math.round(battery.getCapabilityValue('measure_soc_range_estimated'));
+      data.battery.measure_soc_range_estimated_unit = battery.getCapabilityOptions('measure_soc_range_estimated').units;
+      data.battery.battery_heater = battery.getCapabilityValue('battery_heater');
+      data.battery.measure_io_battery_power = battery.getCapabilityValue('measure_io_battery_power');
+      data.battery.measure_charge_limit_soc = battery.getCapabilityValue('measure_charge_limit_soc');
+      data.battery.measure_charge_energy_added = battery.getCapabilityValue('measure_charge_energy_added');
+      data.battery.charging_state = battery.getCapabilityValue('charging_state');
+
+      let chargingStateList = this.manifest.capabilities.charging_state.values;
+      let chargingState = chargingStateList.find(state => state.id == data.battery.charging_state);
+      let lang = this.homey.i18n.getLanguage();
+      data.battery.charging_state_text = "";
+      if (chargingState && chargingState.title[lang]){
+        data.battery.charging_state_text = chargingState.title[lang];
+      }
+      else if (chargingState && chargingState.title['en']){
+        data.car.charging_state_text = chargingState.title['en'];
+      }
+  
+      data.battery.measure_charge_minutes_to_full_charge = battery.getCapabilityValue('measure_charge_minutes_to_full_charge');
+      data.battery.measure_charge_power = battery.getCapabilityValue('measure_charge_power');
+      data.battery.measure_charge_current = battery.getCapabilityValue('measure_charge_current');
+      data.battery.measure_charge_current_max = battery.getCapabilityValue('measure_charge_current_max');
+      data.battery.measure_charge_voltage = battery.getCapabilityValue('measure_charge_voltage');
+      data.battery.measure_charge_phases = battery.getCapabilityValue('measure_charge_phases');
+      data.battery.charging_port = battery.getCapabilityValue('charging_port');
+      data.battery.charging_on = battery.getCapabilityValue('charging_on');
+      data.battery.charging_port_cable = battery.getCapabilityValue('charging_port_cable');
+    }
+
+    let climate = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == id)})[0];
+    if (climate){
+      data['climate'] = { };
+      data.climate.target_temperature = climate.getCapabilityValue('target_temperature');
+      data.climate.measure_temperature = climate.getCapabilityValue('measure_temperature');
+      data.climate.measure_temperature_unit = climate.getCapabilityOptions("measure_climate_temperature_in").units;
+      data.climate.climate_ac = climate.getCapabilityValue('climate_ac');
+      data.climate.climate_preconditioning = climate.getCapabilityValue('climate_preconditioning');
+      data.climate.climate_defrost = climate.getCapabilityValue('climate_defrost');
+      data.climate.target_temperature = climate.getCapabilityValue('target_temperature');
+      data.climate.target_temperature = climate.getCapabilityValue('target_temperature');
+      data.climate.target_temperature = climate.getCapabilityValue('target_temperature');
+      data.climate.target_temperature = climate.getCapabilityValue('target_temperature');
+
+    }
+
+    return data;
+  }
+
+  async apiRefreshData(id){
+    let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == id ) })[0];
+    if (car == undefined){
+      throw new Error('No car device found.');
+    }
+    await car.flowActionRefresh();
+  }
+
+  async apiSetCarSentry(id, state){
+    let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == id ) })[0];
+    if (car == undefined){
+      throw new Error('No car device found.');
+    }
+    await car.flowActionSentryMode(state);
+  }
+
+  async apiSetClimatePreconditioning(id, state){
+    let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == id)})[0];
+    if (climateDevice == undefined){
+      throw new Error('No car device found.');
+    }
+    await climateDevice.flowActionPreconditioning(state);
+  }
+
+  async apiSetClimateDefrost(id, state){
+    let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == id)})[0];
+    if (climateDevice == undefined){
+      throw new Error('No car device found.');
+    }
+    await climateDevice.flowActionDefrost(state);
+  }
+
+  async apiSetChargingPort(id, state){
+    let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == id)})[0];
+    if (batteryDevice == undefined){
+      throw new Error('No car device found.');
+    }
+    await batteryDevice.flowActionChargePort(state);
+  }
+
 
 }

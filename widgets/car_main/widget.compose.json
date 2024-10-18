@@ -1,0 +1,69 @@
+{
+    "name": {
+      "en": "Tesla"
+    },
+    "settings": [
+      {
+        "id": "device",
+        "type": "autocomplete",
+        "title": {
+            "en": "Car",
+            "de": "Fahrzeug",
+            "nl": "Auto",
+            "fr": "Véhicule",
+            "it": "Veicolo",
+            "sv": "Bil",
+            "no": "Bil",
+            "es": "Vehículo",
+            "da": "Bil",
+            "ru": "Автомобиль",
+            "pl": "Samochód"
+        }
+      },
+      {
+        "id": "cable",
+        "type": "checkbox",
+        "value": false,
+        "title": {
+            "en": "Show cable",
+            "de": "Kabel anzeigen",
+            "nl": "Toon kabel",
+            "fr": "Afficher le câble",
+            "it": "Mostra cavo",
+            "sv": "Visa kabel",
+            "no": "Vis kabel",
+            "es": "Mostrar cable",
+            "da": "Vis kabel",
+            "ru": "Показать кабель",
+            "pl": "Pokaz kabel"
+        }
+      }
+    ],
+    "height": 100,
+    "api": {
+      "getCarData": {
+        "method": "GET",
+        "path": "/car_data"
+      },
+      "refreshData": {
+        "method": "POST",
+        "path": "/refresh_data"
+      },
+      "setCarSentry": {
+        "method": "POST",
+        "path": "/car_sentry"
+      },
+      "setClimatePreconditioning": {
+        "method": "POST",
+        "path": "/climate_preconditioning"
+      },
+      "setClimateDefrost": {
+        "method": "POST",
+        "path": "/climate_defrost"
+      },
+      "setChargingPort": {
+        "method": "POST",
+        "path": "/charging_port"
+      }
+    }
+  }

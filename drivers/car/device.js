@@ -684,7 +684,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // downloading_wifi_wait
     }
 
-    
     // Update child devices
     let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (batteryDevice){
@@ -702,6 +701,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (mediaDevice){
       await mediaDevice.updateDevice(data);
     }
+
+    // Realtime event - Widget update 
+    await this.homey.api.realtime("car_data_changed", {id: this.getData().id} );
 
   }
 

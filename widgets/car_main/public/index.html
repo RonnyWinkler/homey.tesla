@@ -1,0 +1,497 @@
+<html>
+
+<head>
+    <style>
+        /* SVG styles. */
+        .div_spinner{
+            display: inline-grid;
+        }
+        svg {
+            animation: 2s linear infinite svg-animation;
+            width: 16px;
+            }
+
+            /* SVG animation. */
+            @keyframes svg-animation {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            100% {
+                transform: rotateZ(360deg)
+            }
+        }
+
+        /* Circle styles. */
+        circle {
+            animation: 1.4s ease-in-out infinite both circle-animation;
+            display: block;
+            fill: transparent;
+            stroke: var(--homey-icon-color-light);
+            stroke-linecap: round;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 280;
+            stroke-width: 10px;
+            transform-origin: 50% 50%;
+        }
+
+         /* Circle animation. */
+        @keyframes circle-animation {
+            0%,
+            25% {
+                stroke-dashoffset: 280;
+                transform: rotate(0);
+            }
+            
+            50%,
+            75% {
+                stroke-dashoffset: 75;
+                transform: rotate(45deg);
+            }
+            
+            100% {
+                stroke-dashoffset: 280;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <style>
+        .div_buttons{
+            padding-left: var(--homey-su-2);
+            padding-right: var(--homey-su-2);
+        }
+        .div_button{
+            /* border: var(--homey-line);
+            border-radius: var(--homey-border-radius-smalls); */
+            margin-right: var(--homey-su-8);
+            display: inline-grid;
+            /* width:25px;
+            height: 25px; */
+        }
+        .capability_text {
+            vertical-align: super;
+        }
+        .capability_column{ 
+            /* width: 30%;  */
+            vertical-align: top;
+            padding: 0px;
+        }
+        #tr {
+            background-color: unset"
+        }
+        /* #td {
+            margin: 0px;
+            padding: 0px;
+        } */
+        .div_logo_frame{
+            height: 30px;
+            width: 150px;
+            position: relative;
+        }
+        .homey-custom-icon-car {
+            -webkit-mask-image: url('car.svg');
+            mask-image: url('car.svg');
+            height: 30px;
+            width: 150px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .homey-custom-icon-car_cable {
+            -webkit-mask-image: url('car_cable_connected.svg');
+            mask-image: url('car_cable_connected.svg');
+            height: 44px;
+            width: 150px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 10;
+        }
+        .homey-custom-icon-measure_soc_useable {
+            -webkit-mask-image: url('measure_soc_level.svg');
+            mask-image: url('measure_soc_level.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_soc_range_estimated {
+            -webkit-mask-image: url('measure_soc_range_estimated.svg');
+            mask-image: url('measure_soc_range_estimated.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_temperature {
+            -webkit-mask-image: url('measure_temperature.svg');
+            mask-image: url('measure_temperature.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-charging_state {
+            -webkit-mask-image: url('charging_state.svg');
+            mask-image: url('charging_state.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_charge_limit_soc {
+            -webkit-mask-image: url('measure_charge_limit_soc.svg');
+            mask-image: url('measure_charge_limit_soc.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_charge_current_max {
+            -webkit-mask-image: url('measure_charge_current_max.svg');
+            mask-image: url('measure_charge_current_max.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_charge_power {
+            -webkit-mask-image: url('measure_charge_power.svg');
+            mask-image: url('measure_charge_power.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_charge_minutes_to_full_charge {
+            -webkit-mask-image: url('measure_charge_minutes_to_full_charge.svg');
+            mask-image: url('measure_charge_minutes_to_full_charge.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-measure_charge_energy_added {
+            -webkit-mask-image: url('measure_charge_energy_added.svg');
+            mask-image: url('measure_charge_energy_added.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-car_refresh {
+            -webkit-mask-image: url('car_refresh.svg');
+            mask-image: url('car_refresh.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-car_sentry_mode {
+            -webkit-mask-image: url('car_sentry_mode.svg');
+            mask-image: url('car_sentry_mode.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-climate_preconditioning {
+            -webkit-mask-image: url('climate_preconditioning.svg');
+            mask-image: url('climate_preconditioning.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-climate_defrost {
+            -webkit-mask-image: url('climate_defrost.svg');
+            mask-image: url('climate_defrost.svg');
+            display: inline-grid;
+        }
+        .homey-custom-icon-charging_port {
+            -webkit-mask-image: url('charging_port.svg');
+            mask-image: url('charging_port.svg');
+            display: inline-grid;
+        }
+        
+    </style>
+</head>
+
+<!-- <body class="homey-widget-small"> -->
+<body class="homey-widget">
+
+    <!-- HEADER / LOGO -->
+    <table class="homey-table-striped text-align-center">
+        <!-- <thead>
+        <tr>
+          <th>Header 1</th>
+        </tr>
+        </thead> -->
+        <tbody>
+        <tr>
+          <td>
+            <div id="div_title">
+                <h1  id="text_car_name" class="homey-text-bold">Tesla</h1 >
+                <p><span id="text_car_state" class="homey-text-small-light"></span> <span id="text_last_online" class="homey-text-small-light"></span></p>
+            </div>        
+          </td>
+          <td style="width: 150px;" class="div_logo_frame">
+            <div id="div_logo" class="homey-custom-icon-car"></div>
+            <div id="div_logo_cable" class="homey-custom-icon-car_cable" style="visibility:hidden"></div>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- CAPABILITIES -->
+    <table class="homey-table-striped text-align-center" style="background-color: unset;">
+        <tbody>
+        <tr style="background-color: unset;">
+            <td class="capability_column">
+                <div id="div_cap_car">
+                    <div>
+                        <div id="div_icon_measure_soc_usable" class="homey-custom-icon-measure_soc_useable"></div>
+                        <span id="text_measure_soc_usable" class="homey-text-regular capability_text"></span>
+                    </div>
+                    <!-- <div>
+                        <div id="div_icon_measure_soc_range_estimated" class="homey-custom-icon-measure_soc_range_estimated"></div>
+                        <span id="text_measure_soc_range_estimated" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                    <div>
+                        <div id="div_icon_measure_temperature" class="homey-custom-icon-measure_temperature"></div>
+                        <span id="text_measure_temperature" class="homey-text-regular capability_text"></span>
+                    </div>
+                </div>        
+                <div id="div_cap_charge1" style="visibility:hidden">
+                    <div>
+                        <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
+                        <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
+                    </div>
+                    <!-- <div>
+                        <div id="div_icon_measure_charge_minutes_to_full_charge" class="homey-custom-icon-measure_charge_minutes_to_full_charge"></div>
+                        <span id="text_measure_charge_minutes_to_full_charge" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                    <!-- <div>
+                        <div id="div_icon_measure_charge_current_max" class="homey-custom-icon-measure_charge_current_max"></div>
+                        <span id="text_measure_charge_current_max" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                </div>        
+            </td>
+            <td class="capability_column">
+                <div id="div_cap_charge_def">
+                    <div>
+                        <div id="div_icon_charging_state" class="homey-custom-icon-charging_state"></div>
+                        <span id="text_charging_state" class="homey-text-regular capability_text"></span>
+                    </div>
+                    <div>
+                        <div id="div_icon_measure_charge_limit_soc" class="homey-custom-icon-measure_charge_limit_soc"></div>
+                        <span id="text_measure_charge_limit_soc" class="homey-text-regular capability_text"></span>
+                    </div>
+                    <!-- <div>
+                        <div id="div_icon_measure_charge_energy_added" class="homey-custom-icon-measure_charge_energy_added"></div>
+                        <span id="text_measure_charge_energy_added" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                </div>
+                <div id="div_cap_charge2" style="visibility:hidden">
+                    <!-- <div>
+                        <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
+                        <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                    <div>
+                        <div id="div_icon_measure_charge_minutes_to_full_charge" class="homey-custom-icon-measure_charge_minutes_to_full_charge"></div>
+                        <span id="text_measure_charge_minutes_to_full_charge" class="homey-text-regular capability_text"></span>
+                    </div>
+                    <!-- <div>
+                        <div id="div_icon_measure_charge_current_max" class="homey-custom-icon-measure_charge_current_max"></div>
+                        <span id="text_measure_charge_current_max" class="homey-text-regular capability_text"></span>
+                    </div> -->
+                </div>        
+            </td>
+        </tr>
+
+        <!-- <tr style="background-color: unset;">
+            <td class="capability_column">
+            </td>
+            <td class="capability_column">
+            </td>
+        </tr> -->
+        </tbody>
+    </table>
+
+    <div id="div_buttons" class="div_buttons">
+        <div class="div_button">
+            <div id="div_icon_car_refresh" class="homey-custom-icon-car_refresh" onclick="refresh()"></div>
+        </div>
+        <div class="div_button">
+            <div id="div_icon_car_sentry_mode" class="homey-custom-icon-car_sentry_mode" onclick="sentry_mode()"></div>
+        </div>
+        <div class="div_button">
+            <div id="div_icon_climate_preconditioning" class="homey-custom-icon-climate_preconditioning" onclick="climate_preconditioning()"></div>
+        </div>
+        <div class="div_button">
+            <div id="div_icon_climate_defrost" class="homey-custom-icon-climate_defrost" onclick="climate_defrost()"></div>
+        </div>
+        <div class="div_button">
+            <div id="div_icon_charging_port" class="homey-custom-icon-charging_port" onclick="charging_port()"></div>
+        </div>
+        <div id="div_icon_spinner" class="div_spinner" style="visibility:hidden">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45"/>
+            </svg>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let widget_data = {};
+        
+        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
+        function onHomeyReady(Homey) {
+            Homey.ready({ height: 200 });
+
+            console.log('instanceId: ', Homey.getWidgetInstanceId());
+            console.log('settings', Homey.getSettings());
+            // Realtime event for changed car data
+            Homey.on('car_data_changed', (id)=> _getCarData(Homey.getSettings().device.id));
+            // initial data reading
+            _getCarData(Homey.getSettings().device.id);
+        }
+
+        function _getCarData(id){
+            console.log('Update car data: vin:' + id);
+            // car changed event. Check VIN and get car data if it's the car shown in the widget
+            if (id != Homey.getSettings().device.id){
+                return;
+            }
+            // read/update car data
+            Homey.api('GET', '/car_data?id='+id, {})
+            .then((data) => {
+                console.log(data);
+                widget_data = data;
+                if (data.car){
+
+                    if (data.battery.charging_state != 'Disconnected'){
+                        document.getElementById('div_cap_charge1').style.visibility = "visible";
+                        document.getElementById('div_cap_charge2').style.visibility = "visible";
+                    }
+                    else{
+                        document.getElementById('div_cap_charge1').style.visibility = "hidden";
+                        document.getElementById('div_cap_charge2').style.visibility = "hidden";
+                    }
+
+                    document.getElementById('text_car_name').innerText = data.car.name;
+                    document.getElementById('text_car_state').innerText = data.car.car_state_text;
+                    document.getElementById('text_last_online').innerText = data.car.last_online;
+
+                    document.getElementById('text_measure_soc_usable').innerText = data.battery.measure_soc_usable + ' % ('+data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit+')';
+                    // document.getElementById('text_measure_soc_range_estimated').innerText = data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit;
+                    document.getElementById('text_measure_temperature').innerText = data.climate.measure_temperature +' '+data.climate.measure_temperature_unit+' ('+data.climate.target_temperature+' '+data.climate.measure_temperature_unit+')';
+
+                    document.getElementById('text_charging_state').innerText = data.battery.charging_state_text;
+                    document.getElementById('text_measure_charge_limit_soc').innerText = data.battery.measure_charge_limit_soc + ' % ('  + data.battery.measure_charge_current_max + ' A)';
+                    // document.getElementById('text_measure_charge_current_max').innerText = data.battery.measure_charge_current_max + ' A';
+
+                    document.getElementById('text_measure_charge_power').innerText = data.battery.measure_charge_power+' kW (' + data.battery.measure_charge_current+' A / '+data.battery.measure_charge_phases+' P)';
+                    document.getElementById('text_measure_charge_minutes_to_full_charge').innerText = data.battery.measure_charge_minutes_to_full_charge + ' min (+'+data.battery.measure_charge_energy_added + ' kWh)' ;
+                    // document.getElementById('text_measure_charge_energy_added').innerText = data.battery.measure_charge_energy_added + ' kWh';
+
+                    if (data.car.car_sentry_mode){
+                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-color-red)';
+                    }
+                    else{
+                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+
+                    if (data.climate.climate_preconditioning){
+                        if (data.climate.measure_temperature < data.climate.target_temperature){
+                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-red)';
+                        }
+                        else{
+                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-blue)';
+                        }
+                    }
+                    else{
+                        document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+
+                    if (data.climate.climate_defrost){
+                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-color-red)';
+                    }
+                    else{
+                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+
+                    if (data.battery.charging_port){
+                        document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
+                    }
+                    else{
+                        document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+
+                    // cable style
+                    if (data.battery.charging_state == 'Disconnected' || !Homey.getSettings().cable){
+                        document.getElementById('div_logo_cable').style.visibility = "hidden";
+                    } 
+                    else{
+                        document.getElementById('div_logo_cable').style.visibility = "visible";
+                    }
+
+                    switch (data.battery.charging_state){
+                        case 'Disconnected':
+                            break;
+                        case 'NoPower':
+                            document.getElementById('div_logo_cable').style.backgroundColor = "darkred";
+                            break;
+                        case 'Starting':
+                        case 'Calibrating':
+                        case 'Charging':
+                            document.getElementById('div_logo_cable').style.backgroundColor = "darkgreen";
+                            break;
+                        case 'Unknown':
+                        case 'Stopped':
+                        case 'Complete':
+                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-icon-color-dark)";
+                            break;
+                    }
+
+
+                }
+            })
+            .catch(console.error);
+        }
+
+        async function refresh(){
+            try{
+                document.getElementById('div_icon_spinner').style.visibility = "visible";
+                await Homey.api('POST', '/refresh_data?id='+Homey.getSettings().device.id, {});
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+            catch(error){
+                await sleep(5000);
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+        }
+        async function sentry_mode(){
+            try{
+                document.getElementById('div_icon_spinner').style.visibility = "visible";
+                await Homey.api('POST', '/car_sentry?id='+Homey.getSettings().device.id, {state:!widget_data.car.car_sentry_mode});
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+            catch(error){
+                await sleep(5000);
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+        }
+
+        async function climate_preconditioning(){
+            try{
+                document.getElementById('div_icon_spinner').style.visibility = "visible";
+                await Homey.api('POST', '/climate_preconditioning?id='+Homey.getSettings().device.id, {state:!widget_data.climate.climate_preconditioning});
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+            catch(error){
+                await sleep(5000);
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+        }
+
+        async function climate_defrost(){
+            try{
+                document.getElementById('div_icon_spinner').style.visibility = "visible";
+                await Homey.api('POST', '/climate_defrost?id='+Homey.getSettings().device.id, {state:!widget_data.climate.climate_defrost});
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+            catch(error){
+                await sleep(5000);
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+        }
+
+        async function charging_port(){
+            try{
+                document.getElementById('div_icon_spinner').style.visibility = "visible";
+                await Homey.api('POST', '/charging_port?id='+Homey.getSettings().device.id, {state:true});
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+            catch(error){
+                await sleep(5000);
+                await _getCarData(Homey.getSettings().device.id)
+                document.getElementById('div_icon_spinner').style.visibility = "hidden";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

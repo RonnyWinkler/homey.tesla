@@ -287,5 +287,8 @@
   },
   "1.10.0": {
     "en": "Added active route data to location device (destination, address, time, distance, energy)."
+  },
+  "1.11.0": {
+    "en": "Added car widget."
   }
 }

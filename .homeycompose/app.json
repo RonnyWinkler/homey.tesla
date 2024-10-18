@@ -1,7 +1,7 @@
 {
   "id": "com.tesla.car",
-  "version": "1.10.0",
-  "compatibility": ">=8.1.0",
+  "version": "1.11.0",
+  "compatibility": ">=12.1.2",
   "platforms": ["local"],
   "sdk": 3,
   "name": {
