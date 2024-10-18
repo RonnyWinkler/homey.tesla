@@ -290,5 +290,8 @@
   },
   "1.11.0": {
     "en": "Added car widget."
+  },
+  "1.11.1": {
+    "en": "Fixed compytibility version (>=12.1.0)."
   }
 }
