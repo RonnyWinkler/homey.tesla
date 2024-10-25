@@ -80,5 +80,8 @@
         "update":{
             "update_message": "The next version of Tesla app addes a new permission (Homey location). Auto update is not working in this case. Please check for updates manually next days and install the next version from app store."
         }
+    },
+    "widget":{
+        "car_select": "Select your car in widget settings"
     }
 }

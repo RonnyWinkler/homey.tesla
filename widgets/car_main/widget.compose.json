@@ -1,7 +1,17 @@
 {
     "name": {
-      "en": "Tesla"
-    },
+        "en": "Car",
+        "de": "Fahrzeug",
+        "nl": "Autooverzicht",
+        "fr": "Vehicule",
+        "it": "Veicolo",
+        "sv": "Bil",
+        "no": "Bil",
+        "es": "Vehículo",
+        "da": "Bil",
+        "ru": "Автомобиль",
+        "pl": "Samochód"
+},
     "settings": [
       {
         "id": "device",
@@ -41,29 +51,33 @@
     ],
     "height": 100,
     "api": {
-      "getCarData": {
-        "method": "GET",
-        "path": "/car_data"
-      },
-      "refreshData": {
-        "method": "POST",
-        "path": "/refresh_data"
-      },
-      "setCarSentry": {
-        "method": "POST",
-        "path": "/car_sentry"
-      },
-      "setClimatePreconditioning": {
-        "method": "POST",
-        "path": "/climate_preconditioning"
-      },
-      "setClimateDefrost": {
-        "method": "POST",
-        "path": "/climate_defrost"
-      },
-      "setChargingPort": {
-        "method": "POST",
-        "path": "/charging_port"
-      }
+        "getCar": {
+            "method": "GET",
+            "path": "/car"
+        },
+        "getCarData": {
+            "method": "GET",
+            "path": "/car_data"
+        },
+        "refreshData": {
+            "method": "POST",
+            "path": "/refresh_data"
+        },
+        "setCarSentry": {
+            "method": "POST",
+            "path": "/car_sentry"
+        },
+        "setClimatePreconditioning": {
+            "method": "POST",
+            "path": "/climate_preconditioning"
+        },
+        "setClimateDefrost": {
+            "method": "POST",
+            "path": "/climate_defrost"
+        },
+        "setChargingPort": {
+            "method": "POST",
+            "path": "/charging_port"
+        }
     }
   }

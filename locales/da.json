@@ -80,5 +80,8 @@
         "update": {
             "update_message": "Den næste version af Tesla appen tilføjer en ny tilladelse (Homey placering). Automatisk opdatering virker ikke i dette tilfælde. Tjek venligst for opdateringer manuelt de næste dage og installer den næste version fra app store."
         }
+    },
+    "widget":{
+        "car_select": "Vælg din bil i widgetindstillingerne"
     }
 }

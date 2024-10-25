@@ -80,5 +80,8 @@
         "update": {
             "update_message": "La prochaine version de l'application Tesla ajoute une nouvelle autorisation (emplacement Homey). La mise à jour automatique ne fonctionne pas dans ce cas. Veuillez vérifier les mises à jour manuellement dans les prochains jours et installer la prochaine version depuis la boutique d'applications."
         }
+    },
+    "widget":{
+        "car_select": "Sélectionnez votre véhicule dans les paramètres du widget"
     }
 }

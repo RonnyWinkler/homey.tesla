@@ -292,6 +292,9 @@
     "en": "Added car widget."
   },
   "1.11.1": {
-    "en": "Fixed compytibility version (>=12.1.0)."
+    "en": "Fixed compatibility version (>=12.1.0)."
+  },
+  "1.11.2": {
+    "en": "Extended widget. Clear destination data if no route is found."
   }
 }

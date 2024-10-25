@@ -80,5 +80,8 @@
         "update": {
             "update_message": "Nästa version av Tesla-appen lägger till en ny behörighet (Homey-plats). Automatisk uppdatering fungerar inte i detta fall. Kontrollera manuellt efter uppdateringar de närmaste dagarna och installera nästa version från appbutiken."
         }
+    },
+    "widget":{
+        "car_select": "Vär ditt bil i widget-inställningar"
     }
 }

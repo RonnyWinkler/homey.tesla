@@ -80,5 +80,8 @@
         "update": {
             "update_message": "Następna wersja aplikacji Tesla dodaje nowe uprawnienie (lokalizacja Homey). Automatyczna aktualizacja nie działa w tym przypadku. Proszę sprawdzić ręcznie dostępność aktualizacji w ciągu najbliższych dni i zainstalować następną wersję ze sklepu z aplikacjami."
         }
+    },
+    "widget":{
+        "car_select": "Wybierz auto w ustawieniach widgetu"
     }
 }

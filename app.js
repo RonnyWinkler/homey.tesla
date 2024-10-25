@@ -416,6 +416,15 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
   }
 
   // WIDGET API ============================================================================
+
+  async apiGetCar(){
+    let car = this.homey.drivers.getDriver('car').getDevices()[0];
+    if (car == undefined){
+      throw new Error('No car device found.');
+    }
+    return car.getData().id;
+  }
+
   async apiGetCarData(id){
     let data = { };
     let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == id ) })[0];

@@ -110,6 +110,7 @@
             -webkit-mask-image: url('measure_soc_level.svg');
             mask-image: url('measure_soc_level.svg');
             display: inline-grid;
+            /* --homey-icon-size: var(--homey-icon-size-regular); */
         }
         .homey-custom-icon-measure_soc_range_estimated {
             -webkit-mask-image: url('measure_soc_range_estimated.svg');
@@ -120,6 +121,7 @@
             -webkit-mask-image: url('measure_temperature.svg');
             mask-image: url('measure_temperature.svg');
             display: inline-grid;
+            /* --homey-icon-size: var(--#homey-icon-size-regular); */
         }
         .homey-custom-icon-charging_state {
             -webkit-mask-image: url('charging_state.svg');
@@ -206,129 +208,118 @@
         </tbody>
     </table>
 
-    <!-- CAPABILITIES -->
-    <table class="homey-table-striped text-align-center" style="background-color: unset;">
-        <tbody>
-        <tr style="background-color: unset;">
-            <td class="capability_column">
-                <div id="div_cap_car">
-                    <div>
-                        <div id="div_icon_measure_soc_usable" class="homey-custom-icon-measure_soc_useable"></div>
-                        <span id="text_measure_soc_usable" class="homey-text-regular capability_text"></span>
+    <div id="div_data" style="visibility:hidden">
+        <!-- CAPABILITIES -->
+        <table class="homey-table-striped text-align-center" style="background-color: unset;">
+            <tbody>
+            <tr style="background-color: unset;">
+                <td class="capability_column">
+                    <div id="div_cap_car">
+                        <div>
+                            <div id="div_icon_measure_soc_usable" class="homey-custom-icon-measure_soc_useable"></div>
+                            <span id="text_measure_soc_usable" class="homey-text-regular capability_text"></span>
+                        </div>
+                        <div>
+                            <div id="div_icon_measure_temperature" class="homey-custom-icon-measure_temperature"></div>
+                            <span id="text_measure_temperature" class="homey-text-regular capability_text"></span>
+                        </div>
+                    </div>        
+                    <div id="div_cap_charge1" style="visibility:hidden">
+                        <div>
+                            <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
+                            <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
+                        </div>
+                    </div>        
+                </td>
+                <td class="capability_column">
+                    <div id="div_cap_charge_def">
+                        <div>
+                            <div id="div_icon_charging_state" class="homey-custom-icon-charging_state"></div>
+                            <span id="text_charging_state" class="homey-text-regular capability_text"></span>
+                        </div>
+                        <div>
+                            <div id="div_icon_measure_charge_limit_soc" class="homey-custom-icon-measure_charge_limit_soc"></div>
+                            <span id="text_measure_charge_limit_soc" class="homey-text-regular capability_text"></span>
+                        </div>
                     </div>
-                    <!-- <div>
-                        <div id="div_icon_measure_soc_range_estimated" class="homey-custom-icon-measure_soc_range_estimated"></div>
-                        <span id="text_measure_soc_range_estimated" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                    <div>
-                        <div id="div_icon_measure_temperature" class="homey-custom-icon-measure_temperature"></div>
-                        <span id="text_measure_temperature" class="homey-text-regular capability_text"></span>
-                    </div>
-                </div>        
-                <div id="div_cap_charge1" style="visibility:hidden">
-                    <div>
-                        <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
-                        <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
-                    </div>
-                    <!-- <div>
-                        <div id="div_icon_measure_charge_minutes_to_full_charge" class="homey-custom-icon-measure_charge_minutes_to_full_charge"></div>
-                        <span id="text_measure_charge_minutes_to_full_charge" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                    <!-- <div>
-                        <div id="div_icon_measure_charge_current_max" class="homey-custom-icon-measure_charge_current_max"></div>
-                        <span id="text_measure_charge_current_max" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                </div>        
-            </td>
-            <td class="capability_column">
-                <div id="div_cap_charge_def">
-                    <div>
-                        <div id="div_icon_charging_state" class="homey-custom-icon-charging_state"></div>
-                        <span id="text_charging_state" class="homey-text-regular capability_text"></span>
-                    </div>
-                    <div>
-                        <div id="div_icon_measure_charge_limit_soc" class="homey-custom-icon-measure_charge_limit_soc"></div>
-                        <span id="text_measure_charge_limit_soc" class="homey-text-regular capability_text"></span>
-                    </div>
-                    <!-- <div>
-                        <div id="div_icon_measure_charge_energy_added" class="homey-custom-icon-measure_charge_energy_added"></div>
-                        <span id="text_measure_charge_energy_added" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                </div>
-                <div id="div_cap_charge2" style="visibility:hidden">
-                    <!-- <div>
-                        <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
-                        <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                    <div>
-                        <div id="div_icon_measure_charge_minutes_to_full_charge" class="homey-custom-icon-measure_charge_minutes_to_full_charge"></div>
-                        <span id="text_measure_charge_minutes_to_full_charge" class="homey-text-regular capability_text"></span>
-                    </div>
-                    <!-- <div>
-                        <div id="div_icon_measure_charge_current_max" class="homey-custom-icon-measure_charge_current_max"></div>
-                        <span id="text_measure_charge_current_max" class="homey-text-regular capability_text"></span>
-                    </div> -->
-                </div>        
-            </td>
-        </tr>
+                    <div id="div_cap_charge2" style="visibility:hidden">
+                        <div>
+                            <div id="div_icon_measure_charge_minutes_to_full_charge" class="homey-custom-icon-measure_charge_minutes_to_full_charge"></div>
+                            <span id="text_measure_charge_minutes_to_full_charge" class="homey-text-regular capability_text"></span>
+                        </div>
+                    </div>        
+                </td>
+            </tr>
 
-        <!-- <tr style="background-color: unset;">
-            <td class="capability_column">
-            </td>
-            <td class="capability_column">
-            </td>
-        </tr> -->
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <div id="div_buttons" class="div_buttons">
-        <div class="div_button">
-            <div id="div_icon_car_refresh" class="homey-custom-icon-car_refresh" onclick="refresh()"></div>
-        </div>
-        <div class="div_button">
-            <div id="div_icon_car_sentry_mode" class="homey-custom-icon-car_sentry_mode" onclick="sentry_mode()"></div>
-        </div>
-        <div class="div_button">
-            <div id="div_icon_climate_preconditioning" class="homey-custom-icon-climate_preconditioning" onclick="climate_preconditioning()"></div>
-        </div>
-        <div class="div_button">
-            <div id="div_icon_climate_defrost" class="homey-custom-icon-climate_defrost" onclick="climate_defrost()"></div>
-        </div>
-        <div class="div_button">
-            <div id="div_icon_charging_port" class="homey-custom-icon-charging_port" onclick="charging_port()"></div>
-        </div>
-        <div id="div_icon_spinner" class="div_spinner" style="visibility:hidden">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45"/>
-            </svg>
+        <div id="div_buttons" class="div_buttons">
+            <div class="div_button">
+                <div id="div_icon_car_refresh" class="homey-custom-icon-car_refresh"></div>
+            </div>
+            <div class="div_button">
+                <div id="div_icon_car_sentry_mode" class="homey-custom-icon-car_sentry_mode"></div>
+            </div>
+            <div class="div_button">
+                <div id="div_icon_climate_preconditioning" class="homey-custom-icon-climate_preconditioning"></div>
+            </div>
+            <div class="div_button">
+                <div id="div_icon_climate_defrost" class="homey-custom-icon-climate_defrost"></div>
+            </div>
+            <div class="div_button">
+                <div id="div_icon_charging_port" class="homey-custom-icon-charging_port"></div>
+            </div>
+            <div id="div_icon_spinner" class="div_spinner" style="visibility:hidden">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45"/>
+                </svg>
+            </div>
         </div>
     </div>
-
+    
     <script type="text/javascript">
         let widget_data = {};
         
         const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
-        function onHomeyReady(Homey) {
+        async function onHomeyReady(Homey) {
             Homey.ready({ height: 200 });
 
             console.log('instanceId: ', Homey.getWidgetInstanceId());
             console.log('settings', Homey.getSettings());
+
             // Realtime event for changed car data
             Homey.on('car_data_changed', (id)=> _getCarData(Homey.getSettings().device.id));
             // initial data reading
-            _getCarData(Homey.getSettings().device.id);
+            if (!Homey.getSettings().device || !Homey.getSettings().device.id){
+                // try{
+                //     let id = await Homey.api('GET', '/car', {});
+                //     if (id != undefined){
+                //         console.log('First car device used: '+id);
+                //         Homey.getSettings().device
+                //     }
+                // }
+                // catch(error){
+                //     console.log('No car device found');
+                // }
+                document.getElementById('text_car_state').innerText = Homey.__('widget.car_select');
+            }
+            else{
+                _getCarData(Homey.getSettings().device.id);
+            }
         }
 
-        function _getCarData(id){
+        async function _getCarData(id){
             console.log('Update car data: vin:' + id);
             // car changed event. Check VIN and get car data if it's the car shown in the widget
-            if (id != Homey.getSettings().device.id){
+            if (Homey.getSettings().device && 
+                id != Homey.getSettings().device.id){
                 return;
             }
             // read/update car data
-            Homey.api('GET', '/car_data?id='+id, {})
-            .then((data) => {
+            try{
+                let data = await Homey.api('GET', '/car_data?id='+id, {});
                 console.log(data);
                 widget_data = data;
                 if (data.car){
@@ -347,16 +338,13 @@
                     document.getElementById('text_last_online').innerText = data.car.last_online;
 
                     document.getElementById('text_measure_soc_usable').innerText = data.battery.measure_soc_usable + ' % ('+data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit+')';
-                    // document.getElementById('text_measure_soc_range_estimated').innerText = data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit;
                     document.getElementById('text_measure_temperature').innerText = data.climate.measure_temperature +' '+data.climate.measure_temperature_unit+' ('+data.climate.target_temperature+' '+data.climate.measure_temperature_unit+')';
 
                     document.getElementById('text_charging_state').innerText = data.battery.charging_state_text;
                     document.getElementById('text_measure_charge_limit_soc').innerText = data.battery.measure_charge_limit_soc + ' % ('  + data.battery.measure_charge_current_max + ' A)';
-                    // document.getElementById('text_measure_charge_current_max').innerText = data.battery.measure_charge_current_max + ' A';
 
                     document.getElementById('text_measure_charge_power').innerText = data.battery.measure_charge_power+' kW (' + data.battery.measure_charge_current+' A / '+data.battery.measure_charge_phases+' P)';
                     document.getElementById('text_measure_charge_minutes_to_full_charge').innerText = data.battery.measure_charge_minutes_to_full_charge + ' min (+'+data.battery.measure_charge_energy_added + ' kWh)' ;
-                    // document.getElementById('text_measure_charge_energy_added').innerText = data.battery.measure_charge_energy_added + ' kWh';
 
                     if (data.car.car_sentry_mode){
                         document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-color-red)';
@@ -384,12 +372,9 @@
                         document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-icon-color-light)';
                     }
 
-                    if (data.battery.charging_port){
-                        document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
-                    }
-                    else{
-                        document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
-                    }
+                    // Test:
+                    // data.battery.charging_state = 'Charging';
+
 
                     // cable style
                     if (data.battery.charging_state == 'Disconnected' || !Homey.getSettings().cable){
@@ -399,29 +384,67 @@
                         document.getElementById('div_logo_cable').style.visibility = "visible";
                     }
 
+                    // cable color and charge port icon color based on connection/port state
                     switch (data.battery.charging_state){
                         case 'Disconnected':
+                            // disconnected: port color based on port state (open/close)
+                            if (data.battery.charging_port){
+                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
+                            }
+                            else{
+                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
+                            }
                             break;
                         case 'NoPower':
-                            document.getElementById('div_logo_cable').style.backgroundColor = "darkred";
+                            document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-red-600)';
+                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-red-600)';
                             break;
                         case 'Starting':
                         case 'Calibrating':
                         case 'Charging':
-                            document.getElementById('div_logo_cable').style.backgroundColor = "darkgreen";
+                            document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-green-600)';
+                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-green-600)';
                             break;
                         case 'Unknown':
                         case 'Stopped':
+                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-icon-color-light)";
+                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
+                            break;
                         case 'Complete':
-                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-icon-color-dark)";
+                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-color-blue-600)";
+                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-blue-600)';
                             break;
                     }
 
-
+                    document.getElementById('div_data').style.visibility = "visible";
                 }
-            })
-            .catch(console.error);
+            }
+            catch(error){
+                console.error;
+                document.getElementById('div_data').style.visibility = "hidden";
+            }
         }
+
+        document.getElementById('div_icon_car_refresh').addEventListener('click', () => {
+            // Homey.hapticFeedback();
+            refresh();
+        });
+        document.getElementById('div_icon_car_sentry_mode').addEventListener('click', () => {
+            // Homey.hapticFeedback();
+            sentry_mode();
+        });
+        document.getElementById('div_icon_climate_preconditioning').addEventListener('click', () => {
+            // Homey.hapticFeedback();
+            climate_preconditioning();
+        });
+        document.getElementById('div_icon_climate_defrost').addEventListener('click', () => {
+            // Homey.hapticFeedback();
+            climate_defrost();
+        });
+        document.getElementById('div_icon_charging_port').addEventListener('click', () => {
+            // Homey.hapticFeedback();
+            charging_port();
+        });
 
         async function refresh(){
             try{
