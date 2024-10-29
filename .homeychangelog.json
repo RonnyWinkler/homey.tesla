@@ -296,5 +296,8 @@
   },
   "1.11.2": {
     "en": "Extended widget. Clear destination data if no route is found."
+  },
+  "1.11.3": {
+    "en": "Widget: hide elements if device is not found."
   }
 }

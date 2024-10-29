@@ -324,52 +324,43 @@
                 widget_data = data;
                 if (data.car){
 
-                    if (data.battery.charging_state != 'Disconnected'){
-                        document.getElementById('div_cap_charge1').style.visibility = "visible";
-                        document.getElementById('div_cap_charge2').style.visibility = "visible";
-                    }
-                    else{
-                        document.getElementById('div_cap_charge1').style.visibility = "hidden";
-                        document.getElementById('div_cap_charge2').style.visibility = "hidden";
-                    }
-
                     document.getElementById('text_car_name').innerText = data.car.name;
                     document.getElementById('text_car_state').innerText = data.car.car_state_text;
                     document.getElementById('text_last_online').innerText = data.car.last_online;
 
-                    document.getElementById('text_measure_soc_usable').innerText = data.battery.measure_soc_usable + ' % ('+data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit+')';
-                    document.getElementById('text_measure_temperature').innerText = data.climate.measure_temperature +' '+data.climate.measure_temperature_unit+' ('+data.climate.target_temperature+' '+data.climate.measure_temperature_unit+')';
 
-                    document.getElementById('text_charging_state').innerText = data.battery.charging_state_text;
-                    document.getElementById('text_measure_charge_limit_soc').innerText = data.battery.measure_charge_limit_soc + ' % ('  + data.battery.measure_charge_current_max + ' A)';
-
-                    document.getElementById('text_measure_charge_power').innerText = data.battery.measure_charge_power+' kW (' + data.battery.measure_charge_current+' A / '+data.battery.measure_charge_phases+' P)';
-                    document.getElementById('text_measure_charge_minutes_to_full_charge').innerText = data.battery.measure_charge_minutes_to_full_charge + ' min (+'+data.battery.measure_charge_energy_added + ' kWh)' ;
-
-                    if (data.car.car_sentry_mode){
-                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-color-red)';
-                    }
-                    else{
-                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-icon-color-light)';
-                    }
-
-                    if (data.climate.climate_preconditioning){
-                        if (data.climate.measure_temperature < data.climate.target_temperature){
-                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-red)';
+                    if (data.battery != undefined){
+                        if (data.battery.charging_state != 'Disconnected'){
+                            document.getElementById('div_cap_charge1').style.visibility = "visible";
+                            document.getElementById('div_cap_charge2').style.visibility = "visible";
                         }
                         else{
-                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-blue)';
+                            document.getElementById('div_cap_charge1').style.visibility = "hidden";
+                            document.getElementById('div_cap_charge2').style.visibility = "hidden";
                         }
+
+                        document.getElementById('text_measure_soc_usable').innerText = data.battery.measure_soc_usable + ' % ('+data.battery.measure_soc_range_estimated + ' ' + data.battery.measure_soc_range_estimated_unit+')';
+                        document.getElementById('text_charging_state').innerText = data.battery.charging_state_text;
+                        document.getElementById('text_measure_charge_limit_soc').innerText = data.battery.measure_charge_limit_soc + ' % ('  + data.battery.measure_charge_current_max + ' A)';
+                        document.getElementById('text_measure_charge_power').innerText = data.battery.measure_charge_power+' kW (' + data.battery.measure_charge_current+' A / '+data.battery.measure_charge_phases+' P)';
+                        document.getElementById('text_measure_charge_minutes_to_full_charge').innerText = data.battery.measure_charge_minutes_to_full_charge + ' min (+'+data.battery.measure_charge_energy_added + ' kWh)' ;
+
+                        document.getElementById('div_icon_measure_soc_usable').style.visibility = "visible";
+                        document.getElementById('div_icon_charging_state').style.visibility = "visible";
+                        document.getElementById('div_icon_measure_charge_limit_soc').style.visibility = "visible";                        
                     }
                     else{
-                        document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-icon-color-light)';
+                        document.getElementById('div_icon_measure_soc_usable').style.visibility = "hidden";
+                        document.getElementById('div_icon_charging_state').style.visibility = "hidden";
+                        document.getElementById('div_icon_measure_charge_limit_soc').style.visibility = "hidden";                        
                     }
 
-                    if (data.climate.climate_defrost){
-                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-color-red)';
+                    if (data.climate){
+                        document.getElementById('text_measure_temperature').innerText = data.climate.measure_temperature +' '+data.climate.measure_temperature_unit+' ('+data.climate.target_temperature+' '+data.climate.measure_temperature_unit+')';
+                        document.getElementById('div_icon_measure_temperature').style.visibility = "visible";                        
                     }
                     else{
-                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-icon-color-light)';
+                        document.getElementById('div_icon_measure_temperature').style.visibility = "hidden";                        
                     }
 
                     // Test:
@@ -377,43 +368,75 @@
 
 
                     // cable style
-                    if (data.battery.charging_state == 'Disconnected' || !Homey.getSettings().cable){
+                    if (!Homey.getSettings().cable || data.battery && data.battery.charging_state == 'Disconnected' ){
                         document.getElementById('div_logo_cable').style.visibility = "hidden";
                     } 
                     else{
                         document.getElementById('div_logo_cable').style.visibility = "visible";
                     }
 
+                    // Buttons
+                    if (data.car.car_sentry_mode){
+                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-color-red)';
+                    }
+                    else{
+                        document.getElementById('div_icon_car_sentry_mode').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+                    if (data.climate && data.climate.climate_preconditioning){
+                        if (data.climate.measure_temperature < data.climate.target_temperature){
+                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-red)';
+                        }
+                        else if (data.climate.measure_temperature > data.climate.target_temperature){
+                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-blue)';
+                        }
+                        else{
+                            document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-color-green-600)';
+                        }
+                    }
+                    else{
+                        document.getElementById('div_icon_climate_preconditioning').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }
+                    if (data.climate && data.climate.climate_defrost){
+                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-color-red)';
+                    }
+                    else{
+                        document.getElementById('div_icon_climate_defrost').style.backgroundColor = 'var(--homey-icon-color-light)';
+                    }                        
                     // cable color and charge port icon color based on connection/port state
-                    switch (data.battery.charging_state){
-                        case 'Disconnected':
-                            // disconnected: port color based on port state (open/close)
-                            if (data.battery.charging_port){
+                    if (data.battery){
+                        switch (data.battery.charging_state){
+                            case 'Disconnected':
+                                // disconnected: port color based on port state (open/close)
+                                if (data.battery.charging_port){
+                                    document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
+                                }
+                                else{
+                                    document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
+                                }
+                                break;
+                            case 'NoPower':
+                                document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-red-600)';
+                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-red-600)';
+                                break;
+                            case 'Starting':
+                            case 'Calibrating':
+                            case 'Charging':
+                                document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-green-600)';
+                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-green-600)';
+                                break;
+                            case 'Unknown':
+                            case 'Stopped':
+                                document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-icon-color-light)";
                                 document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
-                            }
-                            else{
-                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
-                            }
-                            break;
-                        case 'NoPower':
-                            document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-red-600)';
-                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-red-600)';
-                            break;
-                        case 'Starting':
-                        case 'Calibrating':
-                        case 'Charging':
-                            document.getElementById('div_logo_cable').style.backgroundColor = 'var(--homey-color-green-600)';
-                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-green-600)';
-                            break;
-                        case 'Unknown':
-                        case 'Stopped':
-                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-icon-color-light)";
-                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-dark)';
-                            break;
-                        case 'Complete':
-                            document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-color-blue-600)";
-                            document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-blue-600)';
-                            break;
+                                break;
+                            case 'Complete':
+                                document.getElementById('div_logo_cable').style.backgroundColor = "var(--homey-color-blue-600)";
+                                document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-color-blue-600)';
+                                break;
+                        }
+                    }
+                    else{
+                        document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
                     }
 
                     document.getElementById('div_data').style.visibility = "visible";
