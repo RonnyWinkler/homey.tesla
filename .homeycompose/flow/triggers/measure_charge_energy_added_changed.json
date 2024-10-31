@@ -14,7 +14,7 @@
     },
     "tokens": [
         {
-            "name": "measure_charge_limit_soc",
+            "name": "measure_charge_energy_added",
             "type": "number",
             "title": {
                 "en": "Charge energy added",

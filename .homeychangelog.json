@@ -299,5 +299,8 @@
   },
   "1.11.3": {
     "en": "Widget: hide elements if device is not found."
+  },
+  "1.11.4": {
+    "en": "Fixed charge energy added trigger."
   }
 }
