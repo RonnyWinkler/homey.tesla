@@ -305,5 +305,8 @@
   },
   "1.11.5": {
     "en": "Fixed active route detail reset."
+  },
+  "1.11.6": {
+    "en": "Added raw car data to repair view."
   }
 }

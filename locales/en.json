@@ -28,8 +28,12 @@
             "title": "Selection",
             "auth": "Change Login",
             "register_app": "Register app in car",
+            "device_details": "Device details",
             "charging_history": "Charging history",
             "charging_history_suc": "SuC Charging history"
+        },
+        "device_details":{
+            "title": "Device details"
         },
         "charging_history":{
             "title": "Charging history",

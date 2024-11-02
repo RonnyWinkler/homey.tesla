@@ -113,6 +113,12 @@
         {
             "id": "done",
             "template": "done"
+        },
+        {
+            "id": "device_details",
+            "navigation": { 
+                "prev": "select"
+            }
         }
     ]
 }

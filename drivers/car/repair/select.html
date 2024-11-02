@@ -20,6 +20,9 @@
     function onSelectRegisterApp(){
         Homey.showView("register");
     }
+    function onSelectDeviceDetails(){
+        Homey.showView("device_details");
+    }
 
 </script>
 
@@ -33,6 +36,11 @@
         <div>
             <p>
                 <button id="btnRegisterApp" class="homey-button-primary-full" onClick="onSelectRegisterApp()" ><span data-i18n="repair.select.register_app"></span></button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button id="btnDeviceDetails" class="homey-button-secondary-shadow-full" onClick="onSelectDeviceDetails()" ><span data-i18n="repair.select.device_details"></span></button>
             </p>
         </div>
     </fieldset>

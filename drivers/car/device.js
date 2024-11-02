@@ -418,7 +418,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       if ( oldState == CONSTANTS.STATE_ONLINE ){
         this._startSync();
       }
-      return;
+      return vehicle;
     }
 
     // car data
@@ -448,7 +448,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
 
       this._updateDevice(data);
-
+      return data;
     }
     catch(error){
       // Check for "Offline" errors (408)
@@ -496,7 +496,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
           this._startSync();
         }
-        return;
+        return settings;
       }
       else{
         throw error;
