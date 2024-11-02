@@ -302,5 +302,8 @@
   },
   "1.11.4": {
     "en": "Fixed charge energy added trigger."
+  },
+  "1.11.5": {
+    "en": "Fixed active route detail reset."
   }
 }
