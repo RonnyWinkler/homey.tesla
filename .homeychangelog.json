@@ -308,5 +308,8 @@
   },
   "1.11.6": {
     "en": "Added raw car data to repair view."
+  },
+  "1.11.7": {
+    "en": "Widget: adjusted layout (responsive)."
   }
 }

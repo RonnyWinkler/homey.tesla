@@ -1,0 +1,198 @@
+/* SVG styles. */
+.div_spinner{
+    display: inline-grid;
+}
+svg {
+    animation: 2s linear infinite svg-animation;
+    width: 16px;
+    }
+
+    /* SVG animation. */
+    @keyframes svg-animation {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg)
+    }
+}
+
+/* Circle styles. */
+circle {
+    animation: 1.4s ease-in-out infinite both circle-animation;
+    display: block;
+    fill: transparent;
+    stroke: var(--homey-icon-color-light);
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 280;
+    stroke-width: 10px;
+    transform-origin: 50% 50%;
+}
+
+    /* Circle animation. */
+@keyframes circle-animation {
+    0%,
+    25% {
+        stroke-dashoffset: 280;
+        transform: rotate(0);
+    }
+    
+    50%,
+    75% {
+        stroke-dashoffset: 75;
+        transform: rotate(45deg);
+    }
+    
+    100% {
+        stroke-dashoffset: 280;
+        transform: rotate(360deg);
+    }
+}
+
+.div_buttons{
+    padding-top: var(--homey-su-2);
+    padding-left: var(--homey-su-2);
+    padding-right: var(--homey-su-2);
+}
+.div_button{
+    /* border: var(--homey-line);
+    border-radius: var(--homey-border-radius-smalls); */
+    margin-right: var(--homey-su-8);
+    display: inline-grid;
+    /* width:25px;
+    height: 25px; */
+}
+
+.div_flex{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.div_capability_column{
+    display: grid;
+    min-width: 50%;
+}
+
+.div_capability{
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    /* max-width: fit-content; */
+}
+
+.capability_text {
+    vertical-align: super;
+}
+
+.capability_column{ 
+    /* width: 30%;  */
+    vertical-align: top;
+    padding: 0px;
+}
+#tr {
+    background-color: unset"
+}
+/* #td {
+    margin: 0px;
+    padding: 0px;
+} */
+.div_logo_frame{
+    height: 30px;
+    width: 150px;
+    position: relative;
+}
+.homey-custom-icon-car {
+    -webkit-mask-image: url('car.svg');
+    mask-image: url('car.svg');
+    height: 30px;
+    width: 150px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.homey-custom-icon-car_cable {
+    -webkit-mask-image: url('car_cable_connected.svg');
+    mask-image: url('car_cable_connected.svg');
+    height: 44px;
+    width: 150px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+.homey-custom-icon-measure_soc_useable {
+    -webkit-mask-image: url('measure_soc_level.svg');
+    mask-image: url('measure_soc_level.svg');
+    /* display: inline-grid; */
+    /* --homey-icon-size: var(--homey-icon-size-regular); */
+}
+.homey-custom-icon-measure_soc_range_estimated {
+    -webkit-mask-image: url('measure_soc_range_estimated.svg');
+    mask-image: url('measure_soc_range_estimated.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_temperature {
+    -webkit-mask-image: url('measure_temperature.svg');
+    mask-image: url('measure_temperature.svg');
+    /* display: inline-grid; */
+    /* --homey-icon-size: var(--#homey-icon-size-regular); */
+}
+.homey-custom-icon-charging_state {
+    -webkit-mask-image: url('charging_state.svg');
+    mask-image: url('charging_state.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_charge_limit_soc {
+    -webkit-mask-image: url('measure_charge_limit_soc.svg');
+    mask-image: url('measure_charge_limit_soc.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_charge_current_max {
+    -webkit-mask-image: url('measure_charge_current_max.svg');
+    mask-image: url('measure_charge_current_max.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_charge_power {
+    -webkit-mask-image: url('measure_charge_power.svg');
+    mask-image: url('measure_charge_power.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_charge_minutes_to_full_charge {
+    -webkit-mask-image: url('measure_charge_minutes_to_full_charge.svg');
+    mask-image: url('measure_charge_minutes_to_full_charge.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-measure_charge_energy_added {
+    -webkit-mask-image: url('measure_charge_energy_added.svg');
+    mask-image: url('measure_charge_energy_added.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-car_refresh {
+    -webkit-mask-image: url('car_refresh.svg');
+    mask-image: url('car_refresh.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-car_sentry_mode {
+    -webkit-mask-image: url('car_sentry_mode.svg');
+    mask-image: url('car_sentry_mode.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-climate_preconditioning {
+    -webkit-mask-image: url('climate_preconditioning.svg');
+    mask-image: url('climate_preconditioning.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-climate_defrost {
+    -webkit-mask-image: url('climate_defrost.svg');
+    mask-image: url('climate_defrost.svg');
+    /* display: inline-grid; */
+}
+.homey-custom-icon-charging_port {
+    -webkit-mask-image: url('charging_port.svg');
+    mask-image: url('charging_port.svg');
+    /* display: inline-grid; */
+}
