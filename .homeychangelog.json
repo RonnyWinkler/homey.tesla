@@ -311,5 +311,8 @@
   },
   "1.11.7": {
     "en": "Widget: adjusted layout (responsive)."
+  },
+  "1.11.8": {
+    "en": "Widget: adjusted layout (alignment)."
   }
 }

@@ -6,14 +6,21 @@
 
 <!-- <body class="homey-widget-small"> -->
 <body id="body" class="homey-widget">
-    <div id="header">
+    <div id="div_header" class="div_header">
         <!-- HEADER / LOGO -->
+
+        <div id="div_header" class="div_header div_flex">
+            <div id="div_title">
+                <h1  id="text_car_name" class="homey-text-bold">Tesla</h1 >
+                <p><span id="text_car_state" class="homey-text-small-light"></span> <span id="text_last_online" class="homey-text-small-light"></span></p>
+            </div>        
+            <div id="logo_frame" class="div_logo_frame">
+                <div id="div_logo" class="homey-custom-icon-car"></div>
+                <div id="div_logo_cable" class="homey-custom-icon-car_cable" style="display:none"></div>
+            </div>
+        </div>
+<!-- 
         <table class="homey-table-striped text-align-center">
-            <!-- <thead>
-            <tr>
-            <th>Header 1</th>
-            </tr>
-            </thead> -->
             <tbody>
             <tr>
             <td>
@@ -28,10 +35,10 @@
             </td>
             </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 
-    <div id="div_data" class="div_data div_flex">
+    <div id="div_data" class="div_data div_flex" style="display: none;">
         <!-- CAPABILITIES -->
         <div id="div_cap_car" class="div_capability_column">
             <div class="div_capability div_cap_battery">
@@ -55,7 +62,7 @@
             </div>
         </div>
 
-        <div id="div_cap_charging" class="div_flex">
+        <div id="div_cap_charging" class="div_flex" >
             <div class="div_capability div_cap_charging">
                 <div id="div_icon_measure_charge_power" class="homey-custom-icon-measure_charge_power"></div>
                 <span id="text_measure_charge_power" class="homey-text-regular capability_text"></span>
@@ -67,7 +74,7 @@
         </div>        
     </div>
 
-    <div id="div_buttons" class="div_buttons">
+    <div id="div_buttons" class="div_buttons" style="display: none;">
         <div class="div_button">
             <div id="div_icon_car_refresh" class="homey-custom-icon-car_refresh"></div>
         </div>
@@ -96,7 +103,7 @@
         const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
         async function onHomeyReady(Homey) {
-            Homey.ready({ height: 150 });
+            Homey.ready({ height: 134 });
 
             console.log('instanceId: ', Homey.getWidgetInstanceId());
             console.log('settings', Homey.getSettings());
@@ -135,14 +142,13 @@
                 console.log(data);
                 widget_data = data;
                 if (data.car){
-                    document.getElementById('div_data').style.display = "flex";
 
                     document.getElementById('text_car_name').innerText = data.car.name;
                     document.getElementById('text_car_state').innerText = data.car.car_state_text;
                     document.getElementById('text_last_online').innerText = data.car.last_online;
 
                     // TEST ==>
-                    //data.battery.charging_state = 'Charging';
+                    // data.battery.charging_state = 'Charging';
                     // data.climate = undefined;
                     // <== TEST
 
@@ -250,6 +256,9 @@
                         document.getElementById('div_icon_charging_port').style.backgroundColor = 'var(--homey-icon-color-light)';
                     }
 
+                    document.getElementById('div_data').style.display = "flex";
+                    document.getElementById('div_buttons').style.display = "flex";
+
                 }
             }
             catch(error){
@@ -259,7 +268,7 @@
 
             // TEST ==>
             // --homey-font-scale: 0.800000011920929;
-            // await document.getElementById('html').style.setProperty('--homey-font-scale', 2);
+            // await document.getElementById('html').style.setProperty('--homey-font-scale', 1.5);
             // <== TEST
 
             await Homey.setHeight(document.getElementById('body').offsetHeight);

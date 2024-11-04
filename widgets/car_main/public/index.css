@@ -52,7 +52,7 @@ circle {
 
 .div_buttons{
     padding-top: var(--homey-su-2);
-    padding-left: var(--homey-su-2);
+    /* padding-left: var(--homey-su-2); */
     padding-right: var(--homey-su-2);
 }
 .div_button{
@@ -63,7 +63,6 @@ circle {
     /* width:25px;
     height: 25px; */
 }
-
 .div_flex{
     width: 100%;
     display: flex;
@@ -71,35 +70,32 @@ circle {
     flex-wrap: wrap;
     align-items: flex-start;
 }
-
+.div_data{
+    padding-top: var(--homey-su-2);
+}
 .div_capability_column{
     display: grid;
     min-width: 50%;
 }
-
 .div_capability{
     min-width: 50%;
     display: flex;
     align-items: center;
     /* max-width: fit-content; */
 }
-
 .capability_text {
     vertical-align: super;
 }
-
 .capability_column{ 
     /* width: 30%;  */
     vertical-align: top;
     padding: 0px;
 }
-#tr {
-    background-color: unset"
+.div_header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
-/* #td {
-    margin: 0px;
-    padding: 0px;
-} */
 .div_logo_frame{
     height: 30px;
     width: 150px;
