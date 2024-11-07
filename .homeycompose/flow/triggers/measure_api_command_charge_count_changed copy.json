@@ -1,20 +1,20 @@
 {
     "title": {
-        "en": "API commmand count changed",
-        "de": "API Kommandoanzahl geändert",
-        "nl": "Aantal API commando's veranderd",
+        "en": "API charge commmand count changed",
+        "de": "API Lade-Kommandoanzahl geändert",
+        "nl": "Aantal API laad-commando's veranderd",
         "fr": "Nombre de commandes API modifié",
         "it": "Conteggio comandi API modificato",
-        "sv": "API-kommandoräkning ändrad",
-        "no": "Endret API-kommandotelling",
+        "sv": "API-lad-kommandoräkning åndrad",
+        "no": "Endret API-lade-kommandotelling",
         "es": "Recuento de comandos de API cambiado",
-        "da": "Ændret API-kommandotal",
+        "da": "Ændret API-lade-kommandotal",
         "ru": "Изменено количество команд API",
         "pl": "Zmieniono liczbę poleceń API"
     },
     "tokens": [
         {
-            "name": "measure_api_command_count",
+            "name": "measure_api_command_charge_count",
             "type": "number",
             "title": {
                 "en": "Commands per day",

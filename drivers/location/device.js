@@ -95,27 +95,6 @@ module.exports = class LocationDevice extends ChildDevice {
       }
 
       // Route destination
-      if (this.hasCapability('location_route_destination_name') && data.drive_state && data.drive_state.active_route_destination != undefined){
-        await this.setCapabilityValue('location_route_destination_name', data.drive_state.active_route_destination);
-      }
-      else{
-        await this.setCapabilityValue('location_route_destination_name', null);
-      }
-      if (this.hasCapability('location_route_destination_address') && 
-        data.drive_state && 
-        data.drive_state.active_route_destination != undefined && 
-        data.drive_state.active_route_latitude != undefined && 
-        data.drive_state.active_route_longitude != undefined){
-        let destination_address = await this._osm.getAddress( 
-          data.drive_state.active_route_latitude, 
-          data.drive_state.active_route_longitude, 
-          this.homey.i18n.getLanguage()
-        );
-        await this.setCapabilityValue('location_route_destination_address', destination_address.display_name);
-      }
-      else{
-        await this.setCapabilityValue('location_route_destination_address', null);
-      }
       if (this.hasCapability('location_route_destination_distance') && 
         data.drive_state && 
         data.drive_state.active_route_destination != undefined &&
@@ -155,6 +134,27 @@ module.exports = class LocationDevice extends ChildDevice {
       }
       else{
         await this.setCapabilityValue('location_route_destination_energy', null);
+      }
+      if (this.hasCapability('location_route_destination_address') && 
+        data.drive_state && 
+        data.drive_state.active_route_destination != undefined && 
+        data.drive_state.active_route_latitude != undefined && 
+        data.drive_state.active_route_longitude != undefined){
+        let destination_address = await this._osm.getAddress( 
+          data.drive_state.active_route_latitude, 
+          data.drive_state.active_route_longitude, 
+          this.homey.i18n.getLanguage()
+        );
+        await this.setCapabilityValue('location_route_destination_address', destination_address.display_name);
+      }
+      else{
+        await this.setCapabilityValue('location_route_destination_address', null);
+      }
+      if (this.hasCapability('location_route_destination_name') && data.drive_state && data.drive_state.active_route_destination != undefined){
+        await this.setCapabilityValue('location_route_destination_name', data.drive_state.active_route_destination);
+      }
+      else{
+        await this.setCapabilityValue('location_route_destination_name', null);
       }
 
     }

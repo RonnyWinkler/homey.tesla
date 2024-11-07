@@ -3,7 +3,7 @@
   "title": {
     "en": "Tesla API wake command count",
     "de": "Tesla API Weck-Kommandoanzahl",
-    "nl": "Tesla API weck-kommando tellen",
+    "nl": "Aantal Tesla API wek-commando's",
     "fr": "Nombre de commandes de l'API de Wake",
     "it": "Conteggio comandi API Wake",
     "sv": "Tesla API weck-kommandoräkning",

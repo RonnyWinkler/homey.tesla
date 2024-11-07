@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "1.11.8",
+  "version": "1.11.9",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -2440,7 +2440,7 @@
         "title": {
           "en": "API charge commmand count changed",
           "de": "API Lade-Kommandoanzahl geändert",
-          "nl": "API lade-commando teller veranderd",
+          "nl": "Aantal API laad-commando's veranderd",
           "fr": "Nombre de commandes API modifié",
           "it": "Conteggio comandi API modificato",
           "sv": "API-lad-kommandoräkning åndrad",
@@ -2452,7 +2452,7 @@
         },
         "tokens": [
           {
-            "name": "measure_api_command_count",
+            "name": "measure_api_command_charge_count",
             "type": "number",
             "title": {
               "en": "Commands per day",
@@ -2476,13 +2476,13 @@
             "filter": "driver_id=car"
           }
         ],
-        "id": "measure_api_command_charge_count_changed"
+        "id": "measure_api_command_charge_count_changed copy"
       },
       {
         "title": {
           "en": "API commmand count changed",
           "de": "API Kommandoanzahl geändert",
-          "nl": "API commando teller veranderd",
+          "nl": "Aantal API commando's veranderd",
           "fr": "Nombre de commandes API modifié",
           "it": "Conteggio comandi API modificato",
           "sv": "API-kommandoräkning ändrad",
@@ -2519,6 +2519,48 @@
           }
         ],
         "id": "measure_api_command_count_changed"
+      },
+      {
+        "title": {
+          "en": "API wake commmand count changed",
+          "de": "API Weck-Kommandoanzahl geändert",
+          "nl": "Aantal API wek-commando's veranderd",
+          "fr": "Nombre de commandes de l'API de Wake modifié",
+          "it": "Conteggio comandi API Wake modificato",
+          "sv": "API weck-kommandoräkning ändrad",
+          "no": "Endret API-weck-kommandotelling",
+          "es": "Recuento de comandos de Wake de la API cambiado",
+          "da": "Ændret API-weck-kommandotal",
+          "ru": "Изменено количество команд API",
+          "pl": "Zmieniono liczbę poleceń API"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_command_wakes_count",
+            "type": "number",
+            "title": {
+              "en": "Commands per day",
+              "de": "Kommandos pro Tag",
+              "nl": "Commando's per dag",
+              "fr": "Commandes par jour",
+              "it": "Comandi al giorno",
+              "sv": "Kommandon per dag",
+              "no": "Kommandoer per dag",
+              "es": "Comandos por día",
+              "da": "Kommandoer pr. dag",
+              "ru": "Команд в день",
+              "pl": "Polecenia na dzień"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_command_wakes_count_changed"
       },
       {
         "title": {
@@ -5775,7 +5817,7 @@
         "titleFormatted": {
           "en": "Set charge amps to [[current]]",
           "de": "Stelle Ladestrom auf [[current]]",
-          "nl": "Stel de Laadversterkers in op [[current]]",
+          "nl": "Stel de laadstroom in op [[current]]",
           "fr": "Définir les ampères de charge sur [[current]]",
           "it": "Imposta gli ampere di carica su [[current]]",
           "sv": "Ställ in laddström till [[current]]",
@@ -12621,8 +12663,8 @@
       "type": "number",
       "title": {
         "en": "Tesla API charge command count",
-        "de": "Tesla API Kommandoanzahl",
-        "nl": "Tesla API commando tellen",
+        "de": "Tesla API Lade-Kommandoanzahl",
+        "nl": "Aantal Tesla API lade-commando's",
         "fr": "Nombre de commandes de l'API Tesla",
         "it": "Conteggio comandi API Tesla",
         "sv": "Tesla API kommandoräkning",
@@ -12657,7 +12699,7 @@
       "title": {
         "en": "Tesla API command count",
         "de": "Tesla API Kommandoanzahl",
-        "nl": "Tesla API commando tellen",
+        "nl": "Aantal Tesla API commando's",
         "fr": "Nombre de commandes de l'API Tesla",
         "it": "Conteggio comandi API Tesla",
         "sv": "Tesla API kommandoräkning",
@@ -12692,7 +12734,7 @@
       "title": {
         "en": "Tesla API wake command count",
         "de": "Tesla API Weck-Kommandoanzahl",
-        "nl": "Tesla API weck-kommando tellen",
+        "nl": "Aantal Tesla API wek-commando's",
         "fr": "Nombre de commandes de l'API de Wake",
         "it": "Conteggio comandi API Wake",
         "sv": "Tesla API weck-kommandoräkning",

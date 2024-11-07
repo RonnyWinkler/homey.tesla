@@ -314,5 +314,8 @@
   },
   "1.11.8": {
     "en": "Widget: adjusted layout (alignment)."
+  },
+  "1.11.9": {
+    "en": "Route trigger sequence changed. NL translation changed for API count flow cards."
   }
 }

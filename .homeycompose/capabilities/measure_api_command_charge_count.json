@@ -2,8 +2,8 @@
   "type": "number",
   "title": {
     "en": "Tesla API charge command count",
-    "de": "Tesla API Kommandoanzahl",
-    "nl": "Tesla API commando tellen",
+    "de": "Tesla API Lade-Kommandoanzahl",
+    "nl": "Aantal Tesla API lade-commando's",
     "fr": "Nombre de commandes de l'API Tesla",
     "it": "Conteggio comandi API Tesla",
     "sv": "Tesla API kommandoräkning",

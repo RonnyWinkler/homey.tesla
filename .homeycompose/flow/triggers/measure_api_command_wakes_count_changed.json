@@ -1,20 +1,20 @@
 {
     "title": {
-        "en": "API charge commmand count changed",
-        "de": "API Lade-Kommandoanzahl geändert",
-        "nl": "API lade-commando teller veranderd",
-        "fr": "Nombre de commandes API modifié",
-        "it": "Conteggio comandi API modificato",
-        "sv": "API-lad-kommandoräkning åndrad",
-        "no": "Endret API-lade-kommandotelling",
-        "es": "Recuento de comandos de API cambiado",
-        "da": "Ændret API-lade-kommandotal",
+        "en": "API wake commmand count changed",
+        "de": "API Weck-Kommandoanzahl geändert",
+        "nl": "Aantal API wek-commando's veranderd",
+        "fr": "Nombre de commandes de l'API de Wake modifié",
+        "it": "Conteggio comandi API Wake modificato",
+        "sv": "API weck-kommandoräkning ändrad",
+        "no": "Endret API-weck-kommandotelling",
+        "es": "Recuento de comandos de Wake de la API cambiado",
+        "da": "Ændret API-weck-kommandotal",
         "ru": "Изменено количество команд API",
         "pl": "Zmieniono liczbę poleceń API"
     },
     "tokens": [
         {
-            "name": "measure_api_command_count",
+            "name": "measure_api_command_wakes_count",
             "type": "number",
             "title": {
                 "en": "Commands per day",
