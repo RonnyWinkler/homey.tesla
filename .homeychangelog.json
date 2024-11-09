@@ -317,5 +317,8 @@
   },
   "1.11.9": {
     "en": "Route trigger sequence changed. NL translation changed for API count flow cards."
+  },
+  "1.11.10": {
+    "en": "Fixed location/route distance km/mi conversion."
   }
 }

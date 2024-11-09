@@ -81,7 +81,7 @@ module.exports = class LocationDevice extends ChildDevice {
     if (this.hasCapability('measure_location_distance_from_home')){
       let distance = this.getCoordinatesDistance(data.drive_state.latitude, data.drive_state.longitude, this.homey.geolocation.getLatitude(), this.homey.geolocation.getLongitude());
       distance = Math.round(distance / 10) / 100;
-      await this.setCapabilityValue('measure_location_distance_from_home', data.gui_settings.gui_distance_units == 'km/hr' ? distance : distance / CONSTANTS.MILES_TO_KM);
+      await this.setCapabilityValue('measure_location_distance_from_home', data.gui_settings.gui_distance_units == 'km/hr' ? distance * CONSTANTS.MILES_TO_KM : distance );
       // Capability units
       let co = {};
       try{
@@ -99,7 +99,7 @@ module.exports = class LocationDevice extends ChildDevice {
         data.drive_state && 
         data.drive_state.active_route_destination != undefined &&
         data.drive_state.active_route_miles_to_arrival != undefined){
-        await this.setCapabilityValue('location_route_destination_distance', data.gui_settings.gui_distance_units == 'km/hr' ? data.drive_state.active_route_miles_to_arrival : data.drive_state.active_route_miles_to_arrival / CONSTANTS.MILES_TO_KM );
+        await this.setCapabilityValue('location_route_destination_distance', data.gui_settings.gui_distance_units == 'km/hr' ? data.drive_state.active_route_miles_to_arrival * CONSTANTS.MILES_TO_KM : data.drive_state.active_route_miles_to_arrival );
         // Capability units
         let co = {};
         try{
