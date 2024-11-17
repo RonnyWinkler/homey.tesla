@@ -323,5 +323,8 @@
   },
   "1.11.11": {
     "en": "Fixed authentication in repair mode."
+  },
+  "1.11.12": {
+    "en": "Fixed authentication in repair mode."
   }
 }
