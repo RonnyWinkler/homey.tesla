@@ -28,12 +28,16 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
   }
 
   async onRepair(session, device) {
+
     this.log("onRepair()");
     let installed = false;
 
     session.setHandler('getDeviceData', async (view) => {
         return await this.onGetDeviceData(session, view, device);
     });
+
+    super.onRepair(session, device);
+
   }
   // onFilterDevice(device) {
   // }

@@ -320,5 +320,8 @@
   },
   "1.11.10": {
     "en": "Fixed location/route distance km/mi conversion."
+  },
+  "1.11.11": {
+    "en": "Fixed authentication in repair mode."
   }
 }
