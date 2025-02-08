@@ -1,5 +1,77 @@
 {
     "pair":{
+        "pair_steps": {
+            "title": "Pairing",
+            "subtitle": "Use Tesla Fleet-API to connect your car",
+            "text_01": "To use this app, you need a <b>Tesla developer account</b>.",
+            "text_02": "Proceed only if you want to create a developer account at tesla.com. You get Fleet API access with a monthly discount of 10$. That should cover an average usage. If you need more, you can add a subscription later.",
+            "text_btn": "Instructions"
+        },
+        "pair_step_01": {
+            "title": "Tesla app registration",
+            "subtitle": "Create a developer account",
+            "text_01": "Open Tesla website and create a developer account.",
+            "text_02": "Then create an app. Fill in your name, insert an app name and description like 'Homey App'.",
+            "text_03": "You can skip the invoice step if you don't want to add a subscription and use the free 10$ first.",
+            "test_04": "You will get a 'Client ID' and a 'Client Secret' for next pair step.",
+            "text_05": "Open https://developer.tesla.com",
+            "text_06": "continue the process if you have a client_id and client_secret.",
+            "text_07": "Details for app registration:",
+            "text_08": "OAuth Grant Type:",
+            "text_08a": "client-credentials, authorization-code",
+            "text_09": "Allowed Origin(s):",
+            "text_09a": "https://athom.com/",
+            "text_09b": "https://rwdevelopment.de/",
+            "text_10": "Allowed Redirect URI(s):",
+            "text_10a": "https://callback.athom.com/oauth2/callback",
+            "text_11": "Allowed Returned URL(s):",
+            "text_11a": "none",
+            "text_12": "Scopes:",
+            "text_12a": "Profile information, Vehicle information, vehicle location, vehicle commands, vehicle charging management",
+            "text_13": "&#x2398; copied"
+        },
+        "pair_step_02":{
+            "title": "Tesla app credentials",
+            "subtitle": "Tesla app credentials",
+            "client_id": "Client ID",
+            "client_secret": "Client Secret",
+            "text_01": "Insert your app credentials from your Tesla developer account.",
+            "text_02": "You can now login to your Tesla account."
+        },
+        "error": {
+            "title": "Error"
+        },
+        "pair_step_03": {
+            "title": "App certificate",
+            "subtitle": "App certificate",
+            "text_01": "The app created a certificate (private and public key).",
+            "text_02": "This certificate is used to sign commands sent to your car. The public key is hosted on your domain and registererd as car key. The private key is used to encrypt and sign commands.",
+            "text_03": "Save the public key as file. Upload the file to your domain. Subdomains are allowed. The root domain must match the 'allowed origin' domain from your app registration.",
+            "text_04": "The file must be hosted under this name.",
+            "text_05": "https://[your domain]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+            "text_btn": "Create new certificate",
+            "public_key": "Public key. Upload to your domain",
+            "private_key": "Private key. Keep it secret!"
+        },
+        "pair_step_04": {
+            "title": "Register the domain",
+            "subtitle": "Register the domain",
+            "text_01": "If the public key is hosted on your domain, you can register the domain for your app.",
+            "text_02": "Please ensure, the URL path is exactly like\nhttps://[your domain]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+            "text_03": "Domain registered successfully.",
+            "text_04": "Domain could not be registered:",
+            "text_05": "Tesla API returned an error response.",
+            "text_06": "Continue if the domain was registered successfully.",
+            "domain": "Domain",
+            "text_btn": "Register the domain"
+        },
+        "pair_step_05": {
+            "title": "Add your car",
+            "subtitle": "Login to your Tesla account.",
+            "text_01": "Your app configuration is ready.",
+            "text_02": "You can now login to your Tesla account.",
+            "text_03": "If you used a second account for your app, please clear your browser cookies for tesla.com to ensure you are using the account your car is assigned to."
+        },
         "register":{
             "title": "App registration",
             "subtitle": "Register the Homey app in your car",
@@ -77,7 +149,8 @@
             "command_pair_state_unpaired": "unpaired",
             "command_pair_state_undefined": "unknown",
             "app_not_registered": "App is not registered in the car. Register via car device repair process.",
-            "command_error_426": "App update required. Please update the app in the Homey app store or enable automatic updates."
+            "command_error_426": "App update required. Please update the app in the Homey app store or enable automatic updates.",
+            "api_client_id_not_set": "Tesla Client ID and Client Secret not set. Please repair the device and use a personal Tesla developer account and app registration."
         }
     },
     "app":{

@@ -1,5 +1,46 @@
 {
     "pair": {
+        "pair_steps": {
+            "title": "Parowanie",
+            "subtitle": "Użyj Tesla Fleet-API, aby połączyć swój samochód",
+            "text_01": "Aby korzystać z tej aplikacji, potrzebujesz <b>konta deweloperskiego Tesla</b>.",
+            "text_02": "Kontynuuj tylko, jeśli chcesz utworzyć konto deweloperskie na tesla.com. Otrzymasz dostęp do Fleet API z miesięczną zniżką 10$. Powinno to wystarczyć na standardowe użytkowanie. Jeśli potrzebujesz więcej, możesz później dodać subskrypcję.",
+            "text_btn": "Instrukcje"
+        },
+        "pair_step_01": {
+            "title": "Rejestracja aplikacji Tesla",
+            "subtitle": "Utwórz konto deweloperskie",
+            "text_01": "Otwórz stronę Tesli i utwórz konto deweloperskie.",
+            "text_02": "Następnie utwórz aplikację. Wpisz swoje imię, nazwę aplikacji i opis, np. 'Homey App'.",
+            "text_03": "Możesz pominąć etap fakturowania, jeśli nie chcesz dodawać subskrypcji i skorzystać z pierwszych darmowych 10$.",
+            "test_04": "Otrzymasz 'Client ID' i 'Client Secret' do następnego etapu parowania.",
+            "text_05": "Otwórz https://developer.tesla.com",
+            "text_06": "Kontynuuj proces, jeśli masz client_id i client_secret.",
+            "text_07": "Szczegóły rejestracji aplikacji:",
+            "text_08": "Typ OAuth Grant:",
+            "text_08a": "client-credentials, authorization-code",
+            "text_09": "Dozwolone źródła (Origins):",
+            "text_09a": "https://athom.com/",
+            "text_09b": "https://rwdevelopment.de/",
+            "text_10": "Dozwolone przekierowania URI:",
+            "text_10a": "https://callback.athom.com/oauth2/callback",
+            "text_11": "Dozwolone zwracane adresy URL:",
+            "text_11a": "brak",
+            "text_12": "Zakresy:",
+            "text_12a": "Informacje o profilu, Informacje o pojeździe, Lokalizacja pojazdu, Komendy pojazdu, Zarządzanie ładowaniem pojazdu",
+            "text_13": "&#x2398; skopiowano"
+        },
+        "pair_step_02": {
+            "title": "Dane uwierzytelniające aplikacji Tesla",
+            "subtitle": "Dane uwierzytelniające aplikacji Tesla",
+            "client_id": "Client ID",
+            "client_secret": "Client Secret",
+            "text_01": "Wprowadź dane uwierzytelniające aplikacji z konta deweloperskiego Tesla.",
+            "text_02": "Możesz teraz zalogować się do swojego konta Tesla."
+        },
+        "error": {
+            "title": "Błąd"
+        },
         "register": {
             "title": "Rejestracja aplikacji",
             "subtitle": "Zarejestruj aplikację Homey w swoim samochodzie",
@@ -28,6 +69,7 @@
             "title": "Wybór",
             "auth": "Zmień login",
             "register_app": "Zarejestruj aplikację w samochodzie",
+            "device_details": "Szczegóły urządzenia",
             "charging_history": "Historia ładowania",
             "charging_history_suc": "Historia ładowania SuC"
         },

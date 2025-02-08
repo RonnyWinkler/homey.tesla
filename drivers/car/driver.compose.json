@@ -71,6 +71,40 @@
     },
     "pair": [
         {
+            "id": "pair_steps",
+            "navigation": {
+                "next": "pair_step_01"
+            }
+        },
+        {
+            "id": "pair_step_01",
+            "navigation": {
+                "prev": "pair_steps",
+                "next": "pair_step_02"
+            }
+        },
+        {
+            "id": "pair_step_02",
+            "navigation": {
+                "prev": "pair_step_01",
+                "next": "pair_step_03"
+            }
+        },
+        {
+            "id": "pair_step_03",
+            "template": "loading",
+            "navigation": {
+                "prev": "pair_step_02",
+                "next": "login_oauth2"
+            }
+        },
+        {
+            "id": "error",
+            "navigation": {
+                "prev": "pair_step_02"
+            }
+        },
+        {
             "id": "login_oauth2",
             "template": "login_oauth2"
         },
@@ -101,12 +135,9 @@
             "id": "select"
         },
         {
-            "id": "login_oauth2",
-            "template": "login_oauth2"
-        },
-        {
             "id": "register",
             "navigation": { 
+                "prev": "select",
                 "next": "done"
             }
         },
@@ -119,6 +150,39 @@
             "navigation": { 
                 "prev": "select"
             }
+        },
+        {
+            "id": "pair_step_01",
+            "navigation": {
+                "prev": "pair_steps",
+                "next": "pair_step_02"
+            }
+        },
+        {
+            "id": "pair_step_02",
+            "navigation": {
+                "prev": "pair_step_01",
+                "next": "pair_step_03"
+            }
+        },
+        {
+            "id": "pair_step_03",
+            "template": "loading",
+            "navigation": {
+                "prev": "pair_step_02",
+                "next": "login_oauth2"
+            }
+        },
+        {
+            "id": "error",
+            "navigation": {
+                "prev": "pair_step_02"
+            }
+        },
+        {
+            "id": "login_oauth2",
+            "template": "login_oauth2"
         }
+
     ]
 }

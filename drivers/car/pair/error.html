@@ -1,0 +1,22 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("pair.error.title"));
+  
+  function getErrorMessage(){
+    Homey.emit('getErrorMessage').then(function (data) {
+      document.getElementById('message').textContent = data.message;
+    });
+  }
+</script>
+
+<fieldset class="homey-form-fieldset">
+  <legend id="subtitle" class="homey-form-legend"></legend>
+  <textarea id="message" class="homey-form-textarea" rows="7"></textarea>
+
+</fieldset>
+
+
+<script type="application/javascript">
+  getErrorMessage();
+</script>

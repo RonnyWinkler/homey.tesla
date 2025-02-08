@@ -326,5 +326,8 @@
   },
   "1.11.12": {
     "en": "Fixed authentication in repair mode."
+  },
+  "2.0.0": {
+    "en": "New version for personal FleetAPI support with own Tesla app credentials."
   }
 }

@@ -29,6 +29,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log("onOAuth2Init()");
     await super.onOAuth2Init();
 
+    if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
+        !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
+      this.log("Client ID or Client Secret not set.");
+      this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
+      throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
+    }
+
     await this._updateCapabilities();
     await this._updateSettings();
 
@@ -50,24 +57,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._startSync();
     this._sync();
 
-
-    if (ENV_PRIVATE){
-      // ENCRYPT
-      // const symKey = crypt.generateSymmetricKey();
-      // const { ciphertext, iv, tag } = crypt.encryptSymmetric(symKey, Homey.env.CLIENT_PROXY_KEY);
-      // const encSymKey = crypt.publicEncrypt(symKey, Homey.env.PUBLIC_KEY);
-
-      // DECRYPT
-      // const symKey = crypt.privateDecrypt(Homey.env.K, Homey.env.PRIV_KEY);
-      // const proxyKey = crypt.decryptSymmetric(symKey, Homey.env.TVCP, Homey.env.I, Homey.env.T);
-      const symKey = crypt.privateDecrypt(ENV_PRIVATE.K, ENV_PRIVATE.PRIV_KEY);
-      const proxyKey = crypt.decryptSymmetric(symKey, ENV_PRIVATE.TVCP, ENV_PRIVATE.I, ENV_PRIVATE.T);
-
-
-      // Init Tesla Vehicle Command Protocol
-      // let proxyKey = Homey.env.CLIENT_PROXY_KEY; 
+    try{
+      let proxyKey = this.homey.settings.get("private_key");
       let key = Eckey.parsePem(proxyKey);
       this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+    }
+    catch(error){
+      this.log("onOAuth2Init() => Error: ",error.message);
     }
   }
 
@@ -83,6 +79,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // }
 
   async onOAuth2Saved() {
+    // check is settings are already read. If not, device is not initialized yet after paiting
+    if (this._settings == undefined) return;
     this.log("onOAuth2Saved()");
     this._startSync();
     this._sync();
@@ -120,12 +118,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _updateSettings(){
-    // remove location check settings
-    // let settings = this.getSettings();
-    // if (settings['polling_location'] != undefined){
-    //   settings['polling_location'] = null;
-    //   await this.setSettings(settings);
-    // }
+    // replace command API (proxy) with tvcp API (direct encrypted commands) 
+    let settings = this.getSettings();
+    if (settings['command_api'] == 'command'){
+      settings['command_api'] = 'tvcp';
+      await this.setSettings(settings);
+    }
+
   }
 
   async handleApiOk(type = CONSTANTS.API_ERROR_READ){

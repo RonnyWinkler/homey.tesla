@@ -14,7 +14,7 @@
         "ru": "API команд",
         "pl": "Interfejs komend"
     },
-    "value": "command",
+    "value": "tvcp",
     "values":[
         {
             "id": "rest",
@@ -28,20 +28,6 @@
                 "da": "REST-API",
                 "ru": "REST-API",
                 "pl": "REST-API"
-            }
-        },
-        {
-            "id": "command",
-            "label":{
-                "en": "Tesla Vehicle Command Proxy",
-                "fr": "Proxy de commande de véhicule Tesla",
-                "it": "Proxy di comando del veicolo Tesla",
-                "sv": "Tesla fordon kommandoproxy",
-                "no": "Tesla kjøretøykommandoproxy",
-                "es": "Proxy de comando de vehículo Tesla",
-                "da": "Tesla køretøj kommandoproxy",
-                "ru": "Прокси-сервер команд для автомобилей Tesla",
-                "pl": "Proxy poleceń pojazdu Tesla"
             }
         },
         {

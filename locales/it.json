@@ -1,5 +1,46 @@
 {
     "pair": {
+        "pair_steps": {
+            "title": "Abbinamento",
+            "subtitle": "Usa l'API Tesla Fleet per connettere la tua auto",
+            "text_01": "Per utilizzare questa app, è necessario un <b>account sviluppatore Tesla</b>.",
+            "text_02": "Procedi solo se desideri creare un account sviluppatore su tesla.com. Ottieni l'accesso all'API Fleet con uno sconto mensile di 10$. Questo dovrebbe coprire un utilizzo medio. Se hai bisogno di più, puoi aggiungere un abbonamento in seguito.",
+            "text_btn": "Istruzioni"
+        },
+        "pair_step_01": {
+            "title": "Registrazione dell'app Tesla",
+            "subtitle": "Crea un account sviluppatore",
+            "text_01": "Apri il sito web di Tesla e crea un account sviluppatore.",
+            "text_02": "Quindi crea un'app. Inserisci il tuo nome, il nome dell'app e una descrizione come 'Homey App'.",
+            "text_03": "Puoi saltare il passaggio della fatturazione se non vuoi aggiungere un abbonamento e utilizzare prima i 10$ gratuiti.",
+            "test_04": "Riceverai un 'Client ID' e un 'Client Secret' per il prossimo passaggio dell'abbinamento.",
+            "text_05": "Apri https://developer.tesla.com",
+            "text_06": "Continua il processo se hai un client_id e un client_secret.",
+            "text_07": "Dettagli per la registrazione dell'app:",
+            "text_08": "Tipo di concessione OAuth:",
+            "text_08a": "client-credentials, authorization-code",
+            "text_09": "Origini consentite:",
+            "text_09a": "https://athom.com/",
+            "text_09b": "https://rwdevelopment.de/",
+            "text_10": "URI di reindirizzamento consentiti:",
+            "text_10a": "https://callback.athom.com/oauth2/callback",
+            "text_11": "URL di ritorno consentiti:",
+            "text_11a": "nessuno",
+            "text_12": "Ambiti:",
+            "text_12a": "Informazioni profilo, Informazioni veicolo, Posizione veicolo, Comandi veicolo, Gestione ricarica veicolo",
+            "text_13": "&#x2398; copiato"
+        },
+        "pair_step_02": {
+            "title": "Credenziali dell'app Tesla",
+            "subtitle": "Credenziali dell'app Tesla",
+            "client_id": "Client ID",
+            "client_secret": "Client Secret",
+            "text_01": "Inserisci le credenziali della tua app dal tuo account sviluppatore Tesla.",
+            "text_02": "Ora puoi accedere al tuo account Tesla."
+        },
+        "error": {
+            "title": "Errore"
+        },
         "register": {
             "title": "Registrazione dell'app",
             "subtitle": "Registrare l'app Homey nella tua auto",
@@ -28,6 +69,7 @@
             "title": "Selezione",
             "auth": "Cambia accesso",
             "register_app": "Registrare l'app nella tua auto",
+            "device_details": "Dettagli del dispositivo",
             "charging_history": "Storico delle ricariche",
             "charging_history_suc": "Storico delle ricariche SuC"
         },

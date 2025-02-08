@@ -7,6 +7,94 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
     await super.onOAuth2Init();
   }
 
+  async onPair(session){
+
+    session.setHandler("getClientId", async () => {
+      return {
+        clientId: this.homey.settings.get('client_id') || '',
+        clientSecret: this.homey.settings.get('client_secret') || ''
+      };
+    });
+
+    session.setHandler("setClientId", async (data) => {
+      this.log("setClientId() => ", data.clientId);
+      // Clear certificate is client_id changed
+      if (data.clientId != this.homey.settings.get('client_id') ||
+          data.clientSecret != this.homey.settings.get('client_secret') ){
+            this.log("setClientId() => client credentials changed, Clear certificate");
+          await this.homey.settings.set("public_key", '');
+          await this.homey.settings.set("private_key", '');
+      }
+      await this.homey.settings.set("client_id", data.clientId);
+      await this.homey.settings.set("client_secret", data.clientSecret);
+    });
+
+
+    // session.setHandler("getCertificate", async (forceCreate) => {
+    //   return await this.getCertificate(session, forceCreate);
+    // });
+
+    // session.setHandler("getDomain", () => {
+    //   return this.homey.settings.get("domain") || '';
+    // });
+
+    // session.setHandler("setDomain", async (domain) => {
+    //   return await this.homey.settings.set("domain", domain);
+    // });
+
+    // session.setHandler("registerDomain", async (domain) => {
+    //   await this.homey.settings.set("domain", domain);
+    //   return await this.registerDomain(domain);
+    // });
+
+    super.onPair(session);
+
+  }
+
+  
+  async onRepair(session, device) {
+
+    this.log("onRepair()");
+    let installed = false;
+
+    session.setHandler('getDeviceData', async (view) => {
+        return await this.onGetDeviceData(session, view, device);
+    });
+
+    session.setHandler("getClientId", async () => {
+      return {
+        clientId: this.homey.settings.get('client_id') || '',
+        clientSecret: this.homey.settings.get('client_secret') || ''
+      };
+    });
+
+    session.setHandler("setClientId", async (data) => {
+      await this.homey.settings.set("client_id", data.clientId);
+      await this.homey.settings.set("client_secret", data.clientSecret);
+      // this.setClientId({ clientId: data.clientId, clientSecret: data.clientSecret });
+    });
+
+    session.setHandler("getCertificate", async (forceCreate) => {
+      return await this.getCertificate(session, forceCreate);
+    });
+
+    session.setHandler("getDomain", () => {
+      return this.homey.settings.get("domain") || '';
+    });
+
+    session.setHandler("setDomain", async (domain) => {
+      return await this.homey.settings.set("domain", domain);
+    });
+
+    session.setHandler("registerDomain", async (domain) => {
+      await this.homey.settings.set("domain", domain);
+      return await this.registerDomain(domain);
+    });
+    
+    super.onRepair(session, device);
+
+  }
+
   async onPairListDevices({ oAuth2Client }) {
 
     let devices = [];
@@ -27,31 +115,7 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
     return devices;
   }
 
-  async onRepair(session, device) {
-
-    this.log("onRepair()");
-    let installed = false;
-
-    session.setHandler('getDeviceData', async (view) => {
-        return await this.onGetDeviceData(session, view, device);
-    });
-
-    super.onRepair(session, device);
-
-  }
   // onFilterDevice(device) {
-  // }
-
-  // async onPairListDevices({ oAuth2Client }) {
-  //   const things = await oAuth2Client.getThings({ color: 'red' });
-  //   return things.map(thing => {
-  //     return {
-  //       name: thing.name,
-  //       data: {
-  //         id: thing.id,
-  //       },
-  //     }
-  //   });
   // }
 
   async onGetDeviceData(session, view, device){
@@ -59,63 +123,3 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
   }
 
 }
-
-// "use strict";
-// const Homey = require('homey');
-
-// const API_URL = "https://auth.tesla.com/oauth2/v3/authorize?response_type=code";
-// const CALLBACK_URL = "https://callback.athom.com/oauth2/callback";
-// const CLIENT_ID = Homey.env.CLIENT_ID;
-// const OAUTH_URL = `${API_URL}&client_id=${CLIENT_ID}&redirect_uri=${CALLBACK_URL}&scope=openid%20vehicle_device_data%20offline_access%20vehicle_cmds%20vehicle_charging_cmd`;
-
-// class accountDriver extends Homey.Driver {
-//     async onPair(session) {
-//         this.log("onPair()");
-
-//         const myOAuth2Callback = await this.homey.cloud.createOAuth2Callback(OAUTH_URL);
-
-//         myOAuth2Callback
-//             .on("url", (url) => {
-//                 // dend the URL to the front-end to open a popup
-//                 session.emit("url", url);
-//             })
-//             .on("code", (code) => {
-//                 // ... swap your code here for an access token
-        
-//                 // tell the front-end we're done
-//                 session.emit("authorized");
-//             });
-    
-//         session.setHandler("list_devices", async () => {
-//             return await this.onPairListDevices(session);
-//         });
-      
-//     } // end onPair
-
-//     async onPairListDevices(session) {
-//         this.log("onPairListDevices()" );
-//         let devices = [];
-//         devices.push(
-//             {
-//                 name: "Tesla Account",
-//                 data: {
-//                     id: this.getUIID()
-//                 }
-//             }
-//         );
-//         this.log("Found devices:");
-//         this.log(devices);
-//         return devices;
-//     }
-
-//     getUIID() {
-//         function s4() {
-//             return Math.floor((1 + Math.random()) * 0x10000)
-//             .toString(16)
-//             .substring(1);
-//         }
-//         return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
-//     }
-
-// }
-// module.exports = accountDriver;

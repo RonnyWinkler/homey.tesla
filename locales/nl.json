@@ -1,5 +1,46 @@
 {
     "pair":{
+        "pair_steps": {
+            "title": "Koppelen",
+            "subtitle": "Gebruik de Tesla Fleet-API om je auto te verbinden",
+            "text_01": "Om deze app te gebruiken, heb je een <b>Tesla-ontwikkelaarsaccount</b> nodig.",
+            "text_02": "Ga alleen verder als je een ontwikkelaarsaccount wilt aanmaken op tesla.com. Je krijgt toegang tot de Fleet API met een maandelijkse korting van $10. Dit zou gemiddeld gebruik moeten dekken. Als je meer nodig hebt, kun je later een abonnement toevoegen.",
+            "text_btn": "Instructies"
+        },
+        "pair_step_01": {
+            "title": "Tesla app-registratie",
+            "subtitle": "Maak een ontwikkelaarsaccount aan",
+            "text_01": "Open de Tesla-website en maak een ontwikkelaarsaccount aan.",
+            "text_02": "Maak vervolgens een app. Vul je naam in, voeg een app-naam en een beschrijving toe, zoals 'Homey App'.",
+            "text_03": "Je kunt de factuurstap overslaan als je geen abonnement wilt toevoegen en eerst de gratis $10 wilt gebruiken.",
+            "test_04": "Je ontvangt een 'Client ID' en een 'Client Secret' voor de volgende koppeling stap.",
+            "text_05": "Open https://developer.tesla.com",
+            "text_06": "Ga verder als je een client_id en client_secret hebt.",
+            "text_07": "Details voor app-registratie:",
+            "text_08": "OAuth Grant Type:",
+            "text_08a": "client-credentials, authorization-code",
+            "text_09": "Toegestane origin(s):",
+            "text_09a": "https://athom.com/",
+            "text_09b": "https://rwdevelopment.de/",
+            "text_10": "Toegestane omleidings-URI(s):",
+            "text_10a": "https://callback.athom.com/oauth2/callback",
+            "text_11": "Toegestane terugkeer-URL(s):",
+            "text_11a": "geen",
+            "text_12": "Scopes:",
+            "text_12a": "Profielinformatie, Voertuiginformatie, Voertuiglocatie, Voertuigcommando's, Beheer van voertuigladen",
+            "text_13": "&#x2398; gekopieerd"
+        },
+        "pair_step_02": {
+            "title": "Tesla app-gegevens",
+            "subtitle": "Tesla app-gegevens",
+            "client_id": "Client ID",
+            "client_secret": "Client Secret",
+            "text_01": "Voer je app-gegevens in van je Tesla-ontwikkelaarsaccount.",
+            "text_02": "Je kunt nu inloggen op je Tesla-account."
+        },
+        "error": {
+            "title": "Fout"
+        },
         "register":{
             "title": "App-registratie",
             "subtitle": "Registreer de Homey app in je auto",
@@ -28,6 +69,7 @@
             "title": "Selectie",
             "auth": "Wijzig login",
             "register_app": "App registreren in auto",
+            "device_details": "Apparaatdetails",
             "charging_history": "Laadgeschiedenis",
             "charging_history_suc": "SuC laadgeschiedenis"
         },

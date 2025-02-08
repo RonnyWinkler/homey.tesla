@@ -11,7 +11,7 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
           require('inspector').waitForDebugger();
         }
         catch (error) {
-          require('inspector').open(9251, '0.0.0.0', true);
+          require('inspector').open(9252, '0.0.0.0', true);
         }
       }
     }

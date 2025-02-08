@@ -3,8 +3,10 @@
 
   Homey.setTitle(Homey.__("pair.register.title"));
   
-  function showUrl(url){
+  function showUrl(){
+    Homey.emit('getCarRegistrationUrl').then(function (url) {
       Homey.popup(url);
+    });
   }
 </script>
 
@@ -45,7 +47,7 @@
     <p data-i18n="pair.register.text5"></p>
     <!-- <p data-i18n="pair.register.url"></p> -->
     <p>
-      <button id="btnRegisterCar" class="homey-button-primary-full" onClick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')">
+      <button id="btnRegisterCar" class="homey-button-primary-full" onClick="showUrl()">
         <span id="spanRegisterCar" data-i18n="pair.register.button"></span>
         <span id="imgRegisterCar"></span>
       </button>

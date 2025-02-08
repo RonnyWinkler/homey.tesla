@@ -1,0 +1,86 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("pair.pair_step_04.title"));
+
+  function setDomain(){
+    var domain = document.getElementById('domain').value;
+    Homey.emit('setDomain', domain).then(function () {
+    });
+  }
+
+  function getDomain(){
+    Homey.emit('getDomain').then(function (domain) {
+      document.getElementById('domain').value = domain;
+    });
+  }
+
+  function registerDomain(){
+    // Homey.showLoadingOverlay();
+    document.getElementById('btnRegisterDomain').classList.add("is-loading");
+    var domain = document.getElementById('domain').value;
+    Homey.emit('registerDomain', domain).then(function (result) {
+      if (result.success){
+        document.getElementById('p_success_info').style.display = 'flex';
+        document.getElementById('p_error_info').style.display = 'none';
+        document.getElementById('p_error_msg').style.display = 'none';
+      }
+      else{
+        document.getElementById('p_success_info').style.display = 'none';
+        document.getElementById('p_error_info').style.display = 'flex';
+        document.getElementById('p_error_msg').value = result.message;
+        document.getElementById('p_error_msg').style.display = 'flex';
+      }
+      // Homey.hideLoadingOverlay();
+      document.getElementById('btnRegisterDomain').classList.remove("is-loading");
+    });
+  }
+</script>
+
+<style>
+  #imgLogo {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    height: 70px;
+  }
+</style>
+
+<!-- <span id="imgLogo"></span> -->
+
+<fieldset class="homey-form-fieldset">
+  <legend class="homey-form-legend" data-i18n="pair.pair_step_04.subtitle"></legend>
+  <div class="homey-form-group">
+    <p data-i18n="pair.pair_step_04.text_01"></p>
+    <p data-i18n="pair.pair_step_04.text_06"></p>
+
+    <label for="domain" class="homey-form-label"><span data-i18n="pair.pair_step_04.domain"></span></label>
+    <p>
+      https://
+      <input class="homey-form-input" id="domain" type="text" value="" onchange="setDomain()"/>
+      /.well-known/appspecific/com.tesla.3p.public-key.pem
+    </p>
+    <br>
+    <p>
+      <button id="btnRegisterDomain" class="homey-button-primary-shadow-full" onClick="registerDomain();">
+        <span data-i18n="pair.pair_step_04.text_btn"></span>
+      </button>
+    </p>
+
+    <p id="p_success_info" data-i18n="pair.pair_step_04.text_03" style="display: none; color: green;"></p>
+    <p id="p_error_info"   data-i18n="pair.pair_step_04.text_04" style="display: none; color: red;"></p>
+    <p id="p_error_msg"    data-i18n="pair.pair_step_04.text_05" style="display: none; color: red;"></p>
+
+  </div>
+</fieldset>
+
+
+<script type="application/javascript">
+  getDomain();
+</script>
+
