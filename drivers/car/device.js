@@ -35,6 +35,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
       throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
     }
+    else{
+      this.setAvailable();
+    }
 
     await this._updateCapabilities();
     await this._updateSettings();

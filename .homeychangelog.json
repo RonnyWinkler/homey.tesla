@@ -329,5 +329,8 @@
   },
   "2.0.0": {
     "en": "New version for personal FleetAPI support with own Tesla app credentials."
+  },
+  "2.0.1": {
+    "en": "Fixed repair with new client_id."
   }
 }
