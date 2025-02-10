@@ -14,7 +14,6 @@ const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 
 const CONSTANTS = require('../../lib/constants');
 
-let ENV_PRIVATE;
 try{
   // ENV_PRIVATE = require('../../lib/constants');
   ENV_PRIVATE = require('../../env_private.json');

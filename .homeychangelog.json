@@ -334,9 +334,12 @@
     "en": "Fixed repair with new client_id."
   },
   "2.0.2": {
-    "en": "Addec commands: start/stop chagrging; set charging ampere."
+    "en": "Added commands: start/stop chagrging; set charging ampere."
   },
   "2.0.3": {
-    "en": "Addec climate commands: vent, temperature, preconditioning, defrost, overheat protection."
+    "en": "Added climate commands: vent, temperature, preconditioning, defrost, overheat protection."
+  },
+  "2.0.4": {
+    "en": "Testversion for client_id issue."
   }
 }
