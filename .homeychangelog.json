@@ -332,5 +332,8 @@
   },
   "2.0.1": {
     "en": "Fixed repair with new client_id."
+  },
+  "2.0.2": {
+    "en": "Addec commands: start/stop chagrging; set charging ampere."
   }
 }

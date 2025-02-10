@@ -69,6 +69,14 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
     });
 
     session.setHandler("setClientId", async (data) => {
+      this.log("setClientId() => ", data.clientId);
+      // Clear certificate is client_id changed
+      if (data.clientId != this.homey.settings.get('client_id') ||
+          data.clientSecret != this.homey.settings.get('client_secret') ){
+            this.log("setClientId() => client credentials changed, Clear certificate");
+          await this.homey.settings.set("public_key", '');
+          await this.homey.settings.set("private_key", '');
+      }
       await this.homey.settings.set("client_id", data.clientId);
       await this.homey.settings.set("client_secret", data.clientSecret);
       // this.setClientId({ clientId: data.clientId, clientSecret: data.clientSecret });

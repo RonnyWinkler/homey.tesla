@@ -9,9 +9,8 @@ vehicleControlScheduleSoftwareUpdateAction  Not tested
 Battery:
 commandChargeLimit                      OK
 chargePortDoorOpen, chargePortDoorClose OK
-chargingStartStopActionStart, 
-    chargingStartStopActionStop         MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
-setChargingAmpsAction                   Action ok, Parameters not working or only if connected
+chargingStartStopAction                 OK
+setChargingAmpsAction                   OK
 scheduledChargingAction                 Enable:ok; Time: not working
 scheduledDepartureAction                Disable:ok, Parameters not working
 
@@ -84,10 +83,9 @@ Set charging limit
     }
 
 Set charging amps
-Command was accepted, but apms not changed (cable was not connected)
     setChargingAmpsAction
     {
-        charging_amps: int (ampere)
+        chargingAmps: int (ampere)
     }
 
 Charge port open Door
@@ -99,14 +97,12 @@ Chagre port close Door
     { }
 
 Start charging
-Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
-    chargingStartStopActionStart
-    { }
+    chargingStartStopAction
+    { start : true }
 
 Stop charging
-Domain error: MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
-    chargingStartStopActionStop
-    { }
+    chargingStartStopAction
+    { stop : true }
 
 Schedule charging 
 Parameters missing? Enable schedule works, but time is not updated

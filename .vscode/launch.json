@@ -10,7 +10,7 @@
             "restart": true,
             "name": "Attach Tesla to Homey Pro 19 DEV",
             "address": "192.168.1.13",
-            "port": 9252,
+            "port": 9902,
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/"
         }, 
@@ -20,7 +20,7 @@
             "restart": true,
             "name": "Attach Tesla to Homey Pro 23 DEV LAN",
             "address": "192.168.1.16",
-            "port": 9252,
+            "port": 9902,
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/app/"
         },
@@ -30,7 +30,7 @@
             "restart": true,
             "name": "Attach Tesla to Homey Pro 23 LAN",
             "address": "192.168.1.14",
-            "port": 9252,
+            "port": 9902,
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/app/"
         },

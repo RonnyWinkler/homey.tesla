@@ -900,6 +900,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
         catch(error){
           if (i==retryCount){
+            this.log("sendCommand() error: ",error.message);
             throw error;
           }
           else{
@@ -1080,7 +1081,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
       case 'commandChargeCurrent':
         result.command = 'setChargingAmpsAction';
-        result.params = { charging_amps : params.current};
+        result.params = { chargingAmps : params.current};
         break;
   
       case 'commandChargePort':
@@ -1095,14 +1096,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
       case 'commandChargeOn':
         if (params.state){
-          result.command = 'chargingStartStopActionStart';
+          result.command = 'chargingStartStopAction';
+          result.params = { start: true };
           // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         }
         else{
-          result.command = 'chargingStartStopActionStop';
+          result.command = 'chargingStartStopAction';
           // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+          result.params = { stop: true };
         }
-        result.params = {};
+        // result.params = {};
         break;
 
       case 'commandScheduleCharging':
