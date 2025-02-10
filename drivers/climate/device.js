@@ -254,13 +254,13 @@ module.exports = class ClimateDevice extends ChildDevice {
     }
 
     if( capabilityValues["climate_overheat_protection_mode"] != undefined){
-      await this._commandPreconditioningMode(
+      await this._commandOverheatprotectionMode(
         capabilityValues["climate_overheat_protection_mode"]
       );
     }
 
     if( capabilityValues["climate_overheat_protection_level"] != undefined){
-      await this._commandPreconditioningLevel(
+      await this._commandOverheatprotectionLevel(
         capabilityValues["climate_overheat_protection_level"]
       );
     }

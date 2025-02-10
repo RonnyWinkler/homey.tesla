@@ -3,7 +3,7 @@ vehicleControlSetSentryModeAction       OK
 vehicleControlFlashLightsAction         OK
 vehicleControlHonkHornAction            Not tested
 RKE_ACTION_LOCK, RKE_ACTION_UNLOCK      MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
-vehicleControlWindowAction              MESSAGEFAULT_ERROR_INSUFFICIENT_PRIVILEGES
+vehicleControlWindowAction              OK
 vehicleControlScheduleSoftwareUpdateAction  Not tested
 
 Battery:
@@ -18,12 +18,12 @@ Location:
 API commandNavigateGpsRequest           No action found
 
 Climate:
-hvacTemperatureAdjustmentAction         Action ok, Parameters not working
+hvacTemperatureAdjustmentAction         OK
 hvacClimateKeeperAction:                Not in app (dog mode tec.)
 setCabinOverheatProtectionAction:       OK
 setCopTempAction                        OK
-hvacAutoAction (preconditioning):       Command ok, Parameters not working
-hvacSetPreconditioningMaxAction         OK (deaktivieren lässt Klima an)
+hvacAutoAction (preconditioning):       OK
+hvacSetPreconditioningMaxAction         OK
 hvacSteeringWheelHeaterAction           cabin comfort remote settings not enabled, No auto/level, only on/off possible!
 autoSeatClimateAction                   Not implementeed, params unknown
 hvacSeatHeaterActions                   Not implementeed, params unknown

@@ -1032,14 +1032,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
       case 'commandDoorLock':
         if (params.locked){
-          result.command = 1;
-          // result.command = 'RKE_ACTION_LOCK';
+          result.params = { action: 1};
         }
         else{
-          result.command = 0;
-          // result.command = 'RKE_ACTION_UNLOCK';
+          result.params = { action: 0};
         }
-        result.params = {};
+        result.command = 'RKEAction';
         result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         break;
 
@@ -1059,18 +1057,18 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         break;
   
       case 'commandWindowPosition':       // car and climate
+        result.command = 'vehicleControlWindowAction';
         if (params.position == 'vent'){
-          result.command = 'vehicleControlWindowActionVent';
+          result.params = { vent : {}};
         }
         else{
-          result.command = 'vehicleControlWindowActionClose';
+          result.params = { close : {}};
         }
-        result.params = { action : 3};
         break;
 
       case 'commandScheduleSoftwareUpdate':
         result.command = 'vehicleControlScheduleSoftwareUpdateAction';
-        result.params = { offset_sec: params.minutes * 60};
+        result.params = { offsetSec: params.minutes * 60};
         break;
   
       // charging actions
@@ -1164,15 +1162,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case 'commandSetTemperature':
         result.command = 'hvacTemperatureAdjustmentAction';
         result.params = { 
-          driver_temp_celsius : params.driverTemperature,
-          passenger_temp_celsius : params.passengerTemperature
+          driverTempCelsius : params.driverTemperature,
+          passengerTempCelsius : params.passengerTemperature
         };
         break;
 
       case 'commandPreconditioning':
         result.command = 'hvacAutoAction';
         result.params = { 
-          power_on : params.on
+          powerOn : params.on
           // manual_override: true
         };
         break;
@@ -1181,7 +1179,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.command = 'setCabinOverheatProtectionAction';
         result.params = {
           on: (params.mode != 'off'),
-          fan_only: (params.mode == 'fan_only')
+          fanOnly: (params.mode == 'fan_only')
          };
         break;
 

@@ -335,5 +335,8 @@
   },
   "2.0.2": {
     "en": "Addec commands: start/stop chagrging; set charging ampere."
+  },
+  "2.0.3": {
+    "en": "Addec climate commands: vent, temperature, preconditioning, defrost, overheat protection."
   }
 }
