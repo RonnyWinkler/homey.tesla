@@ -30,7 +30,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
         !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
-      this.log("Client ID or Client Secret not set.");
+      this.log("onOAuth2Init() => Client ID or Client Secret not set.");
       this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
       throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
     }
@@ -88,8 +88,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // }
 
   async onOAuth2Saved() {
-    // check is settings are already read. If not, device is not initialized yet after paiting
-    if (this._settings == undefined) return;
+    // if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
+    //     !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
+    //   this.log("onOAuth2Saved() => Client ID or Client Secret not set.");
+    //   this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
+    //   return;
+    // }
+    // else{
+    //   this.setAvailable();
+    // }
+
+    // check if settings are already read. If not, device is not initialized yet after pairing
+    if (!this._settings) return;
+
     this.log("onOAuth2Saved()");
     this._startSync();
     this._sync();
@@ -327,7 +338,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // SYNC Logic =======================================================================================
   async _startSync(){
     await this._stopSync();
-    if (!this._settings.polling_active){
+    if (!this._settings ||!this._settings.polling_active){
       return;
     }
     // Interval settings is in minutes, convert to milliseconds.
