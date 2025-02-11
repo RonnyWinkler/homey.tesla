@@ -56,8 +56,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     this._settings = this.getSettings();
     await this._startApiCounterResetTimer();
-    await this._startSync();
-    this._sync();
+
+    // Start Sync. Wait 3 seconds to allow OAuth2 to be initialized
+    // await this._startSync();
+    // this._sync();
+    this.homey.setTimeout(async () => {
+      this.log("Start sync, client_id: ", this.oAuth2Client._clientId);
+      await this._startSync();
+      this._sync()
+    }, 3000);
 
     try{
       let proxyKey = this.homey.settings.get("private_key");
