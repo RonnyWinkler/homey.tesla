@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -2435,48 +2435,6 @@
           }
         ],
         "id": "location_route_destination_time_changed"
-      },
-      {
-        "title": {
-          "en": "API charge commmand count changed",
-          "de": "API Lade-Kommandoanzahl geändert",
-          "nl": "Aantal API laad-commando's veranderd",
-          "fr": "Nombre de commandes API modifié",
-          "it": "Conteggio comandi API modificato",
-          "sv": "API-lad-kommandoräkning åndrad",
-          "no": "Endret API-lade-kommandotelling",
-          "es": "Recuento de comandos de API cambiado",
-          "da": "Ændret API-lade-kommandotal",
-          "ru": "Изменено количество команд API",
-          "pl": "Zmieniono liczbę poleceń API"
-        },
-        "tokens": [
-          {
-            "name": "measure_api_command_charge_count",
-            "type": "number",
-            "title": {
-              "en": "Commands per day",
-              "de": "Kommandos pro Tag",
-              "nl": "Commando's per dag",
-              "fr": "Commandes par jour",
-              "it": "Comandi al giorno",
-              "sv": "Kommandon per dag",
-              "no": "Kommandoer per dag",
-              "es": "Comandos por día",
-              "da": "Kommandoer pr. dag",
-              "ru": "Команд в день",
-              "pl": "Polecenia na dzień"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=car"
-          }
-        ],
-        "id": "measure_api_command_charge_count_changed copy"
       },
       {
         "title": {
@@ -8271,7 +8229,6 @@
         "measure_api_rate_limit",
         "measure_api_request_count",
         "measure_api_command_count",
-        "measure_api_command_charge_count",
         "measure_api_command_wakes_count",
         "last_online"
       ],
@@ -8711,7 +8668,7 @@
             {
               "id": "command_retry",
               "type": "checkbox",
-              "value": true,
+              "value": false,
               "label": {
                 "en": "Retry commands",
                 "de": "Kommandos wiederholen",
@@ -8780,17 +8737,17 @@
         {
           "type": "group",
           "label": {
-            "en": "Tesla API",
-            "de": "Tesla API",
-            "nl": "Tesla API",
-            "fr": "Tesla API",
-            "it": "Tesla API",
-            "sv": "Tesla API",
-            "no": "Tesla API",
-            "es": "Tesla API",
-            "da": "Tesla API",
-            "ru": "Tesla API",
-            "pl": "Tesla API"
+            "en": "Tesla Fleet-API data",
+            "de": "Tesla Fleet-API-Daten",
+            "nl": "Tesla Fleet-API-gegevens",
+            "fr": "Données de l'API Tesla Fleet",
+            "it": "Dati dell'API Tesla Fleet",
+            "sv": "Tesla Fleet-API-data",
+            "no": "Tesla Fleet-API-data",
+            "es": "Datos de la API Tesla Fleet",
+            "da": "Tesla Fleet-API-data",
+            "ru": "Данные Tesla Fleet-API",
+            "pl": "Dane Tesla Fleet-API"
           },
           "children": [
             {
@@ -8841,129 +8798,36 @@
                 "pl": "Wykonane żądania"
               },
               "hint": {
-                "en": "API requests made since 00:00 UTC. Maximum 300 per day.",
-                "de": "Ausgeführte API-Abfragen seit 00:00 UTC. Maximal 300 pro Tag.",
-                "nl": "API-verzoeken gedaan sinds 00:00 UTC. Maximaal 300 per dag.",
-                "fr": "Requêtes API effectuées depuis 00:00 UTC. Maximum 300 par jour.",
-                "it": "Richieste API effettuate dalle 00:00 UTC. Massimo 300 al giorno.",
-                "sv": "Förfrågningar gjorda sedan 00:00 UTC. Maximalt 300 per dag.",
-                "no": "Forespørsler gjort siden 00:00 UTC. Maksimalt 300 per dag.",
-                "es": "Solicitudes API realizadas desde las 00:00 UTC. Máximo 300 por día.",
-                "da": "Anmodninger foretaget siden 00:00 UTC. Maksimum 300 pr. dag.",
-                "ru": "Сделано запросов к API с 00:00 UTC. Максимум 300 в день.",
-                "pl": "Wykonane żądania API od 00:00 UTC. Maksymalnie 300 dziennie."
+                "en": "API requests made since 00:00.",
+                "de": "Ausgeführte API-Abfragen seit 00:00.",
+                "nl": "API-verzoeken gedaan sinds 00:00.",
+                "fr": "Requêtes API effectuées depuis 00:00.",
+                "it": "Richieste API effettuate dalle 00:00.",
+                "sv": "Förfrågningar gjorda sedan 00:00.",
+                "no": "Forespørsler gjort siden 00:00..",
+                "es": "Solicitudes API realizadas desde las 00:00.",
+                "da": "Anmodninger foretaget siden 00:00.",
+                "ru": "Сделано запросов к API с 00:00.",
+                "pl": "Wykonane żądania API od 00:00."
               },
               "value": "0"
-            },
-            {
-              "id": "api_request_limit",
-              "type": "label",
-              "label": {
-                "en": "Limit",
-                "de": "Limit",
-                "nl": "Limiet",
-                "fr": "Limite",
-                "it": "Limite",
-                "sv": "Begränsning",
-                "no": "Grense",
-                "es": "Limite",
-                "da": "Grænse",
-                "ru": "Лимит",
-                "pl": "Limit"
-              },
-              "hint": {
-                "en": "Daily limit",
-                "de": "Tageslimit",
-                "nl": "Dagelimit",
-                "fr": "Limite quotidienne",
-                "it": "Limite giornaliero",
-                "sv": "Dagbegränsning",
-                "no": "Daglig grunner",
-                "es": "Límite diario",
-                "da": "Daglig grænse",
-                "ru": "Лимит на день",
-                "pl": "Limit dzienny"
-              },
-              "value": "300"
-            },
-            {
-              "id": "api_rate_limit_reset",
-              "type": "label",
-              "label": {
-                "en": "Rate limit Reset",
-                "de": "Rate-Limit Zurücksetzen",
-                "nl": "Rate-limit resetten",
-                "fr": "Réinitialisation de la limite de taux",
-                "it": "Reset del limite di velocità",
-                "sv": "Hastighetsbegränsning återställs",
-                "no": "Rategrense tilbakestilles",
-                "es": "Restablecimiento del límite de velocidad",
-                "da": "Nulstilling af hastighedsbegrænsning",
-                "ru": "Сброс ограничения скорости",
-                "pl": "Reset limitu prędkości"
-              },
-              "hint": {
-                "en": "Time of lifting the limit",
-                "de": "Zeitpunkt des Aufheben des Limits",
-                "nl": "Tijd van opheffing van de limiet",
-                "fr": "Heure de levée de la limite",
-                "it": "Orario di sollevamento del limite",
-                "sv": "Tid för upphävande av begränsningen",
-                "no": "Tidspunkt for oppheving av grensen",
-                "es": "Hora de levantar el límite",
-                "da": "Tidspunkt for ophævelse af grænsen",
-                "ru": "Время снятия ограничения",
-                "pl": "Czas zniesienia limitu"
-              },
-              "value": "0"
-            },
-            {
-              "id": "api_rate_limit_limit",
-              "type": "label",
-              "label": {
-                "en": "Rate limit",
-                "de": "Rate-Limit",
-                "nl": "Rate-limit",
-                "fr": "Limite de taux",
-                "it": "Limite di velocità",
-                "sv": "Hastighetsbegränsning",
-                "no": "Hastighetsgrense",
-                "es": "Límite de velocidad",
-                "da": "Hastighedsbegrænsning",
-                "ru": "Ограничение скорости",
-                "pl": "Limit prędkości"
-              },
-              "hint": {
-                "en": "Current limit provided by API error response.",
-                "de": "Aktuelle Limit aus der API-Fehlerantwort.",
-                "nl": "Huidige limiet verstrekt door API-foutreactie.",
-                "fr": "Limite actuelle fournie par la réponse d'erreur de l'API.",
-                "it": "Limite attuale fornita dalla risposta di errore dell'API.",
-                "sv": "Aktuell begränsning som tillhandahålls av API-felresponsen.",
-                "no": "Gjeldende grense gitt av API-feilresponsen.",
-                "es": "Límite actual proporcionado por la respuesta de error de la API.",
-                "da": "Aktuel grænse angivet af API-fejlresponsen.",
-                "ru": "Текущее ограничение, предоставленное ответом API с ошибкой.",
-                "pl": "Aktualny limit podany przez odpowiedź błędu API."
-              },
-              "value": ""
             }
           ]
         },
         {
           "type": "group",
           "label": {
-            "en": "Command API",
-            "de": "Kommando-API",
-            "nl": "Commando-API",
-            "fr": "API de commande",
-            "it": "API di comando",
-            "sv": "Kommando-API",
-            "no": "Kommando-API",
-            "es": "API de comando",
-            "da": "Kommando-API",
-            "ru": "API команды",
-            "pl": "API polecenia"
+            "en": "Tesla Fleet-API commands",
+            "de": "Tesla Fleet-API-Kommandos",
+            "nl": "Tesla Fleet-API-opdrachten",
+            "fr": "Commandes de l'API Tesla Fleet",
+            "it": "Comandi dell'API Tesla Fleet",
+            "sv": "Tesla Fleet-API-kommandon",
+            "no": "Tesla Fleet-API-kommandoer",
+            "es": "Comandos de la API Tesla Fleet",
+            "da": "Tesla Fleet-API-kommandoer",
+            "ru": "Команды Tesla Fleet-API",
+            "pl": "Polecenia Tesla Fleet-API"
           },
           "children": [
             {
@@ -9029,259 +8893,6 @@
               "value": "0"
             },
             {
-              "id": "api_command_limit",
-              "type": "label",
-              "label": {
-                "en": "Limit",
-                "de": "Limit",
-                "nl": "Limiet",
-                "fr": "Limite",
-                "it": "Limite",
-                "sv": "Begränsning",
-                "no": "Grense",
-                "es": "Limite",
-                "da": "Grænse",
-                "ru": "Лимит",
-                "pl": "Limit"
-              },
-              "hint": {
-                "en": "Daily limit",
-                "de": "Tageslimit",
-                "nl": "Dagelimit",
-                "fr": "Limite quotidienne",
-                "it": "Limite giornaliero",
-                "sv": "Dagbegränsning",
-                "no": "Daglig grunner",
-                "es": "Límite diario",
-                "da": "Daglig grænse",
-                "ru": "Лимит на день",
-                "pl": "Limit dzienny"
-              },
-              "value": "50"
-            },
-            {
-              "id": "api_command_rate_limit_reset",
-              "type": "label",
-              "label": {
-                "en": "Rate limit Reset",
-                "de": "Rate-Limit Zurücksetzen",
-                "nl": "Rate-limit resetten",
-                "fr": "Réinitialisation de la limite de taux",
-                "it": "Reset del limite di velocità",
-                "sv": "Hastighetsbegränsning återställs",
-                "no": "Rategrense tilbakestilles",
-                "es": "Restablecimiento del límite de velocidad",
-                "da": "Nulstilling af hastighedsbegrænsning",
-                "ru": "Сброс ограничения скорости",
-                "pl": "Reset limitu prędkości"
-              },
-              "hint": {
-                "en": "Time of lifting the limit",
-                "de": "Zeitpunkt des Aufheben des Limits",
-                "nl": "Tijd van opheffing van de limiet",
-                "fr": "Heure de levée de la limite",
-                "it": "Orario di sollevamento del limite",
-                "sv": "Tid för upphävande av begränsningen",
-                "no": "Tidspunkt for oppheving av grensen",
-                "es": "Hora de levantar el límite",
-                "da": "Tidspunkt for ophævelse af grænsen",
-                "ru": "Время снятия ограничения",
-                "pl": "Czas zniesienia limitu"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Charge command API",
-            "de": "Lade-Kommando-API",
-            "nl": "Ladecommando-API",
-            "fr": "API de commande de charge",
-            "it": "API di comando di carica",
-            "sv": "Lad-kommando-API",
-            "no": "Lad-kommando-API",
-            "es": "API de comando de carga",
-            "da": "Lad-kommando-API",
-            "ru": "API команды",
-            "pl": "API polecenia"
-          },
-          "children": [
-            {
-              "id": "api_command_charge_state",
-              "type": "label",
-              "label": {
-                "en": "API state",
-                "de": "API-status",
-                "nl": "API-Status",
-                "fr": "État de l'API",
-                "it": "Stato API",
-                "sv": "API-status",
-                "no": "API-status",
-                "es": "Estado de la API",
-                "da": "API-status",
-                "ru": "Состояние API",
-                "pl": "Stan API"
-              },
-              "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
-              },
-              "value": ""
-            },
-            {
-              "id": "api_command_charge_count",
-              "type": "label",
-              "label": {
-                "en": "Charge commands sent",
-                "de": "Lade-Kommandos gesendet",
-                "nl": "Lade-commando's verzonden",
-                "fr": "Commandes de charge envoyées",
-                "it": "Comandi di carica inviati",
-                "sv": "Lad-kommandon skickade",
-                "no": "Lade-kommandoer sendt",
-                "es": "Comandos de carga enviados",
-                "da": "Lade-kommandoer sendt",
-                "ru": "Отправленные команды",
-                "pl": "Wysłane polecenia"
-              },
-              "hint": {
-                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
-                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
-                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
-                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
-                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
-                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
-                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
-                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
-                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
-              },
-              "value": "0"
-            },
-            {
-              "id": "api_command_charge_limit",
-              "type": "label",
-              "label": {
-                "en": "Limit",
-                "de": "Limit",
-                "nl": "Limiet",
-                "fr": "Limite",
-                "it": "Limite",
-                "sv": "Begränsning",
-                "no": "Grense",
-                "es": "Limite",
-                "da": "Grænse",
-                "ru": "Лимит",
-                "pl": "Limit"
-              },
-              "hint": {
-                "en": "Daily limit",
-                "de": "Tageslimit",
-                "nl": "Dagelimit",
-                "fr": "Limite quotidienne",
-                "it": "Limite giornaliero",
-                "sv": "Dagbegränsning",
-                "no": "Daglig grunner",
-                "es": "Límite diario",
-                "da": "Daglig grænse",
-                "ru": "Лимит на день",
-                "pl": "Limit dzienny"
-              },
-              "value": "5"
-            },
-            {
-              "id": "api_command_charge_rate_limit_reset",
-              "type": "label",
-              "label": {
-                "en": "Rate limit Reset",
-                "de": "Rate-Limit Zurücksetzen",
-                "nl": "Rate-limit resetten",
-                "fr": "Réinitialisation de la limite de taux",
-                "it": "Reset del limite di velocità",
-                "sv": "Hastighetsbegränsning återställs",
-                "no": "Rategrense tilbakestilles",
-                "es": "Restablecimiento del límite de velocidad",
-                "da": "Nulstilling af hastighedsbegrænsning",
-                "ru": "Сброс ограничения скорости",
-                "pl": "Reset limitu prędkości"
-              },
-              "hint": {
-                "en": "Time of lifting the limit",
-                "de": "Zeitpunkt des Aufheben des Limits",
-                "nl": "Tijd van opheffing van de limiet",
-                "fr": "Heure de levée de la limite",
-                "it": "Orario di sollevamento del limite",
-                "sv": "Tid för upphävande av begränsningen",
-                "no": "Tidspunkt for oppheving av grensen",
-                "es": "Hora de levantar el límite",
-                "da": "Tidspunkt for ophævelse af grænsen",
-                "ru": "Время снятия ограничения",
-                "pl": "Czas zniesienia limitu"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Wake command API",
-            "de": "Weck-Kommando-API",
-            "nl": "Weck-kommando-API",
-            "fr": "API de commande de Wake",
-            "it": "API di comando Wake",
-            "sv": "Weck-kommando-API",
-            "no": "Weck-kommando-API",
-            "es": "API de comando Wake",
-            "da": "Weck-kommando-API",
-            "ru": "API команды",
-            "pl": "API polecenia"
-          },
-          "children": [
-            {
-              "id": "api_command_wakes_state",
-              "type": "label",
-              "label": {
-                "en": "API state",
-                "de": "API-status",
-                "nl": "API-Status",
-                "fr": "État de l'API",
-                "it": "Stato API",
-                "sv": "API-status",
-                "no": "API-status",
-                "es": "Estado de la API",
-                "da": "API-status",
-                "ru": "Состояние API",
-                "pl": "Stan API"
-              },
-              "hint": {
-                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
-                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
-              },
-              "value": ""
-            },
-            {
               "id": "api_command_wakes_count",
               "type": "label",
               "label": {
@@ -9298,130 +8909,19 @@
                 "pl": "Wysłane polecenia"
               },
               "hint": {
-                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
-                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
-                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
-                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
-                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
-                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
-                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
-                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
-                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
+                "en": "API commands via REST/Proxy sent since 00:00.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00.",
+                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00.",
+                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00.",
+                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00.",
+                "no": "API-kommandoer via REST/Proxy sendt siden 00:00.",
+                "es": "Comandos API vía REST/Proxy enviados desde las 00:00.",
+                "da": "API-kommandoer via REST/Proxy sendt siden 00:00.",
+                "ru": "API-команды через REST/Proxy отправлены с 00:00.",
+                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00."
               },
               "value": "0"
-            },
-            {
-              "id": "api_command_wakes_limit",
-              "type": "label",
-              "label": {
-                "en": "Limit",
-                "de": "Limit",
-                "nl": "Limiet",
-                "fr": "Limite",
-                "it": "Limite",
-                "sv": "Begränsning",
-                "no": "Grense",
-                "es": "Limite",
-                "da": "Grænse",
-                "ru": "Лимит",
-                "pl": "Limit"
-              },
-              "hint": {
-                "en": "Daily limit",
-                "de": "Tageslimit",
-                "nl": "Dagelimit",
-                "fr": "Limite quotidienne",
-                "it": "Limite giornaliero",
-                "sv": "Dagbegränsning",
-                "no": "Daglig grunner",
-                "es": "Límite diario",
-                "da": "Daglig grænse",
-                "ru": "Лимит на день",
-                "pl": "Limit dzienny"
-              },
-              "value": "15"
-            },
-            {
-              "id": "api_command_wakes_rate_limit_reset",
-              "type": "label",
-              "label": {
-                "en": "Rate limit Reset",
-                "de": "Rate-Limit Zurücksetzen",
-                "nl": "Rate-limit resetten",
-                "fr": "Réinitialisation de la limite de taux",
-                "it": "Reset del limite di velocità",
-                "sv": "Hastighetsbegränsning återställs",
-                "no": "Rategrense tilbakestilles",
-                "es": "Restablecimiento del límite de velocidad",
-                "da": "Nulstilling af hastighedsbegrænsning",
-                "ru": "Сброс ограничения скорости",
-                "pl": "Reset limitu prędkości"
-              },
-              "hint": {
-                "en": "Time of lifting the limit",
-                "de": "Zeitpunkt des Aufheben des Limits",
-                "nl": "Tijd van opheffing van de limiet",
-                "fr": "Heure de levée de la limite",
-                "it": "Orario di sollevamento del limite",
-                "sv": "Tid för upphävande av begränsningen",
-                "no": "Tidspunkt for oppheving av grensen",
-                "es": "Hora de levantar el límite",
-                "da": "Tidspunkt for ophævelse af grænsen",
-                "ru": "Время снятия ограничения",
-                "pl": "Czas zniesienia limitu"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "App internal control",
-            "de": "App interner Steuerung",
-            "nl": "App interne beveiliging",
-            "fr": "Contrôle interne de l'application",
-            "it": "Controllo interno all'app",
-            "sv": "App-innehållsbehandling",
-            "no": "App-innholdsberegning",
-            "es": "Control interno de la aplicación",
-            "da": "App-innholdsberegning",
-            "ru": "Внутреннее управление приложением",
-            "pl": "Kontrola wewnętrzna aplikacji"
-          },
-          "children": [
-            {
-              "id": "api_rate_limit",
-              "type": "label",
-              "label": {
-                "en": "Command API rate limit (app internal)",
-                "de": "Command API Rate Limit (App-intern)",
-                "nl": "Command API rate limit (app intern)",
-                "fr": "Limite de taux d'API de commande (interne à l'application)",
-                "it": "Limite di velocità API di comando (interna all'app)",
-                "sv": "Kommandot API-hastighetsbegränsning (app intern)",
-                "no": "Kommando API-hastighetsgrense (app intern)",
-                "es": "Límite de velocidad de API de comando (interno de la aplicación)",
-                "da": "Kommando API hastighedsbegrænsning (app intern)",
-                "ru": "Ограничение скорости API команды (внутреннее приложение)",
-                "pl": "Limit prędkości API polecenia (wewnętrzne dla aplikacji)"
-              },
-              "hint": {
-                "en": "This field shows the current rate limit usage for Command-Proxy requests. If it gets over 100%, the API will be blocked for a while until the average usage is below 100% again.",
-                "de": "Dieses Feld zeigt die aktuelle API-Rate-Limit-Nutzung für den Kommando-Proxy an. Wenn sie über 100% steigt, wird die API für eine Weile blockiert, bis die durchschnittliche Nutzung wieder unter 100% liegt.",
-                "nl": "Dit veld toont het huidige gebruik van de tariefbeperking van de API. Als het boven de 100% komt, wordt de API een tijdje geblokkeerd totdat het gemiddelde gebruik weer onder de 100% ligt.",
-                "fr": "Ce champ affiche l'utilisation actuelle de la limite de taux d'API pour les demandes de proxy de commande. Si elle dépasse 100%, l'API sera bloquée pendant un certain temps jusqu'à ce que l'utilisation moyenne soit inférieure à 100% à nouveau.",
-                "it": "Questo campo mostra l'utilizzo corrente del limite di velocità API per le richieste di proxy di comando. Se supera il 100%, l'API verrà bloccata per un po' di tempo fino a quando l'utilizzo medio sarà di nuovo inferiore al 100%.",
-                "sv": "Det här fältet visar den aktuella användningen av hastighetsbegränsningen för kommandoproxyförfrågningar. Om den överstiger 100% blockeras API:et under en tid tills den genomsnittliga användningen är under 100% igen.",
-                "no": "Dette feltet viser gjeldende bruk av hastighetsgrensen for kommandoproksyforespørsler. Hvis den overstiger 100%, blir API-en blokkert en stund til gjennomsnittlig bruk er under 100% igjen.",
-                "es": "Este campo muestra el uso actual del límite de velocidad de la API para las solicitudes de proxy de comando. Si supera el 100%, la API se bloqueará durante un tiempo hasta que el uso promedio esté por debajo del 100% nuevamente.",
-                "da": "Dette felt viser den aktuelle hastighedsbegrænsningsbrug for kommandoproxyforespørgsler. Hvis den overstiger 100%, blokeres API'en i et stykke tid, indtil den gennemsnitlige brug er under 100% igen.",
-                "ru": "Это поле показывает текущее использование ограничения скорости API для запросов командного прокси. Если оно превышает 100%, API будет заблокировано на некоторое время, пока среднее использование не станет снова ниже 100%.",
-                "pl": "To pole pokazuje aktualne wykorzystanie limitu prędkości dla żądań proxy polecenia. Jeśli przekroczy 100%, API zostanie zablokowane na jakiś czas, aż średnie wykorzystanie będzie ponownie poniżej 100%."
-              },
-              "value": "0 %"
             }
           ]
         },
@@ -12707,41 +12207,6 @@
       "setable": false,
       "uiComponent": "sensor",
       "icon": "./assets/capability_icons/location_route_destination_time.svg"
-    },
-    "measure_api_command_charge_count": {
-      "type": "number",
-      "title": {
-        "en": "Tesla API charge command count",
-        "de": "Tesla API Lade-Kommandoanzahl",
-        "nl": "Aantal Tesla API lade-commando's",
-        "fr": "Nombre de commandes de l'API Tesla",
-        "it": "Conteggio comandi API Tesla",
-        "sv": "Tesla API kommandoräkning",
-        "no": "Tesla API kommandotelling",
-        "es": "Recuento de comandos de la API de Tesla",
-        "da": "Tesla API kommandotal",
-        "ru": "Количество команд API Tesla",
-        "pl": "Liczba poleceń API Tesli"
-      },
-      "units": {
-        "en": "Commands per day",
-        "de": "Kommandos pro Tag",
-        "nl": "Commando's per dag",
-        "fr": "Commandes par jour",
-        "it": "Comandi al giorno",
-        "sv": "Kommandon per dag",
-        "no": "Kommandoer per dag",
-        "es": "Comandos por día",
-        "da": "Kommandoer pr. dag",
-        "ru": "Команд в день",
-        "pl": "Polecenia na dzień"
-      },
-      "decimals": 0,
-      "insights": true,
-      "getable": true,
-      "setable": true,
-      "uiComponent": null,
-      "icon": "./assets/capability_icons/measure_api_command_count.svg"
     },
     "measure_api_command_count": {
       "type": "number",

@@ -1,7 +1,7 @@
 {
   "id": "command_retry",
   "type": "checkbox",
-  "value": true,
+  "value": false,
   "label": {
     "en": "Retry commands",
     "de": "Kommandos wiederholen",

@@ -95,17 +95,17 @@
     {
       "type": "group",
       "label": {
-        "en": "Tesla API",
-        "de": "Tesla API",
-        "nl": "Tesla API",
-        "fr": "Tesla API",
-        "it": "Tesla API",
-        "sv": "Tesla API",
-        "no": "Tesla API",
-        "es": "Tesla API",
-        "da": "Tesla API",
-        "ru": "Tesla API",
-        "pl": "Tesla API"
+        "en": "Tesla Fleet-API data",
+        "de": "Tesla Fleet-API-Daten",
+        "nl": "Tesla Fleet-API-gegevens",
+        "fr": "Données de l'API Tesla Fleet",
+        "it": "Dati dell'API Tesla Fleet",
+        "sv": "Tesla Fleet-API-data",
+        "no": "Tesla Fleet-API-data",
+        "es": "Datos de la API Tesla Fleet",
+        "da": "Tesla Fleet-API-data",
+        "ru": "Данные Tesla Fleet-API",
+        "pl": "Dane Tesla Fleet-API"
       },
       "children": [
         {
@@ -115,18 +115,6 @@
         {
           "$extends": "api_request_count",
           "id": "api_request_count"
-        },
-        {
-          "$extends": "api_request_limit",
-          "id": "api_request_limit"
-        },
-        {
-          "$extends": "api_rate_limit_reset",
-          "id": "api_rate_limit_reset"
-        },
-        {
-          "$extends": "api_rate_limit_limit",
-          "id": "api_rate_limit_limit"
         }
       ]
     },
@@ -134,17 +122,17 @@
     {
       "type": "group",
       "label": {
-        "en": "Command API",
-        "de": "Kommando-API",
-        "nl": "Commando-API",
-        "fr": "API de commande",
-        "it": "API di comando",
-        "sv": "Kommando-API",
-        "no": "Kommando-API",
-        "es": "API de comando",
-        "da": "Kommando-API",
-        "ru": "API команды",
-        "pl": "API polecenia"
+        "en": "Tesla Fleet-API commands",
+        "de": "Tesla Fleet-API-Kommandos",
+        "nl": "Tesla Fleet-API-opdrachten",
+        "fr": "Commandes de l'API Tesla Fleet",
+        "it": "Comandi dell'API Tesla Fleet",
+        "sv": "Tesla Fleet-API-kommandon",
+        "no": "Tesla Fleet-API-kommandoer",
+        "es": "Comandos de la API Tesla Fleet",
+        "da": "Tesla Fleet-API-kommandoer",
+        "ru": "Команды Tesla Fleet-API",
+        "pl": "Polecenia Tesla Fleet-API"
       },
       "children": [
         {
@@ -156,105 +144,8 @@
           "id": "api_command_count"
         },
         {
-          "$extends": "api_command_limit",
-          "id": "api_command_limit"
-        },
-        {
-          "$extends": "api_rate_limit_reset",
-          "id": "api_command_rate_limit_reset"
-        }
-      ]
-    },
-
-    {
-      "type": "group",
-      "label": {
-        "en": "Charge command API",
-        "de": "Lade-Kommando-API",
-        "nl": "Ladecommando-API",
-        "fr": "API de commande de charge",
-        "it": "API di comando di carica",
-        "sv": "Lad-kommando-API",
-        "no": "Lad-kommando-API",
-        "es": "API de comando de carga",
-        "da": "Lad-kommando-API",
-        "ru": "API команды",
-        "pl": "API polecenia"
-      },
-      "children": [
-        {
-          "$extends": "api_state",
-          "id": "api_command_charge_state"
-        },
-        {
-          "$extends": "api_command_charge_count",
-          "id": "api_command_charge_count"
-        },
-        {
-          "$extends": "api_command_charge_limit",
-          "id": "api_command_charge_limit"
-        },
-        {
-          "$extends": "api_rate_limit_reset",
-          "id": "api_command_charge_rate_limit_reset"
-        }
-      ]
-    },
-
-    {
-      "type": "group",
-      "label": {
-        "en": "Wake command API",
-        "de": "Weck-Kommando-API",
-        "nl": "Weck-kommando-API",
-        "fr": "API de commande de Wake",
-        "it": "API di comando Wake",
-        "sv": "Weck-kommando-API",
-        "no": "Weck-kommando-API",
-        "es": "API de comando Wake",
-        "da": "Weck-kommando-API",
-        "ru": "API команды",
-        "pl": "API polecenia"
-      },
-      "children": [
-        {
-          "$extends": "api_state",
-          "id": "api_command_wakes_state"
-        },
-        {
           "$extends": "api_command_wakes_count",
           "id": "api_command_wakes_count"
-        },
-        {
-          "$extends": "api_command_wakes_limit",
-          "id": "api_command_wakes_limit"
-        },
-        {
-          "$extends": "api_rate_limit_reset",
-          "id": "api_command_wakes_rate_limit_reset"
-        }
-      ]
-    },
-
-    {
-      "type": "group",
-      "label": {
-        "en": "App internal control",
-        "de": "App interner Steuerung",
-        "nl": "App interne beveiliging",
-        "fr": "Contrôle interne de l'application",
-        "it": "Controllo interno all'app",
-        "sv": "App-innehållsbehandling",
-        "no": "App-innholdsberegning",
-        "es": "Control interno de la aplicación",
-        "da": "App-innholdsberegning",
-        "ru": "Внутреннее управление приложением",
-        "pl": "Kontrola wewnętrzna aplikacji"
-      },
-      "children": [
-        {
-          "$extends": "api_rate_limit",
-          "id": "api_rate_limit"
         }
       ]
     },

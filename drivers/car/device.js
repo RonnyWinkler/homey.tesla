@@ -3,7 +3,7 @@ const Homey = require('homey');
 const { CarServer } = require('../../lib/CarServer.js');
 const Eckey = require('eckey-utils');
 const crypt = require('../../lib/crypt');
-const SlidingWindowLog = require('../../lib/SlidingWindowLog.js');
+// const SlidingWindowLog = require('../../lib/SlidingWindowLog.js');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
@@ -13,14 +13,6 @@ const RETRY_COUNT = 3; // number of retries sending commands
 const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 
 const CONSTANTS = require('../../lib/constants');
-
-try{
-  // ENV_PRIVATE = require('../../lib/constants');
-  ENV_PRIVATE = require('../../env_private.json');
-}
-catch(error){
-}
-
 
 module.exports = class CarDevice extends TeslaOAuth2Device {
 
@@ -52,19 +44,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }, CAPABILITY_DEBOUNCE);
 
     // Rate limit log
-    this.rateLimitLog = new SlidingWindowLog();
+    // this.rateLimitLog = new SlidingWindowLog();
 
     this._settings = this.getSettings();
     await this._startApiCounterResetTimer();
 
-    // Start Sync. Wait 3 seconds to allow OAuth2 to be initialized
-    // await this._startSync();
-    // this._sync();
-    this.homey.setTimeout(async () => {
-      this.log("Start sync, client_id: ", this.oAuth2Client._clientId);
-      await this._startSync();
-      this._sync()
-    }, 3000);
+    await this._startSync();
+    this._sync();
 
     try{
       let proxyKey = this.homey.settings.get("private_key");
@@ -82,22 +68,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await super.onOAuth2Deleted();
   }
 
-  // async onDeleted(){
-  //   await this._stopSync();
-  //   await super.onDeleted();
-  // }
-
   async onOAuth2Saved() {
-    // if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
-    //     !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
-    //   this.log("onOAuth2Saved() => Client ID or Client Secret not set.");
-    //   this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
-    //   return;
-    // }
-    // else{
-    //   this.setAvailable();
-    // }
-
     // check if settings are already read. If not, device is not initialized yet after pairing
     if (!this._settings) return;
 
@@ -258,9 +229,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND:
         counter = this.getCapabilityValue('measure_api_command_count');
         break;
-      case CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE:
-        counter = this.getCapabilityValue('measure_api_command_charge_count');
-        break;
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES:
         counter = this.getCapabilityValue('measure_api_command_wakes_count');
         break;
@@ -280,10 +248,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.setCapabilityValue('measure_api_command_count', counter);
         await this.setSettings({ api_command_count: counter.toString() });
         break;
-      case CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE:
-        await this.setCapabilityValue('measure_api_command_charge_count', counter);
-        await this.setSettings({ api_command_charge_count: counter.toString() });
-        break;
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES:
         await this.setCapabilityValue('measure_api_command_wakes_count', counter);
         await this.setSettings({ api_command_wakes_count: counter.toString() });
@@ -294,7 +258,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _startApiCounterResetTimer(){
     await this._stopApiCounterResetTimer();
 
-    let d = new Date();
+    let d = new Date( this._getLocalTimeString(new Date()) );
     let h = d.getHours();
     let m = d.getMinutes();
     let s = d.getSeconds();
@@ -313,25 +277,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('measure_api_request_count', 0);
     }
     await this.setSettings({ api_request_count: '0' });
-    await this.setSettings({ api_rate_limit_reset: '' });
-    // await this.setSettings({ api_rate_limit_retry_after: '' });
-    await this.setSettings({ api_rate_limit_limit: '' });
     if (this.hasCapability('measure_api_command_count')){
       await this.setCapabilityValue('measure_api_command_count', 0);
     }
-    if (this.hasCapability('measure_api_command_charge_count')){
-      await this.setCapabilityValue('measure_api_command_charge_count', 0);
-    }
+    await this.setSettings({ api_command_count: '0' });
     if (this.hasCapability('measure_api_command_wakes_count')){
       await this.setCapabilityValue('measure_api_command_wakes_count', 0);
     }
-    await this.setSettings({ api_command_count: '0' });
-    await this.setSettings({ api_command_rate_limit_reset: '' });
-    await this.setSettings({ api_command_charge_count: '0' });
-    await this.setSettings({ api_command_charge_rate_limit_reset: '' });
     await this.setSettings({ api_command_wakes_count: '0' });
-    await this.setSettings({ api_command_wakes_rate_limit_reset: '' });
-    // await this.setSettings({ api_command_rate_limit_retry_after: '' });
     await this._startApiCounterResetTimer();
   }
 
@@ -374,28 +327,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // SYNC =======================================================================================
   async _sync() {
     this.log("Car data request...");
-    try{
-
-      // // Reset rate limit information
-      // await this.setSettings({
-      //   api_rate_limit_reset: '',
-      //   api_rate_limit_retry_after: '',
-      //   api_rate_limit_limit: ''
-      // });
-    
+    try{    
       // update the device
       await this.getCarData();
       await this.handleApiOk();
       this.setAvailable();
 
       // Update rate limit state
-      this.rateLimitLog.refresh();
-      await this.setSettings({
-        api_rate_limit: this.rateLimitLog.getState() + ' %'
-      });
-      if (this.hasCapability('measure_api_rate_limit')){
-        this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
-      }
+      // this.rateLimitLog.refresh();
+      // await this.setSettings({
+      //   api_rate_limit: this.rateLimitLog.getState() + ' %'
+      // });
+      // if (this.hasCapability('measure_api_rate_limit')){
+      //   this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+      // }
 
     }
     catch(error){
@@ -483,28 +428,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
         if (error.status == 429){
           await this.setCapabilityValue('car_state', CONSTANTS.STATE_RATE_LIMIT);
-          // set rate limit settings
-          let settings = {};
-          if (error.ratelimitReset){
-            let currentTime = new Date();
-            let resetTime = new Date(currentTime.getTime() + (error.ratelimitReset * 1000));
-            let resetTimeString = this._getLocalTimeString(resetTime);
-            settings['api_rate_limit_reset'] = resetTimeString;
-          }
-          // let hh = Math.floor(error.rateLimitRetryAfter / 3600);
-          // if (hh < 10){
-          //   hh = '0' + hh;
-          // }
-          // let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
-          // if (mm < 10){
-          //   mm = '0' + mm;
-          // }
-          // settings['api_rate_limit_retry_after'] = hh + ':' + mm;
-
-          if (error.ratelimitLimit){
-            settings['api_rate_limit_limit'] = error.ratelimitLimit;
-          }
-          await this.setSettings( settings );
         }
         await this.setDeviceState(false);
         let time = this._getLocalTimeString(new Date());
@@ -862,11 +785,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   getCommandType(apiFunction){
     switch (apiFunction) {
-      case 'commandScheduleCharging':
-      case 'commandChargePort':
-      case 'commandChargeOn':
-      case 'commandChargeLimit':
-        return CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE;
       case 'commandWakeUp':
         return CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES;
       default:
@@ -876,26 +794,27 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async sendCommand(apiFunction, params){
     try{
-      try{
-        this.rateLimitLog.add();
-        this.log("RateLimit: "+this.rateLimitLog.getState()+"%");
-        await this.setSettings({
-          api_rate_limit: this.rateLimitLog.getState() + ' %'
-        });
-        if (this.hasCapability('measure_api_rate_limit')){
-          this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
-        }
-      }
-      catch(error){
-        this.log("RateLimit exeeded: "+this.rateLimitLog.getState()+"%");
-        await this.setSettings({
-          api_rate_limit: this.rateLimitLog.getState() + ' %'
-        });
-        if (this.hasCapability('measure_api_rate_limit')){
-          this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
-        }
-        throw error;
-      }
+      // try{
+      //   this.rateLimitLog.add();
+      //   this.log("RateLimit: "+this.rateLimitLog.getState()+"%");
+      //   await this.setSettings({
+      //     api_rate_limit: this.rateLimitLog.getState() + ' %'
+      //   });
+      //   if (this.hasCapability('measure_api_rate_limit')){
+      //     this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+      //   }
+      // }
+      // catch(error){
+      //   this.log("RateLimit exeeded: "+this.rateLimitLog.getState()+"%");
+      //   await this.setSettings({
+      //     api_rate_limit: this.rateLimitLog.getState() + ' %'
+      //   });
+      //   if (this.hasCapability('measure_api_rate_limit')){
+      //     this.setCapabilityValue('measure_api_rate_limit', this.rateLimitLog.getState());
+      //   }
+      //   throw error;
+      // }
+
       // Wake up the car if needed
       let state = await this.wakeUpIfNeeded();
       // If wakeUp is processed, the car state is returned. If not, "undefined" is returned.
@@ -913,7 +832,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       for (let i=0; i<=retryCount; i++){
         try{
-          return await this._sendCommand(apiFunction, params);
+          await this._sendCommand(apiFunction, params);
+          await this.handleApiOk(CONSTANTS.API_ERROR_COMMAND);
+          // Get new states after command execution
+          // await this._sync();
         }
         catch(error){
           if (i==retryCount){
@@ -926,44 +848,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           }
         }
       }
-      await this.handleApiOk(CONSTANTS.API_ERROR_COMMAND);
-      // Get new states after command execution
-      // await this._sync();
     }
     catch(error){
       await this.handleApiError(error, CONSTANTS.API_ERROR_COMMAND);
 
-      if (error.status == 429){
-        // await this.setCapabilityValue('car_state', CONSTANTS.STATE_RATE_LIMIT);
-
-        // set rate limit settings
-        let settings = {};
-        let currentTime = new Date();
-        let resetTime = new Date(currentTime.getTime() + (error.rateLimitRetryAfter * 1000));
-        let resetTimeString = this._getLocalTimeString(resetTime);
-        switch (this.getCommandType(apiFunction)) {
-          case CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE:
-            settings['api_command_charge_state'] = error.statusText;
-            settings['api_command_charge_rate_limit_reset'] = resetTimeString;
-            break;
-          default:
-            settings['api_command_state'] = error.statusText;
-            settings['api_command_rate_limit_reset'] = resetTimeString;
-        }      
-    
-        // let hh = Math.floor(error.rateLimitRetryAfter / 3600);
-        // if (hh < 10){
-        //   hh = '0' + hh;
-        // }
-        // let mm = Math.floor(error.rateLimitRetryAfter / 60) - ( hh * 60);   
-        // if (mm < 10){
-        //   mm = '0' + mm;
-        // }
-        // settings['api_command_rate_limit_retry_after'] = hh + ':' + mm;
-
-        // settings['api_rate_limit_limit'] = error.ratelimitLimit;
-        await this.setSettings( settings );
-      }
+      // if (error.status == 429){
+      //   // set API state in device settings
+      //   let settings = {};
+      //   settings['api_command_state'] = error.statusText;
+      //   await this.setSettings( settings );
+      // }
 
       throw error;
     }
@@ -1004,9 +898,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       this.log("Send REST command: API: "+this.getCommandApi()+"; API function: "+apiFunction+"; Parameter: ",params);
       switch (this.getCommandType(apiFunction)) {
-        case CONSTANTS.API_COMMAND_TYPE_COMMAND_CHARGE:
-          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_CHARGE );
-          break;
         case CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES:
           await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES );
           break;
@@ -1026,6 +917,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     let {command, params, domain} = this._getSignedCommand(apiFunction, apiParams);
     this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
+    switch (this.getCommandType(apiFunction)) {
+      case CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES:
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES );
+        break;
+      default:
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );
+    }
     await this.commandApi.sendSignedCommand(command, params, domain);
     this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command);
   }
