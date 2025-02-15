@@ -49,17 +49,29 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._settings = this.getSettings();
     await this._startApiCounterResetTimer();
 
-    await this._startSync();
-    this._sync();
 
-    try{
-      let proxyKey = this.homey.settings.get("private_key");
-      let key = Eckey.parsePem(proxyKey);
-      this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
-    }
-    catch(error){
-      this.log("onOAuth2Init() => Error: ",error.message);
-    }
+    this.homey.setTimeout(async () => {
+      try{
+        let proxyKey = this.homey.settings.get("private_key");
+        let key = Eckey.parsePem(proxyKey);
+        this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+      }
+      catch(error){
+        this.log("onOAuth2Init() => Error: ",error.message);
+      }
+    }, 3000);
+
+    // await this._startSync();
+    // this._sync();
+    // Start Sync. Wait 3 seconds to allow OAuth2 to be initialized
+    // await this._startSync();
+    // this._sync();
+    this.homey.setTimeout(async () => {
+      this.log("onOAuth2Init() => Start sync");
+      await this._startSync();
+      this._sync()
+    }, 5000);
+
   }
 
   async onOAuth2Uninit(){
@@ -261,6 +273,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._stopApiCounterResetTimer();
 
     let d = new Date( this._getLocalTimeString(new Date()) );
+    // let d = new Date();
     let h = d.getHours();
     let m = d.getMinutes();
     let s = d.getSeconds();
@@ -334,6 +347,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.getCarData();
       await this.handleApiOk();
       await this.setAvailable();
+      this.log("Car sync done.");
 
       // Update rate limit state
       // this.rateLimitLog.refresh();
@@ -413,7 +427,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         this._startSync();
       }
 
-      this._updateDevice(data);
+      await this._updateDevice(data);
       return data;
     }
     catch(error){
@@ -440,7 +454,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
           this._startSync();
         }
-        return settings;
+        return {};
       }
       else{
         throw error;
@@ -449,6 +463,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _updateDevice(data){
+    this.log("Update device data...");
+
     // last online timestamp
     if (this.hasCapability('last_online') && data != undefined){
       let time = this._getLocalTimeString(new Date());
@@ -631,22 +647,27 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     // Update child devices
     let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (batteryDevice){
+      this.log("Update battery device...");
       await batteryDevice.updateDevice(data);
     }
     let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (climateDevice){
+      this.log("Update climate device...");
       await climateDevice.updateDevice(data);
     }
     let locationDevice = this.homey.drivers.getDriver('location').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (locationDevice){
+      this.log("Update location device...");
       await locationDevice.updateDevice(data);
     }
     let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (mediaDevice){
+      this.log("Update media device...");
       await mediaDevice.updateDevice(data);
     }
 
-    // Realtime event - Widget update 
+    // Realtime event - Widget update
+    this.log("Update widgeets (realtime event)...");
     await this.homey.api.realtime("car_data_changed", {id: this.getData().id} );
 
   }

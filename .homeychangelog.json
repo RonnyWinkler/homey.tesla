@@ -355,6 +355,9 @@
     "en": "Removed further rate limit data."
   },
   "2.0.9": {
-    "en": "Fix for HP23 RC-FW issues."
+    "en": "Testversion for CPU limit issue."
+  },
+  "2.0.10": {
+    "en": "Testversion for CPU limit issue."
   }
 }
