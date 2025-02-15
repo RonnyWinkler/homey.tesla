@@ -1,0 +1,35 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Tesla API charge command count",
+    "de": "Tesla API Lade-Kommandoanzahl",
+    "nl": "Aantal Tesla API lade-commando's",
+    "fr": "Nombre de commandes de l'API Tesla",
+    "it": "Conteggio comandi API Tesla",
+    "sv": "Tesla API kommandoräkning",
+    "no": "Tesla API kommandotelling",
+    "es": "Recuento de comandos de la API de Tesla",
+    "da": "Tesla API kommandotal",
+    "ru": "Количество команд API Tesla",
+    "pl": "Liczba poleceń API Tesli"
+  },
+  "units": {
+    "en": "Commands per day",
+    "de": "Kommandos pro Tag",
+    "nl": "Commando's per dag",
+    "fr": "Commandes par jour",
+    "it": "Comandi al giorno",
+    "sv": "Kommandon per dag",
+    "no": "Kommandoer per dag",
+    "es": "Comandos por día",
+    "da": "Kommandoer pr. dag",
+    "ru": "Команд в день",
+    "pl": "Polecenia na dzień"
+  },
+  "decimals": 0,
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_api_command_count.svg"
+}

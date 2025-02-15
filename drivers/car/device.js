@@ -62,10 +62,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
-  async onOAuth2Deleted() {
+  async onOAuth2Uninit(){
     await this._stopSync();
     await this._stopApiCounterResetTimer();
-    await super.onOAuth2Deleted();
+  }
+
+  async onOAuth2Deleted() {
   }
 
   async onOAuth2Saved() {
@@ -326,12 +328,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // SYNC =======================================================================================
   async _sync() {
-    this.log("Car data request...");
+    this.log("Car sync...");
     try{    
       // update the device
       await this.getCarData();
       await this.handleApiOk();
-      this.setAvailable();
+      await this.setAvailable();
 
       // Update rate limit state
       // this.rateLimitLog.refresh();
@@ -405,7 +407,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
-      if (oldState == CONSTANTS.STATE_ASLEEP){
+      if (oldState != CONSTANTS.STATE_ONLINE){
         // From asleep to online?
         // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
         this._startSync();
@@ -433,7 +435,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         let time = this._getLocalTimeString(new Date());
         await this.setCapabilityValue('last_update', time);
         // state change from asleep to offline => Start new sync interval
-        if (oldState == CONSTANTS.STATE_ASLEEP){
+        if (oldState == CONSTANTS.STATE_ONLINE){
           // From asleep to offline?
           // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
           this._startSync();

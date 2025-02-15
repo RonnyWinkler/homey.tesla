@@ -350,5 +350,11 @@
   },
   "2.0.7": {
     "en": "Reemoved rate limit data. Changed api counter to reeset at 0:00 local time."
+  },
+  "2.0.8": {
+    "en": "Removed further rate limit data."
+  },
+  "2.0.9": {
+    "en": "Fix for HP23 RC-FW issues."
   }
 }
