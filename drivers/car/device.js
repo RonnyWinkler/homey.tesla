@@ -31,7 +31,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // TODO: Check for a solution to prevent app crash caused by CPU usage on HP23, FW 12.x
-    // await this._updateCapabilitiesDynamic();
+    await this._updateCapabilitiesDynamic();
     // await this._updateCapabilitiesFixed();
 
     await this._updateSettings();
@@ -284,15 +284,21 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _startApiCounterResetTimer(){
     await this._stopApiCounterResetTimer();
 
-    // reset al local 0:00 h
-    let d = new Date( this._getLocalTimeString(new Date()) );
-    // reset at 0:00 UTC
-    // let d = new Date();
-
+    let d;
+    try{
+      // reset al local 0:00 h
+      d = this._getLocalTime();
+    }
+    catch (error){
+      // reset at 0:00 UTC
+      d = new Date();      
+    }
     let h = d.getHours();
     let m = d.getMinutes();
     let s = d.getSeconds();
     let interval = (24*60*60) - (h*60*60) - (m*60) - s;
+    this.log("_startApiCounterResetTimer(): "+ d + " h:mm:ss: "+ h+":"+m+":"+s + " interval: "+interval);
+
     this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval * 1000);
   }
 

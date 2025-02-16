@@ -368,5 +368,14 @@
   },
   "2.0.13": {
     "en": "Temporary fix for CPU limit issue."
+  },
+  "2.0.14": {
+    "en": "Temporary fix for CPU limit issue."
+  },
+  "2.0.15": {
+    "en": "Temporary fix for CPU limit issue."
+  },
+  "2.0.16": {
+    "en": "Fix for CPU issuee and counter reset."
   }
 }
