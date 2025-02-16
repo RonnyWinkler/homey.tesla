@@ -32,7 +32,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // TODO: Check for a solution to prevent app crash caused by CPU usage on HP23, FW 12.x
     // await this._updateCapabilitiesDynamic();
-    await this._updateCapabilitiesFixed();
+    // await this._updateCapabilitiesFixed();
 
     await this._updateSettings();
 

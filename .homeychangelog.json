@@ -365,5 +365,8 @@
   },
   "2.0.12": {
     "en": "Remove deprecated capabilities."
+  },
+  "2.0.13": {
+    "en": "Temporary fix for CPU limit issue."
   }
 }
