@@ -31,7 +31,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // TODO: Check for a solution to prevent app crash caused by CPU usage on HP23, FW 12.x
-    // await this._updateCapabilities();
+    // await this._updateCapabilitiesDynamic();
+    await this._updateCapabilitiesFixed();
 
     await this._updateSettings();
 
@@ -83,7 +84,22 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   // Device handling =======================================================================================
-  async _updateCapabilities(){
+  async _updateCapabilitiesFixed(){
+    // remove deprecated capabilities
+    try{
+      if (this.hasCapability('measure_api_rate_limit')){
+        await this.removeCapability('measure_api_rate_limit');
+      }
+      if (this.hasCapability('measure_api_command_charge_count')){
+        await this.removeCapability('measure_api_command_charge_count');
+      }
+    }
+    catch(error){
+      this.log("_updateCapabilitiesFixed() Error: ",error.message);
+    }
+  }
+
+  async _updateCapabilitiesDynamic(){
     let capabilities = [];
     try{
       capabilities = this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].capabilities;
@@ -268,8 +284,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _startApiCounterResetTimer(){
     await this._stopApiCounterResetTimer();
 
-    // let d = new Date( this._getLocalTimeString(new Date()) );
-    let d = new Date();
+    // reset al local 0:00 h
+    let d = new Date( this._getLocalTimeString(new Date()) );
+    // reset at 0:00 UTC
+    // let d = new Date();
+
     let h = d.getHours();
     let m = d.getMinutes();
     let s = d.getSeconds();
@@ -311,7 +330,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       if (this._settings.polling_interval_online > 0){
         interval = this._settings.polling_interval_online * 1000;
       }
-      interval = interval * 1000;
       if (this._settings.polling_unit_online == 'min'){
         interval = interval * 60;
       }

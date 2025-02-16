@@ -362,5 +362,8 @@
   },
   "2.0.11": {
     "en": "Testversion for CPU limit issue."
+  },
+  "2.0.12": {
+    "en": "Remove deprecated capabilities."
   }
 }
