@@ -359,5 +359,8 @@
   },
   "2.0.10": {
     "en": "Testversion for CPU limit issue."
+  },
+  "2.0.11": {
+    "en": "Testversion for CPU limit issue."
   }
 }

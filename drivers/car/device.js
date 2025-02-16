@@ -27,10 +27,12 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
     }
     else{
-      this.setAvailable();
+      await this.setAvailable();
     }
 
-    await this._updateCapabilities();
+    // TODO: Check for a solution to prevent app crash caused by CPU usage on HP23, FW 12.x
+    // await this._updateCapabilities();
+
     await this._updateSettings();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
@@ -50,28 +52,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._startApiCounterResetTimer();
 
 
-    this.homey.setTimeout(async () => {
-      try{
-        let proxyKey = this.homey.settings.get("private_key");
-        let key = Eckey.parsePem(proxyKey);
-        this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
-      }
-      catch(error){
-        this.log("onOAuth2Init() => Error: ",error.message);
-      }
-    }, 3000);
+    try{
+      let proxyKey = this.homey.settings.get("private_key");
+      let key = Eckey.parsePem(proxyKey);
+      this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+    }
+    catch(error){
+      this.log("onOAuth2Init() Create CarServerError: ",error.message);
+    }
 
-    // await this._startSync();
-    // this._sync();
-    // Start Sync. Wait 3 seconds to allow OAuth2 to be initialized
-    // await this._startSync();
-    // this._sync();
-    this.homey.setTimeout(async () => {
-      this.log("onOAuth2Init() => Start sync");
-      await this._startSync();
-      this._sync()
-    }, 5000);
-
+    await this._startSync();
+    this._sync();
   }
 
   async onOAuth2Uninit(){
@@ -224,9 +215,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
-    this._startSync();
-
-    this.homey.setTimeout(() => this._sync(), 1000);
+    
+    this.homey.setTimeout(async() => {
+      this._startSync();
+      this._sync();
+      }, 1000);
   }
 
   getCommandApi(){
@@ -252,6 +245,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       counter = 0;
     }
     counter = counter + 1;
+    this.log("API counter: type: " + type + " conter: " + counter);
 
     switch (type){
       case CONSTANTS.API_REQUEST_COUNTER_READ:
@@ -267,13 +261,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.setSettings({ api_command_wakes_count: counter.toString() });
         break;
       }
-  }
+
+      this.log("API counter updated.");
+    }
 
   async _startApiCounterResetTimer(){
     await this._stopApiCounterResetTimer();
 
-    let d = new Date( this._getLocalTimeString(new Date()) );
-    // let d = new Date();
+    // let d = new Date( this._getLocalTimeString(new Date()) );
+    let d = new Date();
     let h = d.getHours();
     let m = d.getMinutes();
     let s = d.getSeconds();
@@ -283,7 +279,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _stopApiCounterResetTimer(){
     if (this._apiCounterResetInterval) {
-      this.homey.clearInterval(this._apiCounterResetInterval);
+      this.homey.clearTimeout(this._apiCounterResetInterval);
     }
   }
 
@@ -306,20 +302,25 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // SYNC Logic =======================================================================================
   async _startSync(){
     await this._stopSync();
-    if (!this._settings ||!this._settings.polling_active){
+    if (!this._settings || !this._settings.polling_active){
       return;
     }
     // Interval settings is in minutes, convert to milliseconds.
     let interval = DEFAULT_SYNC_INTERVAL;
     if (!this.isAsleep()){
-      interval = this._settings.polling_interval_online * 1000;
+      if (this._settings.polling_interval_online > 0){
+        interval = this._settings.polling_interval_online * 1000;
+      }
+      interval = interval * 1000;
       if (this._settings.polling_unit_online == 'min'){
         interval = interval * 60;
       }
       this.log(`[Device] ${this.getName()}: Start ONLINE Poll interval: ${interval} msec.`);
     }
     else{
-      interval = this._settings.polling_interval_offline * 1000;
+      if (this._settings.polling_interval_offline > 0){
+        interval = this._settings.polling_interval_offline * 1000;
+      }
       if (this._settings.polling_unit_offline == 'min'){
         interval = interval * 60;
       }
@@ -336,6 +337,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _stopSync(){
     if (this._syncInterval) {
       this.homey.clearInterval(this._syncInterval);
+      this._syncInterval = undefined;
     }
   }
 
@@ -667,7 +669,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
 
     // Realtime event - Widget update
-    this.log("Update widgeets (realtime event)...");
+    this.log("Update widgets (realtime event)...");
     await this.homey.api.realtime("car_data_changed", {id: this.getData().id} );
 
   }
