@@ -377,5 +377,8 @@
   },
   "2.0.16": {
     "en": "Fix for CPU issuee and counter reset."
+  },
+  "2.1.0": {
+    "en": "Changed car device class to 'car'. Changed api counter to monthly reset. Added api costs insights."
   }
 }

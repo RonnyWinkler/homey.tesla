@@ -1,0 +1,30 @@
+{
+    "type": "number",
+    "label": {
+      "en": "Wakes per 1¤",
+      "de": "Weck-Kommandos pro 1¤",
+      "nl": "Wakes per 1¤",
+      "fr": "Wakes par 1¤",
+      "it": "Wakes per 1¤",
+      "sv": "Wakes per 1¤",
+      "no": "Wakes per 1¤",
+      "es": "Wakes por 1¤",
+      "da": "Wakes per 1¤",
+      "ru": "Wakes на 1¤",
+      "pl": "Wakes na 1¤"
+    },
+    "hint": {
+      "en": "Number of requests for this category stated on the Tesla page",
+      "de": "Auf der Tesla-Seite angegebene Anzahl von Aufrufen für diese Kategorie",
+      "nl": "Aantal verzoeken voor deze categorie vermeld op de Tesla-pagina",
+      "fr": "Nombre de demandes pour cette catégorie indiqué sur la page Tesla",
+      "it": "Numero di richieste per questa categoria indicato sulla pagina Tesla",
+      "sv": "Antal förfrågningar för denna kategori som anges på Tesla-sidan",
+      "no": "Antall forespørsler for denne kategorien som er angitt på Tesla-siden",
+      "es": "Número de solicitudes para esta categoría indicado en la página de Tesla",
+      "da": "Antal anmodninger for denne kategori angivet på Tesla-siden",
+      "ru": "Количество запросов для этой категории, указанное на странице Tesla",
+      "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
+    },
+    "value": 50
+  }

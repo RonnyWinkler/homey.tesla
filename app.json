@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "2.0.16",
+  "version": "2.1.0",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -2522,6 +2522,48 @@
       },
       {
         "title": {
+          "en": "Tesla API costs changed",
+          "de": "Tesla API-Kosten geändert",
+          "nl": "API-kosten Tesla gewijzigd",
+          "fr": "Coûts de l'API Tesla modifiés",
+          "it": "Costi API Tesla modificati",
+          "sv": "Tesla API-kostnader ändrades",
+          "no": "Endrede Tesla API-kostnader",
+          "es": "Costos de la API de Tesla cambiados",
+          "da": "Tesla API-omkostninger ændret",
+          "ru": "Изменены затраты на API Tesli",
+          "pl": "Zmienione koszty API Tesli"
+        },
+        "tokens": [
+          {
+            "name": "measure_api_costs",
+            "type": "number",
+            "title": {
+              "en": "Estimated costs",
+              "de": "Geschätzte Kosten",
+              "nl": "Geschatte kosten",
+              "fr": "Coûts estimés",
+              "it": "Costi stimati",
+              "sv": "Beräknade kostnader",
+              "no": "Estimerte kostnader",
+              "es": "Costos estimados",
+              "da": "Estimerede omkostninger",
+              "ru": "Предполагаемые затраты",
+              "pl": "Szacowane koszty"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "measure_api_costs_changed"
+      },
+      {
+        "title": {
           "en": "Tesla API queries count changed",
           "de": "Tesla API Abfragenanzahl geändert",
           "nl": "Tesla API aanvragen tellen gewijzigd",
@@ -3646,6 +3688,46 @@
           }
         ],
         "id": "alarm_api_error"
+      },
+      {
+        "title": {
+          "en": "Daily average API costs !{{are|aren't}} higher than",
+          "de": "Tägliche durchschnittliche API-Kosten !{{sind|sind nicht}} höher als",
+          "nl": "Dagelijkse gemiddelde API-kosten !{{zijn|zijn niet}} hoger dan",
+          "fr": "Coûts API moyens quotidiens !{{sont|ne sont pas}} supérieurs à",
+          "it": "Costi API medi giornalieri !{{sono|non sono}} superiori a",
+          "sv": "Dagliga genomsnittliga API-kostnader !{{är|är inte}} högre än",
+          "no": "Daglige gjennomsnittlige API-kostnader !{{er|er ikke}} høyere enn",
+          "es": "Costos diarios promedio de la API !{{son|no son}} superiores a",
+          "da": "Daglige gennemsnitlige API-omkostninger !{{er|er ikke}} højere end",
+          "ru": "Средние ежедневные затраты на API !{{выше|ниже}}",
+          "pl": "Dzienny średni koszt API !{{jest|nie jest}} wyższy niż"
+        },
+        "titleFormatted": {
+          "en": "Daily average API costs !{{are|aren't}} higher than [[value]]",
+          "de": "Tägliche durchschnittliche API-Kosten !{{sind|sind nicht}} höher als [[value]]",
+          "nl": "Dagelijkse gemiddelde API-kosten !{{zijn|zijn niet}} hoger dan [[value]]",
+          "fr": "Coûts API moyens quotidiens !{{sont|ne sont pas}} supérieurs à [[value]]",
+          "it": "Costi API medi giornalieri !{{sono|non sono}} superiori a [[value]]",
+          "sv": "Dagliga genomsnittliga API-kostnader !{{är|är inte}} högre än [[value]]",
+          "no": "Daglige gjennomsnittlige API-kostnader !{{er|er ikke}} høyere enn [[value]]",
+          "es": "Costos diarios promedio de la API !{{son|no son}} superiores a [[value]]",
+          "da": "Daglige gennemsnitlige API-omkostninger !{{er|er ikke}} højere end [[value]]",
+          "ru": "Средние ежедневные затраты на API !{{выше|ниже}} [[value]]",
+          "pl": "Dzienny średni koszt API !{{jest|nie jest}} wyższy niż [[value]]"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "api_costs_daily_average"
       },
       {
         "title": {
@@ -8156,7 +8238,7 @@
         "large": "/drivers/car/assets/images/large.png",
         "small": "/drivers/car/assets/images/small.png"
       },
-      "class": "sensor",
+      "class": "car",
       "connectivity": [
         "cloud"
       ],
@@ -8187,6 +8269,7 @@
         "measure_api_request_count",
         "measure_api_command_count",
         "measure_api_command_wakes_count",
+        "measure_api_costs",
         "last_online"
       ],
       "energy": {
@@ -8755,17 +8838,17 @@
                 "pl": "Wykonane żądania"
               },
               "hint": {
-                "en": "API requests made since 00:00.",
-                "de": "Ausgeführte API-Abfragen seit 00:00.",
-                "nl": "API-verzoeken gedaan sinds 00:00.",
-                "fr": "Requêtes API effectuées depuis 00:00.",
-                "it": "Richieste API effettuate dalle 00:00.",
-                "sv": "Förfrågningar gjorda sedan 00:00.",
-                "no": "Forespørsler gjort siden 00:00..",
-                "es": "Solicitudes API realizadas desde las 00:00.",
-                "da": "Anmodninger foretaget siden 00:00.",
-                "ru": "Сделано запросов к API с 00:00.",
-                "pl": "Wykonane żądania API od 00:00."
+                "en": "API requests made since the beginning of the month.",
+                "de": "Ausgeführte API-Abfragen seit Montagsbeginn.",
+                "nl": "API-verzoeken gedaan sinds begin van de maand.",
+                "fr": "Requêtes API effectuées depuis le début du mois.",
+                "it": "Richieste API effettuate dall'inizio del mese.",
+                "sv": "Förfrågningar gjorda sedan månadens början.",
+                "no": "Forespørsler gjort siden starten av måneden.",
+                "es": "Solicitudes API realizadas desde el inicio del mes.",
+                "da": "Anmodninger foretaget siden månedens start.",
+                "ru": "Сделано запросов к API с начала месяца.",
+                "pl": "Wykonane żądania API od początku miesiąca."
               },
               "value": "0"
             }
@@ -8835,17 +8918,17 @@
                 "pl": "Wysłane polecenia"
               },
               "hint": {
-                "en": "API commands via REST/Proxy sent since 00:00 UTC.",
-                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00 UTC.",
-                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00 UTC.",
-                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00 UTC.",
-                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00 UTC.",
-                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00 UTC.",
-                "no": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "es": "Comandos API vía REST/Proxy enviados desde las 00:00 UTC.",
-                "da": "API-kommandoer via REST/Proxy sendt siden 00:00 UTC.",
-                "ru": "API-команды через REST/Proxy отправлены с 00:00 UTC.",
-                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00 UTC."
+                "en": "API commands via REST/Proxy sent since the beginning of the month.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit Monatsbeginn.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds het begin van de maand.",
+                "fr": "Commandes API via REST/Proxy envoyées depuis le début du mois.",
+                "it": "Comandi API tramite REST/Proxy inviati dall'inizio del mese.",
+                "sv": "API-kommandon via REST/Proxy skickade sedan månadens början.",
+                "no": "API-kommandoer via REST/Proxy sendt siden månedens start.",
+                "es": "Comandos API vía REST/Proxy enviados desde el inicio del mes.",
+                "da": "API-kommandoer via REST/Proxy sendt siden månedens start.",
+                "ru": "API-команды через REST/Proxy отправлены с начала месяца.",
+                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od początku miesiąca."
               },
               "value": "0"
             },
@@ -8866,19 +8949,179 @@
                 "pl": "Wysłane polecenia"
               },
               "hint": {
-                "en": "API commands via REST/Proxy sent since 00:00.",
-                "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00.",
-                "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00.",
-                "fr": "Commandes API via REST/Proxy envoyées depuis 00:00.",
-                "it": "Comandi API tramite REST/Proxy inviati dalle 00:00.",
-                "sv": "API-kommandon via REST/Proxy skickade sedan 00:00.",
-                "no": "API-kommandoer via REST/Proxy sendt siden 00:00.",
-                "es": "Comandos API vía REST/Proxy enviados desde las 00:00.",
-                "da": "API-kommandoer via REST/Proxy sendt siden 00:00.",
-                "ru": "API-команды через REST/Proxy отправлены с 00:00.",
-                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00."
+                "en": "API commands via REST/Proxy sent since the beginning of the month.",
+                "de": "Gesendete API-Kommandos über REST/Proxy seit Monatsbeginn.",
+                "nl": "API-opdrachten via REST/Proxy verzonden sinds het begin van de maand.",
+                "fr": "Commandes API via REST/Proxy envoyées depuis le début du mois.",
+                "it": "Comandi API tramite REST/Proxy inviati dall'inizio del mese.",
+                "sv": "API-kommandon via REST/Proxy skickade sedan månadens början.",
+                "no": "API-kommandoer via REST/Proxy sendt siden månedens start.",
+                "es": "Comandos API vía REST/Proxy enviados desde el inicio del mes.",
+                "da": "API-kommandoer via REST/Proxy sendt sidst i mænedsbegyndelsen.",
+                "ru": "API-команды через REST/Proxy отправлены с начала месяца.",
+                "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od początku miesiąca."
               },
               "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Tesla Fleet-API costs",
+            "de": "Tesla Fleet-API-Kosten",
+            "nl": "Tesla Fleet-API-kosten",
+            "fr": "Coûts de l'API Tesla Fleet",
+            "it": "Costi dell'API Tesla Fleet",
+            "sv": "Tesla Fleet-API-kostnader",
+            "no": "Tesla Fleet-API-kostnader",
+            "es": "Costos de la API Tesla Fleet",
+            "da": "Tesla Fleet-API-omkostninger",
+            "ru": "Затраты на Tesla Fleet-API",
+            "pl": "Koszty Tesla Fleet-API"
+          },
+          "children": [
+            {
+              "id": "api_costs",
+              "type": "label",
+              "label": {
+                "en": "Estimated costs",
+                "de": "Geschaetzte Kosten",
+                "nl": "Geschatte kosten",
+                "fr": "Coûts estimés",
+                "it": "Costi stimati",
+                "sv": "Beräknade kostnader",
+                "no": "Estimerte kostnader",
+                "es": "Costos estimados",
+                "da": "Estimerede omkostninger",
+                "ru": "Предполагаемые затраты",
+                "pl": "Szacowane koszty"
+              },
+              "hint": {
+                "en": "Estimated API costs based on requests",
+                "de": "Geschätzte API-Kosten auf Basis der Abrufe",
+                "nl": "Geschatte API-kosten op basis van verzoeken",
+                "fr": "Coûts estimés de l'API basés sur les demandes",
+                "it": "Costi stimati dell'API basati sulle richieste",
+                "sv": "Beräknade API-kostnader baserade på förfrågningar",
+                "no": "Estimerte API-kostnader basert på forespørsler",
+                "es": "Costos estimados de la API basados en las solicitudes",
+                "da": "Estimerede API-omkostninger baseret på anmodninger",
+                "ru": "Предполагаемые затраты на API на основе запросов",
+                "pl": "Szacowane koszty API na podstawie żądań"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_costs_data",
+              "type": "number",
+              "label": {
+                "en": "Request per 1¤",
+                "de": "Abfragen je 1¤",
+                "nl": "Verzoeken per 1¤",
+                "fr": "Demandes par 1¤",
+                "it": "Richieste per 1v",
+                "sv": "Förfrågningar per 1¤",
+                "no": "Forespørsler per 1¤",
+                "es": "Solicitudes por 1¤",
+                "da": "Anmodninger pr. 1¤",
+                "ru": "Запросы на 1¤",
+                "pl": "Żądania na 1¤"
+              },
+              "hint": {
+                "en": "Number of requests for this category stated on the Tesla page",
+                "de": "Auf der Tesla-Seite angegebene Anzahl von Aufrufen für diese Kategorie",
+                "nl": "Aantal verzoeken voor deze categorie vermeld op de Tesla-pagina",
+                "fr": "Nombre de demandes pour cette catégorie indiqué sur la page Tesla",
+                "it": "Numero di richieste per questa categoria indicato sulla pagina Tesla",
+                "sv": "Antal förfrågningar för denna kategori som anges på Tesla-sidan",
+                "no": "Antall forespørsler for denne kategorien som er angitt på Tesla-siden",
+                "es": "Número de solicitudes para esta categoría indicado en la página de Tesla",
+                "da": "Antal anmodninger for denne kategori angivet på Tesla-siden",
+                "ru": "Количество запросов для этой категории, указанное на странице Tesla",
+                "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
+              },
+              "value": 1000
+            },
+            {
+              "id": "api_costs_commands",
+              "type": "number",
+              "label": {
+                "en": "Commands per 1¤",
+                "de": "Kommandos pro 1¤",
+                "nl": "Opdrachten per 1¤",
+                "fr": "Commandes par 1¤",
+                "it": "Comandi per 1¤",
+                "sv": "Kommandon per 1¤",
+                "no": "Kommandoer per 1¤",
+                "es": "Comandos por 1¤",
+                "da": "Kommandoer per 1¤",
+                "ru": "Команды на 1¤",
+                "pl": "Polecenia na 1¤"
+              },
+              "hint": {
+                "en": "Number of requests for this category stated on the Tesla page",
+                "de": "Auf der Tesla-Seite angegebene Anzahl von Aufrufen für diese Kategorie",
+                "nl": "Aantal verzoeken voor deze categorie vermeld op de Tesla-pagina",
+                "fr": "Nombre de demandes pour cette catégorie indiqué sur la page Tesla",
+                "it": "Numero di richieste per questa categoria indicato sulla pagina Tesla",
+                "sv": "Antal förfrågningar för denna kategori som anges på Tesla-sidan",
+                "no": "Antall forespørsler for denne kategorien som er angitt på Tesla-siden",
+                "es": "Número de solicitudes para esta categoría indicado en la página de Tesla",
+                "da": "Antal anmodninger for denne kategori angivet på Tesla-siden",
+                "ru": "Количество запросов для этой категории, указанное на странице Tesla",
+                "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
+              },
+              "value": 500
+            },
+            {
+              "id": "api_costs_wakes",
+              "type": "number",
+              "label": {
+                "en": "Wakes per 1¤",
+                "de": "Weck-Kommandos pro 1¤",
+                "nl": "Wakes per 1¤",
+                "fr": "Wakes par 1¤",
+                "it": "Wakes per 1¤",
+                "sv": "Wakes per 1¤",
+                "no": "Wakes per 1¤",
+                "es": "Wakes por 1¤",
+                "da": "Wakes per 1¤",
+                "ru": "Wakes на 1¤",
+                "pl": "Wakes na 1¤"
+              },
+              "hint": {
+                "en": "Number of requests for this category stated on the Tesla page",
+                "de": "Auf der Tesla-Seite angegebene Anzahl von Aufrufen für diese Kategorie",
+                "nl": "Aantal verzoeken voor deze categorie vermeld op de Tesla-pagina",
+                "fr": "Nombre de demandes pour cette catégorie indiqué sur la page Tesla",
+                "it": "Numero di richieste per questa categoria indicato sulla pagina Tesla",
+                "sv": "Antal förfrågningar för denna kategori som anges på Tesla-sidan",
+                "no": "Antall forespørsler for denne kategorien som er angitt på Tesla-siden",
+                "es": "Número de solicitudes para esta categoría indicado en la página de Tesla",
+                "da": "Antal anmodninger for denne kategori angivet på Tesla-siden",
+                "ru": "Количество запросов для этой категории, указанное на странице Tesla",
+                "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
+              },
+              "value": 50
+            },
+            {
+              "id": "api_costs_unit",
+              "type": "text",
+              "label": {
+                "en": "Unit",
+                "de": "Einheit",
+                "nl": "Eenheid",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka"
+              },
+              "value": "$"
             }
           ]
         },
@@ -12270,28 +12513,27 @@
       "uiComponent": null,
       "icon": "./assets/capability_icons/measure_api_command_count.svg"
     },
-    "measure_api_rate_limit": {
+    "measure_api_costs": {
       "type": "number",
       "title": {
-        "en": "Command API rate limit usage",
-        "de": "Command-API Rate-Limit Verbrauch",
-        "nl": "Command-API rate-limit gebruik",
-        "fr": "Utilisation de la limite de taux de l'API de commande",
-        "it": "Utilizzo del limite di velocità dell'API di comando",
-        "sv": "Användning av kommandot API-hastighetsbegränsning",
-        "no": "Bruk av kommandoen API-hastighetsgrense",
-        "es": "Uso del límite de velocidad de la API de comando",
-        "da": "Brug af kommando API-hastighedsgrænse",
-        "ru": "Использование ограничения скорости API команды",
-        "pl": "Użycie limitu prędkości API polecenia"
+        "en": "Tesla API costs",
+        "de": "Tesla API Kosten",
+        "nl": "Tesla API kosten",
+        "fr": "Coûts de l'API Tesla",
+        "it": "Costi dell'API Tesla",
+        "sv": "Tesla API-kostnader",
+        "no": "Tesla API-kostnader",
+        "es": "Costos de la API Tesla",
+        "da": "Tesla API-omkostninger",
+        "ru": "Затраты на API Tesli",
+        "pl": "Koszty API Tesli"
       },
-      "units": "%",
-      "decimals": 0,
+      "decimals": 2,
       "insights": true,
       "getable": true,
-      "setable": false,
+      "setable": true,
       "uiComponent": null,
-      "icon": "./assets/capability_icons/measure_api_rate_limit.svg"
+      "icon": "./assets/capability_icons/measure_api_costs.svg"
     },
     "measure_api_request_count": {
       "type": "number",

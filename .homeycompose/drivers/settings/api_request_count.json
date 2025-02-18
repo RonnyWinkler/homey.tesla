@@ -14,17 +14,17 @@
     "pl": "Wykonane żądania"
   },
   "hint": {
-    "en": "API requests made since 00:00.",
-    "de": "Ausgeführte API-Abfragen seit 00:00.",
-    "nl": "API-verzoeken gedaan sinds 00:00.",
-    "fr": "Requêtes API effectuées depuis 00:00.",
-    "it": "Richieste API effettuate dalle 00:00.",
-    "sv": "Förfrågningar gjorda sedan 00:00.",
-    "no": "Forespørsler gjort siden 00:00..",
-    "es": "Solicitudes API realizadas desde las 00:00.",
-    "da": "Anmodninger foretaget siden 00:00.",
-    "ru": "Сделано запросов к API с 00:00.",
-    "pl": "Wykonane żądania API od 00:00."
+    "en": "API requests made since the beginning of the month.",
+    "de": "Ausgeführte API-Abfragen seit Montagsbeginn.",
+    "nl": "API-verzoeken gedaan sinds begin van de maand.",
+    "fr": "Requêtes API effectuées depuis le début du mois.",
+    "it": "Richieste API effettuate dall'inizio del mese.", 
+    "sv": "Förfrågningar gjorda sedan månadens början.",
+    "no": "Forespørsler gjort siden starten av måneden.",
+    "es": "Solicitudes API realizadas desde el inicio del mes.",
+    "da": "Anmodninger foretaget siden månedens start.",
+    "ru": "Сделано запросов к API с начала месяца.",
+    "pl": "Wykonane żądania API od początku miesiąca."
   },
   "value": "0"
 }

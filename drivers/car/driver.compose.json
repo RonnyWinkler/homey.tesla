@@ -17,7 +17,7 @@
         "large": "/drivers/car/assets/images/large.png",
         "small": "/drivers/car/assets/images/small.png"
     },
-    "class": "sensor",
+    "class": "car",
     "connectivity": [ "cloud" ],
     "capabilities": [
         "measure_battery",
@@ -59,8 +59,9 @@
         
         "measure_api_request_count",
         "measure_api_command_count",
-
         "measure_api_command_wakes_count",
+        "measure_api_costs",
+        
         "last_online"
 
     ],

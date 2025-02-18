@@ -1,0 +1,30 @@
+{
+    "type": "number",
+    "label": {
+      "en": "Request per 1¤",
+      "de": "Abfragen je 1¤",
+      "nl": "Verzoeken per 1¤",
+      "fr": "Demandes par 1¤",
+      "it": "Richieste per 1v",
+      "sv": "Förfrågningar per 1¤",
+      "no": "Forespørsler per 1¤",
+      "es": "Solicitudes por 1¤",
+      "da": "Anmodninger pr. 1¤",
+      "ru": "Запросы на 1¤",
+      "pl": "Żądania na 1¤"
+    },
+    "hint": {
+      "en": "Number of requests for this category stated on the Tesla page",
+      "de": "Auf der Tesla-Seite angegebene Anzahl von Aufrufen für diese Kategorie",
+      "nl": "Aantal verzoeken voor deze categorie vermeld op de Tesla-pagina",
+      "fr": "Nombre de demandes pour cette catégorie indiqué sur la page Tesla",
+      "it": "Numero di richieste per questa categoria indicato sulla pagina Tesla",
+      "sv": "Antal förfrågningar för denna kategori som anges på Tesla-sidan",
+      "no": "Antall forespørsler for denne kategorien som er angitt på Tesla-siden",
+      "es": "Número de solicitudes para esta categoría indicado en la página de Tesla",
+      "da": "Antal anmodninger for denne kategori angivet på Tesla-siden",
+      "ru": "Количество запросов для этой категории, указанное на странице Tesla",
+      "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
+    },
+    "value": 1000
+  }

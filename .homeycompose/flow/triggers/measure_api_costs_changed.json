@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Tesla API costs changed",
+        "de": "Tesla API-Kosten geändert",
+        "nl": "API-kosten Tesla gewijzigd",
+        "fr": "Coûts de l'API Tesla modifiés",
+        "it": "Costi API Tesla modificati",
+        "sv": "Tesla API-kostnader ändrades",
+        "no": "Endrede Tesla API-kostnader",
+        "es": "Costos de la API de Tesla cambiados",
+        "da": "Tesla API-omkostninger ændret",
+        "ru": "Изменены затраты на API Tesli",
+        "pl": "Zmienione koszty API Tesli"
+    },
+    "tokens": [
+        {
+            "name": "measure_api_costs",
+            "type": "number",
+            "title": {
+                "en": "Estimated costs",
+                "de": "Geschätzte Kosten",
+                "nl": "Geschatte kosten",
+                "fr": "Coûts estimés",
+                "it": "Costi stimati",
+                "sv": "Beräknade kostnader",
+                "no": "Estimerte kostnader",
+                "es": "Costos estimados",
+                "da": "Estimerede omkostninger",
+                "ru": "Предполагаемые затраты",
+                "pl": "Szacowane koszty"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=car"
+    }]
+}

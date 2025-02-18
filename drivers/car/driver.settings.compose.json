@@ -153,6 +153,45 @@
     {
       "type": "group",
       "label": {
+        "en": "Tesla Fleet-API costs",
+        "de": "Tesla Fleet-API-Kosten",
+        "nl": "Tesla Fleet-API-kosten",
+        "fr": "Coûts de l'API Tesla Fleet",
+        "it": "Costi dell'API Tesla Fleet",
+        "sv": "Tesla Fleet-API-kostnader",
+        "no": "Tesla Fleet-API-kostnader",
+        "es": "Costos de la API Tesla Fleet",
+        "da": "Tesla Fleet-API-omkostninger",
+        "ru": "Затраты на Tesla Fleet-API",
+        "pl": "Koszty Tesla Fleet-API"
+      },
+      "children": [
+        {
+          "$extends": "api_costs",
+          "id": "api_costs"
+        },
+        {
+          "$extends": "api_costs_data",
+          "id": "api_costs_data"
+        },
+        {
+          "$extends": "api_costs_commands",
+          "id": "api_costs_commands"
+        },
+        {
+          "$extends": "api_costs_wakes",
+          "id": "api_costs_wakes"
+        },
+        {
+          "$extends": "api_costs_unit",
+          "id": "api_costs_unit"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
         "en": "Car data",
         "de": "Fahrzeugdaten",
         "nl": "Voertuiggegevens",

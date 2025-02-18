@@ -14,17 +14,17 @@
       "pl": "Wysłane polecenia"
     },
     "hint": {
-      "en": "API commands via REST/Proxy sent since 00:00.",
-      "de": "Gesendete API-Kommandos über REST/Proxy seit 00:00.",
-      "nl": "API-opdrachten via REST/Proxy verzonden sinds 00:00.",
-      "fr": "Commandes API via REST/Proxy envoyées depuis 00:00.",
-      "it": "Comandi API tramite REST/Proxy inviati dalle 00:00.",
-      "sv": "API-kommandon via REST/Proxy skickade sedan 00:00.",
-      "no": "API-kommandoer via REST/Proxy sendt siden 00:00.",
-      "es": "Comandos API vía REST/Proxy enviados desde las 00:00.",
-      "da": "API-kommandoer via REST/Proxy sendt siden 00:00.",
-      "ru": "API-команды через REST/Proxy отправлены с 00:00.",
-      "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od 00:00."
+      "en": "API commands via REST/Proxy sent since the beginning of the month.",
+      "de": "Gesendete API-Kommandos über REST/Proxy seit Monatsbeginn.",
+      "nl": "API-opdrachten via REST/Proxy verzonden sinds het begin van de maand.",
+      "fr": "Commandes API via REST/Proxy envoyées depuis le début du mois.",
+      "it": "Comandi API tramite REST/Proxy inviati dall'inizio del mese.",
+      "sv": "API-kommandon via REST/Proxy skickade sedan månadens början.",
+      "no": "API-kommandoer via REST/Proxy sendt siden månedens start.",
+      "es": "Comandos API vía REST/Proxy enviados desde el inicio del mes.",
+      "da": "API-kommandoer via REST/Proxy sendt sidst i mænedsbegyndelsen.",
+      "ru": "API-команды через REST/Proxy отправлены с начала месяца.",
+      "pl": "Polecenia API za pośrednictwem REST/Proxy wysłane od początku miesiąca."
     },
     "value": "0"
   }

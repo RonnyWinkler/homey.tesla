@@ -1,0 +1,30 @@
+{
+    "type": "label",
+    "label": {
+      "en": "Estimated costs",
+      "de": "Geschaetzte Kosten",
+      "nl": "Geschatte kosten",
+      "fr": "Coûts estimés",
+      "it": "Costi stimati",
+      "sv": "Beräknade kostnader",
+      "no": "Estimerte kostnader",
+      "es": "Costos estimados",
+      "da": "Estimerede omkostninger",
+      "ru": "Предполагаемые затраты",
+      "pl": "Szacowane koszty"
+    },
+    "hint": {
+      "en": "Estimated API costs based on requests",
+      "de": "Geschätzte API-Kosten auf Basis der Abrufe",
+      "nl": "Geschatte API-kosten op basis van verzoeken",
+      "fr": "Coûts estimés de l'API basés sur les demandes",
+      "it": "Costi stimati dell'API basati sulle richieste",
+      "sv": "Beräknade API-kostnader baserade på förfrågningar",
+      "no": "Estimerte API-kostnader basert på forespørsler",
+      "es": "Costos estimados de la API basados en las solicitudes",
+      "da": "Estimerede API-omkostninger baseret på anmodninger",
+      "ru": "Предполагаемые затраты на API на основе запросов",
+      "pl": "Szacowane koszty API na podstawie żądań"
+    },
+    "value": ""
+  }

@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Tesla API costs",
+    "de": "Tesla API Kosten",
+    "nl": "Tesla API kosten",
+    "fr": "Coûts de l'API Tesla",
+    "it": "Costi dell'API Tesla",
+    "sv": "Tesla API-kostnader",
+    "no": "Tesla API-kostnader",
+    "es": "Costos de la API Tesla",
+    "da": "Tesla API-omkostninger",
+    "ru": "Затраты на API Tesli",
+    "pl": "Koszty API Tesli"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_api_costs.svg"
+}

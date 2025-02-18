@@ -20,22 +20,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log("onOAuth2Init()");
     await super.onOAuth2Init();
 
-    if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
-        !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
-      this.log("onOAuth2Init() => Client ID or Client Secret not set.");
-      this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
-      throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
-    }
-    else{
-      await this.setAvailable();
-    }
-
-    // TODO: Check for a solution to prevent app crash caused by CPU usage on HP23, FW 12.x
-    await this._updateCapabilitiesDynamic();
-    // await this._updateCapabilitiesFixed();
-
+    // Update device
+    await this._updateCapabilities();
     await this._updateSettings();
-
+    await this._updateDeviceConfig();
+    
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
       // try{
           await this._onCapability( capabilityValues, capabilityOptions);
@@ -62,6 +51,17 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log("onOAuth2Init() Create CarServerError: ",error.message);
     }
 
+    if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
+        !this.homey.settings.get('client_secret') || this.homey.settings.get('client_secret') == '') {
+      this.log("onOAuth2Init() => Client ID or Client Secret not set.");
+      this.setUnavailable(this.homey.__('devices.car.api_client_id_not_set')).catch(this.error);
+      // throw new Error(this.homey.__('devices.car.api_client_id_not_set'));
+      return;
+    }
+    else{
+      await this.setAvailable();
+    }
+
     await this._startSync();
     this._sync();
   }
@@ -84,22 +84,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   // Device handling =======================================================================================
-  async _updateCapabilitiesFixed(){
-    // remove deprecated capabilities
-    try{
-      if (this.hasCapability('measure_api_rate_limit')){
-        await this.removeCapability('measure_api_rate_limit');
-      }
-      if (this.hasCapability('measure_api_command_charge_count')){
-        await this.removeCapability('measure_api_command_charge_count');
-      }
-    }
-    catch(error){
-      this.log("_updateCapabilitiesFixed() Error: ",error.message);
-    }
-  }
-
-  async _updateCapabilitiesDynamic(){
+  async _updateCapabilities(){
     let capabilities = [];
     try{
       capabilities = this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].capabilities;
@@ -132,11 +117,58 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _updateSettings(){
     // replace command API (proxy) with tvcp API (direct encrypted commands) 
     let settings = this.getSettings();
+    let oldSettings = JSON.parse(JSON.stringify(settings)); // clone settings;
     if (settings['command_api'] == 'command'){
       settings['command_api'] = 'tvcp';
-      await this.setSettings(settings);
+    }
+    // remove deprecated settings
+    if (settings.api_rate_limit){
+      settings.api_rate_limit = null;
+    }
+    if (settings.api_command_wakes_rate_limit_reset != undefined ){
+      settings.api_command_wakes_rate_limit_reset = null;
+    }
+    if (settings.api_command_wakes_limit != undefined){
+      settings.api_command_wakes_limit = null;
+    }
+    if (settings.api_command_charge_rate_limit_reset != undefined){
+      settings.api_command_charge_rate_limit_reset = null;
+    }
+    if (settings.api_command_charge_limit != undefined){
+      settings.api_command_charge_limit = null;
+    }
+    if (settings.api_command_charge_count != undefined){
+      settings.api_command_charge_count = null;
+    }
+    if (settings.api_command_charge_state != undefined){
+      settings.api_command_charge_state = null;
+    }
+    if (settings.api_command_rate_limit_reset != undefined){
+      settings.api_command_rate_limit_reset = null;
+    }
+    if (settings.api_command_limit != undefined){
+      settings.api_command_limit = null;
+    }
+    if (settings.api_rate_limit_limit != undefined){
+      settings.api_rate_limit_limit = null;
+    }
+    if (settings.api_rate_limit_reset != undefined){
+      settings.api_rate_limit_reset = null;
+    }
+    if (settings.api_request_limit != undefined){
+      settings.api_request_limit = null;
     }
 
+    if (JSON.stringify(settings) != JSON.stringify(oldSettings)){
+      await this.setSettings(settings);
+    }
+  }
+
+  async _updateDeviceConfig(){
+    // update device class
+    if (this.getClass() != 'car'){
+      await this.setClass('car');  
+    }
   }
 
   async handleApiOk(type = CONSTANTS.API_ERROR_READ){
@@ -231,8 +263,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
     this._settings = newSettings;
-    
+
+    if (changedKeys['api_costs_unit']){
+      this.setCapabilityOptions('measure_api_costs', { unit: newSettings['api_costs_unit'] });
+    }
+
     this.homey.setTimeout(async() => {
+      await this._calculateApiCosts();
       this._startSync();
       this._sync();
       }, 1000);
@@ -263,6 +300,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     counter = counter + 1;
     this.log("API counter: type: " + type + " conter: " + counter);
 
+    // Update counter
     switch (type){
       case CONSTANTS.API_REQUEST_COUNTER_READ:
         await this.setCapabilityValue('measure_api_request_count', counter);
@@ -276,30 +314,84 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.setCapabilityValue('measure_api_command_wakes_count', counter);
         await this.setSettings({ api_command_wakes_count: counter.toString() });
         break;
-      }
-
-      this.log("API counter updated.");
     }
+
+    await this._calculateApiCosts();
+
+    this.log("API counter updated.");
+  }
+
+  async _calculateApiCosts(){
+    // Calculate costs
+    let costs = 0;
+    let costsData, costsCommands, costsWakes;
+    try{
+      if (this.getSetting('api_costs_data') > 0){
+        costsData = this.getCapabilityValue('measure_api_request_count') / this.getSetting('api_costs_data');  
+      }
+      else{
+        costsData = 0;
+      }
+      if (this.getSetting('api_costs_commands') > 0){
+        costsCommands = this.getCapabilityValue('measure_api_command_count') / this.getSetting('api_costs_commands');
+      }
+      else{
+        costsCommands = 0;
+      }
+      if (this.getSetting('api_costs_wakes') > 0){
+        costsWakes = this.getCapabilityValue('measure_api_command_wakes_count') / this.getSetting('api_costs_wakes');
+      }
+      else{
+        costsWakes = 0;
+      }
+      costs = costsData + costsCommands + costsWakes;
+    }
+    catch(error){
+      costs = 0;
+    }
+
+    costs = Math.round(costs * 100) / 100;
+
+    if (this.hasCapability('measure_api_costs')){
+      await this.setCapabilityValue('measure_api_costs', costs);
+    }
+    await this.setSettings({ api_costs: costs.toString() + " " + this.getSetting('api_costs_unit') });
+  }
 
   async _startApiCounterResetTimer(){
     await this._stopApiCounterResetTimer();
 
-    let d;
+    // Reset every day at 0:00
+    // let d;
+    // try{
+    //   // reset al local 0:00 h
+    //   d = this._getLocalTime();
+    // }
+    // catch (error){
+    //   // reset at 0:00 UTC
+    //   d = new Date();      
+    // }
+    // let h = d.getHours();
+    // let m = d.getMinutes();
+    // let s = d.getSeconds();
+    // let interval = (24*60*60) - (h*60*60) - (m*60) - s;
+    // this.log("_startApiCounterResetTimer(): "+ d + " h:mm:ss: "+ h+":"+m+":"+s + " interval: "+interval);
+    // this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval * 1000);
+
+    // Reset every 1st of new month at 0:00
+    let now;
     try{
       // reset al local 0:00 h
-      d = this._getLocalTime();
+      now = this._getLocalTime();
     }
     catch (error){
       // reset at 0:00 UTC
-      d = new Date();      
+      now = new Date();      
     }
-    let h = d.getHours();
-    let m = d.getMinutes();
-    let s = d.getSeconds();
-    let interval = (24*60*60) - (h*60*60) - (m*60) - s;
-    this.log("_startApiCounterResetTimer(): "+ d + " h:mm:ss: "+ h+":"+m+":"+s + " interval: "+interval);
-
-    this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval * 1000);
+    let nextMonth = new Date(now.getFullYear(), now.getMonth()+1, 1);
+    let interval = nextMonth - now;
+    this.log("_startApiCounterResetTimer(): "+ nextMonth + " interval: "+interval);
+    this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval);
   }
 
   async _stopApiCounterResetTimer(){
@@ -308,7 +400,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
-  async _resetApiCounter(){
+  async _resetApiCounter(){ 
     if (this.hasCapability('measure_api_request_count')){
       await this.setCapabilityValue('measure_api_request_count', 0);
     }
@@ -321,6 +413,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('measure_api_command_wakes_count', 0);
     }
     await this.setSettings({ api_command_wakes_count: '0' });
+    if (this.hasCapability('measure_api_costs')){
+      await this.setCapabilityValue('measure_api_costs', 0);
+    }
+    await this.setSettings({ api_costs: '0' });
+    // Start new timer
     await this._startApiCounterResetTimer();
   }
 
@@ -1343,4 +1440,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._commandTrunk(trunk);
   }
 
+
+  // FLOW CONDITIONS =======================================================================================
+  async flowConditionApiCostsDailyAverageRunListener(args){
+    let costs = this.getCapabilityValue('measure_api_costs');
+    let time = this._getLocalTime();
+    let days = time.getDate() + time.getHours()/24;
+    let result = (costs / days).toFixed(2); 
+    return ( result > args.value );
+  }
 }

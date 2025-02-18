@@ -296,6 +296,12 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 			return (args.device.getCapabilityValue('alarm_api_error'));
 		})
 
+    this.homey.flow.getConditionCard('api_costs_daily_average')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowConditionApiCostsDailyAverageRunListener(args));
+    });
+
+
     this.homey.flow.getConditionCard('battery_heater')
     .registerRunListener(async (args, state) => {
       return (args.device.getCapabilityValue('battery_heater'));

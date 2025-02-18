@@ -1,0 +1,17 @@
+{
+    "type": "text",
+    "label": {
+      "en": "Unit",
+      "de": "Einheit",
+      "nl": "Eenheid",
+      "fr": "Unité",
+      "it": "Unità",
+      "sv": "Enhet",
+      "no": "Enhet",
+      "es": "Unidad",
+      "da": "Enhed",
+      "ru": "Единица",
+      "pl": "Jednostka"
+    },
+    "value": "$"
+  }
