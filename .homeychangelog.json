@@ -380,5 +380,8 @@
   },
   "2.1.0": {
     "en": "Changed car device class to 'car'. Changed api counter to monthly reset. Added api costs insights."
+  },
+  "2.1.1": {
+    "en": "Added API error 'requested' to whitelist."
   }
 }
