@@ -383,5 +383,8 @@
   },
   "2.1.1": {
     "en": "Added API error 'requested' to whitelist."
+  },
+  "2.1.2": {
+    "en": "Added API error 'completed' to whitelist. Added whitelist to command API."
   }
 }

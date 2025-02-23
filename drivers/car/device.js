@@ -1070,7 +1070,18 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       default:
         await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );
     }
-    await this.commandApi.sendSignedCommand(command, params, domain);
+    try{
+      await this.commandApi.sendSignedCommand(command, params, domain);
+    }
+    catch(error){
+      if (CONSTANTS.API_ERRORS_WHITELIST.indexOf(error.message) > -1){
+        // If error message is a value in whitelits, the ignore the error!
+        this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command+"; Whitelist error: "+error.message);
+        return;
+      }
+      this.log("Send signed command: Error: "+error.message);
+      throw error;
+    }
     this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command);
   }
 

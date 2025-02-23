@@ -28,7 +28,8 @@ hvacSteeringWheelHeaterAction           cabin comfort remote settings not enable
 autoSeatClimateAction                   Not implementeed, params unknown
 hvacSeatHeaterActions                   Not implementeed, params unknown
 
-
+Media:
+Add all messages (new to Ptoto Def.)    ToDo
 
 Command details:
 
