@@ -171,12 +171,13 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 
     this.homey.flow.getActionCard('charge_schedule_charging')
     .registerRunListener(async (args, state) => {
-				await args.device.flowActionChargeScheduleCharging({hh: args.hh, mm: args.mm});
+				await args.device.flowActionChargeScheduleCharging({action: args.action,hh: args.hh, mm: args.mm});
 		});
 
     this.homey.flow.getActionCard('charge_schedule_departure')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionChargeScheduleDeparture({
+          action: args.action,
           hh: args.hh,
           mm: args.mm,
           op_hh: args.op_hh,

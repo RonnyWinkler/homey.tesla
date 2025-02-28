@@ -11,8 +11,8 @@ commandChargeLimit                      OK
 chargePortDoorOpen, chargePortDoorClose OK
 chargingStartStopAction                 OK
 setChargingAmpsAction                   OK
-scheduledChargingAction                 Enable:ok; Time: not working
-scheduledDepartureAction                Disable:ok, Parameters not working
+scheduledChargingAction                 OK
+scheduledDepartureAction                OK
 
 Location:
 API commandNavigateGpsRequest           No action found

@@ -318,7 +318,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     await this._calculateApiCosts();
 
-    this.log("API counter updated.");
+    // this.log("API counter updated.");
   }
 
   async _calculateApiCosts(){
@@ -1018,9 +1018,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           apiFunction != 'commandNavigationRequest' &&
           apiFunction != 'commandNavigateScRequest' &&
 
-          apiFunction != 'commandMediaNextTrack' &&
-          apiFunction != 'commandMediaPrevTrack' &&
-          apiFunction != 'commandMediaTogglePlayback' && 
+          // apiFunction != 'commandMediaNextTrack' &&
+          // apiFunction != 'commandMediaPrevTrack' &&
+          // apiFunction != 'commandMediaTogglePlayback' && 
 
           apiFunction != 'commandWakeUp'
         ){
@@ -1168,68 +1168,67 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         if (params.state){
           result.command = 'chargingStartStopAction';
           result.params = { start: true };
-          // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         }
         else{
           result.command = 'chargingStartStopAction';
-          // result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
           result.params = { stop: true };
         }
-        // result.params = {};
         break;
 
       case 'commandScheduleCharging':
         result.command = 'scheduledChargingAction';
         result.params = { 
-          enabled: true,
-          charging_time : (params.hh * 60 + params.mm)
+          enabled: params.action == 'on' ? true : false,
+          chargingTime : (params.hh * 60 + params.mm)
         };
         break;
 
       case 'commandDeactivateScheduledCharging':
+        // deprecated, commandScheduleCharging with [action] should be used
         result.command = 'scheduledChargingAction';
         result.params = { 
           enabled: false,
-          charging_time : 0
+          chargingTime : 0
         };
         break;
   
       case 'commandScheduleDeparture':
-      // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
         result.command = 'scheduledDepartureAction';
         result.params = { 
-          enabled: true,
-          departure_time: (params.hh * 60 + params.mm),
-          preconditioning_enabled: params.preconditioning_enabled,
-          preconditioning_weekdays_only: params.preconditioning_weekdays_only,
-          off_peak_charging_enabled: params.off_peak_charging_enabled,
-          off_peak_charging_weekdays_only: params.off_peak_charging_weekdays_only,
-          end_off_peak_time: (params.op_hh * 60 + params.op_mm)
-  
+          enabled: params.action == 'on' ? true : false,
+          departureTime: (params.hh * 60 + params.mm),
+          offPeakHoursEndTime: (params.op_hh * 60 + params.op_mm)
         };
+        if (params.preconditioning_enabled){
+          if (params.preconditioning_weekdays_only){
+            result.params['preconditioningTimes'] = {'weekdays': {}};
+          }
+          else{
+            result.params['preconditioningTimes'] = {'allWeek': {}};
+          }
+        }
+        if (params.off_peak_charging_enabled){
+          if (params.off_peak_charging_weekdays_only){
+            result.params['offPeakChargingTimes'] = {'weekdays': {}};
+          }
+          else{
+            result.params['offPeakChargingTimes'] = {'allWeek': {}};
+          }
+        }
         break;
 
       case 'commandDeactivateScheduledDeparture':
-        // preconditioning_times   : "preconditioning_enabled", "preconditioning_weekdays_only"
-          result.command = 'scheduledDepartureAction';
-          result.params = { 
-            enabled: false,
-            departure_time: 0,
-            preconditioning_enabled: false,
-            preconditioning_weekdays_only: false,
-            off_peak_charging_enabled: false,
-            off_peak_charging_weekdays_only: false,
-            end_off_peak_time: 0
+        // deprecated, commandScheduleCharging with [action] should be used
+        result.command = 'scheduledDepartureAction';
+        result.params = { 
+          enabled: false,
+          departureTime: 0,
+          offPeakHoursEndTime: 0,
+          preconditioningTimes: {},
+          offPeakChargingTimes: {}
+        };
+        break;
     
-          };
-          break;
-    
-      // location actions
-      // case 'commandNavigateGpsRequest':
-      //   result.command = 'chargingSetLimitAction';
-      //   result.params = { percent: params.limit};
-      //   break;
-
       // climate actions
       case 'commandSetTemperature':
         result.command = 'hvacTemperatureAdjustmentAction';
@@ -1280,38 +1279,146 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         };
         break;
 
-      case 'commandSteeringWheelHeatLevel':
-        result.command = 'hvacSteeringWheelHeaterAction';
-        result.params = {
-          power_on: (params.level != 0)
-        };
+      case 'commandClimateKeeperMode':
+        result.command = 'hvacClimateKeeperAction';
+        switch (params.mode){
+          case 'off':
+            result.params = {
+              ClimateKeeperAction: 0
+            };
+            break;
+          case 'on':
+            result.params = {
+              ClimateKeeperAction: 1
+            };
+            break;
+          case 'dog':
+            result.params = {
+              ClimateKeeperAction: 2
+            };
+            break;
+          case 'camp':
+            result.params = {
+              ClimateKeeperAction: 3
+            };
+            break;
+        }
+        // result.params['manualOverride'] = true;
         break;
+  
+      // case 'commandSteeringWheelHeatLevel':
+      //   result.command = 'hvacSteeringWheelHeaterAction';
+      //   result.params = {
+      //     powerOn: (params.level != 0)
+      //   };
+      //   break;
 
       case 'commandSteeringWheelHeat':
         result.command = 'hvacSteeringWheelHeaterAction';
         result.params = {
-          power_on: (params.level != 0)
+          powerOn: (params.level != 'off')
         };
         break;
   
-      // case 'commandSeatHeatLevel':
-      //   if (params.level == 'auto'){
-      //     result.command = 'autoSeatClimateAction';
-      //     result.params = {
-      //       on: true,
-      //       seat_position : params.seat
-      //     };
-      //   }
-      //   else{
-      //     result.command = 'hvacSeatHeaterActions';
-      //     result.params = {
-      //       on: true,
-      //       seat_position : params.seat
-      //     };
-      //   }
-      //   break;
+      case 'commandSeatHeatLevel':
+        if (params.level == 'auto'){
+          result.command = 'autoSeatClimateAction';
+          result.params['carseat'] = []
+          let entry = {};
+          if (params.seat == 0){
+            // driver seat
+            entry['seatPosition'] = 1;
+            entry['on'] = true;
+          }
+          else if (params.seat == 1){
+            // driver seat
+            entry['seatPosition'] = 2;
+            entry['on'] = true;
+          }
+          else{
+            // unknown
+            entry['seatPosition'] = 0;
+            entry['on'] = true;
+          }
+          result.params['carseat'] .push(entry);
+        }
+        else{
+          result.command = 'hvacSeatHeaterActions';
+          result.params['hvacSeatHeaterAction'] = [];
+          let entry ={};
+          switch (params.level){
+            case '0':
+              entry['SEAT_HEATER_OFF'] = {};
+              break;
+            case '1':
+              entry['SEAT_HEATER_LOW'] = {};
+              break;
+            case '2':
+              entry['SEAT_HEATER_MED'] = {};
+              break;
+            case '3':
+              entry['SEAT_HEATER_HIGH'] = {};
+              break;
+            default:
+              entry['SEAT_HEATER_UNKNOWN'] = {};
+          }
+          switch (params.seat){
+            case '0':
+              entry['CAR_SEAT_FRONT_LEFT'] = {};
+              break;
+            case '1':
+              entry['CAR_SEAT_FRONT_RIGHT'] = {};
+              break;
+            case '2':
+              entry['CAR_SEAT_REAR_LEFT'] = {};
+              break;
+            case '4':
+              entry['CAR_SEAT_REAR_CENTER'] = {};
+              break;
+            case '5':
+              entry['CAR_SEAT_REAR_RIGHT'] = {};
+              break;
+            default:
+              entry['CAR_SEAT_UNKNOWN'] = {};
+          }
+          result.params['hvacSeatHeaterAction'].push(entry);
+        }
+        break;
           
+      // Media actions
+      case 'commandMediaNextTrack':
+        result.command = 'mediaNextTrack';
+        result.params = { };
+        break;
 
+      case 'commandMediaPrevTrack':
+        result.command = 'mediaPreviousTrack';
+        result.params = { };
+        break;
+  
+      case 'commandMediaNextFav':
+        result.command = 'mediaNextFavorite';
+        result.params = { };
+        break;
+        
+      case 'commandMediaPrevFav':
+        result.command = 'mediaPreviousFavorite';
+        result.params = { };
+        break;
+
+      case 'commandMediaTogglePlayback':
+        result.command = 'mediaPlayAction';
+        result.params = { };
+        break;
+        
+      case 'commandMediaAdjustVolume':
+        result.command = 'mediaUpdateVolume';
+        result.params = { 
+          volumeAbsoluteFloat: params.volume
+          // volumeDelta
+        };
+        break;
+  
       // error if not valid
       default:
         throw new Error("REST command "+apiFunction+" not supported yet for direct CommandProtocol");

@@ -13,17 +13,17 @@
     "pl": "Ustaw zaplanowane ładowanie"
   },
   "titleFormatted": {
-    "en": "Schedule charging for [[hh]]:[[mm]] o'clock",
-    "de": "Plane Laden für [[hh]]:[[mm]] Uhr",
-    "nl": "Plan opladen voor [[hh]]:[[mm]] uur",
-    "fr": "Planifier la charge pour [[hh]]:[[mm]] heures",
-    "it": "Programma la ricarica per le [[hh]]:[[mm]]",
-    "sv": "Schemalägg laddning för [[hh]]:[[mm]]",
-    "no": "Planlegg lading for [[hh]]:[[mm]]",
-    "es": "Programar carga para las [[hh]]:[[mm]] horas",
-    "da": "Planlæg opladning til [[hh]]:[[mm]]",
-    "ru": "Запланировать зарядку на [[hh]]:[[mm]] часов",
-    "pl": "Zaplanuj ładowanie na [[hh]]:[[mm]]"
+    "en": "[[action]] charging for [[hh]]:[[mm]] o'clock",
+    "de": "[[action]] Laden für [[hh]]:[[mm]] Uhr",
+    "nl": "[[action]] opladen voor [[hh]]:[[mm]] uur",
+    "fr": "[[action]] de charge pour [[hh]]:[[mm]] heures",
+    "it": "[[action]] ricarica per le [[hh]]:[[mm]]",
+    "sv": "[[action]] laddning för [[hh]]:[[mm]]",
+    "no": "[[action]] lading for [[hh]]:[[mm]]",
+    "es": "[[action]] carga para [[hh]]:[[mm]] horas",
+    "da": "[[action]] opladning for [[hh]]:[[mm]]",
+    "ru": "[[action]] зарядка на [[hh]]:[[mm]] часов",
+    "pl": "[[action]] ładowanie na [[hh]]:[[mm]]"
   },
   "hint":{
     "en": "Sets a time at which charging should be completed.",
@@ -43,6 +43,44 @@
       "name": "device",
       "type": "device",
       "filter": "driver_id=battery"
+    },
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values":[
+        { 
+          "id": "on", 
+          "title": { 
+            "en": "Enable",
+            "de": "Aktiviere",
+            "nl": "Inschakelen",
+            "fr": "Activer",
+            "it": "Abilita",
+            "sv": "Aktivera",
+            "no": "Aktiver",
+            "es": "Habilitar",
+            "da": "Aktiver",
+            "ru": "Включить",
+            "pl": "Włącz"
+          } 
+        },
+        { 
+          "id": "off", 
+          "title": { 
+            "en": "Disable",
+            "de": "Deaktiviere",
+            "nl": "Uitschakelen",
+            "fr": "Désactiver",
+            "it": "Disabilita",
+            "sv": "Inaktivera",
+            "no": "Deaktiver",
+            "es": "Desactivar",
+            "da": "Deaktiver",
+            "ru": "Отключить",
+            "pl": "Wyłącz"
+          } 
+        }
+      ]
     },
     {
       "name": "hh",

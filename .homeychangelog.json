@@ -386,5 +386,8 @@
   },
   "2.1.2": {
     "en": "Added API error 'completed' to whitelist. Added whitelist to command API."
+  },
+  "2.2.0": {
+    "en": "Added commands: enable/disable schedule charging, enable/disable scheduled departure, seat heating control, climate keeper mode, media control."
   }
 }
