@@ -391,7 +391,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let nextMonth = new Date(now.getFullYear(), now.getMonth()+1, 1);
     let interval = nextMonth - now;
     this.log("_startApiCounterResetTimer(): "+ nextMonth + " interval: "+interval);
-    this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval);
+    if (interval < 2147483647){
+      this._apiCounterResetInterval = this.homey.setTimeout(() => this._resetApiCounter(), interval);
+    }
+    else{
+      // timer > signed int32: Try again in 24h
+      this.log("_startApiCounterResetTimer(): Timeout too big. Try again in 24h.");
+      this.homey.setTimeout(() => this._startApiCounterResetTimer(), 86400*1000);
+    }
   }
 
   async _stopApiCounterResetTimer(){

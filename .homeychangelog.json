@@ -389,5 +389,8 @@
   },
   "2.2.0": {
     "en": "Added commands: enable/disable schedule charging, enable/disable scheduled departure, seat heating control, climate keeper mode, media control."
+  },
+  "2.2.1": {
+    "en": "Fixed timeout issue."
   }
 }
