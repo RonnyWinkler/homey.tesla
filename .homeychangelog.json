@@ -392,5 +392,8 @@
   },
   "2.2.1": {
     "en": "Fixed timeout issue."
+  },
+  "2.3.0": {
+    "en": "Added security commands: lock/unlock doos, open/close trunk, open front trunk."
   }
 }

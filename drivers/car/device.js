@@ -1024,6 +1024,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           apiFunction != 'commandNavigateGpsRequest' &&
           apiFunction != 'commandNavigationRequest' &&
           apiFunction != 'commandNavigateScRequest' &&
+          apiFunction != 'commandTrunk' &&
 
           // apiFunction != 'commandMediaNextTrack' &&
           // apiFunction != 'commandMediaPrevTrack' &&
@@ -1104,31 +1105,48 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = { };
         break;
 
+      case 'commandDoorLock':
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        result.command = 'RKEAction';
+        result.params = params.locked? 1 : 0; //0 = unlock, 1=lock
+        break;
+
+      case 'commandTrunkFront':
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        // Front trunk can only be opened
+        result.command = 'closureMoveRequest';
+        result.params = { frontTrunk: 3};
+        break;
+
+      case 'commandTrunkRear':
+        // CLOSURE_MOVE_TYPE_NONE = 0;
+        // CLOSURE_MOVE_TYPE_MOVE = 1;
+        // CLOSURE_MOVE_TYPE_STOP = 2;
+        // CLOSURE_MOVE_TYPE_OPEN = 3;
+        // CLOSURE_MOVE_TYPE_CLOSE = 4;
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        // Front trunk can only be opened
+        result.command = 'closureMoveRequest';
+        if (params.action == 'open'){
+          result.params = { rearTrunk: 3};
+        }
+        else if (params.action == 'close'){
+          result.params = { rearTrunk: 4};
+        }
+        else{
+          throw new Error("Trunk action not set");
+        }
+        break;
+  
       case 'commandSentryMode':
         result.command = 'vehicleControlSetSentryModeAction';
         result.params = { on: params.state};
-        break;
-
-      case 'commandDoorLock':
-        if (params.locked){
-          result.params = { action: 1};
-        }
-        else{
-          result.params = { action: 0};
-        }
-        result.command = 'RKEAction';
-        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         break;
 
       case 'commandFlashLights':
         result.command = 'vehicleControlFlashLightsAction';
         result.params = {};
         break;
-
-      // case 'commandTrunk':
-      //   result.command = '???';
-      //   result.params = {};
-      //   break;
   
       case 'commandHonkHorn':
         result.command = 'vehicleControlHonkHornAction';
@@ -1428,7 +1446,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   
       // error if not valid
       default:
-        throw new Error("REST command "+apiFunction+" not supported yet for direct CommandProtocol");
+        throw new Error("REST command "+apiFunction+" not supported yet for CommandProtocol");
     }
     return result;
   }
@@ -1465,6 +1483,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.sendCommand('commandTrunk', {trunk});
   }
 
+  async _commandTrunkFront(){
+    await this.sendCommand('commandTrunkFront', {});
+  }
+
+  async _commandTrunkRear(action){
+    await this.sendCommand('commandTrunkRear', {action});
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -1489,7 +1515,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if( capabilityValues["car_trunk_front"] != undefined){
       if (this._settings.car_trunk){
         await this.setCapabilityValue("car_trunk_front", true);
-        await this._commandTrunk(CONSTANTS.TRUNK_FRONT);
+        // await this._commandTrunk(CONSTANTS.TRUNK_FRONT);
+        await this._commandTrunkFront();
       }
       else{
         throw new Error(this.homey.__('devices.car.trunk_not_allowed'));
@@ -1499,7 +1526,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if( capabilityValues["car_trunk_rear"] != undefined){
       if (this._settings.car_trunk){
         await this.setCapabilityValue("car_trunk_rear", !this.getCapabilityValue("car_trunk_rear"));
-        await this._commandTrunk(CONSTANTS.TRUNK_REAR);
+        // await this._commandTrunk(CONSTANTS.TRUNK_REAR);
+        const action = this.getCapabilityValue("car_trunk_rear") ? 'open' : 'close';
+        await this._commandTrunkRear( action );
       }
       else{
         throw new Error(this.homey.__('devices.car.trunk_not_allowed'));
@@ -1565,6 +1594,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._commandTrunk(trunk);
   }
 
+  async flowActionTrunkFront(){
+    await this._commandTrunkFront();
+  }
+
+  async flowActionTrunkRear(action){
+    await this._commandTrunkRear(action);
+  }
 
   // FLOW CONDITIONS =======================================================================================
   async flowConditionApiCostsDailyAverageRunListener(args){

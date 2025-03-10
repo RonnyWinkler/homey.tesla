@@ -1,0 +1,73 @@
+{
+  "title": {
+    "en": "Actuate front/rear trunk",
+    "de": "Bediene vorderen/hinteren Kofferraum",
+    "nl": "Voorkant/achterkant kofferbak bedienen",
+    "fr": "Actionner le coffre avant/arrière",
+    "it": "Aziona il bagagliaio anteriore/posteriore",
+    "sv": "Aktivera fram/baklucka",
+    "no": "Aktiver front/bakluke",
+    "es": "Accionar maletero delantero/trasero",
+    "da": "Aktiver for/bagklap",
+    "ru": "Активировать передний/задний багажник",
+    "pl": "Aktywuj przedni/tylny bagażnik"
+  },
+  "titleFormatted": {
+    "en": "[[action]] rear trunk",
+    "de": "[[action]] hinterern Kofferraum",
+    "nl": "[[action]] achterkant kofferbak",
+    "fr": "[[action]] coffre arrière",
+    "it": "[[action]] bagagliaio posteriore",
+    "sv": "[[action]] baklucka",
+    "no": "[[action]] bakluke",
+    "es": "[[action]] maletero trasero",
+    "da": "[[action]] bagklap",
+    "ru": "[[action]] задний багажник",
+    "pl": "[[action]] tylny bagáznik"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
+    },
+    {
+      "name": "action",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "open",
+          "label": {
+            "en": "Open",
+            "de": "Öffne",
+            "nl": "Open",
+            "fr": "Ouvrir",
+            "it": "Apri",
+            "sv": "Öppna",
+            "no": "Åpne",
+            "es": "Abrir",
+            "da": "Åbn",
+            "ru": "Открыть",
+            "pl": "Otwórz"
+          }
+        },
+        {
+          "id": "close",
+          "label": {
+            "en": "Close",
+            "de": "Schließe",
+            "nl": "Sluiten",
+            "fr": "Fermer",
+            "it": "Chiudi",
+            "sv": "Stäng",
+            "no": "Lukk",
+            "es": "Cerrar",
+            "da": "Luk",
+            "ru": "Закрыть",
+            "pl": "Zamknij"
+          }
+        }
+      ]
+    }
+  ]
+}

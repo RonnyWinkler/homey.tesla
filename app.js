@@ -89,6 +89,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionTrunk(args.trunk);
 		});
 
+    this.homey.flow.getActionCard('car_trunk_front')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionTrunkFront();
+		});
+
+    this.homey.flow.getActionCard('car_trunk_rear')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionTrunkRear(args.action);
+		});
+
     this.homey.flow.getActionCard('car_window_position')
 		.registerRunListener(async (args, state) => {
 				await args.device.flowActionWindowPosition(args.position);

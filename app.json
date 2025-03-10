@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -5549,6 +5549,7 @@
         "id": "car_sentry_mode"
       },
       {
+        "deprecated": true,
         "title": {
           "en": "Actuate front/rear trunk",
           "de": "Bediene vorderen/hinteren Kofferraum",
@@ -5621,6 +5622,116 @@
           }
         ],
         "id": "car_trunk"
+      },
+      {
+        "title": {
+          "en": "Open front trunk",
+          "de": "Öffne vorderen Kofferraum",
+          "nl": "Open voorkant kofferbak",
+          "fr": "Ouvrir le coffre avant",
+          "it": "Apri bagagliaio anteriore",
+          "sv": "Öppna fram lucka",
+          "no": "Apen frontluke",
+          "es": "Abrir maletero delantero",
+          "da": "Aben for bagklap",
+          "ru": "Открыть передний багажник",
+          "pl": "Otwórz przedni bagáznik"
+        },
+        "titleFormatted": {
+          "en": "Open front trunk",
+          "de": "Öffne vorderen Kofferraum",
+          "nl": "Open voorkant kofferbak",
+          "fr": "Ouvrir le coffre avant",
+          "it": "Apri bagagliaio anteriore",
+          "sv": "Öppna fram lucka",
+          "no": "Apen frontluke",
+          "es": "Abrir maletero delantero",
+          "da": "Aben for bagklap",
+          "ru": "Открыть передний багажник",
+          "pl": "Otwórz przedni bagáznik"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "car_trunk_front"
+      },
+      {
+        "title": {
+          "en": "Actuate front/rear trunk",
+          "de": "Bediene vorderen/hinteren Kofferraum",
+          "nl": "Voorkant/achterkant kofferbak bedienen",
+          "fr": "Actionner le coffre avant/arrière",
+          "it": "Aziona il bagagliaio anteriore/posteriore",
+          "sv": "Aktivera fram/baklucka",
+          "no": "Aktiver front/bakluke",
+          "es": "Accionar maletero delantero/trasero",
+          "da": "Aktiver for/bagklap",
+          "ru": "Активировать передний/задний багажник",
+          "pl": "Aktywuj przedni/tylny bagażnik"
+        },
+        "titleFormatted": {
+          "en": "[[action]] rear trunk",
+          "de": "[[action]] hinterern Kofferraum",
+          "nl": "[[action]] achterkant kofferbak",
+          "fr": "[[action]] coffre arrière",
+          "it": "[[action]] bagagliaio posteriore",
+          "sv": "[[action]] baklucka",
+          "no": "[[action]] bakluke",
+          "es": "[[action]] maletero trasero",
+          "da": "[[action]] bagklap",
+          "ru": "[[action]] задний багажник",
+          "pl": "[[action]] tylny bagáznik"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "open",
+                "label": {
+                  "en": "Open",
+                  "de": "Öffne",
+                  "nl": "Open",
+                  "fr": "Ouvrir",
+                  "it": "Apri",
+                  "sv": "Öppna",
+                  "no": "Åpne",
+                  "es": "Abrir",
+                  "da": "Åbn",
+                  "ru": "Открыть",
+                  "pl": "Otwórz"
+                }
+              },
+              {
+                "id": "close",
+                "label": {
+                  "en": "Close",
+                  "de": "Schließe",
+                  "nl": "Sluiten",
+                  "fr": "Fermer",
+                  "it": "Chiudi",
+                  "sv": "Stäng",
+                  "no": "Lukk",
+                  "es": "Cerrar",
+                  "da": "Luk",
+                  "ru": "Закрыть",
+                  "pl": "Zamknij"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "car_trunk_rear"
       },
       {
         "highlight": true,
