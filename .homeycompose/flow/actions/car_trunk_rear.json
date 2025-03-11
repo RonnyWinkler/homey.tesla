@@ -1,29 +1,29 @@
 {
   "title": {
-    "en": "Actuate front/rear trunk",
-    "de": "Bediene vorderen/hinteren Kofferraum",
-    "nl": "Voorkant/achterkant kofferbak bedienen",
-    "fr": "Actionner le coffre avant/arrière",
-    "it": "Aziona il bagagliaio anteriore/posteriore",
-    "sv": "Aktivera fram/baklucka",
-    "no": "Aktiver front/bakluke",
-    "es": "Accionar maletero delantero/trasero",
-    "da": "Aktiver for/bagklap",
-    "ru": "Активировать передний/задний багажник",
-    "pl": "Aktywuj przedni/tylny bagażnik"
+    "en": "Open/close rear trunk",
+    "de": "Öffne/schließe hinteren Kofferraum",
+    "nl": "Open/sluit achterklep",
+    "fr": "Ouvrir/fermer le coffre arrière",
+    "it": "Apri/chiudi il bagagliaio posteriore",
+    "sv": "Öppna/stäng bakluckan",
+    "no": "Åpne/lukke bakluken",
+    "es": "Abrir/cerrar maletero trasero",
+    "da": "Åbn/luk bagagerummet",
+    "ru": "Открыть/закрыть багажник",
+    "pl": "Otwórz/zamknij bagażnik tylny"
   },
   "titleFormatted": {
     "en": "[[action]] rear trunk",
-    "de": "[[action]] hinterern Kofferraum",
+    "de": "[[action]] hinteren Kofferraum",
     "nl": "[[action]] achterkant kofferbak",
     "fr": "[[action]] coffre arrière",
     "it": "[[action]] bagagliaio posteriore",
     "sv": "[[action]] baklucka",
-    "no": "[[action]] bakluke",
+    "no": "[[action]] bakluken",
     "es": "[[action]] maletero trasero",
-    "da": "[[action]] bagklap",
-    "ru": "[[action]] задний багажник",
-    "pl": "[[action]] tylny bagáznik"
+    "da": "[[action]] bagagerummet",
+    "ru": "[[action]] багажник",
+    "pl": "[[action]] tylny bagażnik"
   },
   "args": [
     {

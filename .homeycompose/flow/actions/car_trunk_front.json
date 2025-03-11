@@ -2,28 +2,28 @@
   "title": {
     "en": "Open front trunk",
     "de": "Öffne vorderen Kofferraum",
-    "nl": "Open voorkant kofferbak",
+    "nl": "Open de voorste kofferbak",
     "fr": "Ouvrir le coffre avant",
-    "it": "Apri bagagliaio anteriore",
-    "sv": "Öppna fram lucka",
-    "no": "Apen frontluke",
-    "es": "Abrir maletero delantero",
-    "da": "Aben for bagklap",
+    "it": "Apri il bagagliaio anteriore",
+    "sv": "Öppna främre bagageutrymmet",
+    "no": "Åpne frontbagasjerommet",
+    "es": "Abrir el maletero delantero",
+    "da": "Åbn frontbagagerummet",
     "ru": "Открыть передний багажник",
-    "pl": "Otwórz przedni bagáznik"
+    "pl": "Otwórz przedni bagażnik"
   },
   "titleFormatted": {
     "en": "Open front trunk",
     "de": "Öffne vorderen Kofferraum",
-    "nl": "Open voorkant kofferbak",
+    "nl": "Open de voorste kofferbak",
     "fr": "Ouvrir le coffre avant",
-    "it": "Apri bagagliaio anteriore",
-    "sv": "Öppna fram lucka",
-    "no": "Apen frontluke",
-    "es": "Abrir maletero delantero",
-    "da": "Aben for bagklap",
+    "it": "Apri il bagagliaio anteriore",
+    "sv": "Öppna främre bagageutrymmet",
+    "no": "Åpne frontbagasjerommet",
+    "es": "Abrir el maletero delantero",
+    "da": "Åbn frontbagagerummet",
     "ru": "Открыть передний багажник",
-    "pl": "Otwórz przedni bagáznik"
+    "pl": "Otwórz przedni bagażnik"
   },
   "args": [
     {
