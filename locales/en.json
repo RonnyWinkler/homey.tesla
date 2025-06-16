@@ -99,7 +99,8 @@
         "select":{
             "title": "Selection",
             "auth": "Change Login",
-            "register_app": "Register app in car",
+            "register_app": "Car key for Fleet-API",
+            "register_ble": "Car key for Bluetooth LE",
             "device_details": "Device details",
             "charging_history": "Charging history",
             "charging_history_suc": "SuC Charging history"
@@ -137,7 +138,18 @@
         "location_nearest_dest":{
             "title": "Nearest Destination Charger",
             "navigate": "Navigate to Destination Charger?"
-        }
+        },
+        "register_ble":{
+          "title": "App registration for Bluetooth LE",
+          "subtitle": "Register the Homey app in your car for Bluetooth LE",
+          "text1": "Register the Homey app in your car to allow the app to send commands to your car.",
+          "text2": "This registers the app as car key to use the Homey app via Bluetooth LE. You need this key in addition to the registered key for FleetAPI.",
+          "text3": "Sit in the car and place the NFC card on the console.",
+          "text4": "Then start the key registration process. Follow the instructions on the vehicle display.",
+          "ble_status": "Status",
+          "button_register": "Register as car key",
+          "button_status": "Check key status"
+      }
     },
     "devices":{
         "location":{

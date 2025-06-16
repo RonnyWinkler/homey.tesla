@@ -1,17 +1,17 @@
 {
   "type": "number",
   "title": {
-    "en": "Tesla API wake command count",
-    "de": "Tesla API Weck-Kommandoanzahl",
-    "nl": "Aantal Tesla API wek-commando's",
-    "fr": "Nombre de commandes de l'API de Wake",
-    "it": "Conteggio comandi API Wake",
-    "sv": "Tesla API weck-kommandoräkning",
-    "no": "Tesla API weck-kommandotelling",
-    "es": "Recuento de comandos de Wake de la API de Tesla",
-    "da": "Tesla API weck-kommandotal",
-    "ru": "Количество команд API Wake",
-    "pl": "Liczba poleceń API Wake"
+    "en": "Bluetooth LE error count",
+    "de": "Bluetooth LE Fehleranzahl",
+    "nl": "Aantal Bluetooth LE fouten",
+    "fr": "Nombre d'erreurs Bluetooth LE",
+    "it": "Conteggio errori Bluetooth LE",
+    "sv": "Bluetooth LE felräkning",
+    "no": "Bluetooth LE feiltelling",
+    "es": "Conteo de errores Bluetooth LE",
+    "da": "Bluetooth LE fejlantal",
+    "ru": "Количество ошибок Bluetooth LE",
+    "pl": "Licznik błędów Bluetooth LE"
   },
   "units": {
     "en": "Commands per month",

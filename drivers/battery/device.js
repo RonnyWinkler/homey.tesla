@@ -31,6 +31,10 @@ module.exports = class BatteryDevice extends ChildDevice {
   async updateDevice(data){
     await super.updateDevice(data);
 
+    if (!data.charge_state){
+      return;
+    }
+
     // Battery
     if (this.hasCapability('measure_soc_level') && data.charge_state && data.charge_state.battery_level != undefined){
       this.setCapabilityValue('measure_soc_level', data.charge_state.battery_level);
@@ -39,7 +43,7 @@ module.exports = class BatteryDevice extends ChildDevice {
       this.setCapabilityValue('measure_soc_usable', data.charge_state.usable_battery_level);
     }
 
-    if (this.hasCapability('measure_soc_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined){
+    if (this.hasCapability('measure_soc_range_estimated') && data.charge_state && data.charge_state.est_battery_range != undefined && data.gui_settings){
       this.setCapabilityValue('measure_soc_range_estimated', data.gui_settings.gui_distance_units == 'km/hr' ? data.charge_state.est_battery_range * CONSTANTS.MILES_TO_KM : data.charge_state.est_battery_range);
       // Capability units
       let co = {};
@@ -53,7 +57,7 @@ module.exports = class BatteryDevice extends ChildDevice {
         this.setCapabilityOptions('measure_soc_range_estimated', co);
       }
     }
-    if (this.hasCapability('measure_soc_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined){
+    if (this.hasCapability('measure_soc_range_ideal') && data.charge_state && data.charge_state.ideal_battery_range  != undefined && data.gui_settings){
       this.setCapabilityValue('measure_soc_range_ideal', data.gui_settings.gui_distance_units == 'km/hr' ? data.charge_state.ideal_battery_range * CONSTANTS.MILES_TO_KM : data.charge_state.ideal_battery_range);
       // Capability units
       let co = {};

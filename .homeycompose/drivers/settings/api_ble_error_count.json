@@ -1,0 +1,30 @@
+{
+  "type": "label",
+  "label": {
+    "en": "BLE errors",
+    "de": "BLE-Fehler",
+    "nl": "BLE-fouten",
+    "fr": "Erreurs BLE",
+    "it": "BLE erreurs",
+    "sv": "BLE-fel",
+    "no": "BLE-feil",
+    "es": "BLE-fouten",
+    "da": "BLE-feil",
+    "ru": "Ошибки BLE",
+    "pl": "BLE błędy"
+    },
+  "hint": {
+    "en": "BLE errors since the beginning of the month.",
+    "de": "BLE Fehler seit Monatsbeginn.",
+    "nl": "BLE-fouten sinds het begin van de maand.",
+    "fr": "Erreurs BLE depuis le début du mois.",
+    "it": "BLE erreurs depuis le début du mois.",
+    "sv": "BLE-fel sedan månadens början.",
+    "no": "BLE-feil siden månedens start.",
+    "es": "BLE-fouten sinds het begin van de maand.",
+    "da": "BLE-feil siden månedens start.",
+    "ru": "Ошибки BLE с начала месяца.",
+    "pl": "BLE błędy od początku miesiąca."
+  },
+  "value": "0"
+}

@@ -37,6 +37,10 @@ module.exports = class ClimateDevice extends ChildDevice {
       await this.setCapabilityValue('climate_window_vent', true);
     }    
 
+    if (!data.climate_state){
+      return;
+    }
+    
     // Temperatures
     if (this.hasCapability('target_temperature') && data.climate_state && data.climate_state.driver_temp_setting != undefined){
       try{
@@ -49,7 +53,7 @@ module.exports = class ClimateDevice extends ChildDevice {
     if (this.hasCapability('measure_temperature') && data.climate_state && data.climate_state.inside_temp ){
       await this.setCapabilityValue('measure_temperature', data.climate_state.inside_temp );
     }
-    if (this.hasCapability('measure_climate_temperature_in') && data.climate_state && data.climate_state.inside_temp != undefined){
+    if (this.hasCapability('measure_climate_temperature_in') && data.climate_state && data.climate_state.inside_temp != undefined && data.gui_settings){
       await this.setCapabilityValue('measure_climate_temperature_in', data.gui_settings.gui_temperature_units == 'C' ? data.climate_state.inside_temp :data.climate_state.inside_temp*9/5+32 );
       // Capability units
       let co = {};
@@ -63,7 +67,7 @@ module.exports = class ClimateDevice extends ChildDevice {
         this.setCapabilityOptions('measure_climate_temperature_in', co);
       }
     }
-    if (this.hasCapability('measure_climate_temperature_out') && data.climate_state && data.climate_state.outside_temp != undefined){
+    if (this.hasCapability('measure_climate_temperature_out') && data.climate_state && data.climate_state.outside_temp != undefined && data.gui_settings){
       await this.setCapabilityValue('measure_climate_temperature_out', data.gui_settings.gui_temperature_units == 'C' ? data.climate_state.outside_temp : data.climate_state.outside_temp*9/5+32 );
       // Capability units
       let co = {};

@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Daily average API costs in percentage !{{are|aren't}} higher than",
+        "de": "Tägliche durchschnittliche API-Kosten in Prozent !{{sind|sind nicht}} höher als",
+        "nl": "Dagelijkse gemiddelde API-kosten in procenten !{{zijn|zijn niet}} hoger dan",
+        "fr": "Coûts API moyens quotidiens en pourcentage !{{sont|ne sont pas}} supérieurs à",
+        "it": "Costi API medi giornalieri in percentuale !{{sono|non sono}} superiori a",
+        "sv": "Dagliga genomsnittliga API-kostnader in procent !{{är|är inte}} högre än",
+        "no": "Daglige gjennomsnittlige API-kostnader in prosent !{{er|er ikke}} høyere enn",
+        "es": "Costos diarios promedio de la API en porcentaje !{{son|no son}} superiores a",
+        "da": "Daglige gennemsnitlige API-omkostninger i procent !{{er|er ikke}} højere end",
+        "ru": "Средние ежедневные затраты на API в процентах !{{выше|ниже}}",
+        "pl": "Dzienny średni koszt API w procentach !{{jest|nie jest}} wyższy niż"
+    },
+    "titleFormatted": {
+        "en": "Daily average API costs in percentage !{{are|aren't}} higher than [[value]]",
+        "de": "Tägliche durchschnittliche API-Kosten in Prozent !{{sind|sind nicht}} höher als [[value]]",
+        "nl": "Dagelijkse gemiddelde API-kosten in procenten !{{zijn|zijn niet}} hoger dan [[value]]",
+        "fr": "Coûts API moyens quotidiens en pourcentage !{{sont|ne sont pas}} supérieurs à [[value]]",
+        "it": "Costi API medi giornalieri in percentuale !{{sono|non sono}} superiori a [[value]]",
+        "sv": "Dagliga genomsnittliga API-kostnader in procent !{{är|är inte}} högre än [[value]]",
+        "no": "Daglige gjennomsnittlige API-kostnader in prosent !{{er|er ikke}} høyere enn [[value]]",
+        "es": "Costos diarios promedio de la API en porcentaje !{{son|no son}} superiores a [[value]]",
+        "da": "Daglige gennemsnitlige API-omkostninger i procent !{{er|er ikke}} højere end [[value]]",
+        "ru": "Средние ежедневные затраты на API в процентах !{{выше|ниже}} [[value]]",
+        "pl": "Dzienny średni koszt API w procentach !{{jest|nie jest}} wyższy niż [[value]]"
+    },
+    "args": [
+        {
+            "name": "value",
+            "type": "number"
+        },
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ]
+}

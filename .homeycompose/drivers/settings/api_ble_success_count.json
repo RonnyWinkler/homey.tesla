@@ -1,0 +1,30 @@
+{
+    "type": "label",
+    "label": {
+      "en": "BLE commands successfully sent",
+      "de": "Erfolgreich gesendete BLE-Kommandos",
+      "nl": "BLE-opdrachten succesvol verzonden",
+      "fr": "Commandes BLE envoyées avec succès",
+      "it": "Comandi BLE inviati con successo",
+      "sv": "BLE-kommandon skickades framgångsrikt",
+      "no": "BLE-kommandoer sendt",
+      "es": "Komandos BLE wysłane pomyślnie",
+      "da": "BLE-kommandoer sendt",
+      "ru": "BLE-команды успешно отправлены",
+      "pl": "Pomyślnie wysłane polecenia BLE"
+      },
+    "hint": {
+      "en": "BLE commands successfully sent since the beginning of the month.",
+      "de": "Erfolgreich gesendete BLE-Kommandos seit Monatsbeginn.",
+      "nl": "BLE-opdrachten succesvol verzonden sinds het begin van de maand.",
+      "fr": "Commandes BLE envoyées avec succès depuis le début du mois.",
+      "it": "Comandi BLE inviati con successo dall'inizio del mese.",
+      "sv": "BLE-kommandon skickades framgångsrikt sedan månadens början.",
+      "no": "BLE-kommandoer sendt siden månedens start.",
+      "es": "Komandos BLE wysłane pomyślnie od początku miesiąca.",
+      "da": "BLE-kommandoer sendt siden månedens start.",
+      "ru": "BLE-команды успешно отправлены с начала месяца.",
+      "pl": "Pomyślnie wysłane polecenia BLE od początku miesiąca."
+    },
+    "value": "0"
+  }

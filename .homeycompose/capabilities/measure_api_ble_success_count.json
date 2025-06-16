@@ -1,17 +1,17 @@
 {
   "type": "number",
   "title": {
-    "en": "Tesla API wake command count",
-    "de": "Tesla API Weck-Kommandoanzahl",
-    "nl": "Aantal Tesla API wek-commando's",
-    "fr": "Nombre de commandes de l'API de Wake",
-    "it": "Conteggio comandi API Wake",
-    "sv": "Tesla API weck-kommandoräkning",
-    "no": "Tesla API weck-kommandotelling",
-    "es": "Recuento de comandos de Wake de la API de Tesla",
-    "da": "Tesla API weck-kommandotal",
-    "ru": "Количество команд API Wake",
-    "pl": "Liczba poleceń API Wake"
+    "en": "Bluetooth LE commands count",
+    "de": "Bluetooth LE Kommandoanzahl",
+    "nl": "Aantal Bluetooth LE commando's",
+    "fr": "Nombre de commandes Bluetooth LE",
+    "it": "Conteggio comandi Bluetooth LE",
+    "sv": "Bluetooth LE kommandoräkning",
+    "no": "Bluetooth LE kommandotelling",
+    "es": "Conteo de comandos Bluetooth LE",
+    "da": "Bluetooth LE kommandotal",
+    "ru": "Количество команд Bluetooth LE",
+    "pl": "Licznik komend Bluetooth LE"
   },
   "units": {
     "en": "Commands per month",

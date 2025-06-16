@@ -20,6 +20,8 @@
             "id": "rest",
             "label":{
                 "en": "REST-API",
+                "de": "REST-API",
+                "nl": "REST-API",
                 "fr": "REST-API",
                 "it": "REST-API",
                 "sv": "REST-API",
@@ -33,15 +35,17 @@
         {
             "id": "tvcp",
             "label":{
-                "en": "Tesla Vehicle Command Protocol (Alpha)",
-                "fr": "Protocole de commande de véhicule Tesla (Alpha)",
-                "it": "Protocollo di comando del veicolo Tesla (Alpha)",
-                "sv": "Tesla fordon kommandoprotokoll (Alpha)",
-                "no": "Tesla kjøretøykommandoprotokoll (Alpha)",
-                "es": "Protocolo de comando de vehículo Tesla (Alpha)",
-                "da": "Tesla køretøj kommandoprotokol (Alpha)",
-                "ru": "Протокол команд для автомобилей Tesla (альфа-версия)",
-                "pl": "Protokół poleceń pojazdu Tesla (Alpha)"
+                "en": "Tesla Vehicle Command Protocol (Default)",
+                "de": "Tesla Fahrzeugkommandoprotokoll (Standard)",
+                "nl": "Tesla voertuig commando protocol (Standaard)",
+                "fr": "Protocole de commande de véhicule Tesla (par défaut)",
+                "it": "Protocollo di comando del veicolo Tesla (predefinito)",
+                "sv": "Tesla fordon kommandoprotokoll (Standard)",
+                "no": "Tesla kjøretøykommandoprotokoll (Standard)",
+                "es": "Protocolo de comando de vehículo Tesla (predeterminado)",
+                "da": "Tesla køretøj kommandoprotokol (Standard)",
+                "ru": "Протокол команд для автомобилей Tesla (по умолчанию)",
+                "pl": "Protokół poleceń pojazdu Tesla (domyślny)"
             }
         }
     ],

@@ -1,0 +1,31 @@
+{
+  "id": "api_state",
+  "type": "label",
+  "label": {
+    "en": "BLE state",
+    "de": "BLE-Status",
+    "nl": "BLE-status",
+    "fr": "État BLE",
+    "it": "Stato BLE",
+    "sv": "BLE-status",
+    "no": "BLE-status",
+    "es": "Estado BLE",
+    "da": "Estado BLE",
+    "ru": "Состояние BLE",
+    "pl": "Stan BLE"
+  },
+  "hint": {
+    "en": "This field shows the status of the last BLE call. Common errors are caused by a missing car key or connection issues.",
+    "de": "Dieses Feld zeigt den Status des letzten BLE-Aufrufs an. Häufige Fehler werden durch einen fehlenden Autoschlüssel oder Verbindungsprobleme verursacht.",
+    "nl": "Dit veld toont de status van de laatste BLE-aanroep. Meest voorkomende fouten worden veroorzaakt door een verloren auto-sleutel of verbindingproblemen.",
+    "fr": "Ce champ affiche l'état du dernier appel BLE. Les erreurs courantes sont causées par une clé de voiture manquante ou des problèmes de connexion.",
+    "it": "Questo campo mostra lo stato dell'ultima chiamata BLE. Gli errori comuni sono causati da una chiave dell'auto mancante o da problemi di connessione.",
+    "sv": "Detta fält visar statusen för den senaste BLE-anropet. Vanliga fel orsakas av en saknad bilnyckel eller anslutningsproblem.",
+    "no": "Dette feltet viser statusen for den siste BLE-anropet. Vanlige feil skyldes en manglende bilnøkkel eller tilkoblingsproblemer.",
+    "es": "Este campo muestra el estado de la última llamada BLE. Los errores comunes son causados por una llave de coche perdida o problemas de conexión.",
+    "da": "Dette felt viser status for den seneste BLE-anrop. Almindelige fejl skyldes en manglende bilnøgle eller forbindelsesproblemer.",
+    "ru": "Это поле показывает состояние последнего вызова BLE. Общие ошибки вызваны отсутствием ключа автомобиля или проблемами с подключением.",
+    "pl": "To pole pokazuje stan ostatniego wywołania BLE. Najczęstsze błędy są spowodowane brakiem klucza samochodowego lub problemami z połączeniem."
+  },
+  "value": ""
+}

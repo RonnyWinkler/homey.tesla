@@ -1,129 +1,176 @@
 {
-    "pair": {
-        "pair_steps": {
-            "title": "Paring",
-            "subtitle": "Bruk Tesla Fleet-API for å koble til bilen din",
-            "text_01": "For å bruke denne appen trenger du en <b>Tesla-utviklerkonto</b>.",
-            "text_02": "Fortsett bare hvis du ønsker å opprette en utviklerkonto på tesla.com. Du får tilgang til Fleet API med en månedlig rabatt på $10. Dette bør dekke gjennomsnittlig bruk. Hvis du trenger mer, kan du legge til et abonnement senere.",
-            "text_btn": "Instruksjoner"
-        },
-        "pair_step_01": {
-            "title": "Registrering av Tesla-app",
-            "subtitle": "Opprett en utviklerkonto",
-            "text_01": "Åpne Tesla-nettstedet og opprett en utviklerkonto.",
-            "text_02": "Deretter oppretter du en app. Fyll inn navnet ditt, angi et app-navn og en beskrivelse, for eksempel 'Homey App'.",
-            "text_03": "Du kan hoppe over faktureringssteget hvis du ikke vil legge til et abonnement og heller bruke de første gratis $10.",
-            "test_04": "Du vil få en 'Client ID' og en 'Client Secret' for neste paringssteg.",
-            "text_05": "Åpne https://developer.tesla.com",
-            "text_06": "Fortsett prosessen hvis du har en client_id og client_secret.",
-            "text_07": "Detaljer for app-registrering:",
-            "text_08": "OAuth Grant Type:",
-            "text_08a": "client-credentials, authorization-code",
-            "text_09": "Tillatte opprinnelser:",
-            "text_09a": "https://athom.com/",
-            "text_09b": "https://rwdevelopment.de/",
-            "text_10": "Tillatte omdirigerings-URI-er:",
-            "text_10a": "https://callback.athom.com/oauth2/callback",
-            "text_11": "Tillatte returnerte URL-er:",
-            "text_11a": "ingen",
-            "text_12": "Omfang:",
-            "text_12a": "Profilinformasjon, Kjøretøyinformasjon, Kjøretøylokasjon, Kjøretøykommandoer, Lading av kjøretøy",
-            "text_13": "&#x2398; kopiert"
-        },
-        "pair_step_02": {
-            "title": "Tesla-applegitimasjon",
-            "subtitle": "Tesla-applegitimasjon",
-            "client_id": "Klient-ID",
-            "client_secret": "Klienthemmelighet",
-            "text_01": "Skriv inn app-legitimasjonen din fra Tesla-utviklerkontoen.",
-            "text_02": "Du kan nå logge inn på Tesla-kontoen din."
-        },
-        "error": {
-            "title": "Feil"
-        },
-        "register": {
-            "title": "App-registrering",
-            "subtitle": "Registrer Homey-appen i bilen din",
-            "text1": "Registrer Homey-appen i bilen din for å tillate appen å sende kommandoer til bilen din.",
-            "text2": "Bruk registreringsknappen for å starte registreringen i Tesla-appen. Hvis lenken åpnes i nettleseren, følg da 'Åpne i Tesla App' veiledningen.",
-            "text3": "Denne registreringen er nødvendig for å bruke 'Tesla Vehicle Commands Protocol' og ende-til-ende kryptering av kommandoer sendt til kjøretøyet.",
-            "text4": "Modeller S/X før 2021 er ekskludert. Disse kan fortsatt kontrolleres via REST API. Vennligst velg kommando-API i enhetsinnstillingene.",
-            "text5": "Denne registreringen kan gjentas via 'Reparer enhet'-dialogen.",
-            "button": "Registrer som bilnøkkel"
-        },
-        "battery": {
-            "name": "batteri"
-        },
-        "climate": {
-            "name": "klima"
-        },
-        "location": {
-            "name": "plassering"
-        },
-        "media": {
-            "name": "media"
-        }
+  "pair": {
+    "pair_steps": {
+      "title": "Paring",
+      "subtitle": "Bruk Tesla Fleet-API for å koble til bilen din",
+      "text_01": "For å bruke denne appen trenger du en <b>Tesla utviklerkonto</b>.",
+      "text_02": "Fortsett kun hvis du vil opprette en utviklerkonto på tesla.com. Du får tilgang til Fleet API med en månedlig rabatt på $10. Det bør dekke gjennomsnittlig bruk. Hvis du trenger mer, kan du legge til et abonnement senere.",
+      "text_btn": "Instruksjoner"
     },
-    "repair": {
-        "select": {
-            "title": "Valg",
-            "auth": "Bytt innlogging",
-            "register_app": "Registrer app i bilen",
-            "device_details": "Enhetsdetaljer",
-            "charging_history": "Ladehistorikk",
-            "charging_history_suc": "SuC Ladehistorikk"
-        },
-        "charging_history": {
-            "title": "Ladehistorikk",
-            "clear": "slett",
-            "json": "JSON",
-            "edit": "Rediger",
-            "save": "Lagre"
-        },
-        "charging_history_suc": {
-            "title": "SuC Ladehistorikk"
-        },
-        "location_select": {
-            "title": "Valg",
-            "nearest_suc": "Nærmeste Supercharger",
-            "nearest_dest": "Nærmeste Destinasjonslader",
-            "driving_history": "Reisehistorikk"
-        },
-        "driving_history": {
-            "title": "Reisehistorikk",
-            "clear": "slett",
-            "json": "JSON",
-            "edit": "Rediger",
-            "save": "Lagre"
-        },
-        "location_nearest_suc": {
-            "title": "Nærmeste Supercharger",
-            "navigate": "Naviger til Supercharger?"
-        },
-        "location_nearest_dest": {
-            "title": "Nærmeste Destinasjonslader",
-            "navigate": "Naviger til Destinasjonslader?"
-        }
+    "pair_step_01": {
+      "title": "Registrering av Tesla-app",
+      "subtitle": "Opprett en utviklerkonto",
+      "text_01": "Åpne Teslas nettsted og opprett en utviklerkonto.",
+      "text_02": "Opprett deretter en app. Fyll inn navnet ditt, angi et app-navn og en beskrivelse som 'Homey App'.",
+      "text_03": "Du kan hoppe over faktureringssteget hvis du ikke vil legge til abonnement og først bruke den gratis $10-kreditten.",
+      "test_04": "Du vil få en 'Client ID' og en 'Client Secret' for neste paringssteg.",
+      "text_05": "Åpne https://developer.tesla.com",
+      "text_06": "Fortsett prosessen når du har client_id og client_secret.",
+      "text_07": "Detaljer for app-registrering:",
+      "text_08": "OAuth Grant Type:",
+      "text_08a": "client-credentials, authorization-code",
+      "text_09": "Tillatte Origin(s):",
+      "text_09a": "https://athom.com/",
+      "text_09b": "https://rwdevelopment.de/",
+      "text_10": "Tillatte Redirect URI(s):",
+      "text_10a": "https://callback.athom.com/oauth2/callback",
+      "text_11": "Tillatte Returned URL(s):",
+      "text_11a": "ingen",
+      "text_12": "Scopes:",
+      "text_12a": "Profilinformasjon, Kjøretøyinformasjon, kjøretøyplassering, kjøretøykommandoer, håndtering av kjøretøylading",
+      "text_13": "&#x2398; kopiert"
     },
-    "devices": {
-        "location": {
-            "homey_location_name": "Hjem (Homey-plassering)"
-        },
-        "car": {
-            "trunk_not_allowed": "Bagasjeromsoperasjon deaktivert i enhetsinnstillinger",
-            "command_pair_state_paired": "parret",
-            "command_pair_state_unpaired": "uparret",
-            "command_pair_state_undefined": "ukjent",
-            "app_not_registered": "Appen er ikke registrert i bilen. Registrer via bilens enhetsreparasjonsprosess.",
-            "command_error_426": "App-oppdatering kreves. Oppdater appen i Homey-appbutikken eller aktiver automatiske oppdateringer."
-        }
+    "pair_step_02": {
+      "title": "Tesla-app legitimasjon",
+      "subtitle": "Tesla-app legitimasjon",
+      "client_id": "Client ID",
+      "client_secret": "Client Secret",
+      "text_01": "Skriv inn app-legitimasjonen din fra Tesla-utviklerkontoen.",
+      "text_02": "Du kan nå logge inn på Tesla-kontoen din."
     },
-    "app": {
-        "update": {
-            "update_message": "Neste versjon av Tesla-appen legger til en ny tillatelse (Homey-plassering). Automatisk oppdatering fungerer ikke i dette tilfellet. Vennligst sjekk for oppdateringer manuelt de neste dagene og installer neste versjon fra appbutikken."
-        }
+    "error": {
+      "title": "Feil"
     },
-    "widget":{
-        "car_select": "Vælg din bil i widgetindstillingerne"
+    "pair_step_03": {
+      "title": "App-sertifikat",
+      "subtitle": "App-sertifikat",
+      "text_01": "Appen har opprettet et sertifikat (privat- og offentlig nøkkel).",
+      "text_02": "Dette sertifikatet brukes til å signere kommandoer som sendes til bilen din. Den offentlige nøkkelen er vert på ditt domene og registrert som bilnøkkel. Den private nøkkelen brukes til å kryptere og signere kommandoer.",
+      "text_03": "Lagre den offentlige nøkkelen som en fil. Last opp filen til ditt domene. Underdomener er tillatt. Rotdomenet må samsvare med det 'tillatte origin'-domenet fra app-registreringen.",
+      "text_04": "Filen må være vert under dette navnet.",
+      "text_05": "https://[ditt domene]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+      "text_btn": "Opprett nytt sertifikat",
+      "public_key": "Offentlig nøkkel. Last opp til ditt domene",
+      "private_key": "Privat nøkkel. Hold den hemmelig!"
+    },
+    "pair_step_04": {
+      "title": "Registrer domenet",
+      "subtitle": "Registrer domenet",
+      "text_01": "Hvis den offentlige nøkkelen er vert på ditt domene, kan du registrere domenet for appen din.",
+      "text_02": "Vennligst sørg for at URL-banen er nøyaktig som\nhttps://[ditt domene]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+      "text_03": "Domenet ble registrert vellykket.",
+      "text_04": "Domenet kunne ikke registreres:",
+      "text_05": "Tesla API returnerte et feilsvar.",
+      "text_06": "Fortsett hvis domenet ble registrert vellykket.",
+      "domain": "Domenet",
+      "text_btn": "Registrer domenet"
+    },
+    "pair_step_05": {
+      "title": "Legg til bilen din",
+      "subtitle": "Logg inn på Tesla-kontoen din.",
+      "text_01": "App-konfigurasjonen din er klar.",
+      "text_02": "Du kan nå logge inn på Tesla-kontoen din.",
+      "text_03": "Hvis du brukte en sekundær konto for appen din, vennligst tøm nettleserens informasjonskapsler for tesla.com for å sikre at du bruker kontoen bilen din er tilknyttet."
+    },
+    "register": {
+      "title": "App-registrering",
+      "subtitle": "Registrer Homey-appen i bilen din",
+      "text1": "Registrer Homey-appen i bilen din for å la appen sende kommandoer til bilen.",
+      "text2": "Bruk registreringsknappen for å begynne registreringen i Tesla-appen. Hvis lenken åpnes i nettleseren, følg hintet 'Åpne i Tesla App'.",
+      "text3": "Denne registreringen er nødvendig for å bruke 'Tesla Vehicle Commands Protocol' og ende-til-ende-kryptering av kommandoer sendt til kjøretøyet.",
+      "text4": "Modeller S/X før 2021 er ekskludert. Disse kan fortsatt kontrolleres via REST API. Velg kommand API i enhetsinnstillingene.",
+      "text5": "Denne registreringen kan gjentas via dialogen 'Reparer enhet'.",
+      "button": "Registrer som bilnøkkel"
+    },
+    "battery": {
+      "name": "batteri"
+    },
+    "climate": {
+      "name": "klima"
+    },
+    "location": {
+      "name": "plassering"
+    },
+    "media": {
+      "name": "media"
     }
+  },
+  "repair": {
+    "select": {
+      "title": "Valg",
+      "auth": "Endre innlogging",
+      "register_app": "Bilnøkkel for Fleet-API",
+      "register_ble": "Bilnøkkel for Bluetooth LE",
+      "device_details": "Enhetsdetaljer",
+      "charging_history": "Ladehistorikk",
+      "charging_history_suc": "SuC ladehistorikk"
+    },
+    "device_details": {
+      "title": "Enhetsdetaljer"
+    },
+    "charging_history": {
+      "title": "Ladehistorikk",
+      "clear": "tøm",
+      "json": "JSON",
+      "edit": "Rediger",
+      "save": "Lagre"
+    },
+    "charging_history_suc": {
+      "title": "SuC ladehistorikk"
+    },
+    "location_select": {
+      "title": "Valg",
+      "nearest_suc": "Nærmeste Supercharger",
+      "nearest_dest": "Nærmeste destinasjonslader",
+      "driving_history": "Kjørehistorikk"
+    },
+    "driving_history": {
+      "title": "Kjørehistorikk",
+      "clear": "tøm",
+      "json": "JSON",
+      "edit": "Rediger",
+      "save": "Lagre"
+    },
+    "location_nearest_suc": {
+      "title": "Nærmeste Supercharger",
+      "navigate": "Navigere til Supercharger?"
+    },
+    "location_nearest_dest": {
+      "title": "Nærmeste destinasjonslader",
+      "navigate": "Navigere til destinasjonslader?"
+    },
+    "register_ble": {
+      "title": "App-registrering for Bluetooth LE",
+      "subtitle": "Registrer Homey-appen i bilen din for Bluetooth LE",
+      "text1": "Registrer Homey-appen i bilen din for å la appen sende kommandoer til bilen.",
+      "text2": "Dette registrerer appen som bilnøkkel for å bruke Homey-appen via Bluetooth LE. Du trenger denne nøkkelen i tillegg til nøkkelen registrert for FleetAPI.",
+      "text3": "Sett deg i bilen og plasser NFC-kortet på konsollen.",
+      "text4": "Start deretter nøkkelregistreringsprosessen. Følg instruksjonene på kjøretøyets display.",
+      "ble_status": "Status",
+      "button_register": "Registrer som bilnøkkel",
+      "button_status": "Sjekk nøkkelstatus"
+    }
+  },
+  "devices": {
+    "location": {
+      "homey_location_name": "Hjem (Homey-plassering)"
+    },
+    "car": {
+      "trunk_not_allowed": "Bagasjeromsoperasjon er deaktivert i enhetsinnstillingene",
+      "command_pair_state_paired": "paret",
+      "command_pair_state_unpaired": "ikke paret",
+      "command_pair_state_undefined": "ukjent",
+      "app_not_registered": "Appen er ikke registrert i bilen. Registrer via reparasjonsprosessen for bilenheten.",
+      "command_error_426": "App-oppdatering kreves. Vennligst oppdater appen i Homey App Store eller aktiver automatiske oppdateringer.",
+      "api_client_id_not_set": "Tesla Client ID og Client Secret er ikke satt. Vennligst reparer enheten og bruk en personlig Tesla utviklerkonto og app-registrering."
+    }
+  },
+  "app": {
+    "update": {
+      "update_message": "Neste versjon av Tesla-appen legger til en ny tillatelse (Homey-plassering). Automatisk oppdatering fungerer ikke i dette tilfellet. Vennligst sjekk etter oppdateringer manuelt de neste dagene og installer neste versjon fra appbutikken."
+    }
+  },
+  "widget": {
+    "car_select": "Velg bilen din i widget-innstillingene"
+  }
 }

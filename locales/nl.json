@@ -1,129 +1,176 @@
 {
-    "pair":{
-        "pair_steps": {
-            "title": "Koppelen",
-            "subtitle": "Gebruik de Tesla Fleet-API om je auto te verbinden",
-            "text_01": "Om deze app te gebruiken, heb je een <b>Tesla-ontwikkelaarsaccount</b> nodig.",
-            "text_02": "Ga alleen verder als je een ontwikkelaarsaccount wilt aanmaken op tesla.com. Je krijgt toegang tot de Fleet API met een maandelijkse korting van $10. Dit zou gemiddeld gebruik moeten dekken. Als je meer nodig hebt, kun je later een abonnement toevoegen.",
-            "text_btn": "Instructies"
-        },
-        "pair_step_01": {
-            "title": "Tesla app-registratie",
-            "subtitle": "Maak een ontwikkelaarsaccount aan",
-            "text_01": "Open de Tesla-website en maak een ontwikkelaarsaccount aan.",
-            "text_02": "Maak vervolgens een app. Vul je naam in, voeg een app-naam en een beschrijving toe, zoals 'Homey App'.",
-            "text_03": "Je kunt de factuurstap overslaan als je geen abonnement wilt toevoegen en eerst de gratis $10 wilt gebruiken.",
-            "test_04": "Je ontvangt een 'Client ID' en een 'Client Secret' voor de volgende koppeling stap.",
-            "text_05": "Open https://developer.tesla.com",
-            "text_06": "Ga verder als je een client_id en client_secret hebt.",
-            "text_07": "Details voor app-registratie:",
-            "text_08": "OAuth Grant Type:",
-            "text_08a": "client-credentials, authorization-code",
-            "text_09": "Toegestane origin(s):",
-            "text_09a": "https://athom.com/",
-            "text_09b": "https://rwdevelopment.de/",
-            "text_10": "Toegestane omleidings-URI(s):",
-            "text_10a": "https://callback.athom.com/oauth2/callback",
-            "text_11": "Toegestane terugkeer-URL(s):",
-            "text_11a": "geen",
-            "text_12": "Scopes:",
-            "text_12a": "Profielinformatie, Voertuiginformatie, Voertuiglocatie, Voertuigcommando's, Beheer van voertuigladen",
-            "text_13": "&#x2398; gekopieerd"
-        },
-        "pair_step_02": {
-            "title": "Tesla app-gegevens",
-            "subtitle": "Tesla app-gegevens",
-            "client_id": "Client ID",
-            "client_secret": "Client Secret",
-            "text_01": "Voer je app-gegevens in van je Tesla-ontwikkelaarsaccount.",
-            "text_02": "Je kunt nu inloggen op je Tesla-account."
-        },
-        "error": {
-            "title": "Fout"
-        },
-        "register":{
-            "title": "App-registratie",
-            "subtitle": "Registreer de Homey app in je auto",
-            "text1": "Registreer de Homey app in je auto zodat de app opdrachten naar je auto kan sturen.",
-            "text2": "Gebruik de registratieknop om te beginnen met registreren in de Tesla-app. Als de link in de browser wordt geopend, volgt u de hint 'Openen in Tesla App'.",
-            "text3": "Deze registratie is nodig om gebruik te kunnen maken van het 'Tesla Vehicle Commands Protocol' en de end-to-end encryptie van de naar het voertuig verzonden commando's.",
-            "text4": "Modellen S/X van vóór 2021 zijn uitgesloten. Deze kunnen nog steeds worden beheerd via de REST API. Selecteer de opdracht-API in de apparaatinstellingen.",
-            "text5": "This registration can be repeated via the 'Repair Device' dialog.",
-            "button": "Registratie als autosleutel"
-        },
-        "battery":{
-            "name": "Accu"
-        },
-        "climate":{
-            "name": "Klimaat"
-        },
-        "location":{
-            "name": "Plaats"
-        },
-        "media":{
-            "name": "Media"
-        }
+  "pair": {
+    "pair_steps": {
+      "title": "Koppelen",
+      "subtitle": "Gebruik Tesla Fleet-API om je auto te verbinden",
+      "text_01": "Om deze app te gebruiken, heb je een <b>Tesla ontwikkelaarsaccount</b> nodig.",
+      "text_02": "Ga alleen verder als je een ontwikkelaarsaccount wilt aanmaken op tesla.com. Je krijgt toegang tot de Fleet API met een maandelijkse korting van $10. Dat zou voldoende moeten zijn voor gemiddeld gebruik. Als je meer nodig hebt, kun je later een abonnement toevoegen.",
+      "text_btn": "Instructies"
     },
-    "repair":{
-        "select":{
-            "title": "Selectie",
-            "auth": "Wijzig login",
-            "register_app": "App registreren in auto",
-            "device_details": "Apparaatdetails",
-            "charging_history": "Laadgeschiedenis",
-            "charging_history_suc": "SuC laadgeschiedenis"
-        },
-        "charging_history":{
-            "title": "Laadgeschiedenis",
-            "clear": "Verwijderen",
-            "json": "JSON",
-            "edit": "Bewerken",
-            "save": "Opslaan"
-        },
-        "charging_history_suc":{
-            "title": "SuC Laadgeschiedenis"
-        },
-        "location_select":{
-            "title": "Selectie",
-            "nearest_suc": "Dichtstbijzijnde Supercharger",
-            "nearest_dest": "Dichtstbijzijnde Destination Charger",
-            "driving_history": "Reis geschiedenis"
-        },
-        "driving_history":{
-            "title": "Reis geschiedenis",
-            "clear": "Verwijderen",
-            "json": "JSON",
-            "edit": "Bewerken",
-            "save": "Opslaan"
-        },
-        "location_nearest_suc":{
-            "title": "Dichtstbijzijnde Supercharger",
-            "navigate": "Navigeren naar Supercharger?"
-        },
-        "location_nearest_dest":{
-            "title": "Dichtstbijzijnde Destination Charger",
-            "navigate": "Navigeren naar Destination Charger?"
-        }
+    "pair_step_01": {
+      "title": "Tesla app-registratie",
+      "subtitle": "Maak een ontwikkelaarsaccount aan",
+      "text_01": "Open de Tesla-website en maak een ontwikkelaarsaccount aan.",
+      "text_02": "Maak vervolgens een app aan. Vul je naam in, geef een app-naam en beschrijving op, zoals 'Homey App'.",
+      "text_03": "Je kunt de factureringsstap overslaan als je geen abonnement wilt toevoegen en eerst de gratis $10 wilt gebruiken.",
+      "test_04": "Je ontvangt een 'Client ID' en een 'Client Secret' voor de volgende stap.",
+      "text_05": "Open https://developer.tesla.com",
+      "text_06": "Ga verder als je een client_id en client_secret hebt.",
+      "text_07": "Details voor app-registratie:",
+      "text_08": "OAuth Grant Type:",
+      "text_08a": "client-credentials, authorization-code",
+      "text_09": "Toegestane Origin(s):",
+      "text_09a": "https://athom.com/",
+      "text_09b": "https://rwdevelopment.de/",
+      "text_10": "Toegestane Redirect URI(s):",
+      "text_10a": "https://callback.athom.com/oauth2/callback",
+      "text_11": "Toegestane Returned URL(s):",
+      "text_11a": "geen",
+      "text_12": "Scopes:",
+      "text_12a": "Profielinformatie, Voertuiginformatie, Voertuiglocatie, Voertuigcommando's, Beheer van voertuigladen",
+      "text_13": "&#x2398; gekopieerd"
     },
-    "devices":{
-        "location":{
-            "homey_location_name": "Thuis (Homey plaats)"
-        },
-        "car": {
-            "trunk_not_allowed": "Trunkbediening uitgeschakeld in apparaatinstellingen",
-            "command_pair_state_paired": "gepaard",
-            "command_pair_state_unpaired": "ongepaard",
-            "command_pair_state_undefined": "onbekend",
-            "app_not_registered": "App is niet geregistreerd in de auto. Registreer u via het reparatieproces van het autoapparaat.",
-            "command_error_426": "App-update vereist. Update de app in de Homey app store of schakel automatische updates in."
-        }
+    "pair_step_02": {
+      "title": "Tesla app-gegevens",
+      "subtitle": "Tesla app-gegevens",
+      "client_id": "Client ID",
+      "client_secret": "Client Secret",
+      "text_01": "Voer je app-gegevens in van je Tesla ontwikkelaarsaccount.",
+      "text_02": "Je kunt nu inloggen op je Tesla-account."
     },
-    "app":{
-        "update":{
-            "update_message": "De volgende versie van de Tesla-app voegt een nieuwe toestemming toe (Homey-locatie). Automatische update werkt in dit geval niet. Controleer de volgende dagen handmatig op updates en installeer de volgende versie vanuit de app store."
-        }
+    "error": {
+      "title": "Fout"
     },
-    "widget":{
-        "car_select": "Selecteer je auto in de widgetinstellingen"
+    "pair_step_03": {
+      "title": "App-certificaat",
+      "subtitle": "App-certificaat",
+      "text_01": "De app heeft een certificaat aangemaakt (privé- en publieke sleutel).",
+      "text_02": "Dit certificaat wordt gebruikt om commando's naar je auto te ondertekenen. De publieke sleutel wordt gehost op je domein en geregistreerd als autosleutel. De privé-sleutel wordt gebruikt om commando's te versleutelen en te ondertekenen.",
+      "text_03": "Sla de publieke sleutel op als bestand. Upload het bestand naar je domein. Subdomeinen zijn toegestaan. Het hoofddomein moet overeenkomen met het 'toegestane origin'-domein van je app-registratie.",
+      "text_04": "Het bestand moet onder deze naam worden gehost.",
+      "text_05": "https://[jouw domein]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+      "text_btn": "Nieuw certificaat aanmaken",
+      "public_key": "Publieke sleutel. Upload naar je domein",
+      "private_key": "Privé-sleutel. Houd deze geheim!"
+    },
+    "pair_step_04": {
+      "title": "Registreer het domein",
+      "subtitle": "Registreer het domein",
+      "text_01": "Als de publieke sleutel op je domein wordt gehost, kun je het domein registreren voor je app.",
+      "text_02": "Zorg ervoor dat het URL-pad exact is als\nhttps://[jouw domein]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+      "text_03": "Domein succesvol geregistreerd.",
+      "text_04": "Domein kon niet worden geregistreerd:",
+      "text_05": "Tesla API gaf een foutmelding terug.",
+      "text_06": "Ga verder als het domein succesvol is geregistreerd.",
+      "domain": "Domein",
+      "text_btn": "Registreer het domein"
+    },
+    "pair_step_05": {
+      "title": "Voeg je auto toe",
+      "subtitle": "Log in op je Tesla-account.",
+      "text_01": "Je app-configuratie is gereed.",
+      "text_02": "Je kunt nu inloggen op je Tesla-account.",
+      "text_03": "Als je een tweede account hebt gebruikt voor je app, wis dan de browsercookies voor tesla.com om ervoor te zorgen dat je het account gebruikt waaraan je auto is gekoppeld."
+    },
+    "register": {
+      "title": "App-registratie",
+      "subtitle": "Registreer de Homey-app in je auto",
+      "text1": "Registreer de Homey-app in je auto om de app commando's naar je auto te laten sturen.",
+      "text2": "Gebruik de registratieknop om de registratie in de Tesla-app te starten. Als de link in de browser wordt geopend, volg dan de hint 'Openen in Tesla App'.",
+      "text3": "Deze registratie is noodzakelijk om het 'Tesla Vehicle Commands Protocol' en de end-to-end versleuteling van commando's naar het voertuig te gebruiken.",
+      "text4": "Modellen S/X van vóór 2021 zijn uitgesloten. Deze kunnen nog steeds worden bestuurd via de REST API. Selecteer het commando-API in de apparaatinstellingen.",
+      "text5": "Deze registratie kan worden herhaald via het dialoogvenster 'Apparaat repareren'.",
+      "button": "Registreer als autosleutel"
+    },
+    "battery": {
+      "name": "batterij"
+    },
+    "climate": {
+      "name": "klimaat"
+    },
+    "location": {
+      "name": "locatie"
+    },
+    "media": {
+      "name": "media"
     }
+  },
+  "repair": {
+    "select": {
+      "title": "Selectie",
+      "auth": "Inlog wijzigen",
+      "register_app": "Autosleutel voor Fleet-API",
+      "register_ble": "Autosleutel voor Bluetooth LE",
+      "device_details": "Apparaatdetails",
+      "charging_history": "Laadgeschiedenis",
+      "charging_history_suc": "SuC-laadgeschiedenis"
+    },
+    "device_details": {
+      "title": "Apparaatdetails"
+    },
+    "charging_history": {
+      "title": "Laadgeschiedenis",
+      "clear": "wissen",
+      "json": "JSON",
+      "edit": "Bewerken",
+      "save": "Opslaan"
+    },
+    "charging_history_suc": {
+      "title": "SuC-laadgeschiedenis"
+    },
+    "location_select": {
+      "title": "Selectie",
+      "nearest_suc": "Dichtstbijzijnde Supercharger",
+      "nearest_dest": "Dichtstbijzijnde Bestemmingslader",
+      "driving_history": "Reisgeschiedenis"
+    },
+    "driving_history": {
+      "title": "Reisgeschiedenis",
+      "clear": "wissen",
+      "json": "JSON",
+      "edit": "Bewerken",
+      "save": "Opslaan"
+    },
+    "location_nearest_suc": {
+      "title": "Dichtstbijzijnde Supercharger",
+      "navigate": "Navigeren naar Supercharger?"
+    },
+    "location_nearest_dest": {
+      "title": "Dichtstbijzijnde Bestemmingslader",
+      "navigate": "Navigeren naar Bestemmingslader?"
+    },
+    "register_ble": {
+      "title": "App-registratie voor Bluetooth LE",
+      "subtitle": "Registreer de Homey-app in je auto voor Bluetooth LE",
+      "text1": "Registreer de Homey-app in je auto om de app commando's naar je auto te laten sturen.",
+      "text2": "Dit registreert de app als autosleutel om de Homey-app via Bluetooth LE te gebruiken. Je hebt deze sleutel nodig naast de geregistreerde sleutel voor FleetAPI.",
+      "text3": "Ga in de auto zitten en plaats de NFC-kaart op de console.",
+      "text4": "Start vervolgens het sleutelregistratieproces. Volg de instructies op het voertuigdisplay.",
+      "ble_status": "Status",
+      "button_register": "Registreer als autosleutel",
+      "button_status": "Controleer sleutelstatus"
+    }
+  },
+  "devices": {
+    "location": {
+      "homey_location_name": "Thuis (Homey-locatie)"
+    },
+    "car": {
+      "trunk_not_allowed": "Kofferbakbediening uitgeschakeld in apparaatinstellingen",
+      "command_pair_state_paired": "gekoppeld",
+      "command_pair_state_unpaired": "niet gekoppeld",
+      "command_pair_state_undefined": "onbekend",
+      "app_not_registered": "App is niet geregistreerd in de auto. Registreer via het reparatieproces van het autoapparaat.",
+      "command_error_426": "App-update vereist. Werk de app bij in de Homey-appstore of schakel automatische updates in.",
+      "api_client_id_not_set": "Tesla Client ID en Client Secret niet ingesteld. Repareer het apparaat en gebruik een persoonlijk Tesla ontwikkelaarsaccount en app-registratie."
+    }
+  },
+  "app": {
+    "update": {
+      "update_message": "De volgende versie van de Tesla-app voegt een nieuwe machtiging toe (Homey-locatie). Automatisch updaten werkt in dit geval niet. Controleer de komende dagen handmatig op updates en installeer de nieuwe versie vanuit de appstore."
+    }
+  },
+  "widget": {
+    "car_select": "Selecteer je auto in de widgetinstellingen"
+  }
 }

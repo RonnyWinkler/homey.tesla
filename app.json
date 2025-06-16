@@ -1,10 +1,14 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "2.3.0",
-  "compatibility": ">=12.1.0",
+  "version": "3.0.0",
+  "compatibility": ">=12.4.5",
   "platforms": [
     "local"
+  ],
+  "connectivity": [
+    "cloud",
+    "ble"
   ],
   "sdk": 3,
   "name": {
@@ -128,7 +132,8 @@
   "source": "https://github.com/RonnyWinkler/homey.tesla",
   "homeyCommunityTopicId": 100824,
   "permissions": [
-    "homey:manager:geolocation"
+    "homey:manager:geolocation",
+    "homey:wireless:ble"
   ],
   "contributing": {
     "donate": {
@@ -3731,6 +3736,46 @@
       },
       {
         "title": {
+          "en": "Daily average API costs in percentage !{{are|aren't}} higher than",
+          "de": "Tägliche durchschnittliche API-Kosten in Prozent !{{sind|sind nicht}} höher als",
+          "nl": "Dagelijkse gemiddelde API-kosten in procenten !{{zijn|zijn niet}} hoger dan",
+          "fr": "Coûts API moyens quotidiens en pourcentage !{{sont|ne sont pas}} supérieurs à",
+          "it": "Costi API medi giornalieri in percentuale !{{sono|non sono}} superiori a",
+          "sv": "Dagliga genomsnittliga API-kostnader in procent !{{är|är inte}} högre än",
+          "no": "Daglige gjennomsnittlige API-kostnader in prosent !{{er|er ikke}} høyere enn",
+          "es": "Costos diarios promedio de la API en porcentaje !{{son|no son}} superiores a",
+          "da": "Daglige gennemsnitlige API-omkostninger i procent !{{er|er ikke}} højere end",
+          "ru": "Средние ежедневные затраты на API в процентах !{{выше|ниже}}",
+          "pl": "Dzienny średni koszt API w procentach !{{jest|nie jest}} wyższy niż"
+        },
+        "titleFormatted": {
+          "en": "Daily average API costs in percentage !{{are|aren't}} higher than [[value]]",
+          "de": "Tägliche durchschnittliche API-Kosten in Prozent !{{sind|sind nicht}} höher als [[value]]",
+          "nl": "Dagelijkse gemiddelde API-kosten in procenten !{{zijn|zijn niet}} hoger dan [[value]]",
+          "fr": "Coûts API moyens quotidiens en pourcentage !{{sont|ne sont pas}} supérieurs à [[value]]",
+          "it": "Costi API medi giornalieri in percentuale !{{sono|non sono}} superiori a [[value]]",
+          "sv": "Dagliga genomsnittliga API-kostnader in procent !{{är|är inte}} högre än [[value]]",
+          "no": "Daglige gjennomsnittlige API-kostnader in prosent !{{er|er ikke}} høyere enn [[value]]",
+          "es": "Costos diarios promedio de la API en porcentaje !{{son|no son}} superiores a [[value]]",
+          "da": "Daglige gennemsnitlige API-omkostninger i procent !{{er|er ikke}} højere end [[value]]",
+          "ru": "Средние ежедневные затраты на API в процентах !{{выше|ниже}} [[value]]",
+          "pl": "Dzienny średni koszt API w procentach !{{jest|nie jest}} wyższy niż [[value]]"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "id": "api_costs_daily_average_percentage"
+      },
+      {
+        "title": {
           "en": "Battery heater !{{is|isn't}} on",
           "de": "Batterie-Heizung !{{ist|ist nicht}} an",
           "nl": "Batterijverwarmer  !{{is|is niet}} aan",
@@ -5060,6 +5105,211 @@
     "actions": [
       {
         "title": {
+          "en": "Read the API costs",
+          "de": "Lese die API-Kosten",
+          "nl": "Lees de API-kosten",
+          "fr": "Lire les frais de l'API",
+          "it": "Leggi i costi dell'API",
+          "sv": "Läsa API-kostnaderna",
+          "no": "Les API-kostnadene",
+          "es": "Leer los costos de la API",
+          "da": "Læs API-omkostningerne",
+          "ru": "Прочитать затраты API",
+          "pl": "Przeczytaj koszty API"
+        },
+        "titleFormatted": {
+          "en": "Read the API costs",
+          "de": "Lese die API-Kosten",
+          "nl": "Lees de API-kosten",
+          "fr": "Lire les frais de l'API",
+          "it": "Leggi i costi dell'API",
+          "sv": "Läsa API-kostnaderna",
+          "no": "Les API-kostnadene",
+          "es": "Leer los costos de la API",
+          "da": "Læs API-omkostningerne",
+          "ru": "Прочитать затраты API",
+          "pl": "Przeczytaj koszty API"
+        },
+        "hint": {
+          "en": "This action returns the API costs and statistics.",
+          "de": "Diese Aktion gibt die API-Kosten und Statistiken zurück.",
+          "nl": "Deze actie retourneert de API-kosten en statistieken.",
+          "fr": "Cette action renvoie les coûts et les statistiques de l'API.",
+          "it": "Questa azione restituisce i costi e le statistiche dell'API.",
+          "sv": "Denna åtgärd returnerar API-kostnader och statistik.",
+          "no": "Denne handling returnerer API-kostnader og statistikk.",
+          "es": "Denna åtgärd returnerar API-kostnader och statistik.",
+          "da": "Denne handling returnerer API-kostnader og statistik.",
+          "ru": "Это действие возвращает затраты и статистику API.",
+          "pl": "Ta akcja zwraca koszty i statystyki API."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "costs",
+            "type": "number",
+            "title": {
+              "en": "Costs",
+              "de": "Kosten",
+              "nl": "Kosten",
+              "fr": "Coûts",
+              "it": "Costi",
+              "sv": "Kostnader",
+              "no": "Kostnader",
+              "es": "Costes",
+              "da": "Omkostninger",
+              "ru": "Затраты",
+              "pl": "Koszty"
+            }
+          },
+          {
+            "name": "average_costs",
+            "type": "number",
+            "title": {
+              "en": "Average daily cost",
+              "de": "Durchschnittliche tägliche Kosten",
+              "nl": "Gemiddelde dagelijkse kosten",
+              "fr": "Coût moyen quotidien",
+              "it": "Costo medio giornaliero",
+              "sv": "Genomsnittlig daglig kostnad",
+              "no": "Gjennomsnittlig daglig kostnad",
+              "es": "Costo diario promedio",
+              "da": "Gennemsnitlige daglige omkostninger",
+              "ru": "Среднесуточные расходы",
+              "pl": "Średni dzienny koszt"
+            }
+          },
+          {
+            "name": "percentage",
+            "type": "number",
+            "title": {
+              "en": "Percentage average use of the limit",
+              "de": "Prozentuale durchschnittliche Nutzung des Limits",
+              "nl": "Gemiddeld percentage van het limietgebruik",
+              "fr": "Utilisation moyenne en pourcentage de la limite",
+              "it": "Utilizzo medio percentuale del limite",
+              "sv": "Genomsnittlig procentuell användning av gränsen",
+              "no": "Gjennomsnittlig prosentbruk av grensen",
+              "es": "Uso promedio porcentual del límite",
+              "da": "Gennemsnitlig procentvis udnyttelse af grænsen",
+              "ru": "Средний процент использования лимита",
+              "pl": "Średnie procentowe wykorzystanie limitu"
+            }
+          }
+        ],
+        "id": "api_get_costs"
+      },
+      {
+        "title": {
+          "en": "Activate/deactivate Bluetooth LE",
+          "de": "Bluetooth LE aktivieren/deaktivieren",
+          "nl": "Bluetooth LE in-/deaktivieren",
+          "fr": "Activer/désactiver Bluetooth LE",
+          "it": "Attiva/disattiva Bluetooth LE",
+          "sv": "Aktivera/inaktivera Bluetooth LE",
+          "no": "Aktiver/deaktiver Bluetooth LE",
+          "es": "Activar/desactivar Bluetooth LE",
+          "da": "Aktiver/deaktiver Bluetooth LE",
+          "ru": "Активировать/деактивировать Bluetooth LE",
+          "pl": "Aktywuj/dezaktywuj Bluetooth LE"
+        },
+        "titleFormatted": {
+          "en": "Set Bluetooth LE to [[state]]",
+          "de": "Setze Bluetooth LE auf [[state]]",
+          "nl": "Stel Bluetooth LE in op [[state]]",
+          "fr": "Définir Bluetooth LE sur [[state]]",
+          "it": "Imposta Bluetooth LE su [[state]]",
+          "sv": "Ställ in Bluetooth LE på [[state]]",
+          "no": "Sett Bluetooth LE til [[state]]",
+          "es": "Ställ in Bluetooth LE på [[state]]",
+          "da": "Ställ in Bluetooth LE på [[state]]",
+          "ru": "Установить Bluetooth LE в [[state]]",
+          "pl": "Ustaw Bluetooth LE na [[state]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "BLE state",
+              "de": "BLE Zustand",
+              "nl": "BLE status",
+              "fr": "État BLE",
+              "it": "Stato BLE",
+              "sv": "BLE-status",
+              "no": "BLE-status",
+              "es": "Estado BLE",
+              "da": "BLE-tilstand",
+              "ru": "Состояние BLE",
+              "pl": "Stan BLE"
+            },
+            "values": [
+              {
+                "id": "ble_off",
+                "label": {
+                  "en": "BLE off",
+                  "de": "BLE aus",
+                  "nl": "BLE uit",
+                  "fr": "BLE off",
+                  "it": "BLE off",
+                  "sv": "BLE av",
+                  "no": "BLE av",
+                  "es": "BLE apagado",
+                  "da": "BLE af",
+                  "ru": "BLE выключен",
+                  "pl": "BLE wyłączony"
+                }
+              },
+              {
+                "id": "ble_on",
+                "label": {
+                  "en": "BLE on",
+                  "de": "BLE ein",
+                  "nl": "BLE aan",
+                  "fr": "BLE activé",
+                  "it": "BLE attivo",
+                  "sv": "BLE en",
+                  "no": "BLE på",
+                  "es": "BLE encendido",
+                  "da": "BLE til",
+                  "ru": "BLE включен",
+                  "pl": "BLE włączone"
+                }
+              },
+              {
+                "id": "ble_only",
+                "label": {
+                  "en": "BLE only, no FleetAPI",
+                  "de": "Nur BLE, keine FleetAPI",
+                  "nl": "Alleen BLE, geen FleetAPI",
+                  "fr": "BLE uniquement, pas FleetAPI",
+                  "it": "Solo BLE, no FleetAPI",
+                  "sv": "Bara BLE, ingen FleetAPI",
+                  "no": "Bare BLE, ingen FleetAPI",
+                  "es": "Solo BLE, no FleetAPI",
+                  "da": "Kun BLE, ingen FleetAPI",
+                  "ru": "Только BLE, без FleetAPI",
+                  "pl": "Tylko BLE, bez FleetAPI"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "api_set_ble_active"
+      },
+      {
+        "title": {
           "en": "Set online interval",
           "de": "Setze Online-Intervall",
           "nl": "Stel online-interval in",
@@ -5627,28 +5877,28 @@
         "title": {
           "en": "Open front trunk",
           "de": "Öffne vorderen Kofferraum",
-          "nl": "Open voorkant kofferbak",
+          "nl": "Open de voorste kofferbak",
           "fr": "Ouvrir le coffre avant",
-          "it": "Apri bagagliaio anteriore",
-          "sv": "Öppna fram lucka",
-          "no": "Apen frontluke",
-          "es": "Abrir maletero delantero",
-          "da": "Aben for bagklap",
+          "it": "Apri il bagagliaio anteriore",
+          "sv": "Öppna främre bagageutrymmet",
+          "no": "Åpne frontbagasjerommet",
+          "es": "Abrir el maletero delantero",
+          "da": "Åbn frontbagagerummet",
           "ru": "Открыть передний багажник",
-          "pl": "Otwórz przedni bagáznik"
+          "pl": "Otwórz przedni bagażnik"
         },
         "titleFormatted": {
           "en": "Open front trunk",
           "de": "Öffne vorderen Kofferraum",
-          "nl": "Open voorkant kofferbak",
+          "nl": "Open de voorste kofferbak",
           "fr": "Ouvrir le coffre avant",
-          "it": "Apri bagagliaio anteriore",
-          "sv": "Öppna fram lucka",
-          "no": "Apen frontluke",
-          "es": "Abrir maletero delantero",
-          "da": "Aben for bagklap",
+          "it": "Apri il bagagliaio anteriore",
+          "sv": "Öppna främre bagageutrymmet",
+          "no": "Åpne frontbagasjerommet",
+          "es": "Abrir el maletero delantero",
+          "da": "Åbn frontbagagerummet",
           "ru": "Открыть передний багажник",
-          "pl": "Otwórz przedni bagáznik"
+          "pl": "Otwórz przedni bagażnik"
         },
         "args": [
           {
@@ -5661,30 +5911,30 @@
       },
       {
         "title": {
-          "en": "Actuate front/rear trunk",
-          "de": "Bediene vorderen/hinteren Kofferraum",
-          "nl": "Voorkant/achterkant kofferbak bedienen",
-          "fr": "Actionner le coffre avant/arrière",
-          "it": "Aziona il bagagliaio anteriore/posteriore",
-          "sv": "Aktivera fram/baklucka",
-          "no": "Aktiver front/bakluke",
-          "es": "Accionar maletero delantero/trasero",
-          "da": "Aktiver for/bagklap",
-          "ru": "Активировать передний/задний багажник",
-          "pl": "Aktywuj przedni/tylny bagażnik"
+          "en": "Open/close rear trunk",
+          "de": "Öffne/schließe hinteren Kofferraum",
+          "nl": "Open/sluit achterklep",
+          "fr": "Ouvrir/fermer le coffre arrière",
+          "it": "Apri/chiudi il bagagliaio posteriore",
+          "sv": "Öppna/stäng bakluckan",
+          "no": "Åpne/lukke bakluken",
+          "es": "Abrir/cerrar maletero trasero",
+          "da": "Åbn/luk bagagerummet",
+          "ru": "Открыть/закрыть багажник",
+          "pl": "Otwórz/zamknij bagażnik tylny"
         },
         "titleFormatted": {
           "en": "[[action]] rear trunk",
-          "de": "[[action]] hinterern Kofferraum",
+          "de": "[[action]] hinteren Kofferraum",
           "nl": "[[action]] achterkant kofferbak",
           "fr": "[[action]] coffre arrière",
           "it": "[[action]] bagagliaio posteriore",
           "sv": "[[action]] baklucka",
-          "no": "[[action]] bakluke",
+          "no": "[[action]] bakluken",
           "es": "[[action]] maletero trasero",
-          "da": "[[action]] bagklap",
-          "ru": "[[action]] задний багажник",
-          "pl": "[[action]] tylny bagáznik"
+          "da": "[[action]] bagagerummet",
+          "ru": "[[action]] багажник",
+          "pl": "[[action]] tylny bagażnik"
         },
         "args": [
           {
@@ -8429,11 +8679,13 @@
       },
       "class": "car",
       "connectivity": [
-        "cloud"
+        "cloud",
+        "ble"
       ],
       "capabilities": [
         "measure_battery",
         "device_state_insights",
+        "ev_charging_state",
         "last_update",
         "car_state",
         "meter_car_odo",
@@ -8459,9 +8711,12 @@
         "measure_api_command_count",
         "measure_api_command_wakes_count",
         "measure_api_costs",
+        "measure_api_ble_success_count",
+        "measure_api_ble_error_count",
         "last_online"
       ],
       "energy": {
+        "electricCar": true,
         "batteries": [
           "OTHER"
         ]
@@ -8534,8 +8789,13 @@
         {
           "id": "register",
           "navigation": {
-            "prev": "select",
-            "next": "done"
+            "prev": "select"
+          }
+        },
+        {
+          "id": "register_ble",
+          "navigation": {
+            "prev": "select"
           }
         },
         {
@@ -8824,6 +9084,8 @@
                   "id": "rest",
                   "label": {
                     "en": "REST-API",
+                    "de": "REST-API",
+                    "nl": "REST-API",
                     "fr": "REST-API",
                     "it": "REST-API",
                     "sv": "REST-API",
@@ -8837,15 +9099,17 @@
                 {
                   "id": "tvcp",
                   "label": {
-                    "en": "Tesla Vehicle Command Protocol (Alpha)",
-                    "fr": "Protocole de commande de véhicule Tesla (Alpha)",
-                    "it": "Protocollo di comando del veicolo Tesla (Alpha)",
-                    "sv": "Tesla fordon kommandoprotokoll (Alpha)",
-                    "no": "Tesla kjøretøykommandoprotokoll (Alpha)",
-                    "es": "Protocolo de comando de vehículo Tesla (Alpha)",
-                    "da": "Tesla køretøj kommandoprotokol (Alpha)",
-                    "ru": "Протокол команд для автомобилей Tesla (альфа-версия)",
-                    "pl": "Protokół poleceń pojazdu Tesla (Alpha)"
+                    "en": "Tesla Vehicle Command Protocol (Default)",
+                    "de": "Tesla Fahrzeugkommandoprotokoll (Standard)",
+                    "nl": "Tesla voertuig commando protocol (Standaard)",
+                    "fr": "Protocole de commande de véhicule Tesla (par défaut)",
+                    "it": "Protocollo di comando del veicolo Tesla (predefinito)",
+                    "sv": "Tesla fordon kommandoprotokoll (Standard)",
+                    "no": "Tesla kjøretøykommandoprotokoll (Standard)",
+                    "es": "Protocolo de comando de vehículo Tesla (predeterminado)",
+                    "da": "Tesla køretøj kommandoprotokol (Standard)",
+                    "ru": "Протокол команд для автомобилей Tesla (по умолчанию)",
+                    "pl": "Protokół poleceń pojazdu Tesla (domyślny)"
                   }
                 }
               ],
@@ -8923,6 +9187,105 @@
                 "da": "Gentag kommandoer op til 3 gange, hvis de ikke kan udføres succesfuldt.",
                 "ru": "Повторите команды до 3 раз, если они не могут быть успешно выполнены.",
                 "pl": "Powtarzaj polecenia do 3 razy, jeśli nie można ich pomyślnie wykonać."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Bluetooth LE settings",
+            "de": "Bluetooth LE-Einstellungen",
+            "nl": "Bluetooth LE-instellingen",
+            "fr": "Paramètres Bluetooth LE",
+            "it": "Paramètres Bluetooth LE",
+            "sv": "Bluetooth LE-inställningar",
+            "no": "Bluetooth LE-innstillinger",
+            "es": "Configuración de Bluetooth LE",
+            "da": "Bluetooth LE-indstillinger",
+            "ru": "Настройки Bluetooth LE",
+            "pl": "Ustawienia Bluetooth LE"
+          },
+          "children": [
+            {
+              "id": "api_ble_active",
+              "type": "dropdown",
+              "value": "ble_off",
+              "label": {
+                "en": "Bluetooth LE",
+                "de": "Bluetooth LE",
+                "nl": "Bluetooth LE",
+                "fr": "Bluetooth LE",
+                "it": "Bluetooth LE",
+                "sv": "Bluetooth LE",
+                "no": "Bluetooth LE",
+                "es": "Bluetooth LE",
+                "da": "Bluetooth LE",
+                "ru": "Bluetooth LE",
+                "pl": "Bluetooth LE"
+              },
+              "values": [
+                {
+                  "id": "ble_off",
+                  "label": {
+                    "en": "BLE off",
+                    "de": "BLE aus",
+                    "nl": "BLE uit",
+                    "fr": "BLE off",
+                    "it": "BLE off",
+                    "sv": "BLE av",
+                    "no": "BLE av",
+                    "es": "BLE apagado",
+                    "da": "BLE af",
+                    "ru": "BLE выключен",
+                    "pl": "BLE wyłączony"
+                  }
+                },
+                {
+                  "id": "ble_on",
+                  "label": {
+                    "en": "BLE on",
+                    "de": "BLE ein",
+                    "nl": "BLE aan",
+                    "fr": "BLE activé",
+                    "it": "BLE attivo",
+                    "sv": "BLE en",
+                    "no": "BLE på",
+                    "es": "BLE encendido",
+                    "da": "BLE til",
+                    "ru": "BLE включен",
+                    "pl": "BLE włączone"
+                  }
+                },
+                {
+                  "id": "ble_only",
+                  "label": {
+                    "en": "BLE only, no FleetAPI",
+                    "de": "Nur BLE, keine FleetAPI",
+                    "nl": "Alleen BLE, geen FleetAPI",
+                    "fr": "BLE uniquement, pas FleetAPI",
+                    "it": "Solo BLE, no FleetAPI",
+                    "sv": "Bara BLE, ingen FleetAPI",
+                    "no": "Bare BLE, ingen FleetAPI",
+                    "es": "Solo BLE, no FleetAPI",
+                    "da": "Kun BLE, ingen FleetAPI",
+                    "ru": "Только BLE, без FleetAPI",
+                    "pl": "Tylko BLE, bez FleetAPI"
+                  }
+                }
+              ],
+              "hint": {
+                "en": "To use Bluetooth LE, the app must be registered as a car key in the Repair dialog. If active, it will first try to connect to the car via the Bluetooth connection. If this is not successful, the FleetAPI will be used.",
+                "de": "Zur Verwendung von Bluetooth LE muss die App im Reparieren-Dialog als Fahrzeugschlüssel registriert werden. Wenn aktiv, dann wird zuerst versucht, über die Bluetooth-Verbindung eine Verbindung zum Fahrzeug herzustellen. Wenn dies nicht erfolgreich ist, wird die FleetAPI verwendet.",
+                "nl": "Om Bluetooth LE te gebruiken, moet de app worden geregistreerd als autosleutel in het repareren dialoogvenster. Als deze optie is ingeschakeld, wordt eerst geprobeerd verbinding te maken met de auto via de Bluetooth-verbinding. Als dit niet lukt, wordt de FleetAPI gebruikt.",
+                "fr": "Pour utiliser Bluetooth LE, l'application doit être enregistrée comme clé de voiture dans la boîte de dialogue Réparer. Si cette option est activée, elle essaiera d'abord de se connecter à la voiture via la connexion Bluetooth. Si cela échoue, l'API Fleet sera utilisée.",
+                "it": "Per utilizzare Bluetooth LE, l'app deve essere registrata come chiave dell'auto nella finestra di dialogo Ripara. Se attivo, proverà prima a connettersi all'auto tramite la connessione Bluetooth. Se non riesce, verrà utilizzata l'API Fleet.",
+                "sv": "För att använda Bluetooth LE måste appen registreras som en bilnyckel i reparationsdialogrutan. Om den är aktiv kommer den först att försöka ansluta till bilen via Bluetooth-anslutningen. Om detta misslyckas kommer FleetAPI att användas.",
+                "no": "For å bruke Bluetooth LE må appen registreres som bilnøkkel i reparasjonsdialogen. Hvis aktiv, vil den først prøve å koble til bilen via Bluetooth-tilkoblingen. Hvis dette ikke lykkes, vil FleetAPI bli brukt.",
+                "es": "Para usar Bluetooth LE, la aplicación debe registrarse como una llave de coche en el cuadro de diálogo Reparar. Si está activo, primero intentará conectarse al coche a través de la conexión Bluetooth. Si esto no tiene éxito, se utilizará la API de Fleet.",
+                "da": "For at bruge Bluetooth LE skal appen registreres som en bilnøgle i reparationsdialogen. Hvis den er aktiv, vil den først forsøge at oprette forbindelse til bilen via Bluetooth-forbindelsen. Hvis dette ikke lykkes, vil FleetAPI blive brugt.",
+                "ru": "Чтобы использовать Bluetooth LE, приложение должно быть зарегистрировано в качестве ключа автомобиля в диалоговом окне ремонта. Если активно, оно сначала попытается подключиться к автомобилю через Bluetooth-соединение. Если это не удастся, будет использоваться FleetAPI.",
+                "pl": "Aby użyć Bluetooth LE, aplikacja musi być zarejestrowana jako klucz samochodowy w oknie dialogowym Napraw. Jeśli jest aktywna, najpierw spróbuje połączyć się z samochodem za pomocą połączenia Bluetooth. Jeśli to się nie powiedzie, zostanie użyte API Fleet."
               }
             }
           ]
@@ -9157,6 +9520,117 @@
         {
           "type": "group",
           "label": {
+            "en": "Bluetooth LE",
+            "de": "Bluetooth LE",
+            "nl": "Bluetooth LE",
+            "fr": "Bluetooth LE",
+            "it": "Bluetooth LE",
+            "sv": "Bluetooth LE",
+            "no": "Bluetooth LE",
+            "es": "Bluetooth LE",
+            "da": "Bluetooth LE",
+            "ru": "Bluetooth LE",
+            "pl": "Bluetooth LE"
+          },
+          "children": [
+            {
+              "id": "api_ble_state",
+              "type": "label",
+              "label": {
+                "en": "API state",
+                "de": "API-status",
+                "nl": "API-Status",
+                "fr": "État de l'API",
+                "it": "Stato API",
+                "sv": "API-status",
+                "no": "API-status",
+                "es": "Estado de la API",
+                "da": "API-status",
+                "ru": "Состояние API",
+                "pl": "Stan API"
+              },
+              "hint": {
+                "en": "This field shows the API status of the last Tesla API call. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "de": "Dieses Feld zeigt den API-Status des letzten Aufrufs der Tesla-API. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "nl": "Dit veld toont de API-status van de laatste Tesla API-aanroep. Details: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "fr": "Ce champ affiche l'état de l'API du dernier appel à l'API Tesla. Détails : https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "it": "Questo campo mostra lo stato dell'API dell'ultimo chiamata all'API Tesla. Dettagli: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "sv": "Detta fält visar API-statusen för det senaste Tesla API-anropet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "no": "Dette feltet viser API-statusen for det siste Tesla API-kallet. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "es": "Este campo muestra el estado de la API de la última llamada a la API de Tesla. Detalles: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "da": "Dette felt viser API-status for det seneste Tesla API-kald. Detaljer: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "ru": "Это поле показывает состояние API последнего вызова Tesla API. Подробности: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans",
+                "pl": "To pole pokazuje stan API ostatniego wywołania API Tesla. Szczegóły: https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans"
+              },
+              "value": ""
+            },
+            {
+              "id": "api_ble_success_count",
+              "type": "label",
+              "label": {
+                "en": "BLE commands successfully sent",
+                "de": "Erfolgreich gesendete BLE-Kommandos",
+                "nl": "BLE-opdrachten succesvol verzonden",
+                "fr": "Commandes BLE envoyées avec succès",
+                "it": "Comandi BLE inviati con successo",
+                "sv": "BLE-kommandon skickades framgångsrikt",
+                "no": "BLE-kommandoer sendt",
+                "es": "Komandos BLE wysłane pomyślnie",
+                "da": "BLE-kommandoer sendt",
+                "ru": "BLE-команды успешно отправлены",
+                "pl": "Pomyślnie wysłane polecenia BLE"
+              },
+              "hint": {
+                "en": "BLE commands successfully sent since the beginning of the month.",
+                "de": "Erfolgreich gesendete BLE-Kommandos seit Monatsbeginn.",
+                "nl": "BLE-opdrachten succesvol verzonden sinds het begin van de maand.",
+                "fr": "Commandes BLE envoyées avec succès depuis le début du mois.",
+                "it": "Comandi BLE inviati con successo dall'inizio del mese.",
+                "sv": "BLE-kommandon skickades framgångsrikt sedan månadens början.",
+                "no": "BLE-kommandoer sendt siden månedens start.",
+                "es": "Komandos BLE wysłane pomyślnie od początku miesiąca.",
+                "da": "BLE-kommandoer sendt siden månedens start.",
+                "ru": "BLE-команды успешно отправлены с начала месяца.",
+                "pl": "Pomyślnie wysłane polecenia BLE od początku miesiąca."
+              },
+              "value": "0"
+            },
+            {
+              "id": "api_ble_error_count",
+              "type": "label",
+              "label": {
+                "en": "BLE errors",
+                "de": "BLE-Fehler",
+                "nl": "BLE-fouten",
+                "fr": "Erreurs BLE",
+                "it": "BLE erreurs",
+                "sv": "BLE-fel",
+                "no": "BLE-feil",
+                "es": "BLE-fouten",
+                "da": "BLE-feil",
+                "ru": "Ошибки BLE",
+                "pl": "BLE błędy"
+              },
+              "hint": {
+                "en": "BLE errors since the beginning of the month.",
+                "de": "BLE Fehler seit Monatsbeginn.",
+                "nl": "BLE-fouten sinds het begin van de maand.",
+                "fr": "Erreurs BLE depuis le début du mois.",
+                "it": "BLE erreurs depuis le début du mois.",
+                "sv": "BLE-fel sedan månadens början.",
+                "no": "BLE-feil siden månedens start.",
+                "es": "BLE-fouten sinds het begin van de maand.",
+                "da": "BLE-feil siden månedens start.",
+                "ru": "Ошибки BLE с начала месяца.",
+                "pl": "BLE błędy od początku miesiąca."
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Tesla Fleet-API costs",
             "de": "Tesla Fleet-API-Kosten",
             "nl": "Tesla Fleet-API-kosten",
@@ -9230,7 +9704,7 @@
                 "ru": "Количество запросов для этой категории, указанное на странице Tesla",
                 "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
               },
-              "value": 1000
+              "value": 500
             },
             {
               "id": "api_costs_commands",
@@ -9261,7 +9735,7 @@
                 "ru": "Количество запросов для этой категории, указанное на странице Tesla",
                 "pl": "Liczba żądań dla tej kategorii podana na stronie Tesla"
               },
-              "value": 500
+              "value": 1000
             },
             {
               "id": "api_costs_wakes",
@@ -12408,6 +12882,129 @@
         "pl": "Offline"
       }
     },
+    "ev_charging_state": {
+      "type": "enum",
+      "title": {
+        "en": "Charging state",
+        "nl": "Oplaadstatus",
+        "da": "Opladningstilstand",
+        "it": "Stato di carica",
+        "ko": "충전 상태",
+        "pl": "Stan ładowania",
+        "ru": "Состояние зарядки",
+        "sv": "Laddningsstatus",
+        "es": "Estado de carga",
+        "fr": "État de charge",
+        "no": "Ladestatus",
+        "de": "Ladezustand"
+      },
+      "desc": {
+        "en": "The current charging state of the battery.",
+        "nl": "De huidige oplaadstatus van de batterij.",
+        "da": "Batteriets aktuelle opladningstilstand.",
+        "it": "Lo stato di carica attuale della batteria.",
+        "ko": "배터리의 현재 충전 상태입니다.",
+        "pl": "Bieżący stan ładowania akumulatora.",
+        "ru": "Текущее состояние зарядки аккумулятора.",
+        "sv": "Batteriets aktuella laddningsstatus.",
+        "es": "El estado de carga actual de la batería.",
+        "fr": "L'état de charge actuel de la batterie.",
+        "no": "Batteriets nåværende ladestatus.",
+        "de": "Der aktuelle Ladezustand des Akkus."
+      },
+      "values": [
+        {
+          "id": "plugged_in_charging",
+          "title": {
+            "en": "Charging",
+            "nl": "Opladen",
+            "da": "Oplader",
+            "it": "In ricarica",
+            "ko": "충전 중",
+            "pl": "Ładowanie\n",
+            "ru": "Заряжается",
+            "sv": "Laddning",
+            "es": "Carga",
+            "fr": "Charge en cours",
+            "no": "Lader",
+            "de": "Wird geladen"
+          }
+        },
+        {
+          "id": "plugged_in_discharging",
+          "title": {
+            "en": "Discharging",
+            "nl": "Ontladen",
+            "da": "Aflader",
+            "it": "Si sta scaricando",
+            "ko": "방전 중",
+            "pl": "Rozładowywanie",
+            "ru": "Разряжается",
+            "sv": "Urladdning",
+            "es": "Descarga",
+            "fr": "Décharge en cours",
+            "no": "Lades ut",
+            "de": "Wird entladen"
+          }
+        },
+        {
+          "id": "plugged_in_paused",
+          "title": {
+            "en": "Paused",
+            "da": "På pause",
+            "it": "In pausa",
+            "ko": "일시 중지됨",
+            "nl": "Gepauzeerd",
+            "pl": "Wstrzymane",
+            "ru": "На паузе",
+            "sv": "Pausad",
+            "es": "En pausa",
+            "fr": "En pause",
+            "no": "Satt på pause",
+            "de": "Pausiert"
+          }
+        },
+        {
+          "id": "plugged_in",
+          "title": {
+            "en": "Plugged in",
+            "nl": "Aangesloten",
+            "da": "Tilsluttet",
+            "it": "Cavo collegato",
+            "ko": "충전구 연결됨",
+            "pl": "Podłączone do gniazdka",
+            "ru": "Подключено",
+            "sv": "Ansluten",
+            "es": "Enchufado",
+            "fr": "Branché",
+            "no": "Tilkoblet",
+            "de": "Eingesteckt"
+          }
+        },
+        {
+          "id": "plugged_out",
+          "title": {
+            "en": "Not plugged in",
+            "nl": "Niet aangesloten",
+            "da": "Ikke tilsluttet",
+            "it": "Cavo non collegato",
+            "ko": "충전구 연결되지 않음",
+            "pl": "Niepodłączone do gniazdka",
+            "ru": "Не подключено",
+            "sv": "Inte ansluten",
+            "es": "No enchufado",
+            "fr": "Non branché",
+            "no": "Ikke tilkoblet",
+            "de": "Nicht eingesteckt"
+          }
+        }
+      ],
+      "color": "#6DD400",
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "minCompatibility": "12.4.5"
+    },
     "last_online": {
       "type": "string",
       "title": {
@@ -12597,6 +13194,76 @@
       "uiComponent": "sensor",
       "icon": "./assets/capability_icons/location_route_destination_time.svg"
     },
+    "measure_api_ble_error_count": {
+      "type": "number",
+      "title": {
+        "en": "Bluetooth LE error count",
+        "de": "Bluetooth LE Fehleranzahl",
+        "nl": "Aantal Bluetooth LE fouten",
+        "fr": "Nombre d'erreurs Bluetooth LE",
+        "it": "Conteggio errori Bluetooth LE",
+        "sv": "Bluetooth LE felräkning",
+        "no": "Bluetooth LE feiltelling",
+        "es": "Conteo de errores Bluetooth LE",
+        "da": "Bluetooth LE fejlantal",
+        "ru": "Количество ошибок Bluetooth LE",
+        "pl": "Licznik błędów Bluetooth LE"
+      },
+      "units": {
+        "en": "Commands per month",
+        "de": "Kommandos pro Monat",
+        "nl": "Commando's per maand",
+        "fr": "Commandes par mois",
+        "it": "Comandi al mese",
+        "sv": "Kommandon per månad",
+        "no": "Kommandoer per måned",
+        "es": "Comandos por mes",
+        "da": "Kommandon per måned",
+        "ru": "Команды в месяц",
+        "pl": "Komendy na miesiąc"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_command_count.svg"
+    },
+    "measure_api_ble_success_count": {
+      "type": "number",
+      "title": {
+        "en": "Bluetooth LE commands count",
+        "de": "Bluetooth LE Kommandoanzahl",
+        "nl": "Aantal Bluetooth LE commando's",
+        "fr": "Nombre de commandes Bluetooth LE",
+        "it": "Conteggio comandi Bluetooth LE",
+        "sv": "Bluetooth LE kommandoräkning",
+        "no": "Bluetooth LE kommandotelling",
+        "es": "Conteo de comandos Bluetooth LE",
+        "da": "Bluetooth LE kommandotal",
+        "ru": "Количество команд Bluetooth LE",
+        "pl": "Licznik komend Bluetooth LE"
+      },
+      "units": {
+        "en": "Commands per month",
+        "de": "Kommandos pro Monat",
+        "nl": "Commando's per maand",
+        "fr": "Commandes par mois",
+        "it": "Comandi al mese",
+        "sv": "Kommandon per månad",
+        "no": "Kommandoer per måned",
+        "es": "Comandos por mes",
+        "da": "Kommandon per måned",
+        "ru": "Команды в месяц",
+        "pl": "Komendy na miesiąc"
+      },
+      "decimals": 0,
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_api_command_count.svg"
+    },
     "measure_api_command_charge_count": {
       "type": "number",
       "title": {
@@ -12613,17 +13280,17 @@
         "pl": "Liczba poleceń API Tesli"
       },
       "units": {
-        "en": "Commands per day",
-        "de": "Kommandos pro Tag",
-        "nl": "Commando's per dag",
-        "fr": "Commandes par jour",
-        "it": "Comandi al giorno",
-        "sv": "Kommandon per dag",
-        "no": "Kommandoer per dag",
-        "es": "Comandos por día",
-        "da": "Kommandoer pr. dag",
-        "ru": "Команд в день",
-        "pl": "Polecenia na dzień"
+        "en": "Commands per month",
+        "de": "Kommandos pro Monat",
+        "nl": "Commando's per maand",
+        "fr": "Commandes par mois",
+        "it": "Comandi al mese",
+        "sv": "Kommandon per månad",
+        "no": "Kommandoer per måned",
+        "es": "Comandos por mes",
+        "da": "Kommandon per måned",
+        "ru": "Команды в месяц",
+        "pl": "Komendy na miesiąc"
       },
       "decimals": 0,
       "insights": true,
@@ -12648,17 +13315,17 @@
         "pl": "Liczba poleceń API Tesli"
       },
       "units": {
-        "en": "Commands per day",
-        "de": "Kommandos pro Tag",
-        "nl": "Commando's per dag",
-        "fr": "Commandes par jour",
-        "it": "Comandi al giorno",
-        "sv": "Kommandon per dag",
-        "no": "Kommandoer per dag",
-        "es": "Comandos por día",
-        "da": "Kommandoer pr. dag",
-        "ru": "Команд в день",
-        "pl": "Polecenia na dzień"
+        "en": "Commands per month",
+        "de": "Kommandos pro Monat",
+        "nl": "Commando's per maand",
+        "fr": "Commandes par mois",
+        "it": "Comandi al mese",
+        "sv": "Kommandon per månad",
+        "no": "Kommandoer per måned",
+        "es": "Comandos por mes",
+        "da": "Kommandon per måned",
+        "ru": "Команды в месяц",
+        "pl": "Komendy na miesiąc"
       },
       "decimals": 0,
       "insights": true,
@@ -12683,17 +13350,17 @@
         "pl": "Liczba poleceń API Wake"
       },
       "units": {
-        "en": "Commands per day",
-        "de": "Kommandos pro Tag",
-        "nl": "Commando's per dag",
-        "fr": "Commandes par jour",
-        "it": "Comandi al giorno",
-        "sv": "Kommandon per dag",
-        "no": "Kommandoer per dag",
-        "es": "Comandos por día",
-        "da": "Kommandoer pr. dag",
-        "ru": "Команд в день",
-        "pl": "Polecenia na dzień"
+        "en": "Commands per month",
+        "de": "Kommandos pro Monat",
+        "nl": "Commando's per maand",
+        "fr": "Commandes par mois",
+        "it": "Comandi al mese",
+        "sv": "Kommandon per månad",
+        "no": "Kommandoer per måned",
+        "es": "Comandos por mes",
+        "da": "Kommandon per måned",
+        "ru": "Команды в месяц",
+        "pl": "Komendy na miesiąc"
       },
       "decimals": 0,
       "insights": true,

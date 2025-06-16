@@ -398,5 +398,8 @@
   },
   "2.3.1": {
     "en": "Flow card translations."
+  },
+  "3.0.0": {
+    "en": "Added BLE support for local connection. Added HomeyEnergy settings for car device (Homey FW >= 12.4.5 needed)."
   }
 }

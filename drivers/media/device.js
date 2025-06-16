@@ -27,6 +27,10 @@ module.exports = class MediaDevice extends ChildDevice {
   async updateDevice(data){
     await super.updateDevice(data);
 
+    if (!data.vehicle_state){
+      return;
+    }
+
     // Media information
     if (this.hasCapability('speaker_playing') && data.vehicle_state && data.vehicle_state.media_info && data.vehicle_state.media_info.media_playback_status != undefined){
       await this.setCapabilityValue('speaker_playing', ( data.vehicle_state.media_info.media_playback_status == CONSTANTS.MEDIA_PLAYBACK_STATE_PLAYING ));

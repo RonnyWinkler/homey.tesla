@@ -18,10 +18,11 @@
         "small": "/drivers/car/assets/images/small.png"
     },
     "class": "car",
-    "connectivity": [ "cloud" ],
+    "connectivity": [ "cloud", "ble"],
     "capabilities": [
         "measure_battery",
         "device_state_insights",
+        "ev_charging_state",
 
         "last_update",
         "car_state",
@@ -61,11 +62,14 @@
         "measure_api_command_count",
         "measure_api_command_wakes_count",
         "measure_api_costs",
-        
+        "measure_api_ble_success_count",
+        "measure_api_ble_error_count",
+
         "last_online"
 
     ],
     "energy": {
+        "electricCar": true,
         "batteries": [
             "OTHER"
         ]
@@ -138,11 +142,16 @@
         {
             "id": "register",
             "navigation": { 
-                "prev": "select",
-                "next": "done"
+                "prev": "select"
             }
         },
         {
+          "id": "register_ble",
+          "navigation": { 
+              "prev": "select"
+          }
+      },
+      {
             "id": "done",
             "template": "done"
         },

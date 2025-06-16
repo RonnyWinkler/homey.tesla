@@ -1,8 +1,9 @@
 {
   "id": "com.tesla.car",
-  "version": "2.3.1",
-  "compatibility": ">=12.1.0",
+  "version": "3.0.0",
+  "compatibility": ">=12.4.5",
   "platforms": ["local"],
+  "connectivity": ["cloud", "ble"],
   "sdk": 3,
   "name": {
     "en": "Tesla",
@@ -59,7 +60,8 @@
   "source": "https://github.com/RonnyWinkler/homey.tesla",
   "homeyCommunityTopicId": 100824,
   "permissions": [
-    "homey:manager:geolocation"
+    "homey:manager:geolocation",
+    "homey:wireless:ble"
   ],
   "contributing": {
       "donate": {

@@ -1,24 +1,33 @@
 const TeslaOAuth2Device = require('../../lib/TeslaOAuth2Device');
 const Homey = require('homey');
-const { CarServer } = require('../../lib/CarServer.js');
+const { TeslaCommandApi } = require('../../lib/TeslaCommandApi.js');
+const { TeslaBleApi } = require('../../lib/TeslaBleApi.js');
 const Eckey = require('eckey-utils');
 const crypt = require('../../lib/crypt');
+const crypto = require('crypto');
 // const SlidingWindowLog = require('../../lib/SlidingWindowLog.js');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
 const WAIT_ON_WAKE_UP = 30; // 20 sec
 const RETRY_ON_WAKE_UP = 10; // Retry wakeup every 10 seconds
+const RETRY_BLE_ON_WAKE_UP = 3; // Retry wakeup via BLE unp to 10 tries
 const RETRY_COUNT = 3; // number of retries sending commands
 const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
+const BLE_TIMEOUT_CARSERVER = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
+const BLE_TIMEOUT_VCSEC = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
 
 const CONSTANTS = require('../../lib/constants');
+const Mappings = require('../../lib/mappings');
 
 module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onOAuth2Init() {
     this.log("onOAuth2Init()");
     await super.onOAuth2Init();
+
+    // init global flags
+    this.syncIsActive = false;
 
     // Update device
     await this._updateCapabilities();
@@ -41,14 +50,38 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._settings = this.getSettings();
     await this._startApiCounterResetTimer();
 
-
+    // Init Command API for FleetAPI access
     try{
       let proxyKey = this.homey.settings.get("private_key");
       let key = Eckey.parsePem(proxyKey);
-      this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+      // this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+      this.commandApi = await new TeslaCommandApi(this._onSendSignedCommandApi.bind(this), this.getData().id, key, CONSTANTS.AUTH_TYPE_HMAC_SHA256);
     }
     catch(error){
       this.log("onOAuth2Init() Create CarServerError: ",error.message);
+    }
+
+    // Init Command API for BLE access
+    try{
+      // Init public/private
+      const keys = await this.driver.getCertificateBle();
+      // convert to Eckey
+      let key = Eckey.parsePem(keys.privateKey);
+      // this.commandApi = await new CarServer(this.oAuth2Client, this.getData().id, key);
+
+      // this.commandApiBle = await new TeslaCommandApi(this._onSendSignedCommandBle.bind(this), this.getData().id, key, CONSTANTS.AUTH_TYPE_HMAC_SHA256); // CONSTANTS.AUTH_TYPE_AES_GCM);
+      this.commandApiBle = await new TeslaCommandApi(this._onSendSignedCommandBle.bind(this), this.getData().id, key, CONSTANTS.AUTH_TYPE_AES_GCM);
+
+    }
+    catch(error){
+      this.log("onOAuth2Init() Create CarServerError: ",error.message);
+    }
+
+    try{
+      this.bleApi = new TeslaBleApi(this);
+    }
+    catch(error){
+      this.log("onOAuth2Init() Create BTLEServerError: ",error.message);
     }
 
     if (!this.homey.settings.get('client_id') || this.homey.settings.get('client_id') == '' || 
@@ -77,6 +110,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async onOAuth2Saved() {
     // check if settings are already read. If not, device is not initialized yet after pairing
     if (!this._settings) return;
+    if (this.syncIsActive) return;
 
     this.log("onOAuth2Saved()");
     this._startSync();
@@ -169,6 +203,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this.getClass() != 'car'){
       await this.setClass('car');  
     }
+    // update energy settings
+    let energy = JSON.parse(JSON.stringify(this.getEnergy())) || {};
+    if (energy["electricCar"] ==  undefined){
+      energy["electricCar"] = true;
+      await this.setEnergy( energy );
+    }
+
   }
 
   async handleApiOk(type = CONSTANTS.API_ERROR_READ){
@@ -179,6 +220,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           break;
         case CONSTANTS.API_ERROR_COMMAND:
           await this.setSettings({ api_command_state: 'OK' });
+          break;
+        case CONSTANTS.API_ERROR_BLE:
+          await this.setSettings({ api_ble_state: 'OK' });
           break;
       }
       let oldState = this.getCapabilityValue('alarm_api_error');
@@ -210,8 +254,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         //   }
         //   break;
         default:
-          this.log("API Error: "+ error.message);
-          apiState = error.message;
+          if (error.message != undefined){
+            this.log("API Error: "+ error.message);
+            apiState = error.message;
+          }
+          else{
+            this.log("API Error: "+ error);
+            apiState = error;
+          }
       }
       switch (type){
         case CONSTANTS.API_ERROR_READ:
@@ -219,6 +269,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           break;
         case CONSTANTS.API_ERROR_COMMAND:
           await this.setSettings({ api_command_state: apiState });
+          break;
+        case CONSTANTS.API_ERROR_BLE:
+          await this.setSettings({ api_ble_state: apiState });
           break;
       }
       let oldState = this.getCapabilityValue('alarm_api_error');
@@ -292,13 +345,19 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       case CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES:
         counter = this.getCapabilityValue('measure_api_command_wakes_count');
         break;
-    }
+      case CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS:
+        counter = this.getCapabilityValue('measure_api_ble_success_count');
+        break;
+      case CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR:
+        counter = this.getCapabilityValue('measure_api_ble_error_count');
+        break;
+      }
 
     if (!counter){
       counter = 0;
     }
     counter = counter + 1;
-    this.log("API counter: type: " + type + " conter: " + counter);
+    this.log("API counter: type: " + type + " counter: " + counter);
 
     // Update counter
     switch (type){
@@ -314,7 +373,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         await this.setCapabilityValue('measure_api_command_wakes_count', counter);
         await this.setSettings({ api_command_wakes_count: counter.toString() });
         break;
-    }
+      case CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS:
+        await this.setCapabilityValue('measure_api_ble_success_count', counter);
+        await this.setSettings({ api_ble_success_count: counter.toString() });
+        break;
+      case CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR:
+        await this.setCapabilityValue('measure_api_ble_error_count', counter);
+        await this.setSettings({ api_ble_error_count: counter.toString() });
+        break;
+      }
 
     await this._calculateApiCosts();
 
@@ -408,6 +475,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async _resetApiCounter(){ 
+    // FleetAPI counter
     if (this.hasCapability('measure_api_request_count')){
       await this.setCapabilityValue('measure_api_request_count', 0);
     }
@@ -424,6 +492,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('measure_api_costs', 0);
     }
     await this.setSettings({ api_costs: '0' });
+    // BLE counter
+    if (this.hasCapability('measure_api_ble_success_count')){
+      await this.setCapabilityValue('measure_api_ble_success_count', 0);
+    }
+    await this.setSettings({ api_ble_success_count: '0' });
+    if (this.hasCapability('measure_api_ble_error_count')){
+      await this.setCapabilityValue('measure_api_ble_error_count', 0);
+    }
+    await this.setSettings({ api_ble_error_count: '0' });
+
     // Start new timer
     await this._startApiCounterResetTimer();
   }
@@ -474,6 +552,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.log("Car sync...");
     try{    
       // update the device
+      this.syncIsActive = true;
       await this.getCarData();
       await this.handleApiOk();
       await this.setAvailable();
@@ -494,7 +573,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
       this.setUnavailable(error.message).catch(this.error);
       await this.handleApiError(error);
-    };
+    }
+    finally{
+      this.syncIsActive = false;
+    }
   }
 
   async getCarState(){
@@ -539,14 +621,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     let data = {};
     try{
-      // Count API statistics
-      await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
-      // Get car data
-      data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
+      // // Count API statistics
+      // await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
 
-      this.log("Car data request state: ", data.state);
+      // Get car data
+      // data = await this.oAuth2Client.getVehicleData(this.getData().id, query);
+      data = await this._getCarDataTarget(query);
+
+      this.log("Car data request state: ", data.state || 'online');
       // Update car state to ONLINE if request was successful
-      await this.setCapabilityValue('car_state', data.state);
+      await this.setCapabilityValue('car_state', data.state || 'online');
       await this.setDeviceState(true);
 
       let time = this._getLocalTimeString(new Date());
@@ -592,6 +676,141 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
   }
 
+  async _getCarDataTarget(query){
+    // Read car data. Get the API to use first, then try BLE or FLeetAPI if BLE is not active or not available
+
+    // 1) BLE request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_OFF){
+      try{
+        if (this.commandApiBle != undefined){
+          this.log("Read car data via BLE");
+          await this.bleApi.connect();
+          
+          // 1) Charging states
+          this.log("Read chargingState");
+          let commandOptions = this._getSignedCommand('getVehicleData', {
+            chargeState: true
+          });
+          let carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          carDataBle = carDataBle['vehicleData'];
+          let carData = Mappings.mapCarDataBle2FleetApi(carDataBle);
+
+          // 2a) Vehicle data - drive state - no relevant data
+          // commandOptions = this._getSignedCommand('getVehicleData', {
+          //   driveState: true,
+          // });
+          // carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          // carDataBle = carDataBle['vehicleData'];
+          // carData = Mappings.mapCarChargingDataBle2FleetApi(carDataBle);
+
+          // 2b) Vehicle data - location/closure
+          this.log("Read tirePressureState, locationState, closuresState");
+          commandOptions = this._getSignedCommand('getVehicleData', {
+            tirePressureState: true,
+            locationState: true,
+            closuresState: true,
+          });
+          carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          carDataBle = carDataBle['vehicleData'];
+          carData = Mappings.mapCarDataBle2FleetApi(carDataBle, carData);
+
+          // // 2c) Vehicle data
+          // commandOptions = this._getSignedCommand('getVehicleData', {
+          //   softwareUpdateState: true
+          // });
+          // carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          // carDataBle = carDataBle['vehicleData'];
+          // carData = Mappings.mapCarChargingDataBle2FleetApi(carDataBle);
+          
+          // 3) Climate data
+          this.log("Read climateState");
+          commandOptions = this._getSignedCommand('getVehicleData', {
+            climateState: true
+          });
+          carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          carDataBle = carDataBle['vehicleData'];
+          carData = Mappings.mapCarDataBle2FleetApi(carDataBle, carData);
+
+          // 4) Media data
+          this.log("Read mediaState");
+          commandOptions = this._getSignedCommand('getVehicleData', {
+            mediaState: true
+          });
+          carDataBle = await this.commandApiBle.sendSignedCommand(commandOptions.command, commandOptions.params, commandOptions.domain, commandOptions.options);
+          carDataBle = carDataBle['vehicleData'];
+          carData = Mappings.mapCarDataBle2FleetApi(carDataBle, carData);
+
+
+          // 5) Add car GUI settings (units), stored in device store because it's only available via FleetAPI 
+          let guiSettings = this.getStoreValue('car_gui_settings');
+          if (guiSettings != undefined){
+            carData['gui_settings'] = guiSettings;
+          }
+
+          await this.bleApi.disconnect();
+          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS );
+          await this.handleApiOk(CONSTANTS.API_ERROR_BLE);
+          return carData;
+        }
+        else{
+          throw new Error("Command API BLE is not initialized.");
+        }
+      }
+      catch(error){
+        this.log("_sendSignedCommandTarget Error sending BLE command: "+error.message);
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
+        await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
+        if (this.getSetting('api_ble_active') == CONSTANTS.BLE_ONLY){
+          // ONLY BLE, no FLeetAPI, but reading Error -> interpet as offline
+          this.log("BLE Error: BLE settings: BLE_ONLY. Set car state to offline.");
+          error.status = 408;
+          error.statusText = "BLE Error";
+          throw error;
+        }
+      }
+    }
+
+    // 2) FleetAPI Request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_ONLY){
+      if (this.commandApi != undefined){
+        this.log("Send signed command via FleetAPI");
+        // Count API statistics
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
+        // Send commmand
+        let result = await this._getCarDataApi(query);
+        if (result.gui_settings != undefined){
+          this.setStoreValue('car_gui_settings', result.gui_settings);
+        }
+        return result;
+      }
+      else{
+        throw new Error("Command API is not initialized.");
+      }
+    }
+
+    // // 3) FleeetAPI Request only while BLE is not working yet
+    //   if (this.commandApi != undefined){
+    //     this.log("Send signed command via FleetAPI");
+    //     // Count API statistics
+    //     await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
+    //     // Send commmand
+    //     return await this._getCarDataApi(query);
+    //   }
+    //   else{
+    //     throw new Error("Command API is not initialized.");
+    //   }
+
+
+  }
+
+  async _getCarDataApi(query){
+    return await this.oAuth2Client.getVehicleData(this.getData().id, query);
+  }
+
+  // async _getCarDataBle(query){
+  //   return await this.oAuth2Client.getVehicleData(this.getData().id, query);
+  // }
+
   async _updateDevice(data){
     this.log("Update device data...");
 
@@ -601,178 +820,213 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('last_online', time);
     }
 
-    // Car state
-    if (this.hasCapability('car_doors_locked') && data.vehicle_state.locked != undefined){
-      await this.setCapabilityValue('car_doors_locked', !data.vehicle_state.locked);
-    }
-    if (this.hasCapability('car_sentry_mode') && data.vehicle_state.sentry_mode != undefined){
-      await this.setCapabilityValue('car_sentry_mode', data.vehicle_state.sentry_mode);
-    }
+    // Vehicle Data
+    if (data.vehicle_state){
+      // Car state
+      if (this.hasCapability('car_doors_locked') && data.vehicle_state.locked != undefined){
+        await this.setCapabilityValue('car_doors_locked', !data.vehicle_state.locked);
+      }
+      if (this.hasCapability('car_sentry_mode') && data.vehicle_state.sentry_mode != undefined){
+        await this.setCapabilityValue('car_sentry_mode', data.vehicle_state.sentry_mode);
+      }
 
-    // User prersent?
-    if (this.hasCapability('car_user_present') && data.vehicle_state.is_user_present != undefined){
-      await this.setCapabilityValue('car_user_present', data.vehicle_state.is_user_present);
+      // User prersent?
+      if (this.hasCapability('car_user_present') && data.vehicle_state.is_user_present != undefined){
+        await this.setCapabilityValue('car_user_present', data.vehicle_state.is_user_present);
+      }
+
+      // Meter Odo
+      if (this.hasCapability('meter_car_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined && data.gui_settings){
+        await this.setCapabilityValue('meter_car_odo', data.gui_settings.gui_distance_units == 'km/hr' ? data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM : data.vehicle_state.odometer);
+        // Capability units
+        if (data.gui_settings && data.gui_settings.gui_distance_units){
+          let co = {};
+          try{
+            co = this.getCapabilityOptions("meter_car_odo");
+          }
+          catch(error){}
+          let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
+          if (!co || !co.units || co.units != distUnit){
+            co['units'] = distUnit;
+            this.setCapabilityOptions('meter_car_odo', co);
+          }
+        }
+      }
+
+      // Tires/TPMS
+      if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_car_tpms_pressure_fl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fl : data.vehicle_state.tpms_pressure_fl * 14,5038);
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_car_tpms_pressure_fl");
+        }
+        catch(error){}
+        if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+          co['units'] = data.gui_settings.gui_tirepressure_units;
+          this.setCapabilityOptions('measure_car_tpms_pressure_fl', co);
+        }
+      }
+      if (this.hasCapability('measure_car_tpms_pressure_fr') && data.vehicle_state && data.vehicle_state.tpms_pressure_fr != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_car_tpms_pressure_fr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fr : data.vehicle_state.tpms_pressure_fr * 14,5038);
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_car_tpms_pressure_fr");
+        }
+        catch(error){}
+        if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+          co['units'] = data.gui_settings.gui_tirepressure_units;
+          this.setCapabilityOptions('measure_car_tpms_pressure_fr', co);
+        }
+      }
+      if (this.hasCapability('measure_car_tpms_pressure_rl') && data.vehicle_state && data.vehicle_state.tpms_pressure_rl != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_car_tpms_pressure_rl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rl : data.vehicle_state.tpms_pressure_rl * 14,5038);
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_car_tpms_pressure_rl");
+        }
+        catch(error){}
+        if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+          co['units'] = data.gui_settings.gui_tirepressure_units;
+          this.setCapabilityOptions('measure_car_tpms_pressure_rl', co);
+        }
+      }
+      if (this.hasCapability('measure_car_tpms_pressure_rr') && data.vehicle_state && data.vehicle_state.tpms_pressure_rr != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_car_tpms_pressure_rr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rr : data.vehicle_state.tpms_pressure_rr * 14,5038);
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_car_tpms_pressure_rr");
+        }
+        catch(error){}
+        if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
+          co['units'] = data.gui_settings.gui_tirepressure_units;
+          this.setCapabilityOptions('measure_car_tpms_pressure_rr', co);
+        }
+      }
+
+      // Trunk
+      if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft != undefined){
+        //ft==0: closed
+        await this.setCapabilityValue('car_trunk_front', data.vehicle_state.ft != 0);
+      }
+      if (this.hasCapability('car_trunk_rear') && data.vehicle_state && data.vehicle_state.rt != undefined){
+        //rt==0: closed
+        await this.setCapabilityValue('car_trunk_rear', data.vehicle_state.rt != 0);
+      }
+
+      // Software
+      if (this.hasCapability('car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
+        await this.setCapabilityValue('car_software_version', data.vehicle_state.car_version.split(' ')[0]);
+      }
+      if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.version != undefined){
+        await this.setCapabilityValue('car_software_update_version', data.vehicle_state.software_update.version);
+      }
+
+      if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.status != undefined){
+        if (  this.getCapabilityValue('car_software_update_state') != data.vehicle_state.software_update.status &&
+              data.vehicle_state.software_update.status == 'available'){
+          // Trigger software available flow
+          let tokens = {
+            car_software_update_state: data.vehicle_state.software_update.status,
+            car_software_version: data.vehicle_state.car_version.split(' ')[0],
+            car_software_update_version: data.vehicle_state.software_update.version
+          }
+          await this.homey.flow.getDeviceTriggerCard('car_software_update_available').trigger(this, tokens);
+        }
+
+        await this.setCapabilityValue('car_software_update_state', data.vehicle_state.software_update.status);
+        // Possible states:
+        // available
+        // scheduled
+        // installing
+        // downloading
+        // downloading_wifi_wait
+      }
     }
 
     // Battery
-    if (this.hasCapability('measure_battery') && data.charge_state && data.charge_state.battery_level != undefined){
-      await this.setCapabilityValue('measure_battery', data.charge_state.battery_level);
-    }
-
-    // Meter Odo
-    if (this.hasCapability('meter_car_odo') && data.vehicle_state && data.vehicle_state.odometer != undefined){
-      await this.setCapabilityValue('meter_car_odo', data.gui_settings.gui_distance_units == 'km/hr' ? data.vehicle_state.odometer * CONSTANTS.MILES_TO_KM : data.vehicle_state.odometer);
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("meter_car_odo");
+    if (data.charge_state){
+      if (this.hasCapability('measure_battery') && data.charge_state && data.charge_state.battery_level != undefined){
+        await this.setCapabilityValue('measure_battery', data.charge_state.battery_level);
       }
-      catch(error){}
-      let distUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km' : 'mi';
-      if (!co || !co.units || co.units != distUnit){
-        co['units'] = distUnit;
-        this.setCapabilityOptions('meter_car_odo', co);
+      if (this.hasCapability('ev_charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
+        switch (data.charge_state.charging_state){
+          // "Disconnected"
+          // "Calibrating"
+          // "Complete"
+          // "NoPower"
+          // "Stopped"
+          // "Unknown"
+          // "Starting"
+          // "Charging"
+          case 'Charging':
+            await this.setCapabilityValue('ev_charging_state', 'plugged_in_charging'); // plugged_in_discharging not supported
+            break;
+          case 'Stopped':
+            await this.setCapabilityValue('ev_charging_state', 'plugged_in_paused');
+            break;
+          case 'Disconnected':
+            await this.setCapabilityValue('ev_charging_state', 'plugged_out');
+            break;
+          default:
+            await this.setCapabilityValue('ev_charging_state', 'plugged_in');
+        }
       }
     }
 
     // Drive state
-    if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state == null)){
-      let previousShiftState = this.getCapabilityValue('car_shift_state');
-      if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
-        await this.setCapabilityValue('car_shift_state', 'P');
-      }
-      else{
-        await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
-      }
-
-      // add driving history to location device if driving state has changed
-      let shiftState = this.getCapabilityValue('car_shift_state');
-      if (previousShiftState != shiftState
-          &&
-        (
-          previousShiftState == 'P' && shiftState != 'P'
-          ||
-          previousShiftState != 'P' && shiftState == 'P'
-        )){
-        try{
-          this.getLocationDevice().addDrivingHistory(data);
+    if (data.drive_state){
+      if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state == null)){
+        let previousShiftState = this.getCapabilityValue('car_shift_state');
+        if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
+          await this.setCapabilityValue('car_shift_state', 'P');
         }
-        catch(error){ }
-      }
-
-      // states:
-      // R
-      // D
-      // null = P
-    }
-    if (this.hasCapability('measure_car_drive_speed') && data.drive_state && ( data.drive_state.speed != undefined || data.drive_state.speed == null)){
-      let speed = data.drive_state.speed == null ? 0 : data.drive_state.speed;
-      await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.gui_settings.gui_distance_units == 'km/hr' ? speed * CONSTANTS.MILES_TO_KM :  speed ) );
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("measure_car_drive_speed");
-      }
-      catch(error){}
-      let speedUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km/h' : 'mi/h';
-      if (!co || !co.units || co.units != speedUnit){
-        co['units'] = speedUnit;
-        this.setCapabilityOptions('measure_car_drive_speed', co);
-      }
-    }
-
-    // Tires/TPMS
-    if (this.hasCapability('measure_car_tpms_pressure_fl') && data.vehicle_state && data.vehicle_state.tpms_pressure_fl != undefined){
-      await this.setCapabilityValue('measure_car_tpms_pressure_fl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fl : data.vehicle_state.tpms_pressure_fl * 14,5038);
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("measure_car_tpms_pressure_fl");
-      }
-      catch(error){}
-      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
-        co['units'] = data.gui_settings.gui_tirepressure_units;
-        this.setCapabilityOptions('measure_car_tpms_pressure_fl', co);
-      }
-    }
-    if (this.hasCapability('measure_car_tpms_pressure_fr') && data.vehicle_state && data.vehicle_state.tpms_pressure_fr != undefined){
-      await this.setCapabilityValue('measure_car_tpms_pressure_fr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_fr : data.vehicle_state.tpms_pressure_fr * 14,5038);
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("measure_car_tpms_pressure_fr");
-      }
-      catch(error){}
-      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
-        co['units'] = data.gui_settings.gui_tirepressure_units;
-        this.setCapabilityOptions('measure_car_tpms_pressure_fr', co);
-      }
-    }
-    if (this.hasCapability('measure_car_tpms_pressure_rl') && data.vehicle_state && data.vehicle_state.tpms_pressure_rl != undefined){
-      await this.setCapabilityValue('measure_car_tpms_pressure_rl', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rl : data.vehicle_state.tpms_pressure_rl * 14,5038);
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("measure_car_tpms_pressure_rl");
-      }
-      catch(error){}
-      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
-        co['units'] = data.gui_settings.gui_tirepressure_units;
-        this.setCapabilityOptions('measure_car_tpms_pressure_rl', co);
-      }
-    }
-    if (this.hasCapability('measure_car_tpms_pressure_rr') && data.vehicle_state && data.vehicle_state.tpms_pressure_rr != undefined){
-      await this.setCapabilityValue('measure_car_tpms_pressure_rr', data.gui_settings.gui_tirepressure_units == 'Bar'? data.vehicle_state.tpms_pressure_rr : data.vehicle_state.tpms_pressure_rr * 14,5038);
-      // Capability units
-      let co = {};
-      try{
-        co = this.getCapabilityOptions("measure_car_tpms_pressure_rr");
-      }
-      catch(error){}
-      if (!co || !co.units || co.units != data.gui_settings.gui_tirepressure_units){
-        co['units'] = data.gui_settings.gui_tirepressure_units;
-        this.setCapabilityOptions('measure_car_tpms_pressure_rr', co);
-      }
-    }
-
-    // Trunk
-    if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft != undefined){
-      //ft==0: closed
-      await this.setCapabilityValue('car_trunk_front', data.vehicle_state.ft != 0);
-    }
-    if (this.hasCapability('car_trunk_rear') && data.vehicle_state && data.vehicle_state.rt != undefined){
-      //rt==0: closed
-      await this.setCapabilityValue('car_trunk_rear', data.vehicle_state.rt != 0);
-    }
-
-    // Software
-    if (this.hasCapability('car_software_version') && data.vehicle_state && data.vehicle_state.car_version != undefined){
-      await this.setCapabilityValue('car_software_version', data.vehicle_state.car_version.split(' ')[0]);
-    }
-    if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.version != undefined){
-      await this.setCapabilityValue('car_software_update_version', data.vehicle_state.software_update.version);
-    }
-
-    if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.status != undefined){
-      if (  this.getCapabilityValue('car_software_update_state') != data.vehicle_state.software_update.status &&
-            data.vehicle_state.software_update.status == 'available'){
-        // Trigger software available flow
-        let tokens = {
-          car_software_update_state: data.vehicle_state.software_update.status,
-          car_software_version: data.vehicle_state.car_version.split(' ')[0],
-          car_software_update_version: data.vehicle_state.software_update.version
+        else{
+          await this.setCapabilityValue('car_shift_state', data.drive_state.shift_state);
         }
-        await this.homey.flow.getDeviceTriggerCard('car_software_update_available').trigger(this, tokens);
-      }
 
-      await this.setCapabilityValue('car_software_update_state', data.vehicle_state.software_update.status);
-      // Possible states:
-      // available
-      // scheduled
-      // installing
-      // downloading
-      // downloading_wifi_wait
+        // add driving history to location device if driving state has changed
+        let shiftState = this.getCapabilityValue('car_shift_state');
+        if (previousShiftState != shiftState
+            &&
+          (
+            previousShiftState == 'P' && shiftState != 'P'
+            ||
+            previousShiftState != 'P' && shiftState == 'P'
+          )){
+          try{
+            this.getLocationDevice().addDrivingHistory(data);
+          }
+          catch(error){ }
+        }
+
+        // states:
+        // R
+        // D
+        // null = P
+      }
+      if (this.hasCapability('measure_car_drive_speed') && data.drive_state && ( data.drive_state.speed != undefined || data.drive_state.speed == null) && data.gui_settings){
+        let speed = data.drive_state.speed == null ? 0 : data.drive_state.speed;
+        await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.gui_settings.gui_distance_units == 'km/hr' ? speed * CONSTANTS.MILES_TO_KM :  speed ) );
+        // Capability units
+        if (data.gui_settings && data.gui_settings.gui_distance_units){
+          let co = {};
+          try{
+            co = this.getCapabilityOptions("measure_car_drive_speed");
+          }
+          catch(error){}
+          let speedUnit = data.gui_settings.gui_distance_units == 'km/hr' ? 'km/h' : 'mi/h';
+          if (!co || !co.units || co.units != speedUnit){
+            co['units'] = speedUnit;
+            this.setCapabilityOptions('measure_car_drive_speed', co);
+          }
+        }
+      }
     }
+
 
     // Update child devices
     let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
@@ -893,8 +1147,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log("Car is already online.");
       return state;
     }
-    // await this.oAuth2Client.commandWakeUp(this.getData().id);
-    await this._sendCommand( 'commandWakeUp', {} );
+    await this._wakeUpTarget();
     if (wait){
       let state;
       for (let i=0; i<WAIT_ON_WAKE_UP; i++){
@@ -910,8 +1163,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         // Send wake up call again every 10 seconds
         if ( ((i+1) % RETRY_ON_WAKE_UP) == 0 ){
           this.log("Wake up the car again...");
-          // await this.oAuth2Client.commandWakeUp(this.getData().id);
-          await this._sendCommand( 'commandWakeUp', {} );
+          await this._wakeUpTarget();
         }
       }
     }
@@ -923,6 +1175,52 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let error = new Error("Waking up the vehicle was not successful.");
     await this.handleApiError(error);
     throw error;
+  }
+
+  async _wakeUpTarget(){
+    // Wake up the car. Get the API to use first, then try BLE or FLeetAPI if BLE is not active or not available
+
+    // 1) BLE request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_OFF){
+      // try up to 3x to wake via BLE before using FleetAPI
+      // for (let i=0; i<RETRY_BLE_ON_WAKE_UP; i++){
+        // this.log("Wake up the car via BLE...Try "+(i+1)+" of "+RETRY_BLE_ON_WAKE_UP);
+        this.log("Wake up the car via BLE...");
+        try{
+          if (this.commandApiBle != undefined){
+            this.log("Send signed command via BLE");
+            await this.bleApi.connect();
+            let {command, params, domain} = this._getSignedCommand('commandWakeUpBle', {});
+            await this.commandApiBle.sendSignedCommand(command, params, domain);
+            await this.bleApi.disconnect();
+            await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS );
+            await this.handleApiOk(CONSTANTS.API_ERROR_BLE);
+            return;
+          }
+          else{
+            throw new Error("Command API BLE is not initialized.");
+          }
+        }
+        catch(error){
+          this.log("_wakeUpTarget Error sending BLE command: "+error.message);
+          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
+          await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
+        }
+      // }
+    }
+
+    // 2) FleetAPI Request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_ONLY){
+      if (this.commandApi != undefined){
+        this.log("Send signed command via FleetAPI");
+        // Send commmand
+        await this._sendCommand( 'commandWakeUp', {} );
+      }
+      else{
+        throw new Error("Command API is not initialized.");
+      }
+    }
+   
   }
 
   async wakeUpIfNeeded(){
@@ -985,8 +1283,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       for (let i=0; i<=retryCount; i++){
         try{
-          await this._sendCommand(apiFunction, params);
+          const result = await this._sendCommand(apiFunction, params);
           await this.handleApiOk(CONSTANTS.API_ERROR_COMMAND);
+          return result;
           // Get new states after command execution
           // await this._sync();
         }
@@ -1030,7 +1329,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           // apiFunction != 'commandMediaPrevTrack' &&
           // apiFunction != 'commandMediaTogglePlayback' && 
 
-          apiFunction != 'commandWakeUp'
+          apiFunction != 'commandWakeUp' // Wake up REST command
         ){
       if (!await this.isAppRegistered()){
         try{
@@ -1041,7 +1340,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
         throw new Error(this.homey.__("devices.car.app_not_registered"));
       }
-      await this._sendSignedCommand(apiFunction, params);
+      return await this._sendSignedCommand(apiFunction, params);
     }
     else{
       if (apiFunction == 'ping'){
@@ -1067,19 +1366,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _sendSignedCommand(apiFunction, apiParams){
     if (!this.commandApi){
-      throw new Error("Command API is only for test purposes.");
+      throw new Error("Command API is not initialized.");
     }
-    let {command, params, domain} = this._getSignedCommand(apiFunction, apiParams);
+    let {command, params, domain, options} = this._getSignedCommand(apiFunction, apiParams);
     this.log("Send signed command: API function: "+apiFunction+"; Command: "+command+"; Parameter: ",params);
-    switch (this.getCommandType(apiFunction)) {
-      case CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES:
-        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES );
-        break;
-      default:
-        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );
-    }
     try{
-      await this.commandApi.sendSignedCommand(command, params, domain);
+      let result = await this._sendSignedCommandTarget(apiFunction, command, params, domain, options);
+      this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command);
+      return result;
     }
     catch(error){
       if (CONSTANTS.API_ERRORS_WHITELIST.indexOf(error.message) > -1){
@@ -1090,13 +1384,230 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       this.log("Send signed command: Error: "+error.message);
       throw error;
     }
-    this.log("Send signed command: Success API function: "+apiFunction+"; Command: "+command);
+  }
+
+  async _sendSignedCommandTarget(apiFunction, command, params, domain, options){
+
+    // 1) BLE request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_OFF){
+      try{
+        if (this.commandApiBle != undefined){
+          this.log("Send signed command via BLE");
+          await this.bleApi.connect();
+          let result = await this.commandApiBle.sendSignedCommand(command, params, domain, options);
+          await this.bleApi.disconnect();
+          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS );
+          await this.handleApiOk(CONSTANTS.API_ERROR_BLE);
+          return result;
+        }
+        else{
+          throw new Error("Command API BLE is not initialized.");
+        }
+      }
+      catch(error){
+        this.log("_sendSignedCommandTarget Error sending BLE command: "+error.message);
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
+        await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
+        if (this.getSetting('api_ble_active') == CONSTANTS.BLE_ONLY){
+          // ONLY BLE, no FLeetAPI, push Error to caller for auto retry (if set in settings)
+          throw error;
+        }
+      }
+    }
+
+    // 2) FleeetAPI Request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_ONLY){
+      if (this.commandApi != undefined){
+        this.log("Send signed command via FleetAPI");
+        // count API statistics
+        switch (this.getCommandType(apiFunction)) {
+          case CONSTANTS.API_COMMAND_TYPE_COMMAND_WAKES:
+            await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND_WAKES );
+            break;
+          default:
+            await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_COMMAND );
+        }
+        // Send commmand  
+        return await this.commandApi.sendSignedCommand(command, params, domain);
+      }
+      else{
+        throw new Error("Command API is not initialized.");
+      }
+    }
+  }
+
+  async _onSendSignedCommandApi(buffer){
+    // FleeetAPI Request:
+    return await this.oAuth2Client.signedCommand(this.getData().id, buffer);
+  }
+
+  async _onSendSignedCommandBle(buffer, request){
+    // BLE Reequest:
+    return new Promise(async (resolve, reject) => {
+      let timeout = null;
+      const messageHandler = (buffer)  => {
+        // this.log("BLE response: ",buffer.toString('hex'));
+        try{
+          if (this.commandApiBle.isRouteableMessage(buffer)){
+            let message = this.commandApiBle.decodeRouteableMessage(buffer);
+            this.log("BLE proto message: ",message);
+            this.log("Received BLE message...");
+            if (message && 
+                message.fromDestination.domain == request.toDestination.domain &&
+                Buffer.compare(message.toDestination.routingAddress, request.fromDestination.routingAddress) == 0
+            ){
+              if (timeout){
+                this.homey.clearTimeout(timeout);
+                timeout = null;
+              }
+              this.bleApi.onCarMessage.unsubscribe(messageHandler);
+              // this.bleApi.disconnect();          
+              resolve(buffer);
+            }
+          }
+        }  
+        catch(error){
+          // Ignore invalid meessages
+        }
+      }
+
+      try{
+        // await this.bleApi.connect();
+        this.bleApi.onCarMessage.subscribe(messageHandler);
+        // start timeout counter
+        timeout = this.homey.setTimeout( async () => {
+          this.log("BLE response: Timeout waiting for BTLE response.");
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);
+          // await this.bleApi.disconnect();
+          reject(new Error("Timeout waiting for BLE response."));
+        }, BLE_TIMEOUT_CARSERVER);
+        // send commands
+        await this.bleApi.writeAsync(buffer);
+      }
+      catch(error){
+        try{
+          // await this.bleApi.disconnect();
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);    
+        }
+        catch(error){}
+        reject(error);
+      }
+    });
+  }
+
+  async _sendVcsecMessage(buffer, statusCallback){
+    // BTLE Reequest:
+    return new Promise(async (resolve, reject) => {
+      let timeout = null;
+      const messageHandler = (buffer)  => {
+        // this.log("BLE response: ",buffer.toString('hex'));
+        try{
+          if (this.commandApiBle.isRouteableMessage(buffer)){
+            // 1) Try to convert InformationRequest mresponse
+            let message = this.commandApiBle.decodeInformationRequestResponse(buffer);
+            this.log("BTLE proto message: ",message);
+            if (message){
+              if (message.nominalError && message.nominalError.genericError != undefined ){
+                if (statusCallback){
+                  // statusCallback({code: 'ERROR', message: 'Generic error #'+message.nominalError.genericError});
+                  statusCallback({code: 'ERROR', message: 'Key is not registered'});
+                  if (timeout){
+                    this.homey.clearTimeout(timeout);
+                    timeout = null;
+                  }
+                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
+                  this.bleApi.disconnect();          
+                  resolve(buffer);
+                }
+              }
+              if (message.whitelistEntryInfo.slot && message.whitelistEntryInfo && message.whitelistEntryInfo.slot){
+                if (statusCallback){  
+                  statusCallback({code: 'OK', message: 'Key is whitelisted in slot #'+message.whitelistEntryInfo.slot});
+                  if (timeout){
+                    this.homey.clearTimeout(timeout);
+                    timeout = null;
+                  }
+                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
+                  this.bleApi.disconnect();
+                  resolve(buffer);
+                }
+              }
+            }
+          }
+          if (this.commandApiBle.isFromVCSECMessage(buffer)){
+            // 2) Try to convert WhitelistMessage response
+            message = this.commandApiBle.decodeWhitelistMessageResponse(buffer);
+            this.log("BTLE proto message: ",message);            
+            if (message && message.whitelistOperationStatus && message.whitelistOperationStatus.operationStatus != undefined ){
+              // Example response
+              // {
+              //   whitelistOperationStatus: {
+              //     signerOfOperation: {
+              //       publicKeySHA1: new Uint8Array([...]),
+              //     },
+              //     operationStatus: 2,
+              //   },
+              // }
+              switch (message.whitelistOperationStatus.operationStatus) {
+                case 0: // OPERATIONSTATUS_OK
+                  this.log("BTLE proto message: OPERATIONSTATUS_OK");
+                  if (statusCallback){  
+                    statusCallback({code: 'SUCCESS', message: 'Success'});
+                  }
+                  break;
+                case 1: // OPERATIONSTATUS_WAIT
+                  this.log("BTLE proto message: OPERATIONSTATUS_WAIT");
+                  if (statusCallback){  
+                    statusCallback({code: 'WAIT', message: 'Waiting for NFC card...'});
+                  }
+                  break;
+                case 2: // OPERATIONSTATUS_ERROR
+                  this.log("BLE proto message: OPERATIONSTATUS_ERROR");
+                  if (statusCallback){  
+                    statusCallback({code: 'ERROR', message: 'Error registering key (OPERATIONSTATUS_ERROR).'});
+                  }
+                  break;
+              }
+              resolve(buffer);
+            }
+          }
+        }  
+        catch(error){
+          // Ignore invalid meessages
+        }
+      }
+
+      try{
+        statusCallback({code: 'CONNECTING', message: 'Connecting...'});
+        await this.bleApi.connect();
+        this.bleApi.onCarMessage.subscribe(messageHandler);
+        // start timeout counter
+        timeout = this.homey.setTimeout( async () => {
+          this.log("BLE response: Timeout waiting for BLE response.");
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);
+          await this.bleApi.disconnect();
+          reject(new Error("Timeout waiting for BLE response."));
+        }, BLE_TIMEOUT_VCSEC);
+        // send commands
+        statusCallback({code: 'SENDING', message: 'Sending BLE request...'});
+        await this.bleApi.writeAsync(buffer);
+      }
+      catch(error){
+        try{
+          await this.bleApi.disconnect();
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);    
+        }
+        catch(error){}
+        reject(error);
+      }
+    });
   }
 
   _getSignedCommand(apiFunction, params){
     let result = {
       command: null,
-      params: {}
+      params: {},
+      options: {}
     };
     switch (apiFunction) {
       // car actions
@@ -1105,6 +1616,83 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = { };
         break;
 
+      case 'bleRegisterKey':
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        result.command = 'WhitelistOperation';
+        result.params = { 
+
+          addPublicKeyToWhitelist: {
+            PublicKeyRaw: Buffer.from(this.homey.settings.get('public_key'))
+          },
+          metadataForKey: {
+            keyFormFactor: 7
+          }
+          };
+        break;
+  
+      case 'getVehicleData':
+        result.command = 'getVehicleData';
+        result.params = { 
+
+          // getChargeState: {},
+
+          // getClimateState: {},
+
+          // getDriveState: {},
+          // getLocationState: {},
+          // getClosuresState: {},
+          // getTirePressureState: {},
+          // getSoftwareUpdateState: {},
+
+          // getMediaState: {},
+          // getMediaDetailState: {},
+
+          // getChargeScheduleState: {},
+          // getPreconditioningScheduleState: {},
+          // getParentalControlsState: {},
+        };
+        if (params.chargeState){
+          result.params['getChargeState'] = {};
+        }
+        if (params.driveState){
+          result.params['getDriveState'] = {};
+        }
+        if (params.locationState){
+          result.params['getLocationState'] = {};
+        }
+        if (params.closuresState){
+          result.params['getClosuresState'] = {};
+        }
+        if (params.tirePressureState){
+          result.params['getTirePressureState'] = {};
+        }
+        if (params.softwareUpdateState){
+          result.params['getSoftwareUpdateState'] = {};
+        }
+        if (params.climateState){
+          result.params['getClimateState'] = {};
+        }
+        if (params.mediaState){
+          result.params['getMediaState'] = {};
+          result.params['getMediaDetailState'] = {};
+        }
+        if (params.softwareUpdateState){
+          result.params['getSoftwareUpdateState'] = {};
+        }
+
+        result.options = {
+          requestEncryptedResponse: true
+        }
+        break;
+
+      // Wake command sent via BLE only. 
+      // If BLE is not used, Wakes are seent as REST request
+      case 'commandWakeUpBle':
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        result.command = 'RKEAction';
+        result.params = 30; //30 = wake (RKEAction_E.RKE_ACTION_WAKE_VEHICLE)
+        break;
+  
       case 'commandDoorLock':
         result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         result.command = 'RKEAction';
@@ -1491,6 +2079,47 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.sendCommand('commandTrunkRear', {action});
   }
 
+  async bleRegisterKey(statusCallback){
+    // await this.sendCommand('bleRegisterKey', {});
+
+    statusCallback({code: 'INIT', message: 'Initializing...'});
+
+    const privateKey = this.homey.settings.get('private_key_ble');
+    // Get uncompressed public key from pem key
+    const key = Eckey.parsePem(this.homey.settings.get('private_key_ble'));
+    const publicKey = key.publicKey;
+
+    try{
+      let messageBuffer = this.commandApiBle.encodeWhitelistMessageRequest(publicKey);
+      let buffer = await this._sendVcsecMessage(messageBuffer, statusCallback);
+      // await this.commandApiBle.sendWhitelistMessage(this._onWhitelistMessageCallback.bind(this), statusCallback, publicKey);
+      this.log("bleRegisterKey() command: Success: ",buffer.toString('hex'));
+    }
+    catch(error){
+      this.log("BLE WhiteList command: Error: "+error.message);
+      statusCallback({code: 'ERROR', message: error.message});
+      throw error;
+    }
+  }
+
+  async bleGetKeyStatus(statusCallback){
+    statusCallback({code: 'INIT', message: 'Initializing...'});
+
+    const key = Eckey.parsePem(this.homey.settings.get('private_key_ble'));
+    const publicKey = key.publicKey;
+    try{
+      let messageBuffer = this.commandApiBle.encodeInformationRequestRequest(publicKey);
+      let buffer = await this._sendVcsecMessage(messageBuffer, statusCallback);
+      // let buffer = await this.commandApiBle.getWitelistStatus(this._onInformationRequestCallback.bind(this), statusCallback, publicKey);
+      this.log("bleGetKeyStatus() command: Success: ",buffer.toString('hex'));
+    }
+    catch(error){
+      this.log("BLE bleGetKeyStatus Error: "+error.message);
+      statusCallback({code: 'ERROR', message: error.message});
+      throw error;
+    }    
+  }
+
   // CAPABILITIES =======================================================================================
 
   async _onCapability( capabilityValues, capabilityOptions){
@@ -1552,6 +2181,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._startSync();
   }
 
+  async flowActionSetBleActive(state){
+    await this.setSettings(
+      {
+        api_ble_active: state
+      }
+    );
+  }
+
   async flowActionPing(){
     await this._commandPing();
   }
@@ -1602,12 +2239,31 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._commandTrunkRear(action);
   }
 
+  async flowActionApiGetCosts(){
+    let costs = this.getCapabilityValue('measure_api_costs');
+    let time = this._getLocalTime();
+    let days = time.getDate() + time.getHours()/24;
+    let average_costs = Number((costs / days).toFixed(2)); 
+    let targetCosts = Number((10.0 / 30 * days).toFixed(2));
+    let percentage = Number((costs * 100.0 / targetCosts).toFixed(2)); 
+    return {costs, average_costs, percentage};
+  }
+
   // FLOW CONDITIONS =======================================================================================
   async flowConditionApiCostsDailyAverageRunListener(args){
     let costs = this.getCapabilityValue('measure_api_costs');
     let time = this._getLocalTime();
     let days = time.getDate() + time.getHours()/24;
     let result = (costs / days).toFixed(2); 
+    return ( result > args.value );
+  }
+  
+  async flowConditionApiCostsDailyAveragePercentageRunListener(args){
+    let costs = this.getCapabilityValue('measure_api_costs');
+    let time = this._getLocalTime();
+    let days = time.getDate() + time.getHours()/24;
+    let targetCosts = (10.0 / 30 * days).toFixed(2);
+    let result = (costs * 100.0 / targetCosts).toFixed(2); 
     return ( result > args.value );
   }
 }

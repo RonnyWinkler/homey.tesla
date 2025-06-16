@@ -1,0 +1,81 @@
+{
+  "id": "api_ble_active",
+  "type": "dropdown",
+  "value": "ble_off",
+  "label": {
+    "en": "Bluetooth LE",
+    "de": "Bluetooth LE",
+    "nl": "Bluetooth LE",
+    "fr": "Bluetooth LE",
+    "it": "Bluetooth LE",
+    "sv": "Bluetooth LE",
+    "no": "Bluetooth LE",
+    "es": "Bluetooth LE",
+    "da": "Bluetooth LE",
+    "ru": "Bluetooth LE",
+    "pl": "Bluetooth LE"
+  },
+  "values":[
+    {
+        "id": "ble_off",
+        "label":{
+            "en": "BLE off",
+            "de": "BLE aus",
+            "nl": "BLE uit",
+            "fr": "BLE off",
+            "it": "BLE off",
+            "sv": "BLE av",
+            "no": "BLE av",
+            "es": "BLE apagado",
+            "da": "BLE af",
+            "ru": "BLE выключен",
+            "pl": "BLE wyłączony"
+        }
+    },
+    {
+      "id": "ble_on",
+      "label":{
+          "en": "BLE on",
+          "de": "BLE ein",
+          "nl": "BLE aan",
+          "fr": "BLE activé",
+          "it": "BLE attivo",
+          "sv": "BLE en",
+          "no": "BLE på",
+          "es": "BLE encendido",
+          "da": "BLE til",
+          "ru": "BLE включен",
+          "pl": "BLE włączone"
+      }
+    },
+    {
+      "id": "ble_only",
+      "label":{
+          "en": "BLE only, no FleetAPI",
+          "de": "Nur BLE, keine FleetAPI",
+          "nl": "Alleen BLE, geen FleetAPI",
+          "fr": "BLE uniquement, pas FleetAPI",
+          "it": "Solo BLE, no FleetAPI",
+          "sv": "Bara BLE, ingen FleetAPI",
+          "no": "Bare BLE, ingen FleetAPI",
+          "es": "Solo BLE, no FleetAPI",
+          "da": "Kun BLE, ingen FleetAPI",
+          "ru": "Только BLE, без FleetAPI",
+          "pl": "Tylko BLE, bez FleetAPI"
+      }
+  }
+],
+  "hint": {
+    "en": "To use Bluetooth LE, the app must be registered as a car key in the Repair dialog. If active, it will first try to connect to the car via the Bluetooth connection. If this is not successful, the FleetAPI will be used.",
+    "de": "Zur Verwendung von Bluetooth LE muss die App im Reparieren-Dialog als Fahrzeugschlüssel registriert werden. Wenn aktiv, dann wird zuerst versucht, über die Bluetooth-Verbindung eine Verbindung zum Fahrzeug herzustellen. Wenn dies nicht erfolgreich ist, wird die FleetAPI verwendet.", 
+    "nl": "Om Bluetooth LE te gebruiken, moet de app worden geregistreerd als autosleutel in het repareren dialoogvenster. Als deze optie is ingeschakeld, wordt eerst geprobeerd verbinding te maken met de auto via de Bluetooth-verbinding. Als dit niet lukt, wordt de FleetAPI gebruikt.",
+    "fr": "Pour utiliser Bluetooth LE, l'application doit être enregistrée comme clé de voiture dans la boîte de dialogue Réparer. Si cette option est activée, elle essaiera d'abord de se connecter à la voiture via la connexion Bluetooth. Si cela échoue, l'API Fleet sera utilisée.",
+    "it": "Per utilizzare Bluetooth LE, l'app deve essere registrata come chiave dell'auto nella finestra di dialogo Ripara. Se attivo, proverà prima a connettersi all'auto tramite la connessione Bluetooth. Se non riesce, verrà utilizzata l'API Fleet.",
+    "sv": "För att använda Bluetooth LE måste appen registreras som en bilnyckel i reparationsdialogrutan. Om den är aktiv kommer den först att försöka ansluta till bilen via Bluetooth-anslutningen. Om detta misslyckas kommer FleetAPI att användas.",
+    "no": "For å bruke Bluetooth LE må appen registreres som bilnøkkel i reparasjonsdialogen. Hvis aktiv, vil den først prøve å koble til bilen via Bluetooth-tilkoblingen. Hvis dette ikke lykkes, vil FleetAPI bli brukt.",
+    "es": "Para usar Bluetooth LE, la aplicación debe registrarse como una llave de coche en el cuadro de diálogo Reparar. Si está activo, primero intentará conectarse al coche a través de la conexión Bluetooth. Si esto no tiene éxito, se utilizará la API de Fleet.",
+    "da": "For at bruge Bluetooth LE skal appen registreres som en bilnøgle i reparationsdialogen. Hvis den er aktiv, vil den først forsøge at oprette forbindelse til bilen via Bluetooth-forbindelsen. Hvis dette ikke lykkes, vil FleetAPI blive brugt.",
+    "ru": "Чтобы использовать Bluetooth LE, приложение должно быть зарегистрировано в качестве ключа автомобиля в диалоговом окне ремонта. Если активно, оно сначала попытается подключиться к автомобилю через Bluetooth-соединение. Если это не удастся, будет использоваться FleetAPI.",
+    "pl": "Aby użyć Bluetooth LE, aplikacja musi być zarejestrowana jako klucz samochodowy w oknie dialogowym Napraw. Jeśli jest aktywna, najpierw spróbuje połączyć się z samochodem za pomocą połączenia Bluetooth. Jeśli to się nie powiedzie, zostanie użyte API Fleet."
+  }
+}

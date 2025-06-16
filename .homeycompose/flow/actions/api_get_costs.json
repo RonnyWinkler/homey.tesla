@@ -1,0 +1,101 @@
+{
+    "title": {
+      "en": "Read the API costs",
+      "de": "Lese die API-Kosten",
+      "nl": "Lees de API-kosten",
+      "fr": "Lire les frais de l'API",
+      "it": "Leggi i costi dell'API",
+      "sv": "Läsa API-kostnaderna",
+      "no": "Les API-kostnadene",
+      "es": "Leer los costos de la API",
+      "da": "Læs API-omkostningerne",
+      "ru": "Прочитать затраты API",
+      "pl": "Przeczytaj koszty API"
+    },
+    "titleFormatted": {
+      "en": "Read the API costs",
+      "de": "Lese die API-Kosten",
+      "nl": "Lees de API-kosten",
+      "fr": "Lire les frais de l'API",
+      "it": "Leggi i costi dell'API",
+      "sv": "Läsa API-kostnaderna",
+      "no": "Les API-kostnadene",
+      "es": "Leer los costos de la API",
+      "da": "Læs API-omkostningerne",
+      "ru": "Прочитать затраты API",
+      "pl": "Przeczytaj koszty API"
+  },
+    "hint": {
+      "en": "This action returns the API costs and statistics.",
+      "de": "Diese Aktion gibt die API-Kosten und Statistiken zurück.",
+      "nl": "Deze actie retourneert de API-kosten en statistieken.",
+      "fr": "Cette action renvoie les coûts et les statistiques de l'API.",
+      "it": "Questa azione restituisce i costi e le statistiche dell'API.",
+      "sv": "Denna åtgärd returnerar API-kostnader och statistik.",
+      "no": "Denne handling returnerer API-kostnader og statistikk.",
+      "es": "Denna åtgärd returnerar API-kostnader och statistik.",
+      "da": "Denne handling returnerer API-kostnader og statistik.",
+      "ru": "Это действие возвращает затраты и статистику API.",
+      "pl": "Ta akcja zwraca koszty i statystyki API."
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=car"
+        }
+    ],
+    "tokens": [
+      {
+        "name": "costs",
+        "type": "number",
+        "title": {
+          "en": "Costs",
+          "de": "Kosten",
+          "nl": "Kosten",
+          "fr": "Coûts",
+          "it": "Costi",
+          "sv": "Kostnader",
+          "no": "Kostnader",
+          "es": "Costes",
+          "da": "Omkostninger",
+          "ru": "Затраты",
+          "pl": "Koszty"
+        }        
+      },
+      {
+        "name": "average_costs",
+        "type": "number",
+        "title": {
+          "en": "Average daily cost",
+          "de": "Durchschnittliche tägliche Kosten",
+          "nl": "Gemiddelde dagelijkse kosten",
+          "fr": "Coût moyen quotidien",
+          "it": "Costo medio giornaliero",
+          "sv": "Genomsnittlig daglig kostnad",
+          "no": "Gjennomsnittlig daglig kostnad",
+          "es": "Costo diario promedio",
+          "da": "Gennemsnitlige daglige omkostninger",
+          "ru": "Среднесуточные расходы",
+          "pl": "Średni dzienny koszt"
+        }        
+      },
+      {
+        "name": "percentage",
+        "type": "number",
+        "title": {
+          "en": "Percentage average use of the limit",
+          "de": "Prozentuale durchschnittliche Nutzung des Limits",
+          "nl": "Gemiddeld percentage van het limietgebruik",
+          "fr": "Utilisation moyenne en pourcentage de la limite",
+          "it": "Utilizzo medio percentuale del limite",
+          "sv": "Genomsnittlig procentuell användning av gränsen",
+          "no": "Gjennomsnittlig prosentbruk av grensen",
+          "es": "Uso promedio porcentual del límite",
+          "da": "Gennemsnitlig procentvis udnyttelse af grænsen",
+          "ru": "Средний процент использования лимита",
+          "pl": "Średnie procentowe wykorzystanie limitu"
+        }
+      }
+    ]
+}

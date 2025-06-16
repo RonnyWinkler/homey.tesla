@@ -1,0 +1,98 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("repair.register_ble.title"));
+  
+  function statusCallback(status){
+    // document.getElementById('ble_status').value = status.code + ' - ' + status.message;
+    document.getElementById('ble_status').value = status.message;
+  }
+
+  async function registerBle(){
+    let result = await Homey.emit('registerBle');
+  }
+
+  async function getBleKeyStatus(){
+    let result = await Homey.emit('getBleKeyStatus');
+  }
+
+  Homey.on('onRegisterBleStatus', function (status) {
+    statusCallback(status);
+  });
+
+  Homey.on('onGetBleKeyStatus', function (status) {
+    statusCallback(status);
+  });
+
+</script>
+
+<style>
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 50%;
+  }
+
+  #imgRegisterCar {
+    background-image: url(car_key.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    display: block;
+    width: 100px;
+    height: 100%;
+  }
+
+  #imgNfc {
+    background-image: url(nfc_small.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    height: 130px;
+  }
+
+</style>
+
+<!-- <header class="homey-header">
+  <h1 class="homey-title" data-i18n="pair.register.title">
+  </h1>
+  <p class="homey-subtitle" data-i18n="pair.register.subtitle">
+  </p>
+</header> -->
+
+<fieldset class="homey-form-fieldset">
+  <legend class="homey-form-legend" data-i18n="repair.register_ble.subtitle"></legend>
+  <div class="homey-form-group">
+    <!-- <p data-i18n="repair.register_ble.text1"></p> -->
+    <p data-i18n="repair.register_ble.text2"></p>
+    <p data-i18n="repair.register_ble.text3"></p>
+    <span id="imgNfc"></span>
+    <p data-i18n="repair.register_ble.text4"></p>
+    <p>
+      <button id="btnRegisterCar" class="homey-button-primary-full" onClick="registerBle()">
+        <span id="spanRegisterCar" data-i18n="repair.register_ble.button_register"></span>
+        <!-- <span id="imgRegisterCar"></span> -->
+      </button>
+    </p>
+    <p>
+      <button id="btnGetBleKeyStatus" class="homey-button-primary-full" onClick="getBleKeyStatus()">
+        <span id="spanGetBleKeyStatus" data-i18n="repair.register_ble.button_status"></span>
+        <!-- <span id="imgRegisterCar"></span> -->
+      </button>
+    </p>
+    <label class="homey-form-label" for="ble_status"><span data-i18n="repair.register_ble.ble_status"></span></label>
+    <input class="homey-form-input" id="ble_status" type="text" value="" class="ble_status"/>
+
+    <p data-i18n="pair.register_ble.text1"></p>
+
+    <!-- <a onclick="showUrl('https://www.tesla.com/_ak/rwdevelopment.de')"><img src='logo.png' class='logo'></a> -->
+  </div>
+</fieldset>
+
+

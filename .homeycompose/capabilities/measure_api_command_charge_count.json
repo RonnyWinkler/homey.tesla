@@ -14,17 +14,17 @@
     "pl": "Liczba poleceń API Tesli"
   },
   "units": {
-    "en": "Commands per day",
-    "de": "Kommandos pro Tag",
-    "nl": "Commando's per dag",
-    "fr": "Commandes par jour",
-    "it": "Comandi al giorno",
-    "sv": "Kommandon per dag",
-    "no": "Kommandoer per dag",
-    "es": "Comandos por día",
-    "da": "Kommandoer pr. dag",
-    "ru": "Команд в день",
-    "pl": "Polecenia na dzień"
+    "en": "Commands per month",
+    "de": "Kommandos pro Monat",
+    "nl": "Commando's per maand",
+    "fr": "Commandes par mois",
+    "it": "Comandi al mese",
+    "sv": "Kommandon per månad",
+    "no": "Kommandoer per måned",
+    "es": "Comandos por mes",
+    "da": "Kommandon per måned",
+    "ru": "Команды в месяц",
+    "pl": "Komendy na miesiąc"
   },
   "decimals": 0,
   "insights": true,

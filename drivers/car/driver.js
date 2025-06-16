@@ -98,7 +98,31 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
       await this.homey.settings.set("domain", domain);
       return await this.registerDomain(domain);
     });
-    
+
+    session.setHandler("registerBle", async () => {
+      try{
+        await device.bleRegisterKey((status) => {
+          session.emit('onRegisterBleStatus', status);  
+        });
+        return { success: true, error: '' };
+      }
+      catch(error){
+        return { success: false, error: error.message };
+      }
+    });
+
+    session.setHandler("getBleKeyStatus", async () => {
+      try{
+        await device.bleGetKeyStatus((status) => {
+          session.emit('onGetBleKeyStatus', status);  
+        });
+        return { success: true, error: '' };
+      }
+      catch(error){
+        return { success: false, error: error.message };
+      }
+    });
+
     super.onRepair(session, device);
 
   }

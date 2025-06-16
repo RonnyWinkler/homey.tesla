@@ -1,129 +1,176 @@
 {
-    "pair": {
-        "pair_steps": {
-            "title": "Parring",
-            "subtitle": "Brug Tesla Fleet-API til at forbinde din bil",
-            "text_01": "For at bruge denne app skal du have en <b>Tesla-udviklerkonto</b>.",
-            "text_02": "Fortsæt kun, hvis du vil oprette en udviklerkonto på tesla.com. Du får adgang til Fleet API med en månedlig rabat på 10$. Dette burde dække et gennemsnitligt forbrug. Hvis du har brug for mere, kan du tilføje et abonnement senere.",
-            "text_btn": "Instruktioner"
-        },
-        "pair_step_01": {
-            "title": "Tesla app-registrering",
-            "subtitle": "Opret en udviklerkonto",
-            "text_01": "Åbn Tesla-websiden og opret en udviklerkonto.",
-            "text_02": "Opret derefter en app. Indtast dit navn, et app-navn og en beskrivelse som 'Homey App'.",
-            "text_03": "Du kan springe faktureringstrinnet over, hvis du ikke ønsker at tilføje et abonnement og først bruge de gratis 10$.",
-            "test_04": "Du vil modtage en 'Client ID' og en 'Client Secret' til næste parrings trin.",
-            "text_05": "Åbn https://developer.tesla.com",
-            "text_06": "Fortsæt processen, hvis du har en client_id og client_secret.",
-            "text_07": "Detaljer for app-registrering:",
-            "text_08": "OAuth Grant Type:",
-            "text_08a": "client-credentials, authorization-code",
-            "text_09": "Tilladte oprindelser:",
-            "text_09a": "https://athom.com/",
-            "text_09b": "https://rwdevelopment.de/",
-            "text_10": "Tilladte omdirigerings-URI'er:",
-            "text_10a": "https://callback.athom.com/oauth2/callback",
-            "text_11": "Tilladte retur-URL'er:",
-            "text_11a": "ingen",
-            "text_12": "Omfang:",
-            "text_12a": "Profilinformation, køretøjsinformation, køretøjsplacering, køretøjskommandoer, styring af opladning af køretøj",
-            "text_13": "&#x2398; kopieret"
-        },
-        "pair_step_02":{
-            "title": "Tesla app-legitimationsoplysninger",
-            "subtitle": "Tesla app-legitimationsoplysninger",
-            "client_id": "Client ID",
-            "client_secret": "Client Secret",
-            "text_01": "Indsæt dine app-legitimationsoplysninger fra din Tesla-udviklerkonto.",
-            "text_02": "Du kan nu logge ind på din Tesla-konto."
-        },
-        "error": {
-            "title": "Fejl"
-        },
-        "register": {
-            "title": "App registrering",
-            "subtitle": "Registrer Homey appen i din bil",
-            "text1": "Registrer Homey appen i din bil for at tillade appen at sende kommandoer til din bil.",
-            "text2": "Brug registreringsknappen for at starte registreringen i Tesla appen. Hvis linket åbner i browseren, følg da 'Åbn i Tesla App' vejledningen.",
-            "text3": "Denne registrering er nødvendig for at bruge 'Tesla Vehicle Commands Protocol' og end-to-end kryptering af kommandoer sendt til køretøjet.",
-            "text4": "Pre-2021 modeller S/X er udelukket. Disse kan stadig styres via REST API. Vælg venligst kommando API i enhedsindstillingerne.",
-            "text5": "Denne registrering kan gentages via 'Reparer enhed' dialogen.",
-            "button": "Registrer som bilnøgle"
-        },
-        "battery": {
-            "name": "batteri"
-        },
-        "climate": {
-            "name": "klima"
-        },
-        "location": {
-            "name": "placering"
-        },
-        "media": {
-            "name": "media"
-        }
-    },
-    "repair": {
-        "select": {
-            "title": "Valg",
-            "auth": "Skift login",
-            "register_app": "Registrer app i bil",
-            "device_details": "Enhedsoplysninger",
-            "charging_history": "Opladningshistorik",
-            "charging_history_suc": "SuC Opladningshistorik"
-        },
-        "charging_history": {
-            "title": "Opladningshistorik",
-            "clear": "ryd",
-            "json": "JSON",
-            "edit": "Rediger",
-            "save": "Gem"
-        },
-        "charging_history_suc": {
-            "title": "SuC Opladningshistorik"
-        },
-        "location_select": {
-            "title": "Valg",
-            "nearest_suc": "Nærmeste Supercharger",
-            "nearest_dest": "Nærmeste Destination Lader",
-            "driving_history": "Turehistorik"
-        },
-        "driving_history": {
-            "title": "Turehistorik",
-            "clear": "ryd",
-            "json": "JSON",
-            "edit": "Rediger",
-            "save": "Gem"
-        },
-        "location_nearest_suc": {
-            "title": "Nærmeste Supercharger",
-            "navigate": "Naviger til Supercharger?"
-        },
-        "location_nearest_dest": {
-            "title": "Nærmeste Destination Lader",
-            "navigate": "Naviger til Destination Lader?"
-        }
-    },
-    "devices": {
-        "location": {
-            "homey_location_name": "Hjem (Homey placering)"
-        },
-        "car": {
-            "trunk_not_allowed": "Bagagerumsbetjening deaktiveret i enhedsindstillinger",
-            "command_pair_state_paired": "parret",
-            "command_pair_state_unpaired": "uparret",
-            "command_pair_state_undefined": "ukendt",
-            "app_not_registered": "Appen er ikke registreret i bilen. Registrer via bilens enhedsreparationsproces.",
-            "command_error_426": "Appopdatering krævet. Opdater venligst appen i Homey app store eller aktiver automatiske opdateringer."
-        }
-    },
-    "app": {
-        "update": {
-            "update_message": "Den næste version af Tesla appen tilføjer en ny tilladelse (Homey placering). Automatisk opdatering virker ikke i dette tilfælde. Tjek venligst for opdateringer manuelt de næste dage og installer den næste version fra app store."
-        }
-    },
-    "widget":{
-        "car_select": "Vælg din bil i widgetindstillingerne"
-    }
+  "pair": {
+      "pair_steps": {
+          "title": "Parring",
+          "subtitle": "Brug Tesla Fleet-API til at forbinde din bil",
+          "text_01": "For at bruge denne app skal du have en <b>Tesla-udviklerkonto</b>.",
+          "text_02": "Fortsæt kun hvis du ønsker at oprette en udviklerkonto på tesla.com. Du får adgang til Fleet API med en månedlig rabat på 10$. Det bør dække normalt brug. Hvis du har brug for mere, kan du tilføje et abonnement senere.",
+          "text_btn": "Instruktioner"
+      },
+      "pair_step_01": {
+          "title": "Tesla app-registrering",
+          "subtitle": "Opret en udviklerkonto",
+          "text_01": "Åbn Teslas hjemmeside og opret en udviklerkonto.",
+          "text_02": "Opret derefter en app. Udfyld dit navn, indtast et appnavn og en beskrivelse som 'Homey App'.",
+          "text_03": "Du kan springe fakturerings-trinnet over, hvis du ikke vil tilføje et abonnement og først bruge de gratis 10$.",
+          "test_04": "Du får en 'Client ID' og en 'Client Secret' til næste parrings-trin.",
+          "text_05": "Åbn https://developer.tesla.com",
+          "text_06": "Fortsæt processen hvis du har client_id og client_secret.",
+          "text_07": "Detaljer til app-registrering:",
+          "text_08": "OAuth Grant Type:",
+          "text_08a": "client-credentials, authorization-code",
+          "text_09": "Tilladte oprindelser (Origin):",
+          "text_09a": "https://athom.com/",
+          "text_09b": "https://rwdevelopment.de/",
+          "text_10": "Tilladte redirect-URI'er:",
+          "text_10a": "https://callback.athom.com/oauth2/callback",
+          "text_11": "Tilladte return-URL'er:",
+          "text_11a": "ingen",
+          "text_12": "Scopes:",
+          "text_12a": "Profilinformation, køretøjsinformation, køretøjsplacering, køretøjskommandoer, opladningsstyring",
+          "text_13": "&#x2398; kopieret"
+      },
+      "pair_step_02": {
+          "title": "Tesla app-legitimationsoplysninger",
+          "subtitle": "Tesla app-legitimationsoplysninger",
+          "client_id": "Client ID",
+          "client_secret": "Client Secret",
+          "text_01": "Indtast dine app-legitimationsoplysninger fra din Tesla-udviklerkonto.",
+          "text_02": "Du kan nu logge ind på din Tesla-konto."
+      },
+      "error": {
+          "title": "Fejl"
+      },
+      "pair_step_03": {
+          "title": "App-certifikat",
+          "subtitle": "App-certifikat",
+          "text_01": "Appen har oprettet et certifikat (privat og offentlig nøgle).",
+          "text_02": "Dette certifikat bruges til at signere kommandoer sendt til din bil. Den offentlige nøgle hostes på dit domæne og registreres som bilnøgle. Den private nøgle bruges til at kryptere og signere kommandoer.",
+          "text_03": "Gem den offentlige nøgle som en fil. Upload filen til dit domæne. Subdomæner er tilladt. Roddomænet skal matche det 'tilladte oprindelses'-domæne fra din app-registrering.",
+          "text_04": "Filen skal hostes under dette navn.",
+          "text_05": "https://[dit domæne]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+          "text_btn": "Opret nyt certifikat",
+          "public_key": "Offentlig nøgle. Upload til dit domæne",
+          "private_key": "Privat nøgle. Hold den hemmelig!"
+      },
+      "pair_step_04": {
+          "title": "Registrer domænet",
+          "subtitle": "Registrer domænet",
+          "text_01": "Hvis den offentlige nøgle er hostet på dit domæne, kan du registrere domænet for din app.",
+          "text_02": "Sørg for, at URL-stien er præcis som denne:\nhttps://[dit domæne]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+          "text_03": "Domæne registreret succesfuldt.",
+          "text_04": "Domæne kunne ikke registreres:",
+          "text_05": "Tesla API returnerede en fejl.",
+          "text_06": "Fortsæt, hvis domænet blev registreret succesfuldt.",
+          "domain": "Domæne",
+          "text_btn": "Registrer domænet"
+      },
+      "pair_step_05": {
+          "title": "Tilføj din bil",
+          "subtitle": "Log ind på din Tesla-konto.",
+          "text_01": "Din app-konfiguration er klar.",
+          "text_02": "Du kan nu logge ind på din Tesla-konto.",
+          "text_03": "Hvis du brugte en sekundær konto til din app, så ryd dine browser-cookies for tesla.com for at sikre, at du bruger kontoen din bil er tilknyttet."
+      },
+      "register": {
+          "title": "App-registrering",
+          "subtitle": "Registrer Homey-appen i din bil",
+          "text1": "Registrer Homey-appen i din bil for at tillade appen at sende kommandoer til bilen.",
+          "text2": "Brug registreringsknappen for at starte registreringen i Tesla-appen. Hvis linket åbner i browseren, så følg 'Åbn i Tesla App'-henvisningen.",
+          "text3": "Denne registrering er nødvendig for at bruge 'Tesla Vehicle Commands Protocol' og end-to-end-kryptering af kommandoer sendt til køretøjet.",
+          "text4": "Modeller S/X fra før 2021 er undtaget. Disse kan stadig styres via REST API. Vælg venligst kommando-API i enhedsindstillingerne.",
+          "text5": "Denne registrering kan gentages via 'Reparer enhed'-dialogen.",
+          "button": "Registrer som bilnøgle"
+      },
+      "battery": {
+          "name": "batteri"
+      },
+      "climate": {
+          "name": "klima"
+      },
+      "location": {
+          "name": "placering"
+      },
+      "media": {
+          "name": "medier"
+      }
+  },
+  "repair": {
+      "select": {
+          "title": "Valg",
+          "auth": "Skift login",
+          "register_app": "Fjernnøgle til Fleet-API",
+          "register_ble": "Fjernnøgle til Bluetooth LE",
+          "device_details": "Enhedsdetaljer",
+          "charging_history": "Opladningshistorik",
+          "charging_history_suc": "SuC opladningshistorik"
+      },
+      "device_details": {
+          "title": "Enhedsdetaljer"
+      },
+      "charging_history": {
+          "title": "Opladningshistorik",
+          "clear": "ryd",
+          "json": "JSON",
+          "edit": "Rediger",
+          "save": "Gem"
+      },
+      "charging_history_suc": {
+          "title": "SuC opladningshistorik"
+      },
+      "location_select": {
+          "title": "Valg",
+          "nearest_suc": "Nærmeste Supercharger",
+          "nearest_dest": "Nærmeste Destination Charger",
+          "driving_history": "Kørehistorik"
+      },
+      "driving_history": {
+          "title": "Kørehistorik",
+          "clear": "ryd",
+          "json": "JSON",
+          "edit": "Rediger",
+          "save": "Gem"
+      },
+      "location_nearest_suc": {
+          "title": "Nærmeste Supercharger",
+          "navigate": "Naviger til Supercharger?"
+      },
+      "location_nearest_dest": {
+          "title": "Nærmeste Destination Charger",
+          "navigate": "Naviger til Destination Charger?"
+      },
+      "register_ble": {
+          "title": "App-registrering til Bluetooth LE",
+          "subtitle": "Registrer Homey-appen i din bil til Bluetooth LE",
+          "text1": "Registrer Homey-appen i din bil for at tillade appen at sende kommandoer til bilen.",
+          "text2": "Dette registrerer appen som bilnøgle for at bruge Homey via Bluetooth LE. Du har brug for denne nøgle ud over den registrerede nøgle til FleetAPI.",
+          "text3": "Sæt dig ind i bilen og læg NFC-kortet på konsollen.",
+          "text4": "Start derefter nøgleregistreringsprocessen. Følg instruktionerne på bilens display.",
+          "ble_status": "Status",
+          "button_register": "Registrer som bilnøgle",
+          "button_status": "Tjek nøglestatus"
+      }
+  },
+  "devices": {
+      "location": {
+          "homey_location_name": "Hjem (Homey-placering)"
+      },
+      "car": {
+          "trunk_not_allowed": "Bagagerumsfunktion deaktiveret i enhedsindstillinger",
+          "command_pair_state_paired": "parret",
+          "command_pair_state_unpaired": "ikke parret",
+          "command_pair_state_undefined": "ukendt",
+          "app_not_registered": "Appen er ikke registreret i bilen. Registrér via enhedsreparation.",
+          "command_error_426": "Appopdatering krævet. Opdater venligst appen i Homey App Store eller aktiver automatiske opdateringer.",
+          "api_client_id_not_set": "Tesla Client ID og Client Secret er ikke angivet. Reparer enheden og brug en personlig Tesla-udviklerkonto og app-registrering."
+      }
+  },
+  "app": {
+      "update": {
+          "update_message": "Næste version af Tesla-appen tilføjer en ny tilladelse (Homey-placering). Automatisk opdatering virker ikke i dette tilfælde. Tjek manuelt for opdateringer de næste dage og installer den næste version fra App Store."
+      }
+  },
+  "widget": {
+      "car_select": "Vælg din bil i widget-indstillinger"
+  }
 }

@@ -47,6 +47,15 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionSetOnlineInterval(args.interval, args.unit);
 		});
 
+    this.homey.flow.getActionCard('api_get_costs')
+		.registerRunListener(async (args, state) => {
+				return await args.device.flowActionApiGetCosts();
+		});
+
+    this.homey.flow.getActionCard('api_set_ble_active')
+		.registerRunListener(async (args, state) => {
+				await args.device.flowActionSetBleActive(args.state);
+		});
 
     // Car
     this.homey.flow.getActionCard('car_ping')
@@ -310,6 +319,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getConditionCard('api_costs_daily_average')
     .registerRunListener(async (args, state) => {
       return (await args.device.flowConditionApiCostsDailyAverageRunListener(args));
+    });
+
+    this.homey.flow.getConditionCard('api_costs_daily_average_percentage')
+    .registerRunListener(async (args, state) => {
+      return (await args.device.flowConditionApiCostsDailyAveragePercentageRunListener(args));
     });
 
 

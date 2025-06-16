@@ -72,6 +72,29 @@
     {
       "type": "group",
       "label": {
+        "en": "Bluetooth LE settings",
+        "de": "Bluetooth LE-Einstellungen",
+        "nl": "Bluetooth LE-instellingen",
+        "fr": "Paramètres Bluetooth LE",
+        "it": "Paramètres Bluetooth LE",
+        "sv": "Bluetooth LE-inställningar",
+        "no": "Bluetooth LE-innstillinger",
+        "es": "Configuración de Bluetooth LE",
+        "da": "Bluetooth LE-indstillinger",
+        "ru": "Настройки Bluetooth LE",
+        "pl": "Ustawienia Bluetooth LE"
+      },
+      "children": [
+        {
+          "$extends": "api_ble_active",
+          "id": "api_ble_active"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
         "en": "Car settings",
         "de": "Fahrzeug-Einstellungen",
         "nl": "Voertuiginstellingen",
@@ -146,6 +169,37 @@
         {
           "$extends": "api_command_wakes_count",
           "id": "api_command_wakes_count"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
+        "en": "Bluetooth LE",
+        "de": "Bluetooth LE",
+        "nl": "Bluetooth LE",
+        "fr": "Bluetooth LE",
+        "it": "Bluetooth LE",
+        "sv": "Bluetooth LE",
+        "no": "Bluetooth LE",
+        "es": "Bluetooth LE",
+        "da": "Bluetooth LE",
+        "ru": "Bluetooth LE",
+        "pl": "Bluetooth LE"
+      },
+      "children": [
+        {
+          "$extends": "api_state",
+          "id": "api_ble_state"
+        },
+        {
+          "$extends": "api_ble_success_count",
+          "id": "api_ble_success_count"
+        },
+        {
+          "$extends": "api_ble_error_count",
+          "id": "api_ble_error_count"
         }
       ]
     },

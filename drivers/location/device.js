@@ -78,7 +78,7 @@ module.exports = class LocationDevice extends ChildDevice {
       await this.setCapabilityValue('measure_location_longitude', data.drive_state.longitude);
     }
 
-    if (this.hasCapability('measure_location_distance_from_home')){
+    if (this.hasCapability('measure_location_distance_from_home') && data.drive_state && data.drive_state.latitude && data.drive_state.longitude && data.gui_settings){
       let distance = this.getCoordinatesDistance(data.drive_state.latitude, data.drive_state.longitude, this.homey.geolocation.getLatitude(), this.homey.geolocation.getLongitude());
       distance = Math.round(distance / 10) / 100;
       await this.setCapabilityValue('measure_location_distance_from_home', data.gui_settings.gui_distance_units == 'km/hr' ? distance * CONSTANTS.MILES_TO_KM : distance );

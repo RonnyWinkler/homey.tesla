@@ -20,6 +20,9 @@
     function onSelectRegisterApp(){
         Homey.showView("register");
     }
+    function onSelectRegisterBle(){
+        Homey.showView("register_ble");
+    }
     function onSelectDeviceDetails(){
         Homey.showView("device_details");
     }
@@ -27,7 +30,7 @@
 </script>
 
 <div>
-    <fieldset>
+    <!-- <fieldset> -->
         <div>
             <p>
                 <button id="btnAuth" class="homey-button-primary-full" onClick="onSelectAuth()"><span data-i18n="repair.select.auth"></span></button>
@@ -39,9 +42,14 @@
             </p>
         </div>
         <div>
+          <p>
+              <button id="btnRegisterBle" class="homey-button-primary-full" onClick="onSelectRegisterBle()" ><span data-i18n="repair.select.register_ble"></span></button>
+          </p>
+      </div>
+      <div>
             <p>
                 <button id="btnDeviceDetails" class="homey-button-secondary-shadow-full" onClick="onSelectDeviceDetails()" ><span data-i18n="repair.select.device_details"></span></button>
             </p>
         </div>
-    </fieldset>
+    <!-- </fieldset> -->
 </div>

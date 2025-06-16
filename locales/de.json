@@ -69,10 +69,14 @@
         "select":{
             "title": "Auswahl",
             "auth": "Anmeldung ändern",
-            "register_app": "App-Registrierung im Fahrzeug",
+            "register_app": "Fahrzeugschlüssel für Fleet-API",
+            "register_ble": "Fahrzeugschlüssel für Bluetooth LE",
             "device_details": "Geräte-Details",
             "charging_history": "Ladehistorie",
             "charging_history_suc": "SuC Ladehistorie"
+        },
+        "device_details":{
+          "title": "Geräte-Details"
         },
         "charging_history":{
             "title": "Ladehistorie",
@@ -104,7 +108,19 @@
         "location_nearest_dest":{
             "title": "Nächster Destination Charger",
             "navigate": "Navigiere zum Destination Charger?"
+        },
+        "register_ble": {
+          "title": "App-Registrierung für Bluetooth LE",
+          "subtitle": "Registriere die Homey-App in deinem Fahrzeug für Bluetooth LE",
+          "text1": "Registriere die Homey-App in deinem Fahrzeug, um der App das Senden von Befehlen an dein Fahrzeug zu ermöglichen.",
+          "text2": "Dies registriert die App als Fahrzeugschlüssel, um die Homey-App über Bluetooth LE zu verwenden. Du benötigst diesen Schlüssel zusätzlich zum registrierten Schlüssel für die FleetAPI.",
+          "text3": "Setze dich ins Fahrzeug und lege die NFC-Karte auf die Mittelkonsole.",
+          "text4": "Starte dann den Registrierungsvorgang für den Schlüssel. Folge den Anweisungen auf dem Fahrzeugdisplay.",
+          "ble_status": "Status",
+          "button_register": "Registrierung als Fahrzeugschlüssel",
+          "button_status": "Schlüsselstatus prüfen"
         }
+
     },
     "devices":{
         "location":{

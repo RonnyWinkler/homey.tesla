@@ -1,129 +1,176 @@
 {
-    "pair": {
-        "pair_steps": {
-            "title": "Abbinamento",
-            "subtitle": "Usa l'API Tesla Fleet per connettere la tua auto",
-            "text_01": "Per utilizzare questa app, è necessario un <b>account sviluppatore Tesla</b>.",
-            "text_02": "Procedi solo se desideri creare un account sviluppatore su tesla.com. Ottieni l'accesso all'API Fleet con uno sconto mensile di 10$. Questo dovrebbe coprire un utilizzo medio. Se hai bisogno di più, puoi aggiungere un abbonamento in seguito.",
-            "text_btn": "Istruzioni"
-        },
-        "pair_step_01": {
-            "title": "Registrazione dell'app Tesla",
-            "subtitle": "Crea un account sviluppatore",
-            "text_01": "Apri il sito web di Tesla e crea un account sviluppatore.",
-            "text_02": "Quindi crea un'app. Inserisci il tuo nome, il nome dell'app e una descrizione come 'Homey App'.",
-            "text_03": "Puoi saltare il passaggio della fatturazione se non vuoi aggiungere un abbonamento e utilizzare prima i 10$ gratuiti.",
-            "test_04": "Riceverai un 'Client ID' e un 'Client Secret' per il prossimo passaggio dell'abbinamento.",
-            "text_05": "Apri https://developer.tesla.com",
-            "text_06": "Continua il processo se hai un client_id e un client_secret.",
-            "text_07": "Dettagli per la registrazione dell'app:",
-            "text_08": "Tipo di concessione OAuth:",
-            "text_08a": "client-credentials, authorization-code",
-            "text_09": "Origini consentite:",
-            "text_09a": "https://athom.com/",
-            "text_09b": "https://rwdevelopment.de/",
-            "text_10": "URI di reindirizzamento consentiti:",
-            "text_10a": "https://callback.athom.com/oauth2/callback",
-            "text_11": "URL di ritorno consentiti:",
-            "text_11a": "nessuno",
-            "text_12": "Ambiti:",
-            "text_12a": "Informazioni profilo, Informazioni veicolo, Posizione veicolo, Comandi veicolo, Gestione ricarica veicolo",
-            "text_13": "&#x2398; copiato"
-        },
-        "pair_step_02": {
-            "title": "Credenziali dell'app Tesla",
-            "subtitle": "Credenziali dell'app Tesla",
-            "client_id": "Client ID",
-            "client_secret": "Client Secret",
-            "text_01": "Inserisci le credenziali della tua app dal tuo account sviluppatore Tesla.",
-            "text_02": "Ora puoi accedere al tuo account Tesla."
-        },
-        "error": {
-            "title": "Errore"
-        },
-        "register": {
-            "title": "Registrazione dell'app",
-            "subtitle": "Registrare l'app Homey nella tua auto",
-            "text1": "Registrare l'app Homey nella tua auto per consentire all'app di inviare comandi alla tua auto.",
-            "text2": "Usa il pulsante di registrazione per iniziare a registrarti nell'app Tesla. Se il link si apre nel browser, segui l'indicazione 'Apri nell'app Tesla'.",
-            "text3": "Questa registrazione è necessaria per utilizzare il 'Protocollo di Comandi del Veicolo Tesla' e la crittografia end-to-end dei comandi inviati al veicolo.",
-            "text4": "I modelli S/X precedenti al 2021 sono esclusi. Questi possono ancora essere controllati tramite l'API REST. Seleziona l'API di comando nelle impostazioni del dispositivo.",
-            "text5": "Questa registrazione può essere ripetuta tramite la finestra di dialogo 'Ripara Dispositivo'.",
-            "button": "Registrare come chiave dell'auto"
-        },
-        "battery": {
-            "name": "batteria"
-        },
-        "climate": {
-            "name": "clima"
-        },
-        "location": {
-            "name": "posizione"
-        },
-        "media": {
-            "name": "media"
-        }
-    },
-    "repair": {
-        "select": {
-            "title": "Selezione",
-            "auth": "Cambia accesso",
-            "register_app": "Registrare l'app nella tua auto",
-            "device_details": "Dettagli del dispositivo",
-            "charging_history": "Storico delle ricariche",
-            "charging_history_suc": "Storico delle ricariche SuC"
-        },
-        "charging_history": {
-            "title": "Storico delle ricariche",
-            "clear": "cancella",
-            "json": "JSON",
-            "edit": "Modifica",
-            "save": "Salva"
-        },
-        "charging_history_suc": {
-            "title": "Storico delle ricariche SuC"
-        },
-        "location_select": {
-            "title": "Selezione",
-            "nearest_suc": "Supercharger più vicino",
-            "nearest_dest": "Caricatore di destinazione più vicino",
-            "driving_history": "Storico dei viaggi"
-        },
-        "driving_history": {
-            "title": "Storico dei viaggi",
-            "clear": "cancella",
-            "json": "JSON",
-            "edit": "Modifica",
-            "save": "Salva"
-        },
-        "location_nearest_suc": {
-            "title": "Supercharger più vicino",
-            "navigate": "Navigare verso il Supercharger?"
-        },
-        "location_nearest_dest": {
-            "title": "Caricatore di destinazione più vicino",
-            "navigate": "Navigare verso il Caricatore di Destinazione?"
-        }
-    },
-    "devices": {
-        "location": {
-            "homey_location_name": "Casa (posizione Homey)"
-        },
-        "car": {
-            "trunk_not_allowed": "Operazione del bagagliaio disabilitata nelle impostazioni del dispositivo",
-            "command_pair_state_paired": "associato",
-            "command_pair_state_unpaired": "non associato",
-            "command_pair_state_undefined": "sconosciuto",
-            "app_not_registered": "L'app non è registrata nella tua auto. Registrala tramite il processo di riparazione del dispositivo dell'auto.",
-            "command_error_426": "È richiesta l'aggiornamento dell'app. Aggiorna l'app nel negozio di app Homey o abilita gli aggiornamenti automatici."
-        }
-    },
-    "app": {
-        "update": {
-            "update_message": "La prossima versione dell'app Tesla aggiunge una nuova autorizzazione (posizione Homey). L'aggiornamento automatico non funziona in questo caso. Controlla manualmente gli aggiornamenti nei prossimi giorni e installa la prossima versione dal negozio di app."
-        }
-    },
-    "widget":{
-        "car_select": "Seleziona il tuo veicolo in impostazioni widget"
-    }
+  "pair": {
+      "pair_steps": {
+          "title": "Abbinamento",
+          "subtitle": "Usa Tesla Fleet-API per connettere la tua auto",
+          "text_01": "Per utilizzare questa app, hai bisogno di un <b>account sviluppatore Tesla</b>.",
+          "text_02": "Procedi solo se desideri creare un account sviluppatore su tesla.com. Ottieni accesso alla Fleet API con uno sconto mensile di 10$. Questo dovrebbe coprire un utilizzo medio. Se hai bisogno di più, puoi aggiungere un abbonamento in seguito.",
+          "text_btn": "Istruzioni"
+      },
+      "pair_step_01": {
+          "title": "Registrazione app Tesla",
+          "subtitle": "Crea un account sviluppatore",
+          "text_01": "Apri il sito Tesla e crea un account sviluppatore.",
+          "text_02": "Poi crea un'app. Inserisci il tuo nome, un nome per l'app e una descrizione, ad esempio 'Homey App'.",
+          "text_03": "Puoi saltare il passaggio della fatturazione se non vuoi aggiungere un abbonamento e usare prima i 10$ gratuiti.",
+          "test_04": "Riceverai un 'Client ID' e un 'Client Secret' per il passaggio successivo.",
+          "text_05": "Apri https://developer.tesla.com",
+          "text_06": "continua il processo se hai client_id e client_secret.",
+          "text_07": "Dettagli per la registrazione dell'app:",
+          "text_08": "Tipo di concessione OAuth:",
+          "text_08a": "client-credentials, authorization-code",
+          "text_09": "Origine consentita:",
+          "text_09a": "https://athom.com/",
+          "text_09b": "https://rwdevelopment.de/",
+          "text_10": "URI di reindirizzamento consentiti:",
+          "text_10a": "https://callback.athom.com/oauth2/callback",
+          "text_11": "URL restituiti consentiti:",
+          "text_11a": "nessuno",
+          "text_12": "Ambiti:",
+          "text_12a": "Informazioni profilo, Informazioni veicolo, posizione veicolo, comandi veicolo, gestione ricarica veicolo",
+          "text_13": "&#x2398; copiato"
+      },
+      "pair_step_02": {
+          "title": "Credenziali app Tesla",
+          "subtitle": "Credenziali app Tesla",
+          "client_id": "Client ID",
+          "client_secret": "Client Secret",
+          "text_01": "Inserisci le credenziali della tua app dal tuo account sviluppatore Tesla.",
+          "text_02": "Ora puoi accedere al tuo account Tesla."
+      },
+      "error": {
+          "title": "Errore"
+      },
+      "pair_step_03": {
+          "title": "Certificato app",
+          "subtitle": "Certificato app",
+          "text_01": "L'app ha creato un certificato (chiave privata e pubblica).",
+          "text_02": "Questo certificato è usato per firmare i comandi inviati alla tua auto. La chiave pubblica è ospitata sul tuo dominio e registrata come chiave dell’auto. La chiave privata è usata per cifrare e firmare i comandi.",
+          "text_03": "Salva la chiave pubblica come file. Carica il file sul tuo dominio. Sono ammessi sottodomini. Il dominio principale deve corrispondere all'origine consentita nella registrazione dell'app.",
+          "text_04": "Il file deve essere ospitato con questo nome.",
+          "text_05": "https://[tuo dominio]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+          "text_btn": "Crea nuovo certificato",
+          "public_key": "Chiave pubblica. Caricala sul tuo dominio",
+          "private_key": "Chiave privata. Tienila segreta!"
+      },
+      "pair_step_04": {
+          "title": "Registra il dominio",
+          "subtitle": "Registra il dominio",
+          "text_01": "Se la chiave pubblica è ospitata sul tuo dominio, puoi registrare il dominio per la tua app.",
+          "text_02": "Assicurati che il percorso dell’URL sia esattamente come\nhttps://[tuo dominio]/.well-known/appspecific/com.tesla.3p.public-key.pem",
+          "text_03": "Dominio registrato con successo.",
+          "text_04": "Dominio non registrato:",
+          "text_05": "La Tesla API ha restituito un errore.",
+          "text_06": "Continua se il dominio è stato registrato con successo.",
+          "domain": "Dominio",
+          "text_btn": "Registra il dominio"
+      },
+      "pair_step_05": {
+          "title": "Aggiungi la tua auto",
+          "subtitle": "Accedi al tuo account Tesla.",
+          "text_01": "La configurazione della tua app è pronta.",
+          "text_02": "Ora puoi accedere al tuo account Tesla.",
+          "text_03": "Se hai usato un secondo account per la tua app, svuota i cookie del browser per tesla.com per assicurarti di usare l’account assegnato alla tua auto."
+      },
+      "register": {
+          "title": "Registrazione app",
+          "subtitle": "Registra l'app Homey nella tua auto",
+          "text1": "Registra l'app Homey nella tua auto per permettere all'app di inviare comandi al veicolo.",
+          "text2": "Usa il pulsante di registrazione per avviare la registrazione nell'app Tesla. Se il link si apre nel browser, segui l’indicazione 'Apri in Tesla App'.",
+          "text3": "Questa registrazione è necessaria per usare il 'Protocollo Comandi Veicolo Tesla' e la crittografia end-to-end dei comandi inviati al veicolo.",
+          "text4": "I modelli S/X precedenti al 2021 sono esclusi. Possono comunque essere controllati tramite l'API REST. Seleziona l'API comandi nelle impostazioni del dispositivo.",
+          "text5": "Questa registrazione può essere ripetuta tramite il dialogo 'Ripara Dispositivo'.",
+          "button": "Registra come chiave dell’auto"
+      },
+      "battery": {
+          "name": "batteria"
+      },
+      "climate": {
+          "name": "clima"
+      },
+      "location": {
+          "name": "posizione"
+      },
+      "media": {
+          "name": "media"
+      }
+  },
+  "repair": {
+      "select": {
+          "title": "Selezione",
+          "auth": "Cambia login",
+          "register_app": "Chiave auto per Fleet-API",
+          "register_ble": "Chiave auto per Bluetooth LE",
+          "device_details": "Dettagli dispositivo",
+          "charging_history": "Cronologia ricariche",
+          "charging_history_suc": "Cronologia ricariche SuC"
+      },
+      "device_details": {
+          "title": "Dettagli dispositivo"
+      },
+      "charging_history": {
+          "title": "Cronologia ricariche",
+          "clear": "cancella",
+          "json": "JSON",
+          "edit": "Modifica",
+          "save": "Salva"
+      },
+      "charging_history_suc": {
+          "title": "Cronologia ricariche SuC"
+      },
+      "location_select": {
+          "title": "Selezione",
+          "nearest_suc": "Supercharger più vicino",
+          "nearest_dest": "Destination Charger più vicino",
+          "driving_history": "Cronologia viaggi"
+      },
+      "driving_history": {
+          "title": "Cronologia viaggi",
+          "clear": "cancella",
+          "json": "JSON",
+          "edit": "Modifica",
+          "save": "Salva"
+      },
+      "location_nearest_suc": {
+          "title": "Supercharger più vicino",
+          "navigate": "Navigare al Supercharger?"
+      },
+      "location_nearest_dest": {
+          "title": "Destination Charger più vicino",
+          "navigate": "Navigare al Destination Charger?"
+      },
+      "register_ble": {
+          "title": "Registrazione app per Bluetooth LE",
+          "subtitle": "Registra l'app Homey nella tua auto per Bluetooth LE",
+          "text1": "Registra l'app Homey nella tua auto per permettere all'app di inviare comandi al veicolo.",
+          "text2": "Questa registrazione abilita l'app come chiave dell’auto per usare Homey via Bluetooth LE. Questa chiave è necessaria oltre alla chiave registrata per FleetAPI.",
+          "text3": "Siediti in auto e posiziona la scheda NFC sulla console.",
+          "text4": "Poi avvia il processo di registrazione chiave. Segui le istruzioni sul display del veicolo.",
+          "ble_status": "Stato",
+          "button_register": "Registra come chiave dell’auto",
+          "button_status": "Controlla stato chiave"
+      }
+  },
+  "devices": {
+      "location": {
+          "homey_location_name": "Casa (posizione Homey)"
+      },
+      "car": {
+          "trunk_not_allowed": "Operazione bagagliaio disabilitata nelle impostazioni del dispositivo",
+          "command_pair_state_paired": "associato",
+          "command_pair_state_unpaired": "non associato",
+          "command_pair_state_undefined": "sconosciuto",
+          "app_not_registered": "L'app non è registrata nell'auto. Registrala tramite il processo di riparazione del dispositivo auto.",
+          "command_error_426": "Aggiornamento app richiesto. Aggiorna l'app nello store Homey o abilita gli aggiornamenti automatici.",
+          "api_client_id_not_set": "Client ID e Client Secret Tesla non impostati. Ripara il dispositivo e usa un account sviluppatore personale Tesla con registrazione app."
+      }
+  },
+  "app": {
+      "update": {
+          "update_message": "La prossima versione dell'app Tesla aggiunge un nuovo permesso (posizione Homey). L’aggiornamento automatico non funziona in questo caso. Controlla manualmente gli aggiornamenti nei prossimi giorni e installa la nuova versione dallo store."
+      }
+  },
+  "widget": {
+      "car_select": "Seleziona la tua auto nelle impostazioni del widget"
+  }
 }
