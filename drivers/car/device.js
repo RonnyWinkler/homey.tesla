@@ -1495,45 +1495,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     });
   }
 
-  async _sendVcsecMessage(buffer, statusCallback){
+  async _sendVcsecMessageWhitelistMessageRequest(buffer, statusCallback){
     // BTLE Reequest:
     return new Promise(async (resolve, reject) => {
       let timeout = null;
-      const messageHandler = (buffer)  => {
+      const messageHandler = async (buffer)  => {
         // this.log("BLE response: ",buffer.toString('hex'));
         try{
-          if (this.commandApiBle.isRouteableMessage(buffer)){
-            // 1) Try to convert InformationRequest mresponse
-            let message = this.commandApiBle.decodeInformationRequestResponse(buffer);
-            this.log("BTLE proto message: ",message);
-            if (message){
-              if (message.nominalError && message.nominalError.genericError != undefined ){
-                if (statusCallback){
-                  // statusCallback({code: 'ERROR', message: 'Generic error #'+message.nominalError.genericError});
-                  statusCallback({code: 'ERROR', message: 'Key is not registered'});
-                  if (timeout){
-                    this.homey.clearTimeout(timeout);
-                    timeout = null;
-                  }
-                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
-                  this.bleApi.disconnect();          
-                  resolve(buffer);
-                }
-              }
-              if (message.whitelistEntryInfo.slot && message.whitelistEntryInfo && message.whitelistEntryInfo.slot){
-                if (statusCallback){  
-                  statusCallback({code: 'OK', message: 'Key is whitelisted in slot #'+message.whitelistEntryInfo.slot});
-                  if (timeout){
-                    this.homey.clearTimeout(timeout);
-                    timeout = null;
-                  }
-                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
-                  this.bleApi.disconnect();
-                  resolve(buffer);
-                }
-              }
-            }
-          }
           if (this.commandApiBle.isFromVCSECMessage(buffer)){
             // 2) Try to convert WhitelistMessage response
             message = this.commandApiBle.decodeWhitelistMessageResponse(buffer);
@@ -1568,9 +1536,88 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
                   }
                   break;
               }
+              await this.bleApi.disconnect();
+              this.bleApi.onCarMessage.unsubscribe(messageHandler);  
               resolve(buffer);
             }
           }
+        }  
+        catch(error){
+          // Ignore invalid meessages
+        }
+      }
+
+      try{
+        statusCallback({code: 'CONNECTING', message: 'Connecting...'});
+        await this.bleApi.connect();
+        this.bleApi.onCarMessage.subscribe(messageHandler);
+        // start timeout counter
+        timeout = this.homey.setTimeout( async () => {
+          this.log("BLE response: Timeout waiting for BLE response.");
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);
+          await this.bleApi.disconnect();
+          reject(new Error("Timeout waiting for BLE response."));
+        }, BLE_TIMEOUT_VCSEC);
+        // send commands
+        statusCallback({code: 'SENDING', message: 'Sending BLE request...'});
+        await this.bleApi.writeAsync(buffer);
+
+        // temporary solution until NFC/add response is implemented
+        statusCallback({code: 'SUCCESS', message: 'Key was sent. Confirm on the car display...'});
+        await this.bleApi.disconnect();
+        this.bleApi.onCarMessage.unsubscribe(messageHandler);   
+        resolve();
+      }
+      catch(error){
+        try{
+          await this.bleApi.disconnect();
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);    
+        }
+        catch(error){}
+        reject(error);
+      }
+    });
+  }
+
+  async _sendVcsecMessageInformationRequest(buffer, statusCallback){
+    // BTLE Reequest:
+    return new Promise(async (resolve, reject) => {
+      let timeout = null;
+      const messageHandler = async (buffer)  => {
+        // this.log("BLE response: ",buffer.toString('hex'));
+        try{
+          if (this.commandApiBle.isRouteableMessage(buffer)){
+            // 1) Try to convert InformationRequest mresponse
+            let message = this.commandApiBle.decodeInformationRequestResponse(buffer);
+            this.log("BTLE proto message: ",message);
+            if (message){
+              if (message.nominalError && message.nominalError.genericError != undefined ){
+                if (statusCallback){
+                  // statusCallback({code: 'ERROR', message: 'Generic error #'+message.nominalError.genericError});
+                  statusCallback({code: 'ERROR', message: 'Key is not registered'});
+                  if (timeout){
+                    this.homey.clearTimeout(timeout);
+                    timeout = null;
+                  }
+                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
+                  await this.bleApi.disconnect();          
+                  resolve(buffer);
+                }
+              }
+              if (message.whitelistEntryInfo.slot && message.whitelistEntryInfo && message.whitelistEntryInfo.slot){
+                if (statusCallback){  
+                  statusCallback({code: 'OK', message: 'Key is whitelisted in slot #'+message.whitelistEntryInfo.slot});
+                  if (timeout){
+                    this.homey.clearTimeout(timeout);
+                    timeout = null;
+                  }
+                  this.bleApi.onCarMessage.unsubscribe(messageHandler);
+                  await this.bleApi.disconnect();
+                  resolve(buffer);
+                }
+              }
+            }
+          }        
         }  
         catch(error){
           // Ignore invalid meessages
@@ -2091,9 +2138,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     try{
       let messageBuffer = this.commandApiBle.encodeWhitelistMessageRequest(publicKey);
-      let buffer = await this._sendVcsecMessage(messageBuffer, statusCallback);
+      let buffer = await this._sendVcsecMessageWhitelistMessageRequest(messageBuffer, statusCallback);
       // await this.commandApiBle.sendWhitelistMessage(this._onWhitelistMessageCallback.bind(this), statusCallback, publicKey);
-      this.log("bleRegisterKey() command: Success: ",buffer.toString('hex'));
+      if (buffer != undefined){
+        this.log("bleRegisterKey() command: Success: ",buffer.toString('hex'));
+      }
+      else{
+        this.log("bleRegisterKey() command: Success: ");
+      }
     }
     catch(error){
       this.log("BLE WhiteList command: Error: "+error.message);
@@ -2109,7 +2161,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     const publicKey = key.publicKey;
     try{
       let messageBuffer = this.commandApiBle.encodeInformationRequestRequest(publicKey);
-      let buffer = await this._sendVcsecMessage(messageBuffer, statusCallback);
+      let buffer = await this._sendVcsecMessageInformationRequest(messageBuffer, statusCallback);
       // let buffer = await this.commandApiBle.getWitelistStatus(this._onInformationRequestCallback.bind(this), statusCallback, publicKey);
       this.log("bleGetKeyStatus() command: Success: ",buffer.toString('hex'));
     }

@@ -101,8 +101,13 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
 
     session.setHandler("registerBle", async () => {
       try{
-        await device.bleRegisterKey((status) => {
-          session.emit('onRegisterBleStatus', status);  
+        await device.bleRegisterKey(async (status) => {
+          try{
+            await session.emit('onRegisterBleStatus', status);
+          }
+          catch(error){
+            this.error("Error emitting onRegisterBleStatus: "+error.message);
+          }
         });
         return { success: true, error: '' };
       }
@@ -113,8 +118,13 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
 
     session.setHandler("getBleKeyStatus", async () => {
       try{
-        await device.bleGetKeyStatus((status) => {
-          session.emit('onGetBleKeyStatus', status);  
+        await device.bleGetKeyStatus(async (status) => {
+          try{
+            await session.emit('onGetBleKeyStatus', status);
+          }
+          catch(error){
+            this.error("Error emitting onGetBleKeyStatus: "+error.message);
+          }
         });
         return { success: true, error: '' };
       }

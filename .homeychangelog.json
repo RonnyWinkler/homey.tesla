@@ -401,5 +401,8 @@
   },
   "3.0.0": {
     "en": "Added BLE support for local connection. Added HomeyEnergy settings for car device (Homey FW >= 12.4.5 needed)."
+  },
+  "3.0.1": {
+    "en": "Fixed BLE repair issue (closed session). Fixed BLE key pair message."
   }
 }
