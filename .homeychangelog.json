@@ -404,5 +404,8 @@
   },
   "3.0.1": {
     "en": "Fixed BLE repair issue (closed session). Fixed BLE key pair message."
+  },
+  "3.0.2": {
+    "en": "Added car state update via BLE to allow car access if FLeetAPI rate limit is exceeded. Fixed missing BLE usable battery value."
   }
 }

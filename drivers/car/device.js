@@ -571,7 +571,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     catch(error){
       this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
 
-      this.setUnavailable(error.message).catch(this.error);
+      // Set unavailable if BLE is off and http error = 403 and reason is EXCEEDED_LIMIT
+      if (error.status == 403 && error.message.indexOf('EXCEEDED_LIMIT') >= 0 && this.getSetting('api_ble_active') == CONSTANTS.BLE_OFF){
+        this.setUnavailable(error.message).catch(this.error);
+      }
       await this.handleApiError(error);
     }
     finally{
@@ -580,10 +583,73 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async getCarState(){
-    let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
-    this.log("Car state: ", vehicle.state);
-    return vehicle.state;
+    // let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
+    let carState = await this._getCarStateTarget();
+    this.log("Car state: ", carState);
+    return carState;
   }
+
+  async _getCarStateTarget(){
+    // Read car data. Get the API to use first, then try BLE or FLeetAPI if BLE is not active or not available
+
+    // 1) BLE request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_OFF){
+      try{
+        if (this.commandApiBle != undefined){
+          let carStateBle = await this.bleGetCarStatus();
+          await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS );
+          await this.handleApiOk(CONSTANTS.API_ERROR_BLE);
+          if (carStateBle && carStateBle.vehicleStatus && carStateBle.vehicleStatus.vehicleSleepStatus != undefined){
+            // VEHICLE_SLEEP_STATUS_UNKNOWN = 0;
+            // VEHICLE_SLEEP_STATUS_AWAKE = 1;
+            // VEHICLE_SLEEP_STATUS_ASLEEP = 2;
+            switch (carStateBle.vehicleStatus.vehicleSleepStatus){
+              case 1: 
+                return CONSTANTS.STATE_ONLINE;
+              case 2:
+                return CONSTANTS.STATE_ASLEEP;
+              default:
+                return CONSTANTS.STATE_OFFLINE;
+            }
+          }
+          else{
+            throw new Error("Got invalid car state from BLE: " + JSON.stringify(carStateBle));
+          }
+        }
+        else{
+          throw new Error("Command API BLE is not initialized.");
+        }
+      }
+      catch(error){
+        this.log("_getCarStateTarget Error sending BLE command: "+error.message);
+        await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
+        await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
+        if (this.getSetting('api_ble_active') == CONSTANTS.BLE_ONLY){
+          // ONLY BLE, no FLeetAPI, but reading Error -> interpet as offline
+          this.log("BLE Error: BLE settings: BLE_ONLY. Set car state to offline.");
+          error.status = 408;
+          error.statusText = "BLE Error";
+          throw error;
+        }
+      }
+    }
+
+    // 2) FleetAPI Request:
+    if (this.getSetting('api_ble_active') != CONSTANTS.BLE_ONLY){
+      this.log("Send signed command via FleetAPI");
+      // Send commmand
+      let carState = await this._getCarStateApi();
+      return carState;
+    }
+  }
+
+  async _getCarStateApi(){
+    let carState = await this.oAuth2Client.getVehicle(this.getData().id);
+    return carState.state || CONSTANTS.STATE_OFFLINE;
+  }
+
+  // async _getCarStateBle(query){
+  // }
 
   // Read car data. Car must be awake.
   async getCarData(){
@@ -591,14 +657,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let oldState = this.getCapabilityValue('car_state');
 
     // get buffered car state
-    let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
-    this.log("Car state: ", vehicle.state); 
+    // let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
+    let carState = await this.getCarState();
+    this.log("Car state: ", carState); 
 
     // Workaround for missing asleep state since Softwware 2024.14.x
     // if (vehicle.state == CONSTANTS.STATE_ASLEEP){
-    if (vehicle.state != CONSTANTS.STATE_ONLINE){
+    if (carState != CONSTANTS.STATE_ONLINE){
 
-      await this.setCapabilityValue('car_state', vehicle.state);
+      await this.setCapabilityValue('car_state', carState);
       await this.setDeviceState(false);
       let time = this._getLocalTimeString(new Date());
       await this.setCapabilityValue('last_update', time);
@@ -610,7 +677,13 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       if ( oldState == CONSTANTS.STATE_ONLINE ){
         this._startSync();
       }
-      return vehicle;
+      return {};
+    }
+    else{
+      // Update car state to ONLINE if request was successful
+      await this.setCapabilityValue('car_state', carState || 'online');
+      await this.setDeviceState(true);
+
     }
 
     // car data
@@ -757,7 +830,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
       }
       catch(error){
-        this.log("_sendSignedCommandTarget Error sending BLE command: "+error.message);
+        this.log("_getCarDataTarget Error sending BLE command: "+error.message);
         await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
         await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
         if (this.getSetting('api_ble_active') == CONSTANTS.BLE_ONLY){
@@ -787,20 +860,6 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         throw new Error("Command API is not initialized.");
       }
     }
-
-    // // 3) FleeetAPI Request only while BLE is not working yet
-    //   if (this.commandApi != undefined){
-    //     this.log("Send signed command via FleetAPI");
-    //     // Count API statistics
-    //     await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_READ );
-    //     // Send commmand
-    //     return await this._getCarDataApi(query);
-    //   }
-    //   else{
-    //     throw new Error("Command API is not initialized.");
-    //   }
-
-
   }
 
   async _getCarDataApi(query){
@@ -1579,7 +1638,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     });
   }
 
-  async _sendVcsecMessageInformationRequest(buffer, statusCallback){
+  async _sendVcsecMessageInformationRequestWhitelist(buffer, statusCallback){
     // BTLE Reequest:
     return new Promise(async (resolve, reject) => {
       let timeout = null;
@@ -1650,6 +1709,57 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     });
   }
 
+    async _sendVcsecMessageInformationRequestCarState(buffer){
+    // BTLE Reequest:
+    return new Promise(async (resolve, reject) => {
+      let timeout = null;
+      const messageHandler = async (buffer)  => {
+        // this.log("BLE response: ",buffer.toString('hex'));
+        try{
+          if (this.commandApiBle.isRouteableMessage(buffer)){
+            // 1) Try to convert InformationRequest mresponse
+            let message = this.commandApiBle.decodeInformationRequestResponse(buffer);
+            this.log("BTLE proto message: ",message);
+            if (message){
+              if (timeout){
+                this.homey.clearTimeout(timeout);
+                timeout = null;
+              }
+              this.bleApi.onCarMessage.unsubscribe(messageHandler);
+              await this.bleApi.disconnect();          
+              resolve(message);
+            }
+          }        
+        }  
+        catch(error){
+          // Ignore invalid meessages
+        }
+      }
+
+      try{
+        await this.bleApi.connect();
+        this.bleApi.onCarMessage.subscribe(messageHandler);
+        // start timeout counter
+        timeout = this.homey.setTimeout( async () => {
+          this.log("BLE response: Timeout waiting for BLE response.");
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);
+          await this.bleApi.disconnect();
+          reject(new Error("Timeout waiting for BLE response."));
+        }, BLE_TIMEOUT_VCSEC);
+        // send commands
+        await this.bleApi.writeAsync(buffer);
+      }
+      catch(error){
+        try{
+          await this.bleApi.disconnect();
+          this.bleApi.onCarMessage.unsubscribe(messageHandler);    
+        }
+        catch(error){}
+        reject(error);
+      }
+    });
+  }
+
   _getSignedCommand(apiFunction, params){
     let result = {
       command: null,
@@ -1679,25 +1789,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   
       case 'getVehicleData':
         result.command = 'getVehicleData';
-        result.params = { 
-
-          // getChargeState: {},
-
-          // getClimateState: {},
-
-          // getDriveState: {},
-          // getLocationState: {},
-          // getClosuresState: {},
-          // getTirePressureState: {},
-          // getSoftwareUpdateState: {},
-
-          // getMediaState: {},
-          // getMediaDetailState: {},
-
-          // getChargeScheduleState: {},
-          // getPreconditioningScheduleState: {},
-          // getParentalControlsState: {},
-        };
+        result.params = {};
         if (params.chargeState){
           result.params['getChargeState'] = {};
         }
@@ -1731,6 +1823,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           requestEncryptedResponse: true
         }
         break;
+
+      // Car state request command via BLE only!
+      // FleetAPI is using REST request
+      case 'commandInformationRequestBle':
+        const key = Eckey.parsePem(this.homey.settings.get('private_key_ble'));
+        const publicKey = key.publicKey;
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        result.command = 'InformationRequest';
+        result.params = {
+          informationRequestType: 0, //0 = car status (INFORMATION_REQUEST_TYPE_GET_STATUS)
+          publicKey: publicKey
+        };
+        break;
+
 
       // Wake command sent via BLE only. 
       // If BLE is not used, Wakes are seent as REST request
@@ -2138,8 +2244,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     try{
       let messageBuffer = this.commandApiBle.encodeWhitelistMessageRequest(publicKey);
-      let buffer = await this._sendVcsecMessageWhitelistMessageRequest(messageBuffer, statusCallback);
-      // await this.commandApiBle.sendWhitelistMessage(this._onWhitelistMessageCallback.bind(this), statusCallback, publicKey);
+      let buffer = await this._sendVcsecMessageInformationRequestWhitelist(messageBuffer, statusCallback);
       if (buffer != undefined){
         this.log("bleRegisterKey() command: Success: ",buffer.toString('hex'));
       }
@@ -2160,14 +2265,28 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     const key = Eckey.parsePem(this.homey.settings.get('private_key_ble'));
     const publicKey = key.publicKey;
     try{
-      let messageBuffer = this.commandApiBle.encodeInformationRequestRequest(publicKey);
-      let buffer = await this._sendVcsecMessageInformationRequest(messageBuffer, statusCallback);
-      // let buffer = await this.commandApiBle.getWitelistStatus(this._onInformationRequestCallback.bind(this), statusCallback, publicKey);
+      let messageBuffer = this.commandApiBle.encodeInformationRequestKeyRequest(publicKey);
+      let buffer = await this._sendVcsecMessageInformationRequestCarState(messageBuffer, statusCallback);
       this.log("bleGetKeyStatus() command: Success: ",buffer.toString('hex'));
     }
     catch(error){
       this.log("BLE bleGetKeyStatus Error: "+error.message);
       statusCallback({code: 'ERROR', message: error.message});
+      throw error;
+    }    
+  }
+
+  async bleGetCarStatus(){
+    const key = Eckey.parsePem(this.homey.settings.get('private_key_ble'));
+    const publicKey = key.publicKey;
+    try{
+      let messageBuffer = this.commandApiBle.encodeInformationRequestCarRequest(publicKey);
+      let message = await this._sendVcsecMessageInformationRequestCarState(messageBuffer);
+      // this.log("bleGetCarStatus() command: Success: ",message);
+      return message;
+    }
+    catch(error){
+      this.log("BLE bleGetCarStatus Error: "+error.message);
       throw error;
     }    
   }
