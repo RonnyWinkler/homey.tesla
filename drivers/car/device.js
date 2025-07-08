@@ -569,7 +569,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     }
     catch(error){
-      this.log("Device update error (getState): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
+      this.log("Device update error (car._sync()): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
 
       // Set unavailable if BLE is off and http error = 403 and reason is EXCEEDED_LIMIT
       if (error.status == 403 && error.message.indexOf('EXCEEDED_LIMIT') >= 0 && this.getSetting('api_ble_active') == CONSTANTS.BLE_OFF){
@@ -608,12 +608,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
                 return CONSTANTS.STATE_ONLINE;
               case 2:
                 return CONSTANTS.STATE_ASLEEP;
+                // return CONSTANTS.STATE_OFFLINE;
               default:
                 return CONSTANTS.STATE_OFFLINE;
             }
           }
           else{
-            throw new Error("Got invalid car state from BLE: " + JSON.stringify(carStateBle));
+            this.log("Got invalid car state from BLE: " + JSON.stringify(carStateBle));
+            return CONSTANTS.STATE_OFFLINE;
           }
         }
         else{
@@ -621,25 +623,32 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
       }
       catch(error){
-        this.log("_getCarStateTarget Error sending BLE command: "+error.message);
+        this.log("_getCarStateTarget() Error sending BLE command: "+error.message);
         await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_ERROR );
         await this.handleApiError(error, CONSTANTS.API_ERROR_BLE);
         if (this.getSetting('api_ble_active') == CONSTANTS.BLE_ONLY){
           // ONLY BLE, no FLeetAPI, but reading Error -> interpet as offline
           this.log("BLE Error: BLE settings: BLE_ONLY. Set car state to offline.");
-          error.status = 408;
-          error.statusText = "BLE Error";
-          throw error;
+          // error.status = 408;
+          // error.statusText = "BLE Error";
+          // throw error;
+          return CONSTANTS.STATE_OFFLINE;
         }
       }
     }
 
     // 2) FleetAPI Request:
     if (this.getSetting('api_ble_active') != CONSTANTS.BLE_ONLY){
-      this.log("Send signed command via FleetAPI");
-      // Send commmand
-      let carState = await this._getCarStateApi();
-      return carState;
+      try{
+        this.log("Send signed command via FleetAPI");
+        // Send commmand
+        let carState = await this._getCarStateApi();
+        return carState;
+      }
+      catch(error){
+        this.log("_getCarStateTarget() Error sending FleetAPI command: "+error.message);
+        return CONSTANTS.STATE_OFFLINE;
+      }
     }
   }
 
@@ -677,7 +686,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       if ( oldState == CONSTANTS.STATE_ONLINE ){
         this._startSync();
       }
-      return {};
+      return {state: CONSTANTS.STATE_OFFLINE};
     }
     else{
       // Update car state to ONLINE if request was successful
@@ -2244,7 +2253,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     try{
       let messageBuffer = this.commandApiBle.encodeWhitelistMessageRequest(publicKey);
-      let buffer = await this._sendVcsecMessageInformationRequestWhitelist(messageBuffer, statusCallback);
+      let buffer = await this._sendVcsecMessageWhitelistMessageRequest(messageBuffer, statusCallback);
       if (buffer != undefined){
         this.log("bleRegisterKey() command: Success: ",buffer.toString('hex'));
       }
@@ -2266,7 +2275,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     const publicKey = key.publicKey;
     try{
       let messageBuffer = this.commandApiBle.encodeInformationRequestKeyRequest(publicKey);
-      let buffer = await this._sendVcsecMessageInformationRequestCarState(messageBuffer, statusCallback);
+      let buffer = await this._sendVcsecMessageInformationRequestWhitelist(messageBuffer, statusCallback);
       this.log("bleGetKeyStatus() command: Success: ",buffer.toString('hex'));
     }
     catch(error){

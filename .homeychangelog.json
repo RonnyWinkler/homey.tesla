@@ -407,5 +407,8 @@
   },
   "3.0.2": {
     "en": "Added car state update via BLE to allow car access if FLeetAPI rate limit is exceeded. Fixed missing BLE usable battery value."
+  },
+  "3.0.3": {
+    "en": "Fixed some code issues."
   }
 }
