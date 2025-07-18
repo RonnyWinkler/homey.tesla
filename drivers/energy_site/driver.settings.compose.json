@@ -1,0 +1,32 @@
+[
+    {
+      "type": "group",
+      "label": {
+        "en": "Data retrievals",
+        "de": "Datenabruf",
+        "nl": "Gegevens ophalen",
+        "fr": "Récupération des données",
+        "it": "Recupero dati",
+        "sv": "Datahämtningar",
+        "no": "Datainnhenting",
+        "es": "Recuperación de datos",
+        "da": "Datahentning",
+        "ru": "Получение данных",
+        "pl": "Pobieranie danych"
+      },
+      "children": [
+        {
+          "$extends": "polling_active",
+          "id": "polling_active"
+        },
+        {
+          "$extends": "polling_interval",
+          "id": "polling_interval"
+        },
+        {
+          "$extends": "polling_unit",
+          "id": "polling_unit"
+        }
+      ]
+    }
+  ]

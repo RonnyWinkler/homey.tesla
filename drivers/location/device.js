@@ -2,7 +2,7 @@
 const Homey = require('homey');
 const https = require('../../lib/https');
 const CONSTANTS = require('../../lib/constants');
-const ChildDevice = require('../child_device');
+const ChildDevice = require('../car_child_device');
 const OpenStreetMap = require('../../lib/OpenStreetMap'); 
 const SETTINGS_LOCATIONS_NR = 5;
 const LOCATION_DISTANCE_DEFAULT = 100; // 100 m default distance

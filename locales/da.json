@@ -3,6 +3,7 @@
       "pair_steps": {
           "title": "Parring",
           "subtitle": "Brug Tesla Fleet-API til at forbinde din bil",
+          "subtitle_02": "Brug Tesla Fleet-API til at forbinde dit energianlæg",
           "text_01": "For at bruge denne app skal du have en <b>Tesla-udviklerkonto</b>.",
           "text_02": "Fortsæt kun hvis du ønsker at oprette en udviklerkonto på tesla.com. Du får adgang til Fleet API med en månedlig rabat på 10$. Det bør dække normalt brug. Hvis du har brug for mere, kan du tilføje et abonnement senere.",
           "text_btn": "Instruktioner"
@@ -93,6 +94,12 @@
       },
       "media": {
           "name": "medier"
+      },
+      "energy_battery": {
+        "name": "hjemmebatteri"
+      },
+      "energy_solar": {
+        "name": "solpaneler"
       }
   },
   "repair": {

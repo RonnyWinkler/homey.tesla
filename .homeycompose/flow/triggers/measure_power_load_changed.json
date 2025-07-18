@@ -1,0 +1,39 @@
+{
+    "title": {
+    "en": "Load power changed",
+    "de": "Energieverbrauch hat sich geändert",
+    "nl": "Belastingsvermogen gewijzigd",
+    "fr": "Puissance de charge modifiée",
+    "it": "Potenza di carico modificata",
+    "sv": "Belastningseffekt ändrat",
+    "no": "Belastningseffekt endret",
+    "es": "Potencia de carga modificada",
+    "da": "Belastningseffekt ændret",
+    "ru": "Изменена мощность нагрузки",
+    "pl": "Zmiana moc obciążenia"
+    },
+    "tokens": [
+        {
+            "name": "measure_power_load",
+            "type": "number",
+            "title": {
+                "en": "Load power",
+                "de": "Energieverbrauch",
+                "nl": "Belastingsvermogen",
+                "fr": "Puissance de charge",
+                "it": "Potenza di carico",
+                "sv": "Belastningseffekt",
+                "no": "Belastningseffekt",
+                "es": "Potencia de carga",
+                "da": "Belastningseffekt",
+                "ru": "Нагрузка мощности",
+                "pl": "Moc obciążenia"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_site"
+    }]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "polling_interval",
+  "type": "number",
+  "label": {
+    "en": "Polling interval",
+    "de": "Abruf-Intervall",
+    "nl": "Polling interval",
+    "fr": "Intervalle de sondage",
+    "it": "Intervallo di polling",
+    "sv": "Undersökningsintervall",
+    "no": "Avstemningsintervall",
+    "es": "Intervalo de sondeo",
+    "da": "Afstemningsinterval",
+    "ru": "Интервал опроса",
+    "pl": "Interwał sondowania"
+  },
+  "value": 1,
+  "min": 1
+}

@@ -3,6 +3,7 @@
     "pair_steps": {
       "title": "Koppelen",
       "subtitle": "Gebruik Tesla Fleet-API om je auto te verbinden",
+      "subtitle_02": "Gebruik de Tesla Fleet-API om je energie-installatie te verbinden",
       "text_01": "Om deze app te gebruiken, heb je een <b>Tesla ontwikkelaarsaccount</b> nodig.",
       "text_02": "Ga alleen verder als je een ontwikkelaarsaccount wilt aanmaken op tesla.com. Je krijgt toegang tot de Fleet API met een maandelijkse korting van $10. Dat zou voldoende moeten zijn voor gemiddeld gebruik. Als je meer nodig hebt, kun je later een abonnement toevoegen.",
       "text_btn": "Instructies"
@@ -93,6 +94,12 @@
     },
     "media": {
       "name": "media"
+    },
+      "energy_battery": {
+      "name": "thuisbatterij"
+    },
+    "energy_solar": {
+      "name": "zonnepanelen"
     }
   },
   "repair": {

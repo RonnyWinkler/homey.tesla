@@ -3,7 +3,7 @@ const Homey = require('homey');
 
 const CAPABILITY_DEBOUNCE = 500;
 
-module.exports = class ChildDevice extends Homey.Device {
+module.exports = class EnergySiteChildDevice extends Homey.Device {
 
   async onInit() {
     this.log("onInit()");
@@ -79,7 +79,7 @@ module.exports = class ChildDevice extends Homey.Device {
   }
 
   // Read car data. Car must be awake.
-  async updateDevice(data){
+  async updateDevice(energySite){
 
     // redefine in subclasses
 

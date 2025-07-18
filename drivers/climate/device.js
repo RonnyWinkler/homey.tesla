@@ -2,7 +2,7 @@
 const Homey = require('homey');
 
 const CONSTANTS = require('../../lib/constants');
-const ChildDevice = require('../child_device');
+const ChildDevice = require('../car_child_device');
 
 module.exports = class ClimateDevice extends ChildDevice {
 

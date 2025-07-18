@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path d="M306.821,47.58L338.611,57L339.003,432.981L306.821,441.615" style="fill:none;stroke:black;stroke-width:10px;"/>
+    <path d="M142.379,62.494L306.821,43.263L306.429,447.502L142.771,416.105L142.379,62.494" style="fill:none;stroke:black;stroke-width:10px;"/>
+    <g transform="matrix(0.167172,-0.00963085,0.00963085,0.167172,224.6,121.034)">
+        <g transform="matrix(1,0,0,1,-400,-400)">
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="800" height="800"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g id="TESLA" transform="matrix(2.87047,0,0,2.87047,0,347.901)">
+                    <path d="M238.1,14.4L238.1,36.3L245.1,36.3L245.1,21.7L270.7,21.7L270.7,36.3L277.7,36.3L277.7,14.4L238.1,14.4M244.3,7.3L271.3,7.3C275.1,6.6 277.8,3.2 278.6,0L237,0C237.8,3.2 240.6,6.5 244.3,7.3M216.8,36.3C220.3,34.8 222.2,32.2 223,29.2L191.5,29.2L191.5,0.1L184.4,0.1L184.4,36.3L216.8,36.3M131.9,7.2L156.9,7.2C160.7,6.1 163.8,3.2 164.6,0.1L125,0.1L125,21.5L157.4,21.5L157.4,29L132,29C128,30.1 124.6,32.8 122.9,36.3L164.4,36.3L164.4,14.4L132,14.4L131.9,7.2M70.3,7.3L97.3,7.3C101.1,6.6 103.9,3.2 104.6,0L62.9,0C63.7,3.2 66.5,6.5 70.3,7.3M70.3,21.6L97.3,21.6C101.1,20.9 103.9,17.5 104.6,14.3L62.9,14.3C63.7,17.5 66.5,20.8 70.3,21.6M70.3,36.3L97.3,36.3C101.1,35.6 103.9,32.2 104.6,29L62.9,29C63.7,32.2 66.5,35.6 70.3,36.3" style="fill:rgb(94,94,94);fill-rule:nonzero;"/>
+                    <g>
+                        <path d="M0,0.1C0.8,3.3 3.6,6.5 7.3,7.3L18.7,7.3L19.3,7.5L19.3,36.2L26.4,36.2L26.4,7.5L27,7.3L38.4,7.3C42.2,6.3 44.9,3.3 45.7,0.1L45.7,0L0,0.1" style="fill:rgb(94,94,94);fill-rule:nonzero;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(8.67788,0,0,8.67788,224.6,304.12)">
+        <g transform="matrix(1,0,0,1,-12,-12)">
+            <path d="M11,15L6,15L13,1L13,9L18,9L11,23L11,15Z" style="fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

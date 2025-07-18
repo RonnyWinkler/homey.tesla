@@ -3,6 +3,7 @@
         "pair_steps": {
             "title": "Pairing",
             "subtitle": "Use Tesla Fleet-API to connect your car",
+            "subtitle_02": "Use Tesla Fleet-API to connect your energy site",
             "text_01": "To use this app, you need a <b>Tesla developer account</b>.",
             "text_02": "Proceed only if you want to create a developer account at tesla.com. You get Fleet API access with a monthly discount of 10$. That should cover an average usage. If you need more, you can add a subscription later.",
             "text_btn": "Instructions"
@@ -93,6 +94,12 @@
         },
         "media":{
             "name": "media"
+        },
+        "energy_battery":{
+            "name": "home battery"
+        },
+        "energy_solar":{
+            "name": "solar panels"
         }
     },
     "repair":{

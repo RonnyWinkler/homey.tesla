@@ -1,0 +1,106 @@
+{
+    "id": "energy_site",
+    "name": {
+        "en": "Energy site",
+        "de": "Energiestandort",
+        "nl": "Energieplaats",
+        "fr": "Site de chauffage",
+        "it": "Sito di energia",
+        "sv": "Energipunkt",
+        "no": "Energipunkt",
+        "es": "Sitio de energía",
+        "da": "Energipunkt",
+        "ru": "Энергопункт",
+        "pl": "Punkt energii"
+        },
+    "images": {
+        "large": "/drivers/energy_site/assets/images/large.png",
+        "small": "/drivers/energy_site/assets/images/small.png"
+    },
+    "class": "solarpanel",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+        "measure_power",
+        "measure_power_load"
+    ],
+    "energy": {
+        "cumulative": true
+    },
+    "pair": [
+        {
+            "id": "pair_steps",
+            "navigation": {
+                "next": "pair_step_01"
+            }
+        },
+        {
+            "id": "pair_step_01",
+            "navigation": {
+                "prev": "pair_steps",
+                "next": "pair_step_02"
+            }
+        },
+        {
+            "id": "pair_step_02",
+            "navigation": {
+                "prev": "pair_step_01",
+                "next": "login_oauth2"
+            }
+        },
+        {
+            "id": "error",
+            "navigation": {
+                "prev": "pair_step_02"
+            }
+        },
+        {
+            "id": "login_oauth2",
+            "template": "login_oauth2"
+        },
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices"
+        },
+        {
+            "id": "done",
+            "template": "done"
+        }
+    ],
+    "repair": [
+        {
+            "id": "pair_step_01",
+            "navigation": {
+                "prev": "pair_steps",
+                "next": "pair_step_02"
+            }
+        },
+        {
+            "id": "pair_step_02",
+            "navigation": {
+                "prev": "pair_step_01",
+                "next": "login_oauth2"
+            }
+        },
+        {
+            "id": "error",
+            "navigation": {
+                "prev": "pair_step_02"
+            }
+        },
+        {
+            "id": "login_oauth2",
+            "template": "login_oauth2"
+        },
+        {
+            "id": "done",
+            "template": "done"
+        }
+    ]
+}

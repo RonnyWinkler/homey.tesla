@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -3454,6 +3454,48 @@
           }
         ],
         "id": "measure_location_longitude_changed"
+      },
+      {
+        "title": {
+          "en": "Load power changed",
+          "de": "Energieverbrauch hat sich geändert",
+          "nl": "Belastingsvermogen gewijzigd",
+          "fr": "Puissance de charge modifiée",
+          "it": "Potenza di carico modificata",
+          "sv": "Belastningseffekt ändrat",
+          "no": "Belastningseffekt endret",
+          "es": "Potencia de carga modificada",
+          "da": "Belastningseffekt ændret",
+          "ru": "Изменена мощность нагрузки",
+          "pl": "Zmiana moc obciążenia"
+        },
+        "tokens": [
+          {
+            "name": "measure_power_load",
+            "type": "number",
+            "title": {
+              "en": "Load power",
+              "de": "Energieverbrauch",
+              "nl": "Belastingsvermogen",
+              "fr": "Puissance de charge",
+              "it": "Potenza di carico",
+              "sv": "Belastningseffekt",
+              "no": "Belastningseffekt",
+              "es": "Potencia de carga",
+              "da": "Belastningseffekt",
+              "ru": "Нагрузка мощности",
+              "pl": "Moc obciążenia"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_site"
+          }
+        ],
+        "id": "measure_power_load_changed"
       },
       {
         "title": {
@@ -9936,6 +9978,317 @@
       ]
     },
     {
+      "id": "energy_battery",
+      "name": {
+        "en": "Home battery",
+        "de": "Hausbatterie",
+        "nl": "Huisbatterij",
+        "fr": "Batterie de maison",
+        "it": "Batteria di casa",
+        "sv": "Husbatteri",
+        "no": "Husbatteri",
+        "es": "Batería de casa",
+        "da": "Husbatteri",
+        "ru": "Домашняя батарея",
+        "pl": "Bateria domowa"
+      },
+      "images": {
+        "large": "/drivers/energy_battery/assets/images/large.png",
+        "small": "/drivers/energy_battery/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ],
+        "homeBattery": true
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ]
+    },
+    {
+      "id": "energy_site",
+      "name": {
+        "en": "Energy site",
+        "de": "Energiestandort",
+        "nl": "Energieplaats",
+        "fr": "Site de chauffage",
+        "it": "Sito di energia",
+        "sv": "Energipunkt",
+        "no": "Energipunkt",
+        "es": "Sitio de energía",
+        "da": "Energipunkt",
+        "ru": "Энергопункт",
+        "pl": "Punkt energii"
+      },
+      "images": {
+        "large": "/drivers/energy_site/assets/images/large.png",
+        "small": "/drivers/energy_site/assets/images/small.png"
+      },
+      "class": "solarpanel",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "measure_power_load"
+      ],
+      "energy": {
+        "cumulative": true
+      },
+      "pair": [
+        {
+          "id": "pair_steps",
+          "navigation": {
+            "next": "pair_step_01"
+          }
+        },
+        {
+          "id": "pair_step_01",
+          "navigation": {
+            "prev": "pair_steps",
+            "next": "pair_step_02"
+          }
+        },
+        {
+          "id": "pair_step_02",
+          "navigation": {
+            "prev": "pair_step_01",
+            "next": "login_oauth2"
+          }
+        },
+        {
+          "id": "error",
+          "navigation": {
+            "prev": "pair_step_02"
+          }
+        },
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        },
+        {
+          "id": "done",
+          "template": "done"
+        }
+      ],
+      "repair": [
+        {
+          "id": "pair_step_01",
+          "navigation": {
+            "prev": "pair_steps",
+            "next": "pair_step_02"
+          }
+        },
+        {
+          "id": "pair_step_02",
+          "navigation": {
+            "prev": "pair_step_01",
+            "next": "login_oauth2"
+          }
+        },
+        {
+          "id": "error",
+          "navigation": {
+            "prev": "pair_step_02"
+          }
+        },
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "done",
+          "template": "done"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Data retrievals",
+            "de": "Datenabruf",
+            "nl": "Gegevens ophalen",
+            "fr": "Récupération des données",
+            "it": "Recupero dati",
+            "sv": "Datahämtningar",
+            "no": "Datainnhenting",
+            "es": "Recuperación de datos",
+            "da": "Datahentning",
+            "ru": "Получение данных",
+            "pl": "Pobieranie danych"
+          },
+          "children": [
+            {
+              "id": "polling_active",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Polling is active",
+                "de": "Abruf ist aktiviert",
+                "nl": "Pollen is geactiveerd",
+                "fr": "Le sondage est actif",
+                "it": "Il polling è attivo",
+                "sv": "Undersökning är aktiv",
+                "no": "Avstemming er aktiv",
+                "es": "La encuesta está activa",
+                "da": "Afstemning er aktiv",
+                "ru": "Опрос активен",
+                "pl": "Ankieta jest aktywna"
+              }
+            },
+            {
+              "id": "polling_interval",
+              "type": "number",
+              "label": {
+                "en": "Polling interval",
+                "de": "Abruf-Intervall",
+                "nl": "Polling interval",
+                "fr": "Intervalle de sondage",
+                "it": "Intervallo di polling",
+                "sv": "Undersökningsintervall",
+                "no": "Avstemningsintervall",
+                "es": "Intervalo de sondeo",
+                "da": "Afstemningsinterval",
+                "ru": "Интервал опроса",
+                "pl": "Interwał sondowania"
+              },
+              "value": 1,
+              "min": 1
+            },
+            {
+              "id": "polling_unit",
+              "type": "dropdown",
+              "label": {
+                "en": "Interval unit",
+                "de": "Intervall-Einheit",
+                "nl": "Interval eenheid",
+                "fr": "Unité d'intervalle",
+                "it": "Unità di intervallo",
+                "sv": "Intervall enhet",
+                "no": "Intervall enhet",
+                "es": "Unidad de intervalo",
+                "da": "Interval enhed",
+                "ru": "Единица интервала",
+                "pl": "Jednostka interwału"
+              },
+              "value": "min",
+              "values": [
+                {
+                  "id": "min",
+                  "label": {
+                    "en": "Minutes",
+                    "de": "Minuten",
+                    "nl": "Minuten",
+                    "fr": "Minutes",
+                    "it": "Minuti",
+                    "sv": "Minuter",
+                    "no": "Minutter",
+                    "es": "Minutos",
+                    "da": "Minutter",
+                    "ru": "Минуты",
+                    "pl": "Minuty"
+                  }
+                },
+                {
+                  "id": "sec",
+                  "label": {
+                    "en": "Seconds",
+                    "de": "Sekunden",
+                    "nl": "Seconden",
+                    "fr": "Secondes",
+                    "it": "Secondi",
+                    "sv": "Sekunder",
+                    "no": "Sekunder",
+                    "es": "Segundos",
+                    "da": "Sekunder",
+                    "ru": "Секунды",
+                    "pl": "Sekundy"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy_solar",
+      "name": {
+        "en": "Solar panels",
+        "de": "Solarmodule",
+        "nl": "Zonnepanelen",
+        "fr": "Modules solaires",
+        "it": "Moduli solari",
+        "sv": "Solarmoduler",
+        "no": "Solarmoduler",
+        "es": "Modulos solares",
+        "da": "Solarmoduler",
+        "ru": "Солнечные модули",
+        "pl": "Moduły słoneczne"
+      },
+      "images": {
+        "large": "/drivers/energy_solar/assets/images/large.png",
+        "small": "/drivers/energy_solar/assets/images/small.png"
+      },
+      "class": "solarpanel",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power"
+      ],
+      "energy": {},
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ]
+    },
+    {
       "id": "location",
       "name": {
         "en": "Location & navigation",
@@ -13929,6 +14282,29 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_location_longitude.svg"
+    },
+    "measure_power_load": {
+      "type": "number",
+      "title": {
+        "en": "Load power",
+        "de": "Energieverbrauch",
+        "nl": "Belastingsvermogen",
+        "fr": "Puissance de charge",
+        "it": "Potenza di carico",
+        "sv": "Belastningseffekt",
+        "no": "Belastningseffekt",
+        "es": "Potencia de carga",
+        "da": "Belastningseffekt",
+        "ru": "Нагрузка мощности",
+        "pl": "Moc obciążenia"
+      },
+      "units": {
+        "en": "W"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_power_load.svg"
     },
     "measure_soc_level": {
       "type": "number",

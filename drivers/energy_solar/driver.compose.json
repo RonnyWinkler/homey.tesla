@@ -1,0 +1,43 @@
+{
+    "id": "energy_battery",
+    "name": {
+        "en": "Solar panels",
+        "de": "Solarmodule",
+        "nl": "Zonnepanelen",
+        "fr": "Modules solaires",
+        "it": "Moduli solari",
+        "sv": "Solarmoduler",
+        "no": "Solarmoduler",
+        "es": "Modulos solares",
+        "da": "Solarmoduler",
+        "ru": "Солнечные модули",
+        "pl": "Moduły słoneczne"
+    },
+    "images": {
+        "large": "/drivers/energy_solar/assets/images/large.png",
+        "small": "/drivers/energy_solar/assets/images/small.png"
+    },
+    "class": "solarpanel",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+        "measure_power"
+    ],
+    "energy": {
+    },
+    "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices",
+            "navigation": {
+                "prev": "list_devices"
+            }
+        }
+    ]
+}

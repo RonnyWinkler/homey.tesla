@@ -1,0 +1,48 @@
+{
+    "id": "energy_battery",
+    "name": {
+        "en": "Home battery",
+        "de": "Hausbatterie",
+        "nl": "Huisbatterij",
+        "fr": "Batterie de maison",
+        "it": "Batteria di casa",
+        "sv": "Husbatteri",
+        "no": "Husbatteri",
+        "es": "Batería de casa",
+        "da": "Husbatteri",
+        "ru": "Домашняя батарея",
+        "pl": "Bateria domowa"
+    },
+    "images": {
+        "large": "/drivers/energy_battery/assets/images/large.png",
+        "small": "/drivers/energy_battery/assets/images/small.png"
+    },
+    "class": "sensor",
+    "connectivity": [ "cloud" ],
+    "capabilities": [
+        "measure_power",
+        "measure_battery"
+    ],
+    "energy": {
+        "batteries": [
+            "OTHER"
+        ],
+        "homeBattery": true
+    },
+    "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices",
+            "navigation": {
+                "prev": "list_devices"
+            }
+        }
+    ]
+}

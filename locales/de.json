@@ -3,6 +3,7 @@
         "pair_steps": {
             "title": "Kopplung",
             "subtitle": "Verwenden Sie die Tesla Fleet-API, um Ihr Auto zu verbinden",
+            "subtitle_02": "Verwende die Tesla Fleet-API, um deine Energieanlage zu verbinden",
             "text_01": "Um diese App zu nutzen, benötigen Sie ein <b>Tesla-Entwicklerkonto</b>.",
             "text_02": "Fahren Sie nur fort, wenn Sie ein Entwicklerkonto auf tesla.com erstellen möchten. Sie erhalten Zugriff auf die Fleet API mit einem monatlichen Rabatt von 10$. Dies sollte eine durchschnittliche Nutzung abdecken. Falls Sie mehr benötigen, können Sie später ein Abonnement hinzufügen.",
             "text_btn": "Anleitung"
@@ -63,6 +64,12 @@
         },
         "media":{
             "name": "Medien"
+        },
+        "energy_battery": {
+          "name": "Hausbatterie"
+        },
+        "energy_solar": {
+            "name": "Solarmodule"
         }
     },
     "repair":{

@@ -3,6 +3,7 @@
     "pair_steps": {
       "title": "Parowanie",
       "subtitle": "Użyj Tesla Fleet-API, aby połączyć swój samochód",
+      "subtitle_02": "Użyj interfejsu Tesla Fleet-API, aby połączyć swoją instalację energetyczną",
       "text_01": "Aby korzystać z tej aplikacji, potrzebujesz <b>konta deweloperskiego Tesla</b>.",
       "text_02": "Kontynuuj tylko, jeśli chcesz utworzyć konto deweloperskie na tesla.com. Uzyskasz dostęp do Fleet API z miesięczną zniżką 10$. Powinno to wystarczyć na przeciętne użytkowanie. Jeśli potrzebujesz więcej, możesz później dodać subskrypcję.",
       "text_btn": "Instrukcje"

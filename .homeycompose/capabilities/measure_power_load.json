@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Load power",
+    "de": "Energieverbrauch",
+    "nl": "Belastingsvermogen",
+    "fr": "Puissance de charge",
+    "it": "Potenza di carico",
+    "sv": "Belastningseffekt",
+    "no": "Belastningseffekt",
+    "es": "Potencia de carga",
+    "da": "Belastningseffekt",
+    "ru": "Нагрузка мощности",
+    "pl": "Moc obciążenia"
+  },
+  "units": {
+    "en": "W"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_power_load.svg"
+}

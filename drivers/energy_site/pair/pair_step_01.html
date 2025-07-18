@@ -1,0 +1,84 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("pair.pair_step_01.title"));
+  
+  function showUrl(url){
+      Homey.popup(url);
+  }
+
+  async function copyUrl(element, infoId) {
+    // element.select();
+    document.execCommand('copy');
+    document.getElementById(infoId).style.display = 'inline';
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    document.getElementById(infoId).style.display = 'none';
+}
+</script>
+
+<style>
+  #imgLogo {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    height: 70px;
+  }
+
+  .url{
+    color: gray;
+    -webkit-user-select: all;
+    user-select: all;
+  }
+</style>
+
+<!-- <span id="imgLogo"></span> -->
+
+<fieldset class="homey-form-fieldset">
+  <!-- <legend class="homey-form-legend" data-i18n="pair.pair_step_01.subtitle"></legend> -->
+  <div class="homey-form-group">
+    <p data-i18n="pair.pair_step_01.text_01"></p>
+    <p data-i18n="pair.pair_step_01.text_02"></p>
+    <p data-i18n="pair.pair_step_01.text_03"></p>
+    <p data-i18n="pair.pair_step_01.text_04"></p>
+    <p>
+      <br>
+      <button id="btnDeveloperPage" class="homey-button-primary-shadow-full" onClick="showUrl('https://developer.tesla.com/')">
+        <span data-i18n="pair.pair_step_01.text_05"></span>
+      </button>
+      <br>
+    </p>
+    <!-- <p data-i18n="pair.pair_step_01.text_06"></p> -->
+    <p><span data-i18n="pair.pair_step_01.text_07" style="font-weight: bold;"></span></p>
+    <ul>
+      <li>
+        <span data-i18n="pair.pair_step_01.text_08"></span><br>
+        <span data-i18n="pair.pair_step_01.text_08a"></span>
+      </li>
+      <li>
+        <span data-i18n="pair.pair_step_01.text_09"></span><br>
+        <span data-i18n="pair.pair_step_01.text_09a" class="url" onclick="copyUrl(this, 'copyInfo09a')"></span> <span id="copyInfo09a" data-i18n="pair.pair_step_01.text_13" class="url" style="display: none"></span><br>
+        <span data-i18n="pair.pair_step_01.text_09b" class="url" onclick="copyUrl(this, 'copyInfo09b')"></span> <span id="copyInfo09b" data-i18n="pair.pair_step_01.text_13" class="url" style="display: none"></span>
+      </li>
+      <li>
+        <span data-i18n="pair.pair_step_01.text_10"></span><br>
+        <span data-i18n="pair.pair_step_01.text_10a" class="url" onclick="copyUrl(this, 'copyInfo10a')"></span> <span id="copyInfo10a" data-i18n="pair.pair_step_01.text_13" class="url" style="display: none"></span>
+      </li>
+      <li>
+        <span data-i18n="pair.pair_step_01.text_11"></span><br>
+        <span data-i18n="pair.pair_step_01.text_11a"></span>
+      </li>
+      <li>
+        <span data-i18n="pair.pair_step_01.text_12"></span><br>
+        <span data-i18n="pair.pair_step_01.text_12a"></span>
+      </li>
+    </ul>
+  </div>
+</fieldset>
+
+
+

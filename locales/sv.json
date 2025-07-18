@@ -3,6 +3,7 @@
     "pair_steps": {
       "title": "Parkoppling",
       "subtitle": "Använd Tesla Fleet-API för att ansluta din bil",
+      "subtitle_02": "Använd Tesla Fleet-API för att ansluta din energianläggning",
       "text_01": "För att använda denna app behöver du ett <b>Tesla-utvecklarkonto</b>.",
       "text_02": "Fortsätt endast om du vill skapa ett utvecklarkonto på tesla.com. Du får tillgång till Fleet API med en månadsrabatt på 10 $. Det bör täcka normal användning. Om du behöver mer kan du lägga till en prenumeration senare.",
       "text_btn": "Instruktioner"

@@ -1,0 +1,40 @@
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("pair.pair_steps.title"));
+  
+  function showUrl(url){
+      Homey.popup(url);
+  }
+</script>
+
+<style>
+  #imgLogo {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    height: 70px;
+  }
+</style>
+
+<span id="imgLogo"></span>
+
+<fieldset class="homey-form-fieldset">
+  <legend class="homey-form-legend" data-i18n="pair.pair_steps.subtitle_02"></legend>
+  <div class="homey-form-group">
+    <p><span data-i18n="pair.pair_steps.text_01"></span></p>
+    <p><span data-i18n="pair.pair_steps.text_02"></span></p>
+    <p>
+      <br>
+      <button id="btnInstructions" class="homey-button-secondary-shadow-full" onClick="showUrl('https://rwdevelopment.de/2025/02/08/tesla-fleetapi-personal-use/')">
+        <span data-i18n="pair.pair_steps.text_btn"></span>
+      </button>
+    </p>
+
+  </div>
+</fieldset>
