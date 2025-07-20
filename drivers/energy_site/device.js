@@ -25,7 +25,6 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
 
     async onOAuth2Uninit(){
         await this._stopSync();
-        await this._stopApiCounterResetTimer();
     }
 
     async onOAuth2Deleted() {

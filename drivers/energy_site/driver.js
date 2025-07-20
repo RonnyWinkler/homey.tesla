@@ -8,6 +8,7 @@ module.exports = class EnergySiteDriver extends TeslaOAuth2Driver {
     }
 
     async onPair(session){
+        this.log("onPair()");
 
         session.setHandler("getClientId", async () => {
         return {
@@ -23,7 +24,25 @@ module.exports = class EnergySiteDriver extends TeslaOAuth2Driver {
         });
 
         super.onPair(session);
+    }
 
+    async onRepair(session, device) {
+        this.log("onRepair()");
+
+        session.setHandler("getClientId", async () => {
+        return {
+            clientId: this.homey.settings.get('client_id') || '',
+            clientSecret: this.homey.settings.get('client_secret') || ''
+        };
+        });
+
+        session.setHandler("setClientId", async (data) => {
+        this.log("setClientId() => ", data.clientId);
+        await this.homey.settings.set("client_id", data.clientId);
+        await this.homey.settings.set("client_secret", data.clientSecret);
+        });
+
+        super.onRepair(session, device);
     }
 
     async onPairListDevices({ oAuth2Client }) {
