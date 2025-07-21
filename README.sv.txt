@@ -1,19 +1,24 @@
 Logga dina fordonsdata, luftkonditionering innan du kör eller optimera laddningen...
 Otaliga sätt att göra din Tesla ännu smartare och integrera den i ditt smarta hem.
 
-Uppstart:
+Installation:
 Lägg till ditt fordon som en enhet. Logga in med ditt Tesla-konto.
-När den väl har lagts till har du möjlighet att registrera appen i ditt fordon för att skicka kommandon till fordonet.
+När fordonet är tillagt har du möjlighet att registrera appen i fordonet för att skicka kommandon till det.
+Du kan sedan lägga till ytterligare enheter för att styra specifika fordonsfunktioner (klimat, laddning osv.).
 
-Du kan sedan lägga till ytterligare enheter för att styra specifika fordonsfunktioner (klimat, laddning...).
+För energienheter, lägg först till EnergySite-enheten. Lägg sedan till beroende enheter som batterier och solpaneler.
 
 API-anteckningar:
-Denna app använder Tesla Fleet API. Detta stöder end-to-end-kryptering av de kommandon som skickas till fordonet.
-För att kunna skicka kommandon till fordonet måste appen vara registrerad i fordonet. För att göra detta, använd anropet när du lägger till fordonet eller utför detta steg senare i reparationsdialogrutan.
-Att lägga till som fordonsnyckel kan vara begränsat om du inte är ägaren men fordonet är registrerat hos uthyraren.
+Den här appen använder Tesla Fleet API, vilket stöder end-to-end-kryptering av kommandon som skickas till fordonet.
+För att använda appen behöver du ett Tesla-utvecklarkonto. Dokumentation finns i parningsvyn.
+För att kunna skicka kommandon till fordonet måste appen vara registrerad i fordonet. Det kan göras vid tillägg av fordonet eller senare i reparationsdialogen.
+Att lägga till som fordonsnyckel kan vara begränsat om du inte är ägaren, men fordonet är registrerat på leasinggivaren.
 
-API-hastighetsgränser:
-Tesla införde rete-gränser:
-- 300 dataavläsningar per dag
-- ~50 kommandon om dagen
-- Mindre än 50 start/stopp-laddningskommandon eller vakna kommandon per dag
+Tesla API-priser (exempel i €):
+10 € gratis per månad.
+Kostnader:
+- 1000 kommandon = 1 €
+- 500 dataförfrågningar = 1 €
+- 50 väckningsförfrågningar = 1 €
+Vid högre användning kan du lägga till en prenumeration.
+Detaljer på https://developer.tesla.com/

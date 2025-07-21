@@ -1,22 +1,22 @@
 {
   "id": "com.tesla.car",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "compatibility": ">=12.4.5",
   "platforms": ["local"],
   "connectivity": ["cloud", "ble"],
   "sdk": 3,
   "name": {
-    "en": "Tesla",
-    "de": "Tesla",
-    "nl": "Tesla",
-    "fr": "Tesla",
-    "it": "Tesla",
-    "sv": "Tesla",
-    "no": "Tesla",
-    "es": "Tesla",
-    "da": "Tesla",
-    "ru": "Tesla",
-    "pl": "Tesla"
+    "en": "Tesla Car & Energy",
+    "de": "Tesla Auto & Energie",
+    "nl": "Tesla Auto & Energie",
+    "fr": "Tesla Voiture & Énergie",
+    "it": "Tesla Auto & Energia",
+    "sv": "Tesla Bil & Energi",
+    "no": "Tesla Bil & Energi",
+    "es": "Tesla Coche & Energía",
+    "da": "Tesla Bil & Energi",
+    "ru": "Tesla Авто & Энергия",
+    "pl": "Tesla Auto & Energia"
   },
   "description": {
     "en": "Zero emissions. Zero compromises.",
@@ -32,17 +32,17 @@
     "pl": "Zero emisji. Zero kompromisów."
   },
   "tags": { 
-    "en": ["Tesla", "car", "vehicle", "charger", "charging"],
-    "de": ["Tesla", "Auto", "Fahrzeug", "Lader", "Laden"],
-    "nl": ["Tesla", "auto", "voertuig", "oplader", "opladen"],
-    "fr": ["Tesla", "voiture", "véhicule", "chargeur", "chargement"],
-    "it": ["Tesla", "auto", "veicolo", "caricatore", "caricamento"],
-    "sv": ["Tesla", "bil", "fordon", "laddare", "laddning"],
-    "no": ["Tesla", "bil", "kjøretøy", "lader", "lading"],
-    "es": ["Tesla", "coche", "vehículo", "cargador", "carga"],
-    "da": ["Tesla", "bil", "køretøj", "oplader", "opladning"],
-    "ru": ["Tesla", "автомобиль", "транспортное средство", "зарядное устройство", "зарядка"],
-    "pl": ["Tesla", "samochód", "pojazd", "ładowarka", "ładowanie"]
+    "en": ["Tesla", "FleetAPI", "car", "vehicle", "charger", "charging", "energy", "energy site", "solar", "home battery", "solar roof", "powerwall"],
+    "de": ["Tesla", "FleetAPI", "Auto", "Fahrzeug", "Lader", "Laden", "Energie", "Energy Site", "Solar", "Hausbatterie", "Solar roof", "Powerwall"],
+    "nl": ["Tesla", "FleetAPI", "auto", "voertuig", "oplader", "opladen", "energie", "energie site", "zonnepanelen", "thuisbatterij", "Solar roof", "Powerwall"],
+    "fr": ["Tesla", "FleetAPI", "voiture", "véhicule", "chargeur", "chargement", "energie", "site d'energie", "panneaux solaires", "batterie domestique", "Solar roof", "Powerwall"],
+    "it": ["Tesla", "FleetAPI", "auto", "veicolo", "caricatore", "caricamento", "energia", "sito di energia", "pannelli solari", "batteria domestica", "Solar roof", "Powerwall"],
+    "sv": ["Tesla", "FleetAPI", "bil", "fordon", "laddare", "laddning", "energi", "energiplats", "solceller", "hem-batteri", "Solar roof", "Powerwall"],
+    "no": ["Tesla", "FleetAPI", "bil", "kjøretøy", "lader", "lading", "energi", "energiplatt", "solceller", "hem-batteri", "Solar roof", "Powerwall"],
+    "es": ["Tesla", "FleetAPI", "coche", "vehículo", "cargador", "carga", "energia", "sitio de energía", "paneles solares", "batería domestica", "Solar roof", "Powerwall"],
+    "da": ["Tesla", "FleetAPI", "bil", "køretøj", "oplader", "opladning", "energi", "energiplads", "solceller", "hjem-batteri", "Solar roof", "Powerwall"],
+    "ru": ["Tesla", "FleetAPI", "автомобиль", "транспортное средство", "зарядное устройство", "зарядка", "энергия", "сайт энергии", "солнечные панели", "домашняя батарея", "солнечная крышка", "powerwall"],
+    "pl": ["Tesla", "FleetAPI", "samochód", "pojazd", "ładowarka", "ładowanie", "energia", "site energia", "panele słoneczne", "bateria domowa", "Solar roof", "Powerwall"]
   },
   "category": [
     "tools"

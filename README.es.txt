@@ -2,18 +2,23 @@ Registra los datos de tu vehículo, aire acondicionado antes de conducir u optim
 Infinidad de formas de hacer que tu Tesla sea aún más inteligente e integrarlo en tu hogar inteligente.
 
 Configuración:
-Agregue su vehículo como dispositivo. Inicie sesión con su cuenta Tesla.
-Una vez agregada, tiene la opción de registrar la aplicación en su vehículo para enviar comandos al vehículo.
+Agrega tu vehículo como un dispositivo. Inicia sesión con tu cuenta de Tesla.
+Una vez agregado, tienes la opción de registrar la app en tu vehículo para enviar comandos al mismo.
+Luego puedes agregar dispositivos adicionales para controlar funciones específicas del vehículo (climatización, carga...).
 
-A continuación, podrá añadir dispositivos adicionales para controlar funciones específicas del vehículo (climatización, carga...).
+Para dispositivos de energía, primero agrega el dispositivo EnergySite. Luego agrega los dispositivos dependientes como baterías y paneles solares.
 
-Notas API:
-Esta aplicación utiliza la API de Tesla Fleet. Esto admite el cifrado de extremo a extremo de los comandos enviados al vehículo.
-Para enviar comandos al vehículo, la aplicación debe estar registrada en el vehículo. Para hacer esto, use la llamada al agregar el vehículo o realice este paso más adelante en el cuadro de diálogo de reparación.
-Agregar como llave de vehículo puede estar restringido si usted no es el propietario pero el vehículo está registrado a nombre del arrendador.
+Notas sobre la API:
+Esta app utiliza la Tesla Fleet API. Esta admite cifrado de extremo a extremo para los comandos enviados al vehículo.
+Para usar esta app, necesitas una cuenta de desarrollador de Tesla. La documentación está disponible en la vista de emparejamiento.
+Para enviar comandos al vehículo, la app debe estar registrada en el vehículo. Para ello, usa la llamada al agregar el vehículo o realiza este paso más adelante en el diálogo de reparación.
+Agregar como llave del vehículo puede estar restringido si no eres el propietario y el vehículo está registrado a nombre del arrendador.
 
-Límites de tasa API:
-Tesla introdujo límites de red:
-- 300 lecturas de datos al día
-- ~50 comandos al día
-- menos de 50 comandos de inicio/parada de carga o comando de despertar al día
+Precios de la API de Tesla (ejemplos en €):
+10 € gratis al mes.
+Costes:
+- 1000 comandos = 1 €
+- 500 solicitudes de datos = 1 €
+- 50 solicitudes de activación = 1 €
+Para un uso mayor puedes añadir una suscripción.
+Más detalles en https://developer.tesla.com/

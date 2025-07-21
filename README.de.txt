@@ -2,18 +2,25 @@ Protokolliere deine Fahrzeugdaten, klimatisiere vor der Fahrt oder optimiere das
 Unzählige Möglichkeiten, deinen Tesla noch smarter zu machen und in dein Smarthome zu integrieren.
 
 Einrichtung:
-Füge dein Fahrzeug als Gerät hinzu. Melde dich dabei mit deinem Tesla-Account an.
-Nach dem Hinzufügen hast du die Möglichkeit, die App in deinem Fahrzeug zu registrieren, um Befehle an das Fahrzeug zu senden.
+Füge dein Fahrzeug als Gerät hinzu und melde dich mit deinem Tesla-Konto an.
+Sobald das Fahrzeug hinzugefügt wurde, hast du die Möglichkeit, die App im Fahrzeug zu registrieren, um Befehle an das Fahrzeug zu senden.
+Anschließend kannst du weitere Geräte hinzufügen, um bestimmte Fahrzeugfunktionen zu steuern (Klimaanlage, Laden usw.).
 
-Anschließend kannst du weitere Geräte hinzufügen, um spezielle fahrzeugfunktionen zu steuern (Klima, Laden...).
+Bei Energiegeräten füge zunächst das EnergySite-Gerät hinzu. Danach kannst du abhängige Geräte wie Batterien und Solarmodule hinzufügen.
 
 API-Hinweise:
-Diese App verwendet die Tesla-Fleet-API. Damit wird eine Ende-zu-Ende-Verschlüsselung der an das Fahrzeug gesendeten Befehle unterstützt.
-Um Befehle an das Fahrzeug zu senden, muss die App im Fahrzeug registriert werden. Verwende dazu den Aufruf beim Hinzufügen des Fahrzeugs oder führe diesen Schritt nachträglich im Reparieren-Dialog durch.
-Das Hinzufügen als Fahrzeugschlüssel ist ggf. eingeschränkt, wenn du nicht der Inhaber bist, sondern das Fahrzeug auf den Leasinggeber registriert ist.
+Diese App verwendet die Tesla Fleet API. Diese unterstützt eine Ende-zu-Ende-Verschlüsselung der an das Fahrzeug gesendeten Befehle.
+Zur Nutzung der App benötigst du ein Tesla-Entwicklerkonto. Die Dokumentation ist in der Kopplungsansicht verfügbar.
+Um Befehle an das Fahrzeug senden zu können, muss die App im Fahrzeug registriert werden.
+Dazu kannst du den entsprechenden Aufruf beim Hinzufügen des Fahrzeugs verwenden oder diesen Schritt später im Reparaturdialog durchführen.
+Das Hinzufügen als Fahrzeugschlüssel kann eingeschränkt sein, wenn du nicht der Eigentümer bist, sondern das Fahrzeug auf den Leasinggeber registriert ist.
 
-API-Ratenbegrenzungen:
-Tesla hat Ratenbegrenzungen eingeführt:
-- 300 Datenablesungen pro Tag
-- ~50 Befehle pro Tag
-- weniger als 50 Start-/Stopp-Ladebefehle oder Weckbefehle pro Tag
+Tesla API-Preise (Beispiele in €):
+10 € kostenlos pro Monat
+Kosten:
+- 1000 Befehle = 1 €
+- 500 Datenabfragen = 1 €
+- 50 Weckbefehle = 1 €
+
+Für eine höhere Nutzung kannst du ein Abo hinzufügen.
+Details unter: https://developer.tesla.com/

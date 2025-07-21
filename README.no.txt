@@ -2,18 +2,23 @@ Logg kjøretøydataene dine, klimaanlegget før du kjører eller optimer ladinge
 Utallige måter å gjøre din Tesla enda smartere på og integrere den i ditt smarte hjem.
 
 Oppsett:
-Legg til kjøretøyet ditt som en enhet. Logg på med Tesla-kontoen din.
-Når den er lagt til, har du muligheten til å registrere appen i kjøretøyet ditt for å sende kommandoer til kjøretøyet.
+Legg til kjøretøyet ditt som en enhet. Logg inn med Tesla-kontoen din.
+Når kjøretøyet er lagt til, har du muligheten til å registrere appen i kjøretøyet for å sende kommandoer til det.
+Du kan deretter legge til flere enheter for å kontrollere spesifikke funksjoner i kjøretøyet (klima, lading ...).
 
-Du kan deretter legge til flere enheter for å kontrollere spesifikke kjøretøyfunksjoner (klima, lading...).
+For energienheter, legg først til EnergySite-enheten. Legg deretter til avhengige enheter som batterier og solcellepaneler.
 
 API-merknader:
-Denne appen bruker Tesla Fleet API. Dette støtter ende-til-ende-kryptering av kommandoene som sendes til kjøretøyet.
-For å sende kommandoer til kjøretøyet, må appen være registrert i kjøretøyet. For å gjøre dette, bruk anropet når du legger til kjøretøyet eller utfør dette trinnet senere i reparasjonsdialogen.
-Legging som kjøretøynøkkel kan være begrenset hvis du ikke er eier, men kjøretøyet er registrert hos utleier.
+Denne appen bruker Tesla Fleet API, som støtter ende-til-ende-kryptering av kommandoer som sendes til kjøretøyet.
+For å bruke appen trenger du en Tesla-utviklerkonto. Dokumentasjonen er tilgjengelig i sammenkoblingsvisningen.
+For å kunne sende kommandoer til kjøretøyet, må appen være registrert i kjøretøyet. Dette kan gjøres når du legger til kjøretøyet, eller senere i reparasjonsdialogen.
+Å legge til som kjøretøynøkkel kan være begrenset hvis du ikke er eier, men kjøretøyet er registrert på leasingselskapet.
 
-API-hastighetsgrenser:
-Tesla introduserte rete-grenser:
-- 300 dataavlesninger om dagen
-- ~50 kommandoer om dagen
-- mindre enn 50 start-/stopp-ladingskommandoer eller våkne-kommando per dag
+Tesla API-priser (eksempler i €):
+10 € gratis per måned.
+Kostnader:
+- 1000 kommandoer = 1 €
+– 500 dataforespørsler = 1 €
+– 50 oppvåkningsforespørsler = 1 €
+For høyere bruk kan du legge til et abonnement.
+Detaljer på https://developer.tesla.com/
