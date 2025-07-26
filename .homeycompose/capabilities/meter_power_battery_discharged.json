@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy discharged",
+    "de": "Energie entladen",
+    "nl": "Energie opgeladen",
+    "fr": "Energie chargée",
+    "it": "Energia carica",
+    "sv": "Energi laddad",
+    "no": "Energi laddet",
+    "es": "Energía cargada",
+    "da": "Energi ladet",
+    "ru": "Энергия заряжанная",
+    "pl": "Energia ładowana"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_battery_discharged.svg"
+}

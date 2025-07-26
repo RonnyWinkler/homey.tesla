@@ -1,0 +1,39 @@
+{
+    "title": {
+    "en": "Energy exported to grid changed",
+    "de": "Energie zum Netz exportiert hat sich geändert",
+    "nl": "Energie naar de netwerk exporteren gewijzigd",
+    "fr": "Energie exportée vers la grille a changé",
+    "it": "Energia esportata verso la rete ha cambiato",
+    "sv": "Energi exporterad till grid harändrat",
+    "no": "Energi eksportert til grid har endret seg",
+    "es": "Energía exportada a la red ha cambiado",
+    "da": "Energi eksporteret til grid har ændret sig",
+    "ru": "Энергия экспортированная в сеть изменилась",
+    "pl": "Energia eksportowana do sieci zmienna"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_grid_exported",
+            "type": "number",
+            "title": {
+                "en": "Energy exported to grid",
+                "de": "Energie zum Netz exportiert",
+                "nl": "Energie naar de netwerk exporteren",
+                "fr": "Energie exportée vers la grille",
+                "it": "Energia esportata verso la rete",
+                "sv": "Energi exporterad till grid",
+                "no": "Energi eksportert til grid",
+                "es": "Energía exportada a la red",
+                "da": "Energi eksporteret til grid",
+                "ru": "Энергия экспортированная в сеть",
+                "pl": "Energia eksportowana do sieci"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_site"
+    }]
+}

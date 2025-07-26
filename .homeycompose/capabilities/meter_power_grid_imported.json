@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy imported from grid",
+    "de": "Energie vom Netz importiert",
+    "nl": "Energie van de netwerk importeren",
+    "fr": "Energie importée de la grille",
+    "it": "Energia importata dalla rete",
+    "sv": "Energi importerad fra grid",
+    "no": "Energi importert fra grid",
+    "es": "Energía importada de la red",
+    "da": "Energi importerede fra grid",
+    "ru": "Энергия импортированная из сети",
+    "pl": "Energia importowana z sieci"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_grid_imported.svg"
+}

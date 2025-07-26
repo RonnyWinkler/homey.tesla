@@ -8,6 +8,7 @@ module.exports = class EnergySiteChildDevice extends Homey.Device {
   async onInit() {
     this.log("onInit()");
     await this._updateCapabilities();
+    await this._updateDeviceConfig();
 
     this.registerMultipleCapabilityListener(this.getCapabilities(), async (capabilityValues, capabilityOptions) => {
       // try{
@@ -69,6 +70,15 @@ module.exports = class EnergySiteChildDevice extends Homey.Device {
     catch (error){
       this.error(error.message);
     }
+  }
+
+  async _updateDeviceConfig(){
+    // Energy settings
+    let energy = JSON.parse(JSON.stringify(this.getEnergy())) || {};
+    energy = this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].energy;
+    await this.setEnergy( energy );
+
+    this.setClass(this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].class);
   }
 
 

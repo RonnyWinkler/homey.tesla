@@ -32,6 +32,16 @@ module.exports = class EnergySolarDevice extends ChildDevice {
             this.setCapabilityValue('measure_power', energySite["liveStatus"].solar_power);
         }
 
+        // Meter data
+        if (energySite.currentMeter != undefined && energySite.currentMeter.solar_energy_exported != undefined) {
+            this.setCapabilityValue("meter_power.solar_exported", energySite.currentMeter.solar_energy_exported/1000);
+        }
+
+        // Energy today
+        if (energySite.todayMeter != undefined && energySite.todayMeter.solar_energy_exported != undefined) {
+            this.setCapabilityValue("meter_power_solar_exported", energySite.todayMeter.solar_energy_exported/1000);
+        }
+
     }
 
     // Commands =======================================================================================

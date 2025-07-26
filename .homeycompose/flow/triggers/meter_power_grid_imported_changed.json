@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy imported from grid changed",
+        "de": "Energie vom Netz importiert hat sich geändert",
+        "nl": "Energie van de netwerk importeren gewijzigd",
+        "fr": "Energie importée de la grille a changé",
+        "it": "Energia importata dalla rete ha cambiato",
+        "sv": "Energi importerad fra grid harändrat",
+        "no": "Energi importert fra grid har endret seg",
+        "es": "Energía importada de la red ha cambiado",
+        "da": "Energi importerede fra grid har ændret sig",
+        "ru": "Энергия импортированная из сети изменилась",
+        "pl": "Energia importowana z sieci zmienna"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_grid_imported",
+            "type": "number",
+            "title": {
+                "en": "Energy imported from grid",
+                "de": "Energie vom Netz importiert",
+                "nl": "Energie van de netwerk importeren",
+                "fr": "Energie importée de la grille",
+                "it": "Energia importata dalla rete",
+                "sv": "Energi importerad fra grid",
+                "no": "Energi importert fra grid",
+                "es": "Energía importada de la red",
+                "da": "Energi importerede fra grid",
+                "ru": "Энергия импортированная из сети",
+                "pl": "Energia importowana z sieci"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_site"
+    }]
+}

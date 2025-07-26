@@ -20,9 +20,35 @@
     "class": "solarpanel",
     "connectivity": [ "cloud" ],
     "capabilities": [
-        "measure_power"
+        "measure_power",
+
+        "meter_power_solar_exported",
+
+        "meter_power.solar_exported"
     ],
+    "capabilitiesOptions":{
+        "meter_power_solar_exported":{
+            "title": {
+                "en": "Energy produced (today)",
+                "de": "Energie produziert (heute)",
+                "nl": "Energie produceren (vandaag)",
+                "fr": "Energie produite (aujourd'hui)",
+                "it": "Energia prodotta (oggi)",
+                "sv": "Energi producerad (idag)",
+                "no": "Energi produksjon (i dag)",
+                "es": "Energía producida (hoy)",
+                "da": "Energi produktion (i dag)",
+                "ru": "Энергия произведенная (сегодня)",
+                "pl": "Energia wyprodukowana (dzisiaj)"
+            }
+        },
+        "meter_power.battery_charged": {
+            "uiComponent": null
+        }
+    },
+
     "energy": {
+        "meterPowerExportedCapability": "meter_power.solar_exported"
     },
     "pair": [
         {

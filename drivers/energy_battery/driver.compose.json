@@ -17,17 +17,64 @@
         "large": "/drivers/energy_battery/assets/images/large.png",
         "small": "/drivers/energy_battery/assets/images/small.png"
     },
-    "class": "sensor",
+    "class": "battery",
     "connectivity": [ "cloud" ],
     "capabilities": [
         "measure_power",
-        "measure_battery"
+        "measure_battery",
+
+        "meter_power_battery_discharged",
+        "meter_power_battery_charged",
+
+        "meter_power.battery_charged",
+        "meter_power.battery_discharged"
     ],
+    "capabilitiesOptions": {
+        "meter_power_battery_charged": {
+            "title": {
+                "en": "Energy charged (today)",
+                "de": "Energie geladen (heute)",
+                "nl": "Energie opgeladen (vandaag)",
+                "fr": "Energie chargée (aujourd'hui)",
+                "it": "Energia carica (oggi)",
+                "sv": "Energi laddad (idag)",
+                "no": "Energi laddet (i dag)",
+                "es": "Energía cargada (hoy)",
+                "da": "Energi ladet (i dag)",
+                "ru": "Энергия заряжанная (сегодня)",
+                "pl": "Energia ładowana (dzisiaj)"
+            }
+        },
+        "meter_power_battery_discharged": {
+            "title": {
+                "en": "Energy discharged (today)",
+                "de": "Energie abgeladen (heute)",
+                "nl": "Energie afgeladen (vandaag)",
+                "fr": "Energie dissipée (aujourd'hui)",
+                "it": "Energia scarica (oggi)",
+                "sv": "Energi importerad fra grid (idag)",
+                "no": "Energi importert fra grid (i dag)",
+                "es": "Energía importada de la red (hoy)",
+                "da": "Energi importerede fra grid (i dag)",
+                "ru": "Энергия импортированная из сети (сегодня)",
+                "pl": "Energia importowana z sieci (dzisiaj)"
+            }
+        },
+        "meter_power.battery_charged": {
+            "uiComponent": null
+        },
+        "meter_power.battery_discharged": {
+            "uiComponent": null
+        }
+
+    },
     "energy": {
         "batteries": [
             "OTHER"
         ],
-        "homeBattery": true
+        "homeBattery": true,
+        "meterPowerImportedCapability": "meter_power.battery_charged",
+        "meterPowerExportedCapability": "meter_power.battery_discharged"
     },
     "pair": [
         {

@@ -1,0 +1,38 @@
+{
+    "title": {
+        "en": "Energy charged changed",
+        "de": "Energie geladene hat sich geændert",
+        "nl": "Energie opgeladen gewijzigd",
+        "fr": "Energie chargée a changé",
+        "it": "Energia carica ha cambiato",
+        "sv": "Energi laddad harändrat",
+        "no": "Energi laddet har endret seg",
+        "es": "Energía cargada ha cambiado",
+        "da": "Energi ladet har ændret sig",
+        "ru": "Энергия заряжанная изменилась",
+        "pl": "Energia ładowana zmienna"},
+    "tokens": [
+        {
+            "name": "meter_power_battery_charged",
+            "type": "number",
+            "title": {
+                "en": "Energy charged",
+                "de": "Energie geladene",
+                "nl": "Energie opgeladen",
+                "fr": "Energie chargée",
+                "it": "Energia carica",
+                "sv": "Energi laddad",
+                "no": "Energi laddet",
+                "es": "Energía cargada",
+                "da": "Energi ladet",
+                "ru": "Энергия заряжанная",
+                "pl": "Energia ładowana"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_battery"
+    }]
+}

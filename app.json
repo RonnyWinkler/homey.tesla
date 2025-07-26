@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -3787,6 +3787,216 @@
           }
         ],
         "id": "meter_car_odo_changed"
+      },
+      {
+        "title": {
+          "en": "Energy charged changed",
+          "de": "Energie geladene hat sich geændert",
+          "nl": "Energie opgeladen gewijzigd",
+          "fr": "Energie chargée a changé",
+          "it": "Energia carica ha cambiato",
+          "sv": "Energi laddad harändrat",
+          "no": "Energi laddet har endret seg",
+          "es": "Energía cargada ha cambiado",
+          "da": "Energi ladet har ændret sig",
+          "ru": "Энергия заряжанная изменилась",
+          "pl": "Energia ładowana zmienna"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_battery_charged",
+            "type": "number",
+            "title": {
+              "en": "Energy charged",
+              "de": "Energie geladene",
+              "nl": "Energie opgeladen",
+              "fr": "Energie chargée",
+              "it": "Energia carica",
+              "sv": "Energi laddad",
+              "no": "Energi laddet",
+              "es": "Energía cargada",
+              "da": "Energi ladet",
+              "ru": "Энергия заряжанная",
+              "pl": "Energia ładowana"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_battery"
+          }
+        ],
+        "id": "meter_power_battery_charged_changed"
+      },
+      {
+        "title": {
+          "en": "Energy discharged changed",
+          "de": "Energie entladen hat sich geændert",
+          "nl": "Energie opgeladen gewijzigd",
+          "fr": "Energie chargée a changé",
+          "it": "Energia carica ha cambiato",
+          "sv": "Energi laddad harändrat",
+          "no": "Energi laddet har endret seg",
+          "es": "Energía cargada ha cambiado",
+          "da": "Energi ladet har ændret sig",
+          "ru": "Энергия заряжанная изменилась",
+          "pl": "Energia ładowana zmienna"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_battery_discharged",
+            "type": "number",
+            "title": {
+              "en": "Energy discharged",
+              "de": "Energie entladen",
+              "nl": "Energie opgeladen",
+              "fr": "Energie chargée",
+              "it": "Energia carica",
+              "sv": "Energi laddad",
+              "no": "Energi laddet",
+              "es": "Energía cargada",
+              "da": "Energi ladet",
+              "ru": "Энергия заряжанная",
+              "pl": "Energia ładowana"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_battery"
+          }
+        ],
+        "id": "meter_power_battery_discharged_changed"
+      },
+      {
+        "title": {
+          "en": "Energy exported to grid changed",
+          "de": "Energie zum Netz exportiert hat sich geändert",
+          "nl": "Energie naar de netwerk exporteren gewijzigd",
+          "fr": "Energie exportée vers la grille a changé",
+          "it": "Energia esportata verso la rete ha cambiato",
+          "sv": "Energi exporterad till grid harändrat",
+          "no": "Energi eksportert til grid har endret seg",
+          "es": "Energía exportada a la red ha cambiado",
+          "da": "Energi eksporteret til grid har ændret sig",
+          "ru": "Энергия экспортированная в сеть изменилась",
+          "pl": "Energia eksportowana do sieci zmienna"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_grid_exported",
+            "type": "number",
+            "title": {
+              "en": "Energy exported to grid",
+              "de": "Energie zum Netz exportiert",
+              "nl": "Energie naar de netwerk exporteren",
+              "fr": "Energie exportée vers la grille",
+              "it": "Energia esportata verso la rete",
+              "sv": "Energi exporterad till grid",
+              "no": "Energi eksportert til grid",
+              "es": "Energía exportada a la red",
+              "da": "Energi eksporteret til grid",
+              "ru": "Энергия экспортированная в сеть",
+              "pl": "Energia eksportowana do sieci"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_site"
+          }
+        ],
+        "id": "meter_power_grid_exported_changed"
+      },
+      {
+        "title": {
+          "en": "Energy imported from grid changed",
+          "de": "Energie vom Netz importiert hat sich geändert",
+          "nl": "Energie van de netwerk importeren gewijzigd",
+          "fr": "Energie importée de la grille a changé",
+          "it": "Energia importata dalla rete ha cambiato",
+          "sv": "Energi importerad fra grid harändrat",
+          "no": "Energi importert fra grid har endret seg",
+          "es": "Energía importada de la red ha cambiado",
+          "da": "Energi importerede fra grid har ændret sig",
+          "ru": "Энергия импортированная из сети изменилась",
+          "pl": "Energia importowana z sieci zmienna"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_grid_imported",
+            "type": "number",
+            "title": {
+              "en": "Energy imported from grid",
+              "de": "Energie vom Netz importiert",
+              "nl": "Energie van de netwerk importeren",
+              "fr": "Energie importée de la grille",
+              "it": "Energia importata dalla rete",
+              "sv": "Energi importerad fra grid",
+              "no": "Energi importert fra grid",
+              "es": "Energía importada de la red",
+              "da": "Energi importerede fra grid",
+              "ru": "Энергия импортированная из сети",
+              "pl": "Energia importowana z sieci"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_site"
+          }
+        ],
+        "id": "meter_power_grid_imported_changed"
+      },
+      {
+        "title": {
+          "en": "Energy produced changed",
+          "de": "Energie produziert hat sich geændert",
+          "nl": "Energie produceren gewijzigd",
+          "fr": "Energie produite a changé",
+          "it": "Energia prodotta ha cambiato",
+          "sv": "Energi producerad harändrat",
+          "no": "Energi produksjon har endret seg",
+          "es": "Energía producida ha cambiado",
+          "da": "Energi produktion har ændret sig",
+          "ru": "Энергия произведенная изменилась",
+          "pl": "Energia wyprodukowana zmienna"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_solar_exported",
+            "type": "number",
+            "title": {
+              "en": "Energy produced",
+              "de": "Energie produziert",
+              "nl": "Energie produceren",
+              "fr": "Energie produite",
+              "it": "Energia prodotta",
+              "sv": "Energi producerad",
+              "no": "Energi produksjon",
+              "es": "Energía producida",
+              "da": "Energi produktion",
+              "ru": "Энергия произведенная",
+              "pl": "Energia wyprodukowana"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_solar"
+          }
+        ],
+        "id": "meter_power_solar_exported_changed"
       }
     ],
     "conditions": [
@@ -10073,19 +10283,63 @@
         "large": "/drivers/energy_battery/assets/images/large.png",
         "small": "/drivers/energy_battery/assets/images/small.png"
       },
-      "class": "sensor",
+      "class": "battery",
       "connectivity": [
         "cloud"
       ],
       "capabilities": [
         "measure_power",
-        "measure_battery"
+        "measure_battery",
+        "meter_power_battery_discharged",
+        "meter_power_battery_charged",
+        "meter_power.battery_charged",
+        "meter_power.battery_discharged"
       ],
+      "capabilitiesOptions": {
+        "meter_power_battery_charged": {
+          "title": {
+            "en": "Energy charged (today)",
+            "de": "Energie geladen (heute)",
+            "nl": "Energie opgeladen (vandaag)",
+            "fr": "Energie chargée (aujourd'hui)",
+            "it": "Energia carica (oggi)",
+            "sv": "Energi laddad (idag)",
+            "no": "Energi laddet (i dag)",
+            "es": "Energía cargada (hoy)",
+            "da": "Energi ladet (i dag)",
+            "ru": "Энергия заряжанная (сегодня)",
+            "pl": "Energia ładowana (dzisiaj)"
+          }
+        },
+        "meter_power_battery_discharged": {
+          "title": {
+            "en": "Energy discharged (today)",
+            "de": "Energie abgeladen (heute)",
+            "nl": "Energie afgeladen (vandaag)",
+            "fr": "Energie dissipée (aujourd'hui)",
+            "it": "Energia scarica (oggi)",
+            "sv": "Energi importerad fra grid (idag)",
+            "no": "Energi importert fra grid (i dag)",
+            "es": "Energía importada de la red (hoy)",
+            "da": "Energi importerede fra grid (i dag)",
+            "ru": "Энергия импортированная из сети (сегодня)",
+            "pl": "Energia importowana z sieci (dzisiaj)"
+          }
+        },
+        "meter_power.battery_charged": {
+          "uiComponent": null
+        },
+        "meter_power.battery_discharged": {
+          "uiComponent": null
+        }
+      },
       "energy": {
         "batteries": [
           "OTHER"
         ],
-        "homeBattery": true
+        "homeBattery": true,
+        "meterPowerImportedCapability": "meter_power.battery_charged",
+        "meterPowerExportedCapability": "meter_power.battery_discharged"
       },
       "pair": [
         {
@@ -10123,16 +10377,60 @@
         "large": "/drivers/energy_site/assets/images/large.png",
         "small": "/drivers/energy_site/assets/images/small.png"
       },
-      "class": "solarpanel",
+      "class": "sensor",
       "connectivity": [
         "cloud"
       ],
       "capabilities": [
         "measure_power",
-        "measure_power_load"
+        "measure_power_load",
+        "meter_power_grid_exported",
+        "meter_power_grid_imported",
+        "meter_power.grid_exported",
+        "meter_power.grid_imported"
       ],
+      "capabilitiesOptions": {
+        "meter_power_grid_exported": {
+          "title": {
+            "en": "Energy exported to grid (today)",
+            "de": "Energie zum Netz exportiert (heute)",
+            "nl": "Energie naar de netwerk exporteren (vandaag)",
+            "fr": "Energie exportée vers la grille (aujourd'hui)",
+            "it": "Energia esportata verso la rete (oggi)",
+            "sv": "Energi exporterad till grid (idag)",
+            "no": "Energi eksportert til grid (i dag)",
+            "es": "Energía exportada a la red (hoy)",
+            "da": "Energi eksporteret til grid (i dag)",
+            "ru": "Энергия экспортированная в сеть (сегодня)",
+            "pl": "Energia eksportowana do sieci (dzisiaj)"
+          }
+        },
+        "meter_power_grid_imported": {
+          "title": {
+            "en": "Energy imported from grid (today)",
+            "de": "Energie vom Netz importiert (heute)",
+            "nl": "Energie van de netwerk importeren (vandaag)",
+            "fr": "Energie importée de la grille (aujourd'hui)",
+            "it": "Energia importata dalla rete (oggi)",
+            "sv": "Energi importerad fra grid (idag)",
+            "no": "Energi importert fra grid (i dag)",
+            "es": "Energía importada de la red (hoy)",
+            "da": "Energi importerede fra grid (i dag)",
+            "ru": "Энергия импортированная из сети (сегодня)",
+            "pl": "Energia importowana z sieci (dzisiaj)"
+          }
+        },
+        "meter_power.grid_exported": {
+          "uiComponent": null
+        },
+        "meter_power.grid_imported": {
+          "uiComponent": null
+        }
+      },
       "energy": {
-        "cumulative": true
+        "cumulative": true,
+        "cumulativeImportedCapability": "meter_power.grid_imported",
+        "cumulativeExportedCapability": "meter_power.grid_exported"
       },
       "pair": [
         {
@@ -10345,9 +10643,33 @@
         "cloud"
       ],
       "capabilities": [
-        "measure_power"
+        "measure_power",
+        "meter_power_solar_exported",
+        "meter_power.solar_exported"
       ],
-      "energy": {},
+      "capabilitiesOptions": {
+        "meter_power_solar_exported": {
+          "title": {
+            "en": "Energy produced (today)",
+            "de": "Energie produziert (heute)",
+            "nl": "Energie produceren (vandaag)",
+            "fr": "Energie produite (aujourd'hui)",
+            "it": "Energia prodotta (oggi)",
+            "sv": "Energi producerad (idag)",
+            "no": "Energi produksjon (i dag)",
+            "es": "Energía producida (hoy)",
+            "da": "Energi produktion (i dag)",
+            "ru": "Энергия произведенная (сегодня)",
+            "pl": "Energia wyprodukowana (dzisiaj)"
+          }
+        },
+        "meter_power.battery_charged": {
+          "uiComponent": null
+        }
+      },
+      "energy": {
+        "meterPowerExportedCapability": "meter_power.solar_exported"
+      },
       "pair": [
         {
           "id": "list_devices",
@@ -14378,6 +14700,7 @@
       "units": {
         "en": "W"
       },
+      "decimals": 2,
       "insights": true,
       "getable": true,
       "setable": false,
@@ -14523,6 +14846,121 @@
       "setable": false,
       "uiComponent": "sensor",
       "icon": "./assets/capability_icons/meter_charge_power.svg"
+    },
+    "meter_power_battery_charged": {
+      "type": "number",
+      "title": {
+        "en": "Energy charged",
+        "de": "Energie geladene",
+        "nl": "Energie opgeladen",
+        "fr": "Energie chargée",
+        "it": "Energia carica",
+        "sv": "Energi laddad",
+        "no": "Energi laddet",
+        "es": "Energía cargada",
+        "da": "Energi ladet",
+        "ru": "Энергия заряжанная",
+        "pl": "Energia ładowana"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_battery_charged.svg"
+    },
+    "meter_power_battery_discharged": {
+      "type": "number",
+      "title": {
+        "en": "Energy discharged",
+        "de": "Energie entladen",
+        "nl": "Energie opgeladen",
+        "fr": "Energie chargée",
+        "it": "Energia carica",
+        "sv": "Energi laddad",
+        "no": "Energi laddet",
+        "es": "Energía cargada",
+        "da": "Energi ladet",
+        "ru": "Энергия заряжанная",
+        "pl": "Energia ładowana"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_battery_discharged.svg"
+    },
+    "meter_power_grid_exported": {
+      "type": "number",
+      "title": {
+        "en": "Energy exported to grid",
+        "de": "Energie zum Netz exportiert",
+        "nl": "Energie naar de netwerk exporteren",
+        "fr": "Energie exportée vers la grille",
+        "it": "Energia esportata verso la rete",
+        "sv": "Energi exporterad till grid",
+        "no": "Energi eksportert til grid",
+        "es": "Energía exportada a la red",
+        "da": "Energi eksporteret til grid",
+        "ru": "Энергия экспортированная в сеть",
+        "pl": "Energia eksportowana do sieci"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_grid_exported.svg"
+    },
+    "meter_power_grid_imported": {
+      "type": "number",
+      "title": {
+        "en": "Energy imported from grid",
+        "de": "Energie vom Netz importiert",
+        "nl": "Energie van de netwerk importeren",
+        "fr": "Energie importée de la grille",
+        "it": "Energia importata dalla rete",
+        "sv": "Energi importerad fra grid",
+        "no": "Energi importert fra grid",
+        "es": "Energía importada de la red",
+        "da": "Energi importerede fra grid",
+        "ru": "Энергия импортированная из сети",
+        "pl": "Energia importowana z sieci"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_grid_imported.svg"
+    },
+    "meter_power_solar_exported": {
+      "type": "number",
+      "title": {
+        "en": "Energy produced",
+        "de": "Energie produziert",
+        "nl": "Energie produceren",
+        "fr": "Energie produite",
+        "it": "Energia prodotta",
+        "sv": "Energi producerad",
+        "no": "Energi produksjon",
+        "es": "Energía producida",
+        "da": "Energi produktion",
+        "ru": "Энергия произведенная",
+        "pl": "Energia wyprodukowana"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_solar_exported.svg"
     }
   }
 }

@@ -17,14 +17,60 @@
         "large": "/drivers/energy_site/assets/images/large.png",
         "small": "/drivers/energy_site/assets/images/small.png"
     },
-    "class": "solarpanel",
+    "class": "sensor",
     "connectivity": [ "cloud" ],
     "capabilities": [
         "measure_power",
-        "measure_power_load"
+        "measure_power_load",
+
+        "meter_power_grid_exported",
+        "meter_power_grid_imported",
+
+        "meter_power.grid_exported",
+        "meter_power.grid_imported"
     ],
+    "capabilitiesOptions": {
+        "meter_power_grid_exported": {
+            "title": {
+                "en": "Energy exported to grid (today)",
+                "de": "Energie zum Netz exportiert (heute)",
+                "nl": "Energie naar de netwerk exporteren (vandaag)",
+                "fr": "Energie exportée vers la grille (aujourd'hui)",
+                "it": "Energia esportata verso la rete (oggi)",
+                "sv": "Energi exporterad till grid (idag)",
+                "no": "Energi eksportert til grid (i dag)",
+                "es": "Energía exportada a la red (hoy)",
+                "da": "Energi eksporteret til grid (i dag)",
+                "ru": "Энергия экспортированная в сеть (сегодня)",
+                "pl": "Energia eksportowana do sieci (dzisiaj)"
+            }
+        },
+        "meter_power_grid_imported": {
+            "title": {
+                "en": "Energy imported from grid (today)",
+                "de": "Energie vom Netz importiert (heute)",
+                "nl": "Energie van de netwerk importeren (vandaag)",
+                "fr": "Energie importée de la grille (aujourd'hui)",
+                "it": "Energia importata dalla rete (oggi)",
+                "sv": "Energi importerad fra grid (idag)",
+                "no": "Energi importert fra grid (i dag)",
+                "es": "Energía importada de la red (hoy)",
+                "da": "Energi importerede fra grid (i dag)",
+                "ru": "Энергия импортированная из сети (сегодня)",
+                "pl": "Energia importowana z sieci (dzisiaj)"
+            }
+        },
+        "meter_power.grid_exported": {
+            "uiComponent": null
+        },
+        "meter_power.grid_imported": {
+            "uiComponent": null
+        }
+    },
     "energy": {
-        "cumulative": true
+        "cumulative": true,
+        "cumulativeImportedCapability": "meter_power.grid_imported",
+        "cumulativeExportedCapability": "meter_power.grid_exported"
     },
     "pair": [
         {

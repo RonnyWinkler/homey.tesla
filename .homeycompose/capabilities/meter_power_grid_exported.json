@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy exported to grid",
+    "de": "Energie zum Netz exportiert",
+    "nl": "Energie naar de netwerk exporteren",
+    "fr": "Energie exportée vers la grille",
+    "it": "Energia esportata verso la rete",
+    "sv": "Energi exporterad till grid",
+    "no": "Energi eksportert til grid",
+    "es": "Energía exportada a la red",
+    "da": "Energi eksporteret til grid",
+    "ru": "Энергия экспортированная в сеть",
+    "pl": "Energia eksportowana do sieci"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_grid_exported.svg"
+}

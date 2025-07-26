@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy",
+    "nl": "Energie",
+    "de": "Energie",
+    "fr": "Énergie",
+    "it": "Energia",
+    "sv": "Energi",
+    "no": "Energi",
+    "es": "Energía",
+    "da": "Energi",
+    "ru": "Электроэнергия",
+    "pl": "Energia",
+    "ko": "전력량"
+  },
+  "decimals": 2,
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч",
+    "ko": "kWh",
+    "no": "kWh"
+  },
+  "desc": {
+    "en": "Energy usage in kilowatt-hour (kWh)",
+    "nl": "Energie verbruik in kilowattuur (kWh)",
+    "de": "Energieverbrauch in Kilowattstunde (kWh)",
+    "fr": "Consommation d'énergie en kilowatt-heure (kWh)",
+    "it": "Consumo energetico in kilowattora (kWh)",
+    "sv": "Energianvändning i kilowattimmar (kWh)",
+    "no": "Energiforbruk i kilowattimer (kWh)",
+    "es": "Uso de energía en kilovatio hora (kWh)",
+    "da": "Energiforbrug i kilowattime (kWh)",
+    "ru": "Энергопотребление в киловатт-часах (кВтч)",
+    "pl": "Zużycie energii w kilowatogodzinach (kWh)",
+    "ko": "에너지 사용량 킬로와트시(kWh)"
+  },
+  "chartType": "spline",
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/meter_power.svg"
+}

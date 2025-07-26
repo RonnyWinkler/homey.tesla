@@ -16,6 +16,7 @@
   "units": {
     "en": "W"
   },
+  "decimals": 2,
   "insights": true,
   "getable": true,
   "setable": false,

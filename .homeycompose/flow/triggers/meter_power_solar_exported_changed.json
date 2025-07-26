@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy produced changed",
+        "de": "Energie produziert hat sich geændert",
+        "nl": "Energie produceren gewijzigd",
+        "fr": "Energie produite a changé",
+        "it": "Energia prodotta ha cambiato",
+        "sv": "Energi producerad harändrat",
+        "no": "Energi produksjon har endret seg",
+        "es": "Energía producida ha cambiado",
+        "da": "Energi produktion har ændret sig",
+        "ru": "Энергия произведенная изменилась",
+        "pl": "Energia wyprodukowana zmienna"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_solar_exported",
+            "type": "number",
+            "title": {
+                "en": "Energy produced",
+                "de": "Energie produziert",
+                "nl": "Energie produceren",
+                "fr": "Energie produite",
+                "it": "Energia prodotta",
+                "sv": "Energi producerad",
+                "no": "Energi produksjon",
+                "es": "Energía producida",
+                "da": "Energi produktion",
+                "ru": "Энергия произведенная",
+                "pl": "Energia wyprodukowana"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_solar"
+    }]
+}

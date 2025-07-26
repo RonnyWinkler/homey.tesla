@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy produced",
+    "de": "Energie produziert",
+    "nl": "Energie produceren",
+    "fr": "Energie produite",
+    "it": "Energia prodotta",
+    "sv": "Energi producerad",
+    "no": "Energi produksjon",
+    "es": "Energía producida",
+    "da": "Energi produktion",
+    "ru": "Энергия произведенная",
+    "pl": "Energia wyprodukowana"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_solar_exported.svg"
+}

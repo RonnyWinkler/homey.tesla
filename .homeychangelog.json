@@ -419,5 +419,8 @@
   },
   "3.1.2": {
     "en": "Updated app image and description."
+  },
+  "3.1.3": {
+    "en": "Added meter data for today's usage and HomeyEnergy."
   }
 }
