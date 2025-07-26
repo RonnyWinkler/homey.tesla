@@ -200,6 +200,18 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
                                                             currentMeter['consumer_energy_imported_from_solar'] + 
                                                             currentMeter['consumer_energy_imported_from_battery'] + 
                                                             currentMeter['consumer_energy_imported_from_generator'];
+                // calculate today summary values
+                today['grid_energy_exported'] =             today['grid_energy_exported_from_solar'] + 
+                                                            today['grid_energy_exported_from_generator'] + 
+                                                            today['grid_energy_exported_from_battery'];
+                today['battery_energy_imported'] =          today['battery_energy_imported_from_grid'] + 
+                                                            today['battery_energy_imported_from_solar'] + 
+                                                            today['battery_energy_imported_from_generator'];
+
+                today['consumer_energy_imported'] =         today['consumer_energy_imported_from_grid'] + 
+                                                            today['consumer_energy_imported_from_solar'] + 
+                                                            today['consumer_energy_imported_from_battery'] + 
+                                                            today['consumer_energy_imported_from_generator'];
                 
                 this.log("Energy meter:", currentMeter);
                 this.log("Energy today:", today);

@@ -42,7 +42,7 @@
                 "pl": "Energia wyprodukowana (dzisiaj)"
             }
         },
-        "meter_power.battery_charged": {
+        "meter_power.solar_exported": {
             "uiComponent": null
         }
     },
