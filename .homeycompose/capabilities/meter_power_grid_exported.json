@@ -14,8 +14,12 @@
     "pl": "Energia eksportowana do sieci"
   },
   "units": {
-    "en": "kWh"
+    "en": "kWh",
+    "ru": "кВтч",
+    "ko": "kWh",
+    "no": "kWh"
   },
+  "decimals": 2,
   "insights": true,
   "getable": true,
   "setable": false,

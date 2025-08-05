@@ -425,5 +425,8 @@
   },
   "3.1.4": {
     "en": "Fixed some today's meter values."
+  },
+  "3.1.5": {
+    "en": "Fixed energy device capability titles."
   }
 }

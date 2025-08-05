@@ -607,8 +607,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
               case 1: 
                 return CONSTANTS.STATE_ONLINE;
               case 2:
-                return CONSTANTS.STATE_ASLEEP;
-                // return CONSTANTS.STATE_OFFLINE;
+                // return CONSTANTS.STATE_ASLEEP;
+                return CONSTANTS.STATE_OFFLINE;
               default:
                 return CONSTANTS.STATE_OFFLINE;
             }

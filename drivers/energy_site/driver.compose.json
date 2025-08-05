@@ -61,10 +61,36 @@
             }
         },
         "meter_power.grid_exported": {
-            "uiComponent": null
+            "uiComponent": null,
+            "title": {
+                "en": "Energy exported to grid",
+                "de": "Energie zum Netz exportiert",
+                "nl": "Energie naar de netwerk exporteren",
+                "fr": "Energie exportée vers la grille",
+                "it": "Energia esportata verso la rete",
+                "sv": "Energi exporterad till grid",
+                "no": "Energi eksportert til grid",
+                "es": "Energía exportada a la red",
+                "da": "Energi eksporteret til grid",
+                "ru": "Энергия экспортированная в сеть",
+                "pl": "Energia eksportowana do sieci"
+            }
         },
         "meter_power.grid_imported": {
-            "uiComponent": null
+            "uiComponent": null,
+            "title": {
+                "en": "Energy imported from grid",
+                "de": "Energie vom Netz importiert",
+                "nl": "Energie van de netwerk importeren",
+                "fr": "Energie importée de la grille",
+                "it": "Energia importata dalla rete",
+                "sv": "Energi importerad fra grid",
+                "no": "Energi importert fra grid",
+                "es": "Energía importada de la red",
+                "da": "Energi importerede fra grid",
+                "ru": "Энергия импортированная из сети",
+                "pl": "Energia importowana z sieci"
+            }
         }
     },
     "energy": {

@@ -61,12 +61,37 @@
             }
         },
         "meter_power.battery_charged": {
-            "uiComponent": null
+            "uiComponent": null,
+            "title": {
+                "en": "Energy charged",
+                "de": "Energie geladene",
+                "nl": "Energie opgeladen",
+                "fr": "Energie chargée",
+                "it": "Energia carica",
+                "sv": "Energi laddad",
+                "no": "Energi laddet",
+                "es": "Energía cargada",
+                "da": "Energi ladet",
+                "ru": "Энергия заряжанная",
+                "pl": "Energia ładowana"
+            }
         },
         "meter_power.battery_discharged": {
-            "uiComponent": null
+            "uiComponent": null,
+            "title": {
+                "en": "Energy discharged",
+                "de": "Energie entladen",
+                "nl": "Energie opgeladen",
+                "fr": "Energie chargée",
+                "it": "Energia carica",
+                "sv": "Energi laddad",
+                "no": "Energi laddet",
+                "es": "Energía cargada",
+                "da": "Energi ladet",
+                "ru": "Энергия заряжанная",
+                "pl": "Energia ładowana"
+            }
         }
-
     },
     "energy": {
         "batteries": [
