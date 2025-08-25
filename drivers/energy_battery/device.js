@@ -31,7 +31,7 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
 
         // Live data
         if (energySite["liveStatus"] != undefined && energySite["liveStatus"].battery_power != undefined) {
-            this.setCapabilityValue('measure_power', energySite["liveStatus"].battery_power);
+            this.setCapabilityValue('measure_power', -1 * energySite["liveStatus"].battery_power);
         }
         if (energySite["liveStatus"] != undefined && energySite["liveStatus"].percentage_charged != undefined) {
             this.setCapabilityValue('measure_battery', energySite["liveStatus"].percentage_charged);

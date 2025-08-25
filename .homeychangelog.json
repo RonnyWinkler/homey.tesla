@@ -428,5 +428,8 @@
   },
   "3.1.5": {
     "en": "Fixed energy device capability titles."
+  },
+  "3.1.6": {
+    "en": "Fixed powerwall energy charge/discharge direction."
   }
 }
