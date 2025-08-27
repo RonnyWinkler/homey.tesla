@@ -213,9 +213,9 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
                                                             today['consumer_energy_imported_from_battery'] + 
                                                             today['consumer_energy_imported_from_generator'];
                 
-                this.log("Energy meter:", currentMeter);
-                this.log("Energy today:", today);
-                this.log("Energy yesterday:", yesterday);
+                // this.log("Energy meter:", currentMeter);
+                // this.log("Energy today:", today);
+                // this.log("Energy yesterday:", yesterday);
                 energySite["currentMeter"] = currentMeter;
                 energySite["todayMeter"] = today;
                 energySite["yesterdayMeter"] = yesterday;

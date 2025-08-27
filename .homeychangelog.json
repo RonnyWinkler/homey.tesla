@@ -431,5 +431,8 @@
   },
   "3.1.6": {
     "en": "Fixed powerwall energy charge/discharge direction."
+  },
+  "3.2.0": {
+    "en": "Added 'open door' flow card for car device."
   }
 }

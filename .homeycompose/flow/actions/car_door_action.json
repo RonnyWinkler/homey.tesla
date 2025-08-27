@@ -1,0 +1,131 @@
+{
+  "title": {
+    "en": "Open door",
+    "de": "Tür öffnen",
+    "nl": "Deur openen",
+    "fr": "Ouvrir la porte",
+    "it": "Apri porta",
+    "sv": "Oppna dörrar",
+    "no": "Åpne dører",
+    "es": "Abrir puertas",
+    "da": "Åbn døre",
+    "ru": "Открыть двери",
+    "pl": "Otwórz drzwi"
+  },
+  "titleFormatted": {
+    "en": "Open door [[door]]",
+    "de": "Öffne Tür [[door]]",
+    "nl": "Open deur [[door]]",
+    "fr": "Ouvrir porte [[door]]",
+    "it": "Apri porta [[door]]",
+    "sv": "Oppna dörrar [[door]]",
+    "no": "Åpne dører [[door]]",
+    "es": "Abrir puertas [[door]]",
+    "da": "Åbn døre [[door]]",
+    "ru": "Открыть двери [[door]]",
+    "pl": "Otwórz drzwi [[door]]"
+  },
+  "hint": {
+    "en": "This function is only available with an active Bluetooth connection. With FleetAPI this function can not be used.",
+    "de": "Diese Funktion ist nur verwendbar bei einer aktiven Bluetooth-Verbindung. Über FleetAPI kann diese Funktion nicht genutzt werden.",
+    "nl": "Deze functie is alleen beschikbaar met een actieve Bluetooth verbinding. Met FleetAPI kan deze functie niet worden gebruikt.",
+    "fr": "Cette fonction est seulement disponible avec une connexion Bluetooth active. Avec FleetAPI, cette fonction ne peut pas fonctionner.",
+    "it": "Questa funzione é disponibile solo con una connessione Bluetooth attiva. Con FleetAPI questa funzione non puo essere utilizzata.",
+    "sv": "Denna funktion finns endast tilläggbar med en aktiverad Bluetooth-anslutning. Med FleetAPI kan den inte användas.",
+    "no": "Denne funksjonen er bare tilgjengelig med en aktiv Bluetoothforbindelse. Med FleetAPI kan denne funksjonen ikke brukes.",
+    "es": "Esta función es solo disponible con una conexión Bluetooth activa. Con FleetAPI, esta función no puede funcionar.",
+    "da": "Denne funktion er kun tilgængelig med en aktiveret Bluetoothforbindelse. Med FleetAPI kan denne funktion ikke bruges.",
+    "ru": "Эта функция доступна только при активном Bluetooth-соединении. С FleetAPI эта функция не может быть использована.",
+    "pl": "Ta funkcja jest dostępna tylko dla pojazdów, w которыйch podgrzewane koło kierownicyCanBeConverted."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=car"
+    },
+    {
+      "name": "door",
+      "type": "dropdown",
+      "placeholder": { 
+          "en": "Door",
+          "de": "Tür",
+          "nl": "Deur",
+          "fr": "Porte",
+          "it": "Porta",
+          "sv": "Dörrar",
+          "no": "Dører",
+          "es": "Puertas",
+          "da": "Døre",
+          "ru": "Двери",
+          "pl": "Drzwi"
+      },
+      "values": [
+        {
+        "id": "frontLeft",
+        "label": {
+          "en": "Front left",
+          "de": "Vorne links",
+          "nl": "Voor links",
+          "fr": "Avant gauche",
+          "it": "Anteriore sinistro",
+          "sv": "Fråga vänster",
+          "no": "Først venstre",
+          "es": "Delantera izquierda",
+          "da": "Første venstre",
+          "ru": "Впереди слева",
+          "pl": "Przedni lewy"
+        }
+        },
+        {
+        "id": "frontRight",
+        "label": {
+          "en": "Front right",
+          "de": "Vorne rechts",
+          "nl": "Voor rechts",
+          "fr": "Avant droit",
+          "it": "Anteriore destro",
+          "sv": "Fråga höger",
+          "no": "Først høyre",
+          "es": "Delantera derecha",
+          "da": "Første højre",
+          "ru": "Впереди справа",
+          "pl": "Przedni prawy"
+        }
+        },
+        {
+        "id": "rearLeft",
+        "label": {
+          "en": "Rear left",
+          "de": "Hinten links",
+          "nl": "Achter links",
+          "fr": "Arriere gauche",
+          "it": "Posteriore sinistro",
+          "sv": "Bakre vänster",
+          "no": "Bak senter",
+          "es": "Trasero izquierdo",
+          "da": "Bagerste venstre",
+          "ru": "Задний левый",
+          "pl": "Tył lewy"
+        }
+        },
+        {
+        "id": "rearRight",
+        "label": {
+          "en": "Rear right",
+          "de": "Hinten rechts",
+          "nl": "Achter rechts",
+          "fr": "Arriere droit",
+          "it": "Posteriore destro",
+          "sv": "Bakre höger",
+          "no": "Bak høyre",
+          "es": "Trasero derecho",
+          "da": "Bagerste højre",
+          "ru": "Задний правый",
+          "pl": "Tył prawy"
+        }
+        }
+      ]
+    }
+  ]
+}

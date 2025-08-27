@@ -78,6 +78,11 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionDoorLock(args.action == 'lock');
 		});
 
+    this.homey.flow.getActionCard('car_door_action')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionDoorAction(args.door, 'open');
+		});
+
     this.homey.flow.getActionCard('car_sentry_mode')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionSentryMode(args.action == 'on');

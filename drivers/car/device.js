@@ -1861,6 +1861,29 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         result.params = params.locked? 1 : 0; //0 = unlock, 1=lock
         break;
 
+      case 'commandDoorAction':
+        result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
+        // Front trunk can only be opened
+        result.command = 'closureMoveRequest';
+        let action = params.action == 'open' ? 3 : 4; // 3=open CLOSURE_MOVE_TYPE_OPEN, 4=close CLOSURE_MOVE_TYPE_CLOSE
+        switch (params.door){
+          case 'frontLeft':
+            result.params = { frontDriverDoor: action};
+            break;
+          case 'frontRight':
+            result.params = { frontPassengerDoor: action};
+            break;
+          case 'rearLeft':
+            result.params = { rearDriverDoor: action};
+            break;
+          case 'rearRight':
+            result.params = { rearPassengerDoor: action};
+            break;
+          default:
+            throw new Error("Door not set");
+        }
+        break;
+
       case 'commandTrunkFront':
         result.domain = CONSTANTS.DOMAIN_VEHICLE_SECURITY;
         // Front trunk can only be opened
@@ -2241,6 +2264,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this.sendCommand('commandTrunkRear', {action});
   }
 
+  async _commandDoorAction(door, action){
+    await this.sendCommand('commandDoorAction', {door, action});
+  }
+
   async bleRegisterKey(statusCallback){
     // await this.sendCommand('bleRegisterKey', {});
 
@@ -2417,6 +2444,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async flowActionTrunkRear(action){
     await this._commandTrunkRear(action);
+  }
+
+  async flowActionDoorAction(door, action = 'open'){
+    await this._commandDoorAction(door, action);
   }
 
   async flowActionApiGetCosts(){

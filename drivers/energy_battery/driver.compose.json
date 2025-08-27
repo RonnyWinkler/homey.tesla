@@ -48,8 +48,8 @@
         "meter_power_battery_discharged": {
             "title": {
                 "en": "Energy discharged (today)",
-                "de": "Energie abgeladen (heute)",
-                "nl": "Energie afgeladen (vandaag)",
+                "de": "Energie entladen (heute)",
+                "nl": "Energie opgeladen (vandaag)",
                 "fr": "Energie dissipée (aujourd'hui)",
                 "it": "Energia scarica (oggi)",
                 "sv": "Energi importerad fra grid (idag)",
