@@ -13,17 +13,17 @@
         "pl": "Współrzędne zostały opuszczone lub osiągnięte"
     },
     "titleFormatted": {
-        "en": "Coordinates have been [[action]]: Longitude [[longitude]] and Latitude [[latitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
-        "de": "Koordinaten wurden [[action]]: Längengrad [[longitude]] und Breitengrad [[latitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
-        "nl": "Coördinaten zijn [[action]]: Lengtegraad [[longitude]] en Breedtegraad [[latitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m",
-        "fr": "Les coordonnées ont été [[action]] : Longitude [[longitude]] et Latitude [[latitude]] ou URL GoogleMaps [[url]] avec une tolérance de [[distance]] m",
-        "it": "Le coordinate sono state [[action]]: Longitudine [[longitude]] e Latitudine [[latitude]] o URL di GoogleMaps [[url]] con tolleranza [[distance]] m",
-        "sv": "Koordinaterna har [[action]]: Longitud [[longitude]] och Latitud [[latitude]] eller GoogleMaps URL [[url]] med tolerans [[distance]] m",
-        "no": "Koordinater har blitt [[action]]: Lengdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]] med toleranse [[distance]] m",
-        "es": "Las coordenadas han sido [[action]]: Longitud [[longitude]] y Latitud [[latitude]] o URL de GoogleMaps [[url]] con tolerancia [[distance]] m",
-        "da": "Koordinater er blevet [[action]]: Længdegrad [[longitude]] og Breddegrad [[latitude]] eller GoogleMaps URL [[url]] med tolerance [[distance]] m",
-        "ru": "Координаты были [[action]]: Долгота [[longitude]] и Широта [[latitude]] или URL GoogleMaps [[url]] с допустимым отклонением [[distance]] м",
-        "pl": "Współrzędne zostały [[action]]: Długość geograficzna [[longitude]] i Szerokość geograficzna [[latitude]] lub URL GoogleMaps [[url]] z tolerancją [[distance]] m"
+        "en": "Coordinates have been [[action]]: Latitude [[latitude]] and Longitude [[longitude]] or GoogleMaps URL [[url]] with tolerance [[distance]] m",
+        "de": "Koordinaten wurden [[action]]: Breitengrad [[latitude]] und Längengrad [[longitude]] oder GoogleMaps URL [[url]] mit Toleranz [[distance]] m",
+        "nl": "Coördinaten zijn [[action]]: Breedtegraad [[latitude]] en Lengtegraad [[longitude]] of GoogleMaps URL [[url]], met tolerantie [[distance]] m",
+        "fr": "Les coordonnées ont été [[action]] : Latitude [[latitude]] et Longitude [[longitude]] ou URL GoogleMaps [[url]] avec une tolérance de [[distance]] m",
+        "it": "Le coordinate sono state [[action]]: Latitudine [[latitude]] e Longitudine [[longitude]] o URL di GoogleMaps [[url]] con tolleranza [[distance]] m",
+        "sv": "Koordinaterna har [[action]]: Latitud [[latitude]] och Longitud [[longitude]] eller GoogleMaps URL [[url]] med tolerans [[distance]] m",
+        "no": "Koordinater har blitt [[action]]: Latitud [[latitude]] og Lengdegrad [[longitude]] eller GoogleMaps URL [[url]] med toleranse [[distance]] m",
+        "es": "Las coordenadas han sido [[action]]: Latitud [[latitude]] y Longitud [[longitude]] o URL de GoogleMaps [[url]] con tolerancia [[distance]] m",
+        "da": "Koordinater er blevet [[action]]: Bredegrad [[latitude]] og Længdegrad [[longitude]] eller GoogleMaps URL [[url]] med tolerance [[distance]] m",
+        "ru": "Координаты были [[action]]: Широта [[latitude]] и Долгота [[longitude]] или URL GoogleMaps [[url]] с допустимым отклонением [[distance]] м",
+        "pl": "Współrzeczy zostały [[action]]: Długosc geograficzna [[latitude]] i szerokosc geograficzna [[longitude]] lub URL GoogleMaps [[url]] z tolerancją [[distance]] m"
     },
     "hint": {
         "en": "The flow is triggered when the specified coordinates (specified as longitude/latitude or GoogleMaps short URL) are reached or left. The tolerance specifies the radius of the geofence area in meters.",

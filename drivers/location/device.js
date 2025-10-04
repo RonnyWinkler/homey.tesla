@@ -639,39 +639,81 @@ module.exports = class LocationDevice extends ChildDevice {
   }
 
   async getGoogleMapsCoordinates(url){
-
     // unshorten Link
     try{
       let coordinates;
+      let coordinatesArray;
       // let regex = /([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
       let regex = /(?<=[\/|\/@])([-+]?\d{1,2}([.]\d+)?),\s*([-+]?\d{1,3}([.]\d+)?)/;
 
       // try to read long URL (including coordinates)
-      let coordinatesArray = regex.exec(url);
-      if (coordinatesArray && coordinatesArray[0]){
-        coordinates = coordinatesArray[0];
-        this.log("Coordinates: ", coordinates);
-        if (coordinates.split(',')[0] != undefined && coordinates.split(',')[1] != undefined){
-          return {
-            latitude: coordinates.split(',')[0],
-            longitude: coordinates.split(',')[1]
+      try{
+        coordinatesArray = regex.exec(url);
+        if (coordinatesArray && coordinatesArray[0]){
+          coordinates = coordinatesArray[0];
+          this.log("Coordinates: ", coordinates);
+          if (coordinates.split(',')[0] != undefined && coordinates.split(',')[1] != undefined){
+            return {
+              latitude: coordinates.split(',')[0],
+              longitude: coordinates.split(',')[1]
+            }
           }
         }
       }
+      catch(error){
+        this.log("Error reading coordinates from URL: ", error.message);
+      }
 
       // If not found, try to read/convert short link
-      this.log("Converting GoogleMaps URL to Lan/Lon: ", url);
-      let response = await https.getRedirectUrl( 
-        url,
-        {}
-      );
-      this.log("Short URL: ", response);
-      coordinates = regex.exec(response)[0];
-      this.log("Coordinates: ", coordinates);
-      return {
-        latitude: coordinates.split(',')[0],
-        longitude: coordinates.split(',')[1]
+      // Browser URL:  1 redirect
+      // Mobile App:   2 redirects
+      try{
+        this.log("Converting GoogleMaps URL to Lan/Lon: ", url);
+        url = await https.getRedirectUrl( 
+          url,
+          {}
+        );
+        if (url != undefined){
+          this.log("Short URL: ", url);
+          coordinatesArray = regex.exec(url);
+          if (coordinatesArray && coordinatesArray[0]){
+            coordinates = coordinatesArray[0];
+            this.log("Coordinates: ", coordinates);
+            if (coordinates.split(',')[0] != undefined && coordinates.split(',')[1] != undefined){
+              return {
+                latitude: coordinates.split(',')[0],
+                longitude: coordinates.split(',')[1]
+              }
+            }
+          } 
+        }
       }
+      catch(error){
+        this.log("Error reading coordinates from redirect URL: ", error.message);
+      }
+
+      try{
+        // redirectURL not valid. Try to read page content
+        let content = await https.request( 'GET', url, {});
+        coordinatesArray = regex.exec(content);
+        if (coordinatesArray && coordinatesArray[0]){
+            coordinates = coordinatesArray[0];
+          this.log("Coordinates: ", coordinates);
+          if (coordinates.split(',')[0] != undefined && coordinates.split(',')[1] != undefined){
+            return {
+              latitude: coordinates.split(',')[0],
+              longitude: coordinates.split(',')[1]
+            }
+          }
+        }
+      }
+      catch(error){
+        this.log("Error reading coordinates from content: ", error.message);
+      }
+
+      // noting found: Throw error
+      throw Error('Google URL is invalid.');
+
     }
     catch(error){
       this.log(error.message);

@@ -434,5 +434,11 @@
   },
   "3.2.0": {
     "en": "Added 'open door' flow card for car device."
+  },
+  "3.2.1": {
+    "en": "Reduced car status to online/offline due to different states via BLE and API."
+  },
+  "3.2.2": {
+    "en": "Car location device: updated 'coordinates reached' flow card, extended GoogleMaps URL check."
   }
 }

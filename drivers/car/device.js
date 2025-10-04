@@ -654,7 +654,24 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _getCarStateApi(){
     let carState = await this.oAuth2Client.getVehicle(this.getData().id);
-    return carState.state || CONSTANTS.STATE_OFFLINE;
+
+    switch (carState.state){
+      case CONSTANTS.STATE_ASLEEP: 
+        return CONSTANTS.STATE_OFFLINE;
+      case CONSTANTS.STATE_ONLINE:
+        return CONSTANTS.STATE_ONLINE;
+      case CONSTANTS.STATE_OFFLINE:
+        return CONSTANTS.STATE_OFFLINE;
+      default:
+        return CONSTANTS.STATE_OFFLINE;
+    }
+
+    // if (carState.state == CONSTANTS.STATE_ASLEEP){
+    //   return CONSTANTS.STATE_OFFLINE;
+    // }
+    // else{
+    //   return carState.state || CONSTANTS.STATE_OFFLINE;
+    // }
   }
 
   // async _getCarStateBle(query){
