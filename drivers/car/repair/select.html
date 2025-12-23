@@ -26,6 +26,9 @@
     function onSelectDeviceDetails(){
         Homey.showView("device_details");
     }
+    function onSelectTelemetry(){
+        Homey.showView("telemetry");
+    }
 
 </script>
 
@@ -49,6 +52,11 @@
       <div>
             <p>
                 <button id="btnDeviceDetails" class="homey-button-secondary-shadow-full" onClick="onSelectDeviceDetails()" ><span data-i18n="repair.select.device_details"></span></button>
+            </p>
+        </div>
+      <div>
+            <p>
+                <button id="btnTelemetry" class="homey-button-secondary-shadow-full" onClick="onSelectTelemetry()" ><span data-i18n="repair.select.telemetry"></span></button>
             </p>
         </div>
     <!-- </fieldset> -->

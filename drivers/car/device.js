@@ -16,6 +16,7 @@ const RETRY_COUNT = 3; // number of retries sending commands
 const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 const BLE_TIMEOUT_CARSERVER = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
 const BLE_TIMEOUT_VCSEC = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
+const TELEMETRY_LOG_MAX_LENGTH = 50;
 
 const CONSTANTS = require('../../lib/constants');
 const Mappings = require('../../lib/mappings');
@@ -97,6 +98,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     await this._startSync();
     this._sync();
+    await this._startStateCheck();
   }
 
   async onOAuth2Uninit(){
@@ -324,6 +326,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this.homey.setTimeout(async() => {
       await this._calculateApiCosts();
       this._startSync();
+      this._startStateCheck();
       this._sync();
       }, 1000);
   }
@@ -514,7 +517,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     // Interval settings is in minutes, convert to milliseconds.
     let interval = DEFAULT_SYNC_INTERVAL;
-    if (!this.isAsleep()){
+    // if (!this.isAsleep()){
       if (this._settings.polling_interval_online > 0){
         interval = this._settings.polling_interval_online * 1000;
       }
@@ -522,16 +525,16 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         interval = interval * 60;
       }
       this.log(`[Device] ${this.getName()}: Start ONLINE Poll interval: ${interval} msec.`);
-    }
-    else{
-      if (this._settings.polling_interval_offline > 0){
-        interval = this._settings.polling_interval_offline * 1000;
-      }
-      if (this._settings.polling_unit_offline == 'min'){
-        interval = interval * 60;
-      }
-      this.log(`[Device] ${this.getName()}: Start OFFLINE Poll interval: ${interval} msec.`);
-    }
+    // }
+    // else{
+    //   if (this._settings.polling_interval_offline > 0){
+    //     interval = this._settings.polling_interval_offline * 1000;
+    //   }
+    //   if (this._settings.polling_unit_offline == 'min'){
+    //     interval = interval * 60;
+    //   }
+    //   this.log(`[Device] ${this.getName()}: Start OFFLINE Poll interval: ${interval} msec.`);
+    // }
 
     this._syncInterval = this.homey.setInterval(() => this._sync(), interval);
     // this._sync();
@@ -544,6 +547,32 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (this._syncInterval) {
       this.homey.clearInterval(this._syncInterval);
       this._syncInterval = undefined;
+    }
+  }
+
+  // State Check Logic =======================================================================================
+  async _startStateCheck(){
+    await this._stopStateCheck();
+    if (!this._settings || !this._settings.polling_active){
+      return;
+    }
+    // Interval settings is in minutes, convert to milliseconds.
+    let interval = DEFAULT_SYNC_INTERVAL;
+      if (this._settings.polling_interval_offline > 0){
+        interval = this._settings.polling_interval_offline * 1000;
+      }
+      if (this._settings.polling_unit_offline == 'min'){
+        interval = interval * 60;
+      }
+      this.log(`[Device] ${this.getName()}: Start STATE Check interval: ${interval} msec.`);
+
+    this._stateCheckInterval = this.homey.setInterval(() => this.getCarStateUpdate(), interval);
+  }
+
+  async _stopStateCheck(){
+    if (this._stateCheckInterval) {
+      this.homey.clearInterval(this._stateCheckInterval);
+      this._stateCheckInterval = undefined;
     }
   }
 
@@ -647,7 +676,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       catch(error){
         this.log("_getCarStateTarget() Error sending FleetAPI command: "+error.message);
-        return CONSTANTS.STATE_OFFLINE;
+        throw error;
       }
     }
   }
@@ -677,14 +706,25 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // async _getCarStateBle(query){
   // }
 
-  // Read car data. Car must be awake.
-  async getCarData(){
+  // Read car state and upodate device state 
+  async getCarStateUpdate(){
+    this.log("Car state check VIN "+this.getData().id+"...");
     // Get car state
     let oldState = this.getCapabilityValue('car_state');
 
     // get buffered car state
     // let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
-    let carState = await this.getCarState();
+    let carState = undefined;
+    try{
+      carState = await this.getCarState();
+    }
+    catch(error){
+      this.log("_getCarStateUpdate() Error: "+error.message);
+      this.setUnavailable(error.message).catch(this.error);
+      await this.handleApiError(error);
+      return {state: CONSTANTS.STATE_OFFLINE};
+    }
+    
     this.log("Car state: ", carState); 
 
     // Workaround for missing asleep state since Softwware 2024.14.x
@@ -709,7 +749,47 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       // Update car state to ONLINE if request was successful
       await this.setCapabilityValue('car_state', carState || 'online');
       await this.setDeviceState(true);
+      return {state: CONSTANTS.STATE_ONLINE};
+    }
+  }
 
+  // Read car data. Car must be awake.
+  async getCarData(){
+    // // Get car state
+    // let oldState = this.getCapabilityValue('car_state');
+
+    // // get buffered car state
+    // // let vehicle = await this.oAuth2Client.getVehicle(this.getData().id);
+    // let carState = await this.getCarState();
+    // this.log("Car state: ", carState); 
+
+    // // Workaround for missing asleep state since Softwware 2024.14.x
+    // // if (vehicle.state == CONSTANTS.STATE_ASLEEP){
+    // if (carState != CONSTANTS.STATE_ONLINE){
+
+    //   await this.setCapabilityValue('car_state', carState);
+    //   await this.setDeviceState(false);
+    //   let time = this._getLocalTimeString(new Date());
+    //   await this.setCapabilityValue('last_update', time);
+    //   // From asleep to online/offline or back?
+    //   // Change Sync only if state changed from online/offline to asleep or from asleep to online/offline
+
+    //   // Workaround for missing asleep state since Softwware 2024.14.x
+    //   // if ( oldState != CONSTANTS.STATE_ASLEEP ){
+    //   if ( oldState == CONSTANTS.STATE_ONLINE ){
+    //     this._startSync();
+    //   }
+    //   return {state: CONSTANTS.STATE_OFFLINE};
+    // }
+    // else{
+    //   // Update car state to ONLINE if request was successful
+    //   await this.setCapabilityValue('car_state', carState || 'online');
+    //   await this.setDeviceState(true);
+
+    // }
+    let state = await this.getCarStateUpdate();
+    if (state.state != CONSTANTS.STATE_ONLINE){ 
+      return state.state;
     }
 
     // car data
@@ -732,13 +812,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setCapabilityValue('car_state', data.state || 'online');
       await this.setDeviceState(true);
 
-      let time = this._getLocalTimeString(new Date());
-      await this.setCapabilityValue('last_update', time);
-      if (oldState != CONSTANTS.STATE_ONLINE){
-        // From asleep to online?
-        // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
-        this._startSync();
-      }
+      // if (oldState != CONSTANTS.STATE_ONLINE){
+      //   // From asleep to online?
+      //   // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
+      //   this._startSync();
+      // }
 
       await this._updateDevice(data);
       return data;
@@ -762,11 +840,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         let time = this._getLocalTimeString(new Date());
         await this.setCapabilityValue('last_update', time);
         // state change from asleep to offline => Start new sync interval
-        if (oldState == CONSTANTS.STATE_ONLINE){
-          // From asleep to offline?
-          // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
-          this._startSync();
-        }
+        // if (oldState == CONSTANTS.STATE_ONLINE){
+        //   // From asleep to offline?
+        //   // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
+        //   this._startSync();
+        // }
         return {};
       }
       else{
@@ -849,6 +927,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           await this.bleApi.disconnect();
           await this._countApiRequest( CONSTANTS.API_REQUEST_COUNTER_BLE_SUCCESS );
           await this.handleApiOk(CONSTANTS.API_ERROR_BLE);
+          carData["source"] = CONSTANTS.SOURCE_BLE;
           return carData;
         }
         else{
@@ -880,6 +959,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         if (result.gui_settings != undefined){
           this.setStoreValue('car_gui_settings', result.gui_settings);
         }
+        result["source"] = CONSTANTS.SOURCE_FLEETAPI;
         return result;
       }
       else{
@@ -897,7 +977,18 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   // }
 
   async _updateDevice(data){
-    this.log("Update device data...");
+    this.log("Update device data VIN "+this.getData().id+"...");
+
+    // get child devices
+    let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    let locationDevice = this.homey.drivers.getDriver('location').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+    let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+
+    // last update
+    let time = this._getLocalTimeString(new Date());
+    await this.setCapabilityValue('last_update', time);
+
 
     // last online timestamp
     if (this.hasCapability('last_online') && data != undefined){
@@ -993,11 +1084,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
 
       // Trunk
-      if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft != undefined){
+      if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft !== undefined){
         //ft==0: closed
         await this.setCapabilityValue('car_trunk_front', data.vehicle_state.ft != 0);
       }
-      if (this.hasCapability('car_trunk_rear') && data.vehicle_state && data.vehicle_state.rt != undefined){
+      if (this.hasCapability('car_trunk_rear') && data.vehicle_state && data.vehicle_state.rt !== undefined){
         //rt==0: closed
         await this.setCapabilityValue('car_trunk_rear', data.vehicle_state.rt != 0);
       }
@@ -1064,9 +1155,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // Drive state
     if (data.drive_state){
-      if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state == null)){
+      if (this.hasCapability('car_shift_state') && data.drive_state && (data.drive_state.shift_state != undefined || data.drive_state.shift_state === null)){
         let previousShiftState = this.getCapabilityValue('car_shift_state');
-        if (data.drive_state.shift_state == null || data.drive_state.shift_state == 'P'){
+        if (data.drive_state.shift_state === null || data.drive_state.shift_state == 'P'){
           await this.setCapabilityValue('car_shift_state', 'P');
         }
         else{
@@ -1075,7 +1166,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
         // add driving history to location device if driving state has changed
         let shiftState = this.getCapabilityValue('car_shift_state');
-        if (previousShiftState != shiftState
+        if (data.drive_state.shift_state !== undefined // only if shift state is set (skip Telementry updates without shift state change)
+            &&
+            previousShiftState != shiftState
             &&
           (
             previousShiftState == 'P' && shiftState != 'P'
@@ -1083,7 +1176,46 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
             previousShiftState != 'P' && shiftState == 'P'
           )){
           try{
-            this.getLocationDevice().addDrivingHistory(data);
+            // collect current values from data parameter (if possible, e.g. FleetAPI call)
+            // If not found, use last known value from Capabilities.
+            let historyData = { 
+              // drive_state: {},
+              gui_settings: {},
+              vehicle_state: {},
+              charge_state: {},
+              drive_state: {}
+            };
+            historyData.gui_settings = data.gui_settings;
+            historyData.drive_state.shift_state = data.drive_state.shift_state;
+            historyData.vehicle_state.odometer = data.vehicle_state.odometer;
+            historyData.drive_state.latitude = data.drive_state.latitude;
+            historyData.drive_state.longitude = data.drive_state.longitude;
+            historyData.charge_state.battery_level = data.charge_state.battery_level;
+
+            if (historyData.vehicle_state.odometer == undefined){
+              historyData.vehicle_state.odometer = this.getCapabilityValue('meter_car_odo');
+            }
+            if (historyData.drive_state.latitude == undefined && locationDevice != undefined){
+              historyData.drive_state.latitude = locationDevice.getCapabilityValue('measure_location_latitude');
+            }
+            if (historyData.drive_state.longitude == undefined && locationDevice != undefined){
+              historyData.drive_state.longitude = locationDevice.getCapabilityValue('measure_location_longitude');
+            }
+            if (historyData.charge_state.battery_level == undefined && batteryDevice != undefined){
+              historyData.charge_state.battery_level = batteryDevice.getCapabilityValue('measure_soc_level');
+            }
+            // check if all data is available
+            if (
+              historyData.vehicle_state.odometer != undefined
+              &&
+              historyData.drive_state.latitude != undefined
+              &&
+              historyData.drive_state.longitude != undefined
+              &&
+              historyData.charge_state.battery_level != undefined
+            ){
+              this.getLocationDevice().addDrivingHistory(historyData);
+            }
           }
           catch(error){ }
         }
@@ -1093,8 +1225,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         // D
         // null = P
       }
-      if (this.hasCapability('measure_car_drive_speed') && data.drive_state && ( data.drive_state.speed != undefined || data.drive_state.speed == null) && data.gui_settings){
-        let speed = data.drive_state.speed == null ? 0 : data.drive_state.speed;
+      if (this.hasCapability('measure_car_drive_speed') && data.drive_state && ( data.drive_state.speed != undefined || data.drive_state.speed === null) && data.gui_settings){
+        let speed = data.drive_state.speed === null ? 0 : data.drive_state.speed;
         await this.setCapabilityValue('measure_car_drive_speed', Math.round( data.gui_settings.gui_distance_units == 'km/hr' ? speed * CONSTANTS.MILES_TO_KM :  speed ) );
         // Capability units
         if (data.gui_settings && data.gui_settings.gui_distance_units){
@@ -1114,22 +1246,18 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
 
     // Update child devices
-    let batteryDevice = this.homey.drivers.getDriver('battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (batteryDevice){
       this.log("Update battery device...");
       await batteryDevice.updateDevice(data);
     }
-    let climateDevice = this.homey.drivers.getDriver('climate').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (climateDevice){
       this.log("Update climate device...");
       await climateDevice.updateDevice(data);
     }
-    let locationDevice = this.homey.drivers.getDriver('location').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (locationDevice){
       this.log("Update location device...");
       await locationDevice.updateDevice(data);
     }
-    let mediaDevice = this.homey.drivers.getDriver('media').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
     if (mediaDevice){
       this.log("Update media device...");
       await mediaDevice.updateDevice(data);
@@ -2494,4 +2622,189 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     let result = (costs * 100.0 / targetCosts).toFixed(2); 
     return ( result > args.value );
   }
+
+  // TELEMETRY FUNCTIONS =======================================================================================
+  async telemetryStatus(){
+    this.log("Telemetry Status request...");
+    let status = await this.oAuth2Client.fleetTelemetryStatus(this.getData().id);
+    this.log("Telemetry Status: ", status);
+    return status;
+  }
+
+  async telemetryConfig(){
+    this.log("Telemetry Config request...");
+    let config = await this.oAuth2Client.fleetTelemetryConfig(this.getData().id);
+    this.log("Telemetry Config: ", config);
+    return config;
+  }
+
+  async telemetryErrors(){
+    this.log("Telemetry Error request...");
+    let errors = await this.oAuth2Client.fleetTelemetryErrors(this.getData().id);
+    this.log("Telemetry Config: ", errors);
+    // sort descending
+    if (errors.fleet_telemetry_errors != undefined){
+      errors.fleet_telemetry_errors.sort(function(a, b) { 
+        if (b.created_at < a.timestamp)
+          return 1;
+        else
+          return -1;
+      });
+    }
+    return errors;
+  }
+
+  async telemetryMessages(){
+    let log = this.getStoreValue('telemetry_log');
+    let logSorted = [];  
+    if (log){
+      for (let i = log.length-1; i >= 0 ; i--){
+        logSorted.push(log[i]);
+      }
+    }
+    return logSorted;
+  }
+
+  async telemetryActivate(){
+    let exp = Math.floor( new Date() / 1000 ) + 60*30;
+    let privateKey = this.homey.settings.get("private_key");
+    let key = Eckey.parsePem(privateKey);
+
+    let telemetrySettings = this.homey.app.getTelemetrySettings();
+    let ca = telemetrySettings.ca;
+    if (!telemetrySettings.ca) ca = this.homey.app.getTelemetryCa().caCert;
+
+    this.log("Telemetry Activation request: VIN: ", this.getData().id, " server: ", telemetrySettings.server, " port: ", telemetrySettings.port);
+
+    let configFields = {};
+    let fields = this.getTelemetryCarSettings();
+    fields.forEach( (field) => {
+      if (field.active){        
+        configFields[field.field] = { 
+          interval_seconds: field.interval, 
+        }
+        if (field.resendInterval > 0){
+          configFields[field.field].resend_interval_seconds = field.resendInterval;
+        }
+        if (field.minimumDelta > 0){
+          configFields[field.field].minimum_delta = field.minimumDelta;
+        }
+      }
+    });
+
+
+    let config = {
+      "config": {
+        "hostname": telemetrySettings.server,
+        "port": Number(telemetrySettings.port),
+        "ca": ca,
+        // "delivery_policy": "latest",
+        "prefer_typed": true,
+        // "exp": exp,
+        // "alert_types": [
+          // "service"
+        // ],
+        "fields": configFields
+      },
+      "vins": [
+          this.getData().id
+      ]
+    }
+
+    try{
+      let jws = await crypt.generateJWS(key.privateKey, key.publicKey, config.config, "com.tesla.fleet.TelemetryClient");
+      let result = await this.oAuth2Client.fleetTelemetryActivateJws(this.getData().id, jws);
+      this.log("Telemetry Activate: ", result);
+      return result;
+    }
+    catch(error){
+      this.log("Telemetry Activation Error: ", error);
+      return error.message;
+    }
+  }
+
+  async telemetryDeactivate(){
+    let result = await this.oAuth2Client.fleetTelemetryDeactivate(this.getData().id);
+    this.log("Telemetry Dectivate: ", result);
+    return result;
+  }
+
+  getTelemetryServerSettings(){
+    return this.homey.app.getTelemetrySettings();
+  }
+
+  async setTelemetryServerSettings(settings){
+    return await this.homey.app.setTelemetrySettings(settings);
+  }
+
+  getTelemetryCarSettings(){
+    let settings = this.getStoreValue('telemetry_car_settings');
+    if (!settings){
+      return this._getTelemetryCarSettingsDefault();
+    }
+    // Update missing fields with defaults
+    let defaultSettings = this._getTelemetryCarSettingsDefault();
+    defaultSettings.forEach( (field) => {
+      if (settings.findIndex(i => i.field === field.field) == -1){
+        settings.push(field)
+      }
+    });
+
+    return settings;
+  }
+
+  _getTelemetryCarSettingsDefault(){
+    return CONSTANTS.TELEMETRY_FIELDS_DEFAULT;
+  }
+
+  async setTelemetryCarSettings(settings){
+     await this.setStoreValue('telemetry_car_settings', settings) 
+  }
+
+  async updateDeviceTelemetry(data){
+    // this.log("Update Device Telemetry: ", data);
+    // data['timestamp'] = this._getLocalTimeString(new Date());
+    data = {
+      timestamp: this._getLocalTimeSecondsString(new Date()),
+      ...data
+    };
+    
+    data["source"] = CONSTANTS.SOURCE_TELEMETRY;
+
+    let log = this.getStoreValue('telemetry_log');
+    if (!log) log = [];
+    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
+    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
+    log.push(data);
+    this.setStoreValue('telemetry_log', log);
+
+    // Add car GUI settings (units), stored in device store because it's only available via FleetAPI 
+    let guiSettings = this.getStoreValue('car_gui_settings');
+    if (guiSettings != undefined){
+      data['gui_settings'] = guiSettings;
+    }
+
+    await this._updateDevice(data);
+    let oldState = this.getCapabilityValue('car_state');
+
+    if (oldState != CONSTANTS.STATE_ONLINE){
+        // Update car state to ONLINE if request was successful
+        await this.setCapabilityValue('car_state', 'online');
+        await this.setDeviceState(true);
+
+        // From asleep to online?
+        // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
+        this._startSync();
+        this._sync();
+      }
+  }
+
+  async updateDeviceTelemetryDisconnect(){
+    // car disconnected from Telemetry server: Set as offline
+    await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
+    await this.setDeviceState(false);
+    let time = this._getLocalTimeString(new Date());
+    await this.setCapabilityValue('last_update', time);
+  }
+
 }

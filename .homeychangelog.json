@@ -440,5 +440,8 @@
   },
   "3.2.2": {
     "en": "Car location device: updated 'coordinates reached' flow card, extended GoogleMaps URL check."
+  },
+  "3.3.0": {
+    "en": "Changed offline timer to a state check timer. Deactivates EnergySite meter data due to Tesla API change - only live data is currently available."
   }
 }

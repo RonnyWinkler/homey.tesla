@@ -25,6 +25,89 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     await this._initWidgets();
     // this.homey.notifications.createNotification({excerpt: this.homey.__('app.update.update_message')}).catch(error => {this.error('Error sending notification: '+error.message)});
 
+    await this._initTeslaTelemetryServer();
+
+  }
+
+  // TELEMETRY SERVER ==============================================================================
+  getTelemetrySettings(){
+    let telemetrySettings = this.homey.settings.get("telemetry") || {};
+    if (!telemetrySettings.port_internal) telemetrySettings.port_internal = "8443";
+    if (!telemetrySettings.server) telemetrySettings.server = "homeyId.telemetry.rwdevelopment.de";
+    if (!telemetrySettings.port) telemetrySettings.port = "8443";
+    if (!telemetrySettings.ca) telemetrySettings.ca = '';
+    if (!telemetrySettings.server_active) telemetrySettings.server_active = false;
+    if (this._teslaTelemetryServer){
+      telemetrySettings.status = this._teslaTelemetryServer.getStatus();
+    }
+    else{
+      telemetrySettings.status = null;
+    }
+    return telemetrySettings;
+  }
+
+  async setTelemetrySettings(settings){
+    let oldSettings = this.getTelemetrySettings();
+    await this.homey.settings.set("telemetry", settings);
+    if (oldSettings.server != settings.server || oldSettings.port_internal != settings.port_internal || oldSettings.server_active != settings.server_active){
+      await this._initTeslaTelemetryServer(true);
+    }
+  }
+
+  getTelemetryCa(){
+    return this.homey.settings.get("telemetry_ca");
+  }
+
+  async setTelemetryCa(privateCert, caCert){
+    let ca = {privateCert, caCert};
+    await this.homey.settings.set("telemetry_ca", ca);
+  }
+
+  async _initTeslaTelemetryServer(createNewCertificate = false){
+
+    let telemetrySettings = this.getTelemetrySettings();
+
+    let ca = this.getTelemetryCa();
+    if (!ca || !ca.privateCert || !ca.caCert || createNewCertificate == true){
+      const crypt = require('./lib/crypt');
+      ca = crypt.generateX509(telemetrySettings.server);
+      await this.setTelemetryCa(ca.privateCert, ca.caCert);
+    }
+    try{
+      if (this._teslaTelemetryServer){
+        await this._teslaTelemetryServer.stopServer();
+      }
+      if (!telemetrySettings.server_active){
+        this.log("TeslaTelemetryServer disabled");
+        return;
+      }
+      const { TeslaTelemetryServer } = require('./lib/TeslaTelemetryServer.js');
+      this._teslaTelemetryServer = await new TeslaTelemetryServer(ca.privateCert, ca.caCert);
+      if (this._teslaTelemetryServer){
+        this._teslaTelemetryServer.onTelemetryMessage.subscribe(this.onTelemetryMessage.bind(this));
+        this._teslaTelemetryServer.onTelemetryDisconnect.subscribe(this.onTelemetryDisconnect.bind(this));
+      }
+      this.log("TeslaTelemetryServer active: "+ JSON.stringify(this._teslaTelemetryServer.getStatus()));
+    }
+    catch(error){
+      this.error("App._initTeslaTelemetryServer(): Error creating TeslaTelemetryServer: "+error);
+    }
+  }
+  
+  async onTelemetryMessage(message){
+    // this.log("Telemetra message from VIN "+message.vin+": \n",message.data);
+    let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == message.vin ) })[0];
+    if (car){
+      await car.updateDeviceTelemetry(message.data);
+    }
+  }
+
+  async onTelemetryDisconnect(message){
+    // this.log("Telemetra message from VIN "+message.vin+": \n",message.data);
+    let car = this.homey.drivers.getDriver('car').getDevices().filter(e=>{ return ( e.getData().id == message.vin ) })[0];
+    if (car){
+      await car.updateDeviceTelemetryDisconnect();
+    }
   }
 
   // FLOW ACTIONS ==============================================================================

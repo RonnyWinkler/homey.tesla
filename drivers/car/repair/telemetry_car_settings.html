@@ -1,0 +1,248 @@
+
+<style>
+  .qty-interval {
+    width: 50px;
+  }
+  .qty-resend {
+    width: 50px;
+  }
+  .qty-delta {
+    width: 50px;
+  }
+</style>
+
+<script type="application/javascript">
+
+  Homey.setTitle(Homey.__("repair.telemetry_car_settings.title"));
+
+    let settings = [];
+    let telemetryTable; // store DataTable instance globally
+
+    function showUrl(url){
+      Homey.popup(url);
+    }
+
+    // function getTelemetryCarSettings(){
+    //     Homey.emit('getTelemetryCarSettings').then(function (data) {
+    //     });
+    // }
+
+    function setTelemetryCarSettings(){
+      if (!telemetryTable) {
+          console.error("Table instance not found!");
+          return;
+      }
+
+      // Get all row data as an array
+      let updatedSettings = telemetryTable.data().toArray();
+
+      console.log("Sending updated settings:", updatedSettings);
+
+      Homey.emit('setTelemetryCarSettings', updatedSettings).then(function () {
+          Homey.alert(Homey.__("repair.telemetry_car_settings.success"));
+      });
+    }
+</script>
+
+<p data-i18n="repair.telemetry_car_settings.info"></p>
+<!-- <a href="https://developer.tesla.com/docs/fleet-api/fleet-telemetry/available-data#vehicle-data"><p data-i18n="repair.telemetry_car_settings.link_fields" style="margin-bottom: 0px;"></p></a>
+<a href="https://developer.tesla.com/docs/fleet-api/fleet-telemetry#system-behavior"><p data-i18n="repair.telemetry_car_settings.link_interval"style="margin-bottom: 0px;"></p></a> -->
+
+<div>
+    <!-- <table style="width:100%">
+        <tr>
+            <td>
+                <button id="btnJsonChargingHistory" class="homey-button-secondary-shadow" onClick="onJsonChargingHistory()"><span data-i18n="repair.charging_history.edit"></span></button>
+            </td>
+        </tr>
+    </table> -->
+
+    <table id="tableTelemetryCarSettings" class="display">
+        <thead>
+            <tr>
+                <th>Data field</th>
+                <th>Act.</th>
+                <th>Send (sec)</th>
+                <th>Resend (sec)</th>
+                <th>Min.Delta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="../../../assets/js/dataTables.css"/>
+<script src="../../../assets/js/dataTables.js"></script>
+
+<!-- <br> -->
+<p>
+  <button id="btnTelemetrySetSettings" class="homey-button-primary-shadow-full" onClick="setTelemetryCarSettings();">
+    <span data-i18n="repair.telemetry_car_settings.btn_set"></span>
+  </button>
+</p>
+
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td style="width: 50;">
+            <div>
+              <button id="btnTelemetryLinkFields" class="homey-button-secondary-shadow-full" onClick="showUrl('https://developer.tesla.com/docs/fleet-api/fleet-telemetry/available-data#vehicle-data')" 
+                    style="margin-right: 7px;"><span data-i18n="repair.telemetry_car_settings.link_fields"></span></button>
+            </div>
+        </td>
+        <td style="width: 50;">
+            <div>
+              <button id="btnTelemetryLinkInterval" class="homey-button-secondary-shadow-full" onClick="showUrl('https://developer.tesla.com/docs/fleet-api/fleet-telemetry#system-behavior')" 
+                    style="margin-left: 7px;"><span data-i18n="repair.telemetry_car_settings.link_interval"></span></button>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<script type="application/javascript">
+
+    async function getTelemetryCarSettings(){
+        return await Homey.emit('getTelemetryCarSettings');
+        // return [
+        //   {
+        //     field: 'field01',
+        //     active: true,
+        //     period: 10,
+        //     resendPeriod: 5
+        //   },
+        //   {
+        //     field: 'field02',
+        //     active: true,
+        //     period: 10,
+        //     resendPeriod: 5
+        //   },
+        //   {
+        //     field: 'field03',
+        //     active: true,
+        //     period: 10,
+        //     resendPeriod: 5
+        //   }
+        // ]
+    }
+
+    // function onJsonChargingHistory(){
+    //     Homey.showView("charging_history_json");
+    // }
+
+
+
+
+
+(async function () {
+    settings = await getTelemetryCarSettings();
+
+    telemetryTable = new DataTable('#tableTelemetryCarSettings', {
+        searching: true,
+        paging: false,
+        // pagingType: 'full_numbers',
+        scrollX: false,
+        data: settings,
+        order: [[0, 'asc']],
+        columns: [
+            { data: 'field' },
+            { 
+                data: 'active',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return `<input type="checkbox" class="toggle-enabled" ${data ? 'checked' : ''}>`;
+                    }
+                    return data;
+                }
+            },
+            { 
+                data: 'interval',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return `<input type="number" min="0" class="qty-interval" value="${data}">`;
+                    }
+                    return data;
+                }
+            },
+            { 
+                data: 'resendInterval',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return `<input type="number" min="0" class="qty-resend" value="${data}">`;
+                    }
+                    return data;
+                }
+            },
+            { 
+                data: 'minimumDelta',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return `<input type="number" min="0" class="qty-delta" value="${data}">`;
+                    }
+                    return data;
+                }
+            }
+        ]
+    });
+
+    // ---------------------------
+    // EVENT HANDLERS
+    // ---------------------------
+
+    // Change ACTIVE checkbox
+    $('#tableTelemetryCarSettings').on('change', '.toggle-enabled', function () {
+        let row = telemetryTable.row($(this).closest('tr'));
+        let data = row.data();
+
+        data.active = $(this).is(':checked');
+        row.data(data).draw(false);
+
+        console.log("Updated row:", data);
+    });
+
+    // Change PERIOD field
+    $('#tableTelemetryCarSettings').on('input', '.qty-interval', function () {
+        let row = telemetryTable.row($(this).closest('tr'));
+        let data = row.data();
+
+        data.interval = Number($(this).val());
+        // row.data(data).draw(false);
+        data.interval = Number($(this).val());
+
+        console.log("Updated row:", data);
+    });
+
+    // Change RESEND PERIOD field
+    $('#tableTelemetryCarSettings').on('input', '.qty-resend', function () {
+        let row = telemetryTable.row($(this).closest('tr'));
+        let data = row.data();
+
+        data.resendInterval = Number($(this).val());
+        // row.data(data).draw(false);
+        // data.interval = Number($(this).val());
+
+        console.log("Updated row:", data);
+    });
+
+    // Change MINUMUM DELTA field
+    $('#tableTelemetryCarSettings').on('input', '.qty-delta', function () {
+        let row = telemetryTable.row($(this).closest('tr'));
+        let data = row.data();
+
+        data.minimumDelta = Number($(this).val());
+        // row.data(data).draw(false);
+        // data.interval = Number($(this).val());
+
+        console.log("Updated row:", data);
+    });
+
+})()
+
+</script>

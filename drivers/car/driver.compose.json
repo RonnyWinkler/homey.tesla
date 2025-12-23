@@ -162,6 +162,24 @@
             }
         },
         {
+            "id": "telemetry",
+            "navigation": { 
+                "prev": "select"
+            }
+        },
+        {
+            "id": "telemetry_server_settings",
+            "navigation": { 
+                "prev": "telemetry"
+            }
+        },
+        {
+            "id": "telemetry_car_settings",
+            "navigation": { 
+                "prev": "telemetry"
+            }
+        },
+        {
             "id": "pair_step_01",
             "navigation": {
                 "prev": "pair_steps",

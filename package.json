@@ -2,6 +2,9 @@
   "dependencies": {
     "eckey-utils": "^0.7.14",
     "elliptic": "^6.5.4",
-    "homey-oauth2app": "^3.5.5"
+    "flatbuffers": "^25.9.23",
+    "homey-oauth2app": "^3.5.5",
+    "selfsigned": "^4.0.0",
+    "ws": "^8.18.3"
   }
 }

@@ -133,6 +133,46 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
       }
     });
 
+    session.setHandler('telemetryStatus', async () => {
+        return await device.telemetryStatus();
+    });
+
+    session.setHandler('telemetryConfig', async () => {
+        return await device.telemetryConfig();
+    });
+
+    session.setHandler('telemetryErrors', async () => {
+        return await device.telemetryErrors();
+    });
+
+    session.setHandler('telemetryMessages', async () => {
+        return await device.telemetryMessages();
+    });
+
+    session.setHandler('telemetryActivate', async () => {
+        return await device.telemetryActivate();
+    });
+
+    session.setHandler('telemetryDeactivate', async () => {
+        return await device.telemetryDeactivate();
+    });
+
+    session.setHandler('getTelemetryServerSettings', () => {
+        return device.getTelemetryServerSettings();
+    });
+
+    session.setHandler('setTelemetryServerSettings', async (settings) => {
+        return await device.setTelemetryServerSettings(settings);
+    });
+
+    session.setHandler('getTelemetryCarSettings', () => {
+        return device.getTelemetryCarSettings();
+    });
+
+    session.setHandler('setTelemetryCarSettings', async (settings) => {
+        return await device.setTelemetryCarSettings(settings);
+    });
+
     super.onRepair(session, device);
 
   }

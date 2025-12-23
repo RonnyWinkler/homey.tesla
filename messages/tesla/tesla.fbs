@@ -1,0 +1,68 @@
+// Reconstructed FlatBuffers schema for the Tesla messaging envelope and stream
+// based on the generated Go bindings found in messages/tesla/*.go in the
+// teslamotors/fleet-telemetry repository.
+//
+// This .fbs is intended to capture the shape seen in the generated code:
+// - FlatbuffersEnvelope (envelope with txid, topic, message union, message id)
+// - FlatbuffersStream (the union member containing sender, payload, device ids, timestamps)
+// - FlatbuffersStreamAck (empty ack table present in the generated code)
+// - union Message (FlatbuffersStream, FlatbuffersStreamAck)
+// - root_type FlatbuffersEnvelope
+//
+// Note: FlatBuffers union discriminator numeric values in the original multi-file
+// repo may differ (the generated Go constants showed numeric values 4 and 5).
+// FlatBuffers assigns union ids sequentially; when multiple schemas are compiled
+// together ids may shift. This schema focuses on structural compatibility.
+namespace tesla;
+
+// Union for envelope payloads
+union Message {
+  FlatbuffersStream,
+  FlatbuffersStreamAck
+}
+
+// Stream message payload
+table FlatbuffersStream {
+  // timestamp when message was created (32-bit unsigned)
+  CreatedAt: uint;
+
+  // deprecated sender id (raw bytes)
+  SenderId: [ubyte];
+
+  // arbitrary payload bytes (vehicle telemetry payload)
+  Payload: [ubyte];
+
+  // device type (raw bytes)
+  DeviceType: [ubyte];
+
+  // device id (raw bytes)
+  DeviceId: [ubyte];
+
+  // delivered timestamp in epoch milliseconds (64-bit unsigned)
+  DeliveredAtEpochMs: ulong;
+}
+
+// Stream ack message (empty in generated code)
+table FlatbuffersStreamAck {
+}
+
+// Top-level envelope that wraps union payload
+table FlatbuffersEnvelope {
+  // transaction id - arbitrary bytes
+  Txid: [ubyte];
+
+  // topic used for routing (as bytes)
+  Topic: [ubyte];
+
+  // discriminator of the union (byte when accessed from generated language)
+  MessageType: byte;
+
+  // union payload (one of the Message members)
+  Message: Message;
+
+  // envelope-level message id (arbitrary bytes)
+  MessageId: [ubyte];
+}
+
+// Root of the schema
+root_type FlatbuffersEnvelope;

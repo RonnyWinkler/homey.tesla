@@ -57,9 +57,13 @@ module.exports = class MediaDevice extends ChildDevice {
     
     // Volume
     if (this.hasCapability('volume_set') && data.vehicle_state && data.vehicle_state.media_info && data.vehicle_state.media_info.audio_volume != undefined){
-      let volume = data.vehicle_state.media_info.audio_volume / data.vehicle_state.media_info.audio_volume_max;
-      this._maxVolume = data.vehicle_state.media_info.audio_volume_max;
-      await this.setCapabilityValue('volume_set', volume);
+      if (data.vehicle_state.media_info.audio_volume_max){
+        this._maxVolume = data.vehicle_state.media_info.audio_volume_max;
+      }
+      if (this._maxVolume && data.vehicle_state.media_info.audio_volume){ 
+        let volume = data.vehicle_state.media_info.audio_volume / data.vehicle_state.media_info.audio_volume_max;
+        await this.setCapabilityValue('volume_set', volume);
+      }
     }
   }
 

@@ -109,8 +109,55 @@
             "register_app": "Car key for Fleet-API",
             "register_ble": "Car key for Bluetooth LE",
             "device_details": "Device details",
+            "telemetry": "Telemetry",
             "charging_history": "Charging history",
             "charging_history_suc": "SuC Charging history"
+        },
+        "telemetry":{
+            "title": "Telemetry",
+            "info": "This functionality is experimental. You can't use it yet.",
+            "server_settings": "Server Settings",
+            "car_settings": "Car Settings",
+            "status": "Status",
+            "config": "Config",
+            "activate": "Activate",
+            "deactivate": "Deactivate",
+            "errors": "Errors",
+            "messages": "Messages"
+        },
+        "telemetry_server_settings":{
+            "title": "Telemetry Settings",
+            "info": "The Telemetry Server is a single server for a HomeyPro. All car devices on your HomeyPro are using this Telemetry server.",
+            "legend1": "Internal server settings",
+            "server_active": "Server active",
+            "port_internal": "Homey internal server port",
+            "port_internal_hint": "8443",
+            "legend2": "External server settings, port forwarding or reverse proxy",
+            "server": "Public server name (CNAME forward). Must be a subdomain of rwdevelopment.de",
+            "server_hint": "homeyId.telemetry.rwdevelopment.de",
+            "port": "Public server port (port forwarding or reverse proxy port)",
+            "port_hint": "8443",
+            "ca_cert": "CA certificate. Set only if you have a Reverse Proxy with own certificate",
+            "ca_cert_hint": "CA cert in PEM format: -----BEGIN CERTIFICATE----- ...",
+            "btn_set": "Update settings",
+            "success": "Settings upodated successfully.",
+            "status": "Status",
+            "status_running": "Running",
+            "status_stopped": "Stopped"
+        },
+        "telemetry_car_settings":{
+            "title": "Telemetry Settings",
+            "info": "Select the fields you want to get by Tesla Telemetry. This setting applies to the selected car.",
+            "link_interval": "Interval details",
+            "link_fields": "Field details",
+            "drive_state_legend": "Drive state",
+            
+            "active": "Active",
+            "interval": "Interval",
+            "resend_interval": "Resend Interval",
+
+            "btn_set": "Update settings",
+            "success": "Settings upodated successfully."
         },
         "device_details":{
             "title": "Device details"

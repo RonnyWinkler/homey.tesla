@@ -1,0 +1,21 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Module temperature min",
+    "de": "Modultemperatur min",
+    "nl": "Modultemperatuur min",
+    "fr": "Température module min",
+    "it": "Temperatura del modulo min",
+    "sv": "Modultemperatur min",
+    "no": "Modultemperatur min",
+    "es": "Temperatura del modulo min",
+    "da": "Modultemperatur min",
+    "ru": "Минимальная температура модуля",
+    "pl": "Temperatura modułu min"
+  },
+  "units": "°C",
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_module_temp_min.svg"
+}

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -9270,6 +9270,24 @@
           }
         },
         {
+          "id": "telemetry",
+          "navigation": {
+            "prev": "select"
+          }
+        },
+        {
+          "id": "telemetry_server_settings",
+          "navigation": {
+            "prev": "telemetry"
+          }
+        },
+        {
+          "id": "telemetry_car_settings",
+          "navigation": {
+            "prev": "telemetry"
+          }
+        },
+        {
           "id": "pair_step_01",
           "navigation": {
             "prev": "pair_steps",
@@ -9341,30 +9359,30 @@
               "id": "polling_interval_online",
               "type": "number",
               "label": {
-                "en": "Online polling interval",
-                "de": "Online Abruf-Intervall",
-                "nl": "Online polling interval",
-                "fr": "Intervalle de sondage en ligne",
-                "it": "Intervallo di polling online",
-                "sv": "Online undersökningsintervall",
-                "no": "Online avstemningsintervall",
-                "es": "Intervalo de sondeo en línea",
-                "da": "Online afstemningsinterval",
-                "ru": "Интервал опроса в режиме онлайн",
-                "pl": "Interwał sondowania online"
+                "en": "Data polling interval",
+                "de": "Datenabruf-Intervall",
+                "nl": "Data polling interval",
+                "fr": "Intervalle de sondage des données",
+                "it": "Intervallo di polling dei dati",
+                "sv": "Undersökningsintervall",
+                "no": "Avstemningsintervall",
+                "es": "Intervalo de sondeo de datos",
+                "da": "Afstemningsinterval",
+                "ru": "Интервал опроса данных",
+                "pl": "Interwał sondowania danych"
               },
               "hint": {
-                "en": "Specifies the interval at which the data is retrieved as long as the vehicle is not sleeping. This also applies to periods in which the vehicle is offline (e.g. no mobile network available for a short time).",
-                "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug nicht schläft. Die gilt auch für Zeiträume, in denen das Fahrzeug offline ist (z.B. kurzzeitig keine Mobilfunknetz verfügbar).",
-                "nl": "Specificeert het interval waarmee de gegevens worden opgehaald zolang het voertuig niet slaapt. Dit geldt ook voor perioden waarin het voertuig offline is (bijvoorbeeld als er korte tijd geen mobiel netwerk beschikbaar is).",
-                "fr": "Spécifie l'intervalle auquel les données sont récupérées tant que le véhicule ne dort pas. Cela s'applique également aux périodes pendant lesquelles le véhicule est hors ligne (par exemple, pas de réseau mobile disponible pendant une courte période).",
-                "it": "Specifica l'intervallo di tempo in cui i dati vengono recuperati fintanto che il veicolo non è in modalità di riposo. Questo si applica anche ai periodi in cui il veicolo è offline (ad esempio, nessuna rete mobile disponibile per un breve periodo).",
-                "sv": "Specificerar intervallet där data hämtas så länge fordonet inte sover. Detta gäller även perioder då fordonet är offline (t.ex. ingen mobilnätverk tillgängligt under en kort tid).",
-                "no": "Angir intervallet der data hentes så lenge kjøretøyet ikke sover. Dette gjelder også perioder der kjøretøyet er offline (f.eks. ingen mobilnett tilgjengelig i en kort periode).",
-                "es": "Especifica el intervalo en el que se recuperan los datos siempre que el vehículo no esté en reposo. Esto también se aplica a los períodos en los que el vehículo está sin conexión (por ejemplo, no hay red móvil disponible durante un corto período de tiempo).",
-                "da": "Angiver intervallet, hvor data hentes, så længe køretøjet ikke sover. Dette gælder også perioder, hvor køretøjet er offline (f.eks. ingen mobilnetværk tilgængeligt i en kort periode).",
-                "ru": "Указывает интервал, с которым данные извлекаются, пока автомобиль не находится в режиме сна. Это также относится к периодам, когда автомобиль находится в автономном режиме (например, нет доступа к мобильной сети в течение короткого времени).",
-                "pl": "Określa interwał, w którym dane są pobierane, dopóki pojazd nie śpi. Dotyczy to również okresów, w których pojazd jest offline (np. brak dostępu do sieci komórkowej przez krótki czas)."
+                "en": "Specifies the interval at which data is retrieved. While the vehicle is asleep, no API costs are incurred.",
+                "de": "Gibt das Intervall an, in dem die Daten abgerufen werden. Solange das Fahrzeug schläft, fallen keine API-Kosten an",
+                "nl": "Specificeert het interval waarmee gegevens worden opgehaald. Zolang het voertuig slaapt worden geen API kosten opgelegd.",
+                "fr": "Spécifie l'intervalle auquel les données sont récupérées. Tant que le véhicule dort pas, aucune charge API n'est appliquée.",
+                "it": "Specifica l'intervallo di tempo in cui i dati vengono recuperati. Fintanto che il veicolo non dorme, non sono applicate costi API.",
+                "sv": "Specificerar intervallet på vilket data hittas. Medan fordonet sover, inkommer inga API-kostnader.",
+                "no": "Angir intervallet der data hentes. Mens kjøretøyet sover, inntekker ingen API-kostnader.",
+                "es": "Especifica el intervalo en el que se recuperan los datos. Mientras el vehículo este dormido, no se aplican costos de la API.",
+                "da": "Angiver intervallet, hvor data hentes. Mens køretøjet sover, inkommer ingen API-kostnader.",
+                "ru": "Указывает интервал, с которым данные извлекаются. Во время сна автомобиля не вносятся расходы на API.",
+                "pl": "Określa interwał, wętorym pobierane są dane. Gdy pojazd jest w stanie uśpienia, nie oblicza kosztów API."
               },
               "value": 1,
               "min": 1
@@ -9425,32 +9443,32 @@
               "id": "polling_interval_offline",
               "type": "number",
               "label": {
-                "en": "Offline polling interval",
-                "de": "Offline Abruf-Intervall",
-                "nl": "Offline polling interval",
-                "fr": "Intervalle de sondage hors ligne",
-                "it": "Intervallo di polling offline",
-                "sv": "Offline undersökningsintervall",
-                "no": "Frakoblet avstemningsintervall",
-                "es": "Intervalo de sondeo sin conexión",
-                "da": "Offline afstemningsinterval",
-                "ru": "Интервал опроса в автономном режиме",
-                "pl": "Interwał odpytywania w trybie offline"
+                "en": "State check interval",
+                "de": "Status-Intervall",
+                "nl": "State check interval",
+                "fr": "Intervalle de sondage de l'état",
+                "it": "Intervallo di polling dello stato",
+                "sv": "Undersökningsintervall",
+                "no": "Avstemningsintervall",
+                "es": "Intervalo de sondeo de estado",
+                "da": "Afstemningsinterval",
+                "ru": "Интервал опроса состояния",
+                "pl": "Interwał sprawdzania stanu"
               },
               "hint": {
-                "en": "Specifies the interval at which data is retrieved while the vehicle is asleep.",
-                "de": "Gibt das Intervall an, in dem die Daten abgerufen werden, solange das Fahrzeug schläft.",
-                "nl": "Specificeert het interval waarmee gegevens worden opgehaald terwijl het voertuig slaapt.",
-                "fr": "Spécifie l'intervalle auquel les données sont récupérées pendant que le véhicule est endormi.",
-                "it": "Specifica l'intervallo in cui vengono recuperati i dati mentre il veicolo è in stato di riposo.",
-                "sv": "Specificerar intervallet då data hämtas medan fordonet sover.",
-                "no": "Angir intervallet der data hentes mens kjøretøyet sover.",
-                "es": "Especifica el intervalo en el que se recuperan los datos mientras el vehículo está dormido.",
-                "da": "Angiver intervallet, hvor data hentes, mens køretøjet sover.",
-                "ru": "Указывает интервал, с которым данные извлекаются во время сна автомобиля.",
-                "pl": "Określa interwał, w którym pobierane są dane, gdy pojazd jest w stanie uśpienia."
+                "en": "Specifies the interval at which the vehicle status is checked (online/offline).",
+                "de": "Gibt das Intervall an, in dem der Fahrzeugstatus geprüft wird (online/offline).",
+                "nl": "Specificeert het interval dat de status van het voertuig wordt gecontroleerd (online/offline).",
+                "fr": "Spécifie l'intervalle de sondage de l'état du véhicule (en ligne/offline).",
+                "it": "Specifica l'intervallo di tempo in cui viene controllato lo stato del veicolo (online/offline).",
+                "sv": "Anger intervallet med vilket farten status kontrolleras (online/offline).",
+                "no": "Angir intervallet der kjøretøyet kontrolleres (online/offline).",
+                "es": "Especifica el intervalo en el que se comprueba el estado del vehículo (en línea/offline).",
+                "da": "Angiver intervallet, der kontrolleres (online/offline).",
+                "ru": "Указывает интервал, в котором проверяется состояние транспортного средства (онлайн/оффлайн).",
+                "pl": "Określa interwał, wętorym sprawdzane jest stan pojazdu (online/offline)."
               },
-              "value": 10,
+              "value": 1,
               "min": 1
             },
             {
@@ -14878,6 +14896,48 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_location_longitude.svg"
+    },
+    "measure_module_temp_max": {
+      "type": "number",
+      "title": {
+        "en": "Module temperature max",
+        "de": "Modultemperatur max",
+        "nl": "Modultemperatuur max",
+        "fr": "Température module max",
+        "it": "Temperatura del modulo max",
+        "sv": "Modultemperatur max",
+        "no": "Modultemperatur max",
+        "es": "Temperatura del modulo max",
+        "da": "Modultemperatur max",
+        "ru": "Максимальная температура модуля",
+        "pl": "Temperatura modułu max"
+      },
+      "units": "°C",
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_module_temp_max.svg"
+    },
+    "measure_module_temp_min": {
+      "type": "number",
+      "title": {
+        "en": "Module temperature min",
+        "de": "Modultemperatur min",
+        "nl": "Modultemperatuur min",
+        "fr": "Température module min",
+        "it": "Temperatura del modulo min",
+        "sv": "Modultemperatur min",
+        "no": "Modultemperatur min",
+        "es": "Temperatura del modulo min",
+        "da": "Modultemperatur min",
+        "ru": "Минимальная температура модуля",
+        "pl": "Temperatura modułu min"
+      },
+      "units": "°C",
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_module_temp_min.svg"
     },
     "measure_power_load": {
       "type": "number",

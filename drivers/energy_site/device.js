@@ -124,7 +124,12 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         let energySite = {};
         // energySite["siteInfo"] = await this.oAuth2Client.getEnergySiteInfo(this.getData().id);
         energySite["liveStatus"] = await this.oAuth2Client.getEnergySiteLiveStatus(this.getData().id);
-        energySite["historyDays"] = await this.oAuth2Client.getEnergySiteHistoryDays(this.getData().id);
+        try{
+            energySite["historyDays"] = await this.oAuth2Client.getEnergySiteHistoryDays(this.getData().id);
+        }
+        catch(error){
+            this.log("EnergySite data error (EnergySite.getEnergySiteData()): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
+        }
         // this.log("EnergySite data: ", energySite);
 
         // Device Update

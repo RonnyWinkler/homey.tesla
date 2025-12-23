@@ -1,0 +1,21 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Module temperature max",
+    "de": "Modultemperatur max",
+    "nl": "Modultemperatuur max",
+    "fr": "Température module max",
+    "it": "Temperatura del modulo max",
+    "sv": "Modultemperatur max",
+    "no": "Modultemperatur max",
+    "es": "Temperatura del modulo max",
+    "da": "Modultemperatur max",
+    "ru": "Максимальная температура модуля",
+    "pl": "Temperatura modułu max"
+  },
+  "units": "°C",
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_module_temp_max.svg"
+}

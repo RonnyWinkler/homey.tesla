@@ -1,0 +1,159 @@
+
+<style>
+    .button {
+        text-align: center;
+        width: 100%;
+        position: relative;
+        /* margin: 10px 0px;
+        left:-20px; */
+        cursor: pointer;
+    }
+    .button_space {
+        margin-bottom: 5px;
+    }
+    td {
+        width: 50;
+    }
+</style>
+
+<style>
+    .preTelemetryLog {
+        font-size: 12px;
+        color: inherit;
+        border: initial;
+        padding: initial;
+        font-family: inherit;
+        line-height: 1.3;
+        user-select: text;
+    }
+</style>
+
+<script type="application/javascript">
+    var telemetryLog = document.getElementById('telemetryLog');
+
+    Homey.setTitle(Homey.__("repair.telemetry.title"));
+    // Homey.setNavigationClose();
+
+    function onTelemetryServerSettings(){
+        Homey.showView("telemetry_server_settings");
+    }
+    function onTelemetryCarSettings(){
+        Homey.showView("telemetry_car_settings");
+    }
+    function onTelemetryStatus(){
+        Homey.emit('telemetryStatus').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onTelemetryConfig(){
+        Homey.emit('telemetryConfig').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onTelemetryErrors(){
+        Homey.emit('telemetryErrors').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onTelemetryMessages(){
+        Homey.emit('telemetryMessages').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onTelemetryActivate(){
+        Homey.emit('telemetryActivate').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onTelemetryDeactivate(){
+        Homey.emit('telemetryDeactivate').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+
+</script>
+
+<p data-i18n="repair.telemetry.info"></p>
+
+<div>
+    <!-- <fieldset> -->
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryActivate" class="homey-button-primary-full" onClick="onTelemetryActivate()" 
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.activate"></span></button>
+                </div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryDeactivate" class="homey-button-danger-shadow-full" onClick="onTelemetryDeactivate()" 
+                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.deactivate"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td>
+                <div>
+                    <button id="btnTelemetryServerSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryServerSettings()"
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.server_settings"></span></span></button>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <button id="btnTelemetryCarSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryCarSettings()"
+                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.car_settings"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryStatus" class="homey-button-secondary-shadow-full" onClick="onTelemetryStatus()"
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.status"></span></button>
+                </div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryConfig" class="homey-button-secondary-shadow-full" onClick="onTelemetryConfig()" 
+                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.config"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryErrors" class="homey-button-secondary-shadow-full" onClick="onTelemetryErrors()" 
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.errors"></span></button>
+                </div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryMessages" class="homey-button-secondary-shadow-full" onClick="onTelemetryMessages()" 
+                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.messages"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="button_space"></p>
+
+    <div>
+            <pre class="preTelemetryLog" id="telemetryLog"></pre>
+    </div>
+    <!-- </fieldset> -->
+</div>
