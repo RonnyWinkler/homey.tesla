@@ -443,5 +443,8 @@
   },
   "3.3.0": {
     "en": "Changed offline timer to a state check timer. Deactivates EnergySite meter data due to Tesla API change - only live data is currently available."
+  },
+  "3.3.1": {
+    "en": "Removed BLE from required connectivitiies to enable install on Homes SHS without Bridge."
   }
 }

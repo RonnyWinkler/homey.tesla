@@ -18,7 +18,7 @@
         "small": "/drivers/car/assets/images/small.png"
     },
     "class": "car",
-    "connectivity": [ "cloud", "ble"],
+    "connectivity": [ "cloud" ],
     "capabilities": [
         "measure_battery",
         "device_state_insights",
