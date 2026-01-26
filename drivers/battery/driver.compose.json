@@ -47,6 +47,15 @@
         "measure_io_battery_power",
 
         "meter_charge_power",
+        "module_temp",
+
+
+
+        "measure_module_temp_min",
+        "measure_module_temp_max",
+        "measure_charge_power_ac",
+        "measure_charge_power_dc",
+        "measure_charge_energy_added_ac",
 
         "charging_port",
         "charging_on",

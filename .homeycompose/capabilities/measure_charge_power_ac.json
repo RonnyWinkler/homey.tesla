@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Charge power AC",
+    "de": "Ladeleistung AC",
+    "nl": "Laad vermogen AC",
+    "fr": "Puissance de charge AC",
+    "it": "Potenza di ricarica AC",
+    "sv": "Laddningskraft AC",
+    "no": "Ladekraft AC",
+    "es": "Potencia de carga AC",
+    "da": "Opladningskraft AC",
+    "ru": "Мощность зарядки AC",
+    "pl": "Moc ładowania AC"
+  },
+  "units": {
+    "en": "kW"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_charge_power.svg"
+}

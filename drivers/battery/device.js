@@ -80,17 +80,6 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
 
     // Battery temperature
-    // add capability if not already added and value is available
-    if    (data?.charge_state?.module_temp_min !== undefined || data?.charge_state?.module_temp_max !== undefined 
-      &&  (!this.hasCapability('measure_module_temp_min') || !this.hasCapability('measure_module_temp_max'))
-    ){
-      if (!this.hasCapability('measure_module_temp_min')){
-        await this.addCapability('measure_module_temp_min');
-      }
-      if (!this.hasCapability('measure_module_temp_max')){
-        await this.addCapability('measure_module_temp_max');
-      }
-    }
     // Set values and units
     if (data?.charge_state?.module_temp_min !== undefined && this.hasCapability('measure_module_temp_min')){
       await this.setCapabilityValue('measure_module_temp_min', data.charge_state.module_temp_min);
@@ -124,6 +113,22 @@ module.exports = class BatteryDevice extends ChildDevice {
         }
       }
     }
+    // Set temp text
+    let moduleTempMin = this.getCapabilityValue('measure_module_temp_min');
+    if (moduleTempMin == undefined){
+      moduleTempMin = '-'
+    }
+    let moduleTempMax = this.getCapabilityValue('measure_module_temp_max');
+    if (moduleTempMax == undefined){
+      moduleTempMax = '-'
+    }
+    let moduleTemp = moduleTempMin +' ... '+ moduleTempMax;
+    await this.setCapabilityValue('module_temp', moduleTempMin +' - '+ moduleTempMax);
+    if (data.gui_settings.gui_temperature_units !== undefined){
+      moduleTemp = moduleTemp + ' °'+data.gui_settings.gui_temperature_units;
+    }
+    await this.setCapabilityValue('module_temp', moduleTemp);
+    
 
     // Charging
     if (this.hasCapability('measure_charge_limit_soc') && data.charge_state && data.charge_state.charge_limit_soc != undefined){
@@ -131,6 +136,9 @@ module.exports = class BatteryDevice extends ChildDevice {
     }
     if (this.hasCapability('measure_charge_energy_added') && data.charge_state && data.charge_state.charge_energy_added != undefined){
       await this.setCapabilityValue('measure_charge_energy_added', Math.round(data.charge_state.charge_energy_added * 100 ) / 100);
+    }
+    if (this.hasCapability('measure_charge_energy_added_ac') && data.charge_state && data.charge_state.charge_energy_added_ac != undefined){
+      await this.setCapabilityValue('measure_charge_energy_added_ac', Math.round(data.charge_state.charge_energy_added_ac * 100 ) / 100);
     }
     if (this.hasCapability('charging_state') && data.charge_state && data.charge_state.charging_state != undefined){
       // "Disconnected"
@@ -151,9 +159,36 @@ module.exports = class BatteryDevice extends ChildDevice {
       await this.setCapabilityValue('charging_state', data.charge_state.charging_state);
 
     }
+
     if (this.hasCapability('measure_charge_minutes_to_full_charge') && data.charge_state && data.charge_state.minutes_to_full_charge != undefined){
       this.setCapabilityValue('measure_charge_minutes_to_full_charge', data.charge_state.minutes_to_full_charge);
     }
+
+    // Special AC/DC separate power handling
+    if (data.charge_state && data.charge_state.charger_power_ac != undefined){
+      if (this.hasCapability('measure_charge_power_ac')){
+        this.setCapabilityValue('measure_charge_power_ac', data.charge_state.charger_power_ac);
+      }
+    }
+    if (data.charge_state && data.charge_state.charger_power_dc != undefined){
+      if (this.hasCapability('measure_charge_power_dc')){
+        this.setCapabilityValue('measure_charge_power_dc', data.charge_state.charger_power_dc);
+      }
+    }
+    if (data.charge_state && data.charge_state.charger_power == undefined){
+      // charger_power not set (from vehicle_data endpoint) => check for ac/dc power)
+      if (this.getCapabilityValue('measure_charge_power_dc') > 0){
+        data.charge_state.charger_power = this.getCapabilityValue('measure_charge_power_dc');
+      }
+      else if (this.getCapabilityValue('measure_charge_power_ac') > 0){
+        data.charge_state.charger_power = this.getCapabilityValue('measure_charge_power_ac');
+      }
+      else if (this.getCapabilityValue('measure_charge_power_dc') == 0 && this.getCapabilityValue('measure_charge_power_ac') == 0){
+        data.charge_state.charger_power = 0;
+      }
+    } 
+
+    // Summate charge power to displayed capability
     if (data.charge_state && data.charge_state.charger_power != undefined){
       if (this.hasCapability('measure_charge_power')){
         this.setCapabilityValue('measure_charge_power', data.charge_state.charger_power);
@@ -182,9 +217,15 @@ module.exports = class BatteryDevice extends ChildDevice {
     if (this.hasCapability('measure_charge_current') && data.charge_state && data.charge_state.charger_actual_current != undefined){
       this.setCapabilityValue('measure_charge_current', Math.round(data.charge_state.charger_actual_current * 10 ) / 10);
     }
+    // vehicle data version
     if (this.hasCapability('measure_charge_current_max') && data.charge_state && data.charge_state.charge_amps != undefined){
       this.setCapabilityValue('measure_charge_current_max', Math.round(data.charge_state.charge_amps * 10 ) / 10);
     }
+    // telemetry version
+    if (this.hasCapability('measure_charge_current_max') && data.charge_state && data.charge_state.charge_current_request != undefined){
+      this.setCapabilityValue('measure_charge_current_max', Math.round(data.charge_state.charge_current_request * 10 ) / 10);
+    }
+
     if (this.hasCapability('measure_charge_voltage') && data.charge_state && data.charge_state.charger_voltage != undefined){
       this.setCapabilityValue('measure_charge_voltage', Math.round(data.charge_state.charger_voltage));
     }

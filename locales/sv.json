@@ -103,8 +103,31 @@
       "register_app": "Bilnyckel för Fleet-API",
       "register_ble": "Bilnyckel för Bluetooth LE",
       "device_details": "Enhetsinformation",
+      "telemetry": "Telemetri",
       "charging_history": "Laddhistorik",
       "charging_history_suc": "SuC-laddhistorik"
+    },
+    "telemetry": {
+      "title": "Telemetri",
+      "telemetry_status": "Telemetristatus",
+      "car_settings": "Fordonets inställningar",
+      "car_status": "Fordonets status",
+      "config": "Konfiguration",
+      "activate": "Aktivera",
+      "deactivate": "Inaktivera",
+      "errors": "Fel",
+      "messages": "Meddelanden"
+    },
+    "telemetry_car_settings": {
+      "title": "Telemetriinställningar",
+      "link_interval": "Intervallinformation",
+      "link_fields": "Fältinformation",
+      "active": "Aktiv",
+      "interval": "Intervall",
+      "resend_interval": "Återsändningsintervall",
+      "min_delta": "Minsta delta",
+      "btn_set": "Uppdatera inställningar",
+      "success": "Inställningarna uppdaterades."
     },
     "device_details": {
       "title": "Enhetsinformation"
@@ -150,6 +173,11 @@
       "ble_status": "Status",
       "button_register": "Registrera som bilnyckel",
       "button_status": "Kontrollera nyckelstatus"
+    },
+    "donate": {
+      "title": "Ditt stöd uppskattas",
+      "text1": "Om du tycker att appen är användbar kan du överväga att stödja den fortsatta utvecklingen och driften av serverinfrastrukturen för Fleet Telemetry med en donation via PayPal Vänner. Tack!",
+      "btn_donate": "Donera"
     }
   },
   "devices": {
@@ -163,7 +191,8 @@
       "command_pair_state_undefined": "okänd",
       "app_not_registered": "Appen är inte registrerad i bilen. Registrera via bilens reparationsflöde.",
       "command_error_426": "Appuppdatering krävs. Uppdatera appen i Homey App Store eller aktivera automatiska uppdateringar.",
-      "api_client_id_not_set": "Tesla Client ID och Client Secret är inte angivna. Reparera enheten och använd ett personligt Tesla-utvecklarkonto och appregistrering."
+      "api_client_id_not_set": "Tesla Client ID och Client Secret är inte angivna. Reparera enheten och använd ett personligt Tesla-utvecklarkonto och appregistrering.",
+      "telemetry_activation_error": "Fel vid registrering av telemetri. Kontrollera fordonets autentisering."
     }
   },
   "app": {
@@ -173,5 +202,10 @@
   },
   "widget": {
     "car_select": "Välj din bil i widgetinställningarna"
+  },
+  "settings": {
+    "telemetry": {
+      "donation": "Telemetri kräver serverinfrastruktur. Om du gillar den här funktionen kan du stödja mig med en donation. Se App Store-sidan eller reparationsvyn för mer information."
+    }
   }
 }

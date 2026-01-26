@@ -6,6 +6,7 @@ const Eckey = require('eckey-utils');
 const crypt = require('../../lib/crypt');
 const crypto = require('crypto');
 // const SlidingWindowLog = require('../../lib/SlidingWindowLog.js');
+const TeslaTelemetryMqtt = require('../../lib/TeslaTelemetryMqtt.js');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
@@ -16,7 +17,7 @@ const RETRY_COUNT = 3; // number of retries sending commands
 const RETRY_DELAY = 5; // xx seconds delay between retries sending commands
 const BLE_TIMEOUT_CARSERVER = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
 const BLE_TIMEOUT_VCSEC = 20 * 1000; // xx seconds timeout waiting for BLE streaming response
-const TELEMETRY_LOG_MAX_LENGTH = 50;
+const TELEMETRY_LOG_MAX_LENGTH = 100;
 
 const CONSTANTS = require('../../lib/constants');
 const Mappings = require('../../lib/mappings');
@@ -96,8 +97,32 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setAvailable();
     }
 
+    // Activate telemetry (connect to MQTT + send telemetry config to car)
+    if (this._settings.telemetry_active == true){
+      this.log("App start: Start Telemetry connections...")
+      try{
+        await this.telemetryActivate();
+      }
+      catch(error){
+        this.log("onOAuth2Init() Telemetry Activate Error: ",error.message);
+        try{
+          await this.telemetryDeactivate();
+        }
+        catch(error){
+          this.log("onOAuth2Init() Telemetry Deactivate Error: ",error.message);
+        }
+        finally{
+          await this.setSettings({ telemetry_active: false });
+          this._settings.telemetry_active = false;
+        }
+      }
+    }
+
     await this._startSync();
-    this._sync();
+    
+    if (this._settings && this._settings.polling_active){
+      this._sync();
+    }
     await this._startStateCheck();
   }
 
@@ -116,7 +141,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     this.log("onOAuth2Saved()");
     this._startSync();
-    this._sync();
+    if (this._settings && this._settings.polling_active){
+      this._sync();
+    }
   }
 
   // Device handling =======================================================================================
@@ -194,6 +221,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     if (settings.api_request_limit != undefined){
       settings.api_request_limit = null;
     }
+
+    settings.telemetry_donation = this.homey.__('settings.telemetry.donation');
 
     if (JSON.stringify(settings) != JSON.stringify(oldSettings)){
       await this.setSettings(settings);
@@ -317,18 +346,30 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
-    this._settings = newSettings;
 
-    if (changedKeys['api_costs_unit']){
+    if (changedKeys.includes('api_costs_unit')){
       this.setCapabilityOptions('measure_api_costs', { unit: newSettings['api_costs_unit'] });
     }
+
+    if (changedKeys.includes('telemetry_active')){
+      if ( newSettings['telemetry_active'] == true){
+        await this.telemetryActivate();
+      }
+      else{
+        await this.telemetryDeactivate();
+      }
+    }
+
+    this._settings = newSettings;
 
     this.homey.setTimeout(async() => {
       await this._calculateApiCosts();
       this._startSync();
       this._startStateCheck();
-      this._sync();
-      }, 1000);
+      if (this._settings && this._settings.polling_active){
+        this._sync();
+      }
+    }, 1000);
   }
 
   getCommandApi(){
@@ -1099,6 +1140,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.version != undefined){
         await this.setCapabilityValue('car_software_update_version', data.vehicle_state.software_update.version);
+      }
+      else if (this.hasCapability('car_software_update_version') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.version === null){
+        await this.setCapabilityValue('car_software_update_version', null);
       }
 
       if (this.hasCapability('car_software_update_state') && data.vehicle_state && data.vehicle_state.software_update && data.vehicle_state.software_update.status != undefined){
@@ -2631,6 +2675,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     return status;
   }
 
+  getTelemetryMqttStatus(){
+    this.log("Telemetry Mqtt Status request...");
+    let status = this._settings.telemetry_active ? 'enabled' : 'disabled';
+    if (this._telemetryMqttClient){
+      status = status + ', ' + ( this._telemetryMqttClient.isConnected() ? 'connected' : 'disconnected' );
+    }
+    return status;
+  }
+
   async telemetryConfig(){
     this.log("Telemetry Config request...");
     let config = await this.oAuth2Client.fleetTelemetryConfig(this.getData().id);
@@ -2665,16 +2718,70 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     return logSorted;
   }
 
+  async setSettingsTelemetryActive(value){
+    await this.setSettings({ telemetry_active: value });
+    this._settings = this.getSettings();
+  }
+
   async telemetryActivate(){
-    let exp = Math.floor( new Date() / 1000 ) + 60*30;
+    try{
+      // await this._telemetryUpdateToken();
+      await this._telemetryActivateMQTT();
+      let ttsResult = await this._telemetryActivateTTS();
+      return ttsResult;
+    }
+    catch(error){
+      this.log("telemetryActivate() error :", error);
+      throw new Error(this.homey.__("devices.car.telemetry_activation_error"));
+    }
+  }
+
+  async _telemetryUpdateToken(){
+    // read car state from Fleet API to force a token refresh if needed 
+    // await this._getCarStateApi();
+    await this.oAuth2Client.onRefreshToken();
+  }
+
+  async _telemetryGetToken() {
+      await this._telemetryUpdateToken();
+      return this.oAuth2Client.getToken().access_token;
+  }
+
+  async _telemetryActivateMQTT(){
+    try{
+
+      const telemetrySettings = this.homey.app.getTelemetrySettings();
+      this.log("Telemetry MQTT connection: VIN: ", this.getData().id, " server: ", telemetrySettings.mqttHost, " port: ", telemetrySettings.mqttPort);
+      // Create MQTT client
+      this._telemetryMqttClient = new TeslaTelemetryMqtt(telemetrySettings);
+      // Register events
+      this._telemetryMqttClient.onTelemetryMessage.subscribe(this._onTelemetryMessage.bind(this));
+      this._telemetryMqttClient.onTelemetryConnectionStatus.subscribe(this._onTelemetryConnectionStatus.bind(this));
+      // Connect to MQTT broker
+      await this._telemetryMqttClient.connect(
+        this.getData().id, 
+        this._telemetryGetToken.bind(this),
+        // this.oAuth2Client.getToken().access_token ,
+        'Homey-' + await this.homey.cloud.getHomeyId() + '-' + this.getData().id
+      );
+      this.log("Telemetry MQTT connected");
+    }
+    catch(error){
+      this.log("Telemetry MQTT error: ", error.message);
+      throw error;
+    }    
+  }
+
+  async _telemetryActivateTTS(){
+    // let exp = Math.floor( new Date() / 1000 ) + 60*30;
     let privateKey = this.homey.settings.get("private_key");
     let key = Eckey.parsePem(privateKey);
 
-    let telemetrySettings = this.homey.app.getTelemetrySettings();
-    let ca = telemetrySettings.ca;
-    if (!telemetrySettings.ca) ca = this.homey.app.getTelemetryCa().caCert;
+    const telemetrySettings = this.homey.app.getTelemetrySettings();
+    // const ca = telemetrySettings.ttsCa;
+    // if (!telemetrySettings.ttsCa) ca = this.homey.app.getTelemetryCa().caCert;
 
-    this.log("Telemetry Activation request: VIN: ", this.getData().id, " server: ", telemetrySettings.server, " port: ", telemetrySettings.port);
+    this.log("Telemetry Activation request: VIN: ", this.getData().id, " server: ", telemetrySettings.ttsHost, " port: ", telemetrySettings.ttsPort);
 
     let configFields = {};
     let fields = this.getTelemetryCarSettings();
@@ -2695,9 +2802,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     let config = {
       "config": {
-        "hostname": telemetrySettings.server,
-        "port": Number(telemetrySettings.port),
-        "ca": ca,
+        "hostname": telemetrySettings.ttsHost,
+        "port": Number(telemetrySettings.ttsPort),
+        "ca": telemetrySettings.ttsCa,
         // "delivery_policy": "latest",
         "prefer_typed": true,
         // "exp": exp,
@@ -2719,11 +2826,23 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     catch(error){
       this.log("Telemetry Activation Error: ", error);
-      return error.message;
+      throw error;
     }
   }
 
   async telemetryDeactivate(){
+    let ttsResult = await this._telemetryDeactivateTTS();
+    await this._telemetryDeactivateMQTT();
+    return ttsResult;
+  }
+
+  async _telemetryDeactivateMQTT(){
+    if (this._telemetryMqttClient){
+      await this._telemetryMqttClient.disconnect();
+    }
+  }
+  
+  async _telemetryDeactivateTTS(){
     let result = await this.oAuth2Client.fleetTelemetryDeactivate(this.getData().id);
     this.log("Telemetry Dectivate: ", result);
     return result;
@@ -2733,9 +2852,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     return this.homey.app.getTelemetrySettings();
   }
 
-  async setTelemetryServerSettings(settings){
-    return await this.homey.app.setTelemetrySettings(settings);
-  }
+  // async setTelemetryServerSettings(settings){
+  //   return await this.homey.app.setTelemetrySettings(settings);
+  // }
 
   getTelemetryCarSettings(){
     let settings = this.getStoreValue('telemetry_car_settings');
@@ -2758,17 +2877,29 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   }
 
   async setTelemetryCarSettings(settings){
-     await this.setStoreValue('telemetry_car_settings', settings) 
+    await this.setStoreValue('telemetry_car_settings', settings);
+    if (this._settings.telemetry_active){
+      await this._telemetryActivateTTS();
+    }
   }
 
-  async updateDeviceTelemetry(data){
+  async _onTelemetryMessage(message){
+    this.log("Telemetry Message: field: ", message.field, " value: ", message.value);
+    await this._updateDeviceTelemetry(message.vehicleData);
+  }
+
+  async _onTelemetryConnectionStatus(message){
+    this.log("Telemetry Status: ", message.status);
+    await this._updateDeviceTelemetryConnectionStatus(message.status);
+  }
+
+  async _updateDeviceTelemetry(data){
     // this.log("Update Device Telemetry: ", data);
     // data['timestamp'] = this._getLocalTimeString(new Date());
     data = {
       timestamp: this._getLocalTimeSecondsString(new Date()),
       ...data
     };
-    
     data["source"] = CONSTANTS.SOURCE_TELEMETRY;
 
     let log = this.getStoreValue('telemetry_log');
@@ -2778,33 +2909,46 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     log.push(data);
     this.setStoreValue('telemetry_log', log);
 
-    // Add car GUI settings (units), stored in device store because it's only available via FleetAPI 
-    let guiSettings = this.getStoreValue('car_gui_settings');
-    if (guiSettings != undefined){
-      data['gui_settings'] = guiSettings;
+    // Add car GUI settings (units), stored in device store because it's only complete sent via FleetAPI, update single fields via Telemetry
+    let guiSettings = this.getStoreValue('car_gui_settings') || {};
+    if (data.gui_settings?.gui_distance_units) {
+      guiSettings['gui_distance_units'] = data.gui_settings.gui_distance_units;
     }
+    if (data.gui_settings?.gui_temperature_units) {
+      guiSettings['gui_temperature_units'] = data.gui_settings.gui_temperature_units;
+    }
+    if (data.gui_settings?.gui_tirepressure_units) {
+      guiSettings['gui_tirepressure_units'] = data.gui_settings.gui_tirepressure_units;
+    }
+    this.setStoreValue('car_gui_settings', guiSettings);
+    data['gui_settings'] = guiSettings;
 
     await this._updateDevice(data);
-    let oldState = this.getCapabilityValue('car_state');
+  }
 
-    if (oldState != CONSTANTS.STATE_ONLINE){
+  async _updateDeviceTelemetryConnectionStatus(status){
+    // car disconnected from Telemetry server: Set as offline
+    if (status == CONSTANTS.TELEMETRY_STATUS_DISCONNECTED){
+      await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
+      await this.setDeviceState(false);
+      let time = this._getLocalTimeString(new Date());
+      await this.setCapabilityValue('last_update', time);
+    }
+    else if (status == CONSTANTS.TELEMETRY_STATUS_CONNECTED){
+      let oldState = this.getCapabilityValue('car_state');
+
+      if (oldState != CONSTANTS.STATE_ONLINE){
         // Update car state to ONLINE if request was successful
         await this.setCapabilityValue('car_state', 'online');
         await this.setDeviceState(true);
-
         // From asleep to online?
         // Change Sync only is asleep state is changed to continue short interval check is car is temporary offline
         this._startSync();
-        this._sync();
+        if (!this._settings && this._settings.polling_active){
+          this._sync();
+        }
       }
-  }
-
-  async updateDeviceTelemetryDisconnect(){
-    // car disconnected from Telemetry server: Set as offline
-    await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
-    await this.setDeviceState(false);
-    let time = this._getLocalTimeString(new Date());
-    await this.setCapabilityValue('last_update', time);
+    }
   }
 
 }

@@ -109,9 +109,32 @@
           "register_app": "Clé de voiture pour Fleet-API",
           "register_ble": "Clé de voiture pour Bluetooth LE",
           "device_details": "Détails de l’appareil",
+          "telemetry": "Télémétrie",
           "charging_history": "Historique de charge",
           "charging_history_suc": "Historique de charge SuC"
       },
+        "telemetry": {
+            "title": "Télémétrie",
+            "telemetry_status": "Statut de la télémétrie",
+            "car_settings": "Paramètres du véhicule",
+            "car_status": "État du véhicule",
+            "config": "Configuration",
+            "activate": "Activer",
+            "deactivate": "Désactiver",
+            "errors": "Erreurs",
+            "messages": "Messages"
+        },
+        "telemetry_car_settings": {
+            "title": "Paramètres de télémétrie",
+            "link_interval": "Détails de l’intervalle",
+            "link_fields": "Détails des champs",
+            "active": "Actif",
+            "interval": "Intervalle",
+            "resend_interval": "Intervalle de renvoi",
+            "min_delta": "Delta minimum",
+            "btn_set": "Mettre à jour les paramètres",
+            "success": "Les paramètres ont été mis à jour avec succès."
+        },
       "device_details": {
           "title": "Détails de l’appareil"
       },
@@ -156,20 +179,26 @@
           "ble_status": "Statut",
           "button_register": "S’enregistrer comme clé de voiture",
           "button_status": "Vérifier le statut de la clé"
-      }
+      },
+        "donate": {
+            "title": "Votre soutien est apprécié",
+            "text1": "Si cette application vous est utile, merci de soutenir le développement continu ainsi que l’exploitation de l’infrastructure serveur pour Fleet Telemetry par un don via PayPal Amis. Merci !",
+            "btn_donate": "Faire un don"
+        }
   },
   "devices": {
       "location": {
           "homey_location_name": "Domicile (emplacement Homey)"
       },
       "car": {
-          "trunk_not_allowed": "Commande du coffre désactivée dans les paramètres de l’appareil",
-          "command_pair_state_paired": "jumelé",
-          "command_pair_state_unpaired": "non jumelé",
-          "command_pair_state_undefined": "inconnu",
-          "app_not_registered": "L’application n’est pas enregistrée dans la voiture. Enregistrez-la via le processus de réparation de l’appareil.",
-          "command_error_426": "Mise à jour de l’app nécessaire. Veuillez mettre à jour via la boutique d’applications Homey ou activer les mises à jour automatiques.",
-          "api_client_id_not_set": "Tesla Client ID et Client Secret non définis. Veuillez réparer l’appareil et utiliser un compte développeur personnel Tesla avec une application enregistrée."
+        "trunk_not_allowed": "Commande du coffre désactivée dans les paramètres de l’appareil",
+        "command_pair_state_paired": "jumelé",
+        "command_pair_state_unpaired": "non jumelé",
+        "command_pair_state_undefined": "inconnu",
+        "app_not_registered": "L’application n’est pas enregistrée dans la voiture. Enregistrez-la via le processus de réparation de l’appareil.",
+        "command_error_426": "Mise à jour de l’app nécessaire. Veuillez mettre à jour via la boutique d’applications Homey ou activer les mises à jour automatiques.",
+        "api_client_id_not_set": "Tesla Client ID et Client Secret non définis. Veuillez réparer l’appareil et utiliser un compte développeur personnel Tesla avec une application enregistrée.",
+        "telemetry_activation_error": "Erreur lors de l’enregistrement de la télémétrie. Veuillez vérifier l’authentification du véhicule."
       }
   },
   "app": {
@@ -179,5 +208,10 @@
   },
   "widget": {
       "car_select": "Sélectionnez votre voiture dans les paramètres du widget"
+  },
+  "settings": {
+    "telemetry": {
+      "donation": "La télémétrie nécessite une infrastructure serveur. Si cette fonctionnalité te plaît, merci de me soutenir par un don. Consulte la page de l’App Store ou la vue de réparation pour plus de détails."
+    }
   }
 }

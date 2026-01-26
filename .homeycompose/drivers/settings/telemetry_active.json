@@ -1,0 +1,31 @@
+{
+  "id": "telemetry_active",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Telemetry is active",
+    "de": "Telemetrie ist aktiv",
+    "nl": "Telemetrie is geactiveerd",
+    "fr": "La t&eacute;l&eacute;commande est activ&eacute;e",
+    "it": "La telemetry &egrave; attiva",
+    "sv": "Telemetria &aring;ktiv",
+    "no": "Telemetria er aktiv",
+    "es": "La telemetria est&aacute; activa",
+    "da": "Telemetrie er aktiv",
+    "ru": "Телеметрия активна",
+    "pl": "Telemetria jest aktywna"
+  },
+  "hint":{
+    "en": "Telemetry offers realtime data from your car. Data retrieval (polling) can be deactivated if Telemetry is used. Telemetry usage and costs are only visible in Tesla devloper account.",
+    "de": "Telemetrie bietet Echtzeitdaten von Ihrem Fahrzeug. Die Datenabfrage (Polling) kann deaktiviert werden, wenn Telemetrie verwendet wird. Die Nutzung und Kosten der Telemetrie sind nur im Tesla Entwicklerkonto sichtbar.",
+    "nl": "Telemetrie biedt realtime gegevens van uw voertuig. Gegevensopvraging (polling) kan worden uitgeschakeld wanneer telemetrie wordt gebruikt. Het gebruik en de kosten van telemetrie zijn alleen zichtbaar in het Tesla-ontwikkelaarsaccount.",
+    "fr": "La télémétrie fournit des données en temps réel depuis votre véhicule. La récupération des données (polling) peut être désactivée lorsque la télémétrie est utilisée. L’utilisation et les coûts de la télémétrie ne sont visibles que dans le compte développeur Tesla.",
+    "it": "La telemetria fornisce dati in tempo reale dal tuo veicolo. Il recupero dei dati (polling) può essere disattivato quando si utilizza la telemetria. L’utilizzo e i costi della telemetria sono visibili solo nell’account sviluppatore Tesla.",
+    "sv": "Telemetri erbjuder realtidsdata från ditt fordon. Datainsamling (polling) kan inaktiveras när telemetri används. Användning och kostnader för telemetri är endast synliga i Teslas utvecklarkonto.",
+    "no": "Telemetri gir sanntidsdata fra kjøretøyet ditt. Datainnhenting (polling) kan deaktiveres når telemetri brukes. Bruk og kostnader for telemetri er kun synlige i Tesla-utviklerkontoen.",
+    "es": "La telemetría ofrece datos en tiempo real de tu vehículo. La recuperación de datos (polling) puede desactivarse cuando se utiliza la telemetría. El uso y los costos de la telemetría solo son visibles en la cuenta de desarrollador de Tesla.",
+    "da": "Telemetri tilbyder realtidsdata fra dit køretøj. Datahentning (polling) kan deaktiveres, når telemetri anvendes. Brug og omkostninger ved telemetri er kun synlige i Tesla-udviklerkontoen.",
+    "ru": "Телеметрия предоставляет данные в реальном времени от вашего автомобиля. Получение данных (polling) может быть отключено при использовании телеметрии. Использование и стоимость телеметрии видны только в аккаунте разработчика Tesla.",
+    "pl": "Telemetria oferuje dane w czasie rzeczywistym z Twojego pojazdu. Pobieranie danych (polling) może zostać wyłączone, jeśli używana jest telemetria. Użycie i koszty telemetrii są widoczne wyłącznie na koncie deweloperskim Tesla."
+  }
+}

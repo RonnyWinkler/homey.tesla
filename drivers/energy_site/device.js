@@ -20,7 +20,9 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         this._settings = this.getSettings();
 
         await this._startSync();
-        this._sync();
+        if (this._settings && this._settings.polling_active){
+            this._sync();
+        }
     }
 
     async onOAuth2Uninit(){
@@ -36,7 +38,9 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
 
         this.log("onOAuth2Saved()");
         this._startSync();
-        this._sync();
+        if (this._settings && this._settings.polling_active){
+            this._sync();
+        }
     }
 
 

@@ -41,6 +41,33 @@
     {
       "type": "group",
       "label": {
+        "en": "Telemetry",
+        "de": "Telemetrie",
+        "nl": "Telemetrie",
+        "fr": "Tesla Telemetry",
+        "it": "Tesla Telemetry",
+        "sv": "Telemetria",
+        "no": "Telemetria",
+        "es": "Telemetria",
+        "da": "Telemetrie",
+        "ru": "Телеметрия",
+        "pl": "Telemetria"
+      },
+      "children": [
+        {
+          "$extends": "telemetry_active",
+          "id": "telemetry_active"
+        },
+        {
+          "$extends": "telemetry_donation",
+          "id": "telemetry_donation"
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "label": {
         "en": "Command settings",
         "de": "Kommando-Einstellungen",
         "nl": "Commando-instellingen",

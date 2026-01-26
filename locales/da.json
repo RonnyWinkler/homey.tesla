@@ -109,9 +109,32 @@
           "register_app": "Fjernnøgle til Fleet-API",
           "register_ble": "Fjernnøgle til Bluetooth LE",
           "device_details": "Enhedsdetaljer",
+          "telemetry": "Telemetri",
           "charging_history": "Opladningshistorik",
           "charging_history_suc": "SuC opladningshistorik"
       },
+        "telemetry": {
+            "title": "Telemetri",
+            "telemetry_status": "Telemetristatus",
+            "car_settings": "Bilindstillinger",
+            "car_status": "Bilstatus",
+            "config": "Konfiguration",
+            "activate": "Aktivér",
+            "deactivate": "Deaktivér",
+            "errors": "Fejl",
+            "messages": "Beskeder"
+        },
+        "telemetry_car_settings": {
+            "title": "Telemetriindstillinger",
+            "link_interval": "Intervaldetaljer",
+            "link_fields": "Feltdetaljer",
+            "active": "Aktiv",
+            "interval": "Interval",
+            "resend_interval": "Genafsendelsesinterval",
+            "min_delta": "Minimumsdelta",
+            "btn_set": "Opdatér indstillinger",
+            "success": "Indstillingerne blev opdateret."
+        },
       "device_details": {
           "title": "Enhedsdetaljer"
       },
@@ -156,7 +179,12 @@
           "ble_status": "Status",
           "button_register": "Registrer som bilnøgle",
           "button_status": "Tjek nøglestatus"
-      }
+      },
+        "donate": {
+            "title": "Din støtte er værdsat",
+            "text1": "Hvis du finder denne app nyttig, kan du overveje at støtte den fortsatte udvikling og driften af serverinfrastrukturen til Fleet Telemetry med en donation via PayPal Venner. Tak!",
+            "btn_donate": "Donér"
+        }
   },
   "devices": {
       "location": {
@@ -169,7 +197,8 @@
           "command_pair_state_undefined": "ukendt",
           "app_not_registered": "Appen er ikke registreret i bilen. Registrér via enhedsreparation.",
           "command_error_426": "Appopdatering krævet. Opdater venligst appen i Homey App Store eller aktiver automatiske opdateringer.",
-          "api_client_id_not_set": "Tesla Client ID og Client Secret er ikke angivet. Reparer enheden og brug en personlig Tesla-udviklerkonto og app-registrering."
+          "api_client_id_not_set": "Tesla Client ID og Client Secret er ikke angivet. Reparer enheden og brug en personlig Tesla-udviklerkonto og app-registrering.",
+          "telemetry_activation_error": "Fejl under registrering af telemetri. Kontrollér venligst bilens godkendelse."
       }
   },
   "app": {
@@ -179,5 +208,10 @@
   },
   "widget": {
       "car_select": "Vælg din bil i widget-indstillinger"
-  }
+  },
+    "settings": {
+      "telemetry": {
+        "donation": "Serverinfrastruktur er påkrævet for telemetri. Hvis du kan lide denne funktion, kan du støtte mig med en donation. Se App Store-siden eller reparationsvisningen for detaljer."
+      }
+    }
 }

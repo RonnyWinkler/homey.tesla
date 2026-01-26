@@ -8,8 +8,24 @@
         left:-20px; */
         cursor: pointer;
     }
+    #imgPaypal {
+        background-image: url(paypal.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        height: 50px;
+    }
+
 </style>
 <script type="application/javascript">
+
+    function showUrl(url){
+        Homey.popup(url);
+    }
 
     Homey.setTitle(Homey.__("repair.select.title"));
     // Homey.setNavigationClose();
@@ -60,4 +76,18 @@
             </p>
         </div>
     <!-- </fieldset> -->
+    <fieldset>
+        <div>
+            <legend class="homey-form-legend" data-i18n="repair.donate.title"></legend>
+            <br><br>
+            <p data-i18n="repair.donate.text1"></p>
+            <p>
+                <span id="imgPaypal" onClick="showUrl('https://paypal.me/winklerronny')"></span>
+            </p>
+            <p>
+                <button id="btnDonate" class="homey-button-secondary-shadow-full" onClick="showUrl('https://paypal.me/winklerronny')" ><span data-i18n="repair.donate.btn_donate"></span></button>
+            </p>
+            <!-- <a href="https://paypal.me/winklerronny" target="_blank">https://paypal.me/winklerronny</a> -->
+        </div>
+    </fieldset>
 </div>

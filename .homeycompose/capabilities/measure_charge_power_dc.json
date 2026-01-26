@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Charge power DC",
+    "de": "Ladeleistung DC",
+    "nl": "Laad vermogen DC",
+    "fr": "Puissance de charge DC",
+    "it": "Potenza di ricarica DC",
+    "sv": "Laddningskraft DC",
+    "no": "Ladekraft DC",
+    "es": "Potencia de carga DC",
+    "da": "Opladningskraft DC",
+    "ru": "Мощность зарядки DC",
+    "pl": "Moc ładowania DC"
+  },
+  "units": {
+    "en": "kW"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_charge_power.svg"
+}

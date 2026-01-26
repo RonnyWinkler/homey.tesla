@@ -1,14 +1,14 @@
 {
   "type": "number",
   "title": {
-    "en": "Charge energy added",
-    "de": "Ladeenergie hinzugefügt",
-    "nl": "Laadenergie toegevoegd",
+    "en": "Charge energy battery",
+    "de": "Ladeenergie Batterie",
+    "nl": "Laadenergie batterij",
     "fr": "Énergie de charge ajoutée",
     "it": "Energia di ricarica aggiunta",
     "sv": "Laddad energi tillagd",
     "no": "Ladet energi lagt til",
-    "es": "Energía de carga añadida",
+    "es": "Energía de cargaañadida",
     "da": "Opladningsenergi tilføjet",
     "ru": "Добавленная энергия заряда",
     "pl": "Dodana energia ładowania"

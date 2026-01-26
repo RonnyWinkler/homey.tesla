@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Charge energy AC/charger",
+    "de": "Ladeenergie AC/Ladegeräte",
+    "nl": "Laadenergie AC/laadgeraad",
+    "fr": "Énergie de charge AC/chargeur",
+    "it": "Energia di ricarica AC/caricatore",
+    "sv": "Laddad energi AC/laddare",
+    "no": "Ladet energi AC/ladestasjon",
+    "es": "Energía de carga AC/cargador",
+    "da": "Opladningsenergi AC/oplader",
+    "ru": "Добавленная энергия заряда AC/зарядное устройство",
+    "pl": "Dodana energia ładowania AC/ładacz"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
+}

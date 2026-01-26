@@ -115,10 +115,9 @@
         },
         "telemetry":{
             "title": "Telemetry",
-            "info": "This functionality is experimental. You can't use it yet.",
-            "server_settings": "Server Settings",
+            "telemetry_status": "Telemetry status",
             "car_settings": "Car Settings",
-            "status": "Status",
+            "car_status": "Car Status",
             "config": "Config",
             "activate": "Activate",
             "deactivate": "Deactivate",
@@ -127,35 +126,25 @@
         },
         "telemetry_server_settings":{
             "title": "Telemetry Settings",
-            "info": "The Telemetry Server is a single server for a HomeyPro. All car devices on your HomeyPro are using this Telemetry server.",
-            "legend1": "Internal server settings",
-            "server_active": "Server active",
-            "port_internal": "Homey internal server port",
-            "port_internal_hint": "8443",
-            "legend2": "External server settings, port forwarding or reverse proxy",
-            "server": "Public server name (CNAME forward). Must be a subdomain of rwdevelopment.de",
-            "server_hint": "homeyId.telemetry.rwdevelopment.de",
-            "port": "Public server port (port forwarding or reverse proxy port)",
-            "port_hint": "8443",
-            "ca_cert": "CA certificate. Set only if you have a Reverse Proxy with own certificate",
-            "ca_cert_hint": "CA cert in PEM format: -----BEGIN CERTIFICATE----- ...",
-            "btn_set": "Update settings",
-            "success": "Settings upodated successfully.",
-            "status": "Status",
+            "tts_host": "Telemetry server name",
+            "tts_port": "Telemetry server port",
+            "tts_ca": "Telemetry CA certificate.",
+            "mqtt_host": "MQTT server name",
+            "mqtt_port": "MQTT server port",
+            "mqtt_status": "Status",
             "status_running": "Running",
-            "status_stopped": "Stopped"
+            "status_stopped": "Stopped",
+            "status_connected": "Connected",
+            "status_disconnected": "Disconnected"
         },
         "telemetry_car_settings":{
             "title": "Telemetry Settings",
-            "info": "Select the fields you want to get by Tesla Telemetry. This setting applies to the selected car.",
             "link_interval": "Interval details",
             "link_fields": "Field details",
-            "drive_state_legend": "Drive state",
-            
             "active": "Active",
             "interval": "Interval",
             "resend_interval": "Resend Interval",
-
+            "min_delta": "Minimum delta",
             "btn_set": "Update settings",
             "success": "Settings upodated successfully."
         },
@@ -203,7 +192,12 @@
           "ble_status": "Status",
           "button_register": "Register as car key",
           "button_status": "Check key status"
-      }
+        },
+        "donate":{
+            "title": "Your support is appreciated",
+            "text1": "If you find this app useful, please consider supporting ongoing development and the operation of the server infrastructure for Fleet Telemetry with a donation via PayPal Friends. Thank you!",
+            "btn_donate": "Donate"
+        }
     },
     "devices":{
         "location":{
@@ -216,7 +210,8 @@
             "command_pair_state_undefined": "unknown",
             "app_not_registered": "App is not registered in the car. Register via car device repair process.",
             "command_error_426": "App update required. Please update the app in the Homey app store or enable automatic updates.",
-            "api_client_id_not_set": "Tesla Client ID and Client Secret not set. Please repair the device and use a personal Tesla developer account and app registration."
+            "api_client_id_not_set": "Tesla Client ID and Client Secret not set. Please repair the device and use a personal Tesla developer account and app registration.",
+            "telemetry_activation_error": "Error during Telemetry registration. Please check car authentication."
         }
     },
     "app":{
@@ -226,5 +221,10 @@
     },
     "widget":{
         "car_select": "Select your car in widget settings"
+    },
+    "settings":{
+        "telemetry": {
+            "donation": "Server infrastructure is required for Telemetry. If you like this feature, please support me with a donation (Paypal friends). See app store page or repair view for details."
+        }
     }
 }

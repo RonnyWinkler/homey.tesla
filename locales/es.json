@@ -109,8 +109,31 @@
       "register_app": "Llave del coche para Fleet-API",
       "register_ble": "Llave del coche para Bluetooth LE",
       "device_details": "Detalles del dispositivo",
+      "telemetry": "Telemetría",
       "charging_history": "Historial de carga",
       "charging_history_suc": "Historial de carga SuC"
+    },
+    "telemetry": {
+      "title": "Telemetría",
+      "telemetry_status": "Estado de la telemetría",
+      "car_settings": "Ajustes del vehículo",
+      "car_status": "Estado del vehículo",
+      "config": "Configuración",
+      "activate": "Activar",
+      "deactivate": "Desactivar",
+      "errors": "Errores",
+      "messages": "Mensajes"
+    },
+    "telemetry_car_settings": {
+      "title": "Ajustes de telemetría",
+      "link_interval": "Detalles del intervalo",
+      "link_fields": "Detalles de los campos",
+      "active": "Activo",
+      "interval": "Intervalo",
+      "resend_interval": "Intervalo de reenvío",
+      "min_delta": "Delta mínimo",
+      "btn_set": "Actualizar ajustes",
+      "success": "Los ajustes se actualizaron correctamente."
     },
     "device_details": {
       "title": "Detalles del dispositivo"
@@ -156,6 +179,11 @@
       "ble_status": "Estado",
       "button_register": "Registrar como llave del coche",
       "button_status": "Verificar estado de la llave"
+    },
+    "donate": {
+      "title": "Tu apoyo es apreciado",
+      "text1": "Si esta app te resulta útil, considera apoyar el desarrollo continuo y la operación de la infraestructura de servidores para Fleet Telemetry con una donación a través de PayPal Amigos. ¡Gracias!",
+      "btn_donate": "Donar"
     }
   },
   "devices": {
@@ -169,7 +197,8 @@
       "command_pair_state_undefined": "desconocido",
       "app_not_registered": "La app no está registrada en el coche. Regístrala mediante el proceso de reparación del dispositivo del coche.",
       "command_error_426": "Se requiere actualización de la app. Actualiza la app en la tienda de aplicaciones de Homey o habilita actualizaciones automáticas.",
-      "api_client_id_not_set": "Client ID y Client Secret de Tesla no establecidos. Repara el dispositivo y usa una cuenta de desarrollador de Tesla personal y registra una app."
+      "api_client_id_not_set": "Client ID y Client Secret de Tesla no establecidos. Repara el dispositivo y usa una cuenta de desarrollador de Tesla personal y registra una app.",
+      "telemetry_activation_error": "Error durante el registro de la telemetría. Por favor, comprueba la autenticación del vehículo."
     }
   },
   "app": {
@@ -179,5 +208,10 @@
   },
   "widget": {
     "car_select": "Selecciona tu coche en la configuración del widget"
+  },
+  "settings": {
+    "telemetry": {
+      "donation": "La telemetría requiere infraestructura de servidor. Si te gusta esta función, por favor apóyame con una donación. Consulta la página de la App Store o la vista de reparación para más detalles."
+    }
   }
 }

@@ -137,6 +137,10 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
         return await device.telemetryStatus();
     });
 
+    session.setHandler('getTelemetryMqttStatus', async () => {
+        return device.getTelemetryMqttStatus();
+    });
+
     session.setHandler('telemetryConfig', async () => {
         return await device.telemetryConfig();
     });
@@ -150,12 +154,16 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
     });
 
     session.setHandler('telemetryActivate', async () => {
-        return await device.telemetryActivate();
+        const result = await device.telemetryActivate();
+        await device.setSettingsTelemetryActive(false);
+        return result;
     });
 
     session.setHandler('telemetryDeactivate', async () => {
-        return await device.telemetryDeactivate();
-    });
+        const result = await device.telemetryDeactivate();
+        await device.setSettingsTelemetryActive(false);
+        return result;
+      });
 
     session.setHandler('getTelemetryServerSettings', () => {
         return device.getTelemetryServerSettings();

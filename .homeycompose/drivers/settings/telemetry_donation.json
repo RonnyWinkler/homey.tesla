@@ -1,0 +1,18 @@
+{
+  "id": "telemetry_donation",
+  "type": "label",
+  "value": "",
+  "label": {
+    "en": "Hint",
+    "de": "Hinweis",
+    "nl": "Hint",
+    "fr": "Avertissement",
+    "it": "Suggerimento",
+    "sv": "Hint",
+    "no": "Hint",
+    "es": "Aviso",
+    "da": "Hint",
+    "ru": "Подсказка",
+    "pl": "Podpowiedz"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Module temperature",
+    "de": "Modultemperatur",
+    "nl": "Modultemperatuur",
+    "fr": "Température module",
+    "it": "Temperatura del modulo",
+    "sv": "Modultemperatur",
+    "no": "Modultemperatur",
+    "es": "Temperatura del modulo",
+    "da": "Modultemperatur",
+    "ru": "Минимальная температура",
+    "pl": "Temperatura modułu"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/measure_module_temp.svg"
+}

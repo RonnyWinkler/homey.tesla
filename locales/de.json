@@ -79,8 +79,31 @@
             "register_app": "Fahrzeugschlüssel für Fleet-API",
             "register_ble": "Fahrzeugschlüssel für Bluetooth LE",
             "device_details": "Geräte-Details",
+            "telemetry": "Telemetrie",
             "charging_history": "Ladehistorie",
             "charging_history_suc": "SuC Ladehistorie"
+        },
+        "telemetry": {
+            "title": "Telemetrie",
+            "telemetry_status": "Telemetriestatus",
+            "car_settings": "Fahrzeugeinstellungen",
+            "car_status": "Fahrzeugstatus",
+            "config": "Konfiguration",
+            "activate": "Aktivieren",
+            "deactivate": "Deaktivieren",
+            "errors": "Fehler",
+            "messages": "Meldungen"
+        },
+        "telemetry_car_settings": {
+            "title": "Telemetrie-Einstellungen",
+            "link_interval": "Intervall-Details",
+            "link_fields": "Feld-Details",
+            "active": "Aktiv",
+            "interval": "Intervall",
+            "resend_interval": "Wiederholintervall",
+            "min_delta": "Minimaler Unterschied",
+            "btn_set": "Einstellungen aktualisieren",
+            "success": "Einstellungen wurden erfolgreich aktualisiert."
         },
         "device_details":{
           "title": "Geräte-Details"
@@ -126,6 +149,11 @@
           "ble_status": "Status",
           "button_register": "Registrierung als Fahrzeugschlüssel",
           "button_status": "Schlüsselstatus prüfen"
+        },
+        "donate": {
+            "title": "Deine Unterstützung wird geschätzt",
+            "text1": "Wenn du diese App nützlich findest, unterstütze bitte die Weiterentwicklung sowie den Betrieb der Server-Infrastruktur für Fleet Telemetry mit einer Spende über PayPal Freunde. Vielen Dank!",
+            "btn_donate": "Spenden"
         }
 
     },
@@ -139,7 +167,8 @@
             "command_pair_state_unpaired": "nicht verbunden",
             "command_pair_state_undefined": "nicht bekannt",
             "app_not_registered": "App ist nicht im Auto registriert. Registrieren die App im 'Reparieren'-Dialog des Auto-Gerät.",
-            "command_error_426": "App-Update erforderlich. Bitte aktualisiere die App im Homey App-Store oder aktiviere automatische App-Updates."
+            "command_error_426": "App-Update erforderlich. Bitte aktualisiere die App im Homey App-Store oder aktiviere automatische App-Updates.",
+            "telemetry_activation_error": "Fehler bei der Registrierung der Telemetrie. Bitte überprüfe die Fahrzeugauthentifizierung."
         }
     },
     "app":{
@@ -149,5 +178,10 @@
     },
     "widget":{
         "car_select": "Wähle dein Auto in den Widget-Einstellungen"
+    },
+    "settings": {
+        "telemetry": {
+            "donation": "Für Telemetrie ist Server-Infrastruktur erforderlich. Wenn dir diese Funktion gefällt, unterstütze mich bitte mit einer Spende. Details findest du auf der App-Store-Seite oder in der Reparaturansicht."
+        }
     }
 }

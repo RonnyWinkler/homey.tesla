@@ -4,80 +4,77 @@
 
     function getTelemetryServerSettings(){
         Homey.emit('getTelemetryServerSettings').then(function (data) {
-            document.getElementById('telemetry_server_active').checked = data.server_active;
-            document.getElementById('telemetry_port_internal').value = data.port_internal;
-            document.getElementById('telemetry_server').value = data.server;
-            document.getElementById('telemetry_port').value = data.port;
-            document.getElementById('telemetry_ca').value = data.ca;
-            if (data.status) {
-              document.getElementById('telemetry_status').value = Homey.__("repair.telemetry_server_settings.status_running") + ": " + data.status.port;
-            }
-            else{
-              document.getElementById('telemetry_status').value = Homey.__("repair.telemetry_server_settings.status_stopped");
-            }
+            // document.getElementById('telemetry_server_active').checked = data.server_active;
+            // document.getElementById('telemetry_port_internal').value = data.port_internal;
+            document.getElementById('tts_host').value = data.ttsHost;
+            document.getElementById('tts_port').value = data.ttsPort;
+            document.getElementById('tts_ca').value = data.ttsCa;
+            document.getElementById('mqtt_host').value = data.mqttHost;
+            document.getElementById('mqtt_port').value = data.mqttPort;
         });
     }
 
-    function setTelemetryServerSettings(){
-        var settings = {};
-        settings.server_active = document.getElementById('telemetry_server_active').checked;
-        settings.port_internal = document.getElementById('telemetry_port_internal').value;
-        settings.server = document.getElementById('telemetry_server').value;
-        settings.port = document.getElementById('telemetry_port').value;
-        settings.ca = document.getElementById('telemetry_ca').value;
-        Homey.emit('setTelemetryServerSettings', settings).then(function (data) {
-          Homey.alert(Homey.__("repair.telemetry_server_settings.success"));
-          getTelemetryServerSettings();
+    function getTelemetryServerSettings(){
+        Homey.emit('getTelemetryMqttStatus').then(function (status) {
+            document.getElementById('telemetry_mqtt_status').value = status;
         });
     }
+    
+
+    // function setTelemetryServerSettings(){
+    //     var settings = {};
+    //     settings.server_active = document.getElementById('telemetry_server_active').checked;
+    //     settings.port_internal = document.getElementById('telemetry_port_internal').value;
+    //     settings.server = document.getElementById('telemetry_server').value;
+    //     settings.port = document.getElementById('telemetry_port').value;
+    //     settings.ca = document.getElementById('telemetry_ca').value;
+    //     Homey.emit('setTelemetryServerSettings', settings).then(function (data) {
+    //       Homey.alert(Homey.__("repair.telemetry_server_settings.success"));
+    //       getTelemetryServerSettings();
+    //     });
+    // }
 </script>
 
-<p data-i18n="repair.telemetry_server_settings.info"></p>
+<!-- <p data-i18n="repair.telemetry_server_settings.info"></p> -->
 
-<!-- <fieldset class="homey-form-fieldset"> -->
   <div class="homey-form-group">
 
-    <label class="homey-form-checkbox">
+    <!-- <label class="homey-form-checkbox">
       <input class="homey-form-checkbox-input" type="checkbox" id="telemetry_server_active" name="telemetry_server_active"/>
       <span class="homey-form-checkbox-checkmark"></span>
       <span class="homey-form-checkbox-text"><span data-i18n="repair.telemetry_server_settings.server_active"></span>
-    </label>
+    </label> -->
 
-    <!-- <legend class="homey-form-legend" data-i18n="repair.telemetry_server_settings.legend1"></legend> -->
-    <label for="telemetry_port_internal" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.port_internal"></span></label>
-    <input class="homey-form-input" id="telemetry_port_internal" type="text" value="" placeholder="8443"/>
-  <!-- </div>
-</fieldset>
+    <!-- <label for="telemetry_port_internal" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.port_internal"></span></label>
+    <input class="homey-form-input" id="telemetry_port_internal" type="text" value="" placeholder="8443"/> -->
 
-<fieldset class="homey-form-fieldset">
-  <div class="homey-form-group">
-    <legend class="homey-form-legend" data-i18n="repair.telemetry_server_settings.legend2"></legend> -->
+    <label for="tts_host" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.tts_host"></span></label>
+    <input class="homey-form-input" id="tts_host" type="text" value=""/>
 
+    <label for="tts_port" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.tts_port"></span></label>
+    <input class="homey-form-input" id="tts_port" type="text" value=""/>
 
-    <label for="telemetry_server" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.server"></span></label>
-    <input class="homey-form-input" id="telemetry_server" type="text" value="" placeholder="homeyId.telemetry.rwdevelopment.de"/>
+    <label for="tts_ca" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.tts_ca"></span></label>
 
-    <label for="telemetry_port" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.port"></span></label>
-    <input class="homey-form-input" id="telemetry_port" type="text" value="" placeholder="8443"/>
-
-    <label for="telemetry_ca" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.ca_cert"></span></label>
-    <!-- <input class="homey-form-input" id="telemetry_ca" type="text" value="" placeholder="CA cert in PEM format: -----BEGIN CERTIFICATE----- ..."/> -->
-
-    <textarea class="homey-form-textarea" id="telemetry_ca" rows="3"
-        placeholder="CA cert in PEM format: -----BEGIN CERTIFICATE----- ..."
+    <textarea class="homey-form-textarea" id="tts_ca" rows="3"
         style="white-space:pre-wrap"></textarea>
 
-    <label for="telemetry_status" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.status"></span></label>
-    <input class="homey-form-input" id="telemetry_status" type="text" value=""/>
+    <label for="mqtt_host" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.mqtt_host"></span></label>
+    <input class="homey-form-input" id="mqtt_host" type="text" value=""/>
 
-    <br>
+    <label for="mqtt_port" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.mqtt_port"></span></label>
+    <input class="homey-form-input" id="mqtt_port" type="text" value=""/>
+
+    <label for="telemetry_mqtt_status" class="homey-form-label"><span data-i18n="repair.telemetry_server_settings.mqtt_status"></span></label>
+    <input class="homey-form-input" id="telemetry_mqtt_status" type="text" value=""/>
+
+    <!-- <br>
     <p>
       <button id="btnTelemetrySetSettings" class="homey-button-primary-shadow-full" onClick="setTelemetryServerSettings();">
         <span data-i18n="repair.telemetry_server_settings.btn_set"></span>
       </button>
-    </p>
+    </p> -->
   </div>
-<!-- </fieldset> -->
 
 
 <script type="application/javascript">

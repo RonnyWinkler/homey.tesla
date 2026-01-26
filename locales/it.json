@@ -109,9 +109,32 @@
           "register_app": "Chiave auto per Fleet-API",
           "register_ble": "Chiave auto per Bluetooth LE",
           "device_details": "Dettagli dispositivo",
+          "telemetry": "Telemetria",
           "charging_history": "Cronologia ricariche",
           "charging_history_suc": "Cronologia ricariche SuC"
       },
+        "telemetry": {
+            "title": "Telemetria",
+            "telemetry_status": "Stato della telemetria",
+            "car_settings": "Impostazioni del veicolo",
+            "car_status": "Stato del veicolo",
+            "config": "Configurazione",
+            "activate": "Attiva",
+            "deactivate": "Disattiva",
+            "errors": "Errori",
+            "messages": "Messaggi"
+        },
+        "telemetry_car_settings": {
+            "title": "Impostazioni telemetria",
+            "link_interval": "Dettagli intervallo",
+            "link_fields": "Dettagli campi",
+            "active": "Attivo",
+            "interval": "Intervallo",
+            "resend_interval": "Intervallo di reinvio",
+            "min_delta": "Delta minimo",
+            "btn_set": "Aggiorna impostazioni",
+            "success": "Impostazioni aggiornate correttamente."
+        },
       "device_details": {
           "title": "Dettagli dispositivo"
       },
@@ -156,20 +179,26 @@
           "ble_status": "Stato",
           "button_register": "Registra come chiave dell’auto",
           "button_status": "Controlla stato chiave"
-      }
+      },
+        "donate": {
+            "title": "Il tuo supporto è apprezzato",
+            "text1": "Se trovi utile questa app, considera di supportare lo sviluppo continuo e il funzionamento dell’infrastruttura server per Fleet Telemetry con una donazione tramite PayPal Amici. Grazie!",
+            "btn_donate": "Dona"
+        }
   },
   "devices": {
       "location": {
           "homey_location_name": "Casa (posizione Homey)"
       },
       "car": {
-          "trunk_not_allowed": "Operazione bagagliaio disabilitata nelle impostazioni del dispositivo",
-          "command_pair_state_paired": "associato",
-          "command_pair_state_unpaired": "non associato",
-          "command_pair_state_undefined": "sconosciuto",
-          "app_not_registered": "L'app non è registrata nell'auto. Registrala tramite il processo di riparazione del dispositivo auto.",
-          "command_error_426": "Aggiornamento app richiesto. Aggiorna l'app nello store Homey o abilita gli aggiornamenti automatici.",
-          "api_client_id_not_set": "Client ID e Client Secret Tesla non impostati. Ripara il dispositivo e usa un account sviluppatore personale Tesla con registrazione app."
+        "trunk_not_allowed": "Operazione bagagliaio disabilitata nelle impostazioni del dispositivo",
+        "command_pair_state_paired": "associato",
+        "command_pair_state_unpaired": "non associato",
+        "command_pair_state_undefined": "sconosciuto",
+        "app_not_registered": "L'app non è registrata nell'auto. Registrala tramite il processo di riparazione del dispositivo auto.",
+        "command_error_426": "Aggiornamento app richiesto. Aggiorna l'app nello store Homey o abilita gli aggiornamenti automatici.",
+        "api_client_id_not_set": "Client ID e Client Secret Tesla non impostati. Ripara il dispositivo e usa un account sviluppatore personale Tesla con registrazione app.",
+        "telemetry_activation_error": "Errore durante la registrazione della telemetria. Verifica l’autenticazione del veicolo."
       }
   },
   "app": {
@@ -179,5 +208,10 @@
   },
   "widget": {
       "car_select": "Seleziona la tua auto nelle impostazioni del widget"
+  },
+  "settings": {
+    "telemetry": {
+      "donation": "La telemetria richiede un’infrastruttura server. Se ti piace questa funzione, puoi supportarmi con una donazione. Consulta la pagina dell’App Store o la vista di riparazione per i dettagli."
+    }
   }
 }

@@ -1,14 +1,13 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "3.3.1",
+  "version": "4.0.0",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
   ],
   "connectivity": [
-    "cloud",
-    "ble"
+    "cloud"
   ],
   "sdk": 3,
   "name": {
@@ -8809,6 +8808,12 @@
         "charging_port_cable",
         "measure_io_battery_power",
         "meter_charge_power",
+        "module_temp",
+        "measure_module_temp_min",
+        "measure_module_temp_max",
+        "measure_charge_power_ac",
+        "measure_charge_power_dc",
+        "measure_charge_energy_added_ac",
         "charging_port",
         "charging_on",
         "charging_port_unlock"
@@ -9521,6 +9526,73 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Telemetry",
+            "de": "Telemetrie",
+            "nl": "Telemetrie",
+            "fr": "Tesla Telemetry",
+            "it": "Tesla Telemetry",
+            "sv": "Telemetria",
+            "no": "Telemetria",
+            "es": "Telemetria",
+            "da": "Telemetrie",
+            "ru": "Телеметрия",
+            "pl": "Telemetria"
+          },
+          "children": [
+            {
+              "id": "telemetry_active",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Telemetry is active",
+                "de": "Telemetrie ist aktiv",
+                "nl": "Telemetrie is geactiveerd",
+                "fr": "La t&eacute;l&eacute;commande est activ&eacute;e",
+                "it": "La telemetry &egrave; attiva",
+                "sv": "Telemetria &aring;ktiv",
+                "no": "Telemetria er aktiv",
+                "es": "La telemetria est&aacute; activa",
+                "da": "Telemetrie er aktiv",
+                "ru": "Телеметрия активна",
+                "pl": "Telemetria jest aktywna"
+              },
+              "hint": {
+                "en": "Telemetry offers realtime data from your car. Data retrieval (polling) can be deactivated if Telemetry is used. Telemetry usage and costs are only visible in Tesla devloper account.",
+                "de": "Telemetrie bietet Echtzeitdaten von Ihrem Fahrzeug. Die Datenabfrage (Polling) kann deaktiviert werden, wenn Telemetrie verwendet wird. Die Nutzung und Kosten der Telemetrie sind nur im Tesla Entwicklerkonto sichtbar.",
+                "nl": "Telemetrie biedt realtime gegevens van uw voertuig. Gegevensopvraging (polling) kan worden uitgeschakeld wanneer telemetrie wordt gebruikt. Het gebruik en de kosten van telemetrie zijn alleen zichtbaar in het Tesla-ontwikkelaarsaccount.",
+                "fr": "La télémétrie fournit des données en temps réel depuis votre véhicule. La récupération des données (polling) peut être désactivée lorsque la télémétrie est utilisée. L’utilisation et les coûts de la télémétrie ne sont visibles que dans le compte développeur Tesla.",
+                "it": "La telemetria fornisce dati in tempo reale dal tuo veicolo. Il recupero dei dati (polling) può essere disattivato quando si utilizza la telemetria. L’utilizzo e i costi della telemetria sono visibili solo nell’account sviluppatore Tesla.",
+                "sv": "Telemetri erbjuder realtidsdata från ditt fordon. Datainsamling (polling) kan inaktiveras när telemetri används. Användning och kostnader för telemetri är endast synliga i Teslas utvecklarkonto.",
+                "no": "Telemetri gir sanntidsdata fra kjøretøyet ditt. Datainnhenting (polling) kan deaktiveres når telemetri brukes. Bruk og kostnader for telemetri er kun synlige i Tesla-utviklerkontoen.",
+                "es": "La telemetría ofrece datos en tiempo real de tu vehículo. La recuperación de datos (polling) puede desactivarse cuando se utiliza la telemetría. El uso y los costos de la telemetría solo son visibles en la cuenta de desarrollador de Tesla.",
+                "da": "Telemetri tilbyder realtidsdata fra dit køretøj. Datahentning (polling) kan deaktiveres, når telemetri anvendes. Brug og omkostninger ved telemetri er kun synlige i Tesla-udviklerkontoen.",
+                "ru": "Телеметрия предоставляет данные в реальном времени от вашего автомобиля. Получение данных (polling) может быть отключено при использовании телеметрии. Использование и стоимость телеметрии видны только в аккаунте разработчика Tesla.",
+                "pl": "Telemetria oferuje dane w czasie rzeczywistym z Twojego pojazdu. Pobieranie danych (polling) może zostać wyłączone, jeśli używana jest telemetria. Użycie i koszty telemetrii są widoczne wyłącznie na koncie deweloperskim Tesla."
+              }
+            },
+            {
+              "id": "telemetry_donation",
+              "type": "label",
+              "value": "",
+              "label": {
+                "en": "Hint",
+                "de": "Hinweis",
+                "nl": "Hint",
+                "fr": "Avertissement",
+                "it": "Suggerimento",
+                "sv": "Hint",
+                "no": "Hint",
+                "es": "Aviso",
+                "da": "Hint",
+                "ru": "Подсказка",
+                "pl": "Podpowiedz"
+              }
             }
           ]
         },
@@ -14599,14 +14671,14 @@
     "measure_charge_energy_added": {
       "type": "number",
       "title": {
-        "en": "Charge energy added",
-        "de": "Ladeenergie hinzugefügt",
-        "nl": "Laadenergie toegevoegd",
+        "en": "Charge energy battery",
+        "de": "Ladeenergie Batterie",
+        "nl": "Laadenergie batterij",
         "fr": "Énergie de charge ajoutée",
         "it": "Energia di ricarica aggiunta",
         "sv": "Laddad energi tillagd",
         "no": "Ladet energi lagt til",
-        "es": "Energía de carga añadida",
+        "es": "Energía de cargaañadida",
         "da": "Opladningsenergi tilføjet",
         "ru": "Добавленная энергия заряда",
         "pl": "Dodana energia ładowania"
@@ -14617,6 +14689,30 @@
       "insights": true,
       "getable": true,
       "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
+    },
+    "measure_charge_energy_added_ac": {
+      "type": "number",
+      "title": {
+        "en": "Charge energy AC/charger",
+        "de": "Ladeenergie AC/Ladegeräte",
+        "nl": "Laadenergie AC/laadgeraad",
+        "fr": "Énergie de charge AC/chargeur",
+        "it": "Energia di ricarica AC/caricatore",
+        "sv": "Laddad energi AC/laddare",
+        "no": "Ladet energi AC/ladestasjon",
+        "es": "Energía de carga AC/cargador",
+        "da": "Opladningsenergi AC/oplader",
+        "ru": "Добавленная энергия заряда AC/зарядное устройство",
+        "pl": "Dodana energia ładowania AC/ładacz"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
       "icon": "./assets/capability_icons/measure_charge_energy_added.svg"
     },
     "measure_charge_limit_soc": {
@@ -14716,6 +14812,54 @@
       "insights": true,
       "getable": true,
       "setable": false,
+      "icon": "./assets/capability_icons/measure_charge_power.svg"
+    },
+    "measure_charge_power_ac": {
+      "type": "number",
+      "title": {
+        "en": "Charge power AC",
+        "de": "Ladeleistung AC",
+        "nl": "Laad vermogen AC",
+        "fr": "Puissance de charge AC",
+        "it": "Potenza di ricarica AC",
+        "sv": "Laddningskraft AC",
+        "no": "Ladekraft AC",
+        "es": "Potencia de carga AC",
+        "da": "Opladningskraft AC",
+        "ru": "Мощность зарядки AC",
+        "pl": "Moc ładowania AC"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_charge_power.svg"
+    },
+    "measure_charge_power_dc": {
+      "type": "number",
+      "title": {
+        "en": "Charge power DC",
+        "de": "Ladeleistung DC",
+        "nl": "Laad vermogen DC",
+        "fr": "Puissance de charge DC",
+        "it": "Potenza di ricarica DC",
+        "sv": "Laddningskraft DC",
+        "no": "Ladekraft DC",
+        "es": "Potencia de carga DC",
+        "da": "Opladningskraft DC",
+        "ru": "Мощность зарядки DC",
+        "pl": "Moc ładowania DC"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
       "icon": "./assets/capability_icons/measure_charge_power.svg"
     },
     "measure_charge_voltage": {
@@ -14915,6 +15059,7 @@
       "insights": true,
       "getable": true,
       "setable": false,
+      "uiComponent": null,
       "icon": "./assets/capability_icons/measure_module_temp_max.svg"
     },
     "measure_module_temp_min": {
@@ -14936,6 +15081,7 @@
       "insights": true,
       "getable": true,
       "setable": false,
+      "uiComponent": null,
       "icon": "./assets/capability_icons/measure_module_temp_min.svg"
     },
     "measure_power_load": {
@@ -15237,6 +15383,26 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/meter_power_solar_exported.svg"
+    },
+    "module_temp": {
+      "type": "string",
+      "title": {
+        "en": "Module temperature",
+        "de": "Modultemperatur",
+        "nl": "Modultemperatuur",
+        "fr": "Température module",
+        "it": "Temperatura del modulo",
+        "sv": "Modultemperatur",
+        "no": "Modultemperatur",
+        "es": "Temperatura del modulo",
+        "da": "Modultemperatur",
+        "ru": "Минимальная температура",
+        "pl": "Temperatura modułu"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/measure_module_temp.svg"
     }
   }
 }

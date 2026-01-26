@@ -34,13 +34,19 @@
     Homey.setTitle(Homey.__("repair.telemetry.title"));
     // Homey.setNavigationClose();
 
-    function onTelemetryServerSettings(){
-        Homey.showView("telemetry_server_settings");
-    }
+    // function onTelemetryServerSettings(){
+    //     Homey.showView("telemetry_server_settings");
+    // }
     function onTelemetryCarSettings(){
         Homey.showView("telemetry_car_settings");
     }
-    function onTelemetryStatus(){
+    function onTelemetryMqttStatus(){
+        Homey.emit('getTelemetryMqttStatus').then(function (data) {
+            let string = JSON.stringify(data, null, "  ");
+            telemetryLog.textContent = string;
+        });
+    }
+    function onCarStatus(){
         Homey.emit('telemetryStatus').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
@@ -65,9 +71,13 @@
         });
     }
     function onTelemetryActivate(){
-        Homey.emit('telemetryActivate').then(function (data) {
+        Homey.emit('telemetryActivate')
+        .then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+        })
+        .catch(function (error){
+            telemetryLog.textContent = error.message;
         });
     }
     function onTelemetryDeactivate(){
@@ -78,8 +88,6 @@
     }
 
 </script>
-
-<p data-i18n="repair.telemetry.info"></p>
 
 <div>
     <!-- <fieldset> -->
@@ -104,28 +112,11 @@
         <tr>
             <td>
                 <div>
-                    <button id="btnTelemetryServerSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryServerSettings()"
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.server_settings"></span></span></button>
+                    <button id="btnTelemetryCarSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryCarSettings()"
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.car_settings"></span></button>
                 </div>
             </td>
             <td>
-                <div>
-                    <button id="btnTelemetryCarSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryCarSettings()"
-                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.car_settings"></span></button>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <p class="button_space"></p>
-    <table style="table-layout: fixed; width: 100%;">
-        <tr>
-            <td style="width: 50;">
-                <div>
-                    <button id="btnTelemetryStatus" class="homey-button-secondary-shadow-full" onClick="onTelemetryStatus()"
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.status"></span></button>
-                </div>
-            </td>
-            <td style="width: 50;">
                 <div>
                     <button id="btnTelemetryConfig" class="homey-button-secondary-shadow-full" onClick="onTelemetryConfig()" 
                         style="margin-left: 7px;"><span data-i18n="repair.telemetry.config"></span></button>
@@ -146,6 +137,23 @@
                 <div>
                     <button id="btnTelemetryMessages" class="homey-button-secondary-shadow-full" onClick="onTelemetryMessages()" 
                         style="margin-left: 7px;"><span data-i18n="repair.telemetry.messages"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryStatus" class="homey-button-secondary-shadow-full" onClick="onTelemetryMqttStatus()"
+                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.telemetry_status"></span></span></button>
+                </div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnCarStatus" class="homey-button-secondary-shadow-full" onClick="onCarStatus()"
+                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.car_status"></span></button>
                 </div>
             </td>
         </tr>

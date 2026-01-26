@@ -109,8 +109,31 @@
       "register_app": "Autosleutel voor Fleet-API",
       "register_ble": "Autosleutel voor Bluetooth LE",
       "device_details": "Apparaatdetails",
+      "telemetry": "Telemetrie",
       "charging_history": "Laadgeschiedenis",
       "charging_history_suc": "SuC-laadgeschiedenis"
+    },
+    "telemetry": {
+      "title": "Telemetrie",
+      "telemetry_status": "Telemetriestatus",
+      "car_settings": "Voertuiginstellingen",
+      "car_status": "Voertuigstatus",
+      "config": "Configuratie",
+      "activate": "Activeren",
+      "deactivate": "Deactiveren",
+      "errors": "Fouten",
+      "messages": "Berichten"
+    },
+    "telemetry_car_settings": {
+      "title": "Telemetrie-instellingen",
+      "link_interval": "Intervaldetails",
+      "link_fields": "Veldgegevens",
+      "active": "Actief",
+      "interval": "Interval",
+      "resend_interval": "Herzendinterval",
+      "min_delta": "Minimale delta",
+      "btn_set": "Instellingen bijwerken",
+      "success": "Instellingen succesvol bijgewerkt."
     },
     "device_details": {
       "title": "Apparaatdetails"
@@ -156,6 +179,11 @@
       "ble_status": "Status",
       "button_register": "Registreer als autosleutel",
       "button_status": "Controleer sleutelstatus"
+    },
+    "donate": {
+      "title": "Je steun wordt gewaardeerd",
+      "text1": "Als je deze app nuttig vindt, overweeg dan om de verdere ontwikkeling en het beheer van de serverinfrastructuur voor Fleet Telemetry te ondersteunen met een donatie via PayPal Vrienden. Dank je wel!",
+      "btn_donate": "Doneren"
     }
   },
   "devices": {
@@ -169,7 +197,8 @@
       "command_pair_state_undefined": "onbekend",
       "app_not_registered": "App is niet geregistreerd in de auto. Registreer via het reparatieproces van het autoapparaat.",
       "command_error_426": "App-update vereist. Werk de app bij in de Homey-appstore of schakel automatische updates in.",
-      "api_client_id_not_set": "Tesla Client ID en Client Secret niet ingesteld. Repareer het apparaat en gebruik een persoonlijk Tesla ontwikkelaarsaccount en app-registratie."
+      "api_client_id_not_set": "Tesla Client ID en Client Secret niet ingesteld. Repareer het apparaat en gebruik een persoonlijk Tesla ontwikkelaarsaccount en app-registratie.",
+      "telemetry_activation_error": "Fout tijdens de registratie van telemetrie. Controleer de voertuigauthenticatie."
     }
   },
   "app": {
@@ -179,5 +208,10 @@
   },
   "widget": {
     "car_select": "Selecteer je auto in de widgetinstellingen"
+  },
+  "settings": {
+    "telemetry": {
+      "donation": "Voor telemetrie is serverinfrastructuur vereist. Als je deze functie leuk vindt, steun mij dan met een donatie. Bekijk de App Store-pagina of de reparatieweergave voor meer informatie."
+    }
   }
 }
