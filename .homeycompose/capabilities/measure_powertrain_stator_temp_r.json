@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Rear stator temperature",
+    "de": "Temperatur des hinteren Stators",
+    "nl": "Temperatuur achter stator",
+    "fr": "Température de l'stator arriere",
+    "it": "Temperatura dello stator dietro",
+    "sv": "Temperatur av statorn från",
+    "no": "Temperatur av stator fra",
+    "es": "Temperatura del estator posterior",
+    "da": "Temperatur af stator tilbage",
+    "ru": "Температура статора",
+    "pl": "Temperatura statorów tyłowych"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_stator_temp_r.svg"
+}

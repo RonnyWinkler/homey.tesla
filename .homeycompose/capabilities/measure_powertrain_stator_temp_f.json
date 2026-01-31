@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Front stator temperature",
+    "de": "Temperatur des vorderen Stators",
+    "nl": "Temperatuur front stator",
+    "fr": "Température du stator devant",
+    "it": "Temperatura del front stator",
+    "sv": "Temperatur av statorn från",
+    "no": "Temperatur av stator fra",
+    "es": "Temperatura del estator frontal",
+    "da": "Temperatur af statoren fra",
+    "ru": "Температура статора",
+    "pl": "Temperatura statora"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_stator_temp_f.svg"
+}

@@ -449,5 +449,8 @@
   },
   "4.0.0": {
     "en": "Added Fleet Telemetry."
+  },
+  "4.0.1": {
+    "en": "Fixed some Telemetry value conversions."
   }
 }

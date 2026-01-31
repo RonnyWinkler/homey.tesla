@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Front inverter power",
+    "de": "Leistung des vorderen Inverters",
+    "nl": "Macht voor inverter",
+    "fr": "Puissance de l'inverter devant",
+    "it": "Potenza dell'inverter di fronte",
+    "sv": "Power av invertern från",
+    "no": "Power av inverter fra",
+    "es": "Potencia del inverter frontal",
+    "da": "Power af inverter fra",
+    "ru": "Текущее значение инвертера",
+    "pl": "Moc inwersora"
+  },
+  "units": {
+    "en": "kW"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+}

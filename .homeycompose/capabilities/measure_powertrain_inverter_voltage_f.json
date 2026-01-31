@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Front inverter voltage",
+    "de": "Spannung des vorderen Inverters",
+    "nl": "Spanning voor inverter",
+    "fr": "Tension de l'inverter devant",
+    "it": "Tensione dell'inverter di fronte",
+    "sv": "Spanning av invertern från",
+    "no": "Spanning av inverter fra",
+    "es": "Tension del inverter frontal",
+    "da": "Spanning af inverter fra",
+    "ru": "Текущее значение инвертера",
+    "pl": "Napęd inwersora"
+  },
+  "units": {
+    "en": "A"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+}

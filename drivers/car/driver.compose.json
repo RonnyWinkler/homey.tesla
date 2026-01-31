@@ -64,6 +64,16 @@
         "measure_api_costs",
         "measure_api_ble_success_count",
         "measure_api_ble_error_count",
+        "measure_powertrain_inverter_temp_f",
+        "measure_powertrain_inverter_temp_r",
+        "measure_powertrain_stator_temp_f",
+        "measure_powertrain_stator_temp_r",
+        "measure_powertrain_inverter_voltage_f",
+        "measure_powertrain_inverter_voltage_r",
+        "measure_powertrain_inverter_current_f",
+        "measure_powertrain_inverter_current_r",
+        "measure_powertrain_inverter_power_f",
+        "measure_powertrain_inverter_power_r",
 
         "last_online"
 

@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Rear inverter power",
+    "de": "Leistung des hinteren Inverters",
+    "nl": "Macht achter inverter",
+    "fr": "Puissance de l'inverter arriere",
+    "it": "Potenza dell'inverter dietro",
+    "sv": "Power av invertern från",
+    "no": "Power av inverter fra",
+    "es": "Potencia del inverter posterior",
+    "da": "Power af inverter fra",
+    "ru": "Текущее значение инвертера",
+    "pl": "Moc inwersora"
+  },
+  "units": {
+    "en": "kW"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+}

@@ -1288,6 +1288,92 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
     }
 
+    if (data.powertrain_state){
+      if (this.hasCapability('measure_powertrain_inverter_temp_f') && data.powertrain_state.inverter_temp_f != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_temp_f', data.gui_settings.gui_temperature_units == 'C' ? data.powertrain_state.inverter_temp_f :data.powertrain_state.inverter_temp_f*9/5+32 );
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_powertrain_inverter_temp_f");
+        }
+        catch(error){}
+        let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+        if (!co || !co.units || co.units != tempUnit){
+          co['units'] = tempUnit;
+          this.setCapabilityOptions('measure_powertrain_inverter_temp_f', co);
+        }
+      }
+
+      if (this.hasCapability('measure_powertrain_inverter_temp_r') && data.powertrain_state.inverter_temp_r != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_temp_r', data.gui_settings.gui_temperature_units == 'C' ? data.powertrain_state.inverter_temp_r :data.powertrain_state.inverter_temp_r*9/5+32 );
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_powertrain_inverter_temp_r");
+        }
+        catch(error){}
+        let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+        if (!co || !co.units || co.units != tempUnit){
+          co['units'] = tempUnit;
+          this.setCapabilityOptions('measure_powertrain_inverter_temp_r', co);
+        }
+      }
+
+      if (this.hasCapability('measure_powertrain_stator_temp_f') && data.powertrain_state.stator_temp_f != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_stator_temp_f', data.gui_settings.gui_temperature_units == 'C' ? data.powertrain_state.stator_temp_f :data.powertrain_state.stator_temp_f*9/5+32 );
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_powertrain_stator_temp_f");
+        }
+        catch(error){}
+        let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+        if (!co || !co.units || co.units != tempUnit){
+          co['units'] = tempUnit;
+          this.setCapabilityOptions('measure_powertrain_stator_temp_f', co);
+        }
+      }
+
+      if (this.hasCapability('measure_powertrain_stator_temp_r') && data.powertrain_state.stator_temp_r != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_stator_temp_r', data.gui_settings.gui_temperature_units == 'C' ? data.powertrain_state.stator_temp_r :data.powertrain_state.stator_temp_r*9/5+32 );
+        // Capability units
+        let co = {};
+        try{
+          co = this.getCapabilityOptions("measure_powertrain_stator_temp_r");
+        }
+        catch(error){}
+        let tempUnit = '°'+data.gui_settings.gui_temperature_units;
+        if (!co || !co.units || co.units != tempUnit){
+          co['units'] = tempUnit;
+          this.setCapabilityOptions('measure_powertrain_stator_temp_r', co);
+        }
+      }
+
+      if (this.hasCapability('measure_powertrain_inverter_voltage_f') && data.powertrain_state.inverter_voltage_f != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_voltage_f', data.powertrain_state.inverter_voltage_f);
+        if (this.getCapabilityValue('measure_powertrain_inverter_current_f')){
+          await this.setCapabilityValue('measure_powertrain_inverter_power_f', this.getCapabilityValue('measure_powertrain_inverter_current_f') * data.powertrain_state.inverter_voltage_f / 1000);
+        }
+      }
+      if (this.hasCapability('measure_powertrain_inverter_voltage_r') && data.powertrain_state.inverter_voltage_r != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_voltage_r', data.powertrain_state.inverter_voltage_r);
+        if (this.getCapabilityValue('measure_powertrain_inverter_current_r')){
+          await this.setCapabilityValue('measure_powertrain_inverter_power_r', this.getCapabilityValue('measure_powertrain_inverter_current_r') * data.powertrain_state.inverter_voltage_r / 1000);
+        }
+      }
+      if (this.hasCapability('measure_powertrain_inverter_current_f') && data.powertrain_state.inverter_current_f != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_current_f', data.powertrain_state.inverter_current_f);
+        if (this.getCapabilityValue('measure_powertrain_inverter_voltage_f')){
+          await this.setCapabilityValue('measure_powertrain_inverter_power_f', this.getCapabilityValue('measure_powertrain_inverter_voltage_f') * data.powertrain_state.inverter_current_f / 1000);
+        }
+      }
+      if (this.hasCapability('measure_powertrain_inverter_current_r') && data.powertrain_state.inverter_current_r != undefined && data.gui_settings){
+        await this.setCapabilityValue('measure_powertrain_inverter_current_r', data.powertrain_state.inverter_current_r);
+        if (this.getCapabilityValue('measure_powertrain_inverter_voltage_r')){
+          await this.setCapabilityValue('measure_powertrain_inverter_power_r', this.getCapabilityValue('measure_powertrain_inverter_voltage_r') * data.powertrain_state.inverter_current_r / 1000);
+        }
+      }
+    }
 
     // Update child devices
     if (batteryDevice){
@@ -2902,12 +2988,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     };
     data["source"] = CONSTANTS.SOURCE_TELEMETRY;
 
-    let log = this.getStoreValue('telemetry_log');
-    if (!log) log = [];
-    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
-    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
-    log.push(data);
-    this.setStoreValue('telemetry_log', log);
+    await this._addToTelemetryLog(data);
 
     // Add car GUI settings (units), stored in device store because it's only complete sent via FleetAPI, update single fields via Telemetry
     let guiSettings = this.getStoreValue('car_gui_settings') || {};
@@ -2928,6 +3009,14 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _updateDeviceTelemetryConnectionStatus(status){
     // car disconnected from Telemetry server: Set as offline
+    let data = {
+      timestamp: this._getLocalTimeSecondsString(new Date()),
+      status: status,
+      source: CONSTANTS.SOURCE_TELEMETRY
+    };
+    await this._addToTelemetryLog(data);
+
+
     if (status == CONSTANTS.TELEMETRY_STATUS_DISCONNECTED){
       await this.setCapabilityValue('car_state', CONSTANTS.STATE_OFFLINE);
       await this.setDeviceState(false);
@@ -2949,6 +3038,15 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
       }
     }
+  }
+
+  async _addToTelemetryLog(data){
+    let log = this.getStoreValue('telemetry_log');
+    if (!log) log = [];
+    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
+    if (log.length >= TELEMETRY_LOG_MAX_LENGTH) log.shift();
+    log.push(data);
+    this.setStoreValue('telemetry_log', log);
   }
 
 }

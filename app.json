@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -9178,6 +9178,16 @@
         "measure_api_costs",
         "measure_api_ble_success_count",
         "measure_api_ble_error_count",
+        "measure_powertrain_inverter_temp_f",
+        "measure_powertrain_inverter_temp_r",
+        "measure_powertrain_stator_temp_f",
+        "measure_powertrain_stator_temp_r",
+        "measure_powertrain_inverter_voltage_f",
+        "measure_powertrain_inverter_voltage_r",
+        "measure_powertrain_inverter_current_f",
+        "measure_powertrain_inverter_current_r",
+        "measure_powertrain_inverter_power_f",
+        "measure_powertrain_inverter_power_r",
         "last_online"
       ],
       "energy": {
@@ -15107,6 +15117,246 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/measure_power_load.svg"
+    },
+    "measure_powertrain_inverter_current_f": {
+      "type": "number",
+      "title": {
+        "en": "Front inverter current",
+        "de": "Strom des vorderen Inverters",
+        "nl": "Stroom voor inverter",
+        "fr": "Courant de l'inverter devant",
+        "it": "Corrente dell'inverter di fronte",
+        "sv": "Ström av invertern från",
+        "no": "Strom av inverter fra",
+        "es": "Corriente del inverter frontal",
+        "da": "Strom af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Prędkość inwersora"
+      },
+      "units": {
+        "en": "V"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_inverter_current_r": {
+      "type": "number",
+      "title": {
+        "en": "Rear inverter current",
+        "de": "Strom des hinteren Inverters",
+        "nl": "Stroom achter inverter",
+        "fr": "Courant de l'inverter arriere",
+        "it": "Corrente dell'inverter dietro",
+        "sv": "Ström av invertern från",
+        "no": "Strom av inverter fra",
+        "es": "Corriente del inverter posterior",
+        "da": "Strom af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Prędkość inwersora"
+      },
+      "units": {
+        "en": "V"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_inverter_power_f": {
+      "type": "number",
+      "title": {
+        "en": "Front inverter power",
+        "de": "Leistung des vorderen Inverters",
+        "nl": "Macht voor inverter",
+        "fr": "Puissance de l'inverter devant",
+        "it": "Potenza dell'inverter di fronte",
+        "sv": "Power av invertern från",
+        "no": "Power av inverter fra",
+        "es": "Potencia del inverter frontal",
+        "da": "Power af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Moc inwersora"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_inverter_power_r": {
+      "type": "number",
+      "title": {
+        "en": "Rear inverter power",
+        "de": "Leistung des hinteren Inverters",
+        "nl": "Macht achter inverter",
+        "fr": "Puissance de l'inverter arriere",
+        "it": "Potenza dell'inverter dietro",
+        "sv": "Power av invertern från",
+        "no": "Power av inverter fra",
+        "es": "Potencia del inverter posterior",
+        "da": "Power af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Moc inwersora"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_inverter_temp_f": {
+      "type": "number",
+      "title": {
+        "en": "Front inverter heatsink temperature",
+        "de": "Temperatur des vorderen Inverters",
+        "nl": "Temperatuur front inverter",
+        "fr": "Température de l'inverter devant",
+        "it": "Temperatura del front inverter",
+        "sv": "Temperatur av invertern från",
+        "no": "Temperatur av inverter fra",
+        "es": "Temperatura del inverter frontal",
+        "da": "Temperatur af inverteren fra",
+        "ru": "Температура инвертера",
+        "pl": "Temperatura invertera"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_inverter_temp_f.svg"
+    },
+    "measure_powertrain_inverter_temp_r": {
+      "type": "number",
+      "title": {
+        "en": "Rear inverter heatsink temperature",
+        "de": "Temperatur des hinteren Inverters",
+        "nl": "Temperatuur achter inverter",
+        "fr": "Température de l'inverter arrière",
+        "it": "Temperatura dell'inverter dietro",
+        "sv": "Temperatur av invertern från",
+        "no": "Temperatur av inverter fra",
+        "es": "Temperatura del inverter posterior",
+        "da": "Temperatur af inverteren fra",
+        "ru": "Температура инвертера",
+        "pl": "Temperatura invertera"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_inverter_temp_r.svg"
+    },
+    "measure_powertrain_inverter_voltage_f": {
+      "type": "number",
+      "title": {
+        "en": "Front inverter voltage",
+        "de": "Spannung des vorderen Inverters",
+        "nl": "Spanning voor inverter",
+        "fr": "Tension de l'inverter devant",
+        "it": "Tensione dell'inverter di fronte",
+        "sv": "Spanning av invertern från",
+        "no": "Spanning av inverter fra",
+        "es": "Tension del inverter frontal",
+        "da": "Spanning af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Napęd inwersora"
+      },
+      "units": {
+        "en": "A"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_inverter_voltage_r": {
+      "type": "number",
+      "title": {
+        "en": "Rear inverter voltage",
+        "de": "Spannung des hinteren Inverters",
+        "nl": "Spanning achter inverter",
+        "fr": "Tension de l'inverter arriere",
+        "it": "Tensione dell'inverter dietro",
+        "sv": "Spanning av invertern från",
+        "no": "Spanning av inverter fra",
+        "es": "Tension del inverter posterior",
+        "da": "Spanning af inverter fra",
+        "ru": "Текущее значение инвертера",
+        "pl": "Napęd inwersora"
+      },
+      "units": {
+        "en": "A"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+    },
+    "measure_powertrain_stator_temp_f": {
+      "type": "number",
+      "title": {
+        "en": "Front stator temperature",
+        "de": "Temperatur des vorderen Stators",
+        "nl": "Temperatuur front stator",
+        "fr": "Température du stator devant",
+        "it": "Temperatura del front stator",
+        "sv": "Temperatur av statorn från",
+        "no": "Temperatur av stator fra",
+        "es": "Temperatura del estator frontal",
+        "da": "Temperatur af statoren fra",
+        "ru": "Температура статора",
+        "pl": "Temperatura statora"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_stator_temp_f.svg"
+    },
+    "measure_powertrain_stator_temp_r": {
+      "type": "number",
+      "title": {
+        "en": "Rear stator temperature",
+        "de": "Temperatur des hinteren Stators",
+        "nl": "Temperatuur achter stator",
+        "fr": "Température de l'stator arriere",
+        "it": "Temperatura dello stator dietro",
+        "sv": "Temperatur av statorn från",
+        "no": "Temperatur av stator fra",
+        "es": "Temperatura del estator posterior",
+        "da": "Temperatur af stator tilbage",
+        "ru": "Температура статора",
+        "pl": "Temperatura statorów tyłowych"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "./assets/capability_icons/measure_powertrain_stator_temp_r.svg"
     },
     "measure_soc_level": {
       "type": "number",

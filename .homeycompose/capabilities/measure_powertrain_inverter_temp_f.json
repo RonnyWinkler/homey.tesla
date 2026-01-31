@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Front inverter heatsink temperature",
+    "de": "Temperatur des vorderen Inverters",
+    "nl": "Temperatuur front inverter",
+    "fr": "Température de l'inverter devant",
+    "it": "Temperatura del front inverter",
+    "sv": "Temperatur av invertern från",
+    "no": "Temperatur av inverter fra",
+    "es": "Temperatura del inverter frontal",
+    "da": "Temperatur af inverteren fra",
+    "ru": "Температура инвертера",
+    "pl": "Temperatura invertera"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_inverter_temp_f.svg"
+}

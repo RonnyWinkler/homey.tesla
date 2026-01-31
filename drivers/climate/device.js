@@ -25,19 +25,28 @@ module.exports = class ClimateDevice extends ChildDevice {
 
     // window state
     // vent mode is not direclty readable. Only windows open/closed can be checked.
-    if (this.hasCapability('climate_window_vent') && data.vehicle_state && 
-        data.vehicle_state.fd_window == 0 && // front driver window 0=closed
-        data.vehicle_state.rd_window == 0 && // read driver window 0=closed
-        data.vehicle_state.fp_window == 0 && // front passenger window 0=closed
-        data.vehicle_state.rp_window == 0    // rear passenger window 0=closed
-      ){
-      await this.setCapabilityValue('climate_window_vent', false);
-    }
-    else{
-      await this.setCapabilityValue('climate_window_vent', true);
-    }    
+    if (this.hasCapability('climate_window_vent') && data.vehicle_state){
+      // Window attribute available?
+      if (  data.vehicle_state.fd_window != undefined || // front driver window 0=closed
+            data.vehicle_state.rd_window != undefined || // read driver window 0=closed
+            data.vehicle_state.fp_window != undefined || // front passenger window 0=closed
+            data.vehicle_state.rp_window != undefined    // rear passenger window 0=closed
+        ){
 
-    if (!data.climate_state){
+        if (  data.vehicle_state.fd_window == 1 || // front driver window 0=closed
+              data.vehicle_state.rd_window == 1 || // read driver window 0=closed
+              data.vehicle_state.fp_window == 1 || // front passenger window 0=closed
+              data.vehicle_state.rp_window == 1    // rear passenger window 0=closed
+          ){
+          await this.setCapabilityValue('climate_window_vent', true);
+        }
+        else{
+          await this.setCapabilityValue('climate_window_vent', false);
+        }    
+      }
+    }
+
+    if (!data.climate_state || Object.keys(data.climate_state).length === 0 ){
       return;
     }
     

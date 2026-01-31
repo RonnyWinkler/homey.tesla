@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Rear inverter current",
+    "de": "Strom des hinteren Inverters",
+    "nl": "Stroom achter inverter",
+    "fr": "Courant de l'inverter arriere",
+    "it": "Corrente dell'inverter dietro",
+    "sv": "Ström av invertern från",
+    "no": "Strom av inverter fra",
+    "es": "Corriente del inverter posterior",
+    "da": "Strom af inverter fra",
+    "ru": "Текущее значение инвертера",
+    "pl": "Prędkość inwersora"
+  },
+  "units": {
+    "en": "V"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/measure_powertrain_power.svg"
+}
