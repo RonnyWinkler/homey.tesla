@@ -452,5 +452,8 @@
   },
   "4.0.1": {
     "en": "Fixed some Telemetry value conversions."
+  },
+  "4.0.2": {
+    "en": "Small changes for Telemetry."
   }
 }

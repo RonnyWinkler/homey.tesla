@@ -155,7 +155,7 @@ module.exports = class CarDriver extends TeslaOAuth2Driver {
 
     session.setHandler('telemetryActivate', async () => {
         const result = await device.telemetryActivate();
-        await device.setSettingsTelemetryActive(false);
+        await device.setSettingsTelemetryActive(true);
         return result;
     });
 

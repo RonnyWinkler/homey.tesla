@@ -116,8 +116,8 @@
         "telemetry":{
             "title": "Telemetry",
             "telemetry_status": "Telemetry status",
-            "car_settings": "Car Settings",
-            "car_status": "Car Status",
+            "car_settings": "Car settings",
+            "car_status": "Car status",
             "config": "Config",
             "activate": "Activate",
             "deactivate": "Deactivate",

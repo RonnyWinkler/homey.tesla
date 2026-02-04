@@ -2835,6 +2835,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async _telemetryActivateMQTT(){
     try{
+      // First try to deactivate is still running
+      await this._telemetryDeactivateMQTT();
+      this._telemetryMqttClient = null;
 
       const telemetrySettings = this.homey.app.getTelemetrySettings();
       this.log("Telemetry MQTT connection: VIN: ", this.getData().id, " server: ", telemetrySettings.mqttHost, " port: ", telemetrySettings.mqttPort);
