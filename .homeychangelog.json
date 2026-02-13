@@ -455,5 +455,8 @@
   },
   "4.0.2": {
     "en": "Small changes for Telemetry."
+  },
+  "4.0.3": {
+    "en": "Design update for Telemetry settings."
   }
 }

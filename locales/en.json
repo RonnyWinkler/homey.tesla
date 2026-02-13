@@ -116,7 +116,7 @@
         "telemetry":{
             "title": "Telemetry",
             "telemetry_status": "Telemetry status",
-            "car_settings": "Car settings",
+            "car_settings": "Telemetry fields",
             "car_status": "Car status",
             "config": "Config",
             "activate": "Activate",

@@ -116,7 +116,7 @@
     "telemetry": {
       "title": "Telemetrie",
       "telemetry_status": "Telemetriestatus",
-      "car_settings": "Voertuiginstellingen",
+      "car_settings": "Telemetrievelden",
       "car_status": "Voertuigstatus",
       "config": "Configuratie",
       "activate": "Activeren",

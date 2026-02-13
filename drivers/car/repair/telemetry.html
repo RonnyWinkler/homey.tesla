@@ -34,40 +34,48 @@
     Homey.setTitle(Homey.__("repair.telemetry.title"));
     // Homey.setNavigationClose();
 
+    setLogVisibility(false);
+
     // function onTelemetryServerSettings(){
     //     Homey.showView("telemetry_server_settings");
     // }
     function onTelemetryCarSettings(){
         Homey.showView("telemetry_car_settings");
     }
-    function onTelemetryMqttStatus(){
-        Homey.emit('getTelemetryMqttStatus').then(function (data) {
-            let string = JSON.stringify(data, null, "  ");
-            telemetryLog.textContent = string;
-        });
+    async function onTelemetryMqttStatus(){
+        let mqttStatus = await Homey.emit('getTelemetryMqttStatus');
+        let carStatus = await Homey.emit('telemetryStatus');        
+        let string = "Server status: \n" + JSON.stringify(mqttStatus, null, "  ");
+        string = string + "\n\nCar status: \n" + JSON.stringify(carStatus, null, "  ");
+        telemetryLog.textContent = string;
+        setLogVisibility(true);
     }
     function onCarStatus(){
         Homey.emit('telemetryStatus').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         });
     }
     function onTelemetryConfig(){
         Homey.emit('telemetryConfig').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         });
     }
     function onTelemetryErrors(){
         Homey.emit('telemetryErrors').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         });
     }
     function onTelemetryMessages(){
         Homey.emit('telemetryMessages').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         });
     }
     function onTelemetryActivate(){
@@ -75,51 +83,90 @@
         .then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         })
         .catch(function (error){
             telemetryLog.textContent = error.message;
+            setLogVisibility(true);
         });
     }
     function onTelemetryDeactivate(){
         Homey.emit('telemetryDeactivate').then(function (data) {
             let string = JSON.stringify(data, null, "  ");
             telemetryLog.textContent = string;
+            setLogVisibility(true);
         });
+    }
+    function setLogVisibility(visible){
+        document.getElementById("fieldsetLog").style.display = visible == true? 'unset':'none';
     }
 
 </script>
 
 <div>
-    <!-- <fieldset> -->
-    <table style="table-layout: fixed; width: 100%;">
-        <tr>
-            <td style="width: 50;">
-                <div>
-                    <button id="btnTelemetryActivate" class="homey-button-primary-full" onClick="onTelemetryActivate()" 
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.activate"></span></button>
-                </div>
-            </td>
-            <td style="width: 50;">
-                <div>
-                    <button id="btnTelemetryDeactivate" class="homey-button-danger-shadow-full" onClick="onTelemetryDeactivate()" 
-                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.deactivate"></span></button>
-                </div>
-            </td>
-        </tr>
-    </table>
     <p class="button_space"></p>
     <table style="table-layout: fixed; width: 100%;">
         <tr>
             <td>
                 <div>
-                    <button id="btnTelemetryCarSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryCarSettings()"
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.car_settings"></span></button>
+                    <button id="btnTelemetryCarSettings" class="homey-button-primary-full" onClick="onTelemetryCarSettings()"><span data-i18n="repair.telemetry.car_settings"></span></button>
                 </div>
+            </td>
+        </tr>
+    </table>
+
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryActivate" class="homey-button-primary-full" onClick="onTelemetryActivate()"><span data-i18n="repair.telemetry.activate"></span></button>
+                </div>
+            </td>
+            <td style="width: 7px">
+                <div></div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryDeactivate" class="homey-button-danger-shadow-full" onClick="onTelemetryDeactivate()" ><span data-i18n="repair.telemetry.deactivate"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- <p class="button_space"></p> -->
+    <!-- <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td>
+                <div>
+                    <button id="btnTelemetryCarSettings" class="homey-button-secondary-shadow-full" onClick="onTelemetryCarSettings()"><span data-i18n="repair.telemetry.car_settings"></span></button>
+                </div>
+            </td>
+            <td style="width: 7px">
+                <div></div>
             </td>
             <td>
                 <div>
-                    <button id="btnTelemetryConfig" class="homey-button-secondary-shadow-full" onClick="onTelemetryConfig()" 
-                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.config"></span></button>
+                    <button id="btnTelemetryConfig" class="homey-button-secondary-shadow-full" onClick="onTelemetryConfig()" ><span data-i18n="repair.telemetry.config"></span></button>
+                </div>
+            </td>
+        </tr>
+    </table> -->
+
+    <p class="button_space"></p>
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryConfig" class="homey-button-secondary-shadow-full" onClick="onTelemetryConfig()" ><span data-i18n="repair.telemetry.config"></span></button>
+                </div>
+            </td>
+            <td style="width: 7px">
+                <div></div>
+            </td>
+            <td style="width: 50;">
+                <div>
+                    <button id="btnTelemetryErrors" class="homey-button-secondary-shadow-full" onClick="onTelemetryErrors()"><span data-i18n="repair.telemetry.errors"></span></button>
                 </div>
             </td>
         </tr>
@@ -129,39 +176,25 @@
         <tr>
             <td style="width: 50;">
                 <div>
-                    <button id="btnTelemetryErrors" class="homey-button-secondary-shadow-full" onClick="onTelemetryErrors()" 
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.errors"></span></button>
+                    <button id="btnTelemetryMessages" class="homey-button-secondary-shadow-full" onClick="onTelemetryMessages()" ><span data-i18n="repair.telemetry.messages"></span></button>
                 </div>
+            </td>
+            <td style="width: 7px">
+                <div></div>
             </td>
             <td style="width: 50;">
                 <div>
-                    <button id="btnTelemetryMessages" class="homey-button-secondary-shadow-full" onClick="onTelemetryMessages()" 
-                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.messages"></span></button>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <p class="button_space"></p>
-    <table style="table-layout: fixed; width: 100%;">
-        <tr>
-            <td style="width: 50;">
-                <div>
-                    <button id="btnTelemetryStatus" class="homey-button-secondary-shadow-full" onClick="onTelemetryMqttStatus()"
-                        style="margin-right: 7px;"><span data-i18n="repair.telemetry.telemetry_status"></span></span></button>
-                </div>
-            </td>
-            <td style="width: 50;">
-                <div>
-                    <button id="btnCarStatus" class="homey-button-secondary-shadow-full" onClick="onCarStatus()"
-                        style="margin-left: 7px;"><span data-i18n="repair.telemetry.car_status"></span></button>
+                    <button id="btnTelemetryStatus" class="homey-button-secondary-shadow-full" onClick="onTelemetryMqttStatus()"><span data-i18n="repair.telemetry.telemetry_status"></span></span></button>
+                    <!-- <button id="btnCarStatus" class="homey-button-secondary-shadow-full" onClick="onCarStatus()"><span data-i18n="repair.telemetry.car_status"></span></button> -->
                 </div>
             </td>
         </tr>
     </table>
     <p class="button_space"></p>
 
-    <div>
-            <pre class="preTelemetryLog" id="telemetryLog"></pre>
-    </div>
-    <!-- </fieldset> -->
+    <fieldset id="fieldsetLog" style="margin-top: 0.5em; display: 'none';">
+        <div>
+                <pre class="preTelemetryLog" id="telemetryLog"></pre>
+        </div>
+    </fieldset>
 </div>

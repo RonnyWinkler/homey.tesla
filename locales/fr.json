@@ -116,7 +116,7 @@
         "telemetry": {
             "title": "Télémétrie",
             "telemetry_status": "Statut de la télémétrie",
-            "car_settings": "Paramètres du véhicule",
+            "car_settings": "Champs de télémétrie",
             "car_status": "État du véhicule",
             "config": "Configuration",
             "activate": "Activer",

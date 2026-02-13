@@ -110,7 +110,7 @@
     "telemetry": {
       "title": "Телеметрия",
       "telemetry_status": "Статус телеметрии",
-      "car_settings": "Настройки автомобиля",
+      "car_settings": "Поля телеметрии",
       "car_status": "Статус автомобиля",
       "config": "Конфигурация",
       "activate": "Активировать",

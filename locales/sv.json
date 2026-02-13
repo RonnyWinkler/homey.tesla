@@ -110,7 +110,7 @@
     "telemetry": {
       "title": "Telemetri",
       "telemetry_status": "Telemetristatus",
-      "car_settings": "Fordonets inställningar",
+      "car_settings": "Telemetrifält",
       "car_status": "Fordonets status",
       "config": "Konfiguration",
       "activate": "Aktivera",
