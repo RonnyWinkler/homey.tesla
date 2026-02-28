@@ -105,6 +105,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       }
       catch(error){
         this.log("onOAuth2Init() Telemetry Activate Error: ",error.message);
+        let activationError = error.message; 
         try{
           await this.telemetryDeactivate();
         }
@@ -114,6 +115,10 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         finally{
           await this.setSettings({ telemetry_active: false });
           this._settings.telemetry_active = false;
+          // Timeline notification
+          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error'+': '+activationError) }).catch(error => {this.error('Error sending notification: '+error.message)});
+          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.disabled') }).catch(error => {this.error('Error sending notification: '+error.message)});
+
         }
       }
     }
@@ -128,6 +133,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   async onOAuth2Uninit(){
     await this._stopSync();
+    await this._stopStateCheck();
+
     await this._stopApiCounterResetTimer();
   }
 

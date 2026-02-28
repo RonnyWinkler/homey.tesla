@@ -84,6 +84,21 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         this.setClass(this.homey.app.manifest.drivers.filter((e) => {return (e.id == this.driver.id);})[0].class);
     }
 
+    // SETTINGS =======================================================================================
+
+    async onSettings({ oldSettings, newSettings, changedKeys }) {
+        this.log(`[Device] ${this.getName()}: settings where changed: ${changedKeys}`);
+
+        this._settings = newSettings;
+
+        this.homey.setTimeout(async() => {
+            this._startSync();
+            if (this._settings && this._settings.polling_active){
+                this._sync();
+            }
+        }, 1000);
+    }
+
     // SYNC Logic =======================================================================================
     async _startSync(){
         await this._stopSync();

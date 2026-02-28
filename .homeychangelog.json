@@ -458,5 +458,11 @@
   },
   "4.0.3": {
     "en": "Design update for Telemetry settings."
+  },
+  "4.0.4": {
+    "en": "Energy site: start/stop sync on changed settings."
+  },
+  "4.0.5": {
+    "en": "Minor improvements."
   }
 }
