@@ -8,6 +8,15 @@
         var clientSecret = document.getElementById('client_secret').value;
         Homey.emit('setClientId', {clientId: clientId, clientSecret: clientSecret});
     }
+
+  async function generateCertificate(){
+    try{
+      await Homey.emit('getCertificate', true);
+      Homey.alert(Homey.__("pair.pair_step_02.text_04"));
+    }catch(error){
+      Homey.alert(error.message);
+    }
+  }
 </script>
 
 <style>
@@ -40,6 +49,11 @@
       <input class="homey-form-input" id="client_secret" type="password" value="" class="client_credentials" onchange="updateClientId()"/>
       <br>
       <p data-i18n="pair.pair_step_02.text_02"></p>
+      <br>
+      <p data-i18n="pair.pair_step_02.text_03"></p>
+      <br>
+      <button id="btnGenerateCertificate" class="homey-button-danger-shadow-full" onClick="generateCertificate()" ><span data-i18n="pair.pair_step_02.text_btn_generate_cert"></span></button>
+
       <!-- <p data-i18n="pair.pair_step_02.text_03"></p> -->
   </div>
 </fieldset>
