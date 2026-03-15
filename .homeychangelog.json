@@ -470,5 +470,8 @@
   },
   "4.1.0": {
     "en": "Repair and login improvements."
+  },
+  "4.1.1": {
+    "en": "Fixed steering wheel status. Added translations."
   }
 }

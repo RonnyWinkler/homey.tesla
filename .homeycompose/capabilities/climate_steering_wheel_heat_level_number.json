@@ -1,0 +1,21 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Heated steering wheel level",
+    "de": "Lenkradheizungsstufe",
+    "nl": "Verwarmd stuur niveau",
+    "fr": "Niveau de chauffage du volant",
+    "it": "Livello di riscaldamento del volante",
+    "sv": "Uppvärmningsnivå ratten",
+    "no": "Oppvarmet ratt niva",
+    "es": "Nivel de calefacción del volante",
+    "da": "Opvarmet rat niveau",
+    "ru": "Уровень подогрева руля",
+    "pl": "Poziom podgrzewania kierownicy"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg"
+}

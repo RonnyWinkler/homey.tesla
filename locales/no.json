@@ -37,7 +37,10 @@
       "client_id": "Client ID",
       "client_secret": "Client Secret",
       "text_01": "Skriv inn app-legitimasjonen din fra Tesla-utviklerkontoen.",
-      "text_02": "Du kan nå logge inn på Tesla-kontoen din."
+      "text_02": "Du kan nå logge inn på Tesla-kontoen din.",
+      "text_03": "Endring av Client ID eller Client Secret vil generere et nytt sertifikat. Du må fjerne nøkkelen fra bilen din og deretter legge den til igjen.",
+      "text_btn_generate_cert": "Generer nytt sertifikat",
+      "text_04": "Sertifikatet ble generert. Vennligst fjern nøkkelen fra bilen din og legg den til igjen."
     },
     "error": {
       "title": "Feil"

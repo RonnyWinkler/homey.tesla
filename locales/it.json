@@ -37,7 +37,10 @@
           "client_id": "Client ID",
           "client_secret": "Client Secret",
           "text_01": "Inserisci le credenziali della tua app dal tuo account sviluppatore Tesla.",
-          "text_02": "Ora puoi accedere al tuo account Tesla."
+          "text_02": "Ora puoi accedere al tuo account Tesla.",
+          "text_03": "La modifica del Client ID o del Client Secret genererà un nuovo certificato. Dovrà rimuovere la chiave dal veicolo e poi aggiungerla nuovamente.",
+          "text_btn_generate_cert": "Genera nuovo certificato",
+          "text_04": "Il certificato è stato generato con successo. Rimuova la chiave dal veicolo e poi la aggiunga nuovamente."
       },
       "error": {
           "title": "Errore"

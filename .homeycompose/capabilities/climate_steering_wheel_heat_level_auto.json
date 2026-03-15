@@ -1,0 +1,21 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Heated steering wheel auto mode",
+    "de": "Lenkradheizungsautomatik",
+    "nl": "Stuurwielverwarming automatisch",
+    "fr": "Volant chauffant auto",
+    "it": "Volante riscaldato auto",
+    "sv": "Uppvärmd ratt automatisk",
+    "no": "Oppvarmet ratt auto",
+    "es": "Volante calefactable automático",
+    "da": "Opvarmet rat automatisk",
+    "ru": "Подогрев руля автоматический",
+    "pl": "Podgrzewane koło kierownicy auto"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg"
+}

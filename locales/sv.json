@@ -37,7 +37,10 @@
       "client_id": "Client ID",
       "client_secret": "Client Secret",
       "text_01": "Ange dina appuppgifter från ditt Tesla-utvecklarkonto.",
-      "text_02": "Du kan nu logga in på ditt Tesla-konto."
+      "text_02": "Du kan nu logga in på ditt Tesla-konto.",
+      "text_03": "Om du ändrar Client ID eller Client Secret genereras ett nytt certifikat. Du måste ta bort nyckeln från ditt fordon och sedan lägga till den igen.",
+      "text_btn_generate_cert": "Generera nytt certifikat",
+      "text_04": "Certifikatet har genererats. Ta bort nyckeln från ditt fordon och lägg sedan till den igen."
     },
     "error": {
       "title": "Fel"

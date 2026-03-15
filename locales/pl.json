@@ -37,7 +37,10 @@
       "client_id": "Client ID",
       "client_secret": "Client Secret",
       "text_01": "Wprowadź dane logowania aplikacji z konta deweloperskiego Tesla.",
-      "text_02": "Możesz teraz zalogować się na swoje konto Tesla."
+      "text_02": "Możesz teraz zalogować się na swoje konto Tesla.",
+      "text_03": "Zmiana Client ID lub Client Secret spowoduje wygenerowanie nowego certyfikatu. Należy usunąć klucz z pojazdu, a następnie dodać go ponownie.",
+      "text_btn_generate_cert": "Wygeneruj nowy certyfikat",
+      "text_04": "Certyfikat został pomyślnie wygenerowany. Proszę usunąć klucz z pojazdu, a następnie dodać go ponownie."
     },
     "error": {
       "title": "Błąd"

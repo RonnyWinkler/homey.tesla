@@ -190,7 +190,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       ... this.getSettings(),
       telemetry_donation: this.homey.__('settings.telemetry.donation')
     };
-    let oldSettings = JSON.parse(JSON.stringify(this.getSettings())); // clone settings;
+    // let oldSettings = JSON.parse(JSON.stringify(this.getSettings())); // clone settings;
 
     if (settings['command_api'] == 'command'){
       settings['command_api'] = 'tvcp';
@@ -233,9 +233,9 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       settings.api_request_limit = null;
     }
 
-    if (JSON.stringify(settings) != JSON.stringify(oldSettings)){
-      await this.setSettings(settings);
-    }
+    // if (JSON.stringify(settings) != JSON.stringify(oldSettings)){
+    await this.setSettings(settings);
+    // }
   }
 
   async _updateDeviceConfig(){

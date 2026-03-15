@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -10433,7 +10433,9 @@
         "climate_steering_wheel_heat_level",
         "climate_preconditioning",
         "climate_defrost",
-        "climate_window_vent"
+        "climate_window_vent",
+        "climate_steering_wheel_heat_level_auto",
+        "climate_steering_wheel_heat_level_number"
       ],
       "energy": {
         "batteries": [
@@ -13707,6 +13709,48 @@
           }
         }
       ]
+    },
+    "climate_steering_wheel_heat_level_auto": {
+      "type": "boolean",
+      "title": {
+        "en": "Heated steering wheel auto mode",
+        "de": "Lenkradheizungsautomatik",
+        "nl": "Stuurwielverwarming automatisch",
+        "fr": "Volant chauffant auto",
+        "it": "Volante riscaldato auto",
+        "sv": "Uppvärmd ratt automatisk",
+        "no": "Oppvarmet ratt auto",
+        "es": "Volante calefactable automático",
+        "da": "Opvarmet rat automatisk",
+        "ru": "Подогрев руля автоматический",
+        "pl": "Podgrzewane koło kierownicy auto"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg"
+    },
+    "climate_steering_wheel_heat_level_number": {
+      "type": "number",
+      "title": {
+        "en": "Heated steering wheel level",
+        "de": "Lenkradheizungsstufe",
+        "nl": "Verwarmd stuur niveau",
+        "fr": "Niveau de chauffage du volant",
+        "it": "Livello di riscaldamento del volante",
+        "sv": "Uppvärmningsnivå ratten",
+        "no": "Oppvarmet ratt niva",
+        "es": "Nivel de calefacción del volante",
+        "da": "Opvarmet rat niveau",
+        "ru": "Уровень подогрева руля",
+        "pl": "Poziom podgrzewania kierownicy"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "icon": "/assets/capability_icons/climate_steering_wheel_heat_level.svg"
     },
     "climate_window_vent": {
       "type": "boolean",

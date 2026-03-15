@@ -148,18 +148,31 @@ module.exports = class ClimateDevice extends ChildDevice {
       await this.setCapabilityValue('climate_keeper_mode', data.climate_state.climate_keeper_mode );
     }
 
-    // Steering wheel heating
-    if (this.hasCapability('climate_steering_wheel_heat_level') && 
+    // Steering wheel heating level - single value
+    let steeringWheelHeatChanged = false;
+    if (this.hasCapability('climate_steering_wheel_heat_level_number') && 
         data.climate_state && 
-        data.climate_state.auto_steering_wheel_heat != undefined && 
-        data.climate_state.steering_wheel_heat_level != undefined){
-      let value = data.climate_state.steering_wheel_heat_level.toString();
-      // 1 = Level 1
-      // 3 = Level 2
-      if (data.climate_state.auto_steering_wheel_heat == true){
-        value = value + '-auto';
+        data.climate_state.steering_wheel_heat_level != undefined ){
+      await this.setCapabilityValue('climate_steering_wheel_heat_level_number', data.climate_state.steering_wheel_heat_level == 2 ? 3 : data.climate_state.steering_wheel_heat_level );
+      steeringWheelHeatChanged = true;
+    }
+    // Steering wheel heating auto - single value
+    if (this.hasCapability('climate_steering_wheel_heat_level_auto') && 
+        data.climate_state && 
+        data.climate_state.auto_steering_wheel_heat != undefined ){
+      await this.setCapabilityValue('climate_steering_wheel_heat_level_auto', data.climate_state.auto_steering_wheel_heat );
+      steeringWheelHeatChanged = true;
+    }
+
+    // Steering wheel heating - combined value
+    if (this.hasCapability('climate_steering_wheel_heat_level') && 
+        steeringWheelHeatChanged == true ){
+      let level = this.getCapabilityValue('climate_steering_wheel_heat_level_number').toString();
+      let auto = this.getCapabilityValue('climate_steering_wheel_heat_level_auto');
+      if (auto == true){
+        level = level + '-auto';
       }
-      await this.setCapabilityValue('climate_steering_wheel_heat_level', value );
+      await this.setCapabilityValue('climate_steering_wheel_heat_level', level );
     }
 
     // driver seat heating

@@ -42,7 +42,12 @@
         "climate_preconditioning",
         "climate_defrost",
 
-        "climate_window_vent"
+        "climate_window_vent",
+
+
+        "climate_steering_wheel_heat_level_auto",
+        "climate_steering_wheel_heat_level_number"
+
 
     ],
     "energy": {

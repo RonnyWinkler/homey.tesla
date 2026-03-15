@@ -37,7 +37,10 @@
       "client_id": "Client ID",
       "client_secret": "Client Secret",
       "text_01": "Voer je app-gegevens in van je Tesla ontwikkelaarsaccount.",
-      "text_02": "Je kunt nu inloggen op je Tesla-account."
+      "text_02": "Je kunt nu inloggen op je Tesla-account.",
+      "text_03": "Het wijzigen van de Client ID of Client Secret genereert een nieuw certificaat. U moet de sleutel uit uw voertuig verwijderen en deze daarna opnieuw toevoegen.",
+      "text_btn_generate_cert": "Nieuw certificaat genereren",
+      "text_04": "Het certificaat is succesvol gegenereerd. Verwijder de sleutel uit uw voertuig en voeg deze daarna opnieuw toe."
     },
     "error": {
       "title": "Fout"
