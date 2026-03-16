@@ -45,6 +45,10 @@ module.exports = class LocationDevice extends ChildDevice {
   async updateDevice(data){
     await super.updateDevice(data);
 
+    if (!data.drive_state || Object.keys(data.drive_state).length === 0 ){
+      return;
+    }
+
     let locationChanged = false;
     // this.updateLastLocation();
 
@@ -162,8 +166,8 @@ module.exports = class LocationDevice extends ChildDevice {
       await this.setCapabilityValue('location_route_destination_address', destination_address.display_name);
     }
     else{
-      if (    data.source == CONSTANTS.SOURCE_TELEMETRY && ( data.drive_state.active_route_latitude === null || data.drive_state.active_route_longitude === null )
-           || data.source != CONSTANTS.SOURCE_TELEMETRY &&  ( data.drive_state.active_route_latitude == undefined || data.drive_state.active_route_longitude == undefined ) ){
+      if (    ( data.source == CONSTANTS.SOURCE_TELEMETRY && ( data.drive_state.active_route_latitude === null || data.drive_state.active_route_longitude === null ) )
+           || ( data.source != CONSTANTS.SOURCE_TELEMETRY &&  ( data.drive_state.active_route_latitude == undefined || data.drive_state.active_route_longitude == undefined ) ) ){
         await this.setCapabilityValue('location_route_destination_address', null);
       }
     }

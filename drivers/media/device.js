@@ -27,7 +27,7 @@ module.exports = class MediaDevice extends ChildDevice {
   async updateDevice(data){
     await super.updateDevice(data);
 
-    if (!data.vehicle_state){
+    if (!data.vehicle_state  || !data.vehicle_state.media_info || Object.keys(data.vehicle_state.media_info).length === 0 ){
       return;
     }
 

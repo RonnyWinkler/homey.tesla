@@ -473,5 +473,8 @@
   },
   "4.1.1": {
     "en": "Fixed steering wheel status. Added translations."
+  },
+  "4.1.2": {
+    "en": "Minor changes in location/media data update."
   }
 }
