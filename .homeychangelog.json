@@ -476,5 +476,8 @@
   },
   "4.1.2": {
     "en": "Minor changes in location/media data update."
+  },
+  "4.1.3": {
+    "en": "Minor changes for device removal."
   }
 }

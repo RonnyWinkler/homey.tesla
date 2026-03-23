@@ -136,6 +136,8 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     await this._stopStateCheck();
 
     await this._stopApiCounterResetTimer();
+
+    await this.telemetryDeactivate();
   }
 
   async onOAuth2Deleted() {
