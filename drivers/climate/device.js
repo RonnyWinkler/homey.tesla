@@ -153,7 +153,8 @@ module.exports = class ClimateDevice extends ChildDevice {
     if (this.hasCapability('climate_steering_wheel_heat_level_number') && 
         data.climate_state && 
         data.climate_state.steering_wheel_heat_level != undefined ){
-      await this.setCapabilityValue('climate_steering_wheel_heat_level_number', data.climate_state.steering_wheel_heat_level == 2 ? 3 : data.climate_state.steering_wheel_heat_level );
+      let level = data.climate_state.steering_wheel_heat_level === 2 ? 3 : data.climate_state.steering_wheel_heat_level;
+      await this.setCapabilityValue('climate_steering_wheel_heat_level_number', level );
       steeringWheelHeatChanged = true;
     }
     // Steering wheel heating auto - single value
@@ -167,9 +168,13 @@ module.exports = class ClimateDevice extends ChildDevice {
     // Steering wheel heating - combined value
     if (this.hasCapability('climate_steering_wheel_heat_level') && 
         steeringWheelHeatChanged == true ){
-      let level = this.getCapabilityValue('climate_steering_wheel_heat_level_number').toString();
+      let level = this.getCapabilityValue('climate_steering_wheel_heat_level_number');
+      if (level === 2){
+        level = 3;
+      }
+      level = level.toString();
       let auto = this.getCapabilityValue('climate_steering_wheel_heat_level_auto');
-      if (auto == true){
+      if (auto === true){
         level = level + '-auto';
       }
       await this.setCapabilityValue('climate_steering_wheel_heat_level', level );

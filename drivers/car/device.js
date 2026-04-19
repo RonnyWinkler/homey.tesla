@@ -116,7 +116,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           await this.setSettings({ telemetry_active: false });
           this._settings = this.getSettings();
           // Timeline notification
-          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error'+': '+activationError) }).catch(error => {this.error('Error sending notification: '+error.message)});
+          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error')+': '+activationError }).catch(error => {this.error('Error sending notification: '+error.message)});
           this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.disabled') }).catch(error => {this.error('Error sending notification: '+error.message)});
 
         }
@@ -1388,24 +1388,24 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // Update child devices
     if (batteryDevice){
-      this.log("Update battery device...");
+      // this.log("Update battery device...");
       await batteryDevice.updateDevice(data);
     }
     if (climateDevice){
-      this.log("Update climate device...");
+      // this.log("Update climate device...");
       await climateDevice.updateDevice(data);
     }
     if (locationDevice){
-      this.log("Update location device...");
+      // this.log("Update location device...");
       await locationDevice.updateDevice(data);
     }
     if (mediaDevice){
-      this.log("Update media device...");
+      // this.log("Update media device...");
       await mediaDevice.updateDevice(data);
     }
 
     // Realtime event - Widget update
-    this.log("Update widgets (realtime event)...");
+    // this.log("Update widgets (realtime event)...");
     await this.homey.api.realtime("car_data_changed", {id: this.getData().id} );
 
   }
@@ -2836,7 +2836,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
   async _telemetryUpdateToken(){
     // read car state from Fleet API to force a token refresh if needed 
     // await this._getCarStateApi();
-    await this.oAuth2Client.onRefreshToken();
+    await this.oAuth2Client.refreshToken();
   }
 
   async _telemetryGetToken() {
