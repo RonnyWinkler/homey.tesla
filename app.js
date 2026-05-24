@@ -388,6 +388,10 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionMediaPrevFav();
 		});
 
+    this.homey.flow.getActionCard('energy_site_backup_reserve')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionBackupReserve(args.backup_reserve);
+		});
   }
 
   // FLOW TRIGGER ======================================================================================

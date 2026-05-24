@@ -143,6 +143,7 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         let energySite = {};
         // energySite["siteInfo"] = await this.oAuth2Client.getEnergySiteInfo(this.getData().id);
         energySite["liveStatus"] = await this.oAuth2Client.getEnergySiteLiveStatus(this.getData().id);
+        energySite["siteInfo"] = await this.oAuth2Client.getEnergySiteInfo(this.getData().id);
         try{
             energySite["historyDays"] = await this.oAuth2Client.getEnergySiteHistoryDays(this.getData().id);
         }
@@ -255,18 +256,28 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         }
 
 
-        // Update child devices
-        let batteryDevice = this.homey.drivers.getDriver('energy_battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
-        if (batteryDevice){
-            this.log("Update energy battery device...");
-            await batteryDevice.updateDevice(energySite);
-        }
+        try{
+            // Update child devices
+            let batteryDevice = this.homey.drivers.getDriver('energy_battery').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+            if (batteryDevice){
+                this.log("Update energy battery device...");
+                await batteryDevice.updateDevice(energySite);
+            }
 
-        let solarDevice = this.homey.drivers.getDriver('energy_solar').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
-        if (solarDevice){
-            this.log("Update energy solar device...");
-            await solarDevice.updateDevice(energySite);
+            let solarDevice = this.homey.drivers.getDriver('energy_solar').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+            if (solarDevice){
+                this.log("Update energy solar device...");
+                await solarDevice.updateDevice(energySite);
+            }
         }
-
+        catch(error){
+            this.log("Device update error (EnergySite.updateDevice()): ID: "+this.getData().id+" Name: "+this.getName()+" Error: "+error.message);
+        }
     }
+
+    // FLOW ACTIONS =======================================================================================
+    async flowActionBackupReserve(backupReserve){
+        await this.oAuth2Client.setEnergySiteBackupReserve(this.getData().id, backupReserve);
+    }
+
 }

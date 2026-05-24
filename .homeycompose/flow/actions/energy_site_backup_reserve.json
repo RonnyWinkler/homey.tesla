@@ -1,0 +1,57 @@
+{
+  "title": {
+    "en": "Set Backup Reserve",
+    "de": "Backup Reservierung setzen",
+    "nl": "Stel backup reservering in",
+    "fr": "Régler la reserve de sauvegarde",
+    "it": "Imposta backup reserve",
+    "sv": "Ställ in backup reservering",
+    "no": "Sett backup reservering",
+    "es": "Establecer reserva de reserva",
+    "da": "Indstil backup reservering",
+    "ru": "Установить резерву",
+    "pl": "Ustaw rezerwę zapasową"
+  },
+  "titleFormatted": {
+    "en": "Set Backup Reserve to [[backup_reserve]]",
+    "de": "Stelle Backup Reservierung auf [[backup_reserve]]",
+    "nl": "Stel backup reservering in op [[backup_reserve]]",
+    "fr": "Régler la reserve de sauvegarde sur [[backup_reserve]]",
+    "it": "Imposta backup reserve a [[backup_reserve]]",
+    "sv": "Ställ in backup reservering till [[backup_reserve]]",
+    "no": "Sett backup reservering til [[backup_reserve]]",
+    "es": "Establecer reserva de reserva a [[backup_reserve]]",
+    "da": "Indstil backup reservering til [[backup_reserve]]",
+    "ru": "Установить резерву на [[backup_reserve]]",
+    "pl": "Ustaw rezerwę zapasową na [[backup_reserve]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=energy_site|energy_battery"
+    },
+    {
+      "name": "backup_reserve",
+      "type": "number",
+      "min": 0,
+      "max": 100,
+      "step": 0.1,
+      "label": "%",
+      "labelDecimals": 1,
+      "title": {
+        "en": "Backup Reserve",
+        "de": "Backup Reservierung",
+        "nl": "Backup reservering",
+        "fr": "Reserve de sauvegarde",
+        "it": "Backup reserve",
+        "sv": "Backup reservering",
+        "no": "Backup reservering",
+        "es": "Reserva de reserva",
+        "da": "Backup reservering",
+        "ru": "Резерву",
+        "pl": "Rezerwacja zapasowa"
+      }
+    }
+  ]
+}

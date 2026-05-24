@@ -27,7 +27,9 @@
         "meter_power_battery_charged",
 
         "meter_power.battery_charged",
-        "meter_power.battery_discharged"
+        "meter_power.battery_discharged",
+        
+        "measure_battery_backup_reserve"
     ],
     "capabilitiesOptions": {
         "meter_power_battery_charged": {

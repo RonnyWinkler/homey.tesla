@@ -53,6 +53,11 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
             this.setCapabilityValue("meter_power_battery_charged", energySite.todayMeter.battery_energy_imported/1000);
         }
 
+        // Energy Site Info
+        if (energySite.siteInfo != undefined && energySite.siteInfo.backup_reserve_percent != undefined) {
+            this.setCapabilityValue("measure_battery_backup_reserve", energySite.siteInfo.backup_reserve_percent);
+        }
+
     }
 
     // Commands =======================================================================================
@@ -67,6 +72,9 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
     // FLOW CONDITIONS ======================================================================================
 
     // FLOW ACTIONS =======================================================================================
+    async flowActionBackupReserve(backupReserve){
+        await this.getEnergySiteDevice().setEnergySiteBackupReserve(backupReserve);
+    }
 
     // Device =======================================================================================
 

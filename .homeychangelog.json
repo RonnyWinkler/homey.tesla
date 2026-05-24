@@ -482,5 +482,8 @@
   },
   "4.1.4": {
     "en": "Minor changes for token renewal."
+  },
+  "4.2.0": {
+    "en": "Added Battery Reserve for energy site/battery (capability & flow action)."
   }
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "4.1.4",
+  "version": "4.2.0",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -8395,6 +8395,64 @@
       },
       {
         "title": {
+          "en": "Set Backup Reserve",
+          "de": "Backup Reservierung setzen",
+          "nl": "Stel backup reservering in",
+          "fr": "Régler la reserve de sauvegarde",
+          "it": "Imposta backup reserve",
+          "sv": "Ställ in backup reservering",
+          "no": "Sett backup reservering",
+          "es": "Establecer reserva de reserva",
+          "da": "Indstil backup reservering",
+          "ru": "Установить резерву",
+          "pl": "Ustaw rezerwę zapasową"
+        },
+        "titleFormatted": {
+          "en": "Set Backup Reserve to [[backup_reserve]]",
+          "de": "Stelle Backup Reservierung auf [[backup_reserve]]",
+          "nl": "Stel backup reservering in op [[backup_reserve]]",
+          "fr": "Régler la reserve de sauvegarde sur [[backup_reserve]]",
+          "it": "Imposta backup reserve a [[backup_reserve]]",
+          "sv": "Ställ in backup reservering till [[backup_reserve]]",
+          "no": "Sett backup reservering til [[backup_reserve]]",
+          "es": "Establecer reserva de reserva a [[backup_reserve]]",
+          "da": "Indstil backup reservering til [[backup_reserve]]",
+          "ru": "Установить резерву на [[backup_reserve]]",
+          "pl": "Ustaw rezerwę zapasową na [[backup_reserve]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_site|energy_battery"
+          },
+          {
+            "name": "backup_reserve",
+            "type": "number",
+            "min": 0,
+            "max": 100,
+            "step": 0.1,
+            "label": "%",
+            "labelDecimals": 1,
+            "title": {
+              "en": "Backup Reserve",
+              "de": "Backup Reservierung",
+              "nl": "Backup reservering",
+              "fr": "Reserve de sauvegarde",
+              "it": "Backup reserve",
+              "sv": "Backup reservering",
+              "no": "Backup reservering",
+              "es": "Reserva de reserva",
+              "da": "Backup reservering",
+              "ru": "Резерву",
+              "pl": "Rezerwacja zapasowa"
+            }
+          }
+        ],
+        "id": "energy_site_backup_reserve"
+      },
+      {
+        "title": {
           "en": "Navigate to coordinates",
           "de": "Navigiere zu Koordinaten",
           "nl": "Navigeer naar coördinaten",
@@ -10526,7 +10584,8 @@
         "meter_power_battery_discharged",
         "meter_power_battery_charged",
         "meter_power.battery_charged",
-        "meter_power.battery_discharged"
+        "meter_power.battery_discharged",
+        "measure_battery_backup_reserve"
       ],
       "capabilitiesOptions": {
         "meter_power_battery_charged": {
@@ -14517,6 +14576,30 @@
       "setable": true,
       "uiComponent": null,
       "icon": "./assets/capability_icons/measure_api_request_count.svg"
+    },
+    "measure_battery_backup_reserve": {
+      "type": "number",
+      "title": {
+        "en": "Battery backup reserve",
+        "de": "Batterie-Reservierung",
+        "nl": "Batterij backup reservering",
+        "fr": "Reserve de sauvegarde de la batterie",
+        "it": "Backup reserve della batteria",
+        "sv": "Batterikraft",
+        "no": "Batterikraft",
+        "es": "Reserva de reserva de la batería",
+        "da": "Batterikraft",
+        "ru": "Мощность батареи",
+        "pl": "Moc baterii"
+      },
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": true,
+      "uiComponent": "sensor",
+      "icon": "./assets/capability_icons/measure_battery_backup_reserve.svg"
     },
     "measure_car_drive_speed": {
       "type": "number",

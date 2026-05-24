@@ -1,0 +1,24 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Battery backup reserve",
+    "de": "Batterie-Reservierung",
+    "nl": "Batterij backup reservering",
+    "fr": "Reserve de sauvegarde de la batterie",
+    "it": "Backup reserve della batteria",
+    "sv": "Batterikraft",
+    "no": "Batterikraft",
+    "es": "Reserva de reserva de la batería",
+    "da": "Batterikraft",
+    "ru": "Мощность батареи",
+    "pl": "Moc baterii"
+  },
+  "units": {
+    "en": "%"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "sensor",
+  "icon": "./assets/capability_icons/measure_battery_backup_reserve.svg"
+}
