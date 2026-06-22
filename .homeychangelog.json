@@ -485,5 +485,8 @@
   },
   "4.2.0": {
     "en": "Added Battery Reserve for energy site/battery (capability & flow action)."
+  },
+  "4.2.1": {
+    "en": "Fixed 'Energy Backup' flow action."
   }
 }

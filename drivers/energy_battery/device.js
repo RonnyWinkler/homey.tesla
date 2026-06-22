@@ -73,7 +73,7 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
 
     // FLOW ACTIONS =======================================================================================
     async flowActionBackupReserve(backupReserve){
-        await this.getEnergySiteDevice().setEnergySiteBackupReserve(backupReserve);
+        await this.getEnergySiteDevice().flowActionBackupReserve(backupReserve);
     }
 
     // Device =======================================================================================
