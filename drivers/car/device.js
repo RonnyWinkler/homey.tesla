@@ -630,6 +630,11 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
   // SYNC =======================================================================================
   async _sync() {
+    if (this.syncIsActive) {
+      this.log("Car sync skipped — previous sync still running.");
+      return;
+    }
+
     this.log("Car sync...");
     try{    
       // update the device
@@ -1858,7 +1863,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         try{
           if (this.commandApiBle.isFromVCSECMessage(buffer)){
             // 2) Try to convert WhitelistMessage response
-            message = this.commandApiBle.decodeWhitelistMessageResponse(buffer);
+            let message = this.commandApiBle.decodeWhitelistMessageResponse(buffer);
             this.log("BTLE proto message: ",message);            
             if (message && message.whitelistOperationStatus && message.whitelistOperationStatus.operationStatus != undefined ){
               // Example response
