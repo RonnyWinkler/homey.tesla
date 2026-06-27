@@ -491,5 +491,8 @@
   },
   "4.2.2": {
     "en": "Technical code improvements."
+  },
+  "4.2.3": {
+    "en": "Added retry for Telemetry initialization."
   }
 }

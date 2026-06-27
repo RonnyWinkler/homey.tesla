@@ -10,6 +10,8 @@ const TeslaTelemetryMqtt = require('../../lib/TeslaTelemetryMqtt.js');
 
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
+const DEFAULT_TELEMETRY_RETRY_INTERVAL = 1000 * 60 * 1; // 5 min
+const DEFAULT_TELEMETRY_RETRY_ATTEMPTS = 10; // Number of allowed retries before deactivation
 const WAIT_ON_WAKE_UP = 30; // 20 sec
 const RETRY_ON_WAKE_UP = 10; // Retry wakeup every 10 seconds
 const RETRY_BLE_ON_WAKE_UP = 3; // Retry wakeup via BLE unp to 10 tries
@@ -30,6 +32,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
 
     // init global flags
     this.syncIsActive = false;
+    this._telemetryRetryCounter = 0;
 
     // Update device
     await this._updateCapabilities();
@@ -97,31 +100,32 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       await this.setAvailable();
     }
 
-    // Activate telemetry (connect to MQTT + send telemetry config to car)
-    if (this._settings.telemetry_active == true){
-      this.log("App start: Start Telemetry connections...")
-      try{
-        await this.telemetryActivate();
-      }
-      catch(error){
-        this.log("onOAuth2Init() Telemetry Activate Error: ",error.message);
-        let activationError = error.message; 
-        try{
-          await this.telemetryDeactivate();
-        }
-        catch(error){
-          this.log("onOAuth2Init() Telemetry Deactivate Error: ",error.message);
-        }
-        finally{
-          await this.setSettings({ telemetry_active: false });
-          this._settings = this.getSettings();
-          // Timeline notification
-          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error')+': '+activationError }).catch(error => {this.error('Error sending notification: '+error.message)});
-          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.disabled') }).catch(error => {this.error('Error sending notification: '+error.message)});
+    // // Activate telemetry (connect to MQTT + send telemetry config to car)
+    await this._telemetryInit();
+    // if (this._settings.telemetry_active == true){
+    //   this.log("App start: Start Telemetry connections...")
+    //   try{
+    //     await this.telemetryActivate();
+    //   }
+    //   catch(error){
+    //     this.log("onOAuth2Init() Telemetry Activate Error: ",error.message);
+    //     let activationError = error.message; 
+    //     try{
+    //       await this.telemetryDeactivate();
+    //     }
+    //     catch(error){
+    //       this.log("onOAuth2Init() Telemetry Deactivate Error: ",error.message);
+    //     }
+    //     finally{
+    //       await this.setSettings({ telemetry_active: false });
+    //       this._settings = this.getSettings();
+    //       // Timeline notification
+    //       this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error')+': '+activationError }).catch(error => {this.error('Error sending notification: '+error.message)});
+    //       this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.disabled') }).catch(error => {this.error('Error sending notification: '+error.message)});
 
-        }
-      }
-    }
+    //     }
+    //   }
+    // }
 
     await this._startSync();
     
@@ -2825,6 +2829,46 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     this._settings = this.getSettings();
   }
 
+  async _telemetryInit(){
+    this._telemetryRetryCounter = this._telemetryRetryCounter + 1;
+    if (this._telemetryRetryInterval){
+      this.homey.clearTimeout(this._telemetryRetryInterval);
+      this._telemetryRetryInterval = null;
+    }
+    // Activate telemetry (connect to MQTT + send telemetry config to car)
+    if (this._settings.telemetry_active == true){
+      this.log("App start: Start Telemetry connections...")
+      try{
+        await this.telemetryActivate();
+        this._telemetryRetryCounter = 0;
+      }
+      catch(error){
+        this.log("onOAuth2Init() Telemetry Activate Error: ",error.message);
+        let activationError = error.message; 
+        try{
+          await this.telemetryDeactivate();
+        }
+        catch(error){
+          this.log("onOAuth2Init() Telemetry Deactivate Error: ",error.message);
+        }
+        finally{
+          // Timeline notification
+          this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.app_start_error')+': '+activationError }).catch(error => {this.error('Error sending notification: '+error.message)});
+          if (this._telemetryRetryCounter >= DEFAULT_TELEMETRY_RETRY_ATTEMPTS){
+            await this.setSettings({ telemetry_active: false });
+            this._settings = this.getSettings();
+            this.homey.notifications.createNotification({excerpt: this.homey.__('app.telemetry.disabled') }).catch(error => {this.error('Error sending notification: '+error.message)});            
+          }
+          else{
+            // Retry 
+            this.homey.notifications.createNotification({excerpt: 'Telemetry connection attempt #'+this._telemetryRetryCounter+'. Retry in  '+DEFAULT_TELEMETRY_RETRY_INTERVAL/1000/60+' minute(s)' }).catch(error => {this.error('Error sending notification: '+error.message)});
+            this._telemetryRetryInterval = this.homey.setTimeout(() => this._telemetryInit(), DEFAULT_TELEMETRY_RETRY_INTERVAL);
+          }
+        }
+      }
+    }
+  }
+
   async telemetryActivate(){
     try{
       // await this._telemetryUpdateToken();
@@ -2834,7 +2878,7 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
     }
     catch(error){
       this.log("telemetryActivate() error :", error);
-      throw new Error(this.homey.__("devices.car.telemetry_activation_error"));
+      throw new Error(this.homey.__("devices.car.telemetry_activation_error")+": "+error.message);
     }
   }
 
