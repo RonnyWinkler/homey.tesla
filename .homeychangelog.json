@@ -488,5 +488,8 @@
   },
   "4.2.1": {
     "en": "Fixed 'Energy Backup' flow action."
+  },
+  "4.2.2": {
+    "en": "Technical code improvements."
   }
 }
