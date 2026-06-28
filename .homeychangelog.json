@@ -494,5 +494,8 @@
   },
   "4.2.3": {
     "en": "Added retry for Telemetry initialization."
+  },
+  "4.3.0": {
+    "en": "Fixed energy meter data for Energy Site."
   }
 }
