@@ -3,6 +3,8 @@ const Homey = require('homey');
 const CAPABILITY_DEBOUNCE = 500;
 const DEFAULT_SYNC_INTERVAL = 1000 * 60 * 10; // 10 min
 const DEFAULT_HISTORY_SYNC_INTERVAL = 1000 * 60 * 5; // 5 min
+const ENERGY_SITE_HISTORY_DAYS_STORE_KEY = 'energy_site_history_days';
+const ENERGY_SITE_LAST_HISTORY_SYNC_STORE_KEY = 'energy_site_last_history_sync';
 
 module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
 
@@ -19,7 +21,7 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         }, CAPABILITY_DEBOUNCE);
 
         this._settings = this.getSettings();
-        this._lastHistorySync = 0;
+        this._lastHistorySync = this.getStoreValue(ENERGY_SITE_LAST_HISTORY_SYNC_STORE_KEY) || 0;
 
         await this._startSync();
         if (this._settings && this._settings.polling_active){
@@ -149,10 +151,15 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         try{
             // energySite["historyDays"] = await this.oAuth2Client.getEnergySiteHistoryDays(this.getData().id);
             const doHistorySync = Date.now() - this._lastHistorySync > DEFAULT_HISTORY_SYNC_INTERVAL;
-            if (doHistorySync){
+            if (doHistorySync) {
                 energySite["historyDays"] = {};
                 energySite["historyDays"]["today"] = await this._getEnergySiteHistory(0, energySite["siteInfo"].installation_time_zone);
                 energySite["historyDays"]["yesterday"] = await this._getEnergySiteHistory(-1, energySite["siteInfo"].installation_time_zone);
+                this._lastHistorySync = Date.now();
+                await this.setStoreValue(ENERGY_SITE_LAST_HISTORY_SYNC_STORE_KEY, this._lastHistorySync);
+                await this.setStoreValue(ENERGY_SITE_HISTORY_DAYS_STORE_KEY, energySite["historyDays"]);
+            } else {
+                energySite["historyDays"] = this.getStoreValue(ENERGY_SITE_HISTORY_DAYS_STORE_KEY);
             }
         }
         catch(error){
