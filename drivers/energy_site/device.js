@@ -151,8 +151,8 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
             const doHistorySync = Date.now() - this._lastHistorySync > DEFAULT_HISTORY_SYNC_INTERVAL;
             if (doHistorySync){
                 energySite["historyDays"] = {};
-                energySite["historyDays"]["today"] = await this._getEnergySiteHistory(0, energySite["siteInfo"].installation_time_zone);
-                energySite["historyDays"]["yesterday"] = await this._getEnergySiteHistory(-1, energySite["siteInfo"].installation_time_zone);
+                energySite["historyDays"]["today"] = await this._getEnergySiteHistory(0, energySite["siteInfo"].installation_time_zone, energySite["liveStatus"].timestamp );
+                energySite["historyDays"]["yesterday"] = await this._getEnergySiteHistory(-1, energySite["siteInfo"].installation_time_zone, energySite["liveStatus"].timestamp );
             }
         }
         catch(error){
@@ -283,9 +283,9 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
         }
     }
 
-    async _getEnergySiteHistory(dayOffset = 0, timezone){
+    async _getEnergySiteHistory(dayOffset = 0, timezone, time){
         // Read history summation, dayOffset=0: today, dayOffset=1: yesterday
-        let dateRange = this._getDayRange(dayOffset);
+        let dateRange = this._getDayRange(dayOffset, time);
         let history = await this.oAuth2Client.getEnergySiteHistoryCalendar(this.getData().id, dateRange.startDate, dateRange.endDate, timezone);
 
         let historySum = {
@@ -312,48 +312,52 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
             "total_home_usage": 0
         }
 
-        for (let i=0; i<history.time_series.length; i++){
-            if (i==0){
-                historySum.timestamp = history.time_series[i].timestamp;
-                historySum.timestampStart = history.time_series[i].timestamp;
+        if (history.time_series != undefined){
+            for (let i=0; i<history.time_series.length; i++){
+                if (i==0){
+                    historySum.timestamp = history.time_series[i].timestamp;
+                    historySum.timestampStart = history.time_series[i].timestamp;
+                }
+                if(i==history.time_series.length-1){
+                    historySum.timestampEnd = history.time_series[i].timestamp;
+                }
+                historySum.solar_energy_exported = historySum.solar_energy_exported + history.time_series[i].solar_energy_exported;
+                historySum.generator_energy_exported = historySum.generator_energy_exported + history.time_series[i].generator_energy_exported;
+                historySum.grid_energy_imported = historySum.grid_energy_imported + history.time_series[i].grid_energy_imported;
+                historySum.grid_services_energy_imported = historySum.grid_services_energy_imported + history.time_series[i].grid_services_energy_imported;
+                historySum.grid_services_energy_exported = historySum.grid_services_energy_exported + history.time_series[i].grid_services_energy_exported;
+                historySum.grid_energy_exported_from_solar = historySum.grid_energy_exported_from_solar + history.time_series[i].grid_energy_exported_from_solar;
+                historySum.grid_energy_exported_from_generator = historySum.grid_energy_exported_from_generator + history.time_series[i].grid_energy_exported_from_generator;
+                historySum.grid_energy_exported_from_battery = historySum.grid_energy_exported_from_battery + history.time_series[i].grid_energy_exported_from_battery;
+                historySum.battery_energy_exported = historySum.battery_energy_exported + history.time_series[i].battery_energy_exported;
+                historySum.battery_energy_imported_from_grid = historySum.battery_energy_imported_from_grid + history.time_series[i].battery_energy_imported_from_grid;
+                historySum.battery_energy_imported_from_solar = historySum.battery_energy_imported_from_solar + history.time_series[i].battery_energy_imported_from_solar;
+                historySum.battery_energy_imported_from_generator = historySum.battery_energy_imported_from_generator + history.time_series[i].battery_energy_imported_from_generator;
+                historySum.consumer_energy_imported_from_grid = historySum.consumer_energy_imported_from_grid + history.time_series[i].consumer_energy_imported_from_grid;
+                historySum.consumer_energy_imported_from_solar = historySum.consumer_energy_imported_from_solar + history.time_series[i].consumer_energy_imported_from_solar;
+                historySum.consumer_energy_imported_from_battery = historySum.consumer_energy_imported_from_battery + history.time_series[i].consumer_energy_imported_from_battery;
+                historySum.consumer_energy_imported_from_generator = historySum.consumer_energy_imported_from_generator + history.time_series[i].consumer_energy_imported_from_generator;
+                historySum.total_home_usage = historySum.total_home_usage + history.time_series[i].total_home_usage;
             }
-            if(i==history.time_series.length-1){
-                historySum.timestampEnd = history.time_series[i].timestamp;
-            }
-            historySum.solar_energy_exported = historySum.solar_energy_exported + history.time_series[i].solar_energy_exported;
-            historySum.generator_energy_exported = historySum.generator_energy_exported + history.time_series[i].generator_energy_exported;
-            historySum.grid_energy_imported = historySum.grid_energy_imported + history.time_series[i].grid_energy_imported;
-            historySum.grid_services_energy_imported = historySum.grid_services_energy_imported + history.time_series[i].grid_services_energy_imported;
-            historySum.grid_services_energy_exported = historySum.grid_services_energy_exported + history.time_series[i].grid_services_energy_exported;
-            historySum.grid_energy_exported_from_solar = historySum.grid_energy_exported_from_solar + history.time_series[i].grid_energy_exported_from_solar;
-            historySum.grid_energy_exported_from_generator = historySum.grid_energy_exported_from_generator + history.time_series[i].grid_energy_exported_from_generator;
-            historySum.grid_energy_exported_from_battery = historySum.grid_energy_exported_from_battery + history.time_series[i].grid_energy_exported_from_battery;
-            historySum.battery_energy_exported = historySum.battery_energy_exported + history.time_series[i].battery_energy_exported;
-            historySum.battery_energy_imported_from_grid = historySum.battery_energy_imported_from_grid + history.time_series[i].battery_energy_imported_from_grid;
-            historySum.battery_energy_imported_from_solar = historySum.battery_energy_imported_from_solar + history.time_series[i].battery_energy_imported_from_solar;
-            historySum.battery_energy_imported_from_generator = historySum.battery_energy_imported_from_generator + history.time_series[i].battery_energy_imported_from_generator;
-            historySum.consumer_energy_imported_from_grid = historySum.consumer_energy_imported_from_grid + history.time_series[i].consumer_energy_imported_from_grid;
-            historySum.consumer_energy_imported_from_solar = historySum.consumer_energy_imported_from_solar + history.time_series[i].consumer_energy_imported_from_solar;
-            historySum.consumer_energy_imported_from_battery = historySum.consumer_energy_imported_from_battery + history.time_series[i].consumer_energy_imported_from_battery;
-            historySum.consumer_energy_imported_from_generator = historySum.consumer_energy_imported_from_generator + history.time_series[i].consumer_energy_imported_from_generator;
-            historySum.total_home_usage = historySum.total_home_usage + history.time_series[i].total_home_usage;
         }
+
         return historySum;
     }
 
-    _getDayRange(offset = 0) {
-        const d = this._getLocalTime();
-        d.setDate(d.getDate() + offset);
+    _getDayRange(dayOffset = 0, ts) {
+        const [, date, offset] = ts.match(/^(\d{4}-\d{2}-\d{2})T.*([+-]\d{2}:\d{2})$/);
 
-        const yyyy = d.getFullYear();
-        const mm = String(d.getMonth() + 1).padStart(2, "0");
-        const dd = String(d.getDate()).padStart(2, "0");
+        // Previous day
+        const d = new Date(`${date}T00:00:00Z`);
+        d.setUTCDate(d.getUTCDate() + dayOffset);
+        const offsetDate = d.toISOString().slice(0, 10);
 
         return {
-            startDate: `${yyyy}-${mm}-${dd}T00:00:00Z`,
-            endDate: `${yyyy}-${mm}-${dd}T23:59:59Z`,
+            startDate: `${offsetDate}T00:00:00${offset}`,
+            endDate: `${offsetDate}T23:59:59${offset}`,
         };
     }
+
     // FLOW ACTIONS =======================================================================================
     async flowActionBackupReserve(backupReserve){
         await this.oAuth2Client.setEnergySiteBackupReserve(this.getData().id, backupReserve);
