@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy to grid changed",
+        "de": "Energieeinspeisung geändert",
+        "nl": "Energie naar het net gewijzigd",
+        "fr": "Énergie injectée dans le réseau modifiée",
+        "it": "Energia immessa in rete modificata",
+        "sv": "Energi till elnätet ändrad",
+        "no": "Energi til strømnettet endret",
+        "es": "Energía a la red modificada",
+        "da": "Energi til elnettet ændret",
+        "ru": "Передача энергии в сеть изменена",
+        "pl": "Energia oddana do sieci została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_to_grid",
+            "type": "number",
+            "title": {
+                "en": "Energy to grid",
+                "de": "Energie ins Netz",
+                "nl": "Energie naar het net",
+                "fr": "Énergie vers le réseau",
+                "it": "Energia immessa in rete",
+                "sv": "Energi till elnätet",
+                "no": "Energi til strømnettet",
+                "es": "Energía a la red",
+                "da": "Energi til elnettet",
+                "ru": "Энергия в сеть",
+                "pl": "Energia do sieci"  
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_solar|energy_battery"
+    }]
+}

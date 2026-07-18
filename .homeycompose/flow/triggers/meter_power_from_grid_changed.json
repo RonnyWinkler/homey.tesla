@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy from grid changed",
+        "de": "Netzbezug geändert",
+        "nl": "Energie uit het net gewijzigd",
+        "fr": "Énergie provenant du réseau modifiée",
+        "it": "Energia prelevata dalla rete modificata",
+        "sv": "Energi från elnätet ändrad",
+        "no": "Energi fra strømnettet endret",
+        "es": "Energía de la red modificada",
+        "da": "Energi fra elnettet ændret",
+        "ru": "Получение энергии из сети изменено",
+        "pl": "Energia pobrana z sieci została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_from_grid",
+            "type": "number",
+            "title": {
+                "en": "Energy from grid",
+                "de": "Energie vom Netz",
+                "nl": "Energie van de netwerk",
+                "fr": "Energie de la grille",
+                "it": "Energia dalla rete",
+                "sv": "Energi fra grid",
+                "no": "Energi fra grid",
+                "es": "Energía de la red",
+                "da": "Energi fra grid",
+                "ru": "Энергия из сети",
+                "pl": "Energia z sieci"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_battery|energy_home"
+    }]
+}

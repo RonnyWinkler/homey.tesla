@@ -27,7 +27,12 @@
         "meter_power_grid_imported",
 
         "meter_power.grid_exported",
-        "meter_power.grid_imported"
+        "meter_power.grid_imported",
+
+        "meter_power_to_home",
+        "meter_power_to_battery",
+        "meter_power_from_battery",
+        "meter_power_from_solar"
     ],
     "capabilitiesOptions": {
         "meter_power_grid_exported": {

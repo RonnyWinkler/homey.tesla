@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy from battery changed",
+        "de": "Batterieentladung geändert",
+        "nl": "Energie uit de batterij gewijzigd",
+        "fr": "Énergie provenant de la batterie modifiée",
+        "it": "Energia prelevata dalla batteria modificata",
+        "sv": "Energi från batteriet ändrad",
+        "no": "Energi fra batteriet endret",
+        "es": "Energía de la batería modificada",
+        "da": "Energi fra batteriet ændret",
+        "ru": "Получение энергии от батареи изменено",
+        "pl": "Energia pobrana z baterii została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_from_battery",
+            "type": "number",
+            "title": {
+                "en": "Energy from battery",
+                "de": "Energie aus der Batterie",
+                "nl": "Energie uit de batterij",
+                "fr": "Énergie provenant de la batterie",
+                "it": "Energia dalla batteria",
+                "sv": "Energi från batteriet",
+                "no": "Energi fra batteriet",
+                "es": "Energía de la batería",
+                "da": "Energi fra batteriet",
+                "ru": "Энергия от батареи",
+                "pl": "Energia z baterii"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_home|energy_site"
+    }]
+}

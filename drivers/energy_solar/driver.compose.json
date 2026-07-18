@@ -24,6 +24,10 @@
 
         "meter_power_solar_exported",
 
+        "meter_power_to_home",
+        "meter_power_to_battery",
+        "meter_power_to_grid",
+
         "meter_power.solar_exported"
     ],
     "capabilitiesOptions":{

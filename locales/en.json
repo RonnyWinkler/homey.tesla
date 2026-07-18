@@ -103,6 +103,9 @@
         },
         "energy_solar":{
             "name": "solar panels"
+        },
+        "energy_home":{
+            "name": "Home"
         }
     },
     "repair":{

@@ -4,13 +4,10 @@ const Homey = require('homey');
 const CONSTANTS = require('../../lib/constants');
 const ChildDevice = require('../energy_site_child_device');
 
-module.exports = class EnergySolarDevice extends ChildDevice {
+module.exports = class EnergyHomeDevice extends ChildDevice {
 
     async onInit() {
         await super.onInit();
-
-        // local buffer
-        this._maxVolume = 11; // max. allowed volume
     }
 
     // Device handling =======================================================================================
@@ -28,28 +25,24 @@ module.exports = class EnergySolarDevice extends ChildDevice {
         await super.updateDevice(energySite);
 
         // Device Update
-        if (energySite["liveStatus"] != undefined && energySite["liveStatus"].solar_power != undefined) {
-            this.setCapabilityValue('measure_power', energySite["liveStatus"].solar_power);
+        if (energySite.liveStatus != undefined && energySite.liveStatus.load_power != undefined) {
+            this.setCapabilityValue('measure_power', energySite.liveStatus.load_power);
         }
 
         // Meter data
-        if (energySite.currentMeter != undefined && energySite.currentMeter.solar_energy_exported != undefined) {
-            this.setCapabilityValue("meter_power.solar_exported", energySite.currentMeter.solar_energy_exported/1000);
+        if (energySite.currentMeter != undefined && energySite.currentMeter.consumer_energy_imported != undefined) {
+            this.setCapabilityValue("meter_power", energySite.currentMeter.consumer_energy_imported/1000);
         }
 
         // Energy today
-        if (energySite.todayMeter != undefined && energySite.todayMeter.solar_energy_exported != undefined) {
-            this.setCapabilityValue("meter_power_solar_exported", energySite.todayMeter.solar_energy_exported/1000);
+        if (energySite.todayMeter != undefined && energySite.todayMeter.consumer_energy_imported_from_grid != undefined) {
+            this.setCapabilityValue("meter_power_from_grid", energySite.todayMeter.consumer_energy_imported_from_grid/1000);
         }
-
         if (energySite.todayMeter != undefined && energySite.todayMeter.consumer_energy_imported_from_solar != undefined) {
-            this.setCapabilityValue("meter_power_to_home", energySite.todayMeter.consumer_energy_imported_from_solar/1000);
+            this.setCapabilityValue("meter_power_from_solar", energySite.todayMeter.consumer_energy_imported_from_solar/1000);
         }
-        if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_imported_from_solar != undefined) {
-            this.setCapabilityValue("meter_power_to_battery", energySite.todayMeter.battery_energy_imported_from_solar/1000);
-        }
-        if (energySite.todayMeter != undefined && energySite.todayMeter.grid_energy_exported_from_solar != undefined) {
-            this.setCapabilityValue("meter_power_to_grid", energySite.todayMeter.grid_energy_exported_from_solar/1000);
+        if (energySite.todayMeter != undefined && energySite.todayMeter.consumer_energy_imported_from_battery != undefined) {
+            this.setCapabilityValue("meter_power_from_battery", energySite.todayMeter.consumer_energy_imported_from_battery/1000);
         }
 
     }

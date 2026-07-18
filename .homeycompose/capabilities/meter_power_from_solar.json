@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy from solar panels",
+    "de": "Energie von den Solarmodulen",
+    "nl": "Energie van de zonnepanelen",
+    "fr": "Énergie provenant des panneaux solaires",
+    "it": "Energia dai pannelli solari",
+    "sv": "Energi från solpanelerna",
+    "no": "Energi fra solcellepanelene",
+    "es": "Energía de los paneles solares",
+    "da": "Energi fra solpanelerne",
+    "ru": "Энергия от солнечных панелей",
+    "pl": "Energia z paneli słonecznych"
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_from_solar.svg"
+}

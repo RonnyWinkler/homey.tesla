@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy to battery changed",
+        "de": "Batterieladung geändert",
+        "nl": "Energie naar de batterij gewijzigd",
+        "fr": "Énergie envoyée vers la batterie modifiée",
+        "it": "Energia immessa nella batteria modificata",
+        "sv": "Energi till batteriet ändrad",
+        "no": "Energi til batteriet endret",
+        "es": "Energía a la batería modificada",
+        "da": "Energi til batteriet ændret",
+        "ru": "Передача энергии в батарею изменена",
+        "pl": "Energia przekazana do baterii została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_to_battery",
+            "type": "number",
+            "title": {
+                "en": "Energy to battery",
+                "de": "Energie in die Batterie",
+                "nl": "Energie naar de batterij",
+                "fr": "Énergie vers la batterie",
+                "it": "Energia alla batteria",
+                "sv": "Energi till batteriet",
+                "no": "Energi til batteriet",
+                "es": "Energía a la batería",
+                "da": "Energi til batteriet",
+                "ru": "Энергия в батарею",
+                "pl": "Energia do baterii"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_solar|energy_site"
+    }]
+}

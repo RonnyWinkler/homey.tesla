@@ -260,6 +260,20 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
                 // Energy today
                 this.setCapabilityValue("meter_power_grid_imported", today["grid_energy_imported"]/1000);
                 this.setCapabilityValue("meter_power_grid_exported", today["grid_energy_exported"]/1000);
+
+                if (energySite.todayMeter != undefined && energySite.todayMeter.consumer_energy_imported_from_grid != undefined) {
+                    this.setCapabilityValue("meter_power_to_home", energySite.todayMeter.consumer_energy_imported_from_grid/1000);
+                }
+                if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_imported_from_grid != undefined) {
+                    this.setCapabilityValue("meter_power_to_battery", energySite.todayMeter.battery_energy_imported_from_grid/1000);
+                }
+                if (energySite.todayMeter != undefined && energySite.todayMeter.grid_energy_exported_from_battery != undefined) {
+                    this.setCapabilityValue("meter_power_from_battery", energySite.todayMeter.grid_energy_exported_from_battery/1000);
+                }
+                if (energySite.todayMeter != undefined && energySite.todayMeter.grid_energy_exported_from_solar != undefined) {
+                    this.setCapabilityValue("meter_power_from_solar", energySite.todayMeter.grid_energy_exported_from_solar/1000);
+                }
+
             }
         }
 
@@ -276,6 +290,12 @@ module.exports = class EnergySiteDevice extends TeslaOAuth2Device {
             if (solarDevice){
                 this.log("Update energy solar device...");
                 await solarDevice.updateDevice(energySite);
+            }
+
+            let homeDevice = this.homey.drivers.getDriver('energy_home').getDevices().filter(e => {return (e.getData().id == this.getData().id)})[0];
+            if (homeDevice){
+                this.log("Update energy home device...");
+                await homeDevice.updateDevice(energySite);
             }
         }
         catch(error){

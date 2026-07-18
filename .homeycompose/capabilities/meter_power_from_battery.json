@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy from battery",
+    "de": "Energie aus der Batterie",
+    "nl": "Energie uit de batterij",
+    "fr": "Énergie provenant de la batterie",
+    "it": "Energia dalla batteria",
+    "sv": "Energi från batteriet",
+    "no": "Energi fra batteriet",
+    "es": "Energía de la batería",
+    "da": "Energi fra batteriet",
+    "ru": "Энергия от батареи",
+    "pl": "Energia z baterii"
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_from_battery.svg"
+}

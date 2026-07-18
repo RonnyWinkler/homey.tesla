@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tesla.car",
-  "version": "4.3.1",
+  "version": "4.4.0",
   "compatibility": ">=12.4.5",
   "platforms": [
     "local"
@@ -3873,6 +3873,132 @@
       },
       {
         "title": {
+          "en": "Energy from battery changed",
+          "de": "Batterieentladung geändert",
+          "nl": "Energie uit de batterij gewijzigd",
+          "fr": "Énergie provenant de la batterie modifiée",
+          "it": "Energia prelevata dalla batteria modificata",
+          "sv": "Energi från batteriet ändrad",
+          "no": "Energi fra batteriet endret",
+          "es": "Energía de la batería modificada",
+          "da": "Energi fra batteriet ændret",
+          "ru": "Получение энергии от батареи изменено",
+          "pl": "Energia pobrana z baterii została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_from_battery",
+            "type": "number",
+            "title": {
+              "en": "Energy from battery",
+              "de": "Energie aus der Batterie",
+              "nl": "Energie uit de batterij",
+              "fr": "Énergie provenant de la batterie",
+              "it": "Energia dalla batteria",
+              "sv": "Energi från batteriet",
+              "no": "Energi fra batteriet",
+              "es": "Energía de la batería",
+              "da": "Energi fra batteriet",
+              "ru": "Энергия от батареи",
+              "pl": "Energia z baterii"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_home|energy_site"
+          }
+        ],
+        "id": "meter_power_from_battery_changed"
+      },
+      {
+        "title": {
+          "en": "Energy from grid changed",
+          "de": "Netzbezug geändert",
+          "nl": "Energie uit het net gewijzigd",
+          "fr": "Énergie provenant du réseau modifiée",
+          "it": "Energia prelevata dalla rete modificata",
+          "sv": "Energi från elnätet ändrad",
+          "no": "Energi fra strømnettet endret",
+          "es": "Energía de la red modificada",
+          "da": "Energi fra elnettet ændret",
+          "ru": "Получение энергии из сети изменено",
+          "pl": "Energia pobrana z sieci została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_from_grid",
+            "type": "number",
+            "title": {
+              "en": "Energy from grid",
+              "de": "Energie vom Netz",
+              "nl": "Energie van de netwerk",
+              "fr": "Energie de la grille",
+              "it": "Energia dalla rete",
+              "sv": "Energi fra grid",
+              "no": "Energi fra grid",
+              "es": "Energía de la red",
+              "da": "Energi fra grid",
+              "ru": "Энергия из сети",
+              "pl": "Energia z sieci"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_battery|energy_home"
+          }
+        ],
+        "id": "meter_power_from_grid_changed"
+      },
+      {
+        "title": {
+          "en": "Energy from solar panels changed",
+          "de": "Energie von den Solarmodulen geändert",
+          "nl": "Energie van de zonnepanelen gewijzigd",
+          "fr": "Énergie provenant des panneaux solaires modifiée",
+          "it": "Energia dai pannelli solari modificata",
+          "sv": "Energi från solpanelerna ändrad",
+          "no": "Energi fra solcellepanelene endret",
+          "es": "Energía de los paneles solares modificada",
+          "da": "Energi fra solpanelerne ændret",
+          "ru": "Выработка энергии солнечными панелями изменена",
+          "pl": "Energia z paneli słonecznych została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_from_solar",
+            "type": "number",
+            "title": {
+              "en": "Energy from solar panels",
+              "de": "Energie von den Solarmodulen",
+              "nl": "Energie van de zonnepanelen",
+              "fr": "Énergie provenant des panneaux solaires",
+              "it": "Energia dai pannelli solari",
+              "sv": "Energi från solpanelerna",
+              "no": "Energi fra solcellepanelene",
+              "es": "Energía de los paneles solares",
+              "da": "Energi fra solpanelerne",
+              "ru": "Энергия от солнечных панелей",
+              "pl": "Energia z paneli słonecznych"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_battery|energy_home|energy_site"
+          }
+        ],
+        "id": "meter_power_from_solar_changed"
+      },
+      {
+        "title": {
           "en": "Energy exported to grid changed",
           "de": "Energie zum Netz exportiert hat sich geändert",
           "nl": "Energie naar de netwerk exporteren gewijzigd",
@@ -3996,6 +4122,132 @@
           }
         ],
         "id": "meter_power_solar_exported_changed"
+      },
+      {
+        "title": {
+          "en": "Energy to battery changed",
+          "de": "Batterieladung geändert",
+          "nl": "Energie naar de batterij gewijzigd",
+          "fr": "Énergie envoyée vers la batterie modifiée",
+          "it": "Energia immessa nella batteria modificata",
+          "sv": "Energi till batteriet ändrad",
+          "no": "Energi til batteriet endret",
+          "es": "Energía a la batería modificada",
+          "da": "Energi til batteriet ændret",
+          "ru": "Передача энергии в батарею изменена",
+          "pl": "Energia przekazana do baterii została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_to_battery",
+            "type": "number",
+            "title": {
+              "en": "Energy to battery",
+              "de": "Energie in die Batterie",
+              "nl": "Energie naar de batterij",
+              "fr": "Énergie vers la batterie",
+              "it": "Energia alla batteria",
+              "sv": "Energi till batteriet",
+              "no": "Energi til batteriet",
+              "es": "Energía a la batería",
+              "da": "Energi til batteriet",
+              "ru": "Энергия в батарею",
+              "pl": "Energia do baterii"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_solar|energy_site"
+          }
+        ],
+        "id": "meter_power_to_battery_changed"
+      },
+      {
+        "title": {
+          "en": "Energy to grid changed",
+          "de": "Energieeinspeisung geändert",
+          "nl": "Energie naar het net gewijzigd",
+          "fr": "Énergie injectée dans le réseau modifiée",
+          "it": "Energia immessa in rete modificata",
+          "sv": "Energi till elnätet ändrad",
+          "no": "Energi til strømnettet endret",
+          "es": "Energía a la red modificada",
+          "da": "Energi til elnettet ændret",
+          "ru": "Передача энергии в сеть изменена",
+          "pl": "Energia oddana do sieci została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_to_grid",
+            "type": "number",
+            "title": {
+              "en": "Energy to grid",
+              "de": "Energie ins Netz",
+              "nl": "Energie naar het net",
+              "fr": "Énergie vers le réseau",
+              "it": "Energia immessa in rete",
+              "sv": "Energi till elnätet",
+              "no": "Energi til strømnettet",
+              "es": "Energía a la red",
+              "da": "Energi til elnettet",
+              "ru": "Энергия в сеть",
+              "pl": "Energia do sieci"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_solar|energy_battery"
+          }
+        ],
+        "id": "meter_power_to_grid_changed"
+      },
+      {
+        "title": {
+          "en": "Energy to home changed",
+          "de": "Hausverbrauch geändert",
+          "nl": "Energie naar het huis gewijzigd",
+          "fr": "Énergie envoyée vers la maison modifiée",
+          "it": "Energia destinata alla casa modificata",
+          "sv": "Energi till hemmet ändrad",
+          "no": "Energi til hjemmet endret",
+          "es": "Energía al hogar modificada",
+          "da": "Energi til hjemmet ændret",
+          "ru": "Передача энергии в дом изменена",
+          "pl": "Energia przekazana do domu została zmieniona"
+        },
+        "tokens": [
+          {
+            "name": "meter_power_to_home",
+            "type": "number",
+            "title": {
+              "en": "Energy to home",
+              "de": "Energie ins Haus",
+              "nl": "Energie naar het huis",
+              "fr": "Énergie vers la maison",
+              "it": "Energia alla casa",
+              "sv": "Energi till hemmet",
+              "no": "Energi til hjemmet",
+              "es": "Energía al hogar",
+              "da": "Energi til hjemmet",
+              "ru": "Энергия в дом",
+              "pl": "Energia do domu"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=energy_solar|energy_battery|energy_site"
+          }
+        ],
+        "id": "meter_power_to_home_changed"
       }
     ],
     "conditions": [
@@ -10585,6 +10837,10 @@
         "meter_power_battery_charged",
         "meter_power.battery_charged",
         "meter_power.battery_discharged",
+        "meter_power_from_solar",
+        "meter_power_from_grid",
+        "meter_power_to_home",
+        "meter_power_to_grid",
         "measure_battery_backup_reserve"
       ],
       "capabilitiesOptions": {
@@ -10677,6 +10933,74 @@
       ]
     },
     {
+      "id": "energy_home",
+      "name": {
+        "en": "Home",
+        "de": "Zuhause",
+        "nl": "Huis",
+        "fr": "Domicile",
+        "it": "Casa",
+        "sv": "Hem",
+        "no": "Hjem",
+        "es": "Casa",
+        "da": "Hjem",
+        "ru": "Дом",
+        "pl": "Dom"
+      },
+      "images": {
+        "large": "/drivers/energy_home/assets/images/large.png",
+        "small": "/drivers/energy_home/assets/images/small.png"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "meter_power_from_solar",
+        "meter_power_from_battery",
+        "meter_power_from_grid"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Load power",
+            "de": "Energieverbrauch",
+            "nl": "Belastingsvermogen",
+            "fr": "Puissance de charge",
+            "it": "Potenza di carico",
+            "sv": "Belastningseffekt",
+            "no": "Belastningseffekt",
+            "es": "Potencia de carga",
+            "da": "Belastningseffekt",
+            "ru": "Нагрузка мощности",
+            "pl": "Moc obciążenia"
+          }
+        },
+        "meter_power": {
+          "uiComponent": null
+        }
+      },
+      "energy": {},
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_devices"
+          }
+        }
+      ]
+    },
+    {
       "id": "energy_site",
       "name": {
         "en": "Energy site",
@@ -10705,7 +11029,11 @@
         "meter_power_grid_exported",
         "meter_power_grid_imported",
         "meter_power.grid_exported",
-        "meter_power.grid_imported"
+        "meter_power.grid_imported",
+        "meter_power_to_home",
+        "meter_power_to_battery",
+        "meter_power_from_battery",
+        "meter_power_from_solar"
       ],
       "capabilitiesOptions": {
         "meter_power_grid_exported": {
@@ -10989,6 +11317,9 @@
       "capabilities": [
         "measure_power",
         "meter_power_solar_exported",
+        "meter_power_to_home",
+        "meter_power_to_battery",
+        "meter_power_to_grid",
         "meter_power.solar_exported"
       ],
       "capabilitiesOptions": {
@@ -15680,6 +16011,81 @@
       "setable": false,
       "icon": "./assets/capability_icons/meter_power_battery_discharged.svg"
     },
+    "meter_power_from_battery": {
+      "type": "number",
+      "title": {
+        "en": "Energy from battery",
+        "de": "Energie aus der Batterie",
+        "nl": "Energie uit de batterij",
+        "fr": "Énergie provenant de la batterie",
+        "it": "Energia dalla batteria",
+        "sv": "Energi från batteriet",
+        "no": "Energi fra batteriet",
+        "es": "Energía de la batería",
+        "da": "Energi fra batteriet",
+        "ru": "Энергия от батареи",
+        "pl": "Energia z baterii"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_from_battery.svg"
+    },
+    "meter_power_from_grid": {
+      "type": "number",
+      "title": {
+        "en": "Energy from grid",
+        "de": "Energie vom Netz",
+        "nl": "Energie van de netwerk",
+        "fr": "Energie de la grille",
+        "it": "Energia dalla rete",
+        "sv": "Energi fra grid",
+        "no": "Energi fra grid",
+        "es": "Energía de la red",
+        "da": "Energi fra grid",
+        "ru": "Энергия из сети",
+        "pl": "Energia z sieci"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_from_grid.svg"
+    },
+    "meter_power_from_solar": {
+      "type": "number",
+      "title": {
+        "en": "Energy from solar panels",
+        "de": "Energie von den Solarmodulen",
+        "nl": "Energie van de zonnepanelen",
+        "fr": "Énergie provenant des panneaux solaires",
+        "it": "Energia dai pannelli solari",
+        "sv": "Energi från solpanelerna",
+        "no": "Energi fra solcellepanelene",
+        "es": "Energía de los paneles solares",
+        "da": "Energi fra solpanelerne",
+        "ru": "Энергия от солнечных панелей",
+        "pl": "Energia z paneli słonecznych"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_from_solar.svg"
+    },
     "meter_power_grid_exported": {
       "type": "number",
       "title": {
@@ -15760,6 +16166,81 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/capability_icons/meter_power_solar_exported.svg"
+    },
+    "meter_power_to_battery": {
+      "type": "number",
+      "title": {
+        "en": "Energy to battery",
+        "de": "Energie in die Batterie",
+        "nl": "Energie naar de batterij",
+        "fr": "Énergie vers la batterie",
+        "it": "Energia alla batteria",
+        "sv": "Energi till batteriet",
+        "no": "Energi til batteriet",
+        "es": "Energía a la batería",
+        "da": "Energi til batteriet",
+        "ru": "Энергия в батарею",
+        "pl": "Energia do baterii"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_to_battery.svg"
+    },
+    "meter_power_to_grid": {
+      "type": "number",
+      "title": {
+        "en": "Energy to grid",
+        "de": "Energie ins Netz",
+        "nl": "Energie naar het net",
+        "fr": "Énergie vers le réseau",
+        "it": "Energia immessa in rete",
+        "sv": "Energi till elnätet",
+        "no": "Energi til strømnettet",
+        "es": "Energía a la red",
+        "da": "Energi til elnettet",
+        "ru": "Энергия в сеть",
+        "pl": "Energia do sieci"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_to_grid.svg"
+    },
+    "meter_power_to_home": {
+      "type": "number",
+      "title": {
+        "en": "Energy to home",
+        "de": "Energie ins Haus",
+        "nl": "Energie naar het huis",
+        "fr": "Énergie vers la maison",
+        "it": "Energia alla casa",
+        "sv": "Energi till hemmet",
+        "no": "Energi til hjemmet",
+        "es": "Energía al hogar",
+        "da": "Energi til hjemmet",
+        "ru": "Энергия в дом",
+        "pl": "Energia do domu"
+      },
+      "units": {
+        "en": "kWh",
+        "ru": "кВтч"
+      },
+      "decimals": 2,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/capability_icons/meter_power_to_home.svg"
     },
     "module_temp": {
       "type": "string",

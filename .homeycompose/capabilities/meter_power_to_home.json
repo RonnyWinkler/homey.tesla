@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy to home",
+    "de": "Energie ins Haus",
+    "nl": "Energie naar het huis",
+    "fr": "Énergie vers la maison",
+    "it": "Energia alla casa",
+    "sv": "Energi till hemmet",
+    "no": "Energi til hjemmet",
+    "es": "Energía al hogar",
+    "da": "Energi til hjemmet",
+    "ru": "Энергия в дом",
+    "pl": "Energia do domu"
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_to_home.svg"
+}

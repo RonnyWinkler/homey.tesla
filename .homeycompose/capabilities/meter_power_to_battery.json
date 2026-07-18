@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy to battery",
+    "de": "Energie in die Batterie",
+    "nl": "Energie naar de batterij",
+    "fr": "Énergie vers la batterie",
+    "it": "Energia alla batteria",
+    "sv": "Energi till batteriet",
+    "no": "Energi til batteriet",
+    "es": "Energía a la batería",
+    "da": "Energi til batteriet",
+    "ru": "Энергия в батарею",
+    "pl": "Energia do baterii"
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_to_battery.svg"
+}

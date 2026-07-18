@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy from grid",
+    "de": "Energie vom Netz",
+    "nl": "Energie van de netwerk",
+    "fr": "Energie de la grille",
+    "it": "Energia dalla rete",
+    "sv": "Energi fra grid",
+    "no": "Energi fra grid",
+    "es": "Energía de la red",
+    "da": "Energi fra grid",
+    "ru": "Энергия из сети",
+    "pl": "Energia z sieci"
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_from_grid.svg"
+}

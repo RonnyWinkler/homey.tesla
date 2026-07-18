@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy to home changed",
+        "de": "Hausverbrauch geändert",
+        "nl": "Energie naar het huis gewijzigd",
+        "fr": "Énergie envoyée vers la maison modifiée",
+        "it": "Energia destinata alla casa modificata",
+        "sv": "Energi till hemmet ändrad",
+        "no": "Energi til hjemmet endret",
+        "es": "Energía al hogar modificada",
+        "da": "Energi til hjemmet ændret",
+        "ru": "Передача энергии в дом изменена",
+        "pl": "Energia przekazana do domu została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_to_home",
+            "type": "number",
+            "title": {
+                "en": "Energy to home",
+                "de": "Energie ins Haus",
+                "nl": "Energie naar het huis",
+                "fr": "Énergie vers la maison",
+                "it": "Energia alla casa",
+                "sv": "Energi till hemmet",
+                "no": "Energi til hjemmet",
+                "es": "Energía al hogar",
+                "da": "Energi til hjemmet",
+                "ru": "Энергия в дом",
+                "pl": "Energia do domu" 
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_solar|energy_battery|energy_site"
+    }]
+}

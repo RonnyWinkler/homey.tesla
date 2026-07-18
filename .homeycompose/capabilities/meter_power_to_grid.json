@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy to grid",
+    "de": "Energie ins Netz",
+    "nl": "Energie naar het net",
+    "fr": "Énergie vers le réseau",
+    "it": "Energia immessa in rete",
+    "sv": "Energi till elnätet",
+    "no": "Energi til strømnettet",
+    "es": "Energía a la red",
+    "da": "Energi til elnettet",
+    "ru": "Энергия в сеть",
+    "pl": "Energia do sieci"  
+  },
+  "units": {
+    "en": "kWh",
+    "ru": "кВтч"
+  },
+  "decimals": 2,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/capability_icons/meter_power_to_grid.svg"
+}

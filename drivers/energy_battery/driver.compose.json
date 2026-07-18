@@ -28,6 +28,12 @@
 
         "meter_power.battery_charged",
         "meter_power.battery_discharged",
+
+        "meter_power_from_solar",
+        "meter_power_from_grid",
+
+        "meter_power_to_home",
+        "meter_power_to_grid",
         
         "measure_battery_backup_reserve"
     ],

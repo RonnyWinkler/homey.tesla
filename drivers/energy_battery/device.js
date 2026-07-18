@@ -8,9 +8,6 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
 
     async onInit() {
         await super.onInit();
-
-        // local buffer
-        this._maxVolume = 11; // max. allowed volume
     }
 
     // Device handling =======================================================================================
@@ -46,11 +43,18 @@ module.exports = class EnergyBatteryDevice extends ChildDevice {
         }
 
         // Energy today
-        if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_exported != undefined) {
-            this.setCapabilityValue("meter_power_battery_discharged", energySite.todayMeter.battery_energy_exported/1000);
+        if (energySite.todayMeter != undefined && energySite.todayMeter.consumer_energy_imported_from_battery != undefined) {
+            this.setCapabilityValue("meter_power_to_home", energySite.todayMeter.consumer_energy_imported_from_battery/1000);
         }
-        if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_imported != undefined) {
-            this.setCapabilityValue("meter_power_battery_charged", energySite.todayMeter.battery_energy_imported/1000);
+        if (energySite.todayMeter != undefined && energySite.todayMeter.grid_energy_exported_from_battery != undefined) {
+            this.setCapabilityValue("meter_power_to_grid", energySite.todayMeter.grid_energy_exported_from_battery/1000);
+        }
+
+        if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_imported_from_solar != undefined) {
+            this.setCapabilityValue("meter_power_from_solar", energySite.todayMeter.battery_energy_imported_from_solar/1000);
+        }
+        if (energySite.todayMeter != undefined && energySite.todayMeter.battery_energy_imported_from_grid != undefined) {
+            this.setCapabilityValue("meter_power_from_grid", energySite.todayMeter.battery_energy_imported_from_grid/1000);
         }
 
         // Energy Site Info

@@ -1,0 +1,39 @@
+{
+    "title": {
+        "en": "Energy from solar panels changed",
+        "de": "Energie von den Solarmodulen geändert",
+        "nl": "Energie van de zonnepanelen gewijzigd",
+        "fr": "Énergie provenant des panneaux solaires modifiée",
+        "it": "Energia dai pannelli solari modificata",
+        "sv": "Energi från solpanelerna ändrad",
+        "no": "Energi fra solcellepanelene endret",
+        "es": "Energía de los paneles solares modificada",
+        "da": "Energi fra solpanelerne ændret",
+        "ru": "Выработка энергии солнечными панелями изменена",
+        "pl": "Energia z paneli słonecznych została zmieniona"
+    },
+    "tokens": [
+        {
+            "name": "meter_power_from_solar",
+            "type": "number",
+            "title": {
+                "en": "Energy from solar panels",
+                "de": "Energie von den Solarmodulen",
+                "nl": "Energie van de zonnepanelen",
+                "fr": "Énergie provenant des panneaux solaires",
+                "it": "Energia dai pannelli solari",
+                "sv": "Energi från solpanelerna",
+                "no": "Energi fra solcellepanelene",
+                "es": "Energía de los paneles solares",
+                "da": "Energi fra solpanelerne",
+                "ru": "Энергия от солнечных панелей",
+                "pl": "Energia z paneli słonecznych"
+            }
+        }
+    ],
+    "args": [{
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=energy_battery|energy_home|energy_site"
+    }]
+}
