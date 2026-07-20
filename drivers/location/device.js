@@ -52,6 +52,10 @@ module.exports = class LocationDevice extends ChildDevice {
     let locationChanged = false;
     // this.updateLastLocation();
 
+    // Set timestamp on update information (drive state )
+    let time = this._getLocalTimeString(new Date());
+    await this.setCapabilityValue('location_last_update', time);
+
     let longitude_prev = this.getCapabilityValue('measure_location_longitude');
     if (!longitude_prev){
       longitude_prev = data.drive_state.longitude;

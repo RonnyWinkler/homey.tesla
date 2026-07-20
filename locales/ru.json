@@ -97,6 +97,9 @@
     },
     "media": {
       "name": "медиа"
+    },
+    "energy_home":{
+      "name": "Дом"
     }
   },
   "repair": {

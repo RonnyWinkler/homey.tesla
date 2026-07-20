@@ -503,5 +503,8 @@
   },
   "4.4.0": {
     "en": "Home device for household energy consumption added. Daily meter details for the energy site added."
+  },
+  "4.4.1": {
+    "en": "Fixed location device timestamp for Telemetry. Added new translations."
   }
 }

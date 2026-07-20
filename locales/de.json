@@ -73,6 +73,9 @@
         },
         "energy_solar": {
             "name": "Solarmodule"
+        },
+        "energy_home":{
+            "name": "Zuhause"
         }
     },
     "repair":{

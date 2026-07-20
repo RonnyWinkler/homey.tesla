@@ -97,6 +97,9 @@
     },
     "media": {
       "name": "media"
+    },
+    "energy_home":{
+      "name": "Hem"
     }
   },
   "repair": {

@@ -103,6 +103,9 @@
       },
       "energy_solar": {
         "name": "panneaux solaires"
+      },
+      "energy_home":{
+        "name": "Chez soi"
       }
   },
   "repair": {

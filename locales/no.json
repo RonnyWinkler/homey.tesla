@@ -103,6 +103,9 @@
     },
     "energy_solar": {
       "name": "solcellepaneler"
+    },
+    "energy_home":{
+      "name": "Hjem"
     }
   },
   "repair": {
