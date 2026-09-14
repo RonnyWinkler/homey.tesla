@@ -527,5 +527,8 @@
   },
   "4.4.8": {
     "en": "Fallback for missing battery range value in widget."
+  },
+  "4.4.9": {
+    "en": "Fixed domain registration for Energy Site."
   }
 }

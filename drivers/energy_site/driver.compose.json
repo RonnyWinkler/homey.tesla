@@ -121,6 +121,14 @@
             "id": "pair_step_02",
             "navigation": {
                 "prev": "pair_step_01",
+                "next": "pair_step_03"
+            }
+        },
+        {
+            "id": "pair_step_03",
+            "template": "loading",
+            "navigation": {
+                "prev": "pair_step_02",
                 "next": "login_oauth2"
             }
         },
