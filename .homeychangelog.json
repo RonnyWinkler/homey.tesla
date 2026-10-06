@@ -530,5 +530,8 @@
   },
   "4.4.9": {
     "en": "Fixed domain registration for Energy Site."
+  },
+  "4.5.0": {
+    "en": "Added variable Homey/domain registration."
   }
 }
