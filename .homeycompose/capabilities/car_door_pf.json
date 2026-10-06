@@ -1,0 +1,73 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Passenger front door",
+    "de": "Beifahrertür vorne",
+    "nl": "Passagiersportier voor",
+    "fr": "Porte passager avant",
+    "it": "Porta anteriore del passeggero",
+    "sv": "Främre dörr passagerare",
+    "no": "Førerdør foran",
+    "es": "Puerta delantera del pasajero",
+    "da": "Førerdør foran",
+    "ru": "Передняя дверь пассажира",
+    "pl": "Przednie drzwi pasażera"
+  },
+  "titleTrue":{
+    "en": "Passenger front door open",
+    "de": "Beifahrertür vorne geöffnet",
+    "nl": "Passagiersportier voor open",
+    "fr": "Porte passager avant ouverte",
+    "it": "Porta anteriore del passeggero aperta",
+    "sv": "Främre dörr passagerare öppen",
+    "no": "Førerdør foran åpen",
+    "es": "Puerta delantera del pasajero abierta",
+    "da": "Førerdør foran åben",
+    "ru": "Передняя дверь пассажира открыта",
+    "pl": "Przednie drzwi pasażera otwarte"
+  },
+  "titleFalse":{
+    "en": "Passenger front door closed",
+    "de": "Beifahrertür vorne geschlossen",
+    "nl": "Passagiersportier voor gesloten",
+    "fr": "Porte passager avant fermée",
+    "it": "Porta anteriore del passeggero chiusa",
+    "sv": "Främre dörr passagerare stängd",
+    "no": "Førerdør foran lukket",
+    "es": "Puerta delantera del pasajero cerrada",
+    "da": "Førerdør foran lukket",
+    "ru": "Передняя дверь пассажира закрыта",
+    "pl": "Przednie drzwi pasażera zamknięte"
+  },
+  "insightsTitleTrue":{
+    "en": "Passenger front door open",
+    "de": "Beifahrertür vorne geöffnet",
+    "nl": "Passagiersportier voor open",
+    "fr": "Porte passager avant ouverte",
+    "it": "Porta anteriore del passeggero aperta",
+    "sv": "Främre dörr passagerare öppen",
+    "no": "Førerdør foran åpen",
+    "es": "Puerta delantera del pasajero abierta",
+    "da": "Førerdør foran åben",
+    "ru": "Передняя дверь пассажира открыта",
+    "pl": "Przednie drzwi pasażera otwarte"
+  },
+  "insightsTitleFalse":{
+    "en": "Passenger front door closed",
+    "de": "Beifahrertür vorne geschlossen",
+    "nl": "Passagiersportier voor gesloten",
+    "fr": "Porte passager avant fermée",
+    "it": "Porta anteriore del passeggero chiusa",
+    "sv": "Främre dörr passagerare stängd",
+    "no": "Førerdør foran lukket",
+    "es": "Puerta delantera del pasajero cerrada",
+    "da": "Førerdør foran lukket",
+    "ru": "Передняя дверь пассажира закрыта",
+    "pl": "Przednie drzwi pasażera zamknięte"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/car_door.svg"
+}

@@ -1,0 +1,73 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Driver front door",
+    "de": "Fahrertür vorne",
+    "nl": "Bestuurdersportier voor",
+    "fr": "Porte conducteur avant",
+    "it": "Porta anteriore del conducente",
+    "sv": "Främre dörr föraren",
+    "no": "Førerdør foran",
+    "es": "Puerta delantera del conductor",
+    "da": "Førerdør foran",
+    "ru": "Передняя дверь водителя",
+    "pl": "Przednie drzwi kierowcy"
+  },
+  "titleTrue":{
+    "en": "Driver front door open",
+    "de": "Fahrertür vorne geöffnet",
+    "nl": "Bestuurdersportier voor open",
+    "fr": "Porte conducteur avant ouverte",
+    "it": "Porta anteriore del conducente aperta",
+    "sv": "Främre dörr föraren öppen",
+    "no": "ørerdør foran åpen",
+    "es": "Puerta delantera del conductor abierta",
+    "da": "Førerdør foran åben",
+    "ru": "Передняя дверь водителя открыта",
+    "pl": "Przednie drzwi kierowcy otwarte"
+  },
+  "titleFalse":{
+    "en": "Driver front door closed",
+    "de": "Fahrertür vorne geschlossen",
+    "nl": "Bestuurdersportier voor gesloten",
+    "fr": "Porte conducteur avant fermée",
+    "it": "Porta anteriore del conducente chiusa",
+    "sv": "Främre dörr föraren stängd",
+    "no": "ørerdør foran lukket",
+    "es": "Puerta delantera del conductor cerrada",
+    "da": "Førerdør foran lukket",
+    "ru": "Передняя дверь водителя закрыта",
+    "pl": "Przednie drzwi kierowcy zamknięte"
+  },
+  "insightsTitleTrue":{
+    "en": "Driver front door open",
+    "de": "Fahrertür vorne geöffnet",
+    "nl": "Bestuurdersportier voor open",
+    "fr": "Porte conducteur avant ouverte",
+    "it": "Porta anteriore del conducente aperta",
+    "sv": "Främre dörr föraren öppen",
+    "no": "ørerdør foran åpen",
+    "es": "Puerta delantera del conductor abierta",
+    "da": "Førerdør foran åben",
+    "ru": "Передняя дверь водителя открыта",
+    "pl": "Przednie drzwi kierowcy otwarte"
+  },
+  "insightsTitleFalse":{
+    "en": "Driver front door closed",
+    "de": "Fahrertür vorne geschlossen",
+    "nl": "Bestuurdersportier voor gesloten",
+    "fr": "Porte conducteur avant fermée",
+    "it": "Porta anteriore del conducente chiusa",
+    "sv": "Främre dörr föraren stängd",
+    "no": "ørerdør foran lukket",
+    "es": "Puerta delantera del conductor cerrada",
+    "da": "Førerdør foran lukket",
+    "ru": "Передняя дверь водителя закрыта",
+    "pl": "Przednie drzwi kierowcy zamknięte"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/car_door.svg"
+}

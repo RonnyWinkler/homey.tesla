@@ -74,6 +74,10 @@
         "measure_powertrain_inverter_current_r",
         "measure_powertrain_inverter_power_f",
         "measure_powertrain_inverter_power_r",
+        "car_door_df",
+        "car_door_dr",
+        "car_door_pf",
+        "car_door_pr",
 
         "last_online"
 

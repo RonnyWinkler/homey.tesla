@@ -1,0 +1,73 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Driver rear door",
+    "de": "Fahrertür hinten",
+    "nl": "Bestuurdersportier achter",
+    "fr": "Porte conducteur arrière",
+    "it": "Porta posteriore del conducente",
+    "sv": "Bakre dörr föraren",
+    "no": "Førerdør bak",
+    "es": "Puerta trasera del conductor",
+    "da": "Førerdør bag",
+    "ru": "Задняя дверь водителя",
+    "pl": "Tylne drzwi kierowcy"
+  },
+  "titleTrue":{
+    "en": "Driver rear door open",
+    "de": "Fahrertür hinten geöffnet",
+    "nl": "Bestuurdersportier achter open",
+    "fr": "Porte conducteur arrière ouverte",
+    "it": "Porta posteriore del conducente aperta",
+    "sv": "Bakre dörr föraren öppen",
+    "no": "Førerdør bak åpen",
+    "es": "Puerta trasera del conductor abierta",
+    "da": "Førerdør bag åben",
+    "ru": "Задняя дверь водителя открыта",
+    "pl": "Tylne drzwi kierowcy otwarte"
+  },
+  "titleFalse":{
+    "en": "Driver rear door closed",
+    "de": "Fahrertür hinten geschlossen",
+    "nl": "Bestuurdersportier achter gesloten",
+    "fr": "Porte conducteur arrière fermée",
+    "it": "Porta posteriore del conducente chiusa",
+    "sv": "Bakre dörr föraren stängd",
+    "no": "Førerdør bak lukket",
+    "es": "Puerta trasera del conductor cerrada",
+    "da": "Førerdør bag lukket",
+    "ru": "Задняя дверь водителя закрыта",
+    "pl": "Tylne drzwi kierowcy zamknięte"
+  },
+  "insightsTitleTrue":{
+    "en": "Driver rear door open",
+    "de": "Fahrertür hinten geöffnet",
+    "nl": "Bestuurdersportier achter open",
+    "fr": "Porte conducteur arrière ouverte",
+    "it": "Porta posteriore del conducente aperta",
+    "sv": "Bakre dörr föraren öppen",
+    "no": "Førerdør bak åpen",
+    "es": "Puerta trasera del conductor abierta",
+    "da": "Førerdør bag åben",
+    "ru": "Задняя дверь водителя открыта",
+    "pl": "Tylne drzwi kierowcy otwarte"
+  },
+  "insightsTitleFalse":{
+    "en": "Driver rear door closed",
+    "de": "Fahrertür hinten geschlossen",
+    "nl": "Bestuurdersportier achter gesloten",
+    "fr": "Porte conducteur arrière fermée",
+    "it": "Porta posteriore del conducente chiusa",
+    "sv": "Bakre dörr föraren stängd",
+    "no": "Førerdør bak lukket",
+    "es": "Puerta trasera del conductor cerrada",
+    "da": "Førerdør bag lukket",
+    "ru": "Задняя дверь водителя закрыта",
+    "pl": "Tylne drzwi kierowcy zamknięte"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/car_door.svg"
+}

@@ -1144,6 +1144,20 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
         }
       }
 
+      // Doors
+      if (this.hasCapability('car_door_df') && data.vehicle_state && data.vehicle_state.df !== undefined){
+        await this.setCapabilityValue('car_door_df', data.vehicle_state.df != 0);
+      }
+      if (this.hasCapability('car_door_dr') && data.vehicle_state && data.vehicle_state.dr !== undefined){
+        await this.setCapabilityValue('car_door_dr', data.vehicle_state.dr != 0);
+      }
+      if (this.hasCapability('car_door_pf') && data.vehicle_state && data.vehicle_state.pf !== undefined){
+        await this.setCapabilityValue('car_door_pf', data.vehicle_state.pf != 0);
+      }
+      if (this.hasCapability('car_door_pr') && data.vehicle_state && data.vehicle_state.pr !== undefined){
+        await this.setCapabilityValue('car_door_pr', data.vehicle_state.pr != 0);
+      }
+
       // Trunk
       if (this.hasCapability('car_trunk_front') && data.vehicle_state && data.vehicle_state.ft !== undefined){
         //ft==0: closed

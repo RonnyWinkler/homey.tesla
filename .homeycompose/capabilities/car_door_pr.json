@@ -1,0 +1,73 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Passenger rear door",
+    "de": "Beifahrertür hinten",
+    "nl": "Passagiersportier achter",
+    "fr": "Porte passager arrière",
+    "it": "Porta posteriore del passeggero",
+    "sv": "Bakre dörr passagerare",
+    "no": "Bakre passasjerdør",
+    "es": "Puerta trasera del pasajero",
+    "da": "Bagdør passager",
+    "ru": "Задняя дверь пассажира",
+    "pl": "Tylne drzwi pasażera"
+  },
+  "titleTrue":{
+    "en": "Passenger rear door open",
+    "de": "Beifahrertür hinten geöffnet",
+    "nl": "Passagiersportier achter open",
+    "fr": "Porte passager arrière ouverte",
+    "it": "Porta posteriore del passeggero aperta",
+    "sv": "Bakre dörr passagerare öppen",
+    "no": "Bakre passasjerdør åpen",
+    "es": "Puerta trasera del pasajero abierta",
+    "da": "Bagdør passager åben",
+    "ru": "Задняя дверь пассажира открыта",
+    "pl": "Tylne drzwi pasażera otwarte"
+  },
+  "titleFalse":{
+    "en": "Passenger rear door closed",
+    "de": "Beifahrertür hinten geschlossen",
+    "nl": "Passagiersportier achter gesloten",
+    "fr": "Porte passager arrière fermée",
+    "it": "Porta posteriore del passeggero chiusa",
+    "sv": "Bakre dörr passagerare stängd",
+    "no": "Bakre passasjerdør lukket",
+    "es": "Puerta trasera del pasajero cerrada",
+    "da": "Bagdør passager lukket",
+    "ru": "Задняя дверь пассажира закрыта",
+    "pl": "Tylne drzwi pasażera zamknięte"
+  },
+  "insightsTitleTrue":{
+    "en": "Passenger rear door open",
+    "de": "Beifahrertür hinten geöffnet",
+    "nl": "Passagiersportier achter open",
+    "fr": "Porte passager arrière ouverte",
+    "it": "Porta posteriore del passeggero aperta",
+    "sv": "Bakre dörr passagerare öppen",
+    "no": "Bakre passasjerdør åpen",
+    "es": "Puerta trasera del pasajero abierta",
+    "da": "Bagdør passager åben",
+    "ru": "Задняя дверь пассажира открыta",
+    "pl": "Tylne drzwi pasażera otwarte"
+  },
+  "insightsTitleFalse":{
+    "en": "Passenger rear door closed",
+    "de": "Beifahrertür hinten geschlossen",
+    "nl": "Passagiersportier achter gesloten",
+    "fr": "Porte passager arrière fermée",
+    "it": "Porta posteriore del passeggero chiusa",
+    "sv": "Bakre dörr passagerare stängd",
+    "no": "Bakre passasjerdør lukket",
+    "es": "Puerta trasera del pasajero cerrada",
+    "da": "Bagdør passager lukket",
+    "ru": "Задняя дверь пассажира закрыта",
+    "pl": "Tylne drzwi pasażera zamknięte"
+  },
+  "insights": true,
+  "getable": true,
+  "setable": true,
+  "uiComponent": null,
+  "icon": "./assets/capability_icons/car_door.svg"
+}

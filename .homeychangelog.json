@@ -533,5 +533,8 @@
   },
   "4.5.0": {
     "en": "Added variable Homey/domain registration."
+  },
+  "4.5.1": {
+    "en": "Fixed translation. Added door open state."
   }
 }
