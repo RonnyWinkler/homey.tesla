@@ -1,7 +1,7 @@
 {
   "id": "polling_active",
   "type": "checkbox",
-  "value": true,
+  "value": false,
   "label": {
     "en": "Polling is active",
     "de": "Abruf ist aktiviert",

@@ -27,6 +27,6 @@
     "ru": "Указывает интервал, с которым данные извлекаются. Во время сна автомобиля не вносятся расходы на API.",
     "pl": "Określa interwał, wętorym pobierane są dane. Gdy pojazd jest w stanie uśpienia, nie oblicza kosztów API."
   },
-  "value": 1,
+  "value": 5,
   "min": 1
 }

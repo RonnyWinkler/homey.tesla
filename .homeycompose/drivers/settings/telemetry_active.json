@@ -1,14 +1,14 @@
 {
   "id": "telemetry_active",
   "type": "checkbox",
-  "value": false,
+  "value": true,
   "label": {
     "en": "Telemetry is active",
     "de": "Telemetrie ist aktiv",
     "nl": "Telemetrie is geactiveerd",
     "fr": "La t&eacute;l&eacute;commande est activ&eacute;e",
     "it": "La telemetry &egrave; attiva",
-    "sv": "Telemetria &aring;ktiv",
+    "sv": "Telemetri är aktiv",
     "no": "Telemetria er aktiv",
     "es": "La telemetria est&aacute; activa",
     "da": "Telemetrie er aktiv",

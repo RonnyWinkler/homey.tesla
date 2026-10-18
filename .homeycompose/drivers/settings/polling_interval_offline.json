@@ -27,6 +27,6 @@
     "ru": "Указывает интервал, в котором проверяется состояние транспортного средства (онлайн/оффлайн).",
     "pl": "Określa interwał, wętorym sprawdzane jest stan pojazdu (online/offline)."
   },
-  "value": 1,
+  "value": 5,
   "min": 1
 }
