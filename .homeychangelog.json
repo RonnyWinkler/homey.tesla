@@ -539,5 +539,8 @@
   },
   "4.5.2": {
     "en": "Adjusted default car settings."
+  },
+  "4.5.3": {
+    "en": "Fixed window position command."
   }
 }
