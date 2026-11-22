@@ -7158,6 +7158,378 @@
       },
       {
         "title": {
+          "en": "Add charge schedule",
+          "de": "Ladezeitplan hinzufügen",
+          "nl": "Laadschema toevoegen",
+          "fr": "Ajouter un programme de charge",
+          "it": "Aggiungi programma di ricarica",
+          "sv": "Lägg till laddschema",
+          "no": "Legg til ladeplan",
+          "es": "Añadir programación de carga",
+          "da": "Tilføj ladeplan",
+          "ru": "Добавить расписание зарядки",
+          "pl": "Dodaj harmonogram ładowania"
+        },
+        "titleFormatted": {
+          "en": "Add charge schedule [[name]]: from [[start_time]] to [[end_time]] on [[days]] [[location]]",
+          "de": "Ladezeitplan [[name]] hinzufügen: von [[start_time]] bis [[end_time]] [[days]] [[location]]",
+          "nl": "Laadschema [[name]] toevoegen: van [[start_time]] tot [[end_time]] [[days]] [[location]]",
+          "fr": "Ajouter le programme de charge [[name]] : de [[start_time]] à [[end_time]] [[days]] [[location]]",
+          "it": "Aggiungi programma di ricarica [[name]]: dalle [[start_time]] alle [[end_time]] [[days]] [[location]]",
+          "sv": "Lägg till laddschema [[name]]: från [[start_time]] till [[end_time]] [[days]] [[location]]",
+          "no": "Legg til ladeplan [[name]]: fra [[start_time]] til [[end_time]] [[days]] [[location]]",
+          "es": "Añadir programación de carga [[name]]: de [[start_time]] a [[end_time]] [[days]] [[location]]",
+          "da": "Tilføj ladeplan [[name]]: fra [[start_time]] til [[end_time]] [[days]] [[location]]",
+          "ru": "Добавить расписание зарядки [[name]]: с [[start_time]] до [[end_time]] [[days]] [[location]]",
+          "pl": "Dodaj harmonogram ładowania [[name]]: od [[start_time]] do [[end_time]] [[days]] [[location]]"
+        },
+        "hint": {
+          "en": "Leave the start time empty to charge until the end time, or leave the end time empty to start at the start time. Running the card again with the same name replaces that schedule. Needs firmware 2024.26 or later.",
+          "de": "Lass die Startzeit leer, um bis zur Endzeit zu laden, oder lass die Endzeit leer, um zur Startzeit zu beginnen. Wird die Karte erneut mit demselben Namen ausgeführt, ersetzt sie diesen Zeitplan. Erfordert Firmware 2024.26 oder neuer.",
+          "nl": "Laat de starttijd leeg om tot de eindtijd op te laden, of laat de eindtijd leeg om op de starttijd te beginnen. Als je de kaart opnieuw uitvoert met dezelfde naam, wordt dat schema vervangen. Vereist firmware 2024.26 of nieuwer.",
+          "fr": "Laissez l'heure de début vide pour charger jusqu'à l'heure de fin, ou laissez l'heure de fin vide pour commencer à l'heure de début. Exécuter à nouveau la carte avec le même nom remplace ce programme. Nécessite le firmware 2024.26 ou ultérieur.",
+          "it": "Lascia vuota l'ora di inizio per caricare fino all'ora di fine, oppure lascia vuota l'ora di fine per iniziare all'ora di inizio. Eseguendo di nuovo la card con lo stesso nome, quel programma viene sostituito. Richiede il firmware 2024.26 o successivo.",
+          "sv": "Lämna starttiden tom för att ladda till sluttiden, eller lämna sluttiden tom för att starta vid starttiden. Om kortet körs igen med samma namn ersätts det schemat. Kräver firmware 2024.26 eller senare.",
+          "no": "La starttiden stå tom for å lade frem til sluttiden, eller la sluttiden stå tom for å starte ved starttiden. Hvis kortet kjøres på nytt med samme navn, erstattes den planen. Krever firmware 2024.26 eller nyere.",
+          "es": "Deja vacía la hora de inicio para cargar hasta la hora de fin, o deja vacía la hora de fin para empezar a la hora de inicio. Si se vuelve a ejecutar la tarjeta con el mismo nombre, se sustituye esa programación. Requiere el firmware 2024.26 o posterior.",
+          "da": "Lad starttiden stå tom for at lade indtil sluttiden, eller lad sluttiden stå tom for at starte ved starttiden. Kører du kortet igen med samme navn, erstattes den plan. Kræver firmware 2024.26 eller nyere.",
+          "ru": "Оставьте время начала пустым, чтобы заряжать до времени окончания, или оставьте время окончания пустым, чтобы начать зарядку в заданное время. Повторный запуск карточки с тем же названием заменяет это расписание. Требуется прошивка 2024.26 или новее.",
+          "pl": "Pozostaw pusty czas rozpoczęcia, aby ładować do czasu zakończenia, lub pozostaw pusty czas zakończenia, aby rozpocząć o czasie rozpoczęcia. Ponowne uruchomienie karty z tą samą nazwą zastępuje ten harmonogram. Wymaga oprogramowania 2024.26 lub nowszego."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "title": {
+              "en": "Name",
+              "de": "Name",
+              "nl": "Naam",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Название",
+              "pl": "Nazwa"
+            },
+            "placeholder": {
+              "en": "Night charging",
+              "de": "Nachtladen",
+              "nl": "Nachtladen",
+              "fr": "Charge de nuit",
+              "it": "Ricarica notturna",
+              "sv": "Nattladdning",
+              "no": "Nattlading",
+              "es": "Carga nocturna",
+              "da": "Natlading",
+              "ru": "Ночная зарядка",
+              "pl": "Ładowanie nocą"
+            }
+          },
+          {
+            "name": "start_time",
+            "type": "time",
+            "required": false,
+            "title": {
+              "en": "Start time",
+              "de": "Startzeit",
+              "nl": "Starttijd",
+              "fr": "Heure de début",
+              "it": "Ora di inizio",
+              "sv": "Starttid",
+              "no": "Starttid",
+              "es": "Hora de inicio",
+              "da": "Starttid",
+              "ru": "Время начала",
+              "pl": "Czas rozpoczęcia"
+            },
+            "placeholder": {
+              "en": "22:00",
+              "de": "22:00",
+              "nl": "22:00",
+              "fr": "22:00",
+              "it": "22:00",
+              "sv": "22:00",
+              "no": "22:00",
+              "es": "22:00",
+              "da": "22:00",
+              "ru": "22:00",
+              "pl": "22:00"
+            }
+          },
+          {
+            "name": "end_time",
+            "type": "time",
+            "required": false,
+            "title": {
+              "en": "End time",
+              "de": "Endzeit",
+              "nl": "Eindtijd",
+              "fr": "Heure de fin",
+              "it": "Ora di fine",
+              "sv": "Sluttid",
+              "no": "Sluttid",
+              "es": "Hora de fin",
+              "da": "Sluttid",
+              "ru": "Время окончания",
+              "pl": "Czas zakończenia"
+            },
+            "placeholder": {
+              "en": "06:00",
+              "de": "06:00",
+              "nl": "06:00",
+              "fr": "06:00",
+              "it": "06:00",
+              "sv": "06:00",
+              "no": "06:00",
+              "es": "06:00",
+              "da": "06:00",
+              "ru": "06:00",
+              "pl": "06:00"
+            }
+          },
+          {
+            "name": "days",
+            "type": "dropdown",
+            "title": {
+              "en": "Days",
+              "de": "Tage",
+              "nl": "Dagen",
+              "fr": "Jours",
+              "it": "Giorni",
+              "sv": "Dagar",
+              "no": "Dager",
+              "es": "Días",
+              "da": "Dage",
+              "ru": "Дни",
+              "pl": "Dni"
+            },
+            "values": [
+              {
+                "id": "all",
+                "title": {
+                  "en": "every day",
+                  "de": "jeden Tag",
+                  "nl": "elke dag",
+                  "fr": "tous les jours",
+                  "it": "ogni giorno",
+                  "sv": "varje dag",
+                  "no": "hver dag",
+                  "es": "todos los días",
+                  "da": "hver dag",
+                  "ru": "каждый день",
+                  "pl": "codziennie"
+                }
+              },
+              {
+                "id": "weekdays",
+                "title": {
+                  "en": "weekdays",
+                  "de": "werktags",
+                  "nl": "op werkdagen",
+                  "fr": "en semaine",
+                  "it": "nei giorni feriali",
+                  "sv": "vardagar",
+                  "no": "ukedager",
+                  "es": "entre semana",
+                  "da": "hverdage",
+                  "ru": "по будням",
+                  "pl": "w dni robocze"
+                }
+              },
+              {
+                "id": "weekends",
+                "title": {
+                  "en": "weekends",
+                  "de": "am Wochenende",
+                  "nl": "in het weekend",
+                  "fr": "le week-end",
+                  "it": "nel fine settimana",
+                  "sv": "helger",
+                  "no": "i helgene",
+                  "es": "los fines de semana",
+                  "da": "i weekenden",
+                  "ru": "по выходным",
+                  "pl": "w weekendy"
+                }
+              },
+              {
+                "id": "monday",
+                "title": {
+                  "en": "Monday",
+                  "de": "montags",
+                  "nl": "op maandag",
+                  "fr": "le lundi",
+                  "it": "il lunedì",
+                  "sv": "måndagar",
+                  "no": "mandager",
+                  "es": "los lunes",
+                  "da": "mandage",
+                  "ru": "в понедельник",
+                  "pl": "w poniedziałek"
+                }
+              },
+              {
+                "id": "tuesday",
+                "title": {
+                  "en": "Tuesday",
+                  "de": "dienstags",
+                  "nl": "op dinsdag",
+                  "fr": "le mardi",
+                  "it": "il martedì",
+                  "sv": "tisdagar",
+                  "no": "tirsdager",
+                  "es": "los martes",
+                  "da": "tirsdage",
+                  "ru": "во вторник",
+                  "pl": "we wtorek"
+                }
+              },
+              {
+                "id": "wednesday",
+                "title": {
+                  "en": "Wednesday",
+                  "de": "mittwochs",
+                  "nl": "op woensdag",
+                  "fr": "le mercredi",
+                  "it": "il mercoledì",
+                  "sv": "onsdagar",
+                  "no": "onsdager",
+                  "es": "los miércoles",
+                  "da": "onsdage",
+                  "ru": "в среду",
+                  "pl": "w środę"
+                }
+              },
+              {
+                "id": "thursday",
+                "title": {
+                  "en": "Thursday",
+                  "de": "donnerstags",
+                  "nl": "op donderdag",
+                  "fr": "le jeudi",
+                  "it": "il giovedì",
+                  "sv": "torsdagar",
+                  "no": "torsdager",
+                  "es": "los jueves",
+                  "da": "torsdage",
+                  "ru": "в четверг",
+                  "pl": "w czwartek"
+                }
+              },
+              {
+                "id": "friday",
+                "title": {
+                  "en": "Friday",
+                  "de": "freitags",
+                  "nl": "op vrijdag",
+                  "fr": "le vendredi",
+                  "it": "il venerdì",
+                  "sv": "fredagar",
+                  "no": "fredager",
+                  "es": "los viernes",
+                  "da": "fredage",
+                  "ru": "в пятницу",
+                  "pl": "w piątek"
+                }
+              },
+              {
+                "id": "saturday",
+                "title": {
+                  "en": "Saturday",
+                  "de": "samstags",
+                  "nl": "op zaterdag",
+                  "fr": "le samedi",
+                  "it": "il sabato",
+                  "sv": "lördagar",
+                  "no": "lørdager",
+                  "es": "los sábados",
+                  "da": "lørdage",
+                  "ru": "в субботу",
+                  "pl": "w sobotę"
+                }
+              },
+              {
+                "id": "sunday",
+                "title": {
+                  "en": "Sunday",
+                  "de": "sonntags",
+                  "nl": "op zondag",
+                  "fr": "le dimanche",
+                  "it": "la domenica",
+                  "sv": "söndagar",
+                  "no": "søndager",
+                  "es": "los domingos",
+                  "da": "søndage",
+                  "ru": "в воскресенье",
+                  "pl": "w niedzielę"
+                }
+              }
+            ]
+          },
+          {
+            "name": "location",
+            "type": "dropdown",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Locatie",
+              "fr": "Emplacement",
+              "it": "Posizione",
+              "sv": "Plats",
+              "no": "Sted",
+              "es": "Ubicación",
+              "da": "Sted",
+              "ru": "Местоположение",
+              "pl": "Lokalizacja"
+            },
+            "values": [
+              {
+                "id": "car",
+                "title": {
+                  "en": "where it is now",
+                  "de": "am aktuellen Standort des Autos",
+                  "nl": "waar hij nu is",
+                  "fr": "là où elle se trouve",
+                  "it": "dove si trova ora",
+                  "sv": "där den är nu",
+                  "no": "der den er nå",
+                  "es": "donde está ahora",
+                  "da": "hvor den er nu",
+                  "ru": "где он сейчас",
+                  "pl": "tam, gdzie jest teraz"
+                }
+              },
+              {
+                "id": "homey",
+                "title": {
+                  "en": "at Homey's location",
+                  "de": "am Standort von Homey",
+                  "nl": "op de locatie van Homey",
+                  "fr": "à l'emplacement de Homey",
+                  "it": "nella posizione di Homey",
+                  "sv": "på Homeys plats",
+                  "no": "på Homeys sted",
+                  "es": "en la ubicación de Homey",
+                  "da": "på Homeys placering",
+                  "ru": "в местоположении Homey",
+                  "pl": "w lokalizacji Homey"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "charge_schedule_add"
+      },
+      {
+        "deprecated": true,
+        "title": {
           "en": "Set scheduled charging",
           "de": "Geplantes Laden festlegen",
           "nl": "Stel gepland opladen in",
@@ -7312,6 +7684,7 @@
         "id": "charge_schedule_charging"
       },
       {
+        "deprecated": true,
         "title": {
           "en": "Set scheduled departure",
           "de": "Geplante Abfahrt festlegen",
@@ -7549,6 +7922,154 @@
           }
         ],
         "id": "charge_schedule_departure"
+      },
+      {
+        "title": {
+          "en": "Remove charge schedules",
+          "de": "Ladezeitpläne entfernen",
+          "nl": "Laadschema's verwijderen",
+          "fr": "Supprimer les programmes de charge",
+          "it": "Rimuovi programmi di ricarica",
+          "sv": "Ta bort laddscheman",
+          "no": "Fjern ladeplaner",
+          "es": "Eliminar programaciones de carga",
+          "da": "Fjern ladeplaner",
+          "ru": "Удалить расписания зарядки",
+          "pl": "Usuń harmonogramy ładowania"
+        },
+        "titleFormatted": {
+          "en": "Remove [[which]] charge schedules",
+          "de": "Ladezeitpläne entfernen: [[which]]",
+          "nl": "Laadschema's verwijderen: [[which]]",
+          "fr": "Supprimer les programmes de charge : [[which]]",
+          "it": "Rimuovi i programmi di ricarica: [[which]]",
+          "sv": "Ta bort laddscheman: [[which]]",
+          "no": "Fjern ladeplaner: [[which]]",
+          "es": "Eliminar programaciones de carga: [[which]]",
+          "da": "Fjern ladeplaner: [[which]]",
+          "ru": "Удалить расписания зарядки: [[which]]",
+          "pl": "Usuń harmonogramy ładowania: [[which]]"
+        },
+        "hint": {
+          "en": "Homey-created removes the schedules this app added. Home, work, and other remove the car's schedules in those Tesla location categories. Needs firmware 2024.26 or later.",
+          "de": "„Von Homey erstellte“ entfernt die Zeitpläne, die diese App hinzugefügt hat. „Zuhause“, „Arbeit“ und „andere“ entfernen die Zeitpläne des Autos in diesen Tesla-Standortkategorien. Erfordert Firmware 2024.26 oder neuer.",
+          "nl": "Door Homey gemaakte verwijdert de schema's die deze app heeft toegevoegd. Thuis, werk en overige verwijderen de schema's van de auto in die Tesla-locatiecategorieën. Vereist firmware 2024.26 of nieuwer.",
+          "fr": "Créés par Homey supprime les programmes ajoutés par cette app. Domicile, travail et autres suppriment les programmes de la voiture dans ces catégories d'emplacement Tesla. Nécessite le firmware 2024.26 ou ultérieur.",
+          "it": "Creati da Homey rimuove i programmi aggiunti da questa app. Casa, lavoro e altri rimuovono i programmi dell'auto in queste categorie di posizione Tesla. Richiede il firmware 2024.26 o successivo.",
+          "sv": "Skapade av Homey tar bort de scheman som den här appen har lagt till. Hem, arbete och övriga tar bort bilens scheman i dessa Tesla-platskategorier. Kräver firmware 2024.26 eller senare.",
+          "no": "Opprettet av Homey fjerner planene som denne appen har lagt til. Hjem, jobb og andre fjerner bilens planer i disse Tesla-stedskategoriene. Krever firmware 2024.26 eller nyere.",
+          "es": "Creadas por Homey elimina las programaciones que añadió esta app. Casa, trabajo y otras eliminan las programaciones del coche en esas categorías de ubicación de Tesla. Requiere el firmware 2024.26 o posterior.",
+          "da": "Oprettet af Homey fjerner de planer, som denne app har tilføjet. Hjem, arbejde og andre fjerner bilens planer i disse Tesla-stedkategorier. Kræver firmware 2024.26 eller nyere.",
+          "ru": "«Созданные Homey» удаляет расписания, добавленные этим приложением. «Дом», «работа» и «другие» удаляют расписания автомобиля в этих категориях местоположений Tesla. Требуется прошивка 2024.26 или новее.",
+          "pl": "Opcja „utworzone przez Homey” usuwa harmonogramy dodane przez tę aplikację. Opcje „dom”, „praca” i „inne” usuwają harmonogramy samochodu w tych kategoriach lokalizacji Tesla. Wymaga oprogramowania 2024.26 lub nowszego."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=battery"
+          },
+          {
+            "name": "which",
+            "type": "dropdown",
+            "title": {
+              "en": "Schedules",
+              "de": "Zeitpläne",
+              "nl": "Schema's",
+              "fr": "Programmes",
+              "it": "Programmi",
+              "sv": "Scheman",
+              "no": "Tidsplaner",
+              "es": "Programaciones",
+              "da": "Tidsplaner",
+              "ru": "Расписания",
+              "pl": "Harmonogramy"
+            },
+            "values": [
+              {
+                "id": "homey",
+                "title": {
+                  "en": "Homey-created",
+                  "de": "von Homey erstellte",
+                  "nl": "door Homey gemaakte",
+                  "fr": "créés par Homey",
+                  "it": "creati da Homey",
+                  "sv": "skapade av Homey",
+                  "no": "opprettet av Homey",
+                  "es": "creadas por Homey",
+                  "da": "oprettet af Homey",
+                  "ru": "созданные Homey",
+                  "pl": "utworzone przez Homey"
+                }
+              },
+              {
+                "id": "home",
+                "title": {
+                  "en": "home",
+                  "de": "Zuhause",
+                  "nl": "thuis",
+                  "fr": "domicile",
+                  "it": "casa",
+                  "sv": "hem",
+                  "no": "hjem",
+                  "es": "casa",
+                  "da": "hjem",
+                  "ru": "дом",
+                  "pl": "dom"
+                }
+              },
+              {
+                "id": "work",
+                "title": {
+                  "en": "work",
+                  "de": "Arbeit",
+                  "nl": "werk",
+                  "fr": "travail",
+                  "it": "lavoro",
+                  "sv": "arbete",
+                  "no": "jobb",
+                  "es": "trabajo",
+                  "da": "arbejde",
+                  "ru": "работа",
+                  "pl": "praca"
+                }
+              },
+              {
+                "id": "other",
+                "title": {
+                  "en": "other",
+                  "de": "andere",
+                  "nl": "overige",
+                  "fr": "autres",
+                  "it": "altri",
+                  "sv": "övriga",
+                  "no": "andre",
+                  "es": "otras",
+                  "da": "andre",
+                  "ru": "другие",
+                  "pl": "inne"
+                }
+              },
+              {
+                "id": "all",
+                "title": {
+                  "en": "all",
+                  "de": "alle",
+                  "nl": "alle",
+                  "fr": "tous",
+                  "it": "tutti",
+                  "sv": "alla",
+                  "no": "alle",
+                  "es": "todas",
+                  "da": "alle",
+                  "ru": "все",
+                  "pl": "wszystkie"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "charge_schedule_remove"
       },
       {
         "highlight": true,
@@ -8097,6 +8618,623 @@
           }
         ],
         "id": "climate_overheat_protection_mode"
+      },
+      {
+        "title": {
+          "en": "Have car ready at a time",
+          "de": "Auto zu einer Uhrzeit bereit haben",
+          "nl": "Auto klaar hebben op een tijdstip",
+          "fr": "Préparer la voiture pour une heure",
+          "it": "Preparare l'auto per un orario",
+          "sv": "Ha bilen redo vid en tid",
+          "no": "Ha bilen klar til et tidspunkt",
+          "es": "Tener el coche listo a una hora",
+          "da": "Gør bilen klar til et tidspunkt",
+          "ru": "Подготовить авто к времени",
+          "pl": "Przygotuj auto na godzinę"
+        },
+        "titleFormatted": {
+          "en": "Have car ready at [[time]] [[location]]",
+          "de": "Auto um [[time]] bereit haben [[location]]",
+          "nl": "Auto klaar hebben om [[time]] [[location]]",
+          "fr": "Préparer la voiture pour [[time]] [[location]]",
+          "it": "Preparare l'auto per le [[time]] [[location]]",
+          "sv": "Ha bilen redo kl. [[time]] [[location]]",
+          "no": "Ha bilen klar kl. [[time]] [[location]]",
+          "es": "Tener el coche listo a las [[time]] [[location]]",
+          "da": "Gør bilen klar kl. [[time]] [[location]]",
+          "ru": "Подготовить авто к [[time]] [[location]]",
+          "pl": "Przygotuj auto na [[time]] [[location]]"
+        },
+        "hint": {
+          "en": "Creates a one-time schedule. The car preconditions so the cabin and battery are ready at this time. Running the card again replaces the previous time. Needs firmware 2024.26 or later.",
+          "de": "Erstellt einen einmaligen Zeitplan. Das Auto wird so vorkonditioniert, dass Innenraum und Batterie zu dieser Uhrzeit bereit sind. Wird die Karte erneut ausgeführt, ersetzt sie die vorherige Uhrzeit. Erfordert Firmware 2024.26 oder neuer.",
+          "nl": "Maakt een eenmalig schema. De auto conditioneert voor zodat de cabine en de batterij op dit tijdstip klaar zijn. Als je de kaart opnieuw uitvoert, vervangt dit het vorige tijdstip. Vereist firmware 2024.26 of nieuwer.",
+          "fr": "Crée un programme unique. La voiture se préconditionne pour que l'habitacle et la batterie soient prêts à cette heure. Exécuter à nouveau la carte remplace l'heure précédente. Nécessite le firmware 2024.26 ou ultérieur.",
+          "it": "Crea un programma una tantum. L'auto si precondiziona in modo che abitacolo e batteria siano pronti a quest'ora. Eseguendo di nuovo la card si sostituisce l'orario precedente. Richiede il firmware 2024.26 o successivo.",
+          "sv": "Skapar ett engångsschema. Bilen förbereds så att kupén och batteriet är redo vid denna tid. Om kortet körs igen ersätts den tidigare tiden. Kräver firmware 2024.26 eller senare.",
+          "no": "Oppretter en engangstidsplan. Bilen forberedes slik at kupé og batteri er klare til dette tidspunktet. Kjører du kortet på nytt, erstattes det forrige tidspunktet. Krever firmware 2024.26 eller nyere.",
+          "es": "Crea una programación única. El coche se preacondiciona para que el habitáculo y la batería estén listos a esta hora. Al ejecutar de nuevo la tarjeta se sustituye la hora anterior. Requiere el firmware 2024.26 o posterior.",
+          "da": "Opretter en engangstidsplan. Bilen forberedes, så kabine og batteri er klar på dette tidspunkt. Kører du kortet igen, erstattes det forrige tidspunkt. Kræver firmware 2024.26 eller nyere.",
+          "ru": "Создаёт одноразовое расписание. Автомобиль готовится так, чтобы салон и батарея были готовы к этому времени. Повторный запуск карточки заменяет предыдущее время. Требуется прошивка 2024.26 или новее.",
+          "pl": "Tworzy jednorazowy harmonogram. Auto jest przygotowywane tak, aby kabina i bateria były gotowe o tej godzinie. Ponowne uruchomienie karty zastępuje poprzednią godzinę. Wymaga oprogramowania 2024.26 lub nowszego."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "time",
+            "type": "time",
+            "title": {
+              "en": "Time",
+              "de": "Uhrzeit",
+              "nl": "Tijd",
+              "fr": "Heure",
+              "it": "Ora",
+              "sv": "Tid",
+              "no": "Tid",
+              "es": "Hora",
+              "da": "Tid",
+              "ru": "Время",
+              "pl": "Godzina"
+            },
+            "placeholder": {
+              "en": "07:30",
+              "de": "07:30",
+              "nl": "07:30",
+              "fr": "07:30",
+              "it": "07:30",
+              "sv": "07:30",
+              "no": "07:30",
+              "es": "07:30",
+              "da": "07:30",
+              "ru": "07:30",
+              "pl": "07:30"
+            }
+          },
+          {
+            "name": "location",
+            "type": "dropdown",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Locatie",
+              "fr": "Emplacement",
+              "it": "Posizione",
+              "sv": "Plats",
+              "no": "Sted",
+              "es": "Ubicación",
+              "da": "Sted",
+              "ru": "Местоположение",
+              "pl": "Lokalizacja"
+            },
+            "values": [
+              {
+                "id": "car",
+                "title": {
+                  "en": "where it is now",
+                  "de": "am aktuellen Standort des Autos",
+                  "nl": "waar hij nu is",
+                  "fr": "là où elle se trouve",
+                  "it": "dove si trova ora",
+                  "sv": "där den är nu",
+                  "no": "der den er nå",
+                  "es": "donde está ahora",
+                  "da": "hvor den er nu",
+                  "ru": "где он сейчас",
+                  "pl": "tam, gdzie jest teraz"
+                }
+              },
+              {
+                "id": "homey",
+                "title": {
+                  "en": "at Homey's location",
+                  "de": "am Standort von Homey",
+                  "nl": "op de locatie van Homey",
+                  "fr": "à l'emplacement de Homey",
+                  "it": "nella posizione di Homey",
+                  "sv": "på Homeys plats",
+                  "no": "på Homeys sted",
+                  "es": "en la ubicación de Homey",
+                  "da": "på Homeys placering",
+                  "ru": "в местоположении Homey",
+                  "pl": "w lokalizacji Homey"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_precondition_at"
+      },
+      {
+        "title": {
+          "en": "Add precondition schedule",
+          "de": "Vorkonditionierungs-Zeitplan hinzufügen",
+          "nl": "Voorconditioneringsschema toevoegen",
+          "fr": "Ajouter un programme de préconditionnement",
+          "it": "Aggiungi programma di precondizionamento",
+          "sv": "Lägg till förberedelseschema",
+          "no": "Legg til forberedelsesplan",
+          "es": "Añadir programación de preacondicionamiento",
+          "da": "Tilføj forberedelsesplan",
+          "ru": "Добавить расписание предподготовки",
+          "pl": "Dodaj harmonogram przygotowania"
+        },
+        "titleFormatted": {
+          "en": "Add precondition schedule [[name]]: ready at [[time]] on [[days]] [[location]]",
+          "de": "Vorkonditionierungs-Zeitplan [[name]] hinzufügen: bereit um [[time]] [[days]] [[location]]",
+          "nl": "Voorconditioneringsschema [[name]] toevoegen: klaar om [[time]] [[days]] [[location]]",
+          "fr": "Ajouter le programme de préconditionnement [[name]] : prêt à [[time]] [[days]] [[location]]",
+          "it": "Aggiungi programma di precondizionamento [[name]]: pronto alle [[time]] [[days]] [[location]]",
+          "sv": "Lägg till förberedelseschema [[name]]: redo kl. [[time]] [[days]] [[location]]",
+          "no": "Legg til forberedelsesplan [[name]]: klar kl. [[time]] [[days]] [[location]]",
+          "es": "Añadir programación de preacondicionamiento [[name]]: listo a las [[time]] [[days]] [[location]]",
+          "da": "Tilføj forberedelsesplan [[name]]: klar kl. [[time]] [[days]] [[location]]",
+          "ru": "Добавить расписание предподготовки [[name]]: готовность к [[time]] [[days]] [[location]]",
+          "pl": "Dodaj harmonogram przygotowania [[name]]: gotowe na [[time]] [[days]] [[location]]"
+        },
+        "hint": {
+          "en": "Creates or updates a recurring schedule. The car preconditions so the cabin and battery are ready at this time. Running the card again with the same name replaces that schedule. Needs firmware 2024.26 or later.",
+          "de": "Erstellt oder aktualisiert einen wiederkehrenden Zeitplan. Das Auto konditioniert vor, sodass Innenraum und Batterie zu dieser Zeit bereit sind. Wird die Karte erneut mit demselben Namen ausgeführt, ersetzt sie diesen Zeitplan. Erfordert Firmware 2024.26 oder neuer.",
+          "nl": "Maakt een terugkerend schema aan of werkt het bij. De auto conditioneert voor, zodat de cabine en de accu op dit tijdstip klaar zijn. Als je de kaart opnieuw uitvoert met dezelfde naam, wordt dat schema vervangen. Vereist firmware 2024.26 of nieuwer.",
+          "fr": "Crée ou met à jour un programme récurrent. La voiture se préconditionne pour que l'habitacle et la batterie soient prêts à cette heure. Exécuter à nouveau la carte avec le même nom remplace ce programme. Nécessite le firmware 2024.26 ou ultérieur.",
+          "it": "Crea o aggiorna un programma ricorrente. L'auto esegue il precondizionamento in modo che abitacolo e batteria siano pronti a quest'ora. Eseguendo di nuovo la card con lo stesso nome, quel programma viene sostituito. Richiede il firmware 2024.26 o successivo.",
+          "sv": "Skapar eller uppdaterar ett återkommande schema. Bilen förbereds så att kupén och batteriet är redo vid den här tiden. Om kortet körs igen med samma namn ersätts det schemat. Kräver firmware 2024.26 eller senare.",
+          "no": "Oppretter eller oppdaterer en gjentakende plan. Bilen forberedes slik at kupeen og batteriet er klare til dette tidspunktet. Hvis kortet kjøres på nytt med samme navn, erstattes den planen. Krever firmware 2024.26 eller nyere.",
+          "es": "Crea o actualiza una programación recurrente. El coche se preacondiciona para que el habitáculo y la batería estén listos a esta hora. Si se vuelve a ejecutar la tarjeta con el mismo nombre, se sustituye esa programación. Requiere el firmware 2024.26 o posterior.",
+          "da": "Opretter eller opdaterer en tilbagevendende plan. Bilen forberedes, så kabinen og batteriet er klar på dette tidspunkt. Kører du kortet igen med samme navn, erstattes den plan. Kræver firmware 2024.26 eller nyere.",
+          "ru": "Создаёт или обновляет повторяющееся расписание. Автомобиль выполняет предподготовку, чтобы салон и батарея были готовы к этому времени. Повторный запуск карточки с тем же названием заменяет это расписание. Требуется прошивка 2024.26 или новее.",
+          "pl": "Tworzy lub aktualizuje harmonogram cykliczny. Samochód przygotowuje się tak, aby wnętrze i bateria były gotowe o tej godzinie. Ponowne uruchomienie karty z tą samą nazwą zastępuje ten harmonogram. Wymaga oprogramowania 2024.26 lub nowszego."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "title": {
+              "en": "Name",
+              "de": "Name",
+              "nl": "Naam",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Название",
+              "pl": "Nazwa"
+            },
+            "placeholder": {
+              "en": "Weekday morning",
+              "de": "Werktagmorgen",
+              "nl": "Doordeweekse ochtend",
+              "fr": "Matin en semaine",
+              "it": "Mattina feriale",
+              "sv": "Vardagsmorgon",
+              "no": "Ukedagsmorgen",
+              "es": "Mañana entre semana",
+              "da": "Hverdagsmorgen",
+              "ru": "Будний день, утро",
+              "pl": "Poranek w dni robocze"
+            }
+          },
+          {
+            "name": "time",
+            "type": "time",
+            "title": {
+              "en": "Time",
+              "de": "Uhrzeit",
+              "nl": "Tijd",
+              "fr": "Heure",
+              "it": "Ora",
+              "sv": "Tid",
+              "no": "Tid",
+              "es": "Hora",
+              "da": "Tid",
+              "ru": "Время",
+              "pl": "Godzina"
+            },
+            "placeholder": {
+              "en": "07:30",
+              "de": "07:30",
+              "nl": "07:30",
+              "fr": "07:30",
+              "it": "07:30",
+              "sv": "07:30",
+              "no": "07:30",
+              "es": "07:30",
+              "da": "07:30",
+              "ru": "07:30",
+              "pl": "07:30"
+            }
+          },
+          {
+            "name": "days",
+            "type": "dropdown",
+            "title": {
+              "en": "Days",
+              "de": "Tage",
+              "nl": "Dagen",
+              "fr": "Jours",
+              "it": "Giorni",
+              "sv": "Dagar",
+              "no": "Dager",
+              "es": "Días",
+              "da": "Dage",
+              "ru": "Дни",
+              "pl": "Dni"
+            },
+            "values": [
+              {
+                "id": "all",
+                "title": {
+                  "en": "every day",
+                  "de": "jeden Tag",
+                  "nl": "elke dag",
+                  "fr": "tous les jours",
+                  "it": "ogni giorno",
+                  "sv": "varje dag",
+                  "no": "hver dag",
+                  "es": "todos los días",
+                  "da": "hver dag",
+                  "ru": "каждый день",
+                  "pl": "codziennie"
+                }
+              },
+              {
+                "id": "weekdays",
+                "title": {
+                  "en": "weekdays",
+                  "de": "werktags",
+                  "nl": "op werkdagen",
+                  "fr": "en semaine",
+                  "it": "nei giorni feriali",
+                  "sv": "vardagar",
+                  "no": "ukedager",
+                  "es": "entre semana",
+                  "da": "hverdage",
+                  "ru": "по будням",
+                  "pl": "w dni robocze"
+                }
+              },
+              {
+                "id": "weekends",
+                "title": {
+                  "en": "weekends",
+                  "de": "am Wochenende",
+                  "nl": "in het weekend",
+                  "fr": "le week-end",
+                  "it": "nel fine settimana",
+                  "sv": "helger",
+                  "no": "i helgene",
+                  "es": "los fines de semana",
+                  "da": "i weekenden",
+                  "ru": "по выходным",
+                  "pl": "w weekendy"
+                }
+              },
+              {
+                "id": "monday",
+                "title": {
+                  "en": "Monday",
+                  "de": "montags",
+                  "nl": "op maandag",
+                  "fr": "le lundi",
+                  "it": "il lunedì",
+                  "sv": "måndagar",
+                  "no": "mandager",
+                  "es": "los lunes",
+                  "da": "mandage",
+                  "ru": "в понедельник",
+                  "pl": "w poniedziałek"
+                }
+              },
+              {
+                "id": "tuesday",
+                "title": {
+                  "en": "Tuesday",
+                  "de": "dienstags",
+                  "nl": "op dinsdag",
+                  "fr": "le mardi",
+                  "it": "il martedì",
+                  "sv": "tisdagar",
+                  "no": "tirsdager",
+                  "es": "los martes",
+                  "da": "tirsdage",
+                  "ru": "во вторник",
+                  "pl": "we wtorek"
+                }
+              },
+              {
+                "id": "wednesday",
+                "title": {
+                  "en": "Wednesday",
+                  "de": "mittwochs",
+                  "nl": "op woensdag",
+                  "fr": "le mercredi",
+                  "it": "il mercoledì",
+                  "sv": "onsdagar",
+                  "no": "onsdager",
+                  "es": "los miércoles",
+                  "da": "onsdage",
+                  "ru": "в среду",
+                  "pl": "w środę"
+                }
+              },
+              {
+                "id": "thursday",
+                "title": {
+                  "en": "Thursday",
+                  "de": "donnerstags",
+                  "nl": "op donderdag",
+                  "fr": "le jeudi",
+                  "it": "il giovedì",
+                  "sv": "torsdagar",
+                  "no": "torsdager",
+                  "es": "los jueves",
+                  "da": "torsdage",
+                  "ru": "в четверг",
+                  "pl": "w czwartek"
+                }
+              },
+              {
+                "id": "friday",
+                "title": {
+                  "en": "Friday",
+                  "de": "freitags",
+                  "nl": "op vrijdag",
+                  "fr": "le vendredi",
+                  "it": "il venerdì",
+                  "sv": "fredagar",
+                  "no": "fredager",
+                  "es": "los viernes",
+                  "da": "fredage",
+                  "ru": "в пятницу",
+                  "pl": "w piątek"
+                }
+              },
+              {
+                "id": "saturday",
+                "title": {
+                  "en": "Saturday",
+                  "de": "samstags",
+                  "nl": "op zaterdag",
+                  "fr": "le samedi",
+                  "it": "il sabato",
+                  "sv": "lördagar",
+                  "no": "lørdager",
+                  "es": "los sábados",
+                  "da": "lørdage",
+                  "ru": "в субботу",
+                  "pl": "w sobotę"
+                }
+              },
+              {
+                "id": "sunday",
+                "title": {
+                  "en": "Sunday",
+                  "de": "sonntags",
+                  "nl": "op zondag",
+                  "fr": "le dimanche",
+                  "it": "la domenica",
+                  "sv": "söndagar",
+                  "no": "søndager",
+                  "es": "los domingos",
+                  "da": "søndage",
+                  "ru": "в воскресенье",
+                  "pl": "w niedzielę"
+                }
+              }
+            ]
+          },
+          {
+            "name": "location",
+            "type": "dropdown",
+            "title": {
+              "en": "Location",
+              "de": "Standort",
+              "nl": "Locatie",
+              "fr": "Emplacement",
+              "it": "Posizione",
+              "sv": "Plats",
+              "no": "Sted",
+              "es": "Ubicación",
+              "da": "Sted",
+              "ru": "Местоположение",
+              "pl": "Lokalizacja"
+            },
+            "values": [
+              {
+                "id": "car",
+                "title": {
+                  "en": "where it is now",
+                  "de": "am aktuellen Standort des Autos",
+                  "nl": "waar hij nu is",
+                  "fr": "là où elle se trouve",
+                  "it": "dove si trova ora",
+                  "sv": "där den är nu",
+                  "no": "der den er nå",
+                  "es": "donde está ahora",
+                  "da": "hvor den er nu",
+                  "ru": "где он сейчас",
+                  "pl": "tam, gdzie jest teraz"
+                }
+              },
+              {
+                "id": "homey",
+                "title": {
+                  "en": "at Homey's location",
+                  "de": "am Standort von Homey",
+                  "nl": "op de locatie van Homey",
+                  "fr": "à l'emplacement de Homey",
+                  "it": "nella posizione di Homey",
+                  "sv": "på Homeys plats",
+                  "no": "på Homeys sted",
+                  "es": "en la ubicación de Homey",
+                  "da": "på Homeys placering",
+                  "ru": "в местоположении Homey",
+                  "pl": "w lokalizacji Homey"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_precondition_schedule_add"
+      },
+      {
+        "title": {
+          "en": "Remove precondition schedules",
+          "de": "Vorkonditionierungs-Zeitpläne entfernen",
+          "nl": "Voorconditioneringsschema's verwijderen",
+          "fr": "Supprimer les programmes de préconditionnement",
+          "it": "Rimuovi programmi di precondizionamento",
+          "sv": "Ta bort förberedelsescheman",
+          "no": "Fjern forberedelsesplaner",
+          "es": "Eliminar programaciones de preacondicionamiento",
+          "da": "Fjern forberedelsesplaner",
+          "ru": "Удалить расписания предподготовки",
+          "pl": "Usuń harmonogramy przygotowania"
+        },
+        "titleFormatted": {
+          "en": "Remove [[which]] precondition schedules",
+          "de": "Vorkonditionierungs-Zeitpläne entfernen: [[which]]",
+          "nl": "Voorconditioneringsschema's verwijderen: [[which]]",
+          "fr": "Supprimer les programmes de préconditionnement : [[which]]",
+          "it": "Rimuovi i programmi di precondizionamento: [[which]]",
+          "sv": "Ta bort förberedelsescheman: [[which]]",
+          "no": "Fjern forberedelsesplaner: [[which]]",
+          "es": "Eliminar programaciones de preacondicionamiento: [[which]]",
+          "da": "Fjern forberedelsesplaner: [[which]]",
+          "ru": "Удалить расписания предподготовки: [[which]]",
+          "pl": "Usuń harmonogramy przygotowania: [[which]]"
+        },
+        "hint": {
+          "en": "Homey-created removes the schedules this app added. Home, work, and other remove the car's schedules in those Tesla location categories. Needs firmware 2024.26 or later.",
+          "de": "„Von Homey erstellte“ entfernt die Zeitpläne, die diese App hinzugefügt hat. „Zuhause“, „Arbeit“ und „andere“ entfernen die Zeitpläne des Autos in diesen Tesla-Standortkategorien. Erfordert Firmware 2024.26 oder neuer.",
+          "nl": "Door Homey gemaakte verwijdert de schema's die deze app heeft toegevoegd. Thuis, werk en overige verwijderen de schema's van de auto in die Tesla-locatiecategorieën. Vereist firmware 2024.26 of nieuwer.",
+          "fr": "Créés par Homey supprime les programmes ajoutés par cette app. Domicile, travail et autres suppriment les programmes de la voiture dans ces catégories d'emplacement Tesla. Nécessite le firmware 2024.26 ou ultérieur.",
+          "it": "Creati da Homey rimuove i programmi aggiunti da questa app. Casa, lavoro e altri rimuovono i programmi dell'auto in queste categorie di posizione Tesla. Richiede il firmware 2024.26 o successivo.",
+          "sv": "Skapade av Homey tar bort de scheman som den här appen har lagt till. Hem, arbete och övriga tar bort bilens scheman i dessa Tesla-platskategorier. Kräver firmware 2024.26 eller senare.",
+          "no": "Opprettet av Homey fjerner planene som denne appen har lagt til. Hjem, jobb og andre fjerner bilens planer i disse Tesla-stedskategoriene. Krever firmware 2024.26 eller nyere.",
+          "es": "Creadas por Homey elimina las programaciones que añadió esta app. Casa, trabajo y otras eliminan las programaciones del coche en esas categorías de ubicación de Tesla. Requiere el firmware 2024.26 o posterior.",
+          "da": "Oprettet af Homey fjerner de planer, som denne app har tilføjet. Hjem, arbejde og andre fjerner bilens planer i disse Tesla-stedkategorier. Kræver firmware 2024.26 eller nyere.",
+          "ru": "«Созданные Homey» удаляет расписания, добавленные этим приложением. «Дом», «работа» и «другие» удаляют расписания автомобиля в этих категориях местоположений Tesla. Требуется прошивка 2024.26 или новее.",
+          "pl": "Opcja „utworzone przez Homey” usuwa harmonogramy dodane przez tę aplikację. Opcje „dom”, „praca” i „inne” usuwają harmonogramy samochodu w tych kategoriach lokalizacji Tesla. Wymaga oprogramowania 2024.26 lub nowszego."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=climate"
+          },
+          {
+            "name": "which",
+            "type": "dropdown",
+            "title": {
+              "en": "Schedules",
+              "de": "Zeitpläne",
+              "nl": "Schema's",
+              "fr": "Programmes",
+              "it": "Programmi",
+              "sv": "Scheman",
+              "no": "Tidsplaner",
+              "es": "Programaciones",
+              "da": "Tidsplaner",
+              "ru": "Расписания",
+              "pl": "Harmonogramy"
+            },
+            "values": [
+              {
+                "id": "homey",
+                "title": {
+                  "en": "Homey-created",
+                  "de": "von Homey erstellte",
+                  "nl": "door Homey gemaakte",
+                  "fr": "créés par Homey",
+                  "it": "creati da Homey",
+                  "sv": "skapade av Homey",
+                  "no": "opprettet av Homey",
+                  "es": "creadas por Homey",
+                  "da": "oprettet af Homey",
+                  "ru": "созданные Homey",
+                  "pl": "utworzone przez Homey"
+                }
+              },
+              {
+                "id": "home",
+                "title": {
+                  "en": "home",
+                  "de": "Zuhause",
+                  "nl": "thuis",
+                  "fr": "domicile",
+                  "it": "casa",
+                  "sv": "hem",
+                  "no": "hjem",
+                  "es": "casa",
+                  "da": "hjem",
+                  "ru": "дом",
+                  "pl": "dom"
+                }
+              },
+              {
+                "id": "work",
+                "title": {
+                  "en": "work",
+                  "de": "Arbeit",
+                  "nl": "werk",
+                  "fr": "travail",
+                  "it": "lavoro",
+                  "sv": "arbete",
+                  "no": "jobb",
+                  "es": "trabajo",
+                  "da": "arbejde",
+                  "ru": "работа",
+                  "pl": "praca"
+                }
+              },
+              {
+                "id": "other",
+                "title": {
+                  "en": "other",
+                  "de": "andere",
+                  "nl": "overige",
+                  "fr": "autres",
+                  "it": "altri",
+                  "sv": "övriga",
+                  "no": "andre",
+                  "es": "otras",
+                  "da": "andre",
+                  "ru": "другие",
+                  "pl": "inne"
+                }
+              },
+              {
+                "id": "all",
+                "title": {
+                  "en": "all",
+                  "de": "alle",
+                  "nl": "alle",
+                  "fr": "tous",
+                  "it": "tutti",
+                  "sv": "alla",
+                  "no": "alle",
+                  "es": "todas",
+                  "da": "alle",
+                  "ru": "все",
+                  "pl": "wszystkie"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "climate_precondition_schedule_remove"
       },
       {
         "highlight": true,

@@ -228,6 +228,21 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
 				await args.device.flowActionPreconditioning(args.action == 'on');
 		});
 
+    this.homey.flow.getActionCard('climate_precondition_at')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditionAt({ time: args.time, location: args.location });
+		});
+
+    this.homey.flow.getActionCard('climate_precondition_schedule_add')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditionScheduleAdd({ name: args.name, time: args.time, days: args.days, location: args.location });
+		});
+
+    this.homey.flow.getActionCard('climate_precondition_schedule_remove')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionPreconditionScheduleRemove({ which: args.which });
+		});
+
     this.homey.flow.getActionCard('climate_overheat_protection_mode')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionOverheatprotectionMode(args.mode);
@@ -321,6 +336,16 @@ module.exports = class TeslaApp extends TeslaOAuth2App {
     this.homey.flow.getActionCard('charge_deactivate_scheduled_departure')
     .registerRunListener(async (args, state) => {
 				await args.device.flowActionChargeDeactivateScheduledDeparture();
+		});
+
+    this.homey.flow.getActionCard('charge_schedule_add')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeScheduleAdd({ name: args.name, start_time: args.start_time, end_time: args.end_time, days: args.days, location: args.location });
+		});
+
+    this.homey.flow.getActionCard('charge_schedule_remove')
+    .registerRunListener(async (args, state) => {
+				await args.device.flowActionChargeScheduleRemove({ which: args.which });
 		});
 
       // TEST TEST TEST 

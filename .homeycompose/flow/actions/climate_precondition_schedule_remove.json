@@ -1,0 +1,147 @@
+{
+  "title": {
+    "en": "Remove precondition schedules",
+    "de": "Vorkonditionierungs-Zeitpläne entfernen",
+    "nl": "Voorconditioneringsschema's verwijderen",
+    "fr": "Supprimer les programmes de préconditionnement",
+    "it": "Rimuovi programmi di precondizionamento",
+    "sv": "Ta bort förberedelsescheman",
+    "no": "Fjern forberedelsesplaner",
+    "es": "Eliminar programaciones de preacondicionamiento",
+    "da": "Fjern forberedelsesplaner",
+    "ru": "Удалить расписания предподготовки",
+    "pl": "Usuń harmonogramy przygotowania"
+  },
+  "titleFormatted": {
+    "en": "Remove [[which]] precondition schedules",
+    "de": "Vorkonditionierungs-Zeitpläne entfernen: [[which]]",
+    "nl": "Voorconditioneringsschema's verwijderen: [[which]]",
+    "fr": "Supprimer les programmes de préconditionnement : [[which]]",
+    "it": "Rimuovi i programmi di precondizionamento: [[which]]",
+    "sv": "Ta bort förberedelsescheman: [[which]]",
+    "no": "Fjern forberedelsesplaner: [[which]]",
+    "es": "Eliminar programaciones de preacondicionamiento: [[which]]",
+    "da": "Fjern forberedelsesplaner: [[which]]",
+    "ru": "Удалить расписания предподготовки: [[which]]",
+    "pl": "Usuń harmonogramy przygotowania: [[which]]"
+  },
+  "hint": {
+    "en": "Homey-created removes the schedules this app added. Home, work, and other remove the car's schedules in those Tesla location categories. Needs firmware 2024.26 or later.",
+    "de": "„Von Homey erstellte“ entfernt die Zeitpläne, die diese App hinzugefügt hat. „Zuhause“, „Arbeit“ und „andere“ entfernen die Zeitpläne des Autos in diesen Tesla-Standortkategorien. Erfordert Firmware 2024.26 oder neuer.",
+    "nl": "Door Homey gemaakte verwijdert de schema's die deze app heeft toegevoegd. Thuis, werk en overige verwijderen de schema's van de auto in die Tesla-locatiecategorieën. Vereist firmware 2024.26 of nieuwer.",
+    "fr": "Créés par Homey supprime les programmes ajoutés par cette app. Domicile, travail et autres suppriment les programmes de la voiture dans ces catégories d'emplacement Tesla. Nécessite le firmware 2024.26 ou ultérieur.",
+    "it": "Creati da Homey rimuove i programmi aggiunti da questa app. Casa, lavoro e altri rimuovono i programmi dell'auto in queste categorie di posizione Tesla. Richiede il firmware 2024.26 o successivo.",
+    "sv": "Skapade av Homey tar bort de scheman som den här appen har lagt till. Hem, arbete och övriga tar bort bilens scheman i dessa Tesla-platskategorier. Kräver firmware 2024.26 eller senare.",
+    "no": "Opprettet av Homey fjerner planene som denne appen har lagt til. Hjem, jobb og andre fjerner bilens planer i disse Tesla-stedskategoriene. Krever firmware 2024.26 eller nyere.",
+    "es": "Creadas por Homey elimina las programaciones que añadió esta app. Casa, trabajo y otras eliminan las programaciones del coche en esas categorías de ubicación de Tesla. Requiere el firmware 2024.26 o posterior.",
+    "da": "Oprettet af Homey fjerner de planer, som denne app har tilføjet. Hjem, arbejde og andre fjerner bilens planer i disse Tesla-stedkategorier. Kræver firmware 2024.26 eller nyere.",
+    "ru": "«Созданные Homey» удаляет расписания, добавленные этим приложением. «Дом», «работа» и «другие» удаляют расписания автомобиля в этих категориях местоположений Tesla. Требуется прошивка 2024.26 или новее.",
+    "pl": "Opcja „utworzone przez Homey” usuwa harmonogramy dodane przez tę aplikację. Opcje „dom”, „praca” i „inne” usuwają harmonogramy samochodu w tych kategoriach lokalizacji Tesla. Wymaga oprogramowania 2024.26 lub nowszego."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
+    },
+    {
+      "name": "which",
+      "type": "dropdown",
+      "title": {
+        "en": "Schedules",
+        "de": "Zeitpläne",
+        "nl": "Schema's",
+        "fr": "Programmes",
+        "it": "Programmi",
+        "sv": "Scheman",
+        "no": "Tidsplaner",
+        "es": "Programaciones",
+        "da": "Tidsplaner",
+        "ru": "Расписания",
+        "pl": "Harmonogramy"
+      },
+      "values": [
+        {
+          "id": "homey",
+          "title": {
+            "en": "Homey-created",
+            "de": "von Homey erstellte",
+            "nl": "door Homey gemaakte",
+            "fr": "créés par Homey",
+            "it": "creati da Homey",
+            "sv": "skapade av Homey",
+            "no": "opprettet av Homey",
+            "es": "creadas por Homey",
+            "da": "oprettet af Homey",
+            "ru": "созданные Homey",
+            "pl": "utworzone przez Homey"
+          }
+        },
+        {
+          "id": "home",
+          "title": {
+            "en": "home",
+            "de": "Zuhause",
+            "nl": "thuis",
+            "fr": "domicile",
+            "it": "casa",
+            "sv": "hem",
+            "no": "hjem",
+            "es": "casa",
+            "da": "hjem",
+            "ru": "дом",
+            "pl": "dom"
+          }
+        },
+        {
+          "id": "work",
+          "title": {
+            "en": "work",
+            "de": "Arbeit",
+            "nl": "werk",
+            "fr": "travail",
+            "it": "lavoro",
+            "sv": "arbete",
+            "no": "jobb",
+            "es": "trabajo",
+            "da": "arbejde",
+            "ru": "работа",
+            "pl": "praca"
+          }
+        },
+        {
+          "id": "other",
+          "title": {
+            "en": "other",
+            "de": "andere",
+            "nl": "overige",
+            "fr": "autres",
+            "it": "altri",
+            "sv": "övriga",
+            "no": "andre",
+            "es": "otras",
+            "da": "andre",
+            "ru": "другие",
+            "pl": "inne"
+          }
+        },
+        {
+          "id": "all",
+          "title": {
+            "en": "all",
+            "de": "alle",
+            "nl": "alle",
+            "fr": "tous",
+            "it": "tutti",
+            "sv": "alla",
+            "no": "alle",
+            "es": "todas",
+            "da": "alle",
+            "ru": "все",
+            "pl": "wszystkie"
+          }
+        }
+      ]
+    }
+  ]
+}

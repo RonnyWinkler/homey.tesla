@@ -3,6 +3,7 @@ const Homey = require('homey');
 
 const CONSTANTS = require('../../lib/constants');
 const ChildDevice = require('../car_child_device');
+const schedules = require('../../lib/schedules');
 
 module.exports = class BatteryDevice extends ChildDevice {
 
@@ -593,6 +594,50 @@ module.exports = class BatteryDevice extends ChildDevice {
 
   async flowActionChargeDeactivateScheduledDeparture(){
     await this._commandDeactivateScheduledDeparture();
+  }
+
+  async flowActionChargeScheduleAdd({ name, start_time, end_time, days, location }){
+    if (!schedules.isTimeSet(start_time) && !schedules.isTimeSet(end_time)){
+      throw new Error(this.homey.__('devices.car.schedule_no_time'));
+    }
+    const trimmedName = (name || '').trim();
+    if (trimmedName === ''){
+      throw new Error(this.homey.__('devices.car.schedule_no_name'));
+    }
+    const car = this.getCarDevice();
+    car.assertScheduleFirmware();
+    const place = car.getScheduleLocation(location);
+    const id = await car.reserveScheduleId('charge', trimmedName);
+    const schedule = schedules.buildChargeSchedule({
+      id,
+      name: trimmedName,
+      startTime: start_time,
+      endTime: end_time,
+      days,
+      location: place,
+    });
+    await car.sendCommand('commandAddChargeSchedule', schedule);
+  }
+
+  async flowActionChargeScheduleRemove({ which }){
+    const car = this.getCarDevice();
+    car.assertScheduleFirmware();
+    if (which === 'homey'){
+      for (const id of car.getScheduleIds('charge')){
+        try {
+          await car.sendCommand('commandRemoveChargeSchedule', { id });
+        }
+        catch(error){
+          this.error(`Removing charge schedule ${id} failed: ${error.message}`);
+        }
+        await car.forgetScheduleId(id);
+      }
+      return;
+    }
+    await car.sendCommand('commandBatchRemoveChargeSchedules', schedules.batchFlags(which));
+    if (which === 'all'){
+      await car.clearScheduleIds('charge');
+    }
   }
 
   async flowActionChargingHistorySuc(days){

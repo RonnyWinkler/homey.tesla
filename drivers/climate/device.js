@@ -3,6 +3,7 @@ const Homey = require('homey');
 
 const CONSTANTS = require('../../lib/constants');
 const ChildDevice = require('../car_child_device');
+const schedules = require('../../lib/schedules');
 
 module.exports = class ClimateDevice extends ChildDevice {
 
@@ -325,6 +326,63 @@ module.exports = class ClimateDevice extends ChildDevice {
     await this.setCapabilityValue('climate_preconditioning', on );
     if (!on){
       await this.setCapabilityValue('climate_defrost', false );
+    }
+  }
+
+  async flowActionPreconditionAt({ time, location }){
+    const car = this.getCarDevice();
+    car.assertScheduleFirmware();
+    const place = car.getScheduleLocation(location);
+    const id = await car.reserveScheduleId('precondition');
+    const schedule = schedules.buildPreconditionSchedule({
+      id,
+      name: '',
+      time,
+      days: schedules.nextWeekday(time, this.homey.clock.getTimezone()),
+      oneTime: true,
+      location: place,
+    });
+    await car.sendCommand('commandAddPreconditionSchedule', schedule);
+  }
+
+  async flowActionPreconditionScheduleAdd({ name, time, days, location }){
+    const trimmedName = (name || '').trim();
+    if (trimmedName === ''){
+      throw new Error(this.homey.__('devices.car.schedule_no_name'));
+    }
+    const car = this.getCarDevice();
+    car.assertScheduleFirmware();
+    const place = car.getScheduleLocation(location);
+    const id = await car.reserveScheduleId('precondition', trimmedName);
+    const schedule = schedules.buildPreconditionSchedule({
+      id,
+      name: trimmedName,
+      time,
+      days,
+      oneTime: false,
+      location: place,
+    });
+    await car.sendCommand('commandAddPreconditionSchedule', schedule);
+  }
+
+  async flowActionPreconditionScheduleRemove({ which }){
+    const car = this.getCarDevice();
+    car.assertScheduleFirmware();
+    if (which === 'homey'){
+      for (const id of car.getScheduleIds('precondition')){
+        try {
+          await car.sendCommand('commandRemovePreconditionSchedule', { id });
+        }
+        catch(error){
+          this.error(`Removing precondition schedule ${id} failed: ${error.message}`);
+        }
+        await car.forgetScheduleId(id);
+      }
+      return;
+    }
+    await car.sendCommand('commandBatchRemovePreconditionSchedules', schedules.batchFlags(which));
+    if (which === 'all'){
+      await car.clearScheduleIds('precondition');
     }
   }
 

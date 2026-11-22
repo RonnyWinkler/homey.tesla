@@ -174,7 +174,11 @@
             "command_pair_state_undefined": "nicht bekannt",
             "app_not_registered": "App ist nicht im Auto registriert. Registrieren die App im 'Reparieren'-Dialog des Auto-Gerät.",
             "command_error_426": "App-Update erforderlich. Bitte aktualisiere die App im Homey App-Store oder aktiviere automatische App-Updates.",
-            "telemetry_activation_error": "Fehler bei der Registrierung der Telemetrie. Bitte überprüfe die Fahrzeugauthentifizierung."
+            "telemetry_activation_error": "Fehler bei der Registrierung der Telemetrie. Bitte überprüfe die Fahrzeugauthentifizierung.",
+            "schedule_firmware_too_old": "Diese Karte benötigt Fahrzeug-Firmware 2024.26 oder neuer.",
+            "schedule_no_location": "Für den Zeitplan ist kein Standort verfügbar. Lege den Standort von Homey fest oder warte, bis das Fahrzeug seine Position meldet.",
+            "schedule_no_time": "Gib eine Startzeit, eine Endzeit oder beides ein.",
+            "schedule_no_name": "Gib einen Namen für den Zeitplan ein."
         }
     },
     "app":{

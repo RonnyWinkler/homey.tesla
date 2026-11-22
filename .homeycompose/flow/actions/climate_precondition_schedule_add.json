@@ -1,0 +1,338 @@
+{
+  "title": {
+    "en": "Add precondition schedule",
+    "de": "Vorkonditionierungs-Zeitplan hinzufügen",
+    "nl": "Voorconditioneringsschema toevoegen",
+    "fr": "Ajouter un programme de préconditionnement",
+    "it": "Aggiungi programma di precondizionamento",
+    "sv": "Lägg till förberedelseschema",
+    "no": "Legg til forberedelsesplan",
+    "es": "Añadir programación de preacondicionamiento",
+    "da": "Tilføj forberedelsesplan",
+    "ru": "Добавить расписание предподготовки",
+    "pl": "Dodaj harmonogram przygotowania"
+  },
+  "titleFormatted": {
+    "en": "Add precondition schedule [[name]]: ready at [[time]] on [[days]] [[location]]",
+    "de": "Vorkonditionierungs-Zeitplan [[name]] hinzufügen: bereit um [[time]] [[days]] [[location]]",
+    "nl": "Voorconditioneringsschema [[name]] toevoegen: klaar om [[time]] [[days]] [[location]]",
+    "fr": "Ajouter le programme de préconditionnement [[name]] : prêt à [[time]] [[days]] [[location]]",
+    "it": "Aggiungi programma di precondizionamento [[name]]: pronto alle [[time]] [[days]] [[location]]",
+    "sv": "Lägg till förberedelseschema [[name]]: redo kl. [[time]] [[days]] [[location]]",
+    "no": "Legg til forberedelsesplan [[name]]: klar kl. [[time]] [[days]] [[location]]",
+    "es": "Añadir programación de preacondicionamiento [[name]]: listo a las [[time]] [[days]] [[location]]",
+    "da": "Tilføj forberedelsesplan [[name]]: klar kl. [[time]] [[days]] [[location]]",
+    "ru": "Добавить расписание предподготовки [[name]]: готовность к [[time]] [[days]] [[location]]",
+    "pl": "Dodaj harmonogram przygotowania [[name]]: gotowe na [[time]] [[days]] [[location]]"
+  },
+  "hint": {
+    "en": "Creates or updates a recurring schedule. The car preconditions so the cabin and battery are ready at this time. Running the card again with the same name replaces that schedule. Needs firmware 2024.26 or later.",
+    "de": "Erstellt oder aktualisiert einen wiederkehrenden Zeitplan. Das Auto konditioniert vor, sodass Innenraum und Batterie zu dieser Zeit bereit sind. Wird die Karte erneut mit demselben Namen ausgeführt, ersetzt sie diesen Zeitplan. Erfordert Firmware 2024.26 oder neuer.",
+    "nl": "Maakt een terugkerend schema aan of werkt het bij. De auto conditioneert voor, zodat de cabine en de accu op dit tijdstip klaar zijn. Als je de kaart opnieuw uitvoert met dezelfde naam, wordt dat schema vervangen. Vereist firmware 2024.26 of nieuwer.",
+    "fr": "Crée ou met à jour un programme récurrent. La voiture se préconditionne pour que l'habitacle et la batterie soient prêts à cette heure. Exécuter à nouveau la carte avec le même nom remplace ce programme. Nécessite le firmware 2024.26 ou ultérieur.",
+    "it": "Crea o aggiorna un programma ricorrente. L'auto esegue il precondizionamento in modo che abitacolo e batteria siano pronti a quest'ora. Eseguendo di nuovo la card con lo stesso nome, quel programma viene sostituito. Richiede il firmware 2024.26 o successivo.",
+    "sv": "Skapar eller uppdaterar ett återkommande schema. Bilen förbereds så att kupén och batteriet är redo vid den här tiden. Om kortet körs igen med samma namn ersätts det schemat. Kräver firmware 2024.26 eller senare.",
+    "no": "Oppretter eller oppdaterer en gjentakende plan. Bilen forberedes slik at kupeen og batteriet er klare til dette tidspunktet. Hvis kortet kjøres på nytt med samme navn, erstattes den planen. Krever firmware 2024.26 eller nyere.",
+    "es": "Crea o actualiza una programación recurrente. El coche se preacondiciona para que el habitáculo y la batería estén listos a esta hora. Si se vuelve a ejecutar la tarjeta con el mismo nombre, se sustituye esa programación. Requiere el firmware 2024.26 o posterior.",
+    "da": "Opretter eller opdaterer en tilbagevendende plan. Bilen forberedes, så kabinen og batteriet er klar på dette tidspunkt. Kører du kortet igen med samme navn, erstattes den plan. Kræver firmware 2024.26 eller nyere.",
+    "ru": "Создаёт или обновляет повторяющееся расписание. Автомобиль выполняет предподготовку, чтобы салон и батарея были готовы к этому времени. Повторный запуск карточки с тем же названием заменяет это расписание. Требуется прошивка 2024.26 или новее.",
+    "pl": "Tworzy lub aktualizuje harmonogram cykliczny. Samochód przygotowuje się tak, aby wnętrze i bateria były gotowe o tej godzinie. Ponowne uruchomienie karty z tą samą nazwą zastępuje ten harmonogram. Wymaga oprogramowania 2024.26 lub nowszego."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "title": {
+        "en": "Name",
+        "de": "Name",
+        "nl": "Naam",
+        "fr": "Nom",
+        "it": "Nome",
+        "sv": "Namn",
+        "no": "Navn",
+        "es": "Nombre",
+        "da": "Navn",
+        "ru": "Название",
+        "pl": "Nazwa"
+      },
+      "placeholder": {
+        "en": "Weekday morning",
+        "de": "Werktagmorgen",
+        "nl": "Doordeweekse ochtend",
+        "fr": "Matin en semaine",
+        "it": "Mattina feriale",
+        "sv": "Vardagsmorgon",
+        "no": "Ukedagsmorgen",
+        "es": "Mañana entre semana",
+        "da": "Hverdagsmorgen",
+        "ru": "Будний день, утро",
+        "pl": "Poranek w dni robocze"
+      }
+    },
+    {
+      "name": "time",
+      "type": "time",
+      "title": {
+        "en": "Time",
+        "de": "Uhrzeit",
+        "nl": "Tijd",
+        "fr": "Heure",
+        "it": "Ora",
+        "sv": "Tid",
+        "no": "Tid",
+        "es": "Hora",
+        "da": "Tid",
+        "ru": "Время",
+        "pl": "Godzina"
+      },
+      "placeholder": {
+        "en": "07:30",
+        "de": "07:30",
+        "nl": "07:30",
+        "fr": "07:30",
+        "it": "07:30",
+        "sv": "07:30",
+        "no": "07:30",
+        "es": "07:30",
+        "da": "07:30",
+        "ru": "07:30",
+        "pl": "07:30"
+      }
+    },
+    {
+      "name": "days",
+      "type": "dropdown",
+      "title": {
+        "en": "Days",
+        "de": "Tage",
+        "nl": "Dagen",
+        "fr": "Jours",
+        "it": "Giorni",
+        "sv": "Dagar",
+        "no": "Dager",
+        "es": "Días",
+        "da": "Dage",
+        "ru": "Дни",
+        "pl": "Dni"
+      },
+      "values": [
+        {
+          "id": "all",
+          "title": {
+            "en": "every day",
+            "de": "jeden Tag",
+            "nl": "elke dag",
+            "fr": "tous les jours",
+            "it": "ogni giorno",
+            "sv": "varje dag",
+            "no": "hver dag",
+            "es": "todos los días",
+            "da": "hver dag",
+            "ru": "каждый день",
+            "pl": "codziennie"
+          }
+        },
+        {
+          "id": "weekdays",
+          "title": {
+            "en": "weekdays",
+            "de": "werktags",
+            "nl": "op werkdagen",
+            "fr": "en semaine",
+            "it": "nei giorni feriali",
+            "sv": "vardagar",
+            "no": "ukedager",
+            "es": "entre semana",
+            "da": "hverdage",
+            "ru": "по будням",
+            "pl": "w dni robocze"
+          }
+        },
+        {
+          "id": "weekends",
+          "title": {
+            "en": "weekends",
+            "de": "am Wochenende",
+            "nl": "in het weekend",
+            "fr": "le week-end",
+            "it": "nel fine settimana",
+            "sv": "helger",
+            "no": "i helgene",
+            "es": "los fines de semana",
+            "da": "i weekenden",
+            "ru": "по выходным",
+            "pl": "w weekendy"
+          }
+        },
+        {
+          "id": "monday",
+          "title": {
+            "en": "Monday",
+            "de": "montags",
+            "nl": "op maandag",
+            "fr": "le lundi",
+            "it": "il lunedì",
+            "sv": "måndagar",
+            "no": "mandager",
+            "es": "los lunes",
+            "da": "mandage",
+            "ru": "в понедельник",
+            "pl": "w poniedziałek"
+          }
+        },
+        {
+          "id": "tuesday",
+          "title": {
+            "en": "Tuesday",
+            "de": "dienstags",
+            "nl": "op dinsdag",
+            "fr": "le mardi",
+            "it": "il martedì",
+            "sv": "tisdagar",
+            "no": "tirsdager",
+            "es": "los martes",
+            "da": "tirsdage",
+            "ru": "во вторник",
+            "pl": "we wtorek"
+          }
+        },
+        {
+          "id": "wednesday",
+          "title": {
+            "en": "Wednesday",
+            "de": "mittwochs",
+            "nl": "op woensdag",
+            "fr": "le mercredi",
+            "it": "il mercoledì",
+            "sv": "onsdagar",
+            "no": "onsdager",
+            "es": "los miércoles",
+            "da": "onsdage",
+            "ru": "в среду",
+            "pl": "w środę"
+          }
+        },
+        {
+          "id": "thursday",
+          "title": {
+            "en": "Thursday",
+            "de": "donnerstags",
+            "nl": "op donderdag",
+            "fr": "le jeudi",
+            "it": "il giovedì",
+            "sv": "torsdagar",
+            "no": "torsdager",
+            "es": "los jueves",
+            "da": "torsdage",
+            "ru": "в четверг",
+            "pl": "w czwartek"
+          }
+        },
+        {
+          "id": "friday",
+          "title": {
+            "en": "Friday",
+            "de": "freitags",
+            "nl": "op vrijdag",
+            "fr": "le vendredi",
+            "it": "il venerdì",
+            "sv": "fredagar",
+            "no": "fredager",
+            "es": "los viernes",
+            "da": "fredage",
+            "ru": "в пятницу",
+            "pl": "w piątek"
+          }
+        },
+        {
+          "id": "saturday",
+          "title": {
+            "en": "Saturday",
+            "de": "samstags",
+            "nl": "op zaterdag",
+            "fr": "le samedi",
+            "it": "il sabato",
+            "sv": "lördagar",
+            "no": "lørdager",
+            "es": "los sábados",
+            "da": "lørdage",
+            "ru": "в субботу",
+            "pl": "w sobotę"
+          }
+        },
+        {
+          "id": "sunday",
+          "title": {
+            "en": "Sunday",
+            "de": "sonntags",
+            "nl": "op zondag",
+            "fr": "le dimanche",
+            "it": "la domenica",
+            "sv": "söndagar",
+            "no": "søndager",
+            "es": "los domingos",
+            "da": "søndage",
+            "ru": "в воскресенье",
+            "pl": "w niedzielę"
+          }
+        }
+      ]
+    },
+    {
+      "name": "location",
+      "type": "dropdown",
+      "title": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Locatie",
+        "fr": "Emplacement",
+        "it": "Posizione",
+        "sv": "Plats",
+        "no": "Sted",
+        "es": "Ubicación",
+        "da": "Sted",
+        "ru": "Местоположение",
+        "pl": "Lokalizacja"
+      },
+      "values": [
+        {
+          "id": "car",
+          "title": {
+            "en": "where it is now",
+            "de": "am aktuellen Standort des Autos",
+            "nl": "waar hij nu is",
+            "fr": "là où elle se trouve",
+            "it": "dove si trova ora",
+            "sv": "där den är nu",
+            "no": "der den er nå",
+            "es": "donde está ahora",
+            "da": "hvor den er nu",
+            "ru": "где он сейчас",
+            "pl": "tam, gdzie jest teraz"
+          }
+        },
+        {
+          "id": "homey",
+          "title": {
+            "en": "at Homey's location",
+            "de": "am Standort von Homey",
+            "nl": "op de locatie van Homey",
+            "fr": "à l'emplacement de Homey",
+            "it": "nella posizione di Homey",
+            "sv": "på Homeys plats",
+            "no": "på Homeys sted",
+            "es": "en la ubicación de Homey",
+            "da": "på Homeys placering",
+            "ru": "в местоположении Homey",
+            "pl": "w lokalizacji Homey"
+          }
+        }
+      ]
+    }
+  ]
+}

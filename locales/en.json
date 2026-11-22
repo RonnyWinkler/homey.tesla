@@ -217,7 +217,11 @@
             "app_not_registered": "App is not registered in the car. Register via car device repair process.",
             "command_error_426": "App update required. Please update the app in the Homey app store or enable automatic updates.",
             "api_client_id_not_set": "Tesla Client ID and Client Secret not set. Please repair the device and use a personal Tesla developer account and app registration.",
-            "telemetry_activation_error": "Error during Telemetry registration. Please check car authentication."
+            "telemetry_activation_error": "Error during Telemetry registration. Please check car authentication.",
+            "schedule_firmware_too_old": "This card needs car firmware 2024.26 or later.",
+            "schedule_no_location": "No location is available for the schedule. Set Homey's location, or wait until the car reports its position.",
+            "schedule_no_time": "Enter a start time, an end time, or both.",
+            "schedule_no_name": "Enter a name for the schedule."
         }
     },
     "app":{
