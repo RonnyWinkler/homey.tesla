@@ -204,7 +204,11 @@
         "app_not_registered": "L’application n’est pas enregistrée dans la voiture. Enregistrez-la via le processus de réparation de l’appareil.",
         "command_error_426": "Mise à jour de l’app nécessaire. Veuillez mettre à jour via la boutique d’applications Homey ou activer les mises à jour automatiques.",
         "api_client_id_not_set": "Tesla Client ID et Client Secret non définis. Veuillez réparer l’appareil et utiliser un compte développeur personnel Tesla avec une application enregistrée.",
-        "telemetry_activation_error": "Erreur lors de l’enregistrement de la télémétrie. Veuillez vérifier l’authentification du véhicule."
+        "telemetry_activation_error": "Erreur lors de l’enregistrement de la télémétrie. Veuillez vérifier l’authentification du véhicule.",
+        "schedule_firmware_too_old": "Cette carte nécessite le firmware du véhicule 2024.26 ou une version ultérieure.",
+        "schedule_no_location": "Aucune position n’est disponible pour la planification. Définissez la position de Homey ou attendez que le véhicule communique sa position.",
+        "schedule_no_time": "Saisissez une heure de début, une heure de fin, ou les deux.",
+        "schedule_no_name": "Saisissez un nom pour le programme."
       }
   },
   "app": {

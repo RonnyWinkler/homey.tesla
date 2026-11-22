@@ -198,7 +198,11 @@
       "app_not_registered": "Appen är inte registrerad i bilen. Registrera via bilens reparationsflöde.",
       "command_error_426": "Appuppdatering krävs. Uppdatera appen i Homey App Store eller aktivera automatiska uppdateringar.",
       "api_client_id_not_set": "Tesla Client ID och Client Secret är inte angivna. Reparera enheten och använd ett personligt Tesla-utvecklarkonto och appregistrering.",
-      "telemetry_activation_error": "Fel vid registrering av telemetri. Kontrollera fordonets autentisering."
+      "telemetry_activation_error": "Fel vid registrering av telemetri. Kontrollera fordonets autentisering.",
+      "schedule_firmware_too_old": "Det här kortet kräver fordonsprogramvara 2024.26 eller senare.",
+      "schedule_no_location": "Ingen plats är tillgänglig för schemat. Ställ in Homeys plats eller vänta tills bilen rapporterar sin position.",
+      "schedule_no_time": "Ange en starttid, en sluttid eller båda.",
+      "schedule_no_name": "Ange ett namn för schemat."
     }
   },
   "app": {

@@ -1,0 +1,370 @@
+{
+  "title": {
+    "en": "Add charge schedule",
+    "de": "Ladezeitplan hinzufügen",
+    "nl": "Laadschema toevoegen",
+    "fr": "Ajouter un programme de charge",
+    "it": "Aggiungi programma di ricarica",
+    "sv": "Lägg till laddschema",
+    "no": "Legg til ladeplan",
+    "es": "Añadir programación de carga",
+    "da": "Tilføj ladeplan",
+    "ru": "Добавить расписание зарядки",
+    "pl": "Dodaj harmonogram ładowania"
+  },
+  "titleFormatted": {
+    "en": "Add charge schedule [[name]]: from [[start_time]] to [[end_time]] on [[days]] [[location]]",
+    "de": "Ladezeitplan [[name]] hinzufügen: von [[start_time]] bis [[end_time]] [[days]] [[location]]",
+    "nl": "Laadschema [[name]] toevoegen: van [[start_time]] tot [[end_time]] [[days]] [[location]]",
+    "fr": "Ajouter le programme de charge [[name]] : de [[start_time]] à [[end_time]] [[days]] [[location]]",
+    "it": "Aggiungi programma di ricarica [[name]]: dalle [[start_time]] alle [[end_time]] [[days]] [[location]]",
+    "sv": "Lägg till laddschema [[name]]: från [[start_time]] till [[end_time]] [[days]] [[location]]",
+    "no": "Legg til ladeplan [[name]]: fra [[start_time]] til [[end_time]] [[days]] [[location]]",
+    "es": "Añadir programación de carga [[name]]: de [[start_time]] a [[end_time]] [[days]] [[location]]",
+    "da": "Tilføj ladeplan [[name]]: fra [[start_time]] til [[end_time]] [[days]] [[location]]",
+    "ru": "Добавить расписание зарядки [[name]]: с [[start_time]] до [[end_time]] [[days]] [[location]]",
+    "pl": "Dodaj harmonogram ładowania [[name]]: od [[start_time]] do [[end_time]] [[days]] [[location]]"
+  },
+  "hint": {
+    "en": "Leave the start time empty to charge until the end time, or leave the end time empty to start at the start time. Running the card again with the same name replaces that schedule. Needs firmware 2024.26 or later.",
+    "de": "Lass die Startzeit leer, um bis zur Endzeit zu laden, oder lass die Endzeit leer, um zur Startzeit zu beginnen. Wird die Karte erneut mit demselben Namen ausgeführt, ersetzt sie diesen Zeitplan. Erfordert Firmware 2024.26 oder neuer.",
+    "nl": "Laat de starttijd leeg om tot de eindtijd op te laden, of laat de eindtijd leeg om op de starttijd te beginnen. Als je de kaart opnieuw uitvoert met dezelfde naam, wordt dat schema vervangen. Vereist firmware 2024.26 of nieuwer.",
+    "fr": "Laissez l'heure de début vide pour charger jusqu'à l'heure de fin, ou laissez l'heure de fin vide pour commencer à l'heure de début. Exécuter à nouveau la carte avec le même nom remplace ce programme. Nécessite le firmware 2024.26 ou ultérieur.",
+    "it": "Lascia vuota l'ora di inizio per caricare fino all'ora di fine, oppure lascia vuota l'ora di fine per iniziare all'ora di inizio. Eseguendo di nuovo la card con lo stesso nome, quel programma viene sostituito. Richiede il firmware 2024.26 o successivo.",
+    "sv": "Lämna starttiden tom för att ladda till sluttiden, eller lämna sluttiden tom för att starta vid starttiden. Om kortet körs igen med samma namn ersätts det schemat. Kräver firmware 2024.26 eller senare.",
+    "no": "La starttiden stå tom for å lade frem til sluttiden, eller la sluttiden stå tom for å starte ved starttiden. Hvis kortet kjøres på nytt med samme navn, erstattes den planen. Krever firmware 2024.26 eller nyere.",
+    "es": "Deja vacía la hora de inicio para cargar hasta la hora de fin, o deja vacía la hora de fin para empezar a la hora de inicio. Si se vuelve a ejecutar la tarjeta con el mismo nombre, se sustituye esa programación. Requiere el firmware 2024.26 o posterior.",
+    "da": "Lad starttiden stå tom for at lade indtil sluttiden, eller lad sluttiden stå tom for at starte ved starttiden. Kører du kortet igen med samme navn, erstattes den plan. Kræver firmware 2024.26 eller nyere.",
+    "ru": "Оставьте время начала пустым, чтобы заряжать до времени окончания, или оставьте время окончания пустым, чтобы начать зарядку в заданное время. Повторный запуск карточки с тем же названием заменяет это расписание. Требуется прошивка 2024.26 или новее.",
+    "pl": "Pozostaw pusty czas rozpoczęcia, aby ładować do czasu zakończenia, lub pozostaw pusty czas zakończenia, aby rozpocząć o czasie rozpoczęcia. Ponowne uruchomienie karty z tą samą nazwą zastępuje ten harmonogram. Wymaga oprogramowania 2024.26 lub nowszego."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=battery"
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "title": {
+        "en": "Name",
+        "de": "Name",
+        "nl": "Naam",
+        "fr": "Nom",
+        "it": "Nome",
+        "sv": "Namn",
+        "no": "Navn",
+        "es": "Nombre",
+        "da": "Navn",
+        "ru": "Название",
+        "pl": "Nazwa"
+      },
+      "placeholder": {
+        "en": "Night charging",
+        "de": "Nachtladen",
+        "nl": "Nachtladen",
+        "fr": "Charge de nuit",
+        "it": "Ricarica notturna",
+        "sv": "Nattladdning",
+        "no": "Nattlading",
+        "es": "Carga nocturna",
+        "da": "Natlading",
+        "ru": "Ночная зарядка",
+        "pl": "Ładowanie nocą"
+      }
+    },
+    {
+      "name": "start_time",
+      "type": "time",
+      "required": false,
+      "title": {
+        "en": "Start time",
+        "de": "Startzeit",
+        "nl": "Starttijd",
+        "fr": "Heure de début",
+        "it": "Ora di inizio",
+        "sv": "Starttid",
+        "no": "Starttid",
+        "es": "Hora de inicio",
+        "da": "Starttid",
+        "ru": "Время начала",
+        "pl": "Czas rozpoczęcia"
+      },
+      "placeholder": {
+        "en": "22:00",
+        "de": "22:00",
+        "nl": "22:00",
+        "fr": "22:00",
+        "it": "22:00",
+        "sv": "22:00",
+        "no": "22:00",
+        "es": "22:00",
+        "da": "22:00",
+        "ru": "22:00",
+        "pl": "22:00"
+      }
+    },
+    {
+      "name": "end_time",
+      "type": "time",
+      "required": false,
+      "title": {
+        "en": "End time",
+        "de": "Endzeit",
+        "nl": "Eindtijd",
+        "fr": "Heure de fin",
+        "it": "Ora di fine",
+        "sv": "Sluttid",
+        "no": "Sluttid",
+        "es": "Hora de fin",
+        "da": "Sluttid",
+        "ru": "Время окончания",
+        "pl": "Czas zakończenia"
+      },
+      "placeholder": {
+        "en": "06:00",
+        "de": "06:00",
+        "nl": "06:00",
+        "fr": "06:00",
+        "it": "06:00",
+        "sv": "06:00",
+        "no": "06:00",
+        "es": "06:00",
+        "da": "06:00",
+        "ru": "06:00",
+        "pl": "06:00"
+      }
+    },
+    {
+      "name": "days",
+      "type": "dropdown",
+      "title": {
+        "en": "Days",
+        "de": "Tage",
+        "nl": "Dagen",
+        "fr": "Jours",
+        "it": "Giorni",
+        "sv": "Dagar",
+        "no": "Dager",
+        "es": "Días",
+        "da": "Dage",
+        "ru": "Дни",
+        "pl": "Dni"
+      },
+      "values": [
+        {
+          "id": "all",
+          "title": {
+            "en": "every day",
+            "de": "jeden Tag",
+            "nl": "elke dag",
+            "fr": "tous les jours",
+            "it": "ogni giorno",
+            "sv": "varje dag",
+            "no": "hver dag",
+            "es": "todos los días",
+            "da": "hver dag",
+            "ru": "каждый день",
+            "pl": "codziennie"
+          }
+        },
+        {
+          "id": "weekdays",
+          "title": {
+            "en": "weekdays",
+            "de": "werktags",
+            "nl": "op werkdagen",
+            "fr": "en semaine",
+            "it": "nei giorni feriali",
+            "sv": "vardagar",
+            "no": "ukedager",
+            "es": "entre semana",
+            "da": "hverdage",
+            "ru": "по будням",
+            "pl": "w dni robocze"
+          }
+        },
+        {
+          "id": "weekends",
+          "title": {
+            "en": "weekends",
+            "de": "am Wochenende",
+            "nl": "in het weekend",
+            "fr": "le week-end",
+            "it": "nel fine settimana",
+            "sv": "helger",
+            "no": "i helgene",
+            "es": "los fines de semana",
+            "da": "i weekenden",
+            "ru": "по выходным",
+            "pl": "w weekendy"
+          }
+        },
+        {
+          "id": "monday",
+          "title": {
+            "en": "Monday",
+            "de": "montags",
+            "nl": "op maandag",
+            "fr": "le lundi",
+            "it": "il lunedì",
+            "sv": "måndagar",
+            "no": "mandager",
+            "es": "los lunes",
+            "da": "mandage",
+            "ru": "в понедельник",
+            "pl": "w poniedziałek"
+          }
+        },
+        {
+          "id": "tuesday",
+          "title": {
+            "en": "Tuesday",
+            "de": "dienstags",
+            "nl": "op dinsdag",
+            "fr": "le mardi",
+            "it": "il martedì",
+            "sv": "tisdagar",
+            "no": "tirsdager",
+            "es": "los martes",
+            "da": "tirsdage",
+            "ru": "во вторник",
+            "pl": "we wtorek"
+          }
+        },
+        {
+          "id": "wednesday",
+          "title": {
+            "en": "Wednesday",
+            "de": "mittwochs",
+            "nl": "op woensdag",
+            "fr": "le mercredi",
+            "it": "il mercoledì",
+            "sv": "onsdagar",
+            "no": "onsdager",
+            "es": "los miércoles",
+            "da": "onsdage",
+            "ru": "в среду",
+            "pl": "w środę"
+          }
+        },
+        {
+          "id": "thursday",
+          "title": {
+            "en": "Thursday",
+            "de": "donnerstags",
+            "nl": "op donderdag",
+            "fr": "le jeudi",
+            "it": "il giovedì",
+            "sv": "torsdagar",
+            "no": "torsdager",
+            "es": "los jueves",
+            "da": "torsdage",
+            "ru": "в четверг",
+            "pl": "w czwartek"
+          }
+        },
+        {
+          "id": "friday",
+          "title": {
+            "en": "Friday",
+            "de": "freitags",
+            "nl": "op vrijdag",
+            "fr": "le vendredi",
+            "it": "il venerdì",
+            "sv": "fredagar",
+            "no": "fredager",
+            "es": "los viernes",
+            "da": "fredage",
+            "ru": "в пятницу",
+            "pl": "w piątek"
+          }
+        },
+        {
+          "id": "saturday",
+          "title": {
+            "en": "Saturday",
+            "de": "samstags",
+            "nl": "op zaterdag",
+            "fr": "le samedi",
+            "it": "il sabato",
+            "sv": "lördagar",
+            "no": "lørdager",
+            "es": "los sábados",
+            "da": "lørdage",
+            "ru": "в субботу",
+            "pl": "w sobotę"
+          }
+        },
+        {
+          "id": "sunday",
+          "title": {
+            "en": "Sunday",
+            "de": "sonntags",
+            "nl": "op zondag",
+            "fr": "le dimanche",
+            "it": "la domenica",
+            "sv": "söndagar",
+            "no": "søndager",
+            "es": "los domingos",
+            "da": "søndage",
+            "ru": "в воскресенье",
+            "pl": "w niedzielę"
+          }
+        }
+      ]
+    },
+    {
+      "name": "location",
+      "type": "dropdown",
+      "title": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Locatie",
+        "fr": "Emplacement",
+        "it": "Posizione",
+        "sv": "Plats",
+        "no": "Sted",
+        "es": "Ubicación",
+        "da": "Sted",
+        "ru": "Местоположение",
+        "pl": "Lokalizacja"
+      },
+      "values": [
+        {
+          "id": "car",
+          "title": {
+            "en": "where it is now",
+            "de": "am aktuellen Standort des Autos",
+            "nl": "waar hij nu is",
+            "fr": "là où elle se trouve",
+            "it": "dove si trova ora",
+            "sv": "där den är nu",
+            "no": "der den er nå",
+            "es": "donde está ahora",
+            "da": "hvor den er nu",
+            "ru": "где он сейчас",
+            "pl": "tam, gdzie jest teraz"
+          }
+        },
+        {
+          "id": "homey",
+          "title": {
+            "en": "at Homey's location",
+            "de": "am Standort von Homey",
+            "nl": "op de locatie van Homey",
+            "fr": "à l'emplacement de Homey",
+            "it": "nella posizione di Homey",
+            "sv": "på Homeys plats",
+            "no": "på Homeys sted",
+            "es": "en la ubicación de Homey",
+            "da": "på Homeys placering",
+            "ru": "в местоположении Homey",
+            "pl": "w lokalizacji Homey"
+          }
+        }
+      ]
+    }
+  ]
+}

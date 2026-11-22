@@ -542,5 +542,9 @@
   },
   "4.5.3": {
     "en": "Fixed window position command."
+  },
+  "4.6.0": {
+    "en": "New Flow cards for Tesla's schedule commands: have the car ready at a time, add and remove precondition schedules, and add and remove charge schedules. The scheduled departure and scheduled charging cards are hidden, and existing Flows keep working.",
+    "de": "Neue Flow-Karten für die Zeitplanbefehle von Tesla: Auto zu einer bestimmten Uhrzeit bereit machen, Vorkonditionierungs-Zeitpläne hinzufügen und entfernen sowie Ladezeitpläne hinzufügen und entfernen. Die Karten für geplante Abfahrt und geplantes Laden sind ausgeblendet, bestehende Flows funktionieren weiterhin."
   }
 }

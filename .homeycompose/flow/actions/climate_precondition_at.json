@@ -1,0 +1,129 @@
+{
+  "title": {
+    "en": "Have car ready at a time",
+    "de": "Auto zu einer Uhrzeit bereit haben",
+    "nl": "Auto klaar hebben op een tijdstip",
+    "fr": "Préparer la voiture pour une heure",
+    "it": "Preparare l'auto per un orario",
+    "sv": "Ha bilen redo vid en tid",
+    "no": "Ha bilen klar til et tidspunkt",
+    "es": "Tener el coche listo a una hora",
+    "da": "Gør bilen klar til et tidspunkt",
+    "ru": "Подготовить авто к времени",
+    "pl": "Przygotuj auto na godzinę"
+  },
+  "titleFormatted": {
+    "en": "Have car ready at [[time]] [[location]]",
+    "de": "Auto um [[time]] bereit haben [[location]]",
+    "nl": "Auto klaar hebben om [[time]] [[location]]",
+    "fr": "Préparer la voiture pour [[time]] [[location]]",
+    "it": "Preparare l'auto per le [[time]] [[location]]",
+    "sv": "Ha bilen redo kl. [[time]] [[location]]",
+    "no": "Ha bilen klar kl. [[time]] [[location]]",
+    "es": "Tener el coche listo a las [[time]] [[location]]",
+    "da": "Gør bilen klar kl. [[time]] [[location]]",
+    "ru": "Подготовить авто к [[time]] [[location]]",
+    "pl": "Przygotuj auto na [[time]] [[location]]"
+  },
+  "hint": {
+    "en": "Creates a one-time schedule. The car preconditions so the cabin and battery are ready at this time. Running the card again replaces the previous time. Needs firmware 2024.26 or later.",
+    "de": "Erstellt einen einmaligen Zeitplan. Das Auto wird so vorkonditioniert, dass Innenraum und Batterie zu dieser Uhrzeit bereit sind. Wird die Karte erneut ausgeführt, ersetzt sie die vorherige Uhrzeit. Erfordert Firmware 2024.26 oder neuer.",
+    "nl": "Maakt een eenmalig schema. De auto conditioneert voor zodat de cabine en de batterij op dit tijdstip klaar zijn. Als je de kaart opnieuw uitvoert, vervangt dit het vorige tijdstip. Vereist firmware 2024.26 of nieuwer.",
+    "fr": "Crée un programme unique. La voiture se préconditionne pour que l'habitacle et la batterie soient prêts à cette heure. Exécuter à nouveau la carte remplace l'heure précédente. Nécessite le firmware 2024.26 ou ultérieur.",
+    "it": "Crea un programma una tantum. L'auto si precondiziona in modo che abitacolo e batteria siano pronti a quest'ora. Eseguendo di nuovo la card si sostituisce l'orario precedente. Richiede il firmware 2024.26 o successivo.",
+    "sv": "Skapar ett engångsschema. Bilen förbereds så att kupén och batteriet är redo vid denna tid. Om kortet körs igen ersätts den tidigare tiden. Kräver firmware 2024.26 eller senare.",
+    "no": "Oppretter en engangstidsplan. Bilen forberedes slik at kupé og batteri er klare til dette tidspunktet. Kjører du kortet på nytt, erstattes det forrige tidspunktet. Krever firmware 2024.26 eller nyere.",
+    "es": "Crea una programación única. El coche se preacondiciona para que el habitáculo y la batería estén listos a esta hora. Al ejecutar de nuevo la tarjeta se sustituye la hora anterior. Requiere el firmware 2024.26 o posterior.",
+    "da": "Opretter en engangstidsplan. Bilen forberedes, så kabine og batteri er klar på dette tidspunkt. Kører du kortet igen, erstattes det forrige tidspunkt. Kræver firmware 2024.26 eller nyere.",
+    "ru": "Создаёт одноразовое расписание. Автомобиль готовится так, чтобы салон и батарея были готовы к этому времени. Повторный запуск карточки заменяет предыдущее время. Требуется прошивка 2024.26 или новее.",
+    "pl": "Tworzy jednorazowy harmonogram. Auto jest przygotowywane tak, aby kabina i bateria były gotowe o tej godzinie. Ponowne uruchomienie karty zastępuje poprzednią godzinę. Wymaga oprogramowania 2024.26 lub nowszego."
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=climate"
+    },
+    {
+      "name": "time",
+      "type": "time",
+      "title": {
+        "en": "Time",
+        "de": "Uhrzeit",
+        "nl": "Tijd",
+        "fr": "Heure",
+        "it": "Ora",
+        "sv": "Tid",
+        "no": "Tid",
+        "es": "Hora",
+        "da": "Tid",
+        "ru": "Время",
+        "pl": "Godzina"
+      },
+      "placeholder": {
+        "en": "07:30",
+        "de": "07:30",
+        "nl": "07:30",
+        "fr": "07:30",
+        "it": "07:30",
+        "sv": "07:30",
+        "no": "07:30",
+        "es": "07:30",
+        "da": "07:30",
+        "ru": "07:30",
+        "pl": "07:30"
+      }
+    },
+    {
+      "name": "location",
+      "type": "dropdown",
+      "title": {
+        "en": "Location",
+        "de": "Standort",
+        "nl": "Locatie",
+        "fr": "Emplacement",
+        "it": "Posizione",
+        "sv": "Plats",
+        "no": "Sted",
+        "es": "Ubicación",
+        "da": "Sted",
+        "ru": "Местоположение",
+        "pl": "Lokalizacja"
+      },
+      "values": [
+        {
+          "id": "car",
+          "title": {
+            "en": "where it is now",
+            "de": "am aktuellen Standort des Autos",
+            "nl": "waar hij nu is",
+            "fr": "là où elle se trouve",
+            "it": "dove si trova ora",
+            "sv": "där den är nu",
+            "no": "der den er nå",
+            "es": "donde está ahora",
+            "da": "hvor den er nu",
+            "ru": "где он сейчас",
+            "pl": "tam, gdzie jest teraz"
+          }
+        },
+        {
+          "id": "homey",
+          "title": {
+            "en": "at Homey's location",
+            "de": "am Standort von Homey",
+            "nl": "op de locatie van Homey",
+            "fr": "à l'emplacement de Homey",
+            "it": "nella posizione di Homey",
+            "sv": "på Homeys plats",
+            "no": "på Homeys sted",
+            "es": "en la ubicación de Homey",
+            "da": "på Homeys placering",
+            "ru": "в местоположении Homey",
+            "pl": "w lokalizacji Homey"
+          }
+        }
+      ]
+    }
+  ]
+}

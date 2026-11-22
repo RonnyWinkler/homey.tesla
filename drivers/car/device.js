@@ -23,6 +23,7 @@ const TELEMETRY_LOG_MAX_LENGTH = 100;
 
 const CONSTANTS = require('../../lib/constants');
 const Mappings = require('../../lib/mappings');
+const schedules = require('../../lib/schedules');
 
 module.exports = class CarDevice extends TeslaOAuth2Device {
 
@@ -355,6 +356,71 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
       throw new Error('No location device found.');
     }
     return device; 
+  }
+
+  // SCHEDULES ======================================================================================
+
+  assertScheduleFirmware(){
+    if (!this.hasCapability('car_software_version')) return;
+    if (schedules.isFirmwareSupported(this.getCapabilityValue('car_software_version')) === false){
+      throw new Error(this.homey.__('devices.car.schedule_firmware_too_old'));
+    }
+  }
+
+  getScheduleLocation(source){
+    let car = null;
+    try{
+      const locationDevice = this.getLocationDevice();
+      car = {
+        lat: locationDevice.getCapabilityValue('measure_location_latitude'),
+        lon: locationDevice.getCapabilityValue('measure_location_longitude'),
+      };
+    }
+    catch(error){
+      car = null;
+    }
+    const homey = {
+      lat: this.homey.geolocation.getLatitude(),
+      lon: this.homey.geolocation.getLongitude(),
+    };
+    const location = schedules.resolveLocation(source, car, homey);
+    if (location === null){
+      throw new Error(this.homey.__('devices.car.schedule_no_location'));
+    }
+    return location;
+  }
+
+  // Serializes read-modify-write cycles on the 'schedule_ids' store value
+  _withScheduleLock(fn){
+    const previous = this._scheduleLock || Promise.resolve();
+    const result = previous.then(fn);
+    this._scheduleLock = result.catch(() => {});
+    return result;
+  }
+
+  async reserveScheduleId(kind, name){
+    return this._withScheduleLock(async () => {
+      const key = schedules.scheduleKey(kind, name);
+      const { id, ids } = schedules.reserveScheduleId(this.getStoreValue('schedule_ids') || {}, key, Math.floor(Date.now() / 1000));
+      await this.setStoreValue('schedule_ids', ids);
+      return id;
+    });
+  }
+
+  getScheduleIds(kind){
+    return schedules.listScheduleIds(this.getStoreValue('schedule_ids') || {}, kind);
+  }
+
+  async clearScheduleIds(kind){
+    return this._withScheduleLock(async () => {
+      await this.setStoreValue('schedule_ids', schedules.withoutScheduleIds(this.getStoreValue('schedule_ids') || {}, kind));
+    });
+  }
+
+  async forgetScheduleId(id){
+    return this._withScheduleLock(async () => {
+      await this.setStoreValue('schedule_ids', schedules.withoutScheduleIdValue(this.getStoreValue('schedule_ids') || {}, id));
+    });
   }
 
   // SETTINGS =======================================================================================
@@ -2334,6 +2400,36 @@ module.exports = class CarDevice extends TeslaOAuth2Device {
           preconditioningTimes: {},
           offPeakChargingTimes: {}
         };
+        break;
+
+      case 'commandAddPreconditionSchedule':
+        result.command = 'addPreconditionScheduleAction';
+        result.params = schedules.toSignedPrecondition(params);
+        break;
+
+      case 'commandRemovePreconditionSchedule':
+        result.command = 'removePreconditionScheduleAction';
+        result.params = { id: params.id };
+        break;
+
+      case 'commandBatchRemovePreconditionSchedules':
+        result.command = 'batchRemovePreconditionSchedulesAction';
+        result.params = params;
+        break;
+
+      case 'commandAddChargeSchedule':
+        result.command = 'addChargeScheduleAction';
+        result.params = schedules.toSignedCharge(params);
+        break;
+
+      case 'commandRemoveChargeSchedule':
+        result.command = 'removeChargeScheduleAction';
+        result.params = { id: params.id };
+        break;
+
+      case 'commandBatchRemoveChargeSchedules':
+        result.command = 'batchRemoveChargeSchedulesAction';
+        result.params = params;
         break;
     
       // climate actions

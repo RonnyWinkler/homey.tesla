@@ -198,7 +198,11 @@
       "app_not_registered": "Aplikacja nie jest zarejestrowana w samochodzie. Zarejestruj przez naprawę urządzenia.",
       "command_error_426": "Wymagana aktualizacja aplikacji. Zaktualizuj aplikację w sklepie Homey lub włącz automatyczne aktualizacje.",
       "api_client_id_not_set": "Tesla Client ID i Client Secret nie są ustawione. Napraw urządzenie i użyj osobistego konta deweloperskiego Tesla i rejestracji aplikacji.",
-      "telemetry_activation_error": "Błąd podczas rejestracji telemetrii. Sprawdź uwierzytelnienie pojazdu."
+      "telemetry_activation_error": "Błąd podczas rejestracji telemetrii. Sprawdź uwierzytelnienie pojazdu.",
+      "schedule_firmware_too_old": "Ta karta wymaga oprogramowania samochodu w wersji 2024.26 lub nowszej.",
+      "schedule_no_location": "Brak dostępnej lokalizacji dla harmonogramu. Ustaw lokalizację Homey lub poczekaj, aż samochód zgłosi swoją pozycję.",
+      "schedule_no_time": "Podaj godzinę rozpoczęcia, godzinę zakończenia lub obie.",
+      "schedule_no_name": "Podaj nazwę harmonogramu."
     }
   },
   "app": {
